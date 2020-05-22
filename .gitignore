@@ -1,0 +1,12 @@
+.idea
+.buildpath
+.project
+.settings
+*.pyc
+doc
+/composer.lock
+/phpunit.xml
+/tests/config.json
+/vendor/
+composer.phar
+sdk-php.iml

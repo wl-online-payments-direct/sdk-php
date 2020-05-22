@@ -1,0 +1,31 @@
+{
+    "name": "ingenico-epayments/direct-sdk-php",
+    "type": "library",
+    "description": "PHP SDK to communicate with the Ingenico ePayments platform server-to-server API",
+    "homepage": "http://www.ingenico.com/epayments/",
+    "keywords": ["SDK"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ingenico ePayments",
+            "homepage": "http://www.ingenico.com/epayments/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "robtimus/multipart": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ingenico\\Direct\\Sdk\\": ["src/Ingenico/Direct/Sdk", "lib/Ingenico/Direct/Sdk"]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ingenico\\Direct\\Sdk\\": ["tests/Ingenico/Direct/Sdk"]
+        }
+    }
+}
