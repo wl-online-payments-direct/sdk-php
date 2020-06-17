@@ -72,7 +72,7 @@ class Communicator implements CommunicatorInterface
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
-            $this->getRequestHeaders('GET', $relativeUriPathWithRequestParameters, static::MIME_APPLICATION_JSON, $clientMetaInfo, $callContext);
+            $this->getRequestHeaders('GET', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
@@ -117,7 +117,7 @@ class Communicator implements CommunicatorInterface
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
-            $this->getRequestHeaders('DELETE', $relativeUriPathWithRequestParameters, static::MIME_APPLICATION_JSON, $clientMetaInfo, $callContext);
+            $this->getRequestHeaders('DELETE', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {

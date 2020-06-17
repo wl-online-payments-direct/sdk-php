@@ -11,7 +11,7 @@ use UnexpectedValueException;
  */
 class RequestHeaderGenerator
 {
-    const SDK_VERSION = '1.0.0';
+    const SDK_VERSION = '1.1.0';
 
     const AUTHORIZATION_ID = 'GCS';
 
@@ -67,10 +67,11 @@ class RequestHeaderGenerator
      */
     public function generateRequestHeaders($contentType = Communicator::MIME_APPLICATION_JSON)
     {
-        $rfc2616Date = $this->getRfc161Date();
         $requestHeaders = array();
-        $requestHeaders['Content-Type'] = $contentType;
-        $requestHeaders['Date'] = $rfc2616Date;
+        if ($contentType) {
+            $requestHeaders['Content-Type'] = $contentType;
+        }
+        $requestHeaders['Date'] = $this->getRfc161Date();
         if ($this->clientMetaInfo) {
             $requestHeaders['X-GCS-ClientMetaInfo'] = $this->clientMetaInfo;
         }

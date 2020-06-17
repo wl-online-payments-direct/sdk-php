@@ -30,7 +30,7 @@ class PaymentProduct extends DataObject
     private $displayHints;
 
     /**
-     * @var string
+     * @var int
      */
     private $id;
 
@@ -106,14 +106,14 @@ class PaymentProduct extends DataObject
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getId()
     {
         return $this->id;
     }
     /**
-     * @var string
+     * @var int
      */
     public function setId($value)
     {

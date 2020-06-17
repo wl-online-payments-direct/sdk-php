@@ -236,6 +236,7 @@ class PaymentTest extends ClientTestCase
 
         $card = new Card();
         $card->setCvv("123");
+        $card->setCardholderName("Wile E. Coyote");
         $card->setCardNumber($correctCreditCardNumber ? "4567350000427977" : "4444333322211212");
         $card->setExpiryDate("1230");
         $cardPaymentMethodSpecificInput->setCard($card);

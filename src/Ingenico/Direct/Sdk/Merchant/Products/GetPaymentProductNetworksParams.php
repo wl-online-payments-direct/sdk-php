@@ -113,7 +113,7 @@ class GetPaymentProductNetworksParams extends RequestObject
             $array["amount"] = $this->amount;
         }
         if ($this->isRecurring !== null) {
-            $array["isRecurring"] = $this->isRecurring;
+            $array["isRecurring"] = $this->isRecurring ? 'true' : 'false';
         }
         return $array;
     }

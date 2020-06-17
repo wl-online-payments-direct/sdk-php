@@ -182,7 +182,7 @@ EOD;
         $this->assertNotNull($event->getPayment()->getStatusOutput());
         $this->assertEquals(false, $event->getPayment()->getStatusOutput()->getIsCancellable());
         $this->assertEquals('COMPLETED', $event->getPayment()->getStatusOutput()->getStatusCategory());
-        $this->assertEquals('10000', $event->getPayment()->getStatusOutput()->getStatusCode());
+        $this->assertEquals('1000', $event->getPayment()->getStatusOutput()->getStatusCode());
         $this->assertEquals('20200101000000', $event->getPayment()->getStatusOutput()->getStatusCodeChangeDateTime());
         $this->assertEquals(true, $event->getPayment()->getStatusOutput()->getIsAuthorized());
     }

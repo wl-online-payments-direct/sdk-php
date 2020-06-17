@@ -23,22 +23,6 @@ class DefaultConnectionTest extends TestCase
     /**
      * @throws Exception
      */
-    public function test404WithBareApiEndpoint()
-    {
-        $responseBuilder = new ResponseBuilder();
-        $responseHandler = function($httpStatusCode, $data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHttpStatusCode($httpStatusCode);
-            $responseBuilder->setHeaders($headers);
-            $responseBuilder->appendBody($data);
-        };
-
-        $this->connection->get($this->getApiEndpoint(), [], $responseHandler);
-        $this->assertEquals(404, $responseBuilder->getResponse()->getHttpStatusCode());
-    }
-
-    /**
-     * @throws Exception
-     */
     public function testTestConnection()
     {
         $responseBuilder = new ResponseBuilder();
@@ -52,7 +36,7 @@ class DefaultConnectionTest extends TestCase
         $relativeUriPath = '/' . Client::API_VERSION . '/' . $merchantId  . '/services/testconnection';
         $communicatorConfiguration = $this->getCommunicatorConfiguration();
         $requestHeaderGenerator = new RequestHeaderGenerator($communicatorConfiguration, 'GET', $relativeUriPath);
-        $requestHeaders = $requestHeaderGenerator->generateRequestHeaders();
+        $requestHeaders = $requestHeaderGenerator->generateRequestHeaders(null);
         $this->connection->get($this->getApiEndpoint() . $relativeUriPath, $requestHeaders, $responseHandler);
         $response = $responseBuilder->getResponse();
         $this->assertEquals(200, $response->getHttpStatusCode());

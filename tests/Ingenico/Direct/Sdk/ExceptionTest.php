@@ -100,7 +100,7 @@ EOD;
         $order = new Order();
 
         $amountOfMoney = new AmountOfMoney();
-        $amountOfMoney->setCurrencyCode("USD");
+        $amountOfMoney->setCurrencyCode("EUR");
         $amountOfMoney->setAmount(2997);
         $order->setAmountOfMoney($amountOfMoney);
 
@@ -121,7 +121,7 @@ EOD;
         $billingAddress->setZip("1000 AA");
         $billingAddress->setCity("Barcelona");
         $billingAddress->setState("Catalunia");
-        $billingAddress->setCountryCode("US");
+        $billingAddress->setCountryCode("NL");
         $customer->setBillingAddress($billingAddress);
 
         $order->setCustomer($customer);
@@ -134,6 +134,7 @@ EOD;
         $card = new Card();
         $card->setCvv("123");
         $card->setCardNumber($nonExistingCardNumber);
+        $card->setCardholderName("Wile E. Coyote");
         $card->setExpiryDate("1230");
         $cardPaymentMethodSpecificInput->setCard($card);
 

@@ -38,7 +38,7 @@ class HostedCheckoutTest extends ClientTestCase
         $order = new Order();
 
         $amountOfMoney = new AmountOfMoney();
-        $amountOfMoney->setCurrencyCode("USD");
+        $amountOfMoney->setCurrencyCode("EUR");
         $amountOfMoney->setAmount( 2345);
         $order->setAmountOfMoney($amountOfMoney);
 
@@ -46,7 +46,7 @@ class HostedCheckoutTest extends ClientTestCase
         $customer->setMerchantCustomerId("123456789");
 
         $billingAddress = new Address();
-        $billingAddress->setCountryCode("US");
+        $billingAddress->setCountryCode("NL");
         $customer->setBillingAddress($billingAddress);
 
         $order->setCustomer($customer);

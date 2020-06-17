@@ -166,7 +166,7 @@ class GetPaymentProductsParams extends RequestObject
             $array["amount"] = $this->amount;
         }
         if ($this->isRecurring !== null) {
-            $array["isRecurring"] = $this->isRecurring;
+            $array["isRecurring"] = $this->isRecurring ? 'true' : 'false';
         }
         if ($this->hide !== null) {
             $array["hide"] = [];

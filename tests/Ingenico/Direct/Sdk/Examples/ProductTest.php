@@ -28,8 +28,8 @@ class ProductTest extends ClientTestCase
         $findParams = new GetPaymentProductsParams();
 
         $findParams->setAmount(1000);
-        $findParams->setCountryCode("US");
-        $findParams->setCurrencyCode("USD");
+        $findParams->setCountryCode("NL");
+        $findParams->setCurrencyCode("EUR");
         $findParams->addHide("fields");
         $findParams->setIsRecurring(true);
         $findParams->setLocale("en_US");
@@ -49,8 +49,8 @@ class ProductTest extends ClientTestCase
         $getParams = new GetPaymentProductsParams();
 
         $getParams->setAmount(1000);
-        $getParams->setCountryCode("US");
-        $getParams->setCurrencyCode("USD");
+        $getParams->setCountryCode("NL");
+        $getParams->setCurrencyCode("EUR");
         $getParams->setHide(array("fields", "accountsOnFile"));
         $getParams->setIsRecurring(true);
         $getParams->setLocale("en_US");
@@ -71,9 +71,9 @@ class ProductTest extends ClientTestCase
         $getParams = new GetPaymentProductParams();
 
         $getParams->setAmount(1000);
-        $getParams->setCurrencyCode("USD");
+        $getParams->setCurrencyCode("EUR");
         $getParams->setLocale("en_US");
-        $getParams->setCountryCode("US");
+        $getParams->setCountryCode("NL");
         $getParams->setIsRecurring(true);
 
         return $client->merchant($merchantId)->products()->getPaymentProduct(1, $getParams);

@@ -86,7 +86,7 @@ class CommunicatorTest extends TestCase
     public function testApiRequestPost()
     {
         try {
-            $relativeUri = sprintf('/%s/%s/payments/1/tokenize', Client::API_VERSION, $this->getMerchantId());
+            $relativeUri = sprintf('/%s/%s/payments/1/cancel', Client::API_VERSION, $this->getMerchantId());
             $this->defaultCommunicator->post($this->defaultResponseClassMap, $relativeUri);
         } catch (ReferenceException $e) {
             return;

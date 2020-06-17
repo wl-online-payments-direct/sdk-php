@@ -152,7 +152,7 @@ class DefaultConnection implements Connection
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      * @param ProxyConfiguration|null $proxyConfiguration
-     * @return DefaultConnectionResponse|null
+     * @return ConnectionResponse|null
      * @throws ErrorException
      * @throws Exception
      */
@@ -289,28 +289,32 @@ class DefaultConnection implements Connection
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $httpMethod);
         curl_setopt($curlHandle, CURLOPT_URL, $requestUri);
-        if (in_array($httpMethod, array('PUT', 'POST')) && $body) {
-            if (is_string($body)) {
-                curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
-            } else if ($body instanceof MultipartFormDataObject) {
-                $multipart = new MultipartFormData($body->getBoundary());
-                foreach ($body->getValues() as $name => $value) {
-                    $multipart->addValue($name, $value);
-                }
-                foreach ($body->getFiles() as $name => $file) {
-                    $multipart->addFile($name, $file->getFileName(), $file->getContent(), $file->getContentType(), $file->getContentLength());
-                }
-                $multipart->finish();
+        if (in_array($httpMethod, array('PUT', 'POST'))) {
+            if ($body) {
+                if (is_string($body)) {
+                    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
+                } else if ($body instanceof MultipartFormDataObject) {
+                    $multipart = new MultipartFormData($body->getBoundary());
+                    foreach ($body->getValues() as $name => $value) {
+                        $multipart->addValue($name, $value);
+                    }
+                    foreach ($body->getFiles() as $name => $file) {
+                        $multipart->addFile($name, $file->getFileName(), $file->getContent(), $file->getContentType(), $file->getContentLength());
+                    }
+                    $multipart->finish();
 
-                $contentLength = $multipart->getContentLength();
-                if ($contentLength >= 0) {
-                    $requestHeaders[] = 'Content-Length: ' . $contentLength;
+                    $contentLength = $multipart->getContentLength();
+                    if ($contentLength >= 0) {
+                        $requestHeaders[] = 'Content-Length: ' . $contentLength;
+                    }
+                    curl_setopt($curlHandle, CURLOPT_READFUNCTION, array($multipart, 'curl_read'));
+                    curl_setopt($curlHandle, CURLOPT_UPLOAD, true);
+                } else {
+                    $type = is_object($body) ? get_class($body) : gettype($body);
+                    throw new UnexpectedValueException('Unsupported body type: ' . $type);
                 }
-                curl_setopt($curlHandle, CURLOPT_READFUNCTION, array($multipart, 'curl_read'));
-                curl_setopt($curlHandle, CURLOPT_UPLOAD, true);
             } else {
-                $type = is_object($body) ? get_class($body) : gettype($body);
-                throw new UnexpectedValueException('Unsupported body type: ' . $type);
+                $requestHeaders[] = 'Content-Length: 0';
             }
         }
         if (count($requestHeaders) > 0) {

@@ -27,8 +27,8 @@ class ProductGroupTest extends ClientTestCase
         $findParams = new GetProductGroupsParams();
 
         $findParams->setAmount(1000);
-        $findParams->setCountryCode("US");
-        $findParams->setCurrencyCode("USD");
+        $findParams->setCurrencyCode("EUR");
+        $findParams->setCountryCode("NL");
         $findParams->addHide("fields");
         $findParams->setIsRecurring(true);
         $findParams->setLocale("en_US");
@@ -49,9 +49,9 @@ class ProductGroupTest extends ClientTestCase
         $getParams = new GetProductGroupParams();
 
         $getParams->setAmount(1000);
-        $getParams->setCurrencyCode("USD");
+        $getParams->setCountryCode("NL");
+        $getParams->setCurrencyCode("EUR");
         $getParams->setLocale("en_US");
-        $getParams->setCountryCode("US");
         $getParams->setIsRecurring(true);
 
         return $client->merchant($merchantId)->productGroups()->getProductGroup("cards", $getParams);
