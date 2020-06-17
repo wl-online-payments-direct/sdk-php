@@ -13,7 +13,7 @@ use PHPUnit_Framework_TestCase;
 class WebhooksHelperTest extends PHPUnit_Framework_TestCase
 {
     const SIGNATURE_HEADER = 'X-GCS-Signature';
-    const SIGNATURE = '7BMsJWVAmLLB34vzCFrFutFeMfjQq5+LocxGNJVhD4Y=';
+    const SIGNATURE = 'dvi9vUj6S0XVlRVPTldcyx11AEAvv9fHEzlacqT7r5s=';
 
     const KEY_ID_HEADER = 'X-GCS-KeyId';
     const KEY_ID = 'dummy-key-id';
@@ -22,7 +22,7 @@ class WebhooksHelperTest extends PHPUnit_Framework_TestCase
 
     const VALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
-  "apiVersion": "v2",
+  "apiVersion": "v1",
   "id": "7433cde6-59d5-4de5-8be8-5b325038e267",
   "created": "2020-01-01T01:00:00.000+0100",
   "merchantId": "1",
@@ -56,7 +56,7 @@ EOD;
 
     const INVALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
-  "apiVersion": "v2",
+  "apiVersion": "v1",
   "id": "689570ea-8207-451e-bb31-6d2e3a5e0ec0",
   "created": "2017-02-02T11:25:14.040+0100",
   "merchantId": "1",
@@ -109,7 +109,7 @@ EOD;
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (ApiVersionMismatchException $e) {
             $this->assertEquals('v0', $e->getEventApiVersion());
-            $this->assertEquals(Client::API_VERSION, $e->getSdkApiVersion());
+            $this->assertEquals("v1", $e->getSdkApiVersion());
             return;
         }
         $this->fail('an expected exception has not been raised');
@@ -154,7 +154,7 @@ EOD;
 
         $event = $helper->unmarshal($this->validBody, $requestHeaders);
 
-        $this->assertEquals('v2', $event->getApiVersion());
+        $this->assertEquals('v1', $event->getApiVersion());
         $this->assertEquals('7433cde6-59d5-4de5-8be8-5b325038e267', $event->getId());
         $this->assertEquals('2020-01-01T01:00:00.000+0100', $event->getCreated());
         $this->assertEquals('1', $event->getMerchantId());

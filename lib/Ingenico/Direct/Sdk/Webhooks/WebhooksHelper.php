@@ -109,8 +109,8 @@ class WebhooksHelper
      */
     private function validateApiVersion($event)
     {
-        if (Client::API_VERSION !== $event->getApiVersion()) {
-            throw new ApiVersionMismatchException($event->getApiVersion(), Client::API_VERSION);
+        if ('v1' !== $event->getApiVersion()) {
+            throw new ApiVersionMismatchException($event->getApiVersion(), 'v1');
         }
     }
 
