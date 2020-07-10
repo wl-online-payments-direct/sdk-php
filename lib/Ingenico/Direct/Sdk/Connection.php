@@ -29,7 +29,7 @@ interface Connection
     /**
      * @param string $requestUri
      * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
+     * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      * @param ProxyConfiguration|null $proxyConfiguration
      */
@@ -39,7 +39,7 @@ interface Connection
     /**
      * @param string $requestUri
      * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
+     * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      * @param ProxyConfiguration|null $proxyConfiguration
      */
@@ -51,8 +51,5 @@ interface Connection
      */
     public function enableLogging(CommunicatorLogger $communicatorLogger);
 
-    /**
-     *
-     */
     public function disableLogging();
 }

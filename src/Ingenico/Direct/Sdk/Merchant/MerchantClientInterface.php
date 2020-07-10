@@ -23,14 +23,6 @@ interface MerchantClientInterface
     public function products();
 
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId}
-     *
-     * @param string $tokenId
-     * @return TokensClientInterface
-     */
-    public function tokens($tokenId);
-
-    /**
      * Resource /v2/{merchantId}/sessions
      *
      * @return SessionsClientInterface
@@ -57,6 +49,13 @@ interface MerchantClientInterface
      * @return ProductGroupsClientInterface
      */
     public function productGroups();
+
+    /**
+     * Resource /v2/{merchantId}/tokens
+     *
+     * @return TokensClientInterface
+     */
+    public function tokens();
 
     /**
      * Resource /v2/{merchantId}/hostedcheckouts

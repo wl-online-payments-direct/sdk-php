@@ -69,10 +69,8 @@ class Communicator implements CommunicatorInterface
         RequestObject $requestParameters = null,
         CallContext $callContext = null
     ) {
-        $relativeUriPathWithRequestParameters =
-            $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
-        $requestHeaders =
-            $this->getRequestHeaders('GET', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
+        $relativeUriPathWithRequestParameters = $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
+        $requestHeaders = $this->getRequestHeaders('GET', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
@@ -89,8 +87,7 @@ class Communicator implements CommunicatorInterface
         );
         $connectionResponse = $responseBuilder->getResponse();
         $this->updateCallContext($connectionResponse, $callContext);
-        $response =
-            $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
+        $response = $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
         $httpStatusCode = $connectionResponse->getHttpStatusCode();
         if ($httpStatusCode >= 400) {
             throw $this->getResponseExceptionFactory()->createException($httpStatusCode, $response, $callContext);
@@ -114,10 +111,8 @@ class Communicator implements CommunicatorInterface
         RequestObject $requestParameters = null,
         CallContext $callContext = null
     ) {
-        $relativeUriPathWithRequestParameters =
-            $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
-        $requestHeaders =
-            $this->getRequestHeaders('DELETE', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
+        $relativeUriPathWithRequestParameters = $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
+        $requestHeaders = $this->getRequestHeaders('DELETE', $relativeUriPathWithRequestParameters, null, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
@@ -134,8 +129,7 @@ class Communicator implements CommunicatorInterface
         );
         $connectionResponse = $responseBuilder->getResponse();
         $this->updateCallContext($connectionResponse, $callContext);
-        $response =
-            $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
+        $response = $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
         $httpStatusCode = $connectionResponse->getHttpStatusCode();
         if ($httpStatusCode >= 400) {
             throw $this->getResponseExceptionFactory()->createException($httpStatusCode, $response, $callContext);
@@ -147,7 +141,7 @@ class Communicator implements CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|MultipartDataObject|null $requestBodyObject
+     * @param DataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject
@@ -161,23 +155,14 @@ class Communicator implements CommunicatorInterface
         RequestObject $requestParameters = null,
         CallContext $callContext = null
     ) {
-        $relativeUriPathWithRequestParameters =
-            $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
-        if ($requestBodyObject instanceof MultipartFormDataObject) {
-            $contentType = $requestBodyObject->getContentType();
-            $requestBody = $requestBodyObject;
-        } else if ($requestBodyObject instanceof MultipartDataObject) {
-            $multipart = $requestBodyObject->toMultipartFormDataObject();
-            $contentType = $multipart->getContentType();
-            $requestBody = $multipart;
-        } else if ($requestBodyObject instanceof DataObject || is_null($requestBodyObject)) {
+        $relativeUriPathWithRequestParameters = $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
+        if ($requestBodyObject instanceof DataObject || is_null($requestBodyObject)) {
             $contentType = static::MIME_APPLICATION_JSON;
             $requestBody = $requestBodyObject ? $requestBodyObject->toJson() : '';
         } else {
             throw new UnexpectedValueException('Unsupported request body');
         }
-        $requestHeaders =
-            $this->getRequestHeaders('POST', $relativeUriPathWithRequestParameters, $contentType, $clientMetaInfo, $callContext);
+        $requestHeaders = $this->getRequestHeaders('POST', $relativeUriPathWithRequestParameters, $contentType, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
@@ -195,8 +180,7 @@ class Communicator implements CommunicatorInterface
         );
         $connectionResponse = $responseBuilder->getResponse();
         $this->updateCallContext($connectionResponse, $callContext);
-        $response =
-            $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
+        $response = $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
         $httpStatusCode = $connectionResponse->getHttpStatusCode();
         if ($httpStatusCode >= 400) {
             throw $this->getResponseExceptionFactory()->createException($httpStatusCode, $response, $callContext);
@@ -208,7 +192,7 @@ class Communicator implements CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|MultipartDataObject|null $requestBodyObject
+     * @param DataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject
@@ -222,23 +206,14 @@ class Communicator implements CommunicatorInterface
         RequestObject $requestParameters = null,
         CallContext $callContext = null
     ) {
-        $relativeUriPathWithRequestParameters =
-            $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
-        if ($requestBodyObject instanceof MultipartFormDataObject) {
-            $contentType = $requestBodyObject->getContentType();
-            $requestBody = $requestBodyObject;
-        } else if ($requestBodyObject instanceof MultipartDataObject) {
-            $multipart = $requestBodyObject->toMultipartFormDataObject();
-            $contentType = $multipart->getContentType();
-            $requestBody = $multipart;
-        } else if ($requestBodyObject instanceof DataObject || is_null($requestBodyObject)) {
+        $relativeUriPathWithRequestParameters = $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
+        if ($requestBodyObject instanceof DataObject || is_null($requestBodyObject)) {
             $contentType = static::MIME_APPLICATION_JSON;
             $requestBody = $requestBodyObject ? $requestBodyObject->toJson() : '';
         } else {
             throw new UnexpectedValueException('Unsupported request body');
         }
-        $requestHeaders =
-            $this->getRequestHeaders('PUT', $relativeUriPathWithRequestParameters, $contentType, $clientMetaInfo, $callContext);
+        $requestHeaders = $this->getRequestHeaders('PUT', $relativeUriPathWithRequestParameters, $contentType, $clientMetaInfo, $callContext);
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
@@ -256,8 +231,7 @@ class Communicator implements CommunicatorInterface
         );
         $connectionResponse = $responseBuilder->getResponse();
         $this->updateCallContext($connectionResponse, $callContext);
-        $response =
-            $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
+        $response = $this->getResponseFactory()->createResponse($connectionResponse, $responseClassMap);
         $httpStatusCode = $connectionResponse->getHttpStatusCode();
         if ($httpStatusCode >= 400) {
             throw $this->getResponseExceptionFactory()->createException($httpStatusCode, $response, $callContext);

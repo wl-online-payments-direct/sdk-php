@@ -22,21 +22,7 @@ use Ingenico\Direct\Sdk\ValidationException;
 class ProductGroupsClient extends Resource implements ProductGroupsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/productgroups - Get product groups
-     *
-     * @param GetProductGroupsParams $query
-     * @param CallContext $callContext
-     * @return GetPaymentProductGroupsResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroups Get product groups
+     * {@inheritDoc}
      */
     public function getProductGroups(GetProductGroupsParams $query, CallContext $callContext = null)
     {
@@ -51,22 +37,7 @@ class ProductGroupsClient extends Resource implements ProductGroupsClientInterfa
     }
 
     /**
-     * Resource /v2/{merchantId}/productgroups/{paymentProductGroupId} - Get product group
-     *
-     * @param string $paymentProductGroupId
-     * @param GetProductGroupParams $query
-     * @param CallContext $callContext
-     * @return PaymentProductGroup
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroup Get product group
+     * {@inheritDoc}
      */
     public function getProductGroup($paymentProductGroupId, GetProductGroupParams $query, CallContext $callContext = null)
     {

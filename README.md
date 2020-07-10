@@ -23,23 +23,23 @@ This repository consists out of the following components:
 
 ## Requirements
 
-PHP 5.4 or above is required. In addition, to support streaming uploads, package [robtimus/multipart](https://packagist.org/packages/robtimus/multipart) is required.
+PHP 5.4 or above is required.
 
 ## Installation via Composer
 
 1. Initialize [Composer](https://getcomposer.org/download/) in your project, if this is not already done, by executing the following command:
-    
+
     ```
     composer init
     ```
 
 2. Add a requirement to the SDK to your `composer.json` file by executing the following command:
-    
+
     ```
     composer require ingenico/direct-sdk-php
     ```
 3. Add `vendor/autoload.php` to your project, if this is not already done, by adding the following line of code:
-    
+
     ```
     require __DIR__ . '/vendor/autoload.php';
     ```

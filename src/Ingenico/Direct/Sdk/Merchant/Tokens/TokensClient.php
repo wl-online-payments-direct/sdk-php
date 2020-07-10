@@ -10,6 +10,8 @@ use Ingenico\Direct\Sdk\ApiException;
 use Ingenico\Direct\Sdk\AuthorizationException;
 use Ingenico\Direct\Sdk\CallContext;
 use Ingenico\Direct\Sdk\DirectException;
+use Ingenico\Direct\Sdk\Domain\CreateTokenRequest;
+use Ingenico\Direct\Sdk\Domain\CreatedTokenResponse;
 use Ingenico\Direct\Sdk\Domain\TokenResponse;
 use Ingenico\Direct\Sdk\IdempotenceException;
 use Ingenico\Direct\Sdk\InvalidResponseException;
@@ -21,23 +23,27 @@ use Ingenico\Direct\Sdk\ValidationException;
 class TokensClient extends Resource implements TokensClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId} - Get token
-     *
-     * @param CallContext $callContext
-     * @return TokenResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi Get token
+     * {@inheritDoc}
      */
-    public function getToken(CallContext $callContext = null)
+    public function createToken(CreateTokenRequest $body, CallContext $callContext = null)
     {
+        $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\CreatedTokenResponse');
+        return $this->getCommunicator()->post(
+            $responseClassMap,
+            $this->instantiateUri('/v2/{merchantId}/tokens'),
+            $this->getClientMetaInfo(),
+            $body,
+            null,
+            $callContext
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getToken($tokenId, CallContext $callContext = null)
+    {
+        $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\TokenResponse');
         return $this->getCommunicator()->get(
             $responseClassMap,
@@ -49,23 +55,11 @@ class TokensClient extends Resource implements TokensClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId} - Delete token
-     *
-     * @param CallContext $callContext
-     * @return TokenResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi Delete token
+     * {@inheritDoc}
      */
-    public function deleteToken(CallContext $callContext = null)
+    public function deleteToken($tokenId, CallContext $callContext = null)
     {
+        $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\TokenResponse');
         return $this->getCommunicator()->delete(
             $responseClassMap,

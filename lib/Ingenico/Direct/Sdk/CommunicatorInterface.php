@@ -47,7 +47,7 @@ interface CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|MultipartDataObject|null $requestBodyObject
+     * @param DataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject
@@ -59,7 +59,7 @@ interface CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|MultipartDataObject|null $requestBodyObject
+     * @param DataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject

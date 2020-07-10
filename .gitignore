@@ -10,3 +10,4 @@ doc
 /vendor/
 composer.phar
 sdk-php.iml
+out/

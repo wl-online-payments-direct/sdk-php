@@ -22,21 +22,7 @@ use Ingenico\Direct\Sdk\ValidationException;
 class SessionsClient extends Resource implements SessionsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/sessions - Create session
-     *
-     * @param SessionRequest $body
-     * @param CallContext $callContext
-     * @return SessionResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateSessionApi Create session
+     * {@inheritDoc}
      */
     public function createSession(SessionRequest $body, CallContext $callContext = null)
     {

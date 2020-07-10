@@ -23,21 +23,7 @@ use Ingenico\Direct\Sdk\ValidationException;
 class HostedCheckoutClient extends Resource implements HostedCheckoutClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts - Create hosted checkout
-     *
-     * @param CreateHostedCheckoutRequest $body
-     * @param CallContext $callContext
-     * @return CreateHostedCheckoutResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedCheckoutApi Create hosted checkout
+     * {@inheritDoc}
      */
     public function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null)
     {
@@ -53,21 +39,7 @@ class HostedCheckoutClient extends Resource implements HostedCheckoutClientInter
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId} - Get hosted checkout status
-     *
-     * @param string $hostedCheckoutId
-     * @param CallContext $callContext
-     * @return GetHostedCheckoutResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedCheckoutApi Get hosted checkout status
+     * {@inheritDoc}
      */
     public function getHostedCheckout($hostedCheckoutId, CallContext $callContext = null)
     {

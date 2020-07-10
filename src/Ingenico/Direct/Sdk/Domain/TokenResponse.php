@@ -25,6 +25,11 @@ class TokenResponse extends DataObject
     private $eWallet;
 
     /**
+     * @var ExternalTokenLinked
+     */
+    private $externalTokenLinked;
+
+    /**
      * @var string
      */
     private $id;
@@ -63,6 +68,21 @@ class TokenResponse extends DataObject
     public function setEWallet($value)
     {
         $this->eWallet = $value;
+    }
+
+    /**
+     * @return ExternalTokenLinked
+     */
+    public function getExternalTokenLinked()
+    {
+        return $this->externalTokenLinked;
+    }
+    /**
+     * @var ExternalTokenLinked
+     */
+    public function setExternalTokenLinked($value)
+    {
+        $this->externalTokenLinked = $value;
     }
 
     /**
@@ -107,6 +127,9 @@ class TokenResponse extends DataObject
         if ($this->eWallet !== null) {
             $object->eWallet = $this->eWallet->toObject();
         }
+        if ($this->externalTokenLinked !== null) {
+            $object->externalTokenLinked = $this->externalTokenLinked->toObject();
+        }
         if ($this->id !== null) {
             $object->id = $this->id;
         }
@@ -137,6 +160,13 @@ class TokenResponse extends DataObject
             }
             $value = new TokenEWallet();
             $this->eWallet = $value->fromObject($object->eWallet);
+        }
+        if (property_exists($object, 'externalTokenLinked')) {
+            if (!is_object($object->externalTokenLinked)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->externalTokenLinked, true) . '\' is not an object');
+            }
+            $value = new ExternalTokenLinked();
+            $this->externalTokenLinked = $value->fromObject($object->externalTokenLinked);
         }
         if (property_exists($object, 'id')) {
             $this->id = $object->id;

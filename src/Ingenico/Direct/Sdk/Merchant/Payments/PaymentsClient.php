@@ -34,22 +34,7 @@ use Ingenico\Direct\Sdk\ValidationException;
 class PaymentsClient extends Resource implements PaymentsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/payments - Create payment
-     *
-     * @param CreatePaymentRequest $body
-     * @param CallContext $callContext
-     * @return CreatePaymentResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @throws DeclinedPaymentException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi Create payment
+     * {@inheritDoc}
      */
     public function createPayment(CreatePaymentRequest $body, CallContext $callContext = null)
     {
@@ -66,21 +51,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId} - Get payment
-     *
-     * @param string $paymentId
-     * @param CallContext $callContext
-     * @return PaymentResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi Get payment
+     * {@inheritDoc}
      */
     public function getPayment($paymentId, CallContext $callContext = null)
     {
@@ -96,23 +67,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/complete - Complete payment
-     *
-     * @param string $paymentId
-     * @param CompletePaymentRequest $body
-     * @param CallContext $callContext
-     * @return CompletePaymentResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @throws DeclinedPaymentException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi Complete payment
+     * {@inheritDoc}
      */
     public function completePayment($paymentId, CompletePaymentRequest $body, CallContext $callContext = null)
     {
@@ -130,21 +85,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/cancel - Cancel payment
-     *
-     * @param string $paymentId
-     * @param CallContext $callContext
-     * @return CancelPaymentResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi Cancel payment
+     * {@inheritDoc}
      */
     public function cancelPayment($paymentId, CallContext $callContext = null)
     {
@@ -161,23 +102,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/refund - Refund payment
-     *
-     * @param string $paymentId
-     * @param RefundRequest $body
-     * @param CallContext $callContext
-     * @return RefundResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @throws DeclinedRefundException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi Refund payment
+     * {@inheritDoc}
      */
     public function refundPayment($paymentId, RefundRequest $body, CallContext $callContext = null)
     {
@@ -195,22 +120,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/capture - Capture payment
-     *
-     * @param string $paymentId
-     * @param CapturePaymentRequest $body
-     * @param CallContext $callContext
-     * @return CaptureResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi Capture payment
+     * {@inheritDoc}
      */
     public function capturePayment($paymentId, CapturePaymentRequest $body, CallContext $callContext = null)
     {
@@ -227,21 +137,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/captures - Get Captures Api
-     *
-     * @param string $paymentId
-     * @param CallContext $callContext
-     * @return CapturesResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi Get Captures Api
+     * {@inheritDoc}
      */
     public function getCaptures($paymentId, CallContext $callContext = null)
     {
@@ -257,21 +153,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/refunds - Get Refunds Api
-     *
-     * @param string $paymentId
-     * @param CallContext $callContext
-     * @return RefundsResponse
-     *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws DirectException
-     * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
-     * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi Get Refunds Api
+     * {@inheritDoc}
      */
     public function getRefunds($paymentId, CallContext $callContext = null)
     {

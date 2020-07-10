@@ -4,7 +4,6 @@ namespace Ingenico\Direct\Sdk;
 use Exception;
 use ErrorException;
 use UnexpectedValueException;
-use Robtimus\Multipart\MultipartFormData;
 
 /**
  * Class ApiException
@@ -82,7 +81,7 @@ class DefaultConnection implements Connection
     /**
      * @param string $requestUri
      * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
+     * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      * @param ProxyConfiguration|null $proxyConfiguration
      * @throws Exception
@@ -91,8 +90,7 @@ class DefaultConnection implements Connection
         ProxyConfiguration $proxyConfiguration = null)
     {
         $requestId = UuidGenerator::generatedUuid();
-        $bodyToLog = is_string($body) ? $body : '<binary content>';
-        $this->logRequest($requestId, 'POST', $requestUri, $requestHeaders, $bodyToLog);
+        $this->logRequest($requestId, 'POST', $requestUri, $requestHeaders, $body);
         try {
             $response = $this->executeRequest('POST', $requestUri, $requestHeaders, $body, $responseHandler, $proxyConfiguration);
             if ($response) {
@@ -116,8 +114,7 @@ class DefaultConnection implements Connection
         ProxyConfiguration $proxyConfiguration = null)
     {
         $requestId = UuidGenerator::generatedUuid();
-        $bodyToLog = is_string($body) ? $body : '<binary content>';
-        $this->logRequest($requestId, 'PUT', $requestUri, $requestHeaders, $bodyToLog);
+        $this->logRequest($requestId, 'PUT', $requestUri, $requestHeaders, $body);
         try {
             $response = $this->executeRequest('PUT', $requestUri, $requestHeaders, $body, $responseHandler, $proxyConfiguration);
             if ($response) {
@@ -130,16 +127,13 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @param CommunicatorLogger $communicatorLogger
+     * {@inheritDoc}
      */
     public function enableLogging(CommunicatorLogger $communicatorLogger)
     {
         $this->communicatorLogger = $communicatorLogger;
     }
 
-    /**
-     *
-     */
     public function disableLogging()
     {
         $this->communicatorLogger = null;
@@ -149,7 +143,7 @@ class DefaultConnection implements Connection
      * @param string $httpMethod
      * @param string $requestUri
      * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
+     * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      * @param ProxyConfiguration|null $proxyConfiguration
      * @return ConnectionResponse|null
@@ -186,10 +180,9 @@ class DefaultConnection implements Connection
 
     /**
      * @param resource $multiHandle
-     * @param resource $curlHandle
-     * @throws Exception
+     * @throws ErrorException
      */
-    private function executeCurlHandleShared($multiHandle, $curlHandle) {
+    private function executeCurlHandleShared($multiHandle) {
         $running = null;
         do {
             $status = curl_multi_exec($multiHandle, $running);
@@ -237,11 +230,7 @@ class DefaultConnection implements Connection
             if ($responseBuilder) {
                 $responseBuilder->setHttpStatusCode($httpStatusCode);
                 $responseBuilder->setHeaders($headers);
-                if ($this->isBinaryResponse($headerBuilder)) {
-                    $responseBuilder->setBody('<binary content>');
-                } else {
-                    $responseBuilder->appendBody($data);
-                }
+                $responseBuilder->appendBody($data);
             }
             return strlen($data);
         };
@@ -250,7 +239,7 @@ class DefaultConnection implements Connection
         curl_setopt($curlHandle, CURLOPT_WRITEFUNCTION, $writeFunction);
 
         try {
-            $this->executeCurlHandleShared($multiHandle, $curlHandle);
+            $this->executeCurlHandleShared($multiHandle);
 
             // always emit an empty chunk, to make sure that the status code and headers are sent,
             // even if there is no response body
@@ -271,7 +260,7 @@ class DefaultConnection implements Connection
      * @param string $httpMethod
      * @param string $requestUri
      * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
+     * @param string $body
      * @param ProxyConfiguration|null $proxyConfiguration
      */
     protected function setCurlOptions(
@@ -293,22 +282,6 @@ class DefaultConnection implements Connection
             if ($body) {
                 if (is_string($body)) {
                     curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
-                } else if ($body instanceof MultipartFormDataObject) {
-                    $multipart = new MultipartFormData($body->getBoundary());
-                    foreach ($body->getValues() as $name => $value) {
-                        $multipart->addValue($name, $value);
-                    }
-                    foreach ($body->getFiles() as $name => $file) {
-                        $multipart->addFile($name, $file->getFileName(), $file->getContent(), $file->getContentType(), $file->getContentLength());
-                    }
-                    $multipart->finish();
-
-                    $contentLength = $multipart->getContentLength();
-                    if ($contentLength >= 0) {
-                        $requestHeaders[] = 'Content-Length: ' . $contentLength;
-                    }
-                    curl_setopt($curlHandle, CURLOPT_READFUNCTION, array($multipart, 'curl_read'));
-                    curl_setopt($curlHandle, CURLOPT_UPLOAD, true);
                 } else {
                     $type = is_object($body) ? get_class($body) : gettype($body);
                     throw new UnexpectedValueException('Unsupported body type: ' . $type);
@@ -343,25 +316,10 @@ class DefaultConnection implements Connection
             $multiHandle = curl_multi_init();
             if ($multiHandle === false) {
                 throw new Exception('Failed to initialize cURL multi curlHandle');
-            };
+            }
             $this->multiHandle = $multiHandle;
         }
         return $this->multiHandle;
-    }
-
-    /**
-     * @param $headerBuilder ResponseHeaderBuilder
-     * @return bool
-     */
-    private function isBinaryResponse($headerBuilder) {
-        $contentType = $headerBuilder->getContentType();
-        return $contentType
-            // does not starts with text/
-            && strrpos($contentType, 'text/', -strlen($contentType)) === false
-            // does not contain json
-            && strrpos($contentType, 'json') === false
-            // does not contain xml
-            && strrpos($contentType, 'xml') === false;
     }
 
     /**

@@ -24,9 +24,7 @@ use Ingenico\Direct\Sdk\Resource;
 class MerchantClient extends Resource implements MerchantClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/products
-     *
-     * @return ProductsClientInterface
+     * {@inheritDoc}
      */
     public function products()
     {
@@ -34,22 +32,7 @@ class MerchantClient extends Resource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId}
-     *
-     * @param string $tokenId
-     * @return TokensClientInterface
-     */
-    public function tokens($tokenId)
-    {
-        $newContext = $this->context;
-        $newContext['tokenId'] = $$tokenId;
-        return new TokensClient($this, $newContext);
-    }
-
-    /**
-     * Resource /v2/{merchantId}/sessions
-     *
-     * @return SessionsClientInterface
+     * {@inheritDoc}
      */
     public function sessions()
     {
@@ -57,9 +40,7 @@ class MerchantClient extends Resource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments
-     *
-     * @return PaymentsClientInterface
+     * {@inheritDoc}
      */
     public function payments()
     {
@@ -67,9 +48,7 @@ class MerchantClient extends Resource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/services/testconnection
-     *
-     * @return ServicesClientInterface
+     * {@inheritDoc}
      */
     public function services()
     {
@@ -77,9 +56,7 @@ class MerchantClient extends Resource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/productgroups
-     *
-     * @return ProductGroupsClientInterface
+     * {@inheritDoc}
      */
     public function productGroups()
     {
@@ -87,9 +64,15 @@ class MerchantClient extends Resource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts
-     *
-     * @return HostedCheckoutClientInterface
+     * {@inheritDoc}
+     */
+    public function tokens()
+    {
+        return new TokensClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function hostedCheckout()
     {

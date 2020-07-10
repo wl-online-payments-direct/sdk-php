@@ -79,10 +79,7 @@ class Client extends Resource implements ClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}
-     *
-     * @param string $merchantId
-     * @return MerchantClientInterface
+     * {@inheritDoc}
      */
     public function merchant($merchantId)
     {
