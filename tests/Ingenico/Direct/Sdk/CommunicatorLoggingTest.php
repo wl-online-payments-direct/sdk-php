@@ -85,7 +85,6 @@ class CommunicatorLoggingTest extends ClientTestCase
         /** @var CommunicatorLogger $logger */
         $communicator->enableLogging($logger);
         $responseClassMap = $this->getMockResponseClassMap();
-        $responseClassMap = $this->getMockResponseClassMap();
         /** @var ResponseClassMap $responseClassMap */
         $communicator->post($responseClassMap, $relativeRequestUri, '', $requestBody);
     }

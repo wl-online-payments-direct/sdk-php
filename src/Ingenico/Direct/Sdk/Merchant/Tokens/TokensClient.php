@@ -60,7 +60,7 @@ class TokensClient extends Resource implements TokensClientInterface
     public function deleteToken($tokenId, CallContext $callContext = null)
     {
         $this->context['tokenId'] = $tokenId;
-        $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\TokenResponse');
+        $responseClassMap = new ResponseClassMap('');
         return $this->getCommunicator()->delete(
             $responseClassMap,
             $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),

@@ -20,6 +20,11 @@ class CreatedTokenResponse extends DataObject
     private $card;
 
     /**
+     * @var ExternalTokenLinked
+     */
+    private $externalTokenLinked;
+
+    /**
      * @var bool
      */
     private $isNewToken;
@@ -28,6 +33,11 @@ class CreatedTokenResponse extends DataObject
      * @var string
      */
     private $token;
+
+    /**
+     * @var string
+     */
+    private $tokenStatus;
 
     // Methods
     /**
@@ -43,6 +53,21 @@ class CreatedTokenResponse extends DataObject
     public function setCard($value)
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return ExternalTokenLinked
+     */
+    public function getExternalTokenLinked()
+    {
+        return $this->externalTokenLinked;
+    }
+    /**
+     * @var ExternalTokenLinked
+     */
+    public function setExternalTokenLinked($value)
+    {
+        $this->externalTokenLinked = $value;
     }
 
     /**
@@ -76,6 +101,21 @@ class CreatedTokenResponse extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getTokenStatus()
+    {
+        return $this->tokenStatus;
+    }
+    /**
+     * @var string
+     */
+    public function setTokenStatus($value)
+    {
+        $this->tokenStatus = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -84,11 +124,17 @@ class CreatedTokenResponse extends DataObject
         if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
+        if ($this->externalTokenLinked !== null) {
+            $object->externalTokenLinked = $this->externalTokenLinked->toObject();
+        }
         if ($this->isNewToken !== null) {
             $object->isNewToken = $this->isNewToken;
         }
         if ($this->token !== null) {
             $object->token = $this->token;
+        }
+        if ($this->tokenStatus !== null) {
+            $object->tokenStatus = $this->tokenStatus;
         }
         return $object;
     }
@@ -108,11 +154,21 @@ class CreatedTokenResponse extends DataObject
             $value = new CardWithoutCvv();
             $this->card = $value->fromObject($object->card);
         }
+        if (property_exists($object, 'externalTokenLinked')) {
+            if (!is_object($object->externalTokenLinked)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->externalTokenLinked, true) . '\' is not an object');
+            }
+            $value = new ExternalTokenLinked();
+            $this->externalTokenLinked = $value->fromObject($object->externalTokenLinked);
+        }
         if (property_exists($object, 'isNewToken')) {
             $this->isNewToken = $object->isNewToken;
         }
         if (property_exists($object, 'token')) {
             $this->token = $object->token;
+        }
+        if (property_exists($object, 'tokenStatus')) {
+            $this->tokenStatus = $object->tokenStatus;
         }
         return $this;
     }

@@ -6,7 +6,9 @@
 namespace Ingenico\Direct\Sdk\Merchant;
 
 use Ingenico\Direct\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
+use Ingenico\Direct\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use Ingenico\Direct\Sdk\Merchant\Payments\PaymentsClientInterface;
+use Ingenico\Direct\Sdk\Merchant\Payouts\PayoutsClientInterface;
 use Ingenico\Direct\Sdk\Merchant\ProductGroups\ProductGroupsClientInterface;
 use Ingenico\Direct\Sdk\Merchant\Products\ProductsClientInterface;
 use Ingenico\Direct\Sdk\Merchant\Services\ServicesClientInterface;
@@ -30,6 +32,13 @@ interface MerchantClientInterface
     public function sessions();
 
     /**
+     * Resource /v2/{merchantId}/payouts
+     *
+     * @return PayoutsClientInterface
+     */
+    public function payouts();
+
+    /**
      * Resource /v2/{merchantId}/payments
      *
      * @return PaymentsClientInterface
@@ -49,6 +58,13 @@ interface MerchantClientInterface
      * @return ProductGroupsClientInterface
      */
     public function productGroups();
+
+    /**
+     * Resource /v2/{merchantId}/hostedtokenizations
+     *
+     * @return HostedTokenizationClientInterface
+     */
+    public function hostedTokenization();
 
     /**
      * Resource /v2/{merchantId}/tokens

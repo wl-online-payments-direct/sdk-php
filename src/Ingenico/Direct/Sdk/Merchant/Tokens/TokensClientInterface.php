@@ -63,7 +63,7 @@ interface TokensClientInterface
      *
      * @param string $tokenId
      * @param CallContext $callContext
-     * @return TokenResponse
+     * @return null
      *
      * @throws ApiException
      * @throws AuthorizationException

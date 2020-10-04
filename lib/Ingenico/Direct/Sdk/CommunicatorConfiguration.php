@@ -29,12 +29,12 @@ class CommunicatorConfiguration
     /**
      * @var ProxyConfiguration|null
      */
-    private $proxyConfiguration = null;
+    private $proxyConfiguration;
 
     /**
      * @var string|null
      */
-    private $integrator = null;
+    private $integrator;
 
     /**
      * @var ShoppingCartExtension|null
