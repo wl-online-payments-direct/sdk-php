@@ -11,11 +11,6 @@ class ClientTestCase extends TestCase
     protected $client = null;
 
     /**
-     * @var Client|null
-     */
-    protected $proxyClient = null;
-
-    /**
      * @return Client
      * @throws Exception
      */

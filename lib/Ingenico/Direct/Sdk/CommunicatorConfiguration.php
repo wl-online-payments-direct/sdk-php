@@ -32,7 +32,7 @@ class CommunicatorConfiguration
     private $proxyConfiguration;
 
     /**
-     * @var string|null
+     * @var string
      */
     private $integrator;
 

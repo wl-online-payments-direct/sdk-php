@@ -14,10 +14,12 @@ class BodyObfuscator
 
     /** @var  ValueObfuscator */
     protected $valueObfuscator;
+    protected $sensitiveValueObfuscator;
 
     public function __construct()
     {
         $this->valueObfuscator = new ValueObfuscator();
+        $this->sensitiveValueObfuscator = new SensitiveValueObfuscator();
     }
 
     /**
@@ -80,27 +82,38 @@ class BodyObfuscator
         if (!is_scalar($value)) {
             throw new UnexpectedValueException('scalar value expected');
         }
-        switch (mb_strtolower(strval($key), 'UTF-8')) {
-            case 'keyid':
-            case 'secretkey':
-            case 'publickey':
-            case 'userauthenticationtoken':
-            case 'encryptedpayload':
-            case 'decryptedpayload':
-            case 'encryptedcustomerinput':
-                return $this->valueObfuscator->obfuscateFixedLength(8);
-            case 'cvv':
-            case 'value':
-                return $this->valueObfuscator->obfuscateAll($value);
+        switch (strval($key)) {
+            case 'accountNumber':
+            case 'additionalInfo':
             case 'bin':
-                return $this->valueObfuscator->obfuscateAllKeepStart($value, 6);
-            case 'accountnumber':
-            case 'cardnumber':
+            case 'cardholderName':
+            case 'cardNumber':
+            case 'cvv':
+            case 'dateOfBirth':
+            case 'emailAddress':
+            case 'expiryDate':
+            case 'faxNumber':
+            case 'firstName':
+            case 'houseNumber':
             case 'iban':
-            case 'reformattedaccountnumber':
-                return $this->valueObfuscator->obfuscateAllKeepEnd($value, 4);
-            case 'expirydate':
-                return $this->valueObfuscator->obfuscateAllKeepEnd($value, 2);
+            case 'mobilePhoneNumber':
+            case 'passengerName':
+            case 'phoneNumber':
+            case 'reformattedAccountNumber':
+            case 'street':
+            case 'surname':
+            case 'value':
+            case 'workPhoneNumber':
+            case 'zip':
+                return $this->valueObfuscator->obfuscate($value);
+            case 'decryptedPayload':
+            case 'encryptedCustomerInput':
+            case 'encryptedPayload':
+            case 'keyId':
+            case 'publicKey':
+            case 'secretKey':
+            case 'userAuthenticationToken':
+            return $this->sensitiveValueObfuscator->obfuscate($value);
             default:
                 return $value;
         }

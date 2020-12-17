@@ -2,15 +2,12 @@
 namespace Ingenico\Direct\Sdk;
 
 /**
- * Class ValueObfuscator
+ * Class SensitiveValueObfuscator
  *
  * @package Ingenico\Direct\Sdk
  */
-class ValueObfuscator
+class SensitiveValueObfuscator
 {
-    /** */
-    const MASK_CHARACTER = '*';
-
     /**
      * @param string $value
      * @return string
@@ -19,6 +16,6 @@ class ValueObfuscator
     {
         return empty($value)
             ? $value
-            : static::MASK_CHARACTER . mb_strlen($value, 'UTF-8');
+            : '***';
     }
 }

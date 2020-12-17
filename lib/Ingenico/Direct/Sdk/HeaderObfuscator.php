@@ -9,11 +9,11 @@ namespace Ingenico\Direct\Sdk;
 class HeaderObfuscator
 {
     /** @var ValueObfuscator */
-    protected $valueObfuscator;
+    protected $obfuscator;
 
     public function __construct()
     {
-        $this->valueObfuscator = new ValueObfuscator();
+        $this->obfuscator = new SensitiveValueObfuscator();
     }
 
     /**
@@ -42,23 +42,9 @@ class HeaderObfuscator
             case 'proxy-authorization':
             case 'x-gcs-authentication-token':
             case 'x-gcs-callerpassword':
-                return $this->replaceHeaderValueWithFixedNumberOfCharacters($value, 8);
+                return $this->obfuscator->obfuscate($value);
             default:
                 return $value;
-        }
-    }
-
-    /**
-     * @param $value
-     * @param $numberOfCharacters
-     * @return array|string
-     */
-    protected function replaceHeaderValueWithFixedNumberOfCharacters($value, $numberOfCharacters)
-    {
-        if (is_array($value)) {
-            return array_fill(0, count($value), $this->valueObfuscator->obfuscateFixedLength($numberOfCharacters));
-        } else {
-            return $this->valueObfuscator->obfuscateFixedLength($numberOfCharacters);
         }
     }
 }

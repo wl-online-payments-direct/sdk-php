@@ -48,7 +48,7 @@ class HttpObfuscatorTest extends PHPUnit_Framework_TestCase
                 '/foo',
                 array('Content-Type' => 'application/json', 'Authorization' => '123'),
                 '',
-                "DELETE /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********"
+                "DELETE /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ***"
             ),
             array(
                 'POST',
@@ -56,22 +56,22 @@ class HttpObfuscatorTest extends PHPUnit_Framework_TestCase
                 array('Content-Type' => 'application/json'),
                 json_encode(array('name' => 'bar', 'value' => 'bar'), JSON_PRETTY_PRINT),
                 "POST /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . PHP_EOL .
-                json_encode(array('name' => 'bar', 'value' => '***'), JSON_PRETTY_PRINT)
+                json_encode(array('name' => 'bar', 'value' => '*3'), JSON_PRETTY_PRINT)
             ),
             array(
                 'PUT',
                 '/foo',
                 array('Content-Type' => 'application/json', 'Authorization' => '123'),
                 json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT),
-                "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********" . PHP_EOL . PHP_EOL .
-                json_encode(array('value' => '***'), JSON_PRETTY_PRINT)
+                "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ***" . PHP_EOL . PHP_EOL .
+                json_encode(array('value' => '*3'), JSON_PRETTY_PRINT)
             ),
             array(
                 'PUT',
                 '/foo',
                 array('Content-Type' => 'text/html', 'Authorization' => '123'),
                 json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT),
-                "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: text/html" . PHP_EOL . "Authorization: ********" . PHP_EOL . PHP_EOL .
+                "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: text/html" . PHP_EOL . "Authorization: ***" . PHP_EOL . PHP_EOL .
                 json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT)
             ),
         );
@@ -107,7 +107,7 @@ class HttpObfuscatorTest extends PHPUnit_Framework_TestCase
                     array(0 => 'HTTP/1.1 200 OK', 'Content-Type' => 'application/json', 'Authorization' => '123'),
                     ''
                 ),
-                "HTTP/1.1 200 OK" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********"
+                "HTTP/1.1 200 OK" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ***"
             ),
             array(
                 new DefaultConnectionResponse(
@@ -125,7 +125,7 @@ class HttpObfuscatorTest extends PHPUnit_Framework_TestCase
                     json_encode(array('name' => 'foo', 'value' => 'baz'), JSON_PRETTY_PRINT)
                 ),
                 "HTTP/1.1 201 Created" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . PHP_EOL .
-                json_encode(array('name' => 'foo', 'value' => '***'), JSON_PRETTY_PRINT)
+                json_encode(array('name' => 'foo', 'value' => '*3'), JSON_PRETTY_PRINT)
             ),
         );
     }

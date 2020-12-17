@@ -31,28 +31,28 @@ class HeaderObfuscatorTest extends PHPUnit_Framework_TestCase
                 array(),array()
             ),
             array(
-                array('Authorization' => 'foo'),
-                array('Authorization' => '********')
+                array('Authorization' => 'foobar'),
+                array('Authorization' => '***')
             ),
             array(
-                array('authorization' => 'foo'),
-                array('authorization' => '********')
+                array('authorization' => 'foobar'),
+                array('authorization' => '***')
             ),
             array(
-                array('Authorisation' => 'foo'),
-                array('Authorisation' => 'foo')
+                array('Authorisation' => 'foobar'),
+                array('Authorisation' => 'foobar')
             ),
             array(
-                array('Authorization' => 'foo', 'Content-Type' => 'application/json'),
-                array('Authorization' => '********', 'Content-Type' => 'application/json')
+                array('Authorization' => 'foobar', 'Content-Type' => 'application/json'),
+                array('Authorization' => '***', 'Content-Type' => 'application/json')
             ),
             array(
                 array(0 => 'HTTP/1.1 200 OK'),
                 array(0 => 'HTTP/1.1 200 OK')
             ),
             array(
-                array('Authorization' => array('foo', 'bar')),
-                array('Authorization' => array('********', '********'))
+                array('Authorization' => array('foobar', 'barfoo')),
+                array('Authorization' => '***')
             )
         );
     }

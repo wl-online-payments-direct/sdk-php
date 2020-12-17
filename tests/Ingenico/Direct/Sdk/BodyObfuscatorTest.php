@@ -88,31 +88,43 @@ class BodyObfuscatorTest extends PHPUnit_Framework_TestCase
             ),
             array(
                 array('secretKey' => 'foo'),
-                array('secretKey' => '********')
+                array('secretKey' => '***')
+            ),
+            array(
+                array('encryptedCustomerInput' => '74tk9s968z469z78th4z678h4zsth=='),
+                array('encryptedCustomerInput' => '***')
             ),
             array(
                 array('value' => 'foo'),
-                array('value' => '***')
+                array('value' => '*3')
             ),
             array(
                 array('bin' => '1234567890'),
-                array('bin' => '123456****')
+                array('bin' => '*10')
             ),
             array(
                 array('iban' => 'NL12ABCD1234567890'),
-                array('iban' => '**************7890')
+                array('iban' => '*18')
             ),
             array(
-                array('cardNumber' => '1234567890123456'),
-                array('cardNumber' => '************3456')
+                array('card' => array(array('cardNumber' => '1234567890123456'), array('expiryDate' => '1230'), array('cvv' => '123'), array('cardholderName' => 'Wile E. Coyote'))),
+                array('card' => array(array('cardNumber' => '*16'), array('expiryDate' => '*4'), array('cvv' => '*3'), array('cardholderName' => '*14'))),
             ),
             array(
-                array('expiryDate' => '1234'),
-                array('expiryDate' => '**34')
+                array('personalInformation' => array(array('name' => array(array('firstName' => 'Wile'), array('surname' => 'Coyote'))), array('dateOfBirth' => '19370929'))),
+                array('personalInformation' => array(array('name' => array(array('firstName' => '*4'), array('surname' => '*6'))), array('dateOfBirth' => '*8'))),
+            ),
+            array(
+                array('billingAddress' => array(array('countryCode' => 'BE'), array('city' => 'Zaventem'), array('zip' => '1930'), array('street' => 'Da Vincilaan'), array('houseNumber' => '3'))),
+                array('billingAddress' => array(array('countryCode' => 'BE'), array('city' => 'Zaventem'), array('zip' => '*4'), array('street' => '*12'), array('houseNumber' => '*1'))),
+            ),
+            array(
+                array('contactDetails' => array(array('emailAddress' => 'wecoyote@acme.org'), array('faxNumber' => '+32 (0)2 286 96 16'), array('mobilePhoneNumber' => '+3222869611'), array('phoneNumber' => '02 585 56 80'), array('workPhoneNumber' => '003222869611'))),
+                array('contactDetails' => array(array('emailAddress' => '*17'), array('faxNumber' => '*18'), array('mobilePhoneNumber' => '*11'), array('phoneNumber' => '*12'), array('workPhoneNumber' => '*12'))),
             ),
             array(
                 array('fields' => array(array('name' => 'foo'), array('value' => 'foo'))),
-                array('fields' => array(array('name' => 'foo'), array('value' => '***')))
+                array('fields' => array(array('name' => 'foo'), array('value' => '*3')))
             )
         );
         return array_map(function (array $testObjectValues) {

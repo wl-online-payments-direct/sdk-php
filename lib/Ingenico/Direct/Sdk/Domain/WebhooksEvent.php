@@ -2,9 +2,6 @@
 namespace Ingenico\Direct\Sdk\Domain;
 
 use Ingenico\Direct\Sdk\DataObject;
-use Ingenico\Direct\Sdk\Domain\PaymentResponse;
-use Ingenico\Direct\Sdk\Domain\RefundResponse;
-use Ingenico\Direct\Sdk\Domain\TokenResponse;
 use UnexpectedValueException;
 
 /**
@@ -44,6 +41,11 @@ class WebhooksEvent extends DataObject
      * @var PaymentResponse
      */
     private $payment = null;
+
+    /**
+     * @var PayoutResponse
+     */
+    private $payout = null;
 
     /**
      * @var RefundResponse
@@ -148,6 +150,22 @@ class WebhooksEvent extends DataObject
     }
 
     /**
+     * @return PayoutResponse
+     */
+    public function getPayout()
+    {
+        return $this->payout;
+    }
+
+    /**
+     * @param PayoutResponse $payout
+     */
+    public function setPayout($payout)
+    {
+        $this->payout = $payout;
+    }
+
+    /**
      * @return RefundResponse
      */
     public function getRefund()
@@ -201,6 +219,9 @@ class WebhooksEvent extends DataObject
         if (!is_null($this->payment)) {
             $object->payment = $this->payment->toObject();
         }
+        if (!is_null($this->payout)) {
+            $object->payout = $this->payout->toObject();
+        }
         if (!is_null($this->refund)) {
             $object->refund = $this->refund->toObject();
         }
@@ -239,6 +260,13 @@ class WebhooksEvent extends DataObject
             }
             $value = new PaymentResponse();
             $this->payment = $value->fromObject($object->payment);
+        }
+        if (property_exists($object, 'payout')) {
+            if (!is_object($object->payout)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->payout, true) . '\' is not an object');
+            }
+            $value = new PayoutResponse();
+            $this->payout = $value->fromObject($object->payout);
         }
         if (property_exists($object, 'refund')) {
             if (!is_object($object->refund)) {

@@ -160,6 +160,7 @@ EOD;
         $this->assertEquals('1', $event->getMerchantId());
         $this->assertEquals('payment.paid', $event->getType());
 
+        $this->assertNull($event->getPayout());
         $this->assertNull($event->getRefund());
         $this->assertNull($event->getToken());
 
