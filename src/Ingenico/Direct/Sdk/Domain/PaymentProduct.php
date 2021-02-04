@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -14,6 +14,11 @@ use UnexpectedValueException;
 class PaymentProduct extends DataObject
 {
     // Properties
+    /**
+     * @var AccountOnFile[]
+     */
+    private $accountsOnFile;
+
     /**
      * @var bool
      */
@@ -30,19 +35,14 @@ class PaymentProduct extends DataObject
     private $displayHints;
 
     /**
+     * @var PaymentProductField[]
+     */
+    private $fields;
+
+    /**
      * @var int
      */
     private $id;
-
-    /**
-     * @var int
-     */
-    private $maxAmount;
-
-    /**
-     * @var int
-     */
-    private $minAmount;
 
     /**
      * @var string
@@ -60,6 +60,21 @@ class PaymentProduct extends DataObject
     private $usesRedirectionTo3rdParty;
 
     // Methods
+    /**
+     * @return AccountOnFile[]
+     */
+    public function getAccountsOnFile()
+    {
+        return $this->accountsOnFile;
+    }
+    /**
+     * @var AccountOnFile[]
+     */
+    public function setAccountsOnFile($value)
+    {
+        $this->accountsOnFile = $value;
+    }
+
     /**
      * @return bool
      */
@@ -106,6 +121,21 @@ class PaymentProduct extends DataObject
     }
 
     /**
+     * @return PaymentProductField[]
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
+    /**
+     * @var PaymentProductField[]
+     */
+    public function setFields($value)
+    {
+        $this->fields = $value;
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -118,36 +148,6 @@ class PaymentProduct extends DataObject
     public function setId($value)
     {
         $this->id = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMaxAmount()
-    {
-        return $this->maxAmount;
-    }
-    /**
-     * @var int
-     */
-    public function setMaxAmount($value)
-    {
-        $this->maxAmount = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMinAmount()
-    {
-        return $this->minAmount;
-    }
-    /**
-     * @var int
-     */
-    public function setMinAmount($value)
-    {
-        $this->minAmount = $value;
     }
 
     /**
@@ -201,6 +201,14 @@ class PaymentProduct extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->accountsOnFile !== null) {
+            $object->accountsOnFile = [];
+            foreach ($this->accountsOnFile as $element) {
+                if ($element !== null) {
+                    $object->accountsOnFile[] = $element->toObject();
+                }
+            }
+        }
         if ($this->allowsRecurring !== null) {
             $object->allowsRecurring = $this->allowsRecurring;
         }
@@ -210,14 +218,16 @@ class PaymentProduct extends DataObject
         if ($this->displayHints !== null) {
             $object->displayHints = $this->displayHints->toObject();
         }
+        if ($this->fields !== null) {
+            $object->fields = [];
+            foreach ($this->fields as $element) {
+                if ($element !== null) {
+                    $object->fields[] = $element->toObject();
+                }
+            }
+        }
         if ($this->id !== null) {
             $object->id = $this->id;
-        }
-        if ($this->maxAmount !== null) {
-            $object->maxAmount = $this->maxAmount;
-        }
-        if ($this->minAmount !== null) {
-            $object->minAmount = $this->minAmount;
         }
         if ($this->paymentMethod !== null) {
             $object->paymentMethod = $this->paymentMethod;
@@ -239,6 +249,16 @@ class PaymentProduct extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'accountsOnFile')) {
+            if (!is_array($object->accountsOnFile) && !is_object($object->accountsOnFile)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->accountsOnFile, true) . '\' is not an array or object');
+            }
+            $this->accountsOnFile = [];
+            foreach ($object->accountsOnFile as $element) {
+                $value = new AccountOnFile();
+                $this->accountsOnFile[] = $value->fromObject($element);
+            }
+        }
         if (property_exists($object, 'allowsRecurring')) {
             $this->allowsRecurring = $object->allowsRecurring;
         }
@@ -252,14 +272,18 @@ class PaymentProduct extends DataObject
             $value = new PaymentProductDisplayHints();
             $this->displayHints = $value->fromObject($object->displayHints);
         }
+        if (property_exists($object, 'fields')) {
+            if (!is_array($object->fields) && !is_object($object->fields)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->fields, true) . '\' is not an array or object');
+            }
+            $this->fields = [];
+            foreach ($object->fields as $element) {
+                $value = new PaymentProductField();
+                $this->fields[] = $value->fromObject($element);
+            }
+        }
         if (property_exists($object, 'id')) {
             $this->id = $object->id;
-        }
-        if (property_exists($object, 'maxAmount')) {
-            $this->maxAmount = $object->maxAmount;
-        }
-        if (property_exists($object, 'minAmount')) {
-            $this->minAmount = $object->minAmount;
         }
         if (property_exists($object, 'paymentMethod')) {
             $this->paymentMethod = $object->paymentMethod;

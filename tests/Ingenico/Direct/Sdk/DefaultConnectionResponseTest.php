@@ -5,7 +5,7 @@ namespace Ingenico\Direct\Sdk;
  * @group default_connection
  *
  */
-class DefaultConnectionResponseTest extends TestCase
+class DefaultConnectionResponseTest extends DirectTestCase
 {
     public function testGetters()
     {

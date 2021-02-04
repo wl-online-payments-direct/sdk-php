@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Payouts;
 
@@ -9,6 +9,7 @@ use Exception;
 use Ingenico\Direct\Sdk\ApiException;
 use Ingenico\Direct\Sdk\AuthorizationException;
 use Ingenico\Direct\Sdk\CallContext;
+use Ingenico\Direct\Sdk\DeclinedPayoutException;
 use Ingenico\Direct\Sdk\DirectException;
 use Ingenico\Direct\Sdk\Domain\CreatePayoutRequest;
 use Ingenico\Direct\Sdk\Domain\PayoutResponse;
@@ -27,6 +28,7 @@ class PayoutsClient extends Resource implements PayoutsClientInterface
     public function createPayout(CreatePayoutRequest $body, CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\PayoutResponse');
+        $responseClassMap->setDefaultErrorResponseClassName('\Ingenico\Direct\Sdk\Domain\PayoutErrorResponse');
         return $this->getCommunicator()->post(
             $responseClassMap,
             $this->instantiateUri('/v2/{merchantId}/payouts'),

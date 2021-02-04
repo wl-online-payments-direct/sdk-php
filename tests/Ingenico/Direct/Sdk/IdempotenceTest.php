@@ -3,7 +3,7 @@ namespace Ingenico\Direct\Sdk;
 
 use Exception;
 
-class IdempotenceTest extends TestCase
+class IdempotenceTest extends DirectTestCase
 {
     /**
      * @throws Exception

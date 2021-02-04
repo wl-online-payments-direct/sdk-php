@@ -6,6 +6,7 @@ use Ingenico\Direct\Sdk\Domain\Address;
 use Ingenico\Direct\Sdk\Domain\AmountOfMoney;
 use Ingenico\Direct\Sdk\Domain\BankAccountIban;
 use Ingenico\Direct\Sdk\Domain\Card;
+use Ingenico\Direct\Sdk\Domain\CardPayoutMethodSpecificInput;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentResponse;
 use Ingenico\Direct\Sdk\Domain\ErrorResponse;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentRequest;
@@ -14,6 +15,7 @@ use Ingenico\Direct\Sdk\Domain\CardPaymentMethodSpecificInput;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentResult;
 use Ingenico\Direct\Sdk\Domain\Customer;
 use Ingenico\Direct\Sdk\Domain\Order;
+use Ingenico\Direct\Sdk\Domain\PaymentReferences;
 use Ingenico\Direct\Sdk\Domain\PersonalInformation;
 use Ingenico\Direct\Sdk\Domain\PersonalName;
 use Ingenico\Direct\Sdk\Domain\CreatePayoutRequest;
@@ -83,6 +85,8 @@ EOD;
             $invalidMerchantId = "123";
             $this->getClient()->merchant($invalidMerchantId)->services()->testConnection();
         } catch (AuthorizationException $e) {
+            $this->assertNotNull($e);
+            $this->assertEquals(403, $e->getHttpStatusCode());
             return;
         }
         $this->fail('An expected exception has not been raised.');
@@ -154,6 +158,81 @@ EOD;
         $this->fail('An expected exception has not been raised.');
     }
 
+    /**
+     * @throws Exception
+     */
+    public function testDeclinedPayoutExceptionForPayout()
+    {
+        $this->markTestSkipped('Payouts are not available for all merchants');
+
+        $client = $this->getClient();
+        $merchantId = $this->getMerchantId();
+
+        $createPayoutRequest = new CreatePayoutRequest();
+
+        $amountOfMoney = new AmountOfMoney();
+        $amountOfMoney->setAmount(2345);
+        $amountOfMoney->setCurrencyCode("EUR");
+        $createPayoutRequest->setAmountOfMoney($amountOfMoney);
+
+        $cardPayoutMethodSpecificInput = new CardPayoutMethodSpecificInput();
+        $cardPayoutMethodSpecificInput->setPaymentProductId(1);
+
+        $card = new Card();
+        $card->setCardholderName("Wile E. Coyote");
+        $card->setCardNumber("4567350000427977");
+        $card->setCvv("123");
+        $card->setExpiryDate("1230");
+        $cardPayoutMethodSpecificInput->setCard($card);
+
+        $payoutReferences = new PaymentReferences();
+        $payoutReferences->setMerchantReference("AcmeOrder0001");
+        $createPayoutRequest->setReferences($payoutReferences);
+
+        try {
+            $client->merchant($merchantId)->payouts()->createPayout($createPayoutRequest);
+        } catch (DeclinedPayoutException $e) {
+            $payoutResult = $e->getPayoutResult();
+            $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\PayoutResult', $payoutResult);
+            $this->assertNotEmpty($payoutResult->getId());
+            $this->assertEquals('REJECTED', $payoutResult->getStatus());
+            return;
+        }
+        $this->fail('An expected exception has not been raised');
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testDirectExceptionForPayoutWithPayoutResult() {
+        $this->markTestSkipped('Payouts are not available for all merchants');
+
+        $client = $this->getClient();
+        $merchantId = $this->getMerchantId();
+
+        $createPayoutRequest = new CreatePayoutRequest();
+
+        $amountOfMoney = new AmountOfMoney();
+        $amountOfMoney->setAmount(2345);
+        $amountOfMoney->setCurrencyCode("EUR");
+        $createPayoutRequest->setAmountOfMoney($amountOfMoney);
+
+        $cardPayoutMethodSpecificInput = new CardPayoutMethodSpecificInput();
+        $cardPayoutMethodSpecificInput->setPaymentProductId(1);
+
+        $payoutReferences = new PaymentReferences();
+        $payoutReferences->setMerchantReference("AcmeOrder0001");
+        $createPayoutRequest->setReferences($payoutReferences);
+
+        try {
+            $client->merchant($merchantId)->payouts()->createPayout($createPayoutRequest);
+        } catch (DirectException $e) {
+            $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\ErrorResponse', $e->getResponse());
+            return;
+        }
+        $this->fail('An expected exception has not been raised');
+    }
+
     public function testDeclinedPaymentException()
     {
         $paymentErrorResponse = new PaymentErrorResponse();
@@ -161,6 +240,15 @@ EOD;
         $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\CreatePaymentResponse', $declinedPaymentException->getPaymentResult());
         $paymentErrorResponse->setPaymentResult(new CreatePaymentResponse());
         $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\CreatePaymentResponse', $declinedPaymentException->getPaymentResult());
+    }
+
+    public function testDeclinedPayoutException()
+    {
+        $payoutErrorResponse = new PayoutErrorResponse();
+        $declinedPayoutException = new DeclinedPayoutException(0, $payoutErrorResponse);
+        $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\PayoutResult', $declinedPayoutException->getPayoutResult());
+        $payoutErrorResponse->setPayoutResult(new PayoutResult());
+        $this->assertInstanceOf('\Ingenico\Direct\Sdk\Domain\PayoutResult', $declinedPayoutException->getPayoutResult());
     }
 
     public function testDeclinedRefundException()

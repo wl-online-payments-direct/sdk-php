@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Payments;
 
@@ -47,7 +47,7 @@ interface PaymentsClientInterface
      * @throws ReferenceException
      * @throws ValidationException
      * @throws DeclinedPaymentException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi Create payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CreatePaymentApi Create payment
      */
     public function createPayment(CreatePaymentRequest $body, CallContext $callContext = null);
 
@@ -66,7 +66,7 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi Get payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentApi Get payment
      */
     public function getPayment($paymentId, CallContext $callContext = null);
 
@@ -87,7 +87,7 @@ interface PaymentsClientInterface
      * @throws ReferenceException
      * @throws ValidationException
      * @throws DeclinedPaymentException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi Complete payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CompletePaymentApi Complete payment
      */
     public function completePayment($paymentId, CompletePaymentRequest $body, CallContext $callContext = null);
 
@@ -106,7 +106,7 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi Cancel payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CancelPaymentApi Cancel payment
      */
     public function cancelPayment($paymentId, CallContext $callContext = null);
 
@@ -127,7 +127,7 @@ interface PaymentsClientInterface
      * @throws ReferenceException
      * @throws ValidationException
      * @throws DeclinedRefundException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi Refund payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/RefundPaymentApi Refund payment
      */
     public function refundPayment($paymentId, RefundRequest $body, CallContext $callContext = null);
 
@@ -147,7 +147,7 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi Capture payment
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CapturePaymentApi Capture payment
      */
     public function capturePayment($paymentId, CapturePaymentRequest $body, CallContext $callContext = null);
 
@@ -166,7 +166,7 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi Get Captures Api
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetCapturesApi Get Captures Api
      */
     public function getCaptures($paymentId, CallContext $callContext = null);
 
@@ -185,7 +185,7 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi Get Refunds Api
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetRefundsApi Get Refunds Api
      */
     public function getRefunds($paymentId, CallContext $callContext = null);
 }

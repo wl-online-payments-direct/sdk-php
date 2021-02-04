@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Services;
 
@@ -32,7 +32,7 @@ interface ServicesClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/TestConnectionApi Test connection
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/TestConnectionApi Test connection
      */
     public function testConnection(CallContext $callContext = null);
 }

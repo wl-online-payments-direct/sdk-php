@@ -8,7 +8,7 @@ use Exception;
  * @group default_connection
  *
  */
-class DefaultConnectionTest extends TestCase
+class DefaultConnectionTest extends DirectTestCase
 {
 
     /** @var DefaultConnection */

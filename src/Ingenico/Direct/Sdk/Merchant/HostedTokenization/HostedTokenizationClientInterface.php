@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\HostedTokenization;
 
@@ -35,7 +35,7 @@ interface HostedTokenizationClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedTokenizationApi Create hosted tokenization session
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedTokenizationApi Create hosted tokenization session
      */
     public function createHostedTokenization(CreateHostedTokenizationRequest $body, CallContext $callContext = null);
 
@@ -54,7 +54,7 @@ interface HostedTokenizationClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedTokenizationApi Get hosted tokenization session
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedTokenizationApi Get hosted tokenization session
      */
     public function getHostedTokenization($hostedTokenizationId, CallContext $callContext = null);
 }

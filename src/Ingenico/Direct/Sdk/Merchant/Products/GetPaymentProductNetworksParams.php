@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Products;
 
@@ -11,7 +11,7 @@ use Ingenico\Direct\Sdk\RequestObject;
  * Query parameters for Get payment product networks
  *
  * @package Ingenico\Direct\Sdk\Merchant\Products
- * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProductNetworks Get payment product networks
+ * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProductNetworks Get payment product networks
  */
 class GetPaymentProductNetworksParams extends RequestObject
 {

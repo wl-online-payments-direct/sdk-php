@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Sessions;
 
@@ -34,7 +34,7 @@ interface SessionsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateSessionApi Create session
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CreateSessionApi Create session
      */
     public function createSession(SessionRequest $body, CallContext $callContext = null);
 }

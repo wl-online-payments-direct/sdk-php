@@ -3,7 +3,7 @@ namespace Ingenico\Direct\Sdk;
 
 use Exception;
 
-class ClientTestCase extends TestCase
+class ClientTestCase extends DirectTestCase
 {
     /**
      * @var Client|null

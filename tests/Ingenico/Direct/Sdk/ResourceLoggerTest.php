@@ -2,12 +2,12 @@
 namespace Ingenico\Direct\Sdk;
 
 use Ingenico\Direct\Sdk\Domain\ErrorResponse;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group logging
  */
-class ResourceLoggerTest extends PHPUnit_Framework_TestCase
+class ResourceLoggerTest extends TestCase
 {
     public function testLog()
     {

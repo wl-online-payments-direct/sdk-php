@@ -2,12 +2,12 @@
 namespace Ingenico\Direct\Sdk;
 
 use Exception;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class TestCase
  */
-abstract class TestCase extends PHPUnit_Framework_TestCase
+abstract class DirectTestCase extends TestCase
 {
     /**
      * @var string|null

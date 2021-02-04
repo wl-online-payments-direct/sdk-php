@@ -1,16 +1,15 @@
 <?php
 namespace Ingenico\Direct\Sdk\Webhooks;
 
-use Ingenico\Direct\Sdk\Client;
 use Ingenico\Direct\Sdk\ConnectionResponse;
 use Ingenico\Direct\Sdk\ResponseClassMap;
 use Ingenico\Direct\Sdk\ResponseFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group webhooks
  */
-class WebhooksHelperTest extends PHPUnit_Framework_TestCase
+class WebhooksHelperTest extends TestCase
 {
     const SIGNATURE_HEADER = 'X-GCS-Signature';
     const SIGNATURE = 'dvi9vUj6S0XVlRVPTldcyx11AEAvv9fHEzlacqT7r5s=';

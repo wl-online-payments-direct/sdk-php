@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -53,6 +53,11 @@ class CardPaymentMethodSpecificInput extends DataObject
      * @var bool
      */
     private $skipAuthentication;
+
+    /**
+     * @var bool
+     */
+    private $skipSoftDecline;
 
     /**
      * @var ThreeDSecure
@@ -206,6 +211,21 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return bool
+     */
+    public function getSkipSoftDecline()
+    {
+        return $this->skipSoftDecline;
+    }
+    /**
+     * @var bool
+     */
+    public function setSkipSoftDecline($value)
+    {
+        $this->skipSoftDecline = $value;
+    }
+
+    /**
      * @return ThreeDSecure
      */
     public function getThreeDSecure()
@@ -325,6 +345,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if ($this->skipAuthentication !== null) {
             $object->skipAuthentication = $this->skipAuthentication;
         }
+        if ($this->skipSoftDecline !== null) {
+            $object->skipSoftDecline = $this->skipSoftDecline;
+        }
         if ($this->threeDSecure !== null) {
             $object->threeDSecure = $this->threeDSecure->toObject();
         }
@@ -385,6 +408,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
+        }
+        if (property_exists($object, 'skipSoftDecline')) {
+            $this->skipSoftDecline = $object->skipSoftDecline;
         }
         if (property_exists($object, 'threeDSecure')) {
             if (!is_object($object->threeDSecure)) {

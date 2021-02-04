@@ -8,7 +8,7 @@ use Ingenico\Direct\Sdk\Merchant\Products\GetPaymentProductsParams;
  * @group communicator
  *
  */
-class CommunicatorTest extends TestCase
+class CommunicatorTest extends DirectTestCase
 {
 
     /** @var Communicator */

@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\ProductGroups;
 
@@ -34,7 +34,7 @@ interface ProductGroupsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroups Get product groups
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroups Get product groups
      */
     public function getProductGroups(GetProductGroupsParams $query, CallContext $callContext = null);
 
@@ -54,7 +54,7 @@ interface ProductGroupsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroup Get product group
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroup Get product group
      */
     public function getProductGroup($paymentProductGroupId, GetProductGroupParams $query, CallContext $callContext = null);
 }

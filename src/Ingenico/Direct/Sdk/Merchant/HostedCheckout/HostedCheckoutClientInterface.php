@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\HostedCheckout;
 
@@ -35,7 +35,7 @@ interface HostedCheckoutClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedCheckoutApi Create hosted checkout
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedCheckoutApi Create hosted checkout
      */
     public function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null);
 
@@ -54,7 +54,7 @@ interface HostedCheckoutClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedCheckoutApi Get hosted checkout status
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedCheckoutApi Get hosted checkout status
      */
     public function getHostedCheckout($hostedCheckoutId, CallContext $callContext = null);
 }

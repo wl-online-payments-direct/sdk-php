@@ -1,9 +1,8 @@
 <?php
 namespace Ingenico\Direct\Sdk;
 
-use Ingenico\Direct\Sdk\Domain\APIError;
 use Ingenico\Direct\Sdk\Domain\PaymentErrorResponse;
-//use Ingenico\Direct\Sdk\Domain\PayoutErrorResponse;
+use Ingenico\Direct\Sdk\Domain\PayoutErrorResponse;
 use Ingenico\Direct\Sdk\Domain\RefundErrorResponse;
 
 /**
@@ -19,7 +18,7 @@ class ResponseExceptionFactory
      * @param $httpStatusCode
      * @param DataObject $errorObject
      * @param CallContext $callContext
-     * @return ApiException|AuthorizationException|DeclinedPaymentException|DeclinedRefundException|DirectException|IdempotenceException|ReferenceException|ValidationException
+     * @return ApiException|AuthorizationException|DeclinedPaymentException|DeclinedPayoutException|DeclinedRefundException|DirectException|IdempotenceException|ReferenceException|ValidationException
      */
     public function createException(
         $httpStatusCode,
@@ -28,6 +27,9 @@ class ResponseExceptionFactory
     ) {
         if ($errorObject instanceof PaymentErrorResponse && !is_null($errorObject->getPaymentResult())) {
             return new DeclinedPaymentException($httpStatusCode, $errorObject);
+        }
+        if ($errorObject instanceof PayoutErrorResponse && !is_null($errorObject->getPayoutResult())) {
+            return new DeclinedPayoutException($httpStatusCode, $errorObject);
         }
         if ($errorObject instanceof RefundErrorResponse && !is_null($errorObject->getRefundResult())) {
             return new DeclinedRefundException($httpStatusCode, $errorObject);

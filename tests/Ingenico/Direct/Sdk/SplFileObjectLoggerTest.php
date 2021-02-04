@@ -1,14 +1,14 @@
 <?php
 namespace Ingenico\Direct\Sdk;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SplTempFileObject;
 use Ingenico\Direct\Sdk\Domain\ErrorResponse;
 
 /**
  * @group logging
  */
-class SplFileObjectLoggerTest extends PHPUnit_Framework_TestCase
+class SplFileObjectLoggerTest extends TestCase
 {
     public function testLog()
     {

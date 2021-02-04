@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\ProductGroups;
 
@@ -11,7 +11,7 @@ use Ingenico\Direct\Sdk\RequestObject;
  * Query parameters for Get product group
  *
  * @package Ingenico\Direct\Sdk\Merchant\ProductGroups
- * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroup Get product group
+ * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroup Get product group
  */
 class GetProductGroupParams extends RequestObject
 {

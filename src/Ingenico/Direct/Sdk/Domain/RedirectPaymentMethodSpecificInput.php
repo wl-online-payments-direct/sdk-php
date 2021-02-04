@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -14,6 +14,11 @@ use UnexpectedValueException;
 class RedirectPaymentMethodSpecificInput extends DataObject
 {
     // Properties
+    /**
+     * @var string
+     */
+    private $paymentOption;
+
     /**
      * @var RedirectPaymentProduct809SpecificInput
      */
@@ -50,6 +55,21 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     private $tokenize;
 
     // Methods
+    /**
+     * @return string
+     */
+    public function getPaymentOption()
+    {
+        return $this->paymentOption;
+    }
+    /**
+     * @var string
+     */
+    public function setPaymentOption($value)
+    {
+        $this->paymentOption = $value;
+    }
+
     /**
      * @return RedirectPaymentProduct809SpecificInput
      */
@@ -161,6 +181,9 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->paymentOption !== null) {
+            $object->paymentOption = $this->paymentOption;
+        }
         if ($this->paymentProduct809SpecificInput !== null) {
             $object->paymentProduct809SpecificInput = $this->paymentProduct809SpecificInput->toObject();
         }
@@ -193,6 +216,9 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'paymentOption')) {
+            $this->paymentOption = $object->paymentOption;
+        }
         if (property_exists($object, 'paymentProduct809SpecificInput')) {
             if (!is_object($object->paymentProduct809SpecificInput)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct809SpecificInput, true) . '\' is not an object');

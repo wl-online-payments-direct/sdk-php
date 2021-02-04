@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -14,6 +14,11 @@ use UnexpectedValueException;
 class CreateHostedTokenizationRequest extends DataObject
 {
     // Properties
+    /**
+     * @var bool
+     */
+    private $askConsumerConsent;
+
     /**
      * @var string
      */
@@ -30,6 +35,21 @@ class CreateHostedTokenizationRequest extends DataObject
     private $variant;
 
     // Methods
+    /**
+     * @return bool
+     */
+    public function getAskConsumerConsent()
+    {
+        return $this->askConsumerConsent;
+    }
+    /**
+     * @var bool
+     */
+    public function setAskConsumerConsent($value)
+    {
+        $this->askConsumerConsent = $value;
+    }
+
     /**
      * @return string
      */
@@ -81,6 +101,9 @@ class CreateHostedTokenizationRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->askConsumerConsent !== null) {
+            $object->askConsumerConsent = $this->askConsumerConsent;
+        }
         if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
@@ -101,6 +124,9 @@ class CreateHostedTokenizationRequest extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'askConsumerConsent')) {
+            $this->askConsumerConsent = $object->askConsumerConsent;
+        }
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;
         }

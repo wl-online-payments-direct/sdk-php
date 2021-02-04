@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Tokens;
 
@@ -35,7 +35,7 @@ interface TokensClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi Create token
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/CreateTokenApi Create token
      */
     public function createToken(CreateTokenRequest $body, CallContext $callContext = null);
 
@@ -54,7 +54,7 @@ interface TokensClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi Get token
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetTokenApi Get token
      */
     public function getToken($tokenId, CallContext $callContext = null);
 
@@ -73,7 +73,7 @@ interface TokensClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi Delete token
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/DeleteTokenApi Delete token
      */
     public function deleteToken($tokenId, CallContext $callContext = null);
 }

@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Products;
 
@@ -36,7 +36,7 @@ interface ProductsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProducts Get payment products
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProducts Get payment products
      */
     public function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null);
 
@@ -56,7 +56,7 @@ interface ProductsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProduct Get payment product
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProduct Get payment product
      */
     public function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null);
 
@@ -76,7 +76,7 @@ interface ProductsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductDirectoryApi Get payment product directory
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductDirectoryApi Get payment product directory
      */
     public function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null);
 
@@ -96,7 +96,7 @@ interface ProductsClientInterface
      * @throws InvalidResponseException
      * @throws ReferenceException
      * @throws ValidationException
-     * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProductNetworks Get payment product networks
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProductNetworks Get payment product networks
      */
     public function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, CallContext $callContext = null);
 }

@@ -1,12 +1,12 @@
 <?php
 namespace Ingenico\Direct\Sdk;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group obfuscation
  */
-class CommunicatorLoggerHelperTest extends PHPUnit_Framework_TestCase
+class CommunicatorLoggerHelperTest extends TestCase
 {
     /**
      * @dataProvider uriProvider

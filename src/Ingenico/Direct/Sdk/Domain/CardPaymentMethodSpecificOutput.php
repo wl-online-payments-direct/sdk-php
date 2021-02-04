@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -33,6 +33,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
      * @var string
      */
     private $initialSchemeTransactionId;
+
+    /**
+     * @var string
+     */
+    private $paymentOption;
 
     /**
      * @var int
@@ -111,6 +116,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getPaymentOption()
+    {
+        return $this->paymentOption;
+    }
+    /**
+     * @var string
+     */
+    public function setPaymentOption($value)
+    {
+        $this->paymentOption = $value;
+    }
+
+    /**
      * @return int
      */
     public function getPaymentProductId()
@@ -173,6 +193,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if ($this->initialSchemeTransactionId !== null) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
         }
+        if ($this->paymentOption !== null) {
+            $object->paymentOption = $this->paymentOption;
+        }
         if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -212,6 +235,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'paymentOption')) {
+            $this->paymentOption = $object->paymentOption;
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

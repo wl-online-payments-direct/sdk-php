@@ -8,7 +8,7 @@ use Ingenico\Direct\Sdk\Domain\ShoppingCartExtension;
  * @group request_header
  *
  */
-class RequestHeaderTest extends TestCase
+class RequestHeaderTest extends DirectTestCase
 {
     /**
      * @throws Exception

@@ -1,12 +1,12 @@
 <?php
 namespace Ingenico\Direct\Sdk;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group obfuscation
  */
-class HttpObfuscatorTest extends PHPUnit_Framework_TestCase
+class HttpObfuscatorTest extends TestCase
 {
     /**
      * @dataProvider rawObfuscatedRequestProvider

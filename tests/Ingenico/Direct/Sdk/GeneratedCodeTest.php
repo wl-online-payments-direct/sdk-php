@@ -65,6 +65,7 @@ EOD;
         $client->setClientMetaInfo('{ "test": "test" }');
         $merchant = $client->merchant($this->getMerchantId());
         $sessionRequest = new SessionRequest();
+        $sessionRequest->setTokens(array('e7303c8c-8b18-4929-9ae9-63d37575c352'));
         try {
             $sessions = $merchant->sessions();
             $response = $sessions->createSession($sessionRequest);

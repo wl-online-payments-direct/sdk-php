@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -33,6 +33,11 @@ class SessionResponse extends DataObject
      * @var string
      */
     private $customerId;
+
+    /**
+     * @var string[]
+     */
+    private $invalidTokens;
 
     // Methods
     /**
@@ -96,6 +101,21 @@ class SessionResponse extends DataObject
     }
 
     /**
+     * @return string[]
+     */
+    public function getInvalidTokens()
+    {
+        return $this->invalidTokens;
+    }
+    /**
+     * @var string[]
+     */
+    public function setInvalidTokens($value)
+    {
+        $this->invalidTokens = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -112,6 +132,14 @@ class SessionResponse extends DataObject
         }
         if ($this->customerId !== null) {
             $object->customerId = $this->customerId;
+        }
+        if ($this->invalidTokens !== null) {
+            $object->invalidTokens = [];
+            foreach ($this->invalidTokens as $element) {
+                if ($element !== null) {
+                    $object->invalidTokens[] = $element;
+                }
+            }
         }
         return $object;
     }
@@ -135,6 +163,15 @@ class SessionResponse extends DataObject
         }
         if (property_exists($object, 'customerId')) {
             $this->customerId = $object->customerId;
+        }
+        if (property_exists($object, 'invalidTokens')) {
+            if (!is_array($object->invalidTokens) && !is_object($object->invalidTokens)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->invalidTokens, true) . '\' is not an array or object');
+            }
+            $this->invalidTokens = [];
+            foreach ($object->invalidTokens as $element) {
+                $this->invalidTokens[] = $element;
+            }
         }
         return $this;
     }

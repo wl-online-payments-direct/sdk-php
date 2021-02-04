@@ -1,7 +1,7 @@
 <?php
 namespace Ingenico\Direct\Sdk;
 
-class HttpHeaderHelperTest extends TestCase
+class HttpHeaderHelperTest extends DirectTestCase
 {
     /** @var HttpHeaderHelper */
     protected $httpHeaderHelper;

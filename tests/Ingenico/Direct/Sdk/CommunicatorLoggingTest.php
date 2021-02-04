@@ -26,7 +26,7 @@ class CommunicatorLoggingTest extends ClientTestCase
             $connection,
             $this->getMockCommunicatorConfiguration()
         );
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) {
                 $messageParts = explode("\n", $message);
@@ -72,7 +72,7 @@ class CommunicatorLoggingTest extends ClientTestCase
             $requestHeaders,
             $requestBody->toJson()
         );
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) use ($rawObfuscatedRequest) {
                 $messageHeader = strstr($message, "\n", true);
@@ -114,7 +114,7 @@ class CommunicatorLoggingTest extends ClientTestCase
             $requestHeaders,
             $requestBody->toJson()
         );
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) use ($rawObfuscatedRequest) {
                 $messageHeader = strstr($message, "\n", true);
@@ -148,7 +148,7 @@ class CommunicatorLoggingTest extends ClientTestCase
         );
         $httpObfuscator = new HttpObfuscator();
         $rawObfuscatedResponse = $httpObfuscator->getRawObfuscatedResponse($connectionResponse);
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) use ($rawObfuscatedResponse) {
                 $messageHeader = strstr($message, "\n", true);
@@ -187,7 +187,7 @@ class CommunicatorLoggingTest extends ClientTestCase
         );
         $httpObfuscator = new HttpObfuscator();
         $rawObfuscatedResponse = $httpObfuscator->getRawObfuscatedResponse($connectionResponse);
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) use ($rawObfuscatedResponse) {
                 $messageHeader = strstr($message, "\n", true);
@@ -225,7 +225,7 @@ class CommunicatorLoggingTest extends ClientTestCase
             $connection,
             $this->getMockCommunicatorConfiguration()
         );
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->once())->method('log')->will(
             $this->returnCallback(function ($message) {
                 $messageHeader = strstr($message, "\n", true);
@@ -255,7 +255,7 @@ class CommunicatorLoggingTest extends ClientTestCase
      */
     public function testLogWithRealRequest()
     {
-        $logger = $this->getMock('\Ingenico\Direct\Sdk\CommunicatorLogger');
+        $logger = $this->getMockBuilder('\Ingenico\Direct\Sdk\CommunicatorLogger')->getMock();
         $logger->expects($this->exactly(2))->method('log')->will(
             $this->returnCallback(function ($message) {
                 $messageParts = explode("\n", $message);
@@ -280,7 +280,7 @@ class CommunicatorLoggingTest extends ClientTestCase
      */
     protected function getMockConnectionResponse($httpStatusCode, $headers = array(), $body = '{}')
     {
-        $connectionResponse = $this->getMock('\Ingenico\Direct\Sdk\ConnectionResponse');
+        $connectionResponse = $this->getMockBuilder('\Ingenico\Direct\Sdk\ConnectionResponse')->getMock();
         $connectionResponse->method('getHttpStatusCode')->willReturn($httpStatusCode);
         $connectionResponse->method('getHeaders')->willReturn($headers);
         $returnMap = array();
@@ -313,7 +313,7 @@ class CommunicatorLoggingTest extends ClientTestCase
      */
     protected function getMockRequestDataObject()
     {
-        $requestDataObject = $this->getMock('\Ingenico\Direct\Sdk\DataObject');
+        $requestDataObject = $this->getMockBuilder('\Ingenico\Direct\Sdk\DataObject')->getMock();
         $convertedDataObject = new stdClass();
         $convertedDataObject->customer = new stdClass();
         $convertedDataObject->customer->firstName = 'John';

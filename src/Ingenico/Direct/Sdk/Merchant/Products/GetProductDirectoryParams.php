@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Merchant\Products;
 
@@ -11,7 +11,7 @@ use Ingenico\Direct\Sdk\RequestObject;
  * Query parameters for Get payment product directory
  *
  * @package Ingenico\Direct\Sdk\Merchant\Products
- * @link https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductDirectoryApi Get payment product directory
+ * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductDirectoryApi Get payment product directory
  */
 class GetProductDirectoryParams extends RequestObject
 {

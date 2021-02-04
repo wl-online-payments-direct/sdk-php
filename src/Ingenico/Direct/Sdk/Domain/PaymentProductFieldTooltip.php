@@ -1,7 +1,7 @@
 <?php
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 namespace Ingenico\Direct\Sdk\Domain;
 
@@ -11,48 +11,48 @@ use UnexpectedValueException;
 /**
  * @package Ingenico\Direct\Sdk\Domain
  */
-class ThreeDSWhitelist extends DataObject
+class PaymentProductFieldTooltip extends DataObject
 {
     // Properties
     /**
      * @var string
      */
-    private $source;
+    private $image;
 
     /**
      * @var string
      */
-    private $status;
+    private $label;
 
     // Methods
     /**
      * @return string
      */
-    public function getSource()
+    public function getImage()
     {
-        return $this->source;
+        return $this->image;
     }
     /**
      * @var string
      */
-    public function setSource($value)
+    public function setImage($value)
     {
-        $this->source = $value;
+        $this->image = $value;
     }
 
     /**
      * @return string
      */
-    public function getStatus()
+    public function getLabel()
     {
-        return $this->status;
+        return $this->label;
     }
     /**
      * @var string
      */
-    public function setStatus($value)
+    public function setLabel($value)
     {
-        $this->status = $value;
+        $this->label = $value;
     }
 
     /**
@@ -61,11 +61,11 @@ class ThreeDSWhitelist extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->source !== null) {
-            $object->source = $this->source;
+        if ($this->image !== null) {
+            $object->image = $this->image;
         }
-        if ($this->status !== null) {
-            $object->status = $this->status;
+        if ($this->label !== null) {
+            $object->label = $this->label;
         }
         return $object;
     }
@@ -78,11 +78,11 @@ class ThreeDSWhitelist extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'source')) {
-            $this->source = $object->source;
+        if (property_exists($object, 'image')) {
+            $this->image = $object->image;
         }
-        if (property_exists($object, 'status')) {
-            $this->status = $object->status;
+        if (property_exists($object, 'label')) {
+            $this->label = $object->label;
         }
         return $this;
     }
