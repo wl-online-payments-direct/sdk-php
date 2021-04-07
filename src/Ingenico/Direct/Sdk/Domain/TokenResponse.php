@@ -35,6 +35,11 @@ class TokenResponse extends DataObject
     private $id;
 
     /**
+     * @var bool
+     */
+    private $isTemporary;
+
+    /**
      * @var int
      */
     private $paymentProductId;
@@ -101,6 +106,21 @@ class TokenResponse extends DataObject
     }
 
     /**
+     * @return bool
+     */
+    public function getIsTemporary()
+    {
+        return $this->isTemporary;
+    }
+    /**
+     * @var bool
+     */
+    public function setIsTemporary($value)
+    {
+        $this->isTemporary = $value;
+    }
+
+    /**
      * @return int
      */
     public function getPaymentProductId()
@@ -132,6 +152,9 @@ class TokenResponse extends DataObject
         }
         if ($this->id !== null) {
             $object->id = $this->id;
+        }
+        if ($this->isTemporary !== null) {
+            $object->isTemporary = $this->isTemporary;
         }
         if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
@@ -170,6 +193,9 @@ class TokenResponse extends DataObject
         }
         if (property_exists($object, 'id')) {
             $this->id = $object->id;
+        }
+        if (property_exists($object, 'isTemporary')) {
+            $this->isTemporary = $object->isTemporary;
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

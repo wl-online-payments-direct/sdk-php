@@ -35,6 +35,11 @@ class ThreeDSecure extends DataObject
     private $externalCardholderAuthenticationData;
 
     /**
+     * @var int
+     */
+    private $merchantFraudRate;
+
+    /**
      * @var ThreeDSecureData
      */
     private $priorThreeDSecureData;
@@ -47,7 +52,17 @@ class ThreeDSecure extends DataObject
     /**
      * @var bool
      */
+    private $secureCorporatePayment;
+
+    /**
+     * @var bool
+     */
     private $skipAuthentication;
+
+    /**
+     * @var bool
+     */
+    private $skipSoftDecline;
 
     // Methods
     /**
@@ -111,6 +126,21 @@ class ThreeDSecure extends DataObject
     }
 
     /**
+     * @return int
+     */
+    public function getMerchantFraudRate()
+    {
+        return $this->merchantFraudRate;
+    }
+    /**
+     * @var int
+     */
+    public function setMerchantFraudRate($value)
+    {
+        $this->merchantFraudRate = $value;
+    }
+
+    /**
      * @return ThreeDSecureData
      */
     public function getPriorThreeDSecureData()
@@ -143,6 +173,21 @@ class ThreeDSecure extends DataObject
     /**
      * @return bool
      */
+    public function getSecureCorporatePayment()
+    {
+        return $this->secureCorporatePayment;
+    }
+    /**
+     * @var bool
+     */
+    public function setSecureCorporatePayment($value)
+    {
+        $this->secureCorporatePayment = $value;
+    }
+
+    /**
+     * @return bool
+     */
     public function getSkipAuthentication()
     {
         return $this->skipAuthentication;
@@ -153,6 +198,21 @@ class ThreeDSecure extends DataObject
     public function setSkipAuthentication($value)
     {
         $this->skipAuthentication = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSkipSoftDecline()
+    {
+        return $this->skipSoftDecline;
+    }
+    /**
+     * @var bool
+     */
+    public function setSkipSoftDecline($value)
+    {
+        $this->skipSoftDecline = $value;
     }
 
     /**
@@ -173,14 +233,23 @@ class ThreeDSecure extends DataObject
         if ($this->externalCardholderAuthenticationData !== null) {
             $object->externalCardholderAuthenticationData = $this->externalCardholderAuthenticationData->toObject();
         }
+        if ($this->merchantFraudRate !== null) {
+            $object->merchantFraudRate = $this->merchantFraudRate;
+        }
         if ($this->priorThreeDSecureData !== null) {
             $object->priorThreeDSecureData = $this->priorThreeDSecureData->toObject();
         }
         if ($this->redirectionData !== null) {
             $object->redirectionData = $this->redirectionData->toObject();
         }
+        if ($this->secureCorporatePayment !== null) {
+            $object->secureCorporatePayment = $this->secureCorporatePayment;
+        }
         if ($this->skipAuthentication !== null) {
             $object->skipAuthentication = $this->skipAuthentication;
+        }
+        if ($this->skipSoftDecline !== null) {
+            $object->skipSoftDecline = $this->skipSoftDecline;
         }
         return $object;
     }
@@ -209,6 +278,9 @@ class ThreeDSecure extends DataObject
             $value = new ExternalCardholderAuthenticationData();
             $this->externalCardholderAuthenticationData = $value->fromObject($object->externalCardholderAuthenticationData);
         }
+        if (property_exists($object, 'merchantFraudRate')) {
+            $this->merchantFraudRate = $object->merchantFraudRate;
+        }
         if (property_exists($object, 'priorThreeDSecureData')) {
             if (!is_object($object->priorThreeDSecureData)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->priorThreeDSecureData, true) . '\' is not an object');
@@ -223,8 +295,14 @@ class ThreeDSecure extends DataObject
             $value = new RedirectionData();
             $this->redirectionData = $value->fromObject($object->redirectionData);
         }
+        if (property_exists($object, 'secureCorporatePayment')) {
+            $this->secureCorporatePayment = $object->secureCorporatePayment;
+        }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
+        }
+        if (property_exists($object, 'skipSoftDecline')) {
+            $this->skipSoftDecline = $object->skipSoftDecline;
         }
         return $this;
     }

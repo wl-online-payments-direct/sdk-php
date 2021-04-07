@@ -87,6 +87,11 @@ class AirlineFlightLeg extends DataObject
     /**
      * @var int
      */
+    private $legFare;
+
+    /**
+     * @var int
+     */
     private $number;
 
     /**
@@ -323,6 +328,21 @@ class AirlineFlightLeg extends DataObject
     /**
      * @return int
      */
+    public function getLegFare()
+    {
+        return $this->legFare;
+    }
+    /**
+     * @var int
+     */
+    public function setLegFare($value)
+    {
+        $this->legFare = $value;
+    }
+
+    /**
+     * @return int
+     */
     public function getNumber()
     {
         return $this->number;
@@ -443,6 +463,9 @@ class AirlineFlightLeg extends DataObject
         if ($this->flightNumber !== null) {
             $object->flightNumber = $this->flightNumber;
         }
+        if ($this->legFare !== null) {
+            $object->legFare = $this->legFare;
+        }
         if ($this->number !== null) {
             $object->number = $this->number;
         }
@@ -510,6 +533,9 @@ class AirlineFlightLeg extends DataObject
         }
         if (property_exists($object, 'flightNumber')) {
             $this->flightNumber = $object->flightNumber;
+        }
+        if (property_exists($object, 'legFare')) {
+            $this->legFare = $object->legFare;
         }
         if (property_exists($object, 'number')) {
             $this->number = $object->number;

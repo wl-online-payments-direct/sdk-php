@@ -25,6 +25,11 @@ class BrowserData extends DataObject
     private $javaEnabled;
 
     /**
+     * @var bool
+     */
+    private $javaScriptEnabled;
+
+    /**
      * @var string
      */
     private $screenHeight;
@@ -63,6 +68,21 @@ class BrowserData extends DataObject
     public function setJavaEnabled($value)
     {
         $this->javaEnabled = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getJavaScriptEnabled()
+    {
+        return $this->javaScriptEnabled;
+    }
+    /**
+     * @var bool
+     */
+    public function setJavaScriptEnabled($value)
+    {
+        $this->javaScriptEnabled = $value;
     }
 
     /**
@@ -107,6 +127,9 @@ class BrowserData extends DataObject
         if ($this->javaEnabled !== null) {
             $object->javaEnabled = $this->javaEnabled;
         }
+        if ($this->javaScriptEnabled !== null) {
+            $object->javaScriptEnabled = $this->javaScriptEnabled;
+        }
         if ($this->screenHeight !== null) {
             $object->screenHeight = $this->screenHeight;
         }
@@ -129,6 +152,9 @@ class BrowserData extends DataObject
         }
         if (property_exists($object, 'javaEnabled')) {
             $this->javaEnabled = $object->javaEnabled;
+        }
+        if (property_exists($object, 'javaScriptEnabled')) {
+            $this->javaScriptEnabled = $object->javaScriptEnabled;
         }
         if (property_exists($object, 'screenHeight')) {
             $this->screenHeight = $object->screenHeight;

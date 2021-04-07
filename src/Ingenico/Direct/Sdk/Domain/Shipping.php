@@ -40,6 +40,16 @@ class Shipping extends DataObject
     private $isFirstUsage;
 
     /**
+     * @var int
+     */
+    private $shippingCost;
+
+    /**
+     * @var int
+     */
+    private $shippingCostTax;
+
+    /**
      * @var string
      */
     private $type;
@@ -121,6 +131,36 @@ class Shipping extends DataObject
     }
 
     /**
+     * @return int
+     */
+    public function getShippingCost()
+    {
+        return $this->shippingCost;
+    }
+    /**
+     * @var int
+     */
+    public function setShippingCost($value)
+    {
+        $this->shippingCost = $value;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShippingCostTax()
+    {
+        return $this->shippingCostTax;
+    }
+    /**
+     * @var int
+     */
+    public function setShippingCostTax($value)
+    {
+        $this->shippingCostTax = $value;
+    }
+
+    /**
      * @return string
      */
     public function getType()
@@ -156,6 +196,12 @@ class Shipping extends DataObject
         if ($this->isFirstUsage !== null) {
             $object->isFirstUsage = $this->isFirstUsage;
         }
+        if ($this->shippingCost !== null) {
+            $object->shippingCost = $this->shippingCost;
+        }
+        if ($this->shippingCostTax !== null) {
+            $object->shippingCostTax = $this->shippingCostTax;
+        }
         if ($this->type !== null) {
             $object->type = $this->type;
         }
@@ -188,6 +234,12 @@ class Shipping extends DataObject
         }
         if (property_exists($object, 'isFirstUsage')) {
             $this->isFirstUsage = $object->isFirstUsage;
+        }
+        if (property_exists($object, 'shippingCost')) {
+            $this->shippingCost = $object->shippingCost;
+        }
+        if (property_exists($object, 'shippingCostTax')) {
+            $this->shippingCostTax = $object->shippingCostTax;
         }
         if (property_exists($object, 'type')) {
             $this->type = $object->type;

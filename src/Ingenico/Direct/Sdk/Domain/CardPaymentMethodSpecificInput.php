@@ -35,6 +35,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     private $isRecurring;
 
     /**
+     * @var PaymentProduct130SpecificInput
+     */
+    private $paymentProduct130SpecificInput;
+
+    /**
      * @var int
      */
     private $paymentProductId;
@@ -53,11 +58,6 @@ class CardPaymentMethodSpecificInput extends DataObject
      * @var bool
      */
     private $skipAuthentication;
-
-    /**
-     * @var bool
-     */
-    private $skipSoftDecline;
 
     /**
      * @var ThreeDSecure
@@ -151,6 +151,21 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return PaymentProduct130SpecificInput
+     */
+    public function getPaymentProduct130SpecificInput()
+    {
+        return $this->paymentProduct130SpecificInput;
+    }
+    /**
+     * @var PaymentProduct130SpecificInput
+     */
+    public function setPaymentProduct130SpecificInput($value)
+    {
+        $this->paymentProduct130SpecificInput = $value;
+    }
+
+    /**
      * @return int
      */
     public function getPaymentProductId()
@@ -208,21 +223,6 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function setSkipAuthentication($value)
     {
         $this->skipAuthentication = $value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getSkipSoftDecline()
-    {
-        return $this->skipSoftDecline;
-    }
-    /**
-     * @var bool
-     */
-    public function setSkipSoftDecline($value)
-    {
-        $this->skipSoftDecline = $value;
     }
 
     /**
@@ -333,6 +333,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if ($this->isRecurring !== null) {
             $object->isRecurring = $this->isRecurring;
         }
+        if ($this->paymentProduct130SpecificInput !== null) {
+            $object->paymentProduct130SpecificInput = $this->paymentProduct130SpecificInput->toObject();
+        }
         if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -344,9 +347,6 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if ($this->skipAuthentication !== null) {
             $object->skipAuthentication = $this->skipAuthentication;
-        }
-        if ($this->skipSoftDecline !== null) {
-            $object->skipSoftDecline = $this->skipSoftDecline;
         }
         if ($this->threeDSecure !== null) {
             $object->threeDSecure = $this->threeDSecure->toObject();
@@ -393,6 +393,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (property_exists($object, 'isRecurring')) {
             $this->isRecurring = $object->isRecurring;
         }
+        if (property_exists($object, 'paymentProduct130SpecificInput')) {
+            if (!is_object($object->paymentProduct130SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct130SpecificInput, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct130SpecificInput();
+            $this->paymentProduct130SpecificInput = $value->fromObject($object->paymentProduct130SpecificInput);
+        }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;
         }
@@ -408,9 +415,6 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
-        }
-        if (property_exists($object, 'skipSoftDecline')) {
-            $this->skipSoftDecline = $object->skipSoftDecline;
         }
         if (property_exists($object, 'threeDSecure')) {
             if (!is_object($object->threeDSecure)) {

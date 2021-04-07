@@ -30,6 +30,11 @@ class ThreeDSecureBase extends DataObject
     private $exemptionRequest;
 
     /**
+     * @var int
+     */
+    private $merchantFraudRate;
+
+    /**
      * @var ThreeDSecureData
      */
     private $priorThreeDSecureData;
@@ -37,7 +42,17 @@ class ThreeDSecureBase extends DataObject
     /**
      * @var bool
      */
+    private $secureCorporatePayment;
+
+    /**
+     * @var bool
+     */
     private $skipAuthentication;
+
+    /**
+     * @var bool
+     */
+    private $skipSoftDecline;
 
     // Methods
     /**
@@ -86,6 +101,21 @@ class ThreeDSecureBase extends DataObject
     }
 
     /**
+     * @return int
+     */
+    public function getMerchantFraudRate()
+    {
+        return $this->merchantFraudRate;
+    }
+    /**
+     * @var int
+     */
+    public function setMerchantFraudRate($value)
+    {
+        $this->merchantFraudRate = $value;
+    }
+
+    /**
      * @return ThreeDSecureData
      */
     public function getPriorThreeDSecureData()
@@ -98,6 +128,21 @@ class ThreeDSecureBase extends DataObject
     public function setPriorThreeDSecureData($value)
     {
         $this->priorThreeDSecureData = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSecureCorporatePayment()
+    {
+        return $this->secureCorporatePayment;
+    }
+    /**
+     * @var bool
+     */
+    public function setSecureCorporatePayment($value)
+    {
+        $this->secureCorporatePayment = $value;
     }
 
     /**
@@ -116,6 +161,21 @@ class ThreeDSecureBase extends DataObject
     }
 
     /**
+     * @return bool
+     */
+    public function getSkipSoftDecline()
+    {
+        return $this->skipSoftDecline;
+    }
+    /**
+     * @var bool
+     */
+    public function setSkipSoftDecline($value)
+    {
+        $this->skipSoftDecline = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -130,11 +190,20 @@ class ThreeDSecureBase extends DataObject
         if ($this->exemptionRequest !== null) {
             $object->exemptionRequest = $this->exemptionRequest;
         }
+        if ($this->merchantFraudRate !== null) {
+            $object->merchantFraudRate = $this->merchantFraudRate;
+        }
         if ($this->priorThreeDSecureData !== null) {
             $object->priorThreeDSecureData = $this->priorThreeDSecureData->toObject();
         }
+        if ($this->secureCorporatePayment !== null) {
+            $object->secureCorporatePayment = $this->secureCorporatePayment;
+        }
         if ($this->skipAuthentication !== null) {
             $object->skipAuthentication = $this->skipAuthentication;
+        }
+        if ($this->skipSoftDecline !== null) {
+            $object->skipSoftDecline = $this->skipSoftDecline;
         }
         return $object;
     }
@@ -156,6 +225,9 @@ class ThreeDSecureBase extends DataObject
         if (property_exists($object, 'exemptionRequest')) {
             $this->exemptionRequest = $object->exemptionRequest;
         }
+        if (property_exists($object, 'merchantFraudRate')) {
+            $this->merchantFraudRate = $object->merchantFraudRate;
+        }
         if (property_exists($object, 'priorThreeDSecureData')) {
             if (!is_object($object->priorThreeDSecureData)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->priorThreeDSecureData, true) . '\' is not an object');
@@ -163,8 +235,14 @@ class ThreeDSecureBase extends DataObject
             $value = new ThreeDSecureData();
             $this->priorThreeDSecureData = $value->fromObject($object->priorThreeDSecureData);
         }
+        if (property_exists($object, 'secureCorporatePayment')) {
+            $this->secureCorporatePayment = $object->secureCorporatePayment;
+        }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
+        }
+        if (property_exists($object, 'skipSoftDecline')) {
+            $this->skipSoftDecline = $object->skipSoftDecline;
         }
         return $this;
     }

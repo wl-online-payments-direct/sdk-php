@@ -50,6 +50,16 @@ class PaymentProduct extends DataObject
     private $paymentMethod;
 
     /**
+     * @var PaymentProduct302SpecificData
+     */
+    private $paymentProduct302SpecificData;
+
+    /**
+     * @var PaymentProduct320SpecificData
+     */
+    private $paymentProduct320SpecificData;
+
+    /**
      * @var string
      */
     private $paymentProductGroup;
@@ -166,6 +176,36 @@ class PaymentProduct extends DataObject
     }
 
     /**
+     * @return PaymentProduct302SpecificData
+     */
+    public function getPaymentProduct302SpecificData()
+    {
+        return $this->paymentProduct302SpecificData;
+    }
+    /**
+     * @var PaymentProduct302SpecificData
+     */
+    public function setPaymentProduct302SpecificData($value)
+    {
+        $this->paymentProduct302SpecificData = $value;
+    }
+
+    /**
+     * @return PaymentProduct320SpecificData
+     */
+    public function getPaymentProduct320SpecificData()
+    {
+        return $this->paymentProduct320SpecificData;
+    }
+    /**
+     * @var PaymentProduct320SpecificData
+     */
+    public function setPaymentProduct320SpecificData($value)
+    {
+        $this->paymentProduct320SpecificData = $value;
+    }
+
+    /**
      * @return string
      */
     public function getPaymentProductGroup()
@@ -232,6 +272,12 @@ class PaymentProduct extends DataObject
         if ($this->paymentMethod !== null) {
             $object->paymentMethod = $this->paymentMethod;
         }
+        if ($this->paymentProduct302SpecificData !== null) {
+            $object->paymentProduct302SpecificData = $this->paymentProduct302SpecificData->toObject();
+        }
+        if ($this->paymentProduct320SpecificData !== null) {
+            $object->paymentProduct320SpecificData = $this->paymentProduct320SpecificData->toObject();
+        }
         if ($this->paymentProductGroup !== null) {
             $object->paymentProductGroup = $this->paymentProductGroup;
         }
@@ -287,6 +333,20 @@ class PaymentProduct extends DataObject
         }
         if (property_exists($object, 'paymentMethod')) {
             $this->paymentMethod = $object->paymentMethod;
+        }
+        if (property_exists($object, 'paymentProduct302SpecificData')) {
+            if (!is_object($object->paymentProduct302SpecificData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct302SpecificData, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct302SpecificData();
+            $this->paymentProduct302SpecificData = $value->fromObject($object->paymentProduct302SpecificData);
+        }
+        if (property_exists($object, 'paymentProduct320SpecificData')) {
+            if (!is_object($object->paymentProduct320SpecificData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct320SpecificData, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct320SpecificData();
+            $this->paymentProduct320SpecificData = $value->fromObject($object->paymentProduct320SpecificData);
         }
         if (property_exists($object, 'paymentProductGroup')) {
             $this->paymentProductGroup = $object->paymentProductGroup;

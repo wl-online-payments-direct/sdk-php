@@ -30,6 +30,11 @@ class CreateHostedCheckoutRequest extends DataObject
     private $hostedCheckoutSpecificInput;
 
     /**
+     * @var MobilePaymentMethodHostedCheckoutSpecificInput
+     */
+    private $mobilePaymentMethodSpecificInput;
+
+    /**
      * @var Order
      */
     private $order;
@@ -86,6 +91,21 @@ class CreateHostedCheckoutRequest extends DataObject
     }
 
     /**
+     * @return MobilePaymentMethodHostedCheckoutSpecificInput
+     */
+    public function getMobilePaymentMethodSpecificInput()
+    {
+        return $this->mobilePaymentMethodSpecificInput;
+    }
+    /**
+     * @var MobilePaymentMethodHostedCheckoutSpecificInput
+     */
+    public function setMobilePaymentMethodSpecificInput($value)
+    {
+        $this->mobilePaymentMethodSpecificInput = $value;
+    }
+
+    /**
      * @return Order
      */
     public function getOrder()
@@ -130,6 +150,9 @@ class CreateHostedCheckoutRequest extends DataObject
         if ($this->hostedCheckoutSpecificInput !== null) {
             $object->hostedCheckoutSpecificInput = $this->hostedCheckoutSpecificInput->toObject();
         }
+        if ($this->mobilePaymentMethodSpecificInput !== null) {
+            $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
+        }
         if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
@@ -167,6 +190,13 @@ class CreateHostedCheckoutRequest extends DataObject
             }
             $value = new HostedCheckoutSpecificInput();
             $this->hostedCheckoutSpecificInput = $value->fromObject($object->hostedCheckoutSpecificInput);
+        }
+        if (property_exists($object, 'mobilePaymentMethodSpecificInput')) {
+            if (!is_object($object->mobilePaymentMethodSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->mobilePaymentMethodSpecificInput, true) . '\' is not an object');
+            }
+            $value = new MobilePaymentMethodHostedCheckoutSpecificInput();
+            $this->mobilePaymentMethodSpecificInput = $value->fromObject($object->mobilePaymentMethodSpecificInput);
         }
         if (property_exists($object, 'order')) {
             if (!is_object($object->order)) {
