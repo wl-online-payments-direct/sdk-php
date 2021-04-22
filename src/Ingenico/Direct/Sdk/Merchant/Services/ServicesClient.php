@@ -10,6 +10,8 @@ use Ingenico\Direct\Sdk\ApiException;
 use Ingenico\Direct\Sdk\AuthorizationException;
 use Ingenico\Direct\Sdk\CallContext;
 use Ingenico\Direct\Sdk\DirectException;
+use Ingenico\Direct\Sdk\Domain\GetIINDetailsRequest;
+use Ingenico\Direct\Sdk\Domain\GetIINDetailsResponse;
 use Ingenico\Direct\Sdk\Domain\TestConnection;
 use Ingenico\Direct\Sdk\IdempotenceException;
 use Ingenico\Direct\Sdk\InvalidResponseException;
@@ -30,6 +32,22 @@ class ServicesClient extends Resource implements ServicesClientInterface
             $responseClassMap,
             $this->instantiateUri('/v2/{merchantId}/services/testconnection'),
             $this->getClientMetaInfo(),
+            null,
+            $callContext
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getIINDetails(GetIINDetailsRequest $body, CallContext $callContext = null)
+    {
+        $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\GetIINDetailsResponse');
+        return $this->getCommunicator()->post(
+            $responseClassMap,
+            $this->instantiateUri('/v2/{merchantId}/services/getIINdetails'),
+            $this->getClientMetaInfo(),
+            $body,
             null,
             $callContext
         );

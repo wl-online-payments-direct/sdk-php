@@ -11,7 +11,7 @@ use UnexpectedValueException;
 /**
  * @package Ingenico\Direct\Sdk\Domain
  */
-class CardEssentials extends DataObject
+class GetIINDetailsRequest extends DataObject
 {
     // Properties
     /**
@@ -20,14 +20,9 @@ class CardEssentials extends DataObject
     private $bin;
 
     /**
-     * @var string
+     * @var PaymentContext
      */
-    private $cardNumber;
-
-    /**
-     * @var string
-     */
-    private $expiryDate;
+    private $paymentContext;
 
     // Methods
     /**
@@ -46,33 +41,18 @@ class CardEssentials extends DataObject
     }
 
     /**
-     * @return string
+     * @return PaymentContext
      */
-    public function getCardNumber()
+    public function getPaymentContext()
     {
-        return $this->cardNumber;
+        return $this->paymentContext;
     }
     /**
-     * @var string
+     * @var PaymentContext
      */
-    public function setCardNumber($value)
+    public function setPaymentContext($value)
     {
-        $this->cardNumber = $value;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExpiryDate()
-    {
-        return $this->expiryDate;
-    }
-    /**
-     * @var string
-     */
-    public function setExpiryDate($value)
-    {
-        $this->expiryDate = $value;
+        $this->paymentContext = $value;
     }
 
     /**
@@ -84,11 +64,8 @@ class CardEssentials extends DataObject
         if ($this->bin !== null) {
             $object->bin = $this->bin;
         }
-        if ($this->cardNumber !== null) {
-            $object->cardNumber = $this->cardNumber;
-        }
-        if ($this->expiryDate !== null) {
-            $object->expiryDate = $this->expiryDate;
+        if ($this->paymentContext !== null) {
+            $object->paymentContext = $this->paymentContext->toObject();
         }
         return $object;
     }
@@ -104,11 +81,12 @@ class CardEssentials extends DataObject
         if (property_exists($object, 'bin')) {
             $this->bin = $object->bin;
         }
-        if (property_exists($object, 'cardNumber')) {
-            $this->cardNumber = $object->cardNumber;
-        }
-        if (property_exists($object, 'expiryDate')) {
-            $this->expiryDate = $object->expiryDate;
+        if (property_exists($object, 'paymentContext')) {
+            if (!is_object($object->paymentContext)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentContext, true) . '\' is not an object');
+            }
+            $value = new PaymentContext();
+            $this->paymentContext = $value->fromObject($object->paymentContext);
         }
         return $this;
     }

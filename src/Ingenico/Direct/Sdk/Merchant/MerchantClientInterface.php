@@ -46,7 +46,7 @@ interface MerchantClientInterface
     public function payments();
 
     /**
-     * Resource /v2/{merchantId}/services/testconnection
+     * Resource /v2/{merchantId}/services
      *
      * @return ServicesClientInterface
      */
