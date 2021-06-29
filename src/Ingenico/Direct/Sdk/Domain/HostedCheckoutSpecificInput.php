@@ -15,11 +15,6 @@ class HostedCheckoutSpecificInput extends DataObject
 {
     // Properties
     /**
-     * @var CardPaymentMethodSpecificInputForHostedCheckout
-     */
-    private $cardPaymentMethodSpecificInput;
-
-    /**
      * @var bool
      */
     private $isRecurring;
@@ -40,6 +35,11 @@ class HostedCheckoutSpecificInput extends DataObject
     private $returnUrl;
 
     /**
+     * @var int
+     */
+    private $sessionTimeout;
+
+    /**
      * @var bool
      */
     private $showResultPage;
@@ -55,21 +55,6 @@ class HostedCheckoutSpecificInput extends DataObject
     private $variant;
 
     // Methods
-    /**
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
-     */
-    public function getCardPaymentMethodSpecificInput()
-    {
-        return $this->cardPaymentMethodSpecificInput;
-    }
-    /**
-     * @var CardPaymentMethodSpecificInputForHostedCheckout
-     */
-    public function setCardPaymentMethodSpecificInput($value)
-    {
-        $this->cardPaymentMethodSpecificInput = $value;
-    }
-
     /**
      * @return bool
      */
@@ -131,6 +116,21 @@ class HostedCheckoutSpecificInput extends DataObject
     }
 
     /**
+     * @return int
+     */
+    public function getSessionTimeout()
+    {
+        return $this->sessionTimeout;
+    }
+    /**
+     * @var int
+     */
+    public function setSessionTimeout($value)
+    {
+        $this->sessionTimeout = $value;
+    }
+
+    /**
      * @return bool
      */
     public function getShowResultPage()
@@ -181,9 +181,6 @@ class HostedCheckoutSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardPaymentMethodSpecificInput !== null) {
-            $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
-        }
         if ($this->isRecurring !== null) {
             $object->isRecurring = $this->isRecurring;
         }
@@ -195,6 +192,9 @@ class HostedCheckoutSpecificInput extends DataObject
         }
         if ($this->returnUrl !== null) {
             $object->returnUrl = $this->returnUrl;
+        }
+        if ($this->sessionTimeout !== null) {
+            $object->sessionTimeout = $this->sessionTimeout;
         }
         if ($this->showResultPage !== null) {
             $object->showResultPage = $this->showResultPage;
@@ -216,13 +216,6 @@ class HostedCheckoutSpecificInput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'cardPaymentMethodSpecificInput')) {
-            if (!is_object($object->cardPaymentMethodSpecificInput)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->cardPaymentMethodSpecificInput, true) . '\' is not an object');
-            }
-            $value = new CardPaymentMethodSpecificInputForHostedCheckout();
-            $this->cardPaymentMethodSpecificInput = $value->fromObject($object->cardPaymentMethodSpecificInput);
-        }
         if (property_exists($object, 'isRecurring')) {
             $this->isRecurring = $object->isRecurring;
         }
@@ -238,6 +231,9 @@ class HostedCheckoutSpecificInput extends DataObject
         }
         if (property_exists($object, 'returnUrl')) {
             $this->returnUrl = $object->returnUrl;
+        }
+        if (property_exists($object, 'sessionTimeout')) {
+            $this->sessionTimeout = $object->sessionTimeout;
         }
         if (property_exists($object, 'showResultPage')) {
             $this->showResultPage = $object->showResultPage;

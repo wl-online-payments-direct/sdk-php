@@ -15,11 +15,31 @@ class PaymentProduct320SpecificData extends DataObject
 {
     // Properties
     /**
+     * @var string
+     */
+    private $gateway;
+
+    /**
      * @var string[]
      */
     private $networks;
 
     // Methods
+    /**
+     * @return string
+     */
+    public function getGateway()
+    {
+        return $this->gateway;
+    }
+    /**
+     * @var string
+     */
+    public function setGateway($value)
+    {
+        $this->gateway = $value;
+    }
+
     /**
      * @return string[]
      */
@@ -41,6 +61,9 @@ class PaymentProduct320SpecificData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->gateway !== null) {
+            $object->gateway = $this->gateway;
+        }
         if ($this->networks !== null) {
             $object->networks = [];
             foreach ($this->networks as $element) {
@@ -60,6 +83,9 @@ class PaymentProduct320SpecificData extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'gateway')) {
+            $this->gateway = $object->gateway;
+        }
         if (property_exists($object, 'networks')) {
             if (!is_array($object->networks) && !is_object($object->networks)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->networks, true) . '\' is not an array or object');
