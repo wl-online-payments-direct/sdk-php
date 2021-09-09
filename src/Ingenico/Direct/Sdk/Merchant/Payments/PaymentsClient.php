@@ -20,6 +20,7 @@ use Ingenico\Direct\Sdk\Domain\CompletePaymentRequest;
 use Ingenico\Direct\Sdk\Domain\CompletePaymentResponse;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentRequest;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentResponse;
+use Ingenico\Direct\Sdk\Domain\PaymentDetailsResponse;
 use Ingenico\Direct\Sdk\Domain\PaymentResponse;
 use Ingenico\Direct\Sdk\Domain\RefundRequest;
 use Ingenico\Direct\Sdk\Domain\RefundResponse;
@@ -146,6 +147,22 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
         return $this->getCommunicator()->get(
             $responseClassMap,
             $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/captures'),
+            $this->getClientMetaInfo(),
+            null,
+            $callContext
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPaymentDetails($paymentId, CallContext $callContext = null)
+    {
+        $this->context['paymentId'] = $paymentId;
+        $responseClassMap = new ResponseClassMap('\Ingenico\Direct\Sdk\Domain\PaymentDetailsResponse');
+        return $this->getCommunicator()->get(
+            $responseClassMap,
+            $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/details'),
             $this->getClientMetaInfo(),
             null,
             $callContext

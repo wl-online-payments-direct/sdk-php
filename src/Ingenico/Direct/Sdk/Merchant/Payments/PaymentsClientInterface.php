@@ -20,6 +20,7 @@ use Ingenico\Direct\Sdk\Domain\CompletePaymentRequest;
 use Ingenico\Direct\Sdk\Domain\CompletePaymentResponse;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentRequest;
 use Ingenico\Direct\Sdk\Domain\CreatePaymentResponse;
+use Ingenico\Direct\Sdk\Domain\PaymentDetailsResponse;
 use Ingenico\Direct\Sdk\Domain\PaymentResponse;
 use Ingenico\Direct\Sdk\Domain\RefundRequest;
 use Ingenico\Direct\Sdk\Domain\RefundResponse;
@@ -169,6 +170,25 @@ interface PaymentsClientInterface
      * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetCapturesApi Get Captures Api
      */
     public function getCaptures($paymentId, CallContext $callContext = null);
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/details - Get payment details
+     *
+     * @param string $paymentId
+     * @param CallContext $callContext
+     * @return PaymentDetailsResponse
+     *
+     * @throws ApiException
+     * @throws AuthorizationException
+     * @throws Exception
+     * @throws DirectException
+     * @throws IdempotenceException
+     * @throws InvalidResponseException
+     * @throws ReferenceException
+     * @throws ValidationException
+     * @link https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentDetailsApi Get payment details
+     */
+    public function getPaymentDetails($paymentId, CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/refunds - Get Refunds Api

@@ -35,6 +35,11 @@ class PaymentProduct extends DataObject
     private $displayHints;
 
     /**
+     * @var PaymentProductDisplayHints[]
+     */
+    private $displayHintsList;
+
+    /**
      * @var PaymentProductField[]
      */
     private $fields;
@@ -128,6 +133,21 @@ class PaymentProduct extends DataObject
     public function setDisplayHints($value)
     {
         $this->displayHints = $value;
+    }
+
+    /**
+     * @return PaymentProductDisplayHints[]
+     */
+    public function getDisplayHintsList()
+    {
+        return $this->displayHintsList;
+    }
+    /**
+     * @var PaymentProductDisplayHints[]
+     */
+    public function setDisplayHintsList($value)
+    {
+        $this->displayHintsList = $value;
     }
 
     /**
@@ -258,6 +278,14 @@ class PaymentProduct extends DataObject
         if ($this->displayHints !== null) {
             $object->displayHints = $this->displayHints->toObject();
         }
+        if ($this->displayHintsList !== null) {
+            $object->displayHintsList = [];
+            foreach ($this->displayHintsList as $element) {
+                if ($element !== null) {
+                    $object->displayHintsList[] = $element->toObject();
+                }
+            }
+        }
         if ($this->fields !== null) {
             $object->fields = [];
             foreach ($this->fields as $element) {
@@ -317,6 +345,16 @@ class PaymentProduct extends DataObject
             }
             $value = new PaymentProductDisplayHints();
             $this->displayHints = $value->fromObject($object->displayHints);
+        }
+        if (property_exists($object, 'displayHintsList')) {
+            if (!is_array($object->displayHintsList) && !is_object($object->displayHintsList)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->displayHintsList, true) . '\' is not an array or object');
+            }
+            $this->displayHintsList = [];
+            foreach ($object->displayHintsList as $element) {
+                $value = new PaymentProductDisplayHints();
+                $this->displayHintsList[] = $value->fromObject($element);
+            }
         }
         if (property_exists($object, 'fields')) {
             if (!is_array($object->fields) && !is_object($object->fields)) {

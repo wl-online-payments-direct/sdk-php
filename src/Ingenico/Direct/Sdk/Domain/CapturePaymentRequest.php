@@ -24,6 +24,11 @@ class CapturePaymentRequest extends DataObject
      */
     private $isFinal;
 
+    /**
+     * @var PaymentReferences
+     */
+    private $references;
+
     // Methods
     /**
      * @return int
@@ -56,6 +61,21 @@ class CapturePaymentRequest extends DataObject
     }
 
     /**
+     * @return PaymentReferences
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+    /**
+     * @var PaymentReferences
+     */
+    public function setReferences($value)
+    {
+        $this->references = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -66,6 +86,9 @@ class CapturePaymentRequest extends DataObject
         }
         if ($this->isFinal !== null) {
             $object->isFinal = $this->isFinal;
+        }
+        if ($this->references !== null) {
+            $object->references = $this->references->toObject();
         }
         return $object;
     }
@@ -83,6 +106,13 @@ class CapturePaymentRequest extends DataObject
         }
         if (property_exists($object, 'isFinal')) {
             $this->isFinal = $object->isFinal;
+        }
+        if (property_exists($object, 'references')) {
+            if (!is_object($object->references)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->references, true) . '\' is not an object');
+            }
+            $value = new PaymentReferences();
+            $this->references = $value->fromObject($object->references);
         }
         return $this;
     }

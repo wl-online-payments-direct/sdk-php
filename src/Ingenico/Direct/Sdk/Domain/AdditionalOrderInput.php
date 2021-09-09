@@ -25,6 +25,11 @@ class AdditionalOrderInput extends DataObject
     private $loanRecipient;
 
     /**
+     * @var LodgingData
+     */
+    private $lodgingData;
+
+    /**
      * @var OrderTypeInformation
      */
     private $typeInformation;
@@ -61,6 +66,21 @@ class AdditionalOrderInput extends DataObject
     }
 
     /**
+     * @return LodgingData
+     */
+    public function getLodgingData()
+    {
+        return $this->lodgingData;
+    }
+    /**
+     * @var LodgingData
+     */
+    public function setLodgingData($value)
+    {
+        $this->lodgingData = $value;
+    }
+
+    /**
      * @return OrderTypeInformation
      */
     public function getTypeInformation()
@@ -86,6 +106,9 @@ class AdditionalOrderInput extends DataObject
         }
         if ($this->loanRecipient !== null) {
             $object->loanRecipient = $this->loanRecipient->toObject();
+        }
+        if ($this->lodgingData !== null) {
+            $object->lodgingData = $this->lodgingData->toObject();
         }
         if ($this->typeInformation !== null) {
             $object->typeInformation = $this->typeInformation->toObject();
@@ -114,6 +137,13 @@ class AdditionalOrderInput extends DataObject
             }
             $value = new LoanRecipient();
             $this->loanRecipient = $value->fromObject($object->loanRecipient);
+        }
+        if (property_exists($object, 'lodgingData')) {
+            if (!is_object($object->lodgingData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->lodgingData, true) . '\' is not an object');
+            }
+            $value = new LodgingData();
+            $this->lodgingData = $value->fromObject($object->lodgingData);
         }
         if (property_exists($object, 'typeInformation')) {
             if (!is_object($object->typeInformation)) {

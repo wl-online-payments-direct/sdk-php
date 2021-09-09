@@ -19,6 +19,11 @@ class RefundRequest extends DataObject
      */
     private $amountOfMoney;
 
+    /**
+     * @var PaymentReferences
+     */
+    private $references;
+
     // Methods
     /**
      * @return AmountOfMoney
@@ -36,6 +41,21 @@ class RefundRequest extends DataObject
     }
 
     /**
+     * @return PaymentReferences
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+    /**
+     * @var PaymentReferences
+     */
+    public function setReferences($value)
+    {
+        $this->references = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -43,6 +63,9 @@ class RefundRequest extends DataObject
         $object = parent::toObject();
         if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
+        }
+        if ($this->references !== null) {
+            $object->references = $this->references->toObject();
         }
         return $object;
     }
@@ -61,6 +84,13 @@ class RefundRequest extends DataObject
             }
             $value = new AmountOfMoney();
             $this->amountOfMoney = $value->fromObject($object->amountOfMoney);
+        }
+        if (property_exists($object, 'references')) {
+            if (!is_object($object->references)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->references, true) . '\' is not an object');
+            }
+            $value = new PaymentReferences();
+            $this->references = $value->fromObject($object->references);
         }
         return $this;
     }
