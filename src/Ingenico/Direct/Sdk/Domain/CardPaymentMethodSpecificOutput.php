@@ -15,6 +15,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
 {
     // Properties
     /**
+     * @var int
+     */
+    private $authenticatedAmount;
+
+    /**
      * @var string
      */
     private $authorisationCode;
@@ -23,6 +28,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
      * @var CardEssentials
      */
     private $card;
+
+    /**
+     * @var ExternalTokenLinked
+     */
+    private $externalTokenLinked;
 
     /**
      * @var CardFraudResults
@@ -56,6 +66,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
 
     // Methods
     /**
+     * @return int
+     */
+    public function getAuthenticatedAmount()
+    {
+        return $this->authenticatedAmount;
+    }
+    /**
+     * @var int
+     */
+    public function setAuthenticatedAmount($value)
+    {
+        $this->authenticatedAmount = $value;
+    }
+
+    /**
      * @return string
      */
     public function getAuthorisationCode()
@@ -83,6 +108,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function setCard($value)
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return ExternalTokenLinked
+     */
+    public function getExternalTokenLinked()
+    {
+        return $this->externalTokenLinked;
+    }
+    /**
+     * @var ExternalTokenLinked
+     */
+    public function setExternalTokenLinked($value)
+    {
+        $this->externalTokenLinked = $value;
     }
 
     /**
@@ -181,11 +221,17 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->authenticatedAmount !== null) {
+            $object->authenticatedAmount = $this->authenticatedAmount;
+        }
         if ($this->authorisationCode !== null) {
             $object->authorisationCode = $this->authorisationCode;
         }
         if ($this->card !== null) {
             $object->card = $this->card->toObject();
+        }
+        if ($this->externalTokenLinked !== null) {
+            $object->externalTokenLinked = $this->externalTokenLinked->toObject();
         }
         if ($this->fraudResults !== null) {
             $object->fraudResults = $this->fraudResults->toObject();
@@ -216,6 +262,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'authenticatedAmount')) {
+            $this->authenticatedAmount = $object->authenticatedAmount;
+        }
         if (property_exists($object, 'authorisationCode')) {
             $this->authorisationCode = $object->authorisationCode;
         }
@@ -225,6 +274,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
             }
             $value = new CardEssentials();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'externalTokenLinked')) {
+            if (!is_object($object->externalTokenLinked)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->externalTokenLinked, true) . '\' is not an object');
+            }
+            $value = new ExternalTokenLinked();
+            $this->externalTokenLinked = $value->fromObject($object->externalTokenLinked);
         }
         if (property_exists($object, 'fraudResults')) {
             if (!is_object($object->fraudResults)) {

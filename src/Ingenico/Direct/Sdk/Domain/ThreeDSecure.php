@@ -15,6 +15,11 @@ class ThreeDSecure extends DataObject
 {
     // Properties
     /**
+     * @var int
+     */
+    private $authenticationAmount;
+
+    /**
      * @var string
      */
     private $challengeCanvasSize;
@@ -65,6 +70,21 @@ class ThreeDSecure extends DataObject
     private $skipSoftDecline;
 
     // Methods
+    /**
+     * @return int
+     */
+    public function getAuthenticationAmount()
+    {
+        return $this->authenticationAmount;
+    }
+    /**
+     * @var int
+     */
+    public function setAuthenticationAmount($value)
+    {
+        $this->authenticationAmount = $value;
+    }
+
     /**
      * @return string
      */
@@ -221,6 +241,9 @@ class ThreeDSecure extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->authenticationAmount !== null) {
+            $object->authenticationAmount = $this->authenticationAmount;
+        }
         if ($this->challengeCanvasSize !== null) {
             $object->challengeCanvasSize = $this->challengeCanvasSize;
         }
@@ -262,6 +285,9 @@ class ThreeDSecure extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'authenticationAmount')) {
+            $this->authenticationAmount = $object->authenticationAmount;
+        }
         if (property_exists($object, 'challengeCanvasSize')) {
             $this->challengeCanvasSize = $object->challengeCanvasSize;
         }

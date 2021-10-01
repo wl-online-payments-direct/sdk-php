@@ -25,8 +25,8 @@ class TokenTest extends ClientTestCase
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
 
-$logger = new ResourceLogger(STDOUT);
-$client->enableLogging($logger);
+        $logger = new ResourceLogger(STDOUT);
+        $client->enableLogging($logger);
         $createTokenRequest = new CreateTokenRequest();
         $createTokenRequest->setPaymentProductId(705);
 
