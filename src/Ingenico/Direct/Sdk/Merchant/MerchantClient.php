@@ -30,49 +30,9 @@ class MerchantClient extends Resource implements MerchantClientInterface
     /**
      * {@inheritDoc}
      */
-    public function products()
+    public function hostedCheckout()
     {
-        return new ProductsClient($this, $this->context);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function sessions()
-    {
-        return new SessionsClient($this, $this->context);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function payouts()
-    {
-        return new PayoutsClient($this, $this->context);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function payments()
-    {
-        return new PaymentsClient($this, $this->context);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function services()
-    {
-        return new ServicesClient($this, $this->context);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function productGroups()
-    {
-        return new ProductGroupsClient($this, $this->context);
+        return new HostedCheckoutClient($this, $this->context);
     }
 
     /**
@@ -86,16 +46,56 @@ class MerchantClient extends Resource implements MerchantClientInterface
     /**
      * {@inheritDoc}
      */
-    public function tokens()
+    public function payments()
     {
-        return new TokensClient($this, $this->context);
+        return new PaymentsClient($this, $this->context);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function hostedCheckout()
+    public function payouts()
     {
-        return new HostedCheckoutClient($this, $this->context);
+        return new PayoutsClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function productGroups()
+    {
+        return new ProductGroupsClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function products()
+    {
+        return new ProductsClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function services()
+    {
+        return new ServicesClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function sessions()
+    {
+        return new SessionsClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function tokens()
+    {
+        return new TokensClient($this, $this->context);
     }
 }

@@ -15,6 +15,11 @@ class CreateHostedTokenizationResponse extends DataObject
 {
     // Properties
     /**
+     * @var string[]
+     */
+    private $expiredCardTokens;
+
+    /**
      * @var string
      */
     private $hostedTokenizationId;
@@ -30,6 +35,21 @@ class CreateHostedTokenizationResponse extends DataObject
     private $partialRedirectUrl;
 
     // Methods
+    /**
+     * @return string[]
+     */
+    public function getExpiredCardTokens()
+    {
+        return $this->expiredCardTokens;
+    }
+    /**
+     * @var string[]
+     */
+    public function setExpiredCardTokens($value)
+    {
+        $this->expiredCardTokens = $value;
+    }
+
     /**
      * @return string
      */
@@ -81,6 +101,14 @@ class CreateHostedTokenizationResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->expiredCardTokens !== null) {
+            $object->expiredCardTokens = [];
+            foreach ($this->expiredCardTokens as $element) {
+                if ($element !== null) {
+                    $object->expiredCardTokens[] = $element;
+                }
+            }
+        }
         if ($this->hostedTokenizationId !== null) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
@@ -106,6 +134,15 @@ class CreateHostedTokenizationResponse extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'expiredCardTokens')) {
+            if (!is_array($object->expiredCardTokens) && !is_object($object->expiredCardTokens)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->expiredCardTokens, true) . '\' is not an array or object');
+            }
+            $this->expiredCardTokens = [];
+            foreach ($object->expiredCardTokens as $element) {
+                $this->expiredCardTokens[] = $element;
+            }
+        }
         if (property_exists($object, 'hostedTokenizationId')) {
             $this->hostedTokenizationId = $object->hostedTokenizationId;
         }

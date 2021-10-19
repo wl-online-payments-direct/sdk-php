@@ -18,46 +18,11 @@ use Ingenico\Direct\Sdk\Merchant\Tokens\TokensClientInterface;
 interface MerchantClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/products
+     * Resource /v2/{merchantId}/hostedcheckouts
      *
-     * @return ProductsClientInterface
+     * @return HostedCheckoutClientInterface
      */
-    public function products();
-
-    /**
-     * Resource /v2/{merchantId}/sessions
-     *
-     * @return SessionsClientInterface
-     */
-    public function sessions();
-
-    /**
-     * Resource /v2/{merchantId}/payouts
-     *
-     * @return PayoutsClientInterface
-     */
-    public function payouts();
-
-    /**
-     * Resource /v2/{merchantId}/payments
-     *
-     * @return PaymentsClientInterface
-     */
-    public function payments();
-
-    /**
-     * Resource /v2/{merchantId}/services
-     *
-     * @return ServicesClientInterface
-     */
-    public function services();
-
-    /**
-     * Resource /v2/{merchantId}/productgroups
-     *
-     * @return ProductGroupsClientInterface
-     */
-    public function productGroups();
+    public function hostedCheckout();
 
     /**
      * Resource /v2/{merchantId}/hostedtokenizations
@@ -67,16 +32,51 @@ interface MerchantClientInterface
     public function hostedTokenization();
 
     /**
+     * Resource /v2/{merchantId}/payments
+     *
+     * @return PaymentsClientInterface
+     */
+    public function payments();
+
+    /**
+     * Resource /v2/{merchantId}/payouts
+     *
+     * @return PayoutsClientInterface
+     */
+    public function payouts();
+
+    /**
+     * Resource /v2/{merchantId}/productgroups
+     *
+     * @return ProductGroupsClientInterface
+     */
+    public function productGroups();
+
+    /**
+     * Resource /v2/{merchantId}/products
+     *
+     * @return ProductsClientInterface
+     */
+    public function products();
+
+    /**
+     * Resource /v2/{merchantId}/services
+     *
+     * @return ServicesClientInterface
+     */
+    public function services();
+
+    /**
+     * Resource /v2/{merchantId}/sessions
+     *
+     * @return SessionsClientInterface
+     */
+    public function sessions();
+
+    /**
      * Resource /v2/{merchantId}/tokens
      *
      * @return TokensClientInterface
      */
     public function tokens();
-
-    /**
-     * Resource /v2/{merchantId}/hostedcheckouts
-     *
-     * @return HostedCheckoutClientInterface
-     */
-    public function hostedCheckout();
 }

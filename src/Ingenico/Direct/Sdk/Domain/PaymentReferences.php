@@ -17,9 +17,29 @@ class PaymentReferences extends DataObject
     /**
      * @var string
      */
+    private $merchantParameters;
+
+    /**
+     * @var string
+     */
     private $merchantReference;
 
     // Methods
+    /**
+     * @return string
+     */
+    public function getMerchantParameters()
+    {
+        return $this->merchantParameters;
+    }
+    /**
+     * @var string
+     */
+    public function setMerchantParameters($value)
+    {
+        $this->merchantParameters = $value;
+    }
+
     /**
      * @return string
      */
@@ -41,6 +61,9 @@ class PaymentReferences extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->merchantParameters !== null) {
+            $object->merchantParameters = $this->merchantParameters;
+        }
         if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
@@ -55,6 +78,9 @@ class PaymentReferences extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'merchantParameters')) {
+            $this->merchantParameters = $object->merchantParameters;
+        }
         if (property_exists($object, 'merchantReference')) {
             $this->merchantReference = $object->merchantReference;
         }

@@ -22,6 +22,11 @@ class OrderReferences extends DataObject
     /**
      * @var string
      */
+    private $merchantParameters;
+
+    /**
+     * @var string
+     */
     private $merchantReference;
 
     // Methods
@@ -38,6 +43,21 @@ class OrderReferences extends DataObject
     public function setDescriptor($value)
     {
         $this->descriptor = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMerchantParameters()
+    {
+        return $this->merchantParameters;
+    }
+    /**
+     * @var string
+     */
+    public function setMerchantParameters($value)
+    {
+        $this->merchantParameters = $value;
     }
 
     /**
@@ -64,6 +84,9 @@ class OrderReferences extends DataObject
         if ($this->descriptor !== null) {
             $object->descriptor = $this->descriptor;
         }
+        if ($this->merchantParameters !== null) {
+            $object->merchantParameters = $this->merchantParameters;
+        }
         if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
@@ -80,6 +103,9 @@ class OrderReferences extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'descriptor')) {
             $this->descriptor = $object->descriptor;
+        }
+        if (property_exists($object, 'merchantParameters')) {
+            $this->merchantParameters = $object->merchantParameters;
         }
         if (property_exists($object, 'merchantReference')) {
             $this->merchantReference = $object->merchantReference;
