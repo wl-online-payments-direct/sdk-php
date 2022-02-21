@@ -1,8 +1,8 @@
-# Ingenico Direct PHP SDK
+# Online Payments PHP SDK
 
 ## Introduction
 
-The Ingenico Direct PHP SDK helps you to communicate with the [Ingenico Direct](https://support.direct.ingenico.com/) Server API. Its primary features are:
+The PHP SDK helps you to communicate with the payment platform server API. Its primary features are:
 
 * convenient PHP wrapper around the API calls and responses:
   * marshalls PHP request objects to HTTP requests
@@ -11,8 +11,6 @@ The Ingenico Direct PHP SDK helps you to communicate with the [Ingenico Direct](
 * handling of required meta data
 
 Its use is demonstrated by an example for most calls. The examples execute a call using the provided API keys.
-
-See the [Ingenico Direct support site](https://support.direct.ingenico.com/documentation/sdk/server/php/) for more information on how to use the SDK.
 
 ## Structure of this repository
 
@@ -36,7 +34,7 @@ PHP 5.4 or above is required.
 2. Add a requirement to the SDK to your `composer.json` file by executing the following command:
 
     ```
-    composer require ingenico/direct-sdk-php
+    composer require onlinepayments-sdk-php
     ```
 3. Add `vendor/autoload.php` to your project, if this is not already done, by adding the following line of code:
 
@@ -46,7 +44,7 @@ PHP 5.4 or above is required.
 
 ## Manual installation
 
-1. Download the latest version of the PHP SDK from GitHub. Choose the `direct-sdk-php-x.y.z.tar.gz` file from the [releases](https://github.com/Ingenico/direct-sdk-php/releases) page, where `x.y.z` is the version number.
+1. Download the latest version of the PHP SDK from GitHub. Choose the `onlinepayments-sdk-php-x.y.z.tar.gz` file from the [releases](https://github.com/wl-online-payments-direct/sdk-php/releases) page, where `x.y.z` is the version number.
 2. Add the contents of the `tar.gz` file to your project. The content of the `/src` and `/lib` folders may be combined, if this is required by the project.
 3. Add all classes from the `/src` and `/lib` folders to your autoloader; all classes inside these folders are compliant with [PSR-4](http://www.php-fig.org/psr/psr-4/).
 

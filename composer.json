@@ -1,14 +1,12 @@
 {
-    "name": "ingenico/direct-sdk-php",
+    "name": "wl-online-payments-direct/sdk-php",
     "type": "library",
-    "description": "PHP SDK to communicate with the Ingenico ePayments platform server-to-server API",
-    "homepage": "https://support.direct.ingenico.com/documentation/sdk/server/php/",
+    "description": "PHP SDK to communicate with the payment platform server-to-server API",
     "keywords": ["SDK"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Ingenico",
-            "homepage": "https://support.direct.ingenico.com/documentation/sdk/server/php/"
+            "name": "OnlinePayments"
         }
     ],
     "require": {
@@ -19,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ingenico\\Direct\\Sdk\\": ["src/Ingenico/Direct/Sdk", "lib/Ingenico/Direct/Sdk"]
+            "OnlinePayments\\Sdk\\": ["src/OnlinePayments/Sdk", "lib/OnlinePayments/Sdk"]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ingenico\\Direct\\Sdk\\": ["tests/Ingenico/Direct/Sdk"]
+            "OnlinePayments\\Sdk\\": ["tests/OnlinePayments/Sdk"]
         }
     }
 }
