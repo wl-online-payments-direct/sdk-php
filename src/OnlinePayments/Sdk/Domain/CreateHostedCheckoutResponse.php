@@ -39,6 +39,11 @@ class CreateHostedCheckoutResponse extends DataObject
      */
     private $partialRedirectUrl;
 
+    /**
+     * @var string
+     */
+    private $redirectUrl;
+
     // Methods
     /**
      * @return string
@@ -116,6 +121,21 @@ class CreateHostedCheckoutResponse extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getRedirectUrl()
+    {
+        return $this->redirectUrl;
+    }
+    /**
+     * @var string
+     */
+    public function setRedirectUrl($value)
+    {
+        $this->redirectUrl = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -140,6 +160,9 @@ class CreateHostedCheckoutResponse extends DataObject
         }
         if ($this->partialRedirectUrl !== null) {
             $object->partialRedirectUrl = $this->partialRedirectUrl;
+        }
+        if ($this->redirectUrl !== null) {
+            $object->redirectUrl = $this->redirectUrl;
         }
         return $object;
     }
@@ -172,6 +195,9 @@ class CreateHostedCheckoutResponse extends DataObject
         }
         if (property_exists($object, 'partialRedirectUrl')) {
             $this->partialRedirectUrl = $object->partialRedirectUrl;
+        }
+        if (property_exists($object, 'redirectUrl')) {
+            $this->redirectUrl = $object->redirectUrl;
         }
         return $this;
     }
