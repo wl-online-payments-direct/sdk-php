@@ -30,6 +30,11 @@ class CreatePaymentRequest extends DataObject
     private $fraudFields;
 
     /**
+     * @var string
+     */
+    private $hostedTokenizationId;
+
+    /**
      * @var MobilePaymentMethodSpecificInput
      */
     private $mobilePaymentMethodSpecificInput;
@@ -93,6 +98,21 @@ class CreatePaymentRequest extends DataObject
     public function setFraudFields($value)
     {
         $this->fraudFields = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHostedTokenizationId()
+    {
+        return $this->hostedTokenizationId;
+    }
+    /**
+     * @var string
+     */
+    public function setHostedTokenizationId($value)
+    {
+        $this->hostedTokenizationId = $value;
     }
 
     /**
@@ -170,6 +190,9 @@ class CreatePaymentRequest extends DataObject
         if ($this->fraudFields !== null) {
             $object->fraudFields = $this->fraudFields->toObject();
         }
+        if ($this->hostedTokenizationId !== null) {
+            $object->hostedTokenizationId = $this->hostedTokenizationId;
+        }
         if ($this->mobilePaymentMethodSpecificInput !== null) {
             $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
         }
@@ -209,6 +232,9 @@ class CreatePaymentRequest extends DataObject
             }
             $value = new FraudFields();
             $this->fraudFields = $value->fromObject($object->fraudFields);
+        }
+        if (property_exists($object, 'hostedTokenizationId')) {
+            $this->hostedTokenizationId = $object->hostedTokenizationId;
         }
         if (property_exists($object, 'mobilePaymentMethodSpecificInput')) {
             if (!is_object($object->mobilePaymentMethodSpecificInput)) {

@@ -27,6 +27,11 @@ class CardEssentials extends DataObject
     /**
      * @var string
      */
+    private $countryCode;
+
+    /**
+     * @var string
+     */
     private $expiryDate;
 
     // Methods
@@ -63,6 +68,21 @@ class CardEssentials extends DataObject
     /**
      * @return string
      */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
+    }
+    /**
+     * @var string
+     */
+    public function setCountryCode($value)
+    {
+        $this->countryCode = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getExpiryDate()
     {
         return $this->expiryDate;
@@ -87,6 +107,9 @@ class CardEssentials extends DataObject
         if ($this->cardNumber !== null) {
             $object->cardNumber = $this->cardNumber;
         }
+        if ($this->countryCode !== null) {
+            $object->countryCode = $this->countryCode;
+        }
         if ($this->expiryDate !== null) {
             $object->expiryDate = $this->expiryDate;
         }
@@ -106,6 +129,9 @@ class CardEssentials extends DataObject
         }
         if (property_exists($object, 'cardNumber')) {
             $this->cardNumber = $object->cardNumber;
+        }
+        if (property_exists($object, 'countryCode')) {
+            $this->countryCode = $object->countryCode;
         }
         if (property_exists($object, 'expiryDate')) {
             $this->expiryDate = $object->expiryDate;
