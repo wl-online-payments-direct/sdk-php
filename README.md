@@ -34,7 +34,7 @@ PHP 5.4 or above is required.
 2. Add a requirement to the SDK to your `composer.json` file by executing the following command:
 
     ```
-    composer require onlinepayments-sdk-php
+    composer require wl-online-payments-direct/sdk-php
     ```
 3. Add `vendor/autoload.php` to your project, if this is not already done, by adding the following line of code:
 
