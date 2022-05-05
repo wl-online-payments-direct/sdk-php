@@ -30,6 +30,11 @@ class PaymentOutput extends DataObject
     private $cardPaymentMethodSpecificOutput;
 
     /**
+     * @var CustomerOutput
+     */
+    private $customer;
+
+    /**
      * @var string
      */
     private $merchantParameters;
@@ -103,6 +108,21 @@ class PaymentOutput extends DataObject
     public function setCardPaymentMethodSpecificOutput($value)
     {
         $this->cardPaymentMethodSpecificOutput = $value;
+    }
+
+    /**
+     * @return CustomerOutput
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+    /**
+     * @var CustomerOutput
+     */
+    public function setCustomer($value)
+    {
+        $this->customer = $value;
     }
 
     /**
@@ -210,6 +230,9 @@ class PaymentOutput extends DataObject
         if ($this->cardPaymentMethodSpecificOutput !== null) {
             $object->cardPaymentMethodSpecificOutput = $this->cardPaymentMethodSpecificOutput->toObject();
         }
+        if ($this->customer !== null) {
+            $object->customer = $this->customer->toObject();
+        }
         if ($this->merchantParameters !== null) {
             $object->merchantParameters = $this->merchantParameters;
         }
@@ -255,6 +278,13 @@ class PaymentOutput extends DataObject
             }
             $value = new CardPaymentMethodSpecificOutput();
             $this->cardPaymentMethodSpecificOutput = $value->fromObject($object->cardPaymentMethodSpecificOutput);
+        }
+        if (property_exists($object, 'customer')) {
+            if (!is_object($object->customer)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->customer, true) . '\' is not an object');
+            }
+            $value = new CustomerOutput();
+            $this->customer = $value->fromObject($object->customer);
         }
         if (property_exists($object, 'merchantParameters')) {
             $this->merchantParameters = $object->merchantParameters;
