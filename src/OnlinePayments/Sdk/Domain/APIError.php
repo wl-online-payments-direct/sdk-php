@@ -25,6 +25,11 @@ class APIError extends DataObject
     private $code;
 
     /**
+     * @var string
+     */
+    private $errorCode;
+
+    /**
      * @var int
      */
     private $httpStatusCode;
@@ -73,6 +78,21 @@ class APIError extends DataObject
     public function setCode($value)
     {
         $this->code = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorCode()
+    {
+        return $this->errorCode;
+    }
+    /**
+     * @var string
+     */
+    public function setErrorCode($value)
+    {
+        $this->errorCode = $value;
     }
 
     /**
@@ -147,6 +167,9 @@ class APIError extends DataObject
         if ($this->code !== null) {
             $object->code = $this->code;
         }
+        if ($this->errorCode !== null) {
+            $object->errorCode = $this->errorCode;
+        }
         if ($this->httpStatusCode !== null) {
             $object->httpStatusCode = $this->httpStatusCode;
         }
@@ -175,6 +198,9 @@ class APIError extends DataObject
         }
         if (property_exists($object, 'code')) {
             $this->code = $object->code;
+        }
+        if (property_exists($object, 'errorCode')) {
+            $this->errorCode = $object->errorCode;
         }
         if (property_exists($object, 'httpStatusCode')) {
             $this->httpStatusCode = $object->httpStatusCode;
