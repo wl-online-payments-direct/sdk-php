@@ -15,6 +15,21 @@ class ServicesClient extends Resource implements ServicesClientInterface
     /**
      * {@inheritDoc}
      */
+    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null)
+    {
+        $responseClassMap = new ResponseClassMap('\OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse');
+        return $this->getCommunicator()->get(
+            $responseClassMap,
+            $this->instantiateUri('/v2/{merchantId}/services/privacypolicy'),
+            $this->getClientMetaInfo(),
+            $query,
+            $callContext
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function testConnection(CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap('\OnlinePayments\Sdk\Domain\TestConnection');

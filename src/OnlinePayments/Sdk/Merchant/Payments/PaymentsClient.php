@@ -6,6 +6,7 @@
 namespace OnlinePayments\Sdk\Merchant\Payments;
 
 use OnlinePayments\Sdk\CallContext;
+use OnlinePayments\Sdk\Domain\CancelPaymentRequest;
 use OnlinePayments\Sdk\Domain\CapturePaymentRequest;
 use OnlinePayments\Sdk\Domain\CompletePaymentRequest;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
@@ -69,7 +70,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
     /**
      * {@inheritDoc}
      */
-    public function cancelPayment($paymentId, CallContext $callContext = null)
+    public function cancelPayment($paymentId, CancelPaymentRequest $body = null, CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap('\OnlinePayments\Sdk\Domain\CancelPaymentResponse');
@@ -77,7 +78,7 @@ class PaymentsClient extends Resource implements PaymentsClientInterface
             $responseClassMap,
             $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/cancel'),
             $this->getClientMetaInfo(),
-            null,
+            $body,
             null,
             $callContext
         );

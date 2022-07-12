@@ -39,6 +39,6 @@ class SplFileObjectLoggerTest extends TestCase
         while (!$temp->eof()) {
             $content .= $temp->fgets();
         }
-        $this->assertEquals($message . PHP_EOL . (string)$exception . PHP_EOL, $content);
+        $this->assertEquals($message . PHP_EOL . $exception . PHP_EOL, $content);
     }
 }

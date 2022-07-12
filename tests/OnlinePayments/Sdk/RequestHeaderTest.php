@@ -31,7 +31,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
             $result = false;
             foreach ($curlHeaders as $curlHeader) {
                 $result |= preg_match(
-                    '/^Authorization: GCS v1HMAC:' . $this->getApiKey() . ':[a-zA-Z0-9+\/]+={0,2}/',
+                    '/^Authorization: GCS v1HMAC:' . $this->getApiKey() . ':[a-zA-Z\d+\/]+={0,2}/',
                     $curlHeader
                 );
             }
@@ -88,7 +88,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
     public function testMultiLineHeader()
     {
         $gcsHeaderValue = " some value  \r\n \n with  some \r\n \t spaces ";
-        $gcsEncodedHeaderValue = trim(preg_replace('/\r?\n[\h]*/', ' ', $gcsHeaderValue));
+        $gcsEncodedHeaderValue = trim(preg_replace('/\r?\n\h*/', ' ', $gcsHeaderValue));
         $this->assertEquals('some value    with  some  spaces', $gcsEncodedHeaderValue);
     }
 

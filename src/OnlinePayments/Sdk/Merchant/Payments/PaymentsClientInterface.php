@@ -11,6 +11,7 @@ use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\DeclinedPaymentException;
 use OnlinePayments\Sdk\DeclinedRefundException;
+use OnlinePayments\Sdk\Domain\CancelPaymentRequest;
 use OnlinePayments\Sdk\Domain\CancelPaymentResponse;
 use OnlinePayments\Sdk\Domain\CapturePaymentRequest;
 use OnlinePayments\Sdk\Domain\CaptureResponse;
@@ -93,6 +94,7 @@ interface PaymentsClientInterface
      * Resource /v2/{merchantId}/payments/{paymentId}/cancel - Cancel payment
      *
      * @param string $paymentId
+     * @param CancelPaymentRequest $body
      * @param CallContext $callContext
      * @return CancelPaymentResponse
      *
@@ -105,7 +107,7 @@ interface PaymentsClientInterface
      * @throws ReferenceException
      * @throws ValidationException
      */
-    public function cancelPayment($paymentId, CallContext $callContext = null);
+    public function cancelPayment($paymentId, CancelPaymentRequest $body = null, CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/refund - Refund payment

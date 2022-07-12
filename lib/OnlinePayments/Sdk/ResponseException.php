@@ -3,6 +3,7 @@
 namespace OnlinePayments\Sdk;
 
 use OnlinePayments\Sdk\Domain\APIError;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use RuntimeException;
 
 /**
@@ -82,11 +83,11 @@ class ResponseException extends RuntimeException
      */
     public function getErrors()
     {
-        $responseVariables = (array)$this->getResponse()->toObject();
-        if (!array_key_exists('errors', $responseVariables)) {
+        $response = $this->getResponse();
+        if (!$response instanceof ErrorResponse) {
             return array();
         }
-        $errors = $responseVariables['errors'];
+        $errors = $response->getErrors();
         if (!is_array($errors)) {
             return array();
         }

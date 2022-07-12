@@ -11,6 +11,7 @@ use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsResponse;
+use OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse;
 use OnlinePayments\Sdk\Domain\TestConnection;
 use OnlinePayments\Sdk\IdempotenceException;
 use OnlinePayments\Sdk\InvalidResponseException;
@@ -20,6 +21,24 @@ use OnlinePayments\Sdk\ValidationException;
 
 interface ServicesClientInterface
 {
+    /**
+     * Resource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
+     *
+     * @param GetPrivacyPolicyParams $query
+     * @param CallContext $callContext
+     * @return GetPrivacyPolicyResponse
+     *
+     * @throws ApiException
+     * @throws AuthorizationException
+     * @throws Exception
+     * @throws PaymentPlatformException
+     * @throws IdempotenceException
+     * @throws InvalidResponseException
+     * @throws ReferenceException
+     * @throws ValidationException
+     */
+    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null);
+
     /**
      * Resource /v2/{merchantId}/services/testconnection - Test connection
      *

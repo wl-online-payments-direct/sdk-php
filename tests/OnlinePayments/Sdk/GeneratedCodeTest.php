@@ -11,11 +11,7 @@ use OnlinePayments\Sdk\Domain\Customer;
 use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\Order;
 use OnlinePayments\Sdk\Domain\SessionRequest;
-use OnlinePayments\Sdk\Domain\UpdateTokenRequest;
-use OnlinePayments\Sdk\Merchant\Products\FindProductsParams;
 use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductsParams;
-use OnlinePayments\Sdk\Merchant\Services\ConvertAmountParams;
-use OnlinePayments\Sdk\Merchant\Tokens\DeleteTokenParams;
 
 /**
  * @group generated_code
@@ -111,8 +107,6 @@ EOD;
             print_r($e->getCode() . PHP_EOL);
             print_r($e->getResponse());
             throw $e;
-        } catch (Exception $e) {
-            throw $e;
         }
     }
 
@@ -135,8 +129,6 @@ EOD;
             print_r($e->getMessage() . PHP_EOL);
             print_r($e->getCode() . PHP_EOL);
             print_r($e->getResponse());
-            throw $e;
-        } catch (Exception $e) {
             throw $e;
         }
     }
@@ -174,8 +166,6 @@ EOD;
             print_r($e->getMessage() . PHP_EOL);
             print_r($e->getCode() . PHP_EOL);
             print_r($e->getResponse());
-            throw $e;
-        } catch (Exception $e) {
             throw $e;
         }
     }

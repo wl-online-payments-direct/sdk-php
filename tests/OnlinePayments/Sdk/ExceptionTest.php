@@ -10,47 +10,42 @@ use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\CardPayoutMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
 use OnlinePayments\Sdk\Domain\CreatePaymentResponse;
-use OnlinePayments\Sdk\Domain\CreatePaymentResult;
 use OnlinePayments\Sdk\Domain\CreatePayoutRequest;
 use OnlinePayments\Sdk\Domain\Customer;
 use OnlinePayments\Sdk\Domain\ErrorResponse;
+use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Domain\Order;
 use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\Domain\PaymentReferences;
-use OnlinePayments\Sdk\Domain\PayoutCustomer;
 use OnlinePayments\Sdk\Domain\PayoutErrorResponse;
-use OnlinePayments\Sdk\Domain\PayoutReferences;
 use OnlinePayments\Sdk\Domain\PayoutResult;
 use OnlinePayments\Sdk\Domain\PersonalInformation;
 use OnlinePayments\Sdk\Domain\PersonalName;
 use OnlinePayments\Sdk\Domain\RefundErrorResponse;
 use OnlinePayments\Sdk\Domain\RefundResponse;
-use OnlinePayments\Sdk\Domain\RefundResult;
 
 /**
  * @group exceptions
  */
-class Client_ExceptionTest extends ClientTestCase
+class ExceptionTest extends ClientTestCase
 {
-
-    // TODO re-enable once getIINDetails is specced.
-//    /**
-//     * @throws Exception
-//     */
-//    public function testExceptionErrors()
-//    {
-//        try {
-//            $emptyBody = new GetIINDetailsRequest();
-//            $this->getClient()->merchant($this->getMerchantId())->services()->getIINdetails($emptyBody);
-//        } catch (ResponseException $e) {
-//            $this->assertNotEmpty($e->getErrorId());
-//            $errors = $e->getErrors();
-//            $this->assertCount(1, $errors);
-//            $this->assertContainsOnlyInstancesOf('\OnlinePayments\Sdk\Domain\APIError', $errors);
-//            return;
-//        }
-//        $this->fail('An expected exception has not been raised.');
-//    }
+    /**
+     * @throws Exception
+     */
+    public function testExceptionErrors()
+    {
+        try {
+            $emptyBody = new GetIINDetailsRequest();
+            $this->getClient()->merchant($this->getMerchantId())->services()->getIINdetails($emptyBody);
+        } catch (ResponseException $e) {
+            $this->assertNotEmpty($e->getErrorId());
+            $errors = $e->getErrors();
+            $this->assertCount(1, $errors);
+            $this->assertContainsOnlyInstancesOf('\OnlinePayments\Sdk\Domain\APIError', $errors);
+            return;
+        }
+        $this->fail('An expected exception has not been raised.');
+    }
 
     public function testExceptionWithoutErrors()
     {
@@ -94,20 +89,19 @@ EOD;
         $this->assertEquals(str_replace("\r\n", "\n", $expectedResponseExceptionString), str_replace("\r\n", "\n", (string)$responseException));
     }
 
-    // TODO re-enable once getIINDetails is specced.
-//    /**
-//     * @throws Exception
-//     */
-//    public function testValidationException()
-//    {
-//        try {
-//            $emptyBody = new GetIINDetailsRequest();
-//            $this->getClient()->merchant($this->getMerchantId())->services()->getIINdetails($emptyBody);
-//        } catch (ValidationException $e) {
-//            return;
-//        }
-//        $this->fail('An expected exception has not been raised.');
-//    }
+    /**
+     * @throws Exception
+     */
+    public function testValidationException()
+    {
+        try {
+            $emptyBody = new GetIINDetailsRequest();
+            $this->getClient()->merchant($this->getMerchantId())->services()->getIINdetails($emptyBody);
+        } catch (ValidationException $e) {
+            return;
+        }
+        $this->fail('An expected exception has not been raised.');
+    }
 
     /**
      * @throws Exception

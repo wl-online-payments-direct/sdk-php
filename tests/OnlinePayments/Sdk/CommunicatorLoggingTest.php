@@ -21,7 +21,7 @@ class CommunicatorLoggingTest extends ClientTestCase
     public function testOnlyLogWhileLoggingIsEnabled()
     {
         $connection = new TestingConnection(
-            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json'), '{}')
+            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json'))
         );
         /** @var Connection $connection */
         $communicator = new Communicator(
@@ -41,7 +41,6 @@ class CommunicatorLoggingTest extends ClientTestCase
         $logger->expects($this->never())->method('logException');
         /** @var CommunicatorLogger $logger */
         $responseClassMap = $this->getMockResponseClassMap();
-        /** @var ResponseClassMap $responseClassMap */
         $communicator->get($responseClassMap, '/foo');
         $communicator->enableLogging($logger);
         $communicator->get($responseClassMap, '/bar');
@@ -56,7 +55,7 @@ class CommunicatorLoggingTest extends ClientTestCase
     {
         $relativeRequestUri = '/foo/bar';
         $connection = new TestingConnection(
-            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json'), '{}')
+            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json'))
         );
         /** @var Connection $connection */
         $communicator = new Communicator(
@@ -87,7 +86,6 @@ class CommunicatorLoggingTest extends ClientTestCase
         /** @var CommunicatorLogger $logger */
         $communicator->enableLogging($logger);
         $responseClassMap = $this->getMockResponseClassMap();
-        /** @var ResponseClassMap $responseClassMap */
         $communicator->post($responseClassMap, $relativeRequestUri, '', $requestBody);
     }
 
@@ -98,7 +96,7 @@ class CommunicatorLoggingTest extends ClientTestCase
     {
         $relativeRequestUri = '/foo/bar';
         $connection = new TestingConnection(
-            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json;charset=UTF-8'), '{}')
+            $this->getMockConnectionResponse(200, array('Content-Type' => 'application/json;charset=UTF-8'))
         );
         /** @var Connection $connection */
         $communicator = new Communicator(
@@ -129,7 +127,6 @@ class CommunicatorLoggingTest extends ClientTestCase
         /** @var CommunicatorLogger $logger */
         $communicator->enableLogging($logger);
         $responseClassMap = $this->getMockResponseClassMap();
-        /** @var ResponseClassMap $responseClassMap */
         $communicator->post($responseClassMap, $relativeRequestUri, '', $requestBody);
     }
 
@@ -338,8 +335,6 @@ class CommunicatorLoggingTest extends ClientTestCase
         $apiError->setHttpStatusCode(400);
         $apiError->setMessage('Test');
         $apiError->setPropertyName('foo');
-        // TODO is requestId part of COGO spec?
-//        $apiError->setRequestId('456');
         $errorResponse->setErrors(array($apiError));
         return $errorResponse;
     }

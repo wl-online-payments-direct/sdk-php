@@ -63,8 +63,6 @@ class PaymentTest extends ClientTestCase
         $personalName = new PersonalName();
         $personalName->setTitle("Mr.");
         $personalName->setFirstName("Wile");
-        // TODO surnamePrefix is used by Ogone but not in the spec. Re-enable once it is.
-//        $personalName->setSurnamePrefix("E.");
         $personalName->setSurname("Coyote");
 
         $personalInformation->setName($personalName);
@@ -116,11 +114,7 @@ class PaymentTest extends ClientTestCase
         $lineItem1->setAmountOfMoney($itemAmountOfMoney1);
 
         $lineItemInvoiceData1 = new LineItemInvoiceData();
-        // TODO field is used by Ogone but not in the spec. Re-enable once it is.
-//        $lineItemInvoiceData1->setNrOfItems("1");
         $lineItemInvoiceData1->setDescription("ACME Super Outfit");
-        // TODO field is used by Ogone but not in the spec. Re-enable once it is.
-//        $lineItemInvoiceData1->setPricePerItem(2500);
         $lineItem1->setInvoiceData($lineItemInvoiceData1);
 
         $lineItem2 = new LineItem();
@@ -131,11 +125,7 @@ class PaymentTest extends ClientTestCase
         $lineItem2->setAmountOfMoney($itemAmountOfMoney2);
 
         $lineItemInvoiceData2 = new LineItemInvoiceData();
-        // TODO field is used by Ogone but not in the spec. Re-enable once it is.
-//        $lineItemInvoiceData2->setNrOfItems("12");
         $lineItemInvoiceData2->setDescription("Aspirin");
-        // TODO field is used by Ogone but not in the spec. Re-enable once it is.
-//        $lineItemInvoiceData2->setPricePerItem(40);
         $lineItem2->setInvoiceData($lineItemInvoiceData2);
 
         $shoppingCart = new ShoppingCart();
