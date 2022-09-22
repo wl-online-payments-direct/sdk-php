@@ -40,6 +40,11 @@ class Shipping extends DataObject
     private $isFirstUsage;
 
     /**
+     * @var ShippingMethod
+     */
+    private $method;
+
+    /**
      * @var int
      */
     private $shippingCost;
@@ -131,6 +136,21 @@ class Shipping extends DataObject
     }
 
     /**
+     * @return ShippingMethod
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+    /**
+     * @var ShippingMethod
+     */
+    public function setMethod($value)
+    {
+        $this->method = $value;
+    }
+
+    /**
      * @return int
      */
     public function getShippingCost()
@@ -196,6 +216,9 @@ class Shipping extends DataObject
         if ($this->isFirstUsage !== null) {
             $object->isFirstUsage = $this->isFirstUsage;
         }
+        if ($this->method !== null) {
+            $object->method = $this->method->toObject();
+        }
         if ($this->shippingCost !== null) {
             $object->shippingCost = $this->shippingCost;
         }
@@ -234,6 +257,13 @@ class Shipping extends DataObject
         }
         if (property_exists($object, 'isFirstUsage')) {
             $this->isFirstUsage = $object->isFirstUsage;
+        }
+        if (property_exists($object, 'method')) {
+            if (!is_object($object->method)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->method, true) . '\' is not an object');
+            }
+            $value = new ShippingMethod();
+            $this->method = $value->fromObject($object->method);
         }
         if (property_exists($object, 'shippingCost')) {
             $this->shippingCost = $object->shippingCost;

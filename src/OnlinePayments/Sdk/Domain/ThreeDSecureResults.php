@@ -52,6 +52,11 @@ class ThreeDSecureResults extends DataObject
     /**
      * @var string
      */
+    private $exemptionEngineFlow;
+
+    /**
+     * @var string
+     */
     private $flow;
 
     /**
@@ -183,6 +188,21 @@ class ThreeDSecureResults extends DataObject
     /**
      * @return string
      */
+    public function getExemptionEngineFlow()
+    {
+        return $this->exemptionEngineFlow;
+    }
+    /**
+     * @var string
+     */
+    public function setExemptionEngineFlow($value)
+    {
+        $this->exemptionEngineFlow = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getFlow()
     {
         return $this->flow;
@@ -282,6 +302,9 @@ class ThreeDSecureResults extends DataObject
         if ($this->eci !== null) {
             $object->eci = $this->eci;
         }
+        if ($this->exemptionEngineFlow !== null) {
+            $object->exemptionEngineFlow = $this->exemptionEngineFlow;
+        }
         if ($this->flow !== null) {
             $object->flow = $this->flow;
         }
@@ -328,6 +351,9 @@ class ThreeDSecureResults extends DataObject
         }
         if (property_exists($object, 'eci')) {
             $this->eci = $object->eci;
+        }
+        if (property_exists($object, 'exemptionEngineFlow')) {
+            $this->exemptionEngineFlow = $object->exemptionEngineFlow;
         }
         if (property_exists($object, 'flow')) {
             $this->flow = $object->flow;

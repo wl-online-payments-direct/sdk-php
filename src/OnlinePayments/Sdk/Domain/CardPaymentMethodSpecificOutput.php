@@ -55,6 +55,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     private $paymentProductId;
 
     /**
+     * @var string
+     */
+    private $schemeReferenceData;
+
+    /**
      * @var ThreeDSecureResults
      */
     private $threeDSecureResults;
@@ -186,6 +191,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getSchemeReferenceData()
+    {
+        return $this->schemeReferenceData;
+    }
+    /**
+     * @var string
+     */
+    public function setSchemeReferenceData($value)
+    {
+        $this->schemeReferenceData = $value;
+    }
+
+    /**
      * @return ThreeDSecureResults
      */
     public function getThreeDSecureResults()
@@ -245,6 +265,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
+        if ($this->schemeReferenceData !== null) {
+            $object->schemeReferenceData = $this->schemeReferenceData;
+        }
         if ($this->threeDSecureResults !== null) {
             $object->threeDSecureResults = $this->threeDSecureResults->toObject();
         }
@@ -297,6 +320,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;
+        }
+        if (property_exists($object, 'schemeReferenceData')) {
+            $this->schemeReferenceData = $object->schemeReferenceData;
         }
         if (property_exists($object, 'threeDSecureResults')) {
             if (!is_object($object->threeDSecureResults)) {

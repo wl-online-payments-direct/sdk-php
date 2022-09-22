@@ -24,6 +24,11 @@ class FraudFields extends DataObject
      */
     private $customerIpAddress;
 
+    /**
+     * @var string[]
+     */
+    private $productCategories;
+
     // Methods
     /**
      * @return string
@@ -56,6 +61,21 @@ class FraudFields extends DataObject
     }
 
     /**
+     * @return string[]
+     */
+    public function getProductCategories()
+    {
+        return $this->productCategories;
+    }
+    /**
+     * @var string[]
+     */
+    public function setProductCategories($value)
+    {
+        $this->productCategories = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -66,6 +86,14 @@ class FraudFields extends DataObject
         }
         if ($this->customerIpAddress !== null) {
             $object->customerIpAddress = $this->customerIpAddress;
+        }
+        if ($this->productCategories !== null) {
+            $object->productCategories = [];
+            foreach ($this->productCategories as $element) {
+                if ($element !== null) {
+                    $object->productCategories[] = $element;
+                }
+            }
         }
         return $object;
     }
@@ -83,6 +111,15 @@ class FraudFields extends DataObject
         }
         if (property_exists($object, 'customerIpAddress')) {
             $this->customerIpAddress = $object->customerIpAddress;
+        }
+        if (property_exists($object, 'productCategories')) {
+            if (!is_array($object->productCategories) && !is_object($object->productCategories)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->productCategories, true) . '\' is not an array or object');
+            }
+            $this->productCategories = [];
+            foreach ($object->productCategories as $element) {
+                $this->productCategories[] = $element;
+            }
         }
         return $this;
     }
