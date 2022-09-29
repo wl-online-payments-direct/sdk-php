@@ -17,6 +17,11 @@ class CaptureOutput extends DataObject
     /**
      * @var AmountOfMoney
      */
+    private $acquiredAmount;
+
+    /**
+     * @var AmountOfMoney
+     */
     private $amountOfMoney;
 
     /**
@@ -60,6 +65,21 @@ class CaptureOutput extends DataObject
     private $sepaDirectDebitPaymentMethodSpecificOutput;
 
     // Methods
+    /**
+     * @return AmountOfMoney
+     */
+    public function getAcquiredAmount()
+    {
+        return $this->acquiredAmount;
+    }
+    /**
+     * @var AmountOfMoney
+     */
+    public function setAcquiredAmount($value)
+    {
+        $this->acquiredAmount = $value;
+    }
+
     /**
      * @return AmountOfMoney
      */
@@ -201,6 +221,9 @@ class CaptureOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->acquiredAmount !== null) {
+            $object->acquiredAmount = $this->acquiredAmount->toObject();
+        }
         if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
@@ -239,6 +262,13 @@ class CaptureOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'acquiredAmount')) {
+            if (!is_object($object->acquiredAmount)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->acquiredAmount, true) . '\' is not an object');
+            }
+            $value = new AmountOfMoney();
+            $this->acquiredAmount = $value->fromObject($object->acquiredAmount);
+        }
         if (property_exists($object, 'amountOfMoney')) {
             if (!is_object($object->amountOfMoney)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->amountOfMoney, true) . '\' is not an object');

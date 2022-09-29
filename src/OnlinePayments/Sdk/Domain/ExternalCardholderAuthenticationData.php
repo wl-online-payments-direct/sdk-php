@@ -45,6 +45,11 @@ class ExternalCardholderAuthenticationData extends DataObject
     private $eci;
 
     /**
+     * @var string
+     */
+    private $flow;
+
+    /**
      * @var int
      */
     private $schemeRiskScore;
@@ -151,6 +156,21 @@ class ExternalCardholderAuthenticationData extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getFlow()
+    {
+        return $this->flow;
+    }
+    /**
+     * @var string
+     */
+    public function setFlow($value)
+    {
+        $this->flow = $value;
+    }
+
+    /**
      * @return int
      */
     public function getSchemeRiskScore()
@@ -219,6 +239,9 @@ class ExternalCardholderAuthenticationData extends DataObject
         if ($this->eci !== null) {
             $object->eci = $this->eci;
         }
+        if ($this->flow !== null) {
+            $object->flow = $this->flow;
+        }
         if ($this->schemeRiskScore !== null) {
             $object->schemeRiskScore = $this->schemeRiskScore;
         }
@@ -256,6 +279,9 @@ class ExternalCardholderAuthenticationData extends DataObject
         }
         if (property_exists($object, 'eci')) {
             $this->eci = $object->eci;
+        }
+        if (property_exists($object, 'flow')) {
+            $this->flow = $object->flow;
         }
         if (property_exists($object, 'schemeRiskScore')) {
             $this->schemeRiskScore = $object->schemeRiskScore;
