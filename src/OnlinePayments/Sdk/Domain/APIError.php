@@ -49,6 +49,11 @@ class APIError extends DataObject
      */
     private $propertyName;
 
+    /**
+     * @var bool
+     */
+    private $retriable;
+
     // Methods
     /**
      * @return string
@@ -156,6 +161,21 @@ class APIError extends DataObject
     }
 
     /**
+     * @return bool
+     */
+    public function getRetriable()
+    {
+        return $this->retriable;
+    }
+    /**
+     * @var bool
+     */
+    public function setRetriable($value)
+    {
+        $this->retriable = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -181,6 +201,9 @@ class APIError extends DataObject
         }
         if ($this->propertyName !== null) {
             $object->propertyName = $this->propertyName;
+        }
+        if ($this->retriable !== null) {
+            $object->retriable = $this->retriable;
         }
         return $object;
     }
@@ -213,6 +236,9 @@ class APIError extends DataObject
         }
         if (property_exists($object, 'propertyName')) {
             $this->propertyName = $object->propertyName;
+        }
+        if (property_exists($object, 'retriable')) {
+            $this->retriable = $object->retriable;
         }
         return $this;
     }

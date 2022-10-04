@@ -27,6 +27,16 @@ class CardPaymentMethodSpecificInput extends DataObject
     /**
      * @var string
      */
+    private $cardOnFileRecurringExpiration;
+
+    /**
+     * @var string
+     */
+    private $cardOnFileRecurringFrequency;
+
+    /**
+     * @var string
+     */
     private $initialSchemeTransactionId;
 
     /**
@@ -123,6 +133,36 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function setCard($value)
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardOnFileRecurringExpiration()
+    {
+        return $this->cardOnFileRecurringExpiration;
+    }
+    /**
+     * @var string
+     */
+    public function setCardOnFileRecurringExpiration($value)
+    {
+        $this->cardOnFileRecurringExpiration = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardOnFileRecurringFrequency()
+    {
+        return $this->cardOnFileRecurringFrequency;
+    }
+    /**
+     * @var string
+     */
+    public function setCardOnFileRecurringFrequency($value)
+    {
+        $this->cardOnFileRecurringFrequency = $value;
     }
 
     /**
@@ -347,6 +387,12 @@ class CardPaymentMethodSpecificInput extends DataObject
         if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
+        if ($this->cardOnFileRecurringExpiration !== null) {
+            $object->cardOnFileRecurringExpiration = $this->cardOnFileRecurringExpiration;
+        }
+        if ($this->cardOnFileRecurringFrequency !== null) {
+            $object->cardOnFileRecurringFrequency = $this->cardOnFileRecurringFrequency;
+        }
         if ($this->initialSchemeTransactionId !== null) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
         }
@@ -409,6 +455,12 @@ class CardPaymentMethodSpecificInput extends DataObject
             }
             $value = new Card();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'cardOnFileRecurringExpiration')) {
+            $this->cardOnFileRecurringExpiration = $object->cardOnFileRecurringExpiration;
+        }
+        if (property_exists($object, 'cardOnFileRecurringFrequency')) {
+            $this->cardOnFileRecurringFrequency = $object->cardOnFileRecurringFrequency;
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
