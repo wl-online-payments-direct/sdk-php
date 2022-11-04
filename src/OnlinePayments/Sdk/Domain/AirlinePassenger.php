@@ -17,7 +17,17 @@ class AirlinePassenger extends DataObject
     /**
      * @var string
      */
+    private $airlineLoyaltyStatus;
+
+    /**
+     * @var string
+     */
     private $firstName;
+
+    /**
+     * @var string
+     */
+    private $passengerType;
 
     /**
      * @var string
@@ -38,6 +48,21 @@ class AirlinePassenger extends DataObject
     /**
      * @return string
      */
+    public function getAirlineLoyaltyStatus()
+    {
+        return $this->airlineLoyaltyStatus;
+    }
+    /**
+     * @var string
+     */
+    public function setAirlineLoyaltyStatus($value)
+    {
+        $this->airlineLoyaltyStatus = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getFirstName()
     {
         return $this->firstName;
@@ -48,6 +73,21 @@ class AirlinePassenger extends DataObject
     public function setFirstName($value)
     {
         $this->firstName = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassengerType()
+    {
+        return $this->passengerType;
+    }
+    /**
+     * @var string
+     */
+    public function setPassengerType($value)
+    {
+        $this->passengerType = $value;
     }
 
     /**
@@ -101,8 +141,14 @@ class AirlinePassenger extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->airlineLoyaltyStatus !== null) {
+            $object->airlineLoyaltyStatus = $this->airlineLoyaltyStatus;
+        }
         if ($this->firstName !== null) {
             $object->firstName = $this->firstName;
+        }
+        if ($this->passengerType !== null) {
+            $object->passengerType = $this->passengerType;
         }
         if ($this->surname !== null) {
             $object->surname = $this->surname;
@@ -124,8 +170,14 @@ class AirlinePassenger extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'airlineLoyaltyStatus')) {
+            $this->airlineLoyaltyStatus = $object->airlineLoyaltyStatus;
+        }
         if (property_exists($object, 'firstName')) {
             $this->firstName = $object->firstName;
+        }
+        if (property_exists($object, 'passengerType')) {
+            $this->passengerType = $object->passengerType;
         }
         if (property_exists($object, 'surname')) {
             $this->surname = $object->surname;

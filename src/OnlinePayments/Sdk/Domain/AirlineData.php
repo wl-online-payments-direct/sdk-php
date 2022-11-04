@@ -30,6 +30,11 @@ class AirlineData extends DataObject
     private $flightDate;
 
     /**
+     * @var string
+     */
+    private $flightIndicator;
+
+    /**
      * @var AirlineFlightLeg[]
      */
     private $flightLegs;
@@ -98,6 +103,11 @@ class AirlineData extends DataObject
      * @var string
      */
     private $posCityCode;
+
+    /**
+     * @var string
+     */
+    private $ticketCurrency;
 
     /**
      * @var string
@@ -173,6 +183,21 @@ class AirlineData extends DataObject
     public function setFlightDate($value)
     {
         $this->flightDate = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFlightIndicator()
+    {
+        return $this->flightIndicator;
+    }
+    /**
+     * @var string
+     */
+    public function setFlightIndicator($value)
+    {
+        $this->flightIndicator = $value;
     }
 
     /**
@@ -388,6 +413,21 @@ class AirlineData extends DataObject
     /**
      * @return string
      */
+    public function getTicketCurrency()
+    {
+        return $this->ticketCurrency;
+    }
+    /**
+     * @var string
+     */
+    public function setTicketCurrency($value)
+    {
+        $this->ticketCurrency = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getTicketDeliveryMethod()
     {
         return $this->ticketDeliveryMethod;
@@ -490,6 +530,9 @@ class AirlineData extends DataObject
         if ($this->flightDate !== null) {
             $object->flightDate = $this->flightDate;
         }
+        if ($this->flightIndicator !== null) {
+            $object->flightIndicator = $this->flightIndicator;
+        }
         if ($this->flightLegs !== null) {
             $object->flightLegs = [];
             foreach ($this->flightLegs as $element) {
@@ -542,6 +585,9 @@ class AirlineData extends DataObject
         if ($this->posCityCode !== null) {
             $object->posCityCode = $this->posCityCode;
         }
+        if ($this->ticketCurrency !== null) {
+            $object->ticketCurrency = $this->ticketCurrency;
+        }
         if ($this->ticketDeliveryMethod !== null) {
             $object->ticketDeliveryMethod = $this->ticketDeliveryMethod;
         }
@@ -579,6 +625,9 @@ class AirlineData extends DataObject
         }
         if (property_exists($object, 'flightDate')) {
             $this->flightDate = $object->flightDate;
+        }
+        if (property_exists($object, 'flightIndicator')) {
+            $this->flightIndicator = $object->flightIndicator;
         }
         if (property_exists($object, 'flightLegs')) {
             if (!is_array($object->flightLegs) && !is_object($object->flightLegs)) {
@@ -635,6 +684,9 @@ class AirlineData extends DataObject
         }
         if (property_exists($object, 'posCityCode')) {
             $this->posCityCode = $object->posCityCode;
+        }
+        if (property_exists($object, 'ticketCurrency')) {
+            $this->ticketCurrency = $object->ticketCurrency;
         }
         if (property_exists($object, 'ticketDeliveryMethod')) {
             $this->ticketDeliveryMethod = $object->ticketDeliveryMethod;
