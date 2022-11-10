@@ -25,6 +25,11 @@ class CreateHostedTokenizationResponse extends DataObject
     private $hostedTokenizationId;
 
     /**
+     * @var string
+     */
+    private $hostedTokenizationUrl;
+
+    /**
      * @var string[]
      */
     private $invalidTokens;
@@ -63,6 +68,21 @@ class CreateHostedTokenizationResponse extends DataObject
     public function setHostedTokenizationId($value)
     {
         $this->hostedTokenizationId = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHostedTokenizationUrl()
+    {
+        return $this->hostedTokenizationUrl;
+    }
+    /**
+     * @var string
+     */
+    public function setHostedTokenizationUrl($value)
+    {
+        $this->hostedTokenizationUrl = $value;
     }
 
     /**
@@ -112,6 +132,9 @@ class CreateHostedTokenizationResponse extends DataObject
         if ($this->hostedTokenizationId !== null) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
+        if ($this->hostedTokenizationUrl !== null) {
+            $object->hostedTokenizationUrl = $this->hostedTokenizationUrl;
+        }
         if ($this->invalidTokens !== null) {
             $object->invalidTokens = [];
             foreach ($this->invalidTokens as $element) {
@@ -145,6 +168,9 @@ class CreateHostedTokenizationResponse extends DataObject
         }
         if (property_exists($object, 'hostedTokenizationId')) {
             $this->hostedTokenizationId = $object->hostedTokenizationId;
+        }
+        if (property_exists($object, 'hostedTokenizationUrl')) {
+            $this->hostedTokenizationUrl = $object->hostedTokenizationUrl;
         }
         if (property_exists($object, 'invalidTokens')) {
             if (!is_array($object->invalidTokens) && !is_object($object->invalidTokens)) {
