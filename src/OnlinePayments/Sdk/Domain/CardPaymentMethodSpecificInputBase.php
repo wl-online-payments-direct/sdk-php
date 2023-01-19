@@ -15,6 +15,11 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 {
     // Properties
     /**
+     * @var bool
+     */
+    private $allowDynamicLinking;
+
+    /**
      * @var string
      */
     private $authorizationMode;
@@ -75,6 +80,21 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     private $unscheduledCardOnFileSequenceIndicator;
 
     // Methods
+    /**
+     * @return bool
+     */
+    public function getAllowDynamicLinking()
+    {
+        return $this->allowDynamicLinking;
+    }
+    /**
+     * @var bool
+     */
+    public function setAllowDynamicLinking($value)
+    {
+        $this->allowDynamicLinking = $value;
+    }
+
     /**
      * @return string
      */
@@ -261,6 +281,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->allowDynamicLinking !== null) {
+            $object->allowDynamicLinking = $this->allowDynamicLinking;
+        }
         if ($this->authorizationMode !== null) {
             $object->authorizationMode = $this->authorizationMode;
         }
@@ -308,6 +331,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'allowDynamicLinking')) {
+            $this->allowDynamicLinking = $object->allowDynamicLinking;
+        }
         if (property_exists($object, 'authorizationMode')) {
             $this->authorizationMode = $object->authorizationMode;
         }

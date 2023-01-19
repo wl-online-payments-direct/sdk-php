@@ -24,6 +24,11 @@ class MerchantAction extends DataObject
      */
     private $redirectData;
 
+    /**
+     * @var ShowFormData
+     */
+    private $showFormData;
+
     // Methods
     /**
      * @return string
@@ -56,6 +61,21 @@ class MerchantAction extends DataObject
     }
 
     /**
+     * @return ShowFormData
+     */
+    public function getShowFormData()
+    {
+        return $this->showFormData;
+    }
+    /**
+     * @var ShowFormData
+     */
+    public function setShowFormData($value)
+    {
+        $this->showFormData = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -66,6 +86,9 @@ class MerchantAction extends DataObject
         }
         if ($this->redirectData !== null) {
             $object->redirectData = $this->redirectData->toObject();
+        }
+        if ($this->showFormData !== null) {
+            $object->showFormData = $this->showFormData->toObject();
         }
         return $object;
     }
@@ -87,6 +110,13 @@ class MerchantAction extends DataObject
             }
             $value = new RedirectData();
             $this->redirectData = $value->fromObject($object->redirectData);
+        }
+        if (property_exists($object, 'showFormData')) {
+            if (!is_object($object->showFormData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->showFormData, true) . '\' is not an object');
+            }
+            $value = new ShowFormData();
+            $this->showFormData = $value->fromObject($object->showFormData);
         }
         return $this;
     }

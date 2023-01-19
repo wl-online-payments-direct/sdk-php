@@ -64,6 +64,11 @@ class CaptureOutput extends DataObject
      */
     private $sepaDirectDebitPaymentMethodSpecificOutput;
 
+    /**
+     * @var SurchargeSpecificOutput
+     */
+    private $surchargeSpecificOutput;
+
     // Methods
     /**
      * @return AmountOfMoney
@@ -216,6 +221,21 @@ class CaptureOutput extends DataObject
     }
 
     /**
+     * @return SurchargeSpecificOutput
+     */
+    public function getSurchargeSpecificOutput()
+    {
+        return $this->surchargeSpecificOutput;
+    }
+    /**
+     * @var SurchargeSpecificOutput
+     */
+    public function setSurchargeSpecificOutput($value)
+    {
+        $this->surchargeSpecificOutput = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -250,6 +270,9 @@ class CaptureOutput extends DataObject
         }
         if ($this->sepaDirectDebitPaymentMethodSpecificOutput !== null) {
             $object->sepaDirectDebitPaymentMethodSpecificOutput = $this->sepaDirectDebitPaymentMethodSpecificOutput->toObject();
+        }
+        if ($this->surchargeSpecificOutput !== null) {
+            $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
         }
         return $object;
     }
@@ -319,6 +342,13 @@ class CaptureOutput extends DataObject
             }
             $value = new SepaDirectDebitPaymentMethodSpecificOutput();
             $this->sepaDirectDebitPaymentMethodSpecificOutput = $value->fromObject($object->sepaDirectDebitPaymentMethodSpecificOutput);
+        }
+        if (property_exists($object, 'surchargeSpecificOutput')) {
+            if (!is_object($object->surchargeSpecificOutput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->surchargeSpecificOutput, true) . '\' is not an object');
+            }
+            $value = new SurchargeSpecificOutput();
+            $this->surchargeSpecificOutput = $value->fromObject($object->surchargeSpecificOutput);
         }
         return $this;
     }

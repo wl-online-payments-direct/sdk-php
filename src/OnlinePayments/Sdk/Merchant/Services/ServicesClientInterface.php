@@ -9,6 +9,8 @@ use Exception;
 use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\CallContext;
+use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
+use OnlinePayments\Sdk\Domain\CalculateSurchargeResponse;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsResponse;
 use OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse;
@@ -21,6 +23,24 @@ use OnlinePayments\Sdk\ValidationException;
 
 interface ServicesClientInterface
 {
+    /**
+     * Resource /v2/{merchantId}/services/surchargecalculation - Surcharge Calculation
+     *
+     * @param CalculateSurchargeRequest $body
+     * @param CallContext $callContext
+     * @return CalculateSurchargeResponse
+     *
+     * @throws ApiException
+     * @throws AuthorizationException
+     * @throws Exception
+     * @throws PaymentPlatformException
+     * @throws IdempotenceException
+     * @throws InvalidResponseException
+     * @throws ReferenceException
+     * @throws ValidationException
+     */
+    public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null);
+
     /**
      * Resource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
      *

@@ -6,12 +6,29 @@
 namespace OnlinePayments\Sdk\Merchant\Services;
 
 use OnlinePayments\Sdk\CallContext;
+use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
 class ServicesClient extends Resource implements ServicesClientInterface
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null)
+    {
+        $responseClassMap = new ResponseClassMap('\OnlinePayments\Sdk\Domain\CalculateSurchargeResponse');
+        return $this->getCommunicator()->post(
+            $responseClassMap,
+            $this->instantiateUri('/v2/{merchantId}/services/surchargecalculation'),
+            $this->getClientMetaInfo(),
+            $body,
+            null,
+            $callContext
+        );
+    }
+
     /**
      * {@inheritDoc}
      */

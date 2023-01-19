@@ -44,6 +44,11 @@ class Order extends DataObject
      */
     private $shoppingCart;
 
+    /**
+     * @var SurchargeSpecificInput
+     */
+    private $surchargeSpecificInput;
+
     // Methods
     /**
      * @return AdditionalOrderInput
@@ -136,6 +141,21 @@ class Order extends DataObject
     }
 
     /**
+     * @return SurchargeSpecificInput
+     */
+    public function getSurchargeSpecificInput()
+    {
+        return $this->surchargeSpecificInput;
+    }
+    /**
+     * @var SurchargeSpecificInput
+     */
+    public function setSurchargeSpecificInput($value)
+    {
+        $this->surchargeSpecificInput = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -158,6 +178,9 @@ class Order extends DataObject
         }
         if ($this->shoppingCart !== null) {
             $object->shoppingCart = $this->shoppingCart->toObject();
+        }
+        if ($this->surchargeSpecificInput !== null) {
+            $object->surchargeSpecificInput = $this->surchargeSpecificInput->toObject();
         }
         return $object;
     }
@@ -211,6 +234,13 @@ class Order extends DataObject
             }
             $value = new ShoppingCart();
             $this->shoppingCart = $value->fromObject($object->shoppingCart);
+        }
+        if (property_exists($object, 'surchargeSpecificInput')) {
+            if (!is_object($object->surchargeSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->surchargeSpecificInput, true) . '\' is not an object');
+            }
+            $value = new SurchargeSpecificInput();
+            $this->surchargeSpecificInput = $value->fromObject($object->surchargeSpecificInput);
         }
         return $this;
     }
