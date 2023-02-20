@@ -3,14 +3,14 @@
 namespace OnlinePayments\Sdk;
 
 /**
- * Class Resource
+ * Class ApiResource
  *
  * @package OnlinePayments\Sdk
  */
-class Resource
+class ApiResource
 {
     /**
-     * @var Resource
+     * @var ApiResource
      */
     private $parent;
 
@@ -22,10 +22,10 @@ class Resource
     /**
      * Creates a new proxy object for a RAML resource.
      *
-     * @param Resource $parent The parent resource.
+     * @param ApiResource $parent The parent resource.
      * @param array $context An associative array that maps URI parameters to values.
      */
-    public function __construct(Resource $parent = null, $context = array())
+    public function __construct(ApiResource $parent = null, $context = array())
     {
         $this->parent = $parent;
         $this->context = $context;
@@ -44,7 +44,7 @@ class Resource
     /**
      * Returns the client headers with this resource.
      *
-     * @return array
+     * @return string
      */
     protected function getClientMetaInfo()
     {

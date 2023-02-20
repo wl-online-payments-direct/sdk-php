@@ -5,11 +5,11 @@
 
 namespace OnlinePayments\Sdk\Merchant\Products;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class ProductsClient extends Resource implements ProductsClientInterface
+class ProductsClient extends ApiResource implements ProductsClientInterface
 {
     /**
      * {@inheritDoc}

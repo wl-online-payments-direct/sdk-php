@@ -21,7 +21,7 @@ use OnlinePayments\Sdk\ValidationException;
 interface HostedCheckoutClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts - Create hosted checkout
+     * ApiResource /v2/{merchantId}/hostedcheckouts - Create hosted checkout
      *
      * @param CreateHostedCheckoutRequest $body
      * @param CallContext $callContext
@@ -39,7 +39,7 @@ interface HostedCheckoutClientInterface
     public function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId} - Get hosted checkout status
+     * ApiResource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId} - Get hosted checkout status
      *
      * @param string $hostedCheckoutId
      * @param CallContext $callContext

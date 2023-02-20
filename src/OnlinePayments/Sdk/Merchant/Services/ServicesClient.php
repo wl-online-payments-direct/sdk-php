@@ -5,13 +5,13 @@
 
 namespace OnlinePayments\Sdk\Merchant\Services;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class ServicesClient extends Resource implements ServicesClientInterface
+class ServicesClient extends ApiResource implements ServicesClientInterface
 {
     /**
      * {@inheritDoc}

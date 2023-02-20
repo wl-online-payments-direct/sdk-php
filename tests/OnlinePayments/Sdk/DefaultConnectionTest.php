@@ -15,7 +15,7 @@ class DefaultConnectionTest extends OnlinePaymentsTestCase
     /** @var DefaultConnection */
     protected $connection;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->connection = new DefaultConnection();

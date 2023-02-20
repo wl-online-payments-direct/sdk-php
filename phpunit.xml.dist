@@ -1,13 +1,14 @@
-<phpunit bootstrap="tests/bootstrap.php">
-    <testsuites>
-        <testsuite>
-            <directory>tests/OnlinePayments/Sdk</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src</directory>
-            <directory suffix=".php">lib</directory>
-        </whitelist>
-    </filter>
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" bootstrap="tests/bootstrap.php">
+  <coverage>
+    <include>
+      <directory suffix=".php">src</directory>
+      <directory suffix=".php">lib</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="Online Payments Sdk testsuite">
+      <directory>tests/OnlinePayments/Sdk</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

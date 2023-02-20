@@ -21,7 +21,7 @@ class CommunicatorTest extends OnlinePaymentsTestCase
     /**
      * @throws Exception
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->defaultCommunicator = new Communicator(
             new DefaultConnection(),
@@ -30,7 +30,7 @@ class CommunicatorTest extends OnlinePaymentsTestCase
         $this->defaultResponseClassMap = new ResponseClassMap('');
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -62,8 +62,7 @@ class CommunicatorTest extends OnlinePaymentsTestCase
         $findParams = new GetPaymentProductsParams();
         $findParams->setCountryCode('NL');
         $findParams->setCurrencyCode('EUR');
-        $clientHeaders = [];
-        $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri, $clientHeaders, $findParams);
+        $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri, '', $findParams);
     }
 
     /**

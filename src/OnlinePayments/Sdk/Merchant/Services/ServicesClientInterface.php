@@ -24,7 +24,7 @@ use OnlinePayments\Sdk\ValidationException;
 interface ServicesClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/services/surchargecalculation - Surcharge Calculation
+     * ApiResource /v2/{merchantId}/services/surchargecalculation - Surcharge Calculation
      *
      * @param CalculateSurchargeRequest $body
      * @param CallContext $callContext
@@ -42,7 +42,7 @@ interface ServicesClientInterface
     public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
+     * ApiResource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
      *
      * @param GetPrivacyPolicyParams $query
      * @param CallContext $callContext
@@ -60,7 +60,7 @@ interface ServicesClientInterface
     public function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/services/testconnection - Test connection
+     * ApiResource /v2/{merchantId}/services/testconnection - Test connection
      *
      * @param CallContext $callContext
      * @return TestConnection
@@ -77,7 +77,7 @@ interface ServicesClientInterface
     public function testConnection(CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/services/getIINdetails - Get IIN details
+     * ApiResource /v2/{merchantId}/services/getIINdetails - Get IIN details
      *
      * @param GetIINDetailsRequest $body
      * @param CallContext $callContext

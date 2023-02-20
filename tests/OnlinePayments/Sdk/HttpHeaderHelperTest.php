@@ -7,9 +7,8 @@ class HttpHeaderHelperTest extends OnlinePaymentsTestCase
     /** @var HttpHeaderHelper */
     protected $httpHeaderHelper;
 
-    public function __construct()
+    protected function setUp(): void
     {
-        parent::__construct();
         $this->httpHeaderHelper = new HttpHeaderHelper();
     }
 

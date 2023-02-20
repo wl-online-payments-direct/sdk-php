@@ -29,7 +29,7 @@ class CommunicatorLoggerHelperTest extends TestCase
     /**
      * @return array
      */
-    public function uriProvider()
+    public static function uriProvider()
     {
         return array(
             array(

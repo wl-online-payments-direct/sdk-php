@@ -5,12 +5,12 @@
 
 namespace OnlinePayments\Sdk\Merchant\Payouts;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CreatePayoutRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class PayoutsClient extends Resource implements PayoutsClientInterface
+class PayoutsClient extends ApiResource implements PayoutsClientInterface
 {
     /**
      * {@inheritDoc}

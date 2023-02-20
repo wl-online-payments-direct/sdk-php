@@ -5,11 +5,11 @@
 
 namespace OnlinePayments\Sdk\Merchant\ProductGroups;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class ProductGroupsClient extends Resource implements ProductGroupsClientInterface
+class ProductGroupsClient extends ApiResource implements ProductGroupsClientInterface
 {
     /**
      * {@inheritDoc}

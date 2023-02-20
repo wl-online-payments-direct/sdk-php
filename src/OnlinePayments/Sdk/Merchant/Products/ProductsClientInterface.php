@@ -22,7 +22,7 @@ use OnlinePayments\Sdk\ValidationException;
 interface ProductsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/products - Get payment products
+     * ApiResource /v2/{merchantId}/products - Get payment products
      *
      * @param GetPaymentProductsParams $query
      * @param CallContext $callContext
@@ -40,7 +40,7 @@ interface ProductsClientInterface
     public function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId} - Get payment product
+     * ApiResource /v2/{merchantId}/products/{paymentProductId} - Get payment product
      *
      * @param int $paymentProductId
      * @param GetPaymentProductParams $query
@@ -59,7 +59,7 @@ interface ProductsClientInterface
     public function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId}/directory - Get payment product directory
+     * ApiResource /v2/{merchantId}/products/{paymentProductId}/directory - Get payment product directory
      *
      * @param int $paymentProductId
      * @param GetProductDirectoryParams $query
@@ -78,7 +78,7 @@ interface ProductsClientInterface
     public function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId}/networks - Get payment product networks
+     * ApiResource /v2/{merchantId}/products/{paymentProductId}/networks - Get payment product networks
      *
      * @param int $paymentProductId
      * @param GetPaymentProductNetworksParams $query

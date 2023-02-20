@@ -9,7 +9,7 @@ namespace OnlinePayments\Sdk;
  */
 class HeaderObfuscator
 {
-    /** @var ValueObfuscator */
+    /** @var SensitiveValueObfuscator */
     protected $obfuscator;
 
     public function __construct()

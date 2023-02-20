@@ -5,12 +5,12 @@
 
 namespace OnlinePayments\Sdk\Merchant\Mandates;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CreateMandateRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class MandatesClient extends Resource implements MandatesClientInterface
+class MandatesClient extends ApiResource implements MandatesClientInterface
 {
     /**
      * {@inheritDoc}

@@ -10,7 +10,7 @@ use OnlinePayments\Sdk\Merchant\MerchantClient;
 /**
  * API specifications
  */
-class Client extends Resource implements ClientInterface
+class Client extends ApiResource implements ClientInterface
 {
     const API_VERSION = 'v2';
 

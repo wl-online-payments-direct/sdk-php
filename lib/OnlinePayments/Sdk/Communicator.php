@@ -60,9 +60,10 @@ class Communicator implements CommunicatorInterface
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
      * @param RequestObject|null $requestParameters
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return DataObject
      * @throws ResponseException
+     * @throws InvalidResponseException
      */
     public function get(
         ResponseClassMap $responseClassMap,
@@ -145,7 +146,7 @@ class Communicator implements CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|null $requestBodyObject
+     * @param mixed|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject
@@ -197,7 +198,7 @@ class Communicator implements CommunicatorInterface
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
-     * @param DataObject|null $requestBodyObject
+     * @param mixed|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext $callContext
      * @return DataObject
@@ -283,7 +284,7 @@ class Communicator implements CommunicatorInterface
     }
 
     /**
-     * @param CommunicatorConfiguration
+     * @param CommunicatorConfiguration $communicatorConfiguration
      * @return Communicator
      */
     public function setCommunicatorConfiguration(CommunicatorConfiguration $communicatorConfiguration)
@@ -308,17 +309,17 @@ class Communicator implements CommunicatorInterface
     /**
      * @param string $httpMethod
      * @param string $relativeUriPathWithRequestParameters
-     * @param string $contentType
+     * @param string|null $contentType
      * @param string $clientMetaInfo
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return string[]
      */
     protected function getRequestHeaders(
         $httpMethod,
         $relativeUriPathWithRequestParameters,
-        $contentType,
+        $contentType = null,
         $clientMetaInfo = '',
-        CallContext $callContext = null
+        ?CallContext $callContext = null
     )
     {
         $requestHeaderGenerator = new RequestHeaderGenerator(

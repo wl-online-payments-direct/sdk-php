@@ -5,16 +5,16 @@
 
 namespace OnlinePayments\Sdk\Merchant\Payments;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CancelPaymentRequest;
 use OnlinePayments\Sdk\Domain\CapturePaymentRequest;
 use OnlinePayments\Sdk\Domain\CompletePaymentRequest;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
 use OnlinePayments\Sdk\Domain\RefundRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class PaymentsClient extends Resource implements PaymentsClientInterface
+class PaymentsClient extends ApiResource implements PaymentsClientInterface
 {
     /**
      * {@inheritDoc}

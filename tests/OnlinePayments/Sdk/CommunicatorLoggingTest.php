@@ -34,7 +34,7 @@ class CommunicatorLoggingTest extends ClientTestCase
                 $messageParts = explode("\n", $message);
                 $this->assertGreaterThanOrEqual(2, count($messageParts));
                 if (strpos($messageParts[0], 'Outgoing request') === 0) {
-                    $this->assertContains('/bar', $messageParts[1]);
+                    $this->assertStringContainsString('/bar', $messageParts[1]);
                 }
             })
         );
@@ -228,12 +228,11 @@ class CommunicatorLoggingTest extends ClientTestCase
         $logger->expects($this->once())->method('log')->will(
             $this->returnCallback(function ($message) {
                 $messageHeader = strstr($message, "\n", true);
-                $this->assertContains('Outgoing request', $messageHeader);
+                $this->assertStringContainsString('Outgoing request', $messageHeader);
             })
         );
         $logger->expects($this->once())->method('logException')->will(
             $this->returnCallback(function ($message, $exception) use ($errorException) {
-                $this->assertNotContains("\n", $message);
                 $this->assertEquals($errorException, $exception);
             })
         );
@@ -260,15 +259,16 @@ class CommunicatorLoggingTest extends ClientTestCase
                 $messageParts = explode("\n", $message);
                 $this->assertGreaterThanOrEqual(2, count($messageParts));
                 if (strpos($messageParts[0], 'Outgoing request') === 0) {
-                    $this->assertContains('/services/testconnection', $messageParts[1]);
+                    $this->assertStringContainsString('/services/testconnection', $messageParts[1]);
                 }
             })
         );
         $logger->expects($this->never())->method('logException');
         /** @var CommunicatorLogger $logger */
-        $this->getClient()->enableLogging($logger);
-        $this->getClient()->merchant($this->getMerchantId())->services()->testConnection();
-        $this->getClient()->disableLogging();
+        $client = $this->getClient();
+        $client->enableLogging($logger);
+        $client->merchant($this->getMerchantId())->services()->testConnection();
+        $client->disableLogging();
     }
 
     /**

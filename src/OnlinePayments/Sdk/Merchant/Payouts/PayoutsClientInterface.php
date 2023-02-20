@@ -21,7 +21,7 @@ use OnlinePayments\Sdk\ValidationException;
 interface PayoutsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/payouts - Create payout
+     * ApiResource /v2/{merchantId}/payouts - Create payout
      *
      * @param CreatePayoutRequest $body
      * @param CallContext $callContext
@@ -40,7 +40,7 @@ interface PayoutsClientInterface
     public function createPayout(CreatePayoutRequest $body, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/payouts/{payoutId} - Get payout
+     * ApiResource /v2/{merchantId}/payouts/{payoutId} - Get payout
      *
      * @param string $payoutId
      * @param CallContext $callContext

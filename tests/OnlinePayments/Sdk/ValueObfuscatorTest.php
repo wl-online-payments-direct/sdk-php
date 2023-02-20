@@ -23,7 +23,7 @@ class ValueObfuscatorTest extends TestCase
         $this->assertEquals($valueObfuscated, $valueObfuscator->obfuscate($value));
     }
 
-    public function valueObfuscatorProvider()
+    public static function valueObfuscatorProvider()
     {
         return array(
             array(NULL, NULL),

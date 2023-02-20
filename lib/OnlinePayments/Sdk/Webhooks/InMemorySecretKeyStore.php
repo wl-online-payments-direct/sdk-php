@@ -11,13 +11,13 @@ use UnexpectedValueException;
  */
 class InMemorySecretKeyStore implements SecretKeyStore
 {
-    /** @var array[string]string */
+    /** @var array<string> */
     private $secretKeys;
 
     /**
-     * @param array[string]string $secretKeys
+     * @param array<string> $secretKeys
      */
-    public function __construct($secretKeys = array())
+    public function __construct($secretKeys = [])
     {
         $this->secretKeys = $secretKeys;
     }
@@ -37,8 +37,8 @@ class InMemorySecretKeyStore implements SecretKeyStore
 
     /**
      * Stores the given secret key for the given key id.
-     * @param string $keyId
-     * @param string $secretKey
+     * @param string|null $keyId
+     * @param string|null $secretKey
      */
     public function storeSecretKey($keyId, $secretKey)
     {

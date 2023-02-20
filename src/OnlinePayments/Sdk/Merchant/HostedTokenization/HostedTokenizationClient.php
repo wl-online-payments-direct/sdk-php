@@ -5,12 +5,12 @@
 
 namespace OnlinePayments\Sdk\Merchant\HostedTokenization;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CreateHostedTokenizationRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class HostedTokenizationClient extends Resource implements HostedTokenizationClientInterface
+class HostedTokenizationClient extends ApiResource implements HostedTokenizationClientInterface
 {
     /**
      * {@inheritDoc}

@@ -5,12 +5,12 @@
 
 namespace OnlinePayments\Sdk\Merchant\HostedCheckout;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CreateHostedCheckoutRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class HostedCheckoutClient extends Resource implements HostedCheckoutClientInterface
+class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientInterface
 {
     /**
      * {@inheritDoc}

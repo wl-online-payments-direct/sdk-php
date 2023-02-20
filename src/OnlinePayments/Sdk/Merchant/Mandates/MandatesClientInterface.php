@@ -21,7 +21,7 @@ use OnlinePayments\Sdk\ValidationException;
 interface MandatesClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/mandates - Create mandate
+     * ApiResource /v2/{merchantId}/mandates - Create mandate
      *
      * @param CreateMandateRequest $body
      * @param CallContext $callContext
@@ -39,7 +39,7 @@ interface MandatesClientInterface
     public function createMandate(CreateMandateRequest $body, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference} - Get mandate
+     * ApiResource /v2/{merchantId}/mandates/{uniqueMandateReference} - Get mandate
      *
      * @param string $uniqueMandateReference
      * @param CallContext $callContext
@@ -57,7 +57,7 @@ interface MandatesClientInterface
     public function getMandate($uniqueMandateReference, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/block - Block mandate
+     * ApiResource /v2/{merchantId}/mandates/{uniqueMandateReference}/block - Block mandate
      *
      * @param string $uniqueMandateReference
      * @param CallContext $callContext
@@ -75,7 +75,7 @@ interface MandatesClientInterface
     public function blockMandate($uniqueMandateReference, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/unblock - Unblock mandate
+     * ApiResource /v2/{merchantId}/mandates/{uniqueMandateReference}/unblock - Unblock mandate
      *
      * @param string $uniqueMandateReference
      * @param CallContext $callContext
@@ -93,7 +93,7 @@ interface MandatesClientInterface
     public function unblockMandate($uniqueMandateReference, CallContext $callContext = null);
 
     /**
-     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
+     * ApiResource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
      *
      * @param string $uniqueMandateReference
      * @param CallContext $callContext

@@ -4,6 +4,8 @@ namespace OnlinePayments\Sdk;
 
 use Exception;
 use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
+use function phpversion;
+use function var_dump;
 
 /**
  * @group request_header
@@ -78,6 +80,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
      */
     public function testException()
     {
+        $this->expectException(Exception::class);
         new RequestHeaderGenerator(
             $this->getCommunicatorConfiguration(),
             'INVALID',
@@ -108,8 +111,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
         $this->assertInstanceOf('\stdClass', $serverMetaInfo);
 
         $this->assertObjectHasAttribute('platformIdentifier', $serverMetaInfo);
-        $this->assertContains(php_uname(), $serverMetaInfo->platformIdentifier);
-        $this->assertContains(phpversion(), $serverMetaInfo->platformIdentifier);
+        $this->assertEquals(php_uname() . '; php version ' . phpversion(), $serverMetaInfo->platformIdentifier);
 
         $this->assertObjectHasAttribute('sdkIdentifier', $serverMetaInfo);
         $this->assertEquals('PHPServerSDK/v' . RequestHeaderGenerator::SDK_VERSION, $serverMetaInfo->sdkIdentifier);
@@ -148,8 +150,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
         $this->assertInstanceOf('\stdClass', $serverMetaInfo);
 
         $this->assertObjectHasAttribute('platformIdentifier', $serverMetaInfo);
-        $this->assertContains(php_uname(), $serverMetaInfo->platformIdentifier);
-        $this->assertContains(phpversion(), $serverMetaInfo->platformIdentifier);
+        $this->assertEquals(php_uname() . '; php version ' . phpversion(), $serverMetaInfo->platformIdentifier);
 
         $this->assertObjectHasAttribute('sdkIdentifier', $serverMetaInfo);
         $this->assertEquals('PHPServerSDK/v' . RequestHeaderGenerator::SDK_VERSION, $serverMetaInfo->sdkIdentifier);
@@ -198,8 +199,7 @@ class RequestHeaderTest extends OnlinePaymentsTestCase
         $this->assertInstanceOf('\stdClass', $serverMetaInfo);
 
         $this->assertObjectHasAttribute('platformIdentifier', $serverMetaInfo);
-        $this->assertContains(php_uname(), $serverMetaInfo->platformIdentifier);
-        $this->assertContains(phpversion(), $serverMetaInfo->platformIdentifier);
+        $this->assertEquals(php_uname() . '; php version ' . phpversion(), $serverMetaInfo->platformIdentifier);
 
         $this->assertObjectHasAttribute('sdkIdentifier', $serverMetaInfo);
         $this->assertEquals('PHPServerSDK/v' . RequestHeaderGenerator::SDK_VERSION, $serverMetaInfo->sdkIdentifier);

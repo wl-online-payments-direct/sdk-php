@@ -5,12 +5,12 @@
 
 namespace OnlinePayments\Sdk\Merchant\Tokens;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CreateTokenRequest;
-use OnlinePayments\Sdk\Resource;
 use OnlinePayments\Sdk\ResponseClassMap;
 
-class TokensClient extends Resource implements TokensClientInterface
+class TokensClient extends ApiResource implements TokensClientInterface
 {
     /**
      * {@inheritDoc}

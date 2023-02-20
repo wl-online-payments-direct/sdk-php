@@ -26,7 +26,7 @@ class HeaderObfuscatorTest extends TestCase
     /**
      * @return array
      */
-    public function headerObfuscatorProvider()
+    public static function headerObfuscatorProvider()
     {
         return array(
             array(

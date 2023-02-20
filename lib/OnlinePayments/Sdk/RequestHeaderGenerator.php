@@ -12,7 +12,7 @@ use UnexpectedValueException;
  */
 class RequestHeaderGenerator
 {
-    const SDK_VERSION = '4.6.0';
+    const SDK_VERSION = '5.0.0';
 
     const AUTHORIZATION_ID = 'GCS';
 
@@ -34,7 +34,7 @@ class RequestHeaderGenerator
     /** @var string */
     protected $clientMetaInfo;
 
-    /** @var CallContext */
+    /** @var CallContext|null */
     protected $callContext;
 
     /**
@@ -50,7 +50,7 @@ class RequestHeaderGenerator
                                   $httpMethodText,
                                   $uriPath,
                                   $clientMetaInfo = '',
-        CallContext               $callContext = null
+        ?CallContext              $callContext = null
     )
     {
         if (!in_array($httpMethodText, array('GET', 'PUT', 'POST', 'DELETE'))) {
@@ -64,7 +64,7 @@ class RequestHeaderGenerator
     }
 
     /**
-     * @param string $contentType
+     * @param string|null $contentType
      * @return string[]
      */
     public function generateRequestHeaders($contentType = Communicator::MIME_APPLICATION_JSON)
@@ -119,6 +119,9 @@ class RequestHeaderGenerator
      */
     protected function getAuthorizationHeaderValue($requestHeaders)
     {
+        $apiSecret = $this->communicatorConfiguration->getApiSecret();
+        $apiSecret = $apiSecret !== null ? $apiSecret : '';
+
         return
             static::AUTHORIZATION_ID . ' ' . static::AUTHORIZATION_TYPE . ':' .
             $this->communicatorConfiguration->getApiKeyId() . ':' .
@@ -126,7 +129,7 @@ class RequestHeaderGenerator
                 hash_hmac(
                     static::HASH_ALGORITHM,
                     $this->getSignData($requestHeaders),
-                    $this->communicatorConfiguration->getApiSecret(),
+                    $apiSecret,
                     true
                 )
             );

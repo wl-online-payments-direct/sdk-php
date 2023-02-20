@@ -5,6 +5,7 @@
 
 namespace OnlinePayments\Sdk\Merchant;
 
+use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClient;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClient;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClient;
@@ -15,9 +16,8 @@ use OnlinePayments\Sdk\Merchant\Products\ProductsClient;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClient;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClient;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClient;
-use OnlinePayments\Sdk\Resource;
 
-class MerchantClient extends Resource implements MerchantClientInterface
+class MerchantClient extends ApiResource implements MerchantClientInterface
 {
     /**
      * {@inheritDoc}

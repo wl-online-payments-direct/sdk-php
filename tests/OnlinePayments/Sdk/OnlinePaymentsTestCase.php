@@ -13,7 +13,7 @@ abstract class OnlinePaymentsTestCase extends TestCase
     /**
      * @var string|null
      */
-    protected $configFilePath = null;
+    protected $configFilePath = __DIR__ . '/../../config.json';
 
     /**
      * @var JsonValuesStore|null
@@ -21,18 +21,9 @@ abstract class OnlinePaymentsTestCase extends TestCase
     protected $jsonValuesStore = null;
 
     /**
-     * @var CommunicatorConfiguration
+     * @var CommunicatorConfiguration|null
      */
-    protected $communicatorConfiguration;
-
-    /**
-     *
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->configFilePath = dirname(__FILE__) . '/../../config.json';
-    }
+    protected $communicatorConfiguration = null;
 
     /**
      * @return string

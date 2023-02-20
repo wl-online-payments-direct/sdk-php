@@ -26,7 +26,7 @@ interface CommunicatorInterface
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
      * @param RequestObject|null $requestParameters
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return DataObject
      * @throws ResponseException
      */
@@ -78,7 +78,7 @@ interface CommunicatorInterface
     public function setConnection(Connection $connection);
 
     /**
-     * @param CommunicatorConfiguration
+     * @param CommunicatorConfiguration $communicatorConfiguration
      * @return CommunicatorInterface
      */
     public function setCommunicatorConfiguration(CommunicatorConfiguration $communicatorConfiguration);

@@ -40,7 +40,7 @@ class BodyObfuscatorTest extends TestCase
     /**
      * @return array
      */
-    public function jsonObfuscationProvider()
+    public static function jsonObfuscationProvider()
     {
         $testObjects = array(
             array(
@@ -149,7 +149,7 @@ class BodyObfuscatorTest extends TestCase
     /**
      * @return array
      */
-    public function skipObfuscationProvider()
+    public static function skipObfuscationProvider()
     {
         return array(
             array(BodyObfuscator::MIME_APPLICATION_JSON, 'foo'),
