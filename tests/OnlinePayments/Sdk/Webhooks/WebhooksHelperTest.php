@@ -133,6 +133,8 @@ EOD;
 
     function testUnmarshalMissingHeaders()
     {
+        $this->expectNotToPerformAssertions();
+
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 
@@ -190,6 +192,8 @@ EOD;
 
     function testUnmarshalBytesInvalidBody()
     {
+        $this->expectNotToPerformAssertions();
+
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 
@@ -204,6 +208,8 @@ EOD;
 
     function testUnmarshalBytesInvalidSecretKey()
     {
+        $this->expectNotToPerformAssertions();
+
         $invalidSecretKey = '1' . self::SECRET_KEY;
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => $invalidSecretKey));
         $helper = $this->createHelper($secretKeyStore);
@@ -219,6 +225,8 @@ EOD;
 
     function testUnmarshalBytesInvalidSignature()
     {
+        $this->expectNotToPerformAssertions();
+
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 

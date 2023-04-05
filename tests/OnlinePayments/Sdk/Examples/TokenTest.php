@@ -22,6 +22,8 @@ class TokenTest extends ClientTestCase
      */
     public function testCreateToken()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
 
@@ -55,6 +57,8 @@ class TokenTest extends ClientTestCase
      */
     public function testRetrieveToken($token)
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $client->merchant($merchantId)->tokens()->getToken($token);
@@ -68,6 +72,8 @@ class TokenTest extends ClientTestCase
      */
     public function testDeleteToken($token)
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $client->merchant($merchantId)->tokens()->deleteToken($token);

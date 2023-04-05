@@ -197,6 +197,9 @@ class PaymentTest extends ClientTestCase
      */
     public function testCreateMinimalPayment()
     {
+        $this->markTestSkipped('Payment may or may not succeed');
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         /** @var CreatePaymentResponse $createPaymentResponse */

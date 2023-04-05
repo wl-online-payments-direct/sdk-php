@@ -33,6 +33,8 @@ class HostedCheckoutTest extends ClientTestCase
      */
     public function testCreateHostedCheckout()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $createHostedCheckoutRequest = new CreateHostedCheckoutRequest();
@@ -77,6 +79,8 @@ class HostedCheckoutTest extends ClientTestCase
      */
     public function testGetHostedCheckoutStatus($hostedCheckoutId)
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         /** @var GetHostedCheckoutResponse $getHostedCheckoutResponse */
