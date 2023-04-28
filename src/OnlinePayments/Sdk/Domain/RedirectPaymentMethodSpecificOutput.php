@@ -25,6 +25,11 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     private $paymentOption;
 
     /**
+     * @var PaymentProduct5001SpecificOutput
+     */
+    private $paymentProduct5001SpecificOutput;
+
+    /**
      * @var PaymentProduct5402SpecificOutput
      */
     private $paymentProduct5402SpecificOutput;
@@ -78,6 +83,21 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function setPaymentOption($value)
     {
         $this->paymentOption = $value;
+    }
+
+    /**
+     * @return PaymentProduct5001SpecificOutput
+     */
+    public function getPaymentProduct5001SpecificOutput()
+    {
+        return $this->paymentProduct5001SpecificOutput;
+    }
+    /**
+     * @var PaymentProduct5001SpecificOutput
+     */
+    public function setPaymentProduct5001SpecificOutput($value)
+    {
+        $this->paymentProduct5001SpecificOutput = $value;
     }
 
     /**
@@ -167,6 +187,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
         if ($this->paymentOption !== null) {
             $object->paymentOption = $this->paymentOption;
         }
+        if ($this->paymentProduct5001SpecificOutput !== null) {
+            $object->paymentProduct5001SpecificOutput = $this->paymentProduct5001SpecificOutput->toObject();
+        }
         if ($this->paymentProduct5402SpecificOutput !== null) {
             $object->paymentProduct5402SpecificOutput = $this->paymentProduct5402SpecificOutput->toObject();
         }
@@ -202,6 +225,13 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'paymentOption')) {
             $this->paymentOption = $object->paymentOption;
+        }
+        if (property_exists($object, 'paymentProduct5001SpecificOutput')) {
+            if (!is_object($object->paymentProduct5001SpecificOutput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5001SpecificOutput, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5001SpecificOutput();
+            $this->paymentProduct5001SpecificOutput = $value->fromObject($object->paymentProduct5001SpecificOutput);
         }
         if (property_exists($object, 'paymentProduct5402SpecificOutput')) {
             if (!is_object($object->paymentProduct5402SpecificOutput)) {
