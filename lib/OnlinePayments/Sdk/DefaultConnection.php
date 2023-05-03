@@ -15,7 +15,7 @@ use UnexpectedValueException;
  */
 class DefaultConnection implements Connection
 {
-    /** @var CurlMultiHandle|null */
+    /** @var resource|CurlMultiHandle|null */
     protected $multiHandle = null;
 
     /** @var CommunicatorLogger|null */
@@ -171,7 +171,7 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @return CurlHandle|resource
+     * @return resource|CurlHandle
      * @throws ErrorException
      */
     protected function getCurlHandle()
@@ -184,7 +184,7 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @param CurlMultiHandle|resource $multiHandle
+     * @param resource|CurlMultiHandle $multiHandle
      * @throws ErrorException
      */
     private function executeCurlHandleShared($multiHandle)
@@ -211,7 +211,7 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @param CurlHandle|resource $curlHandle
+     * @param resource|CurlHandle $curlHandle
      * @param callable $responseHandler
      * @return ConnectionResponse|null
      * @throws Exception
@@ -261,7 +261,7 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @param CurlHandle $curlHandle
+     * @param resource|CurlHandle $curlHandle
      * @param string $httpMethod
      * @param string $requestUri
      * @param string[] $requestHeaders
@@ -313,7 +313,7 @@ class DefaultConnection implements Connection
     }
 
     /**
-     * @return CurlMultiHandle
+     * @return resource|CurlMultiHandle
      * @throws Exception
      */
     private function getCurlMultiHandle()
