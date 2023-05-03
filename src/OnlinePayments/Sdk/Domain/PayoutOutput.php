@@ -19,6 +19,11 @@ class PayoutOutput extends DataObject
      */
     private $amountOfMoney;
 
+    /**
+     * @var string
+     */
+    private $payoutReason;
+
     // Methods
     /**
      * @return AmountOfMoney
@@ -36,6 +41,21 @@ class PayoutOutput extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getPayoutReason()
+    {
+        return $this->payoutReason;
+    }
+    /**
+     * @var string
+     */
+    public function setPayoutReason($value)
+    {
+        $this->payoutReason = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -43,6 +63,9 @@ class PayoutOutput extends DataObject
         $object = parent::toObject();
         if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
+        }
+        if ($this->payoutReason !== null) {
+            $object->payoutReason = $this->payoutReason;
         }
         return $object;
     }
@@ -61,6 +84,9 @@ class PayoutOutput extends DataObject
             }
             $value = new AmountOfMoney();
             $this->amountOfMoney = $value->fromObject($object->amountOfMoney);
+        }
+        if (property_exists($object, 'payoutReason')) {
+            $this->payoutReason = $object->payoutReason;
         }
         return $this;
     }
