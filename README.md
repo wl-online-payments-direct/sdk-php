@@ -21,7 +21,7 @@ This repository consists out of the following components:
 
 ## Requirements
 
-PHP 8.0 or above is required.
+PHP 7.4 or above is required.
 
 ## Installation via Composer
 
