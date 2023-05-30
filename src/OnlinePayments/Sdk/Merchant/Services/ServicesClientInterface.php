@@ -11,6 +11,8 @@ use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
 use OnlinePayments\Sdk\Domain\CalculateSurchargeResponse;
+use OnlinePayments\Sdk\Domain\CurrencyConversionRequest;
+use OnlinePayments\Sdk\Domain\CurrencyConversionResponse;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsResponse;
 use OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse;
@@ -40,6 +42,24 @@ interface ServicesClientInterface
      * @throws ValidationException
      */
     public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null);
+
+    /**
+     * ApiResource /v2/{merchantId}/services/dccrate - Get Dcc Rate Inquiry Api
+     *
+     * @param CurrencyConversionRequest $body
+     * @param CallContext $callContext
+     * @return CurrencyConversionResponse
+     *
+     * @throws ApiException
+     * @throws AuthorizationException
+     * @throws Exception
+     * @throws PaymentPlatformException
+     * @throws IdempotenceException
+     * @throws InvalidResponseException
+     * @throws ReferenceException
+     * @throws ValidationException
+     */
+    public function getDccRateInquiry(CurrencyConversionRequest $body, CallContext $callContext = null);
 
     /**
      * ApiResource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy

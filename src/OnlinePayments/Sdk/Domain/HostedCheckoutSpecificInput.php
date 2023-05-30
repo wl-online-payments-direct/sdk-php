@@ -15,6 +15,11 @@ class HostedCheckoutSpecificInput extends DataObject
 {
     // Properties
     /**
+     * @var int
+     */
+    private $allowedNumberOfPaymentAttempts;
+
+    /**
      * @var CardPaymentMethodSpecificInputForHostedCheckout
      */
     private $cardPaymentMethodSpecificInput;
@@ -60,6 +65,21 @@ class HostedCheckoutSpecificInput extends DataObject
     private $variant;
 
     // Methods
+    /**
+     * @return int
+     */
+    public function getAllowedNumberOfPaymentAttempts()
+    {
+        return $this->allowedNumberOfPaymentAttempts;
+    }
+    /**
+     * @var int
+     */
+    public function setAllowedNumberOfPaymentAttempts($value)
+    {
+        $this->allowedNumberOfPaymentAttempts = $value;
+    }
+
     /**
      * @return CardPaymentMethodSpecificInputForHostedCheckout
      */
@@ -201,6 +221,9 @@ class HostedCheckoutSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->allowedNumberOfPaymentAttempts !== null) {
+            $object->allowedNumberOfPaymentAttempts = $this->allowedNumberOfPaymentAttempts;
+        }
         if ($this->cardPaymentMethodSpecificInput !== null) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
@@ -239,6 +262,9 @@ class HostedCheckoutSpecificInput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'allowedNumberOfPaymentAttempts')) {
+            $this->allowedNumberOfPaymentAttempts = $object->allowedNumberOfPaymentAttempts;
+        }
         if (property_exists($object, 'cardPaymentMethodSpecificInput')) {
             if (!is_object($object->cardPaymentMethodSpecificInput)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->cardPaymentMethodSpecificInput, true) . '\' is not an object');

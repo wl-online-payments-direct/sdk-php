@@ -15,6 +15,11 @@ class RefundCardMethodSpecificOutput extends DataObject
 {
     // Properties
     /**
+     * @var CurrencyConversion
+     */
+    private $currencyConversion;
+
+    /**
      * @var int
      */
     private $totalAmountPaid;
@@ -25,6 +30,21 @@ class RefundCardMethodSpecificOutput extends DataObject
     private $totalAmountRefunded;
 
     // Methods
+    /**
+     * @return CurrencyConversion
+     */
+    public function getCurrencyConversion()
+    {
+        return $this->currencyConversion;
+    }
+    /**
+     * @var CurrencyConversion
+     */
+    public function setCurrencyConversion($value)
+    {
+        $this->currencyConversion = $value;
+    }
+
     /**
      * @return int
      */
@@ -61,6 +81,9 @@ class RefundCardMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->currencyConversion !== null) {
+            $object->currencyConversion = $this->currencyConversion->toObject();
+        }
         if ($this->totalAmountPaid !== null) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
@@ -78,6 +101,13 @@ class RefundCardMethodSpecificOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'currencyConversion')) {
+            if (!is_object($object->currencyConversion)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->currencyConversion, true) . '\' is not an object');
+            }
+            $value = new CurrencyConversion();
+            $this->currencyConversion = $value->fromObject($object->currencyConversion);
+        }
         if (property_exists($object, 'totalAmountPaid')) {
             $this->totalAmountPaid = $object->totalAmountPaid;
         }
