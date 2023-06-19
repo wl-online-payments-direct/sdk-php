@@ -9,6 +9,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClient;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClient;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClient;
+use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClient;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClient;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClient;
 use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClient;
@@ -41,6 +42,14 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function mandates()
     {
         return new MandatesClient($this, $this->context);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function paymentLinks()
+    {
+        return new PaymentLinksClient($this, $this->context);
     }
 
     /**
