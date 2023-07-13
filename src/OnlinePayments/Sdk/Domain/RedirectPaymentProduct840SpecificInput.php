@@ -19,6 +19,11 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
      */
     private $addressSelectionAtPayPal;
 
+    /**
+     * @var string
+     */
+    private $custom;
+
     // Methods
     /**
      * @return bool
@@ -36,6 +41,21 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
     }
 
     /**
+     * @return string
+     */
+    public function getCustom()
+    {
+        return $this->custom;
+    }
+    /**
+     * @var string
+     */
+    public function setCustom($value)
+    {
+        $this->custom = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -43,6 +63,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
         $object = parent::toObject();
         if ($this->addressSelectionAtPayPal !== null) {
             $object->addressSelectionAtPayPal = $this->addressSelectionAtPayPal;
+        }
+        if ($this->custom !== null) {
+            $object->custom = $this->custom;
         }
         return $object;
     }
@@ -57,6 +80,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'addressSelectionAtPayPal')) {
             $this->addressSelectionAtPayPal = $object->addressSelectionAtPayPal;
+        }
+        if (property_exists($object, 'custom')) {
+            $this->custom = $object->custom;
         }
         return $this;
     }

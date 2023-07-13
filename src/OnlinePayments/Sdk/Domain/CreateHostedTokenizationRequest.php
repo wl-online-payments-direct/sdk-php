@@ -25,6 +25,11 @@ class CreateHostedTokenizationRequest extends DataObject
     private $locale;
 
     /**
+     * @var PaymentProductFiltersHostedTokenization
+     */
+    private $paymentProductFilters;
+
+    /**
      * @var string
      */
     private $tokens;
@@ -63,6 +68,21 @@ class CreateHostedTokenizationRequest extends DataObject
     public function setLocale($value)
     {
         $this->locale = $value;
+    }
+
+    /**
+     * @return PaymentProductFiltersHostedTokenization
+     */
+    public function getPaymentProductFilters()
+    {
+        return $this->paymentProductFilters;
+    }
+    /**
+     * @var PaymentProductFiltersHostedTokenization
+     */
+    public function setPaymentProductFilters($value)
+    {
+        $this->paymentProductFilters = $value;
     }
 
     /**
@@ -107,6 +127,9 @@ class CreateHostedTokenizationRequest extends DataObject
         if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
+        if ($this->paymentProductFilters !== null) {
+            $object->paymentProductFilters = $this->paymentProductFilters->toObject();
+        }
         if ($this->tokens !== null) {
             $object->tokens = $this->tokens;
         }
@@ -129,6 +152,13 @@ class CreateHostedTokenizationRequest extends DataObject
         }
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;
+        }
+        if (property_exists($object, 'paymentProductFilters')) {
+            if (!is_object($object->paymentProductFilters)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProductFilters, true) . '\' is not an object');
+            }
+            $value = new PaymentProductFiltersHostedTokenization();
+            $this->paymentProductFilters = $value->fromObject($object->paymentProductFilters);
         }
         if (property_exists($object, 'tokens')) {
             $this->tokens = $object->tokens;

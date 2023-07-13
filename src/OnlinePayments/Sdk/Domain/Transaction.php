@@ -19,11 +19,6 @@ class Transaction extends DataObject
      */
     private $amount;
 
-    /**
-     * @var string
-     */
-    private $localDateTime;
-
     // Methods
     /**
      * @return AmountOfMoney
@@ -41,21 +36,6 @@ class Transaction extends DataObject
     }
 
     /**
-     * @return string
-     */
-    public function getLocalDateTime()
-    {
-        return $this->localDateTime;
-    }
-    /**
-     * @var string
-     */
-    public function setLocalDateTime($value)
-    {
-        $this->localDateTime = $value;
-    }
-
-    /**
      * @return object
      */
     public function toObject()
@@ -63,9 +43,6 @@ class Transaction extends DataObject
         $object = parent::toObject();
         if ($this->amount !== null) {
             $object->amount = $this->amount->toObject();
-        }
-        if ($this->localDateTime !== null) {
-            $object->localDateTime = $this->localDateTime;
         }
         return $object;
     }
@@ -84,9 +61,6 @@ class Transaction extends DataObject
             }
             $value = new AmountOfMoney();
             $this->amount = $value->fromObject($object->amount);
-        }
-        if (property_exists($object, 'localDateTime')) {
-            $this->localDateTime = $object->localDateTime;
         }
         return $this;
     }

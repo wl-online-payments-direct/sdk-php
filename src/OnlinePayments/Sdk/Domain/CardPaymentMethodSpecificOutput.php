@@ -15,6 +15,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
 {
     // Properties
     /**
+     * @var AcquirerInformation
+     */
+    private $acquirerInformation;
+
+    /**
      * @var int
      */
     private $authenticatedAmount;
@@ -85,6 +90,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     private $token;
 
     // Methods
+    /**
+     * @return AcquirerInformation
+     */
+    public function getAcquirerInformation()
+    {
+        return $this->acquirerInformation;
+    }
+    /**
+     * @var AcquirerInformation
+     */
+    public function setAcquirerInformation($value)
+    {
+        $this->acquirerInformation = $value;
+    }
+
     /**
      * @return int
      */
@@ -301,6 +321,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->acquirerInformation !== null) {
+            $object->acquirerInformation = $this->acquirerInformation->toObject();
+        }
         if ($this->authenticatedAmount !== null) {
             $object->authenticatedAmount = $this->authenticatedAmount;
         }
@@ -354,6 +377,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'acquirerInformation')) {
+            if (!is_object($object->acquirerInformation)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->acquirerInformation, true) . '\' is not an object');
+            }
+            $value = new AcquirerInformation();
+            $this->acquirerInformation = $value->fromObject($object->acquirerInformation);
+        }
         if (property_exists($object, 'authenticatedAmount')) {
             $this->authenticatedAmount = $object->authenticatedAmount;
         }
