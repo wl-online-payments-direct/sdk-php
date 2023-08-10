@@ -15,9 +15,9 @@ class CurrencyConversionRequest extends DataObject
 {
     // Properties
     /**
-     * @var CardInfo
+     * @var DccCardSource
      */
-    private $card;
+    private $cardSource;
 
     /**
      * @var Transaction
@@ -26,18 +26,18 @@ class CurrencyConversionRequest extends DataObject
 
     // Methods
     /**
-     * @return CardInfo
+     * @return DccCardSource
      */
-    public function getCard()
+    public function getCardSource()
     {
-        return $this->card;
+        return $this->cardSource;
     }
     /**
-     * @var CardInfo
+     * @var DccCardSource
      */
-    public function setCard($value)
+    public function setCardSource($value)
     {
-        $this->card = $value;
+        $this->cardSource = $value;
     }
 
     /**
@@ -61,8 +61,8 @@ class CurrencyConversionRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
-            $object->card = $this->card->toObject();
+        if ($this->cardSource !== null) {
+            $object->cardSource = $this->cardSource->toObject();
         }
         if ($this->transaction !== null) {
             $object->transaction = $this->transaction->toObject();
@@ -78,12 +78,12 @@ class CurrencyConversionRequest extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'card')) {
-            if (!is_object($object->card)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->card, true) . '\' is not an object');
+        if (property_exists($object, 'cardSource')) {
+            if (!is_object($object->cardSource)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->cardSource, true) . '\' is not an object');
             }
-            $value = new CardInfo();
-            $this->card = $value->fromObject($object->card);
+            $value = new DccCardSource();
+            $this->cardSource = $value->fromObject($object->cardSource);
         }
         if (property_exists($object, 'transaction')) {
             if (!is_object($object->transaction)) {

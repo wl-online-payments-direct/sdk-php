@@ -15,6 +15,11 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
 {
     // Properties
     /**
+     * @var CustomerBankAccount
+     */
+    private $customerBankAccount;
+
+    /**
      * @var FraudResults
      */
     private $fraudResults;
@@ -55,6 +60,21 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     private $token;
 
     // Methods
+    /**
+     * @return CustomerBankAccount
+     */
+    public function getCustomerBankAccount()
+    {
+        return $this->customerBankAccount;
+    }
+    /**
+     * @var CustomerBankAccount
+     */
+    public function setCustomerBankAccount($value)
+    {
+        $this->customerBankAccount = $value;
+    }
+
     /**
      * @return FraudResults
      */
@@ -181,6 +201,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->customerBankAccount !== null) {
+            $object->customerBankAccount = $this->customerBankAccount->toObject();
+        }
         if ($this->fraudResults !== null) {
             $object->fraudResults = $this->fraudResults->toObject();
         }
@@ -216,6 +239,13 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'customerBankAccount')) {
+            if (!is_object($object->customerBankAccount)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->customerBankAccount, true) . '\' is not an object');
+            }
+            $value = new CustomerBankAccount();
+            $this->customerBankAccount = $value->fromObject($object->customerBankAccount);
+        }
         if (property_exists($object, 'fraudResults')) {
             if (!is_object($object->fraudResults)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->fraudResults, true) . '\' is not an object');
