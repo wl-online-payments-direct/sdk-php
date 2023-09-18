@@ -18,6 +18,9 @@ class DefaultConnection implements Connection
     /** @var resource|CurlMultiHandle|null */
     protected $multiHandle = null;
 
+    /** @var int|null */
+    protected $running = null;
+
     /** @var CommunicatorLogger|null */
     protected $communicatorLogger = null;
 
@@ -190,6 +193,9 @@ class DefaultConnection implements Connection
     private function executeCurlHandleShared($multiHandle)
     {
         do {
+            if ($this->running === null) {
+                $running = 0;
+            }
             $status = curl_multi_exec($multiHandle, $running);
             if ($status > CURLM_OK) {
                 $errorMessage = 'cURL error ' . $status;
