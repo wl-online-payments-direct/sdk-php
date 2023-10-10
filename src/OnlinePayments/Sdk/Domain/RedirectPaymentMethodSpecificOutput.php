@@ -15,6 +15,11 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
 {
     // Properties
     /**
+     * @var string
+     */
+    private $authorisationCode;
+
+    /**
      * @var CustomerBankAccount
      */
     private $customerBankAccount;
@@ -60,6 +65,21 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     private $token;
 
     // Methods
+    /**
+     * @return string
+     */
+    public function getAuthorisationCode()
+    {
+        return $this->authorisationCode;
+    }
+    /**
+     * @var string
+     */
+    public function setAuthorisationCode($value)
+    {
+        $this->authorisationCode = $value;
+    }
+
     /**
      * @return CustomerBankAccount
      */
@@ -201,6 +221,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->authorisationCode !== null) {
+            $object->authorisationCode = $this->authorisationCode;
+        }
         if ($this->customerBankAccount !== null) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
@@ -239,6 +262,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'authorisationCode')) {
+            $this->authorisationCode = $object->authorisationCode;
+        }
         if (property_exists($object, 'customerBankAccount')) {
             if (!is_object($object->customerBankAccount)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->customerBankAccount, true) . '\' is not an object');
