@@ -57,6 +57,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     /**
      * @var string
      */
+    private $paymentAccountReference;
+
+    /**
+     * @var string
+     */
     private $paymentOption;
 
     /**
@@ -213,6 +218,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     /**
      * @return string
      */
+    public function getPaymentAccountReference()
+    {
+        return $this->paymentAccountReference;
+    }
+    /**
+     * @var string
+     */
+    public function setPaymentAccountReference($value)
+    {
+        $this->paymentAccountReference = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getPaymentOption()
     {
         return $this->paymentOption;
@@ -345,6 +365,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if ($this->initialSchemeTransactionId !== null) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
         }
+        if ($this->paymentAccountReference !== null) {
+            $object->paymentAccountReference = $this->paymentAccountReference;
+        }
         if ($this->paymentOption !== null) {
             $object->paymentOption = $this->paymentOption;
         }
@@ -420,6 +443,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'paymentAccountReference')) {
+            $this->paymentAccountReference = $object->paymentAccountReference;
         }
         if (property_exists($object, 'paymentOption')) {
             $this->paymentOption = $object->paymentOption;

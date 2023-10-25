@@ -19,6 +19,11 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
      */
     private $customerBankAccount;
 
+    /**
+     * @var bool
+     */
+    private $instantPaymentOnly;
+
     // Methods
     /**
      * @return CustomerBankAccount
@@ -36,6 +41,21 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     }
 
     /**
+     * @return bool
+     */
+    public function getInstantPaymentOnly()
+    {
+        return $this->instantPaymentOnly;
+    }
+    /**
+     * @var bool
+     */
+    public function setInstantPaymentOnly($value)
+    {
+        $this->instantPaymentOnly = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -43,6 +63,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
         $object = parent::toObject();
         if ($this->customerBankAccount !== null) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
+        }
+        if ($this->instantPaymentOnly !== null) {
+            $object->instantPaymentOnly = $this->instantPaymentOnly;
         }
         return $object;
     }
@@ -61,6 +84,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
             }
             $value = new CustomerBankAccount();
             $this->customerBankAccount = $value->fromObject($object->customerBankAccount);
+        }
+        if (property_exists($object, 'instantPaymentOnly')) {
+            $this->instantPaymentOnly = $object->instantPaymentOnly;
         }
         return $this;
     }
