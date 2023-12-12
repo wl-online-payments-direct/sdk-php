@@ -7,6 +7,8 @@ use CurlMultiHandle;
 use ErrorException;
 use Exception;
 use UnexpectedValueException;
+use Robtimus\Multipart\MultipartFormData;
+
 
 /**
  * Class ApiException
@@ -51,6 +53,7 @@ class DefaultConnection implements Connection
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'GET', $requestUri, $requestHeaders, '');
         try {
+            $requestHeaders['X-Request-Id'] = $requestId;
             $response = $this->executeRequest('GET', $requestUri, $requestHeaders, '', $responseHandler, $proxyConfiguration);
             if ($response) {
                 $this->logResponse($requestId, $requestUri, $response);
@@ -74,6 +77,7 @@ class DefaultConnection implements Connection
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'DELETE', $requestUri, $requestHeaders, '');
         try {
+            $requestHeaders['X-Request-Id'] = $requestId;
             $response = $this->executeRequest('DELETE', $requestUri, $requestHeaders, '', $responseHandler, $proxyConfiguration);
             if ($response) {
                 $this->logResponse($requestId, $requestUri, $response);
@@ -98,6 +102,7 @@ class DefaultConnection implements Connection
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'POST', $requestUri, $requestHeaders, $body);
         try {
+            $requestHeaders['X-Request-Id'] = $requestId;
             $response = $this->executeRequest('POST', $requestUri, $requestHeaders, $body, $responseHandler, $proxyConfiguration);
             if ($response) {
                 $this->logResponse($requestId, $requestUri, $response);
@@ -122,6 +127,7 @@ class DefaultConnection implements Connection
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'PUT', $requestUri, $requestHeaders, $body);
         try {
+            $requestHeaders['X-Request-Id'] = $requestId;
             $response = $this->executeRequest('PUT', $requestUri, $requestHeaders, $body, $responseHandler, $proxyConfiguration);
             if ($response) {
                 $this->logResponse($requestId, $requestUri, $response);
@@ -294,6 +300,22 @@ class DefaultConnection implements Connection
             if ($body) {
                 if (is_string($body)) {
                     curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
+                } else if ($body instanceof MultipartFormDataObject) {
+                    $multipart = new MultipartFormData($body->getBoundary());
+                    foreach ($body->getValues() as $name => $value) {
+                        $multipart->addValue($name, $value);
+                    }
+                    foreach ($body->getFiles() as $name => $file) {
+                        $multipart->addFile($name, $file->getFileName(), $file->getContent(), $file->getContentType(), $file->getContentLength());
+                    }
+                    $multipart->finish();
+    
+                    $contentLength = $multipart->getContentLength();
+                    if ($contentLength >= 0) {
+                        $requestHeaders[] = 'Content-Length: ' . $contentLength;
+                    }
+                    curl_setopt($curlHandle, CURLOPT_READFUNCTION, array($multipart, 'curl_read'));
+                    curl_setopt($curlHandle, CURLOPT_UPLOAD, true);
                 } else {
                     $type = is_object($body) ? get_class($body) : gettype($body);
                     throw new UnexpectedValueException('Unsupported body type: ' . $type);

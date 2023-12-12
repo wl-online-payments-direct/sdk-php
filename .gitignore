@@ -13,3 +13,4 @@ sdk-php.iml
 out/
 .phpunit.cache/
 .phpunit.result.cache
+.vscode/*
