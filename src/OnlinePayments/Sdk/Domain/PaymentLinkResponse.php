@@ -35,7 +35,7 @@ class PaymentLinkResponse extends DataObject
     private $paymentLinkId;
 
     /**
-     * @var PaymentLinkOrder
+     * @var PaymentLinkOrderOutput
      */
     private $paymentLinkOrder;
 
@@ -116,14 +116,14 @@ class PaymentLinkResponse extends DataObject
     }
 
     /**
-     * @return PaymentLinkOrder
+     * @return PaymentLinkOrderOutput
      */
     public function getPaymentLinkOrder()
     {
         return $this->paymentLinkOrder;
     }
     /**
-     * @var PaymentLinkOrder
+     * @var PaymentLinkOrderOutput
      */
     public function setPaymentLinkOrder($value)
     {
@@ -244,7 +244,7 @@ class PaymentLinkResponse extends DataObject
             if (!is_object($object->paymentLinkOrder)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentLinkOrder, true) . '\' is not an object');
             }
-            $value = new PaymentLinkOrder();
+            $value = new PaymentLinkOrderOutput();
             $this->paymentLinkOrder = $value->fromObject($object->paymentLinkOrder);
         }
         if (property_exists($object, 'recipientName')) {

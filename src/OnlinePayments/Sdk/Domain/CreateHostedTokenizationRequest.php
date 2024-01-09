@@ -20,6 +20,11 @@ class CreateHostedTokenizationRequest extends DataObject
     private $askConsumerConsent;
 
     /**
+     * @var CreditCardSpecificInputHostedTokenization
+     */
+    private $creditCardSpecificInput;
+
+    /**
      * @var string
      */
     private $locale;
@@ -53,6 +58,21 @@ class CreateHostedTokenizationRequest extends DataObject
     public function setAskConsumerConsent($value)
     {
         $this->askConsumerConsent = $value;
+    }
+
+    /**
+     * @return CreditCardSpecificInputHostedTokenization
+     */
+    public function getCreditCardSpecificInput()
+    {
+        return $this->creditCardSpecificInput;
+    }
+    /**
+     * @var CreditCardSpecificInputHostedTokenization
+     */
+    public function setCreditCardSpecificInput($value)
+    {
+        $this->creditCardSpecificInput = $value;
     }
 
     /**
@@ -124,6 +144,9 @@ class CreateHostedTokenizationRequest extends DataObject
         if ($this->askConsumerConsent !== null) {
             $object->askConsumerConsent = $this->askConsumerConsent;
         }
+        if ($this->creditCardSpecificInput !== null) {
+            $object->creditCardSpecificInput = $this->creditCardSpecificInput->toObject();
+        }
         if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
@@ -149,6 +172,13 @@ class CreateHostedTokenizationRequest extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'askConsumerConsent')) {
             $this->askConsumerConsent = $object->askConsumerConsent;
+        }
+        if (property_exists($object, 'creditCardSpecificInput')) {
+            if (!is_object($object->creditCardSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->creditCardSpecificInput, true) . '\' is not an object');
+            }
+            $value = new CreditCardSpecificInputHostedTokenization();
+            $this->creditCardSpecificInput = $value->fromObject($object->creditCardSpecificInput);
         }
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;

@@ -11,7 +11,7 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class PaymentLinkOrder extends DataObject
+class PaymentLinkOrderOutput extends DataObject
 {
     // Properties
     /**
