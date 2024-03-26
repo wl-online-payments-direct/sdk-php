@@ -15,6 +15,11 @@ class ShowFormData extends DataObject
 {
     // Properties
     /**
+     * @var PaymentProduct3012
+     */
+    private $paymentProduct3012;
+
+    /**
      * @var PaymentProduct5404
      */
     private $paymentProduct5404;
@@ -25,6 +30,21 @@ class ShowFormData extends DataObject
     private $paymentProduct5407;
 
     // Methods
+    /**
+     * @return PaymentProduct3012
+     */
+    public function getPaymentProduct3012()
+    {
+        return $this->paymentProduct3012;
+    }
+    /**
+     * @var PaymentProduct3012
+     */
+    public function setPaymentProduct3012($value)
+    {
+        $this->paymentProduct3012 = $value;
+    }
+
     /**
      * @return PaymentProduct5404
      */
@@ -61,6 +81,9 @@ class ShowFormData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->paymentProduct3012 !== null) {
+            $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
+        }
         if ($this->paymentProduct5404 !== null) {
             $object->paymentProduct5404 = $this->paymentProduct5404->toObject();
         }
@@ -78,6 +101,13 @@ class ShowFormData extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'paymentProduct3012')) {
+            if (!is_object($object->paymentProduct3012)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3012, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct3012();
+            $this->paymentProduct3012 = $value->fromObject($object->paymentProduct3012);
+        }
         if (property_exists($object, 'paymentProduct5404')) {
             if (!is_object($object->paymentProduct5404)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5404, true) . '\' is not an object');
