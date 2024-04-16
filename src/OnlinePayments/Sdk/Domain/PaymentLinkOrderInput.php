@@ -24,6 +24,11 @@ class PaymentLinkOrderInput extends DataObject
      */
     private $merchantReference;
 
+    /**
+     * @var SurchargeForPaymentLink
+     */
+    private $surchargeSpecificInput;
+
     // Methods
     /**
      * @return AmountOfMoney
@@ -56,6 +61,21 @@ class PaymentLinkOrderInput extends DataObject
     }
 
     /**
+     * @return SurchargeForPaymentLink
+     */
+    public function getSurchargeSpecificInput()
+    {
+        return $this->surchargeSpecificInput;
+    }
+    /**
+     * @var SurchargeForPaymentLink
+     */
+    public function setSurchargeSpecificInput($value)
+    {
+        $this->surchargeSpecificInput = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -66,6 +86,9 @@ class PaymentLinkOrderInput extends DataObject
         }
         if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
+        }
+        if ($this->surchargeSpecificInput !== null) {
+            $object->surchargeSpecificInput = $this->surchargeSpecificInput->toObject();
         }
         return $object;
     }
@@ -87,6 +110,13 @@ class PaymentLinkOrderInput extends DataObject
         }
         if (property_exists($object, 'merchantReference')) {
             $this->merchantReference = $object->merchantReference;
+        }
+        if (property_exists($object, 'surchargeSpecificInput')) {
+            if (!is_object($object->surchargeSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->surchargeSpecificInput, true) . '\' is not an object');
+            }
+            $value = new SurchargeForPaymentLink();
+            $this->surchargeSpecificInput = $value->fromObject($object->surchargeSpecificInput);
         }
         return $this;
     }

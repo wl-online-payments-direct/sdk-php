@@ -19,6 +19,11 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
      */
     private $ValidationRules;
 
+    /**
+     * @var int[]
+     */
+    private $paymentProductPreferredOrder;
+
     // Methods
     /**
      * @return CreditCardValidationRulesHostedTokenization
@@ -36,6 +41,21 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     }
 
     /**
+     * @return int[]
+     */
+    public function getPaymentProductPreferredOrder()
+    {
+        return $this->paymentProductPreferredOrder;
+    }
+    /**
+     * @var int[]
+     */
+    public function setPaymentProductPreferredOrder($value)
+    {
+        $this->paymentProductPreferredOrder = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -43,6 +63,14 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
         $object = parent::toObject();
         if ($this->ValidationRules !== null) {
             $object->ValidationRules = $this->ValidationRules->toObject();
+        }
+        if ($this->paymentProductPreferredOrder !== null) {
+            $object->paymentProductPreferredOrder = [];
+            foreach ($this->paymentProductPreferredOrder as $element) {
+                if ($element !== null) {
+                    $object->paymentProductPreferredOrder[] = $element;
+                }
+            }
         }
         return $object;
     }
@@ -61,6 +89,15 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
             }
             $value = new CreditCardValidationRulesHostedTokenization();
             $this->ValidationRules = $value->fromObject($object->ValidationRules);
+        }
+        if (property_exists($object, 'paymentProductPreferredOrder')) {
+            if (!is_array($object->paymentProductPreferredOrder) && !is_object($object->paymentProductPreferredOrder)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProductPreferredOrder, true) . '\' is not an array or object');
+            }
+            $this->paymentProductPreferredOrder = [];
+            foreach ($object->paymentProductPreferredOrder as $element) {
+                $this->paymentProductPreferredOrder[] = $element;
+            }
         }
         return $this;
     }
