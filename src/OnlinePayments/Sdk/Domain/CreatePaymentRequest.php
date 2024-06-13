@@ -45,6 +45,11 @@ class CreatePaymentRequest extends DataObject
     private $order;
 
     /**
+     * @var PageCustomization
+     */
+    private $pageCustomization;
+
+    /**
      * @var RedirectPaymentMethodSpecificInput
      */
     private $redirectPaymentMethodSpecificInput;
@@ -53,6 +58,11 @@ class CreatePaymentRequest extends DataObject
      * @var SepaDirectDebitPaymentMethodSpecificInput
      */
     private $sepaDirectDebitPaymentMethodSpecificInput;
+
+    /**
+     * @var int
+     */
+    private $sessionTimeout;
 
     // Methods
     /**
@@ -146,6 +156,21 @@ class CreatePaymentRequest extends DataObject
     }
 
     /**
+     * @return PageCustomization
+     */
+    public function getPageCustomization()
+    {
+        return $this->pageCustomization;
+    }
+    /**
+     * @var PageCustomization
+     */
+    public function setPageCustomization($value)
+    {
+        $this->pageCustomization = $value;
+    }
+
+    /**
      * @return RedirectPaymentMethodSpecificInput
      */
     public function getRedirectPaymentMethodSpecificInput()
@@ -176,6 +201,21 @@ class CreatePaymentRequest extends DataObject
     }
 
     /**
+     * @return int
+     */
+    public function getSessionTimeout()
+    {
+        return $this->sessionTimeout;
+    }
+    /**
+     * @var int
+     */
+    public function setSessionTimeout($value)
+    {
+        $this->sessionTimeout = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -199,11 +239,17 @@ class CreatePaymentRequest extends DataObject
         if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
+        if ($this->pageCustomization !== null) {
+            $object->pageCustomization = $this->pageCustomization->toObject();
+        }
         if ($this->redirectPaymentMethodSpecificInput !== null) {
             $object->redirectPaymentMethodSpecificInput = $this->redirectPaymentMethodSpecificInput->toObject();
         }
         if ($this->sepaDirectDebitPaymentMethodSpecificInput !== null) {
             $object->sepaDirectDebitPaymentMethodSpecificInput = $this->sepaDirectDebitPaymentMethodSpecificInput->toObject();
+        }
+        if ($this->sessionTimeout !== null) {
+            $object->sessionTimeout = $this->sessionTimeout;
         }
         return $object;
     }
@@ -250,6 +296,13 @@ class CreatePaymentRequest extends DataObject
             $value = new Order();
             $this->order = $value->fromObject($object->order);
         }
+        if (property_exists($object, 'pageCustomization')) {
+            if (!is_object($object->pageCustomization)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->pageCustomization, true) . '\' is not an object');
+            }
+            $value = new PageCustomization();
+            $this->pageCustomization = $value->fromObject($object->pageCustomization);
+        }
         if (property_exists($object, 'redirectPaymentMethodSpecificInput')) {
             if (!is_object($object->redirectPaymentMethodSpecificInput)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->redirectPaymentMethodSpecificInput, true) . '\' is not an object');
@@ -263,6 +316,9 @@ class CreatePaymentRequest extends DataObject
             }
             $value = new SepaDirectDebitPaymentMethodSpecificInput();
             $this->sepaDirectDebitPaymentMethodSpecificInput = $value->fromObject($object->sepaDirectDebitPaymentMethodSpecificInput);
+        }
+        if (property_exists($object, 'sessionTimeout')) {
+            $this->sessionTimeout = $object->sessionTimeout;
         }
         return $this;
     }

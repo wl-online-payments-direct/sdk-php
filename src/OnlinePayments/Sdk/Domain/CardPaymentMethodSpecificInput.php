@@ -60,6 +60,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     private $paymentProduct130SpecificInput;
 
     /**
+     * @var PaymentProduct3012SpecificInput
+     */
+    private $paymentProduct3012SpecificInput;
+
+    /**
      * @var PaymentProduct3208SpecificInput
      */
     private $paymentProduct3208SpecificInput;
@@ -68,6 +73,11 @@ class CardPaymentMethodSpecificInput extends DataObject
      * @var PaymentProduct3209SpecificInput
      */
     private $paymentProduct3209SpecificInput;
+
+    /**
+     * @var PaymentProduct5002SpecificInput
+     */
+    private $paymentProduct5002SpecificInput;
 
     /**
      * @var int
@@ -261,6 +271,21 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return PaymentProduct3012SpecificInput
+     */
+    public function getPaymentProduct3012SpecificInput()
+    {
+        return $this->paymentProduct3012SpecificInput;
+    }
+    /**
+     * @var PaymentProduct3012SpecificInput
+     */
+    public function setPaymentProduct3012SpecificInput($value)
+    {
+        $this->paymentProduct3012SpecificInput = $value;
+    }
+
+    /**
      * @return PaymentProduct3208SpecificInput
      */
     public function getPaymentProduct3208SpecificInput()
@@ -288,6 +313,21 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function setPaymentProduct3209SpecificInput($value)
     {
         $this->paymentProduct3209SpecificInput = $value;
+    }
+
+    /**
+     * @return PaymentProduct5002SpecificInput
+     */
+    public function getPaymentProduct5002SpecificInput()
+    {
+        return $this->paymentProduct5002SpecificInput;
+    }
+    /**
+     * @var PaymentProduct5002SpecificInput
+     */
+    public function setPaymentProduct5002SpecificInput($value)
+    {
+        $this->paymentProduct5002SpecificInput = $value;
     }
 
     /**
@@ -488,11 +528,17 @@ class CardPaymentMethodSpecificInput extends DataObject
         if ($this->paymentProduct130SpecificInput !== null) {
             $object->paymentProduct130SpecificInput = $this->paymentProduct130SpecificInput->toObject();
         }
+        if ($this->paymentProduct3012SpecificInput !== null) {
+            $object->paymentProduct3012SpecificInput = $this->paymentProduct3012SpecificInput->toObject();
+        }
         if ($this->paymentProduct3208SpecificInput !== null) {
             $object->paymentProduct3208SpecificInput = $this->paymentProduct3208SpecificInput->toObject();
         }
         if ($this->paymentProduct3209SpecificInput !== null) {
             $object->paymentProduct3209SpecificInput = $this->paymentProduct3209SpecificInput->toObject();
+        }
+        if ($this->paymentProduct5002SpecificInput !== null) {
+            $object->paymentProduct5002SpecificInput = $this->paymentProduct5002SpecificInput->toObject();
         }
         if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
@@ -577,6 +623,13 @@ class CardPaymentMethodSpecificInput extends DataObject
             $value = new PaymentProduct130SpecificInput();
             $this->paymentProduct130SpecificInput = $value->fromObject($object->paymentProduct130SpecificInput);
         }
+        if (property_exists($object, 'paymentProduct3012SpecificInput')) {
+            if (!is_object($object->paymentProduct3012SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3012SpecificInput, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct3012SpecificInput();
+            $this->paymentProduct3012SpecificInput = $value->fromObject($object->paymentProduct3012SpecificInput);
+        }
         if (property_exists($object, 'paymentProduct3208SpecificInput')) {
             if (!is_object($object->paymentProduct3208SpecificInput)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3208SpecificInput, true) . '\' is not an object');
@@ -590,6 +643,13 @@ class CardPaymentMethodSpecificInput extends DataObject
             }
             $value = new PaymentProduct3209SpecificInput();
             $this->paymentProduct3209SpecificInput = $value->fromObject($object->paymentProduct3209SpecificInput);
+        }
+        if (property_exists($object, 'paymentProduct5002SpecificInput')) {
+            if (!is_object($object->paymentProduct5002SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5002SpecificInput, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5002SpecificInput();
+            $this->paymentProduct5002SpecificInput = $value->fromObject($object->paymentProduct5002SpecificInput);
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

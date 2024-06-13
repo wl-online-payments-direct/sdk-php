@@ -20,6 +20,11 @@ class SubsequentPaymentRequest extends DataObject
     private $order;
 
     /**
+     * @var SubsequentPaymentProduct5001SpecificInput
+     */
+    private $subsequentPaymentProduct5001SpecificInput;
+
+    /**
      * @var SubsequentCardPaymentMethodSpecificInput
      */
     private $subsequentcardPaymentMethodSpecificInput;
@@ -38,6 +43,21 @@ class SubsequentPaymentRequest extends DataObject
     public function setOrder($value)
     {
         $this->order = $value;
+    }
+
+    /**
+     * @return SubsequentPaymentProduct5001SpecificInput
+     */
+    public function getSubsequentPaymentProduct5001SpecificInput()
+    {
+        return $this->subsequentPaymentProduct5001SpecificInput;
+    }
+    /**
+     * @var SubsequentPaymentProduct5001SpecificInput
+     */
+    public function setSubsequentPaymentProduct5001SpecificInput($value)
+    {
+        $this->subsequentPaymentProduct5001SpecificInput = $value;
     }
 
     /**
@@ -64,6 +84,9 @@ class SubsequentPaymentRequest extends DataObject
         if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
+        if ($this->subsequentPaymentProduct5001SpecificInput !== null) {
+            $object->subsequentPaymentProduct5001SpecificInput = $this->subsequentPaymentProduct5001SpecificInput->toObject();
+        }
         if ($this->subsequentcardPaymentMethodSpecificInput !== null) {
             $object->subsequentcardPaymentMethodSpecificInput = $this->subsequentcardPaymentMethodSpecificInput->toObject();
         }
@@ -84,6 +107,13 @@ class SubsequentPaymentRequest extends DataObject
             }
             $value = new Order();
             $this->order = $value->fromObject($object->order);
+        }
+        if (property_exists($object, 'subsequentPaymentProduct5001SpecificInput')) {
+            if (!is_object($object->subsequentPaymentProduct5001SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->subsequentPaymentProduct5001SpecificInput, true) . '\' is not an object');
+            }
+            $value = new SubsequentPaymentProduct5001SpecificInput();
+            $this->subsequentPaymentProduct5001SpecificInput = $value->fromObject($object->subsequentPaymentProduct5001SpecificInput);
         }
         if (property_exists($object, 'subsequentcardPaymentMethodSpecificInput')) {
             if (!is_object($object->subsequentcardPaymentMethodSpecificInput)) {

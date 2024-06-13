@@ -55,6 +55,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     private $initialSchemeTransactionId;
 
     /**
+     * @var NetworkTokenEssentials
+     */
+    private $networkTokenData;
+
+    /**
      * @var string
      */
     private $paymentAccountReference;
@@ -216,6 +221,21 @@ class CardPaymentMethodSpecificOutput extends DataObject
     }
 
     /**
+     * @return NetworkTokenEssentials
+     */
+    public function getNetworkTokenData()
+    {
+        return $this->networkTokenData;
+    }
+    /**
+     * @var NetworkTokenEssentials
+     */
+    public function setNetworkTokenData($value)
+    {
+        $this->networkTokenData = $value;
+    }
+
+    /**
      * @return string
      */
     public function getPaymentAccountReference()
@@ -365,6 +385,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if ($this->initialSchemeTransactionId !== null) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
         }
+        if ($this->networkTokenData !== null) {
+            $object->networkTokenData = $this->networkTokenData->toObject();
+        }
         if ($this->paymentAccountReference !== null) {
             $object->paymentAccountReference = $this->paymentAccountReference;
         }
@@ -443,6 +466,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'networkTokenData')) {
+            if (!is_object($object->networkTokenData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->networkTokenData, true) . '\' is not an object');
+            }
+            $value = new NetworkTokenEssentials();
+            $this->networkTokenData = $value->fromObject($object->networkTokenData);
         }
         if (property_exists($object, 'paymentAccountReference')) {
             $this->paymentAccountReference = $object->paymentAccountReference;

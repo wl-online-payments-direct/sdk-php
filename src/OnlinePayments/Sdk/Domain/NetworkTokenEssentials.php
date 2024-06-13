@@ -11,7 +11,7 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class CardEssentials extends DataObject
+class NetworkTokenEssentials extends DataObject
 {
     // Properties
     /**
@@ -22,22 +22,17 @@ class CardEssentials extends DataObject
     /**
      * @var string
      */
-    private $cardNumber;
-
-    /**
-     * @var string
-     */
-    private $cardType;
-
-    /**
-     * @var string
-     */
     private $countryCode;
 
     /**
      * @var string
      */
-    private $expiryDate;
+    private $networkToken;
+
+    /**
+     * @var string
+     */
+    private $tokenExpiryDate;
 
     // Methods
     /**
@@ -58,36 +53,6 @@ class CardEssentials extends DataObject
     /**
      * @return string
      */
-    public function getCardNumber()
-    {
-        return $this->cardNumber;
-    }
-    /**
-     * @var string
-     */
-    public function setCardNumber($value)
-    {
-        $this->cardNumber = $value;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCardType()
-    {
-        return $this->cardType;
-    }
-    /**
-     * @var string
-     */
-    public function setCardType($value)
-    {
-        $this->cardType = $value;
-    }
-
-    /**
-     * @return string
-     */
     public function getCountryCode()
     {
         return $this->countryCode;
@@ -103,16 +68,31 @@ class CardEssentials extends DataObject
     /**
      * @return string
      */
-    public function getExpiryDate()
+    public function getNetworkToken()
     {
-        return $this->expiryDate;
+        return $this->networkToken;
     }
     /**
      * @var string
      */
-    public function setExpiryDate($value)
+    public function setNetworkToken($value)
     {
-        $this->expiryDate = $value;
+        $this->networkToken = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTokenExpiryDate()
+    {
+        return $this->tokenExpiryDate;
+    }
+    /**
+     * @var string
+     */
+    public function setTokenExpiryDate($value)
+    {
+        $this->tokenExpiryDate = $value;
     }
 
     /**
@@ -124,17 +104,14 @@ class CardEssentials extends DataObject
         if ($this->bin !== null) {
             $object->bin = $this->bin;
         }
-        if ($this->cardNumber !== null) {
-            $object->cardNumber = $this->cardNumber;
-        }
-        if ($this->cardType !== null) {
-            $object->cardType = $this->cardType;
-        }
         if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if ($this->expiryDate !== null) {
-            $object->expiryDate = $this->expiryDate;
+        if ($this->networkToken !== null) {
+            $object->networkToken = $this->networkToken;
+        }
+        if ($this->tokenExpiryDate !== null) {
+            $object->tokenExpiryDate = $this->tokenExpiryDate;
         }
         return $object;
     }
@@ -150,17 +127,14 @@ class CardEssentials extends DataObject
         if (property_exists($object, 'bin')) {
             $this->bin = $object->bin;
         }
-        if (property_exists($object, 'cardNumber')) {
-            $this->cardNumber = $object->cardNumber;
-        }
-        if (property_exists($object, 'cardType')) {
-            $this->cardType = $object->cardType;
-        }
         if (property_exists($object, 'countryCode')) {
             $this->countryCode = $object->countryCode;
         }
-        if (property_exists($object, 'expiryDate')) {
-            $this->expiryDate = $object->expiryDate;
+        if (property_exists($object, 'networkToken')) {
+            $this->networkToken = $object->networkToken;
+        }
+        if (property_exists($object, 'tokenExpiryDate')) {
+            $this->tokenExpiryDate = $object->tokenExpiryDate;
         }
         return $this;
     }

@@ -17,6 +17,11 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     /**
      * @var bool
      */
+    private $clickToPay;
+
+    /**
+     * @var bool
+     */
     private $groupCards;
 
     /**
@@ -25,6 +30,21 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     private $paymentProductPreferredOrder;
 
     // Methods
+    /**
+     * @return bool
+     */
+    public function getClickToPay()
+    {
+        return $this->clickToPay;
+    }
+    /**
+     * @var bool
+     */
+    public function setClickToPay($value)
+    {
+        $this->clickToPay = $value;
+    }
+
     /**
      * @return bool
      */
@@ -61,6 +81,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if ($this->clickToPay !== null) {
+            $object->clickToPay = $this->clickToPay;
+        }
         if ($this->groupCards !== null) {
             $object->groupCards = $this->groupCards;
         }
@@ -83,6 +106,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'clickToPay')) {
+            $this->clickToPay = $object->clickToPay;
+        }
         if (property_exists($object, 'groupCards')) {
             $this->groupCards = $object->groupCards;
         }

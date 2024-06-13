@@ -40,6 +40,11 @@ class PaymentOutput extends DataObject
     private $customer;
 
     /**
+     * @var Discount
+     */
+    private $discount;
+
+    /**
      * @var string
      */
     private $merchantParameters;
@@ -148,6 +153,21 @@ class PaymentOutput extends DataObject
     public function setCustomer($value)
     {
         $this->customer = $value;
+    }
+
+    /**
+     * @return Discount
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+    /**
+     * @var Discount
+     */
+    public function setDiscount($value)
+    {
+        $this->discount = $value;
     }
 
     /**
@@ -276,6 +296,9 @@ class PaymentOutput extends DataObject
         if ($this->customer !== null) {
             $object->customer = $this->customer->toObject();
         }
+        if ($this->discount !== null) {
+            $object->discount = $this->discount->toObject();
+        }
         if ($this->merchantParameters !== null) {
             $object->merchantParameters = $this->merchantParameters;
         }
@@ -338,6 +361,13 @@ class PaymentOutput extends DataObject
             }
             $value = new CustomerOutput();
             $this->customer = $value->fromObject($object->customer);
+        }
+        if (property_exists($object, 'discount')) {
+            if (!is_object($object->discount)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->discount, true) . '\' is not an object');
+            }
+            $value = new Discount();
+            $this->discount = $value->fromObject($object->discount);
         }
         if (property_exists($object, 'merchantParameters')) {
             $this->merchantParameters = $object->merchantParameters;
