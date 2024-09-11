@@ -40,11 +40,6 @@ class CreateHostedCheckoutRequest extends DataObject
     private $order;
 
     /**
-     * @var PageCustomization
-     */
-    private $pageCustomization;
-
-    /**
      * @var RedirectPaymentMethodSpecificInput
      */
     private $redirectPaymentMethodSpecificInput;
@@ -131,21 +126,6 @@ class CreateHostedCheckoutRequest extends DataObject
     }
 
     /**
-     * @return PageCustomization
-     */
-    public function getPageCustomization()
-    {
-        return $this->pageCustomization;
-    }
-    /**
-     * @var PageCustomization
-     */
-    public function setPageCustomization($value)
-    {
-        $this->pageCustomization = $value;
-    }
-
-    /**
      * @return RedirectPaymentMethodSpecificInput
      */
     public function getRedirectPaymentMethodSpecificInput()
@@ -195,9 +175,6 @@ class CreateHostedCheckoutRequest extends DataObject
         }
         if ($this->order !== null) {
             $object->order = $this->order->toObject();
-        }
-        if ($this->pageCustomization !== null) {
-            $object->pageCustomization = $this->pageCustomization->toObject();
         }
         if ($this->redirectPaymentMethodSpecificInput !== null) {
             $object->redirectPaymentMethodSpecificInput = $this->redirectPaymentMethodSpecificInput->toObject();
@@ -250,13 +227,6 @@ class CreateHostedCheckoutRequest extends DataObject
             }
             $value = new Order();
             $this->order = $value->fromObject($object->order);
-        }
-        if (property_exists($object, 'pageCustomization')) {
-            if (!is_object($object->pageCustomization)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->pageCustomization, true) . '\' is not an object');
-            }
-            $value = new PageCustomization();
-            $this->pageCustomization = $value->fromObject($object->pageCustomization);
         }
         if (property_exists($object, 'redirectPaymentMethodSpecificInput')) {
             if (!is_object($object->redirectPaymentMethodSpecificInput)) {

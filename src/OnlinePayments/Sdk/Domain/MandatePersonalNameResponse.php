@@ -11,48 +11,48 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class ThreeDSWhitelist extends DataObject
+class MandatePersonalNameResponse extends DataObject
 {
     // Properties
     /**
      * @var string
      */
-    private $source;
+    private $firstName;
 
     /**
      * @var string
      */
-    private $status;
+    private $surname;
 
     // Methods
     /**
      * @return string
      */
-    public function getSource()
+    public function getFirstName()
     {
-        return $this->source;
+        return $this->firstName;
     }
     /**
      * @var string
      */
-    public function setSource($value)
+    public function setFirstName($value)
     {
-        $this->source = $value;
+        $this->firstName = $value;
     }
 
     /**
      * @return string
      */
-    public function getStatus()
+    public function getSurname()
     {
-        return $this->status;
+        return $this->surname;
     }
     /**
      * @var string
      */
-    public function setStatus($value)
+    public function setSurname($value)
     {
-        $this->status = $value;
+        $this->surname = $value;
     }
 
     /**
@@ -61,11 +61,11 @@ class ThreeDSWhitelist extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->source !== null) {
-            $object->source = $this->source;
+        if ($this->firstName !== null) {
+            $object->firstName = $this->firstName;
         }
-        if ($this->status !== null) {
-            $object->status = $this->status;
+        if ($this->surname !== null) {
+            $object->surname = $this->surname;
         }
         return $object;
     }
@@ -78,11 +78,11 @@ class ThreeDSWhitelist extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'source')) {
-            $this->source = $object->source;
+        if (property_exists($object, 'firstName')) {
+            $this->firstName = $object->firstName;
         }
-        if (property_exists($object, 'status')) {
-            $this->status = $object->status;
+        if (property_exists($object, 'surname')) {
+            $this->surname = $object->surname;
         }
         return $this;
     }

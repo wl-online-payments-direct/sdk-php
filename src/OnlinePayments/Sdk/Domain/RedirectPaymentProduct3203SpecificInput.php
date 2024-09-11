@@ -11,28 +11,28 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class PaymentProduct840 extends DataObject
+class RedirectPaymentProduct3203SpecificInput extends DataObject
 {
     // Properties
     /**
      * @var string
      */
-    private $orderId;
+    private $checkoutType;
 
     // Methods
     /**
      * @return string
      */
-    public function getOrderId()
+    public function getCheckoutType()
     {
-        return $this->orderId;
+        return $this->checkoutType;
     }
     /**
      * @var string
      */
-    public function setOrderId($value)
+    public function setCheckoutType($value)
     {
-        $this->orderId = $value;
+        $this->checkoutType = $value;
     }
 
     /**
@@ -41,8 +41,8 @@ class PaymentProduct840 extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->orderId !== null) {
-            $object->orderId = $this->orderId;
+        if ($this->checkoutType !== null) {
+            $object->checkoutType = $this->checkoutType;
         }
         return $object;
     }
@@ -55,8 +55,8 @@ class PaymentProduct840 extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'orderId')) {
-            $this->orderId = $object->orderId;
+        if (property_exists($object, 'checkoutType')) {
+            $this->checkoutType = $object->checkoutType;
         }
         return $this;
     }

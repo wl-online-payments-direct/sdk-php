@@ -27,11 +27,6 @@ class CardEssentials extends DataObject
     /**
      * @var string
      */
-    private $cardType;
-
-    /**
-     * @var string
-     */
     private $countryCode;
 
     /**
@@ -68,21 +63,6 @@ class CardEssentials extends DataObject
     public function setCardNumber($value)
     {
         $this->cardNumber = $value;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCardType()
-    {
-        return $this->cardType;
-    }
-    /**
-     * @var string
-     */
-    public function setCardType($value)
-    {
-        $this->cardType = $value;
     }
 
     /**
@@ -127,9 +107,6 @@ class CardEssentials extends DataObject
         if ($this->cardNumber !== null) {
             $object->cardNumber = $this->cardNumber;
         }
-        if ($this->cardType !== null) {
-            $object->cardType = $this->cardType;
-        }
         if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
@@ -152,9 +129,6 @@ class CardEssentials extends DataObject
         }
         if (property_exists($object, 'cardNumber')) {
             $this->cardNumber = $object->cardNumber;
-        }
-        if (property_exists($object, 'cardType')) {
-            $this->cardType = $object->cardType;
         }
         if (property_exists($object, 'countryCode')) {
             $this->countryCode = $object->countryCode;

@@ -11,13 +11,13 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class NetworkTokenEssentials extends DataObject
+class MandateAddressResponse extends DataObject
 {
     // Properties
     /**
      * @var string
      */
-    private $bin;
+    private $city;
 
     /**
      * @var string
@@ -27,27 +27,32 @@ class NetworkTokenEssentials extends DataObject
     /**
      * @var string
      */
-    private $networkToken;
+    private $houseNumber;
 
     /**
      * @var string
      */
-    private $tokenExpiryDate;
+    private $street;
+
+    /**
+     * @var string
+     */
+    private $zip;
 
     // Methods
     /**
      * @return string
      */
-    public function getBin()
+    public function getCity()
     {
-        return $this->bin;
+        return $this->city;
     }
     /**
      * @var string
      */
-    public function setBin($value)
+    public function setCity($value)
     {
-        $this->bin = $value;
+        $this->city = $value;
     }
 
     /**
@@ -68,31 +73,46 @@ class NetworkTokenEssentials extends DataObject
     /**
      * @return string
      */
-    public function getNetworkToken()
+    public function getHouseNumber()
     {
-        return $this->networkToken;
+        return $this->houseNumber;
     }
     /**
      * @var string
      */
-    public function setNetworkToken($value)
+    public function setHouseNumber($value)
     {
-        $this->networkToken = $value;
+        $this->houseNumber = $value;
     }
 
     /**
      * @return string
      */
-    public function getTokenExpiryDate()
+    public function getStreet()
     {
-        return $this->tokenExpiryDate;
+        return $this->street;
     }
     /**
      * @var string
      */
-    public function setTokenExpiryDate($value)
+    public function setStreet($value)
     {
-        $this->tokenExpiryDate = $value;
+        $this->street = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+    /**
+     * @var string
+     */
+    public function setZip($value)
+    {
+        $this->zip = $value;
     }
 
     /**
@@ -101,17 +121,20 @@ class NetworkTokenEssentials extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->bin !== null) {
-            $object->bin = $this->bin;
+        if ($this->city !== null) {
+            $object->city = $this->city;
         }
         if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if ($this->networkToken !== null) {
-            $object->networkToken = $this->networkToken;
+        if ($this->houseNumber !== null) {
+            $object->houseNumber = $this->houseNumber;
         }
-        if ($this->tokenExpiryDate !== null) {
-            $object->tokenExpiryDate = $this->tokenExpiryDate;
+        if ($this->street !== null) {
+            $object->street = $this->street;
+        }
+        if ($this->zip !== null) {
+            $object->zip = $this->zip;
         }
         return $object;
     }
@@ -124,17 +147,20 @@ class NetworkTokenEssentials extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
-        if (property_exists($object, 'bin')) {
-            $this->bin = $object->bin;
+        if (property_exists($object, 'city')) {
+            $this->city = $object->city;
         }
         if (property_exists($object, 'countryCode')) {
             $this->countryCode = $object->countryCode;
         }
-        if (property_exists($object, 'networkToken')) {
-            $this->networkToken = $object->networkToken;
+        if (property_exists($object, 'houseNumber')) {
+            $this->houseNumber = $object->houseNumber;
         }
-        if (property_exists($object, 'tokenExpiryDate')) {
-            $this->tokenExpiryDate = $object->tokenExpiryDate;
+        if (property_exists($object, 'street')) {
+            $this->street = $object->street;
+        }
+        if (property_exists($object, 'zip')) {
+            $this->zip = $object->zip;
         }
         return $this;
     }

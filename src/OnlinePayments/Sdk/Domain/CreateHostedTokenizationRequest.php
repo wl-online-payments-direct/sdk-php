@@ -30,11 +30,6 @@ class CreateHostedTokenizationRequest extends DataObject
     private $locale;
 
     /**
-     * @var PageCustomization
-     */
-    private $pageCustomization;
-
-    /**
      * @var PaymentProductFiltersHostedTokenization
      */
     private $paymentProductFilters;
@@ -93,21 +88,6 @@ class CreateHostedTokenizationRequest extends DataObject
     public function setLocale($value)
     {
         $this->locale = $value;
-    }
-
-    /**
-     * @return PageCustomization
-     */
-    public function getPageCustomization()
-    {
-        return $this->pageCustomization;
-    }
-    /**
-     * @var PageCustomization
-     */
-    public function setPageCustomization($value)
-    {
-        $this->pageCustomization = $value;
     }
 
     /**
@@ -170,9 +150,6 @@ class CreateHostedTokenizationRequest extends DataObject
         if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if ($this->pageCustomization !== null) {
-            $object->pageCustomization = $this->pageCustomization->toObject();
-        }
         if ($this->paymentProductFilters !== null) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
@@ -205,13 +182,6 @@ class CreateHostedTokenizationRequest extends DataObject
         }
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;
-        }
-        if (property_exists($object, 'pageCustomization')) {
-            if (!is_object($object->pageCustomization)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->pageCustomization, true) . '\' is not an object');
-            }
-            $value = new PageCustomization();
-            $this->pageCustomization = $value->fromObject($object->pageCustomization);
         }
         if (property_exists($object, 'paymentProductFilters')) {
             if (!is_object($object->paymentProductFilters)) {

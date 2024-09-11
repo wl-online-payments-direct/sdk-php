@@ -20,6 +20,11 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     private $authorizationMode;
 
     /**
+     * @var int
+     */
+    private $paymentNumber;
+
+    /**
      * @var string
      */
     private $schemeReferenceData;
@@ -53,6 +58,21 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     public function setAuthorizationMode($value)
     {
         $this->authorizationMode = $value;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPaymentNumber()
+    {
+        return $this->paymentNumber;
+    }
+    /**
+     * @var int
+     */
+    public function setPaymentNumber($value)
+    {
+        $this->paymentNumber = $value;
     }
 
     /**
@@ -124,6 +144,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
         if ($this->authorizationMode !== null) {
             $object->authorizationMode = $this->authorizationMode;
         }
+        if ($this->paymentNumber !== null) {
+            $object->paymentNumber = $this->paymentNumber;
+        }
         if ($this->schemeReferenceData !== null) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
@@ -149,6 +172,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {
             $this->authorizationMode = $object->authorizationMode;
+        }
+        if (property_exists($object, 'paymentNumber')) {
+            $this->paymentNumber = $object->paymentNumber;
         }
         if (property_exists($object, 'schemeReferenceData')) {
             $this->schemeReferenceData = $object->schemeReferenceData;
