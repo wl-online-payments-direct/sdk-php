@@ -12,6 +12,7 @@ use UnexpectedValueException;
 class ResponseFactory
 {
     const MIME_APPLICATION_JSON = 'application/json';
+    const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
 
     /**
      * @param ConnectionResponse $response
@@ -50,7 +51,8 @@ class ResponseFactory
         }
         if (!$this->isJsonContentType($contentType) && $httpStatusCode !== 204) {
             throw new UnexpectedValueException(
-                "Invalid content type; got '$contentType', expected '" . static::MIME_APPLICATION_JSON . "'"
+                "Invalid content type; got '$contentType', expected '" .
+                static::MIME_APPLICATION_JSON . "' or '" . static::MIME_APPLICATION_PROBLEM_JSON . "'"
             );
         }
         $responseClassName = $responseClassMap->getResponseClassName($httpStatusCode);
@@ -75,6 +77,8 @@ class ResponseFactory
     private function isJsonContentType($contentType)
     {
         return $contentType === static::MIME_APPLICATION_JSON
-            || substr($contentType, 0, strlen(static::MIME_APPLICATION_JSON)) === static::MIME_APPLICATION_JSON;
+            || $contentType === static::MIME_APPLICATION_PROBLEM_JSON
+            || substr($contentType, 0, strlen(static::MIME_APPLICATION_JSON)) === static::MIME_APPLICATION_JSON
+            || substr($contentType, 0, strlen(static::MIME_APPLICATION_PROBLEM_JSON)) === static::MIME_APPLICATION_PROBLEM_JSON;
     }
 }

@@ -51,6 +51,7 @@ class CommunicatorConfiguration
      */
     public function __construct($apiKeyId, $apiSecret, $apiEndpoint, $integrator, ProxyConfiguration $proxyConfiguration = null)
     {
+        $apiEndpoint = rtrim($apiEndpoint, '/');
         $this->validateApiEndpoint($apiEndpoint);
         $this->apiKeyId = $apiKeyId;
         $this->apiSecret = $apiSecret;
