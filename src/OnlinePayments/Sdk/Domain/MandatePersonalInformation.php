@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class MandatePersonalInformation extends DataObject
 {
-    // Properties
     /**
      * @var MandatePersonalName
      */
-    private $name;
+    public $name = null;
 
     /**
      * @var string
      */
-    private $title;
+    public $title = null;
 
-    // Methods
     /**
      * @return MandatePersonalName
      */
@@ -32,8 +28,9 @@ class MandatePersonalInformation extends DataObject
     {
         return $this->name;
     }
+
     /**
-     * @var MandatePersonalName
+     * @param MandatePersonalName
      */
     public function setName($value)
     {
@@ -47,8 +44,9 @@ class MandatePersonalInformation extends DataObject
     {
         return $this->title;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTitle($value)
     {
@@ -61,10 +59,10 @@ class MandatePersonalInformation extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->name !== null) {
+        if (!is_null($this->name)) {
             $object->name = $this->name->toObject();
         }
-        if ($this->title !== null) {
+        if (!is_null($this->title)) {
             $object->title = $this->title;
         }
         return $object;

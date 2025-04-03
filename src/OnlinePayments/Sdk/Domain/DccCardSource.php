@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class DccCardSource extends DataObject
 {
-    // Properties
     /**
      * @var CardInfo
      */
-    private $card;
+    public $card = null;
 
     /**
      * @var string
      */
-    private $encryptedCustomerInput;
+    public $encryptedCustomerInput = null;
 
     /**
      * @var string
      */
-    private $hostedTokenizationId;
+    public $hostedTokenizationId = null;
 
     /**
      * @var string
      */
-    private $token;
+    public $token = null;
 
-    // Methods
     /**
      * @return CardInfo
      */
@@ -42,8 +38,9 @@ class DccCardSource extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var CardInfo
+     * @param CardInfo
      */
     public function setCard($value)
     {
@@ -57,8 +54,9 @@ class DccCardSource extends DataObject
     {
         return $this->encryptedCustomerInput;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEncryptedCustomerInput($value)
     {
@@ -72,8 +70,9 @@ class DccCardSource extends DataObject
     {
         return $this->hostedTokenizationId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setHostedTokenizationId($value)
     {
@@ -87,8 +86,9 @@ class DccCardSource extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setToken($value)
     {
@@ -101,16 +101,16 @@ class DccCardSource extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
-        if ($this->encryptedCustomerInput !== null) {
+        if (!is_null($this->encryptedCustomerInput)) {
             $object->encryptedCustomerInput = $this->encryptedCustomerInput;
         }
-        if ($this->hostedTokenizationId !== null) {
+        if (!is_null($this->hostedTokenizationId)) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token;
         }
         return $object;

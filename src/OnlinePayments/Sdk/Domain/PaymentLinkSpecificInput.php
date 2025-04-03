@@ -1,11 +1,10 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +12,21 @@ use UnexpectedValueException;
  */
 class PaymentLinkSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $description;
+    public $description = null;
+
+    /**
+     * @var DateTime
+     */
+    public $expirationDate = null;
 
     /**
      * @var string
      */
-    private $expirationDate;
+    public $recipientName = null;
 
-    /**
-     * @var string
-     */
-    private $recipientName;
-
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +34,9 @@ class PaymentLinkSpecificInput extends DataObject
     {
         return $this->description;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDescription($value)
     {
@@ -46,14 +44,15 @@ class PaymentLinkSpecificInput extends DataObject
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
     public function getExpirationDate()
     {
         return $this->expirationDate;
     }
+
     /**
-     * @var string
+     * @param DateTime
      */
     public function setExpirationDate($value)
     {
@@ -67,8 +66,9 @@ class PaymentLinkSpecificInput extends DataObject
     {
         return $this->recipientName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRecipientName($value)
     {
@@ -81,13 +81,13 @@ class PaymentLinkSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->description !== null) {
+        if (!is_null($this->description)) {
             $object->description = $this->description;
         }
-        if ($this->expirationDate !== null) {
-            $object->expirationDate = $this->expirationDate;
+        if (!is_null($this->expirationDate)) {
+            $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if ($this->recipientName !== null) {
+        if (!is_null($this->recipientName)) {
             $object->recipientName = $this->recipientName;
         }
         return $object;
@@ -105,7 +105,7 @@ class PaymentLinkSpecificInput extends DataObject
             $this->description = $object->description;
         }
         if (property_exists($object, 'expirationDate')) {
-            $this->expirationDate = $object->expirationDate;
+            $this->expirationDate = new DateTime($object->expirationDate);
         }
         if (property_exists($object, 'recipientName')) {
             $this->recipientName = $object->recipientName;

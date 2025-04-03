@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class MobilePaymentProduct320SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var GPayThreeDSecure
      */
-    private $threeDSecure;
+    public $threeDSecure = null;
 
-    // Methods
     /**
      * @return GPayThreeDSecure
      */
@@ -27,8 +23,9 @@ class MobilePaymentProduct320SpecificInput extends DataObject
     {
         return $this->threeDSecure;
     }
+
     /**
-     * @var GPayThreeDSecure
+     * @param GPayThreeDSecure
      */
     public function setThreeDSecure($value)
     {
@@ -41,7 +38,7 @@ class MobilePaymentProduct320SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->threeDSecure !== null) {
+        if (!is_null($this->threeDSecure)) {
             $object->threeDSecure = $this->threeDSecure->toObject();
         }
         return $object;

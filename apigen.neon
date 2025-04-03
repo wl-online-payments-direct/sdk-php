@@ -1,0 +1,14 @@
+parameters:
+  paths: ['lib', 'src']
+  include: ['*.php']
+
+  excludeProtected: false
+  excludePrivate: true
+  excludeTagged: ['internal']
+
+  outputDir: '%workingDir%/docs'
+
+  title: 'Online Payments PHP SDK'
+
+  workerCount: 8
+  memoryLimit: '512M'

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CurrencyConversionInput extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $acceptedByUser;
+    public $acceptedByUser = null;
 
     /**
      * @var string
      */
-    private $dccSessionId;
+    public $dccSessionId = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -32,8 +28,9 @@ class CurrencyConversionInput extends DataObject
     {
         return $this->acceptedByUser;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setAcceptedByUser($value)
     {
@@ -47,8 +44,9 @@ class CurrencyConversionInput extends DataObject
     {
         return $this->dccSessionId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDccSessionId($value)
     {
@@ -61,10 +59,10 @@ class CurrencyConversionInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->acceptedByUser !== null) {
+        if (!is_null($this->acceptedByUser)) {
             $object->acceptedByUser = $this->acceptedByUser;
         }
-        if ($this->dccSessionId !== null) {
+        if (!is_null($this->dccSessionId)) {
             $object->dccSessionId = $this->dccSessionId;
         }
         return $object;

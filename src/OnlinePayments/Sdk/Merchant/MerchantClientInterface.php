@@ -1,98 +1,140 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Merchant;
 
+use OnlinePayments\Sdk\Merchant\Captures\CapturesClientInterface;
+use OnlinePayments\Sdk\Merchant\Complete\CompleteClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
+use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClientInterface;
 use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClientInterface;
 use OnlinePayments\Sdk\Merchant\Products\ProductsClientInterface;
+use OnlinePayments\Sdk\Merchant\Refunds\RefundsClientInterface;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClientInterface;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
+use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
 
+/**
+ * Merchant client interface.
+ */
 interface MerchantClientInterface
 {
     /**
-     * ApiResource /v2/{merchantId}/hostedcheckouts
+     * Resource /v2/{merchantId}/hostedcheckouts
      *
      * @return HostedCheckoutClientInterface
      */
-    public function hostedCheckout();
+    function hostedCheckout();
 
     /**
-     * ApiResource /v2/{merchantId}/hostedtokenizations
+     * Resource /v2/{merchantId}/hostedtokenizations
      *
      * @return HostedTokenizationClientInterface
      */
-    public function hostedTokenization();
+    function hostedTokenization();
 
     /**
-     * ApiResource /v2/{merchantId}/mandates
-     *
-     * @return MandatesClientInterface
-     */
-    public function mandates();
-
-    /**
-     * ApiResource /v2/{merchantId}/paymentlinks
-     *
-     * @return PaymentLinksClientInterface
-     */
-    public function paymentLinks();
-
-    /**
-     * ApiResource /v2/{merchantId}/payments
+     * Resource /v2/{merchantId}/payments
      *
      * @return PaymentsClientInterface
      */
-    public function payments();
+    function payments();
 
     /**
-     * ApiResource /v2/{merchantId}/payouts
+     * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
-     * @return PayoutsClientInterface
+     * @return CapturesClientInterface
      */
-    public function payouts();
+    function captures();
 
     /**
-     * ApiResource /v2/{merchantId}/productgroups
+     * Resource /v2/{merchantId}/payments/{paymentId}/refunds
+     *
+     * @return RefundsClientInterface
+     */
+    function refunds();
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/complete
+     *
+     * @return CompleteClientInterface
+     */
+    function complete();
+
+    /**
+     * Resource /v2/{merchantId}/productgroups
      *
      * @return ProductGroupsClientInterface
      */
-    public function productGroups();
+    function productGroups();
 
     /**
-     * ApiResource /v2/{merchantId}/products
+     * Resource /v2/{merchantId}/products
      *
      * @return ProductsClientInterface
      */
-    public function products();
+    function products();
 
     /**
-     * ApiResource /v2/{merchantId}/services
+     * Resource /v2/{merchantId}/services/testconnection
      *
      * @return ServicesClientInterface
      */
-    public function services();
+    function services();
 
     /**
-     * ApiResource /v2/{merchantId}/sessions
+     * Resource /v2/{merchantId}/webhooks/validateCredentials
+     *
+     * @return WebhooksClientInterface
+     */
+    function webhooks();
+
+    /**
+     * Resource /v2/{merchantId}/sessions
      *
      * @return SessionsClientInterface
      */
-    public function sessions();
+    function sessions();
 
     /**
-     * ApiResource /v2/{merchantId}/tokens
+     * Resource /v2/{merchantId}/tokens/{tokenId}
      *
      * @return TokensClientInterface
      */
-    public function tokens();
+    function tokens();
+
+    /**
+     * Resource /v2/{merchantId}/payouts/{payoutId}
+     *
+     * @return PayoutsClientInterface
+     */
+    function payouts();
+
+    /**
+     * Resource /v2/{merchantId}/mandates
+     *
+     * @return MandatesClientInterface
+     */
+    function mandates();
+
+    /**
+     * Resource /v2/{merchantId}/services/privacypolicy
+     *
+     * @return PrivacyPolicyClientInterface
+     */
+    function privacyPolicy();
+
+    /**
+     * Resource /v2/{merchantId}/paymentlinks
+     *
+     * @return PaymentLinksClientInterface
+     */
+    function paymentLinks();
 }

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $clickToPay;
+    public $clickToPay = null;
 
     /**
      * @var bool
      */
-    private $groupCards;
+    public $groupCards = null;
 
     /**
      * @var int[]
      */
-    private $paymentProductPreferredOrder;
+    public $paymentProductPreferredOrder = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -37,8 +33,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     {
         return $this->clickToPay;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setClickToPay($value)
     {
@@ -52,8 +49,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     {
         return $this->groupCards;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setGroupCards($value)
     {
@@ -67,8 +65,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     {
         return $this->paymentProductPreferredOrder;
     }
+
     /**
-     * @var int[]
+     * @param int[]
      */
     public function setPaymentProductPreferredOrder($value)
     {
@@ -81,16 +80,16 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->clickToPay !== null) {
+        if (!is_null($this->clickToPay)) {
             $object->clickToPay = $this->clickToPay;
         }
-        if ($this->groupCards !== null) {
+        if (!is_null($this->groupCards)) {
             $object->groupCards = $this->groupCards;
         }
-        if ($this->paymentProductPreferredOrder !== null) {
+        if (!is_null($this->paymentProductPreferredOrder)) {
             $object->paymentProductPreferredOrder = [];
             foreach ($this->paymentProductPreferredOrder as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->paymentProductPreferredOrder[] = $element;
                 }
             }

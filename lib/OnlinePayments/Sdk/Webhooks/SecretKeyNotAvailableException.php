@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk\Webhooks;
 
 use Exception;
@@ -16,8 +15,8 @@ class SecretKeyNotAvailableException extends SignatureValidationException
 
     /**
      * @param string $keyId
-     * @param string $message
-     * @param Exception $previous
+     * @param string|null $message
+     * @param Exception|null $previous
      */
     public function __construct($keyId, $message = null, $previous = null)
     {

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class DccProposal extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $baseAmount;
+    public $baseAmount = null;
 
     /**
      * @var string
      */
-    private $disclaimerDisplay;
+    public $disclaimerDisplay = null;
 
     /**
      * @var string
      */
-    private $disclaimerReceipt;
+    public $disclaimerReceipt = null;
 
     /**
      * @var RateDetails
      */
-    private $rate;
+    public $rate = null;
 
     /**
      * @var AmountOfMoney
      */
-    private $targetAmount;
+    public $targetAmount = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -47,8 +43,9 @@ class DccProposal extends DataObject
     {
         return $this->baseAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setBaseAmount($value)
     {
@@ -62,8 +59,9 @@ class DccProposal extends DataObject
     {
         return $this->disclaimerDisplay;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDisclaimerDisplay($value)
     {
@@ -77,8 +75,9 @@ class DccProposal extends DataObject
     {
         return $this->disclaimerReceipt;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDisclaimerReceipt($value)
     {
@@ -92,8 +91,9 @@ class DccProposal extends DataObject
     {
         return $this->rate;
     }
+
     /**
-     * @var RateDetails
+     * @param RateDetails
      */
     public function setRate($value)
     {
@@ -107,8 +107,9 @@ class DccProposal extends DataObject
     {
         return $this->targetAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setTargetAmount($value)
     {
@@ -121,19 +122,19 @@ class DccProposal extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->baseAmount !== null) {
+        if (!is_null($this->baseAmount)) {
             $object->baseAmount = $this->baseAmount->toObject();
         }
-        if ($this->disclaimerDisplay !== null) {
+        if (!is_null($this->disclaimerDisplay)) {
             $object->disclaimerDisplay = $this->disclaimerDisplay;
         }
-        if ($this->disclaimerReceipt !== null) {
+        if (!is_null($this->disclaimerReceipt)) {
             $object->disclaimerReceipt = $this->disclaimerReceipt;
         }
-        if ($this->rate !== null) {
+        if (!is_null($this->rate)) {
             $object->rate = $this->rate->toObject();
         }
-        if ($this->targetAmount !== null) {
+        if (!is_null($this->targetAmount)) {
             $object->targetAmount = $this->targetAmount->toObject();
         }
         return $object;

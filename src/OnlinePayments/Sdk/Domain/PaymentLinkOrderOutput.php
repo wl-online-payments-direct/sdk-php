@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class PaymentLinkOrderOutput extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amount;
+    public $amount = null;
 
     /**
      * @var string
      */
-    private $merchantReference;
+    public $merchantReference = null;
 
     /**
      * @var SurchargeForPaymentLink
      */
-    private $surchargeSpecificOutput;
+    public $surchargeSpecificOutput = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -37,8 +33,9 @@ class PaymentLinkOrderOutput extends DataObject
     {
         return $this->amount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmount($value)
     {
@@ -52,8 +49,9 @@ class PaymentLinkOrderOutput extends DataObject
     {
         return $this->merchantReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantReference($value)
     {
@@ -67,8 +65,9 @@ class PaymentLinkOrderOutput extends DataObject
     {
         return $this->surchargeSpecificOutput;
     }
+
     /**
-     * @var SurchargeForPaymentLink
+     * @param SurchargeForPaymentLink
      */
     public function setSurchargeSpecificOutput($value)
     {
@@ -81,13 +80,13 @@ class PaymentLinkOrderOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amount !== null) {
+        if (!is_null($this->amount)) {
             $object->amount = $this->amount->toObject();
         }
-        if ($this->merchantReference !== null) {
+        if (!is_null($this->merchantReference)) {
             $object->merchantReference = $this->merchantReference;
         }
-        if ($this->surchargeSpecificOutput !== null) {
+        if (!is_null($this->surchargeSpecificOutput)) {
             $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
         }
         return $object;

@@ -1,11 +1,11 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Merchant\ProductGroups;
 
-use OnlinePayments\Sdk\RequestObject;
+
+use OnlinePayments\Sdk\Communication\RequestObject;
 
 /**
  * Query parameters for Get product group
@@ -14,38 +14,35 @@ use OnlinePayments\Sdk\RequestObject;
  */
 class GetProductGroupParams extends RequestObject
 {
-    // Properties
     /**
      * @var string
      */
-    protected $countryCode;
+    public $countryCode;
 
     /**
      * @var string
      */
-    protected $currencyCode;
+    public $currencyCode;
 
     /**
      * @var string
      */
-    protected $locale;
+    public $locale;
 
     /**
      * @var int
      */
-    protected $amount;
+    public $amount;
 
     /**
      * @var bool
      */
-    protected $isRecurring;
+    public $isRecurring;
 
     /**
      * @var string[]
      */
-    protected $hide;
-
-    // Methods
+    public $hide;
 
     /**
      * @return string
@@ -54,12 +51,24 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->countryCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCountryCode($value)
     {
         $this->countryCode = $value;
+    }
+
+    /**
+     * @param string
+     */
+    public function addCountryCode($value)
+    {
+        if (is_null($this->countryCode)) {
+            $this->countryCode = [];
+        }
+        $this->countryCode[] = $value;
     }
 
     /**
@@ -69,12 +78,24 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->currencyCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCurrencyCode($value)
     {
         $this->currencyCode = $value;
+    }
+
+    /**
+     * @param string
+     */
+    public function addCurrencyCode($value)
+    {
+        if (is_null($this->currencyCode)) {
+            $this->currencyCode = [];
+        }
+        $this->currencyCode[] = $value;
     }
 
     /**
@@ -84,12 +105,24 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->locale;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLocale($value)
     {
         $this->locale = $value;
+    }
+
+    /**
+     * @param string
+     */
+    public function addLocale($value)
+    {
+        if (is_null($this->locale)) {
+            $this->locale = [];
+        }
+        $this->locale[] = $value;
     }
 
     /**
@@ -99,12 +132,24 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->amount;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setAmount($value)
     {
         $this->amount = $value;
+    }
+
+    /**
+     * @param int
+     */
+    public function addAmount($value)
+    {
+        if (is_null($this->amount)) {
+            $this->amount = [];
+        }
+        $this->amount[] = $value;
     }
 
     /**
@@ -114,12 +159,24 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->isRecurring;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsRecurring($value)
     {
         $this->isRecurring = $value;
+    }
+
+    /**
+     * @param bool
+     */
+    public function addIsRecurring($value)
+    {
+        if (is_null($this->isRecurring)) {
+            $this->isRecurring = [];
+        }
+        $this->isRecurring[] = $value;
     }
 
     /**
@@ -129,20 +186,22 @@ class GetProductGroupParams extends RequestObject
     {
         return $this->hide;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setHide($value)
     {
         $this->hide = $value;
     }
+
     /**
-     * @var string
+     * @param string[]
      */
     public function addHide($value)
     {
         if (is_null($this->hide)) {
-            $this->hide = array();
+            $this->hide = [];
         }
         $this->hide[] = $value;
     }
@@ -152,27 +211,27 @@ class GetProductGroupParams extends RequestObject
      */
     public function toArray()
     {
-        $array = array();
-        if ($this->countryCode !== null) {
-            $array["countryCode"] = $this->countryCode;
+        $array = [];
+        if ($this->countryCode != null) {
+            $array['countryCode'] = $this->countryCode;
         }
-        if ($this->currencyCode !== null) {
-            $array["currencyCode"] = $this->currencyCode;
+        if ($this->currencyCode != null) {
+            $array['currencyCode'] = $this->currencyCode;
         }
-        if ($this->locale !== null) {
-            $array["locale"] = $this->locale;
+        if ($this->locale != null) {
+            $array['locale'] = $this->locale;
         }
-        if ($this->amount !== null) {
-            $array["amount"] = $this->amount;
+        if ($this->amount != null) {
+            $array['amount'] = $this->amount;
         }
-        if ($this->isRecurring !== null) {
-            $array["isRecurring"] = $this->isRecurring ? 'true' : 'false';
+        if ($this->isRecurring != null) {
+            $array['isRecurring'] = $this->isRecurring ? 'true' : 'false';
         }
-        if ($this->hide !== null) {
-            $array["hide"] = [];
+        if ($this->hide != null) {
+            $array['hide'] = [];
             foreach ($this->hide as $element) {
-                if ($element !== null) {
-                    $array["hide"][] = $element;
+                if ($element != null) {
+                    $array['hide'][] = $element;
                 }
             }
         }

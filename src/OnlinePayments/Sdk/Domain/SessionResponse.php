@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class SessionResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $assetUrl;
+    public $assetUrl = null;
 
     /**
      * @var string
      */
-    private $clientApiUrl;
+    public $clientApiUrl = null;
 
     /**
      * @var string
      */
-    private $clientSessionId;
+    public $clientSessionId = null;
 
     /**
      * @var string
      */
-    private $customerId;
+    public $customerId = null;
 
     /**
      * @var string[]
      */
-    private $invalidTokens;
+    public $invalidTokens = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -47,8 +43,9 @@ class SessionResponse extends DataObject
     {
         return $this->assetUrl;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAssetUrl($value)
     {
@@ -62,8 +59,9 @@ class SessionResponse extends DataObject
     {
         return $this->clientApiUrl;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setClientApiUrl($value)
     {
@@ -77,8 +75,9 @@ class SessionResponse extends DataObject
     {
         return $this->clientSessionId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setClientSessionId($value)
     {
@@ -92,8 +91,9 @@ class SessionResponse extends DataObject
     {
         return $this->customerId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCustomerId($value)
     {
@@ -107,8 +107,9 @@ class SessionResponse extends DataObject
     {
         return $this->invalidTokens;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setInvalidTokens($value)
     {
@@ -121,22 +122,22 @@ class SessionResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->assetUrl !== null) {
+        if (!is_null($this->assetUrl)) {
             $object->assetUrl = $this->assetUrl;
         }
-        if ($this->clientApiUrl !== null) {
+        if (!is_null($this->clientApiUrl)) {
             $object->clientApiUrl = $this->clientApiUrl;
         }
-        if ($this->clientSessionId !== null) {
+        if (!is_null($this->clientSessionId)) {
             $object->clientSessionId = $this->clientSessionId;
         }
-        if ($this->customerId !== null) {
+        if (!is_null($this->customerId)) {
             $object->customerId = $this->customerId;
         }
-        if ($this->invalidTokens !== null) {
+        if (!is_null($this->invalidTokens)) {
             $object->invalidTokens = [];
             foreach ($this->invalidTokens as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->invalidTokens[] = $element;
                 }
             }

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CurrencyConversionResult extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $result;
+    public $result = null;
 
     /**
      * @var string
      */
-    private $resultReason;
+    public $resultReason = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class CurrencyConversionResult extends DataObject
     {
         return $this->result;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setResult($value)
     {
@@ -47,8 +44,9 @@ class CurrencyConversionResult extends DataObject
     {
         return $this->resultReason;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setResultReason($value)
     {
@@ -61,10 +59,10 @@ class CurrencyConversionResult extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->result !== null) {
+        if (!is_null($this->result)) {
             $object->result = $this->result;
         }
-        if ($this->resultReason !== null) {
+        if (!is_null($this->resultReason)) {
             $object->resultReason = $this->resultReason;
         }
         return $object;

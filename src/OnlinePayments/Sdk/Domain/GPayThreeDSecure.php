@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class GPayThreeDSecure extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $challengeCanvasSize;
+    public $challengeCanvasSize = null;
 
     /**
      * @var string
      */
-    private $challengeIndicator;
+    public $challengeIndicator = null;
 
     /**
      * @var string
      */
-    private $exemptionRequest;
+    public $exemptionRequest = null;
 
     /**
      * @var RedirectionData
      */
-    private $redirectionData;
+    public $redirectionData = null;
 
     /**
      * @var bool
      */
-    private $skipAuthentication;
+    public $skipAuthentication = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -47,8 +43,9 @@ class GPayThreeDSecure extends DataObject
     {
         return $this->challengeCanvasSize;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setChallengeCanvasSize($value)
     {
@@ -62,8 +59,9 @@ class GPayThreeDSecure extends DataObject
     {
         return $this->challengeIndicator;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setChallengeIndicator($value)
     {
@@ -77,8 +75,9 @@ class GPayThreeDSecure extends DataObject
     {
         return $this->exemptionRequest;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExemptionRequest($value)
     {
@@ -92,8 +91,9 @@ class GPayThreeDSecure extends DataObject
     {
         return $this->redirectionData;
     }
+
     /**
-     * @var RedirectionData
+     * @param RedirectionData
      */
     public function setRedirectionData($value)
     {
@@ -107,8 +107,9 @@ class GPayThreeDSecure extends DataObject
     {
         return $this->skipAuthentication;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setSkipAuthentication($value)
     {
@@ -121,19 +122,19 @@ class GPayThreeDSecure extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->challengeCanvasSize !== null) {
+        if (!is_null($this->challengeCanvasSize)) {
             $object->challengeCanvasSize = $this->challengeCanvasSize;
         }
-        if ($this->challengeIndicator !== null) {
+        if (!is_null($this->challengeIndicator)) {
             $object->challengeIndicator = $this->challengeIndicator;
         }
-        if ($this->exemptionRequest !== null) {
+        if (!is_null($this->exemptionRequest)) {
             $object->exemptionRequest = $this->exemptionRequest;
         }
-        if ($this->redirectionData !== null) {
+        if (!is_null($this->redirectionData)) {
             $object->redirectionData = $this->redirectionData->toObject();
         }
-        if ($this->skipAuthentication !== null) {
+        if (!is_null($this->skipAuthentication)) {
             $object->skipAuthentication = $this->skipAuthentication;
         }
         return $object;

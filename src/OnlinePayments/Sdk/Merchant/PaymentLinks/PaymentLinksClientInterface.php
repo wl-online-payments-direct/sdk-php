@@ -1,75 +1,73 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Merchant\PaymentLinks;
 
-use Exception;
 use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\CallContext;
+use OnlinePayments\Sdk\Communication\InvalidResponseException;
 use OnlinePayments\Sdk\Domain\CreatePaymentLinkRequest;
 use OnlinePayments\Sdk\Domain\PaymentLinkResponse;
 use OnlinePayments\Sdk\IdempotenceException;
-use OnlinePayments\Sdk\InvalidResponseException;
-use OnlinePayments\Sdk\PaymentPlatformException;
+use OnlinePayments\Sdk\PlatformException;
 use OnlinePayments\Sdk\ReferenceException;
 use OnlinePayments\Sdk\ValidationException;
 
+/**
+ * PaymentLinks client interface.
+ */
 interface PaymentLinksClientInterface
 {
     /**
-     * ApiResource /v2/{merchantId}/paymentlinks - Create payment link
+     * Resource /v2/{merchantId}/paymentlinks - Create payment link
      *
      * @param CreatePaymentLinkRequest $body
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return PaymentLinkResponse
      *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws PaymentPlatformException
      * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
      * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
-    public function createPaymentLink(CreatePaymentLinkRequest $body, CallContext $callContext = null);
+    function createPaymentLink(CreatePaymentLinkRequest $body, CallContext $callContext = null);
 
     /**
-     * ApiResource /v2/{merchantId}/paymentlinks/{paymentLinkId} - Get payment link by ID
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId} - Get payment link by ID
      *
      * @param string $paymentLinkId
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return PaymentLinkResponse
      *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws PaymentPlatformException
      * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
      * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
-    public function getPaymentLinkById($paymentLinkId, CallContext $callContext = null);
+    function getPaymentLinkById($paymentLinkId, CallContext $callContext = null);
 
     /**
-     * ApiResource /v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel - Cancel PaymentLink by ID
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel - Cancel PaymentLink by ID
      *
      * @param string $paymentLinkId
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return null
      *
-     * @throws ApiException
-     * @throws AuthorizationException
-     * @throws Exception
-     * @throws PaymentPlatformException
      * @throws IdempotenceException
-     * @throws InvalidResponseException
-     * @throws ReferenceException
      * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
-    public function cancelPaymentLinkById($paymentLinkId, CallContext $callContext = null);
+    function cancelPaymentLinkById($paymentLinkId, CallContext $callContext = null);
 }

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CreditCardValidationRulesHostedTokenization extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $cvvMandatoryForExistingToken;
+    public $cvvMandatoryForExistingToken = null;
 
     /**
      * @var bool
      */
-    private $cvvMandatoryForNewToken;
+    public $cvvMandatoryForNewToken = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -32,8 +28,9 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
     {
         return $this->cvvMandatoryForExistingToken;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setCvvMandatoryForExistingToken($value)
     {
@@ -47,8 +44,9 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
     {
         return $this->cvvMandatoryForNewToken;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setCvvMandatoryForNewToken($value)
     {
@@ -61,10 +59,10 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cvvMandatoryForExistingToken !== null) {
+        if (!is_null($this->cvvMandatoryForExistingToken)) {
             $object->cvvMandatoryForExistingToken = $this->cvvMandatoryForExistingToken;
         }
-        if ($this->cvvMandatoryForNewToken !== null) {
+        if (!is_null($this->cvvMandatoryForNewToken)) {
             $object->cvvMandatoryForNewToken = $this->cvvMandatoryForNewToken;
         }
         return $object;

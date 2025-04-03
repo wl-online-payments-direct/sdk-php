@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PaymentProduct3208SpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $buyerCompliantBankMessage;
+    public $buyerCompliantBankMessage = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class PaymentProduct3208SpecificOutput extends DataObject
     {
         return $this->buyerCompliantBankMessage;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setBuyerCompliantBankMessage($value)
     {
@@ -41,7 +38,7 @@ class PaymentProduct3208SpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->buyerCompliantBankMessage !== null) {
+        if (!is_null($this->buyerCompliantBankMessage)) {
             $object->buyerCompliantBankMessage = $this->buyerCompliantBankMessage;
         }
         return $object;

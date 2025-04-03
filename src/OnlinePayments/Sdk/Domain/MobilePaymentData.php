@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class MobilePaymentData extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $dpan;
+    public $dpan = null;
 
     /**
      * @var string
      */
-    private $expiryDate;
+    public $expiryDate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class MobilePaymentData extends DataObject
     {
         return $this->dpan;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDpan($value)
     {
@@ -47,8 +44,9 @@ class MobilePaymentData extends DataObject
     {
         return $this->expiryDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExpiryDate($value)
     {
@@ -61,10 +59,10 @@ class MobilePaymentData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->dpan !== null) {
+        if (!is_null($this->dpan)) {
             $object->dpan = $this->dpan;
         }
-        if ($this->expiryDate !== null) {
+        if (!is_null($this->expiryDate)) {
             $object->expiryDate = $this->expiryDate;
         }
         return $object;

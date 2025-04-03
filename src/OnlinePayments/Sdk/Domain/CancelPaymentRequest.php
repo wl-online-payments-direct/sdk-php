@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CancelPaymentRequest extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var bool
      */
-    private $isFinal;
+    public $isFinal = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -32,8 +28,9 @@ class CancelPaymentRequest extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -47,8 +44,9 @@ class CancelPaymentRequest extends DataObject
     {
         return $this->isFinal;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsFinal($value)
     {
@@ -61,10 +59,10 @@ class CancelPaymentRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->isFinal !== null) {
+        if (!is_null($this->isFinal)) {
             $object->isFinal = $this->isFinal;
         }
         return $object;

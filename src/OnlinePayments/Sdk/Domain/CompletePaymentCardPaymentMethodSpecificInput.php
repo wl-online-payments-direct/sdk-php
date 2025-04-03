@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var CardWithoutCvv
      */
-    private $card;
+    public $card = null;
 
-    // Methods
     /**
      * @return CardWithoutCvv
      */
@@ -27,8 +23,9 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var CardWithoutCvv
+     * @param CardWithoutCvv
      */
     public function setCard($value)
     {
@@ -41,7 +38,7 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentProductGroup extends DataObject
 {
-    // Properties
     /**
      * @var AccountOnFile
      */
-    private $accountOnFile;
+    public $accountOnFile = null;
 
     /**
      * @var PaymentProductDisplayHints
      */
-    private $displayHints;
+    public $displayHints = null;
 
     /**
      * @var PaymentProductDisplayHints[]
      */
-    private $displayHintsList;
+    public $displayHintsList = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
-    // Methods
     /**
      * @return AccountOnFile
      */
@@ -42,8 +38,9 @@ class PaymentProductGroup extends DataObject
     {
         return $this->accountOnFile;
     }
+
     /**
-     * @var AccountOnFile
+     * @param AccountOnFile
      */
     public function setAccountOnFile($value)
     {
@@ -57,8 +54,9 @@ class PaymentProductGroup extends DataObject
     {
         return $this->displayHints;
     }
+
     /**
-     * @var PaymentProductDisplayHints
+     * @param PaymentProductDisplayHints
      */
     public function setDisplayHints($value)
     {
@@ -72,8 +70,9 @@ class PaymentProductGroup extends DataObject
     {
         return $this->displayHintsList;
     }
+
     /**
-     * @var PaymentProductDisplayHints[]
+     * @param PaymentProductDisplayHints[]
      */
     public function setDisplayHintsList($value)
     {
@@ -87,8 +86,9 @@ class PaymentProductGroup extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -101,21 +101,21 @@ class PaymentProductGroup extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->accountOnFile !== null) {
+        if (!is_null($this->accountOnFile)) {
             $object->accountOnFile = $this->accountOnFile->toObject();
         }
-        if ($this->displayHints !== null) {
+        if (!is_null($this->displayHints)) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if ($this->displayHintsList !== null) {
+        if (!is_null($this->displayHintsList)) {
             $object->displayHintsList = [];
             foreach ($this->displayHintsList as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->displayHintsList[] = $element->toObject();
                 }
             }
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
         return $object;

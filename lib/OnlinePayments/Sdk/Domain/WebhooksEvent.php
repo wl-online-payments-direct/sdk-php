@@ -1,144 +1,57 @@
 <?php
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
- * class WebhooksEvent
- *
- * @package OnlinePayments\Sdk\Domain\Webhooks
+ * @package OnlinePayments\Sdk\Webhooks
  */
 class WebhooksEvent extends DataObject
 {
-    // Properties
     /**
-     * @var string|null
+     * @var string
      */
-    private $apiVersion = null;
+    public $apiVersion = null;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $id = null;
+    public $created = null;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $created = null;
+    public $id = null;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $merchantId = null;
+    public $merchantId = null;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $type = null;
+    public $type = null;
 
     /**
-     * @var PaymentResponse|null
+     * @var PaymentResponse
      */
-    private $payment = null;
+    public $payment = null;
 
     /**
-     * @var PayoutResponse|null
+     * @var PayoutResponse
      */
-    private $payout = null;
+    public $payout = null;
 
     /**
-     * @var RefundResponse|null
+     * @var RefundResponse
      */
-    private $refund = null;
+    public $refund = null;
 
     /**
-     * @var TokenResponse|null
+     * @var TokenResponse
      */
-    private $token = null;
-
-    // Methods
-
-    /**
-     * @return string
-     */
-    public function getApiVersion()
-    {
-        return $this->apiVersion;
-    }
-
-    /**
-     * @param string $apiVersion
-     */
-    public function setApiVersion($apiVersion)
-    {
-        $this->apiVersion = $apiVersion;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param string $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMerchantId()
-    {
-        return $this->merchantId;
-    }
-
-    /**
-     * @param string $merchantId
-     */
-    public function setMerchantId($merchantId)
-    {
-        $this->merchantId = $merchantId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
+    public $token = null;
 
     /**
      * @return PaymentResponse
@@ -213,11 +126,11 @@ class WebhooksEvent extends DataObject
         if (!is_null($this->apiVersion)) {
             $object->apiVersion = $this->apiVersion;
         }
-        if (!is_null($this->id)) {
-            $object->id = $this->id;
-        }
         if (!is_null($this->created)) {
             $object->created = $this->created;
+        }
+        if (!is_null($this->id)) {
+            $object->id = $this->id;
         }
         if (!is_null($this->merchantId)) {
             $object->merchantId = $this->merchantId;
@@ -251,11 +164,11 @@ class WebhooksEvent extends DataObject
         if (property_exists($object, 'apiVersion')) {
             $this->apiVersion = $object->apiVersion;
         }
-        if (property_exists($object, 'id')) {
-            $this->id = $object->id;
-        }
         if (property_exists($object, 'created')) {
             $this->created = $object->created;
+        }
+        if (property_exists($object, 'id')) {
+            $this->id = $object->id;
         }
         if (property_exists($object, 'merchantId')) {
             $this->merchantId = $object->merchantId;

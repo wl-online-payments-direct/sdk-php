@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class ProductDirectory extends DataObject
 {
-    // Properties
     /**
      * @var DirectoryEntry[]
      */
-    private $entries;
+    public $entries = null;
 
-    // Methods
     /**
      * @return DirectoryEntry[]
      */
@@ -27,8 +23,9 @@ class ProductDirectory extends DataObject
     {
         return $this->entries;
     }
+
     /**
-     * @var DirectoryEntry[]
+     * @param DirectoryEntry[]
      */
     public function setEntries($value)
     {
@@ -41,10 +38,10 @@ class ProductDirectory extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->entries !== null) {
+        if (!is_null($this->entries)) {
             $object->entries = [];
             foreach ($this->entries as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->entries[] = $element->toObject();
                 }
             }

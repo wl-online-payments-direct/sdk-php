@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PayoutResult extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var PayoutOutput
      */
-    private $payoutOutput;
+    public $payoutOutput = null;
 
     /**
      * @var string
      */
-    private $status;
+    public $status = null;
 
     /**
      * @var PayoutStatusOutput
      */
-    private $statusOutput;
+    public $statusOutput = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -42,8 +38,9 @@ class PayoutResult extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -57,8 +54,9 @@ class PayoutResult extends DataObject
     {
         return $this->payoutOutput;
     }
+
     /**
-     * @var PayoutOutput
+     * @param PayoutOutput
      */
     public function setPayoutOutput($value)
     {
@@ -72,8 +70,9 @@ class PayoutResult extends DataObject
     {
         return $this->status;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatus($value)
     {
@@ -87,8 +86,9 @@ class PayoutResult extends DataObject
     {
         return $this->statusOutput;
     }
+
     /**
-     * @var PayoutStatusOutput
+     * @param PayoutStatusOutput
      */
     public function setStatusOutput($value)
     {
@@ -101,16 +101,16 @@ class PayoutResult extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->payoutOutput !== null) {
+        if (!is_null($this->payoutOutput)) {
             $object->payoutOutput = $this->payoutOutput->toObject();
         }
-        if ($this->status !== null) {
+        if (!is_null($this->status)) {
             $object->status = $this->status;
         }
-        if ($this->statusOutput !== null) {
+        if (!is_null($this->statusOutput)) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;

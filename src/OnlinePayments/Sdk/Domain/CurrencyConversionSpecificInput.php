@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CurrencyConversionSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $dccEnabled;
+    public $dccEnabled = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -27,8 +23,9 @@ class CurrencyConversionSpecificInput extends DataObject
     {
         return $this->dccEnabled;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setDccEnabled($value)
     {
@@ -41,7 +38,7 @@ class CurrencyConversionSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->dccEnabled !== null) {
+        if (!is_null($this->dccEnabled)) {
             $object->dccEnabled = $this->dccEnabled;
         }
         return $object;

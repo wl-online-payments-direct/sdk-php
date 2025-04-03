@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentProduct3203SpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var AddressPersonal
      */
-    private $billingAddress;
+    public $billingAddress = null;
 
     /**
      * @var AddressPersonal
      */
-    private $shippingAddress;
+    public $shippingAddress = null;
 
-    // Methods
     /**
      * @return AddressPersonal
      */
@@ -32,8 +28,9 @@ class PaymentProduct3203SpecificOutput extends DataObject
     {
         return $this->billingAddress;
     }
+
     /**
-     * @var AddressPersonal
+     * @param AddressPersonal
      */
     public function setBillingAddress($value)
     {
@@ -47,8 +44,9 @@ class PaymentProduct3203SpecificOutput extends DataObject
     {
         return $this->shippingAddress;
     }
+
     /**
-     * @var AddressPersonal
+     * @param AddressPersonal
      */
     public function setShippingAddress($value)
     {
@@ -61,10 +59,10 @@ class PaymentProduct3203SpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->billingAddress !== null) {
+        if (!is_null($this->billingAddress)) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if ($this->shippingAddress !== null) {
+        if (!is_null($this->shippingAddress)) {
             $object->shippingAddress = $this->shippingAddress->toObject();
         }
         return $object;

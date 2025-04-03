@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk;
 
 /**
@@ -12,25 +11,25 @@ class ProxyConfiguration
     /**
      * @var string|null
      */
-    protected $host = null;
+    private $host = null;
     /**
-     * @var null|string|int
+     * @var string|int|null
      */
-    protected $port = null;
+    private $port = null;
     /**
-     * @var null|string
+     * @var string|null
      */
-    protected $username = null;
+    private $username = null;
     /**
-     * @var null|string
+     * @var string|null
      */
-    protected $password = null;
+    private $password = null;
 
     /**
-     * @param $host
-     * @param null $port
-     * @param null $username
-     * @param null $password
+     * @param string $host
+     * @param string|int|null $port
+     * @param string|null $username
+     * @param string|null $password
      */
     public function __construct($host, $port = null, $username = null, $password = null)
     {
@@ -48,7 +47,7 @@ class ProxyConfiguration
     public function getCurlProxy()
     {
         if (!is_null($this->host)) {
-            return $this->host . (is_null($this->port) ? '' : ':' . (string)$this->port);
+            return $this->host . (is_null($this->port) ? '' : ':'. $this->port);
         }
         return '';
     }
@@ -59,7 +58,7 @@ class ProxyConfiguration
     public function getCurlProxyUserPwd()
     {
         if (!is_null($this->username)) {
-            return ((string)$this->username) . (is_null($this->password) ? '' : ':' . (string)$this->password);
+            return $this->username . (is_null($this->password) ? '' : ':'. $this->password);
         }
         return '';
     }

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,48 +11,46 @@ use UnexpectedValueException;
  */
 class CreateMandateRequest extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $alias;
+    public $alias = null;
 
     /**
      * @var MandateCustomer
      */
-    private $customer;
+    public $customer = null;
 
     /**
      * @var string
      */
-    private $customerReference;
+    public $customerReference = null;
 
     /**
      * @var string
      */
-    private $language;
+    public $language = null;
 
     /**
      * @var string
      */
-    private $recurrenceType;
+    public $recurrenceType = null;
 
     /**
      * @var string
      */
-    private $returnUrl;
+    public $returnUrl = null;
 
     /**
      * @var string
      */
-    private $signatureType;
+    public $signatureType = null;
 
     /**
      * @var string
      */
-    private $uniqueMandateReference;
+    public $uniqueMandateReference = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -62,8 +58,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->alias;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAlias($value)
     {
@@ -77,8 +74,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->customer;
     }
+
     /**
-     * @var MandateCustomer
+     * @param MandateCustomer
      */
     public function setCustomer($value)
     {
@@ -92,8 +90,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->customerReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCustomerReference($value)
     {
@@ -107,8 +106,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->language;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLanguage($value)
     {
@@ -122,8 +122,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->recurrenceType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRecurrenceType($value)
     {
@@ -137,8 +138,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->returnUrl;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setReturnUrl($value)
     {
@@ -152,8 +154,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->signatureType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setSignatureType($value)
     {
@@ -167,8 +170,9 @@ class CreateMandateRequest extends DataObject
     {
         return $this->uniqueMandateReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setUniqueMandateReference($value)
     {
@@ -181,28 +185,28 @@ class CreateMandateRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->alias !== null) {
+        if (!is_null($this->alias)) {
             $object->alias = $this->alias;
         }
-        if ($this->customer !== null) {
+        if (!is_null($this->customer)) {
             $object->customer = $this->customer->toObject();
         }
-        if ($this->customerReference !== null) {
+        if (!is_null($this->customerReference)) {
             $object->customerReference = $this->customerReference;
         }
-        if ($this->language !== null) {
+        if (!is_null($this->language)) {
             $object->language = $this->language;
         }
-        if ($this->recurrenceType !== null) {
+        if (!is_null($this->recurrenceType)) {
             $object->recurrenceType = $this->recurrenceType;
         }
-        if ($this->returnUrl !== null) {
+        if (!is_null($this->returnUrl)) {
             $object->returnUrl = $this->returnUrl;
         }
-        if ($this->signatureType !== null) {
+        if (!is_null($this->signatureType)) {
             $object->signatureType = $this->signatureType;
         }
-        if ($this->uniqueMandateReference !== null) {
+        if (!is_null($this->uniqueMandateReference)) {
             $object->uniqueMandateReference = $this->uniqueMandateReference;
         }
         return $object;

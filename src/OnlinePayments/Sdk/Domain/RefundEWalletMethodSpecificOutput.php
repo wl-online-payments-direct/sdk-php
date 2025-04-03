@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class RefundEWalletMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var RefundPaymentProduct840SpecificOutput
      */
-    private $paymentProduct840SpecificOutput;
+    public $paymentProduct840SpecificOutput = null;
 
     /**
      * @var int
      */
-    private $totalAmountPaid;
+    public $totalAmountPaid = null;
 
     /**
      * @var int
      */
-    private $totalAmountRefunded;
+    public $totalAmountRefunded = null;
 
-    // Methods
     /**
      * @return RefundPaymentProduct840SpecificOutput
      */
@@ -37,8 +33,9 @@ class RefundEWalletMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct840SpecificOutput;
     }
+
     /**
-     * @var RefundPaymentProduct840SpecificOutput
+     * @param RefundPaymentProduct840SpecificOutput
      */
     public function setPaymentProduct840SpecificOutput($value)
     {
@@ -52,8 +49,9 @@ class RefundEWalletMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountPaid;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountPaid($value)
     {
@@ -67,8 +65,9 @@ class RefundEWalletMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountRefunded;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountRefunded($value)
     {
@@ -81,13 +80,13 @@ class RefundEWalletMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->paymentProduct840SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct840SpecificOutput)) {
             $object->paymentProduct840SpecificOutput = $this->paymentProduct840SpecificOutput->toObject();
         }
-        if ($this->totalAmountPaid !== null) {
+        if (!is_null($this->totalAmountPaid)) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if ($this->totalAmountRefunded !== null) {
+        if (!is_null($this->totalAmountRefunded)) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;

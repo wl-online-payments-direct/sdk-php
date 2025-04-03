@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,22 @@ use UnexpectedValueException;
  */
 class FraudFields extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $blackListData;
+    public $blackListData = null;
 
     /**
      * @var string
+     * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
-    private $customerIpAddress;
+    public $customerIpAddress = null;
 
     /**
      * @var string[]
      */
-    private $productCategories;
+    public $productCategories = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +34,9 @@ class FraudFields extends DataObject
     {
         return $this->blackListData;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setBlackListData($value)
     {
@@ -47,13 +45,16 @@ class FraudFields extends DataObject
 
     /**
      * @return string
+     * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
     public function getCustomerIpAddress()
     {
         return $this->customerIpAddress;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
     public function setCustomerIpAddress($value)
     {
@@ -67,8 +68,9 @@ class FraudFields extends DataObject
     {
         return $this->productCategories;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setProductCategories($value)
     {
@@ -81,16 +83,16 @@ class FraudFields extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->blackListData !== null) {
+        if (!is_null($this->blackListData)) {
             $object->blackListData = $this->blackListData;
         }
-        if ($this->customerIpAddress !== null) {
+        if (!is_null($this->customerIpAddress)) {
             $object->customerIpAddress = $this->customerIpAddress;
         }
-        if ($this->productCategories !== null) {
+        if (!is_null($this->productCategories)) {
             $object->productCategories = [];
             foreach ($this->productCategories as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->productCategories[] = $element;
                 }
             }

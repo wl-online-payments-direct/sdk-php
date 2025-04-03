@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentProduct5407 extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $pairingToken;
+    public $pairingToken = null;
 
     /**
      * @var string
      */
-    private $qrCode;
+    public $qrCode = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class PaymentProduct5407 extends DataObject
     {
         return $this->pairingToken;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPairingToken($value)
     {
@@ -47,8 +44,9 @@ class PaymentProduct5407 extends DataObject
     {
         return $this->qrCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setQrCode($value)
     {
@@ -61,10 +59,10 @@ class PaymentProduct5407 extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->pairingToken !== null) {
+        if (!is_null($this->pairingToken)) {
             $object->pairingToken = $this->pairingToken;
         }
-        if ($this->qrCode !== null) {
+        if (!is_null($this->qrCode)) {
             $object->qrCode = $this->qrCode;
         }
         return $object;

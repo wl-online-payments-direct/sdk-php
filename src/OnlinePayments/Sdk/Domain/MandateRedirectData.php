@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class MandateRedirectData extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $RETURNMAC;
+    public $RETURNMAC = null;
 
     /**
      * @var string
      */
-    private $redirectURL;
+    public $redirectURL = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class MandateRedirectData extends DataObject
     {
         return $this->RETURNMAC;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRETURNMAC($value)
     {
@@ -47,8 +44,9 @@ class MandateRedirectData extends DataObject
     {
         return $this->redirectURL;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRedirectURL($value)
     {
@@ -61,10 +59,10 @@ class MandateRedirectData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->RETURNMAC !== null) {
+        if (!is_null($this->RETURNMAC)) {
             $object->RETURNMAC = $this->RETURNMAC;
         }
-        if ($this->redirectURL !== null) {
+        if (!is_null($this->redirectURL)) {
             $object->redirectURL = $this->redirectURL;
         }
         return $object;

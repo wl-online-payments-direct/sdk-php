@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class GiftCardPurchase extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var int
      */
-    private $numberOfGiftCards;
+    public $numberOfGiftCards = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -32,8 +28,9 @@ class GiftCardPurchase extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -47,8 +44,9 @@ class GiftCardPurchase extends DataObject
     {
         return $this->numberOfGiftCards;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfGiftCards($value)
     {
@@ -61,10 +59,10 @@ class GiftCardPurchase extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->numberOfGiftCards !== null) {
+        if (!is_null($this->numberOfGiftCards)) {
             $object->numberOfGiftCards = $this->numberOfGiftCards;
         }
         return $object;

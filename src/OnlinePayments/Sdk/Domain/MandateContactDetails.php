@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class MandateContactDetails extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $emailAddress;
+    public $emailAddress = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class MandateContactDetails extends DataObject
     {
         return $this->emailAddress;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEmailAddress($value)
     {
@@ -41,7 +38,7 @@ class MandateContactDetails extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->emailAddress !== null) {
+        if (!is_null($this->emailAddress)) {
             $object->emailAddress = $this->emailAddress;
         }
         return $object;

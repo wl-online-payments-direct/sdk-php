@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentProductField extends DataObject
 {
-    // Properties
     /**
      * @var PaymentProductFieldDataRestrictions
      */
-    private $dataRestrictions;
+    public $dataRestrictions = null;
 
     /**
      * @var PaymentProductFieldDisplayHints
      */
-    private $displayHints;
+    public $displayHints = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var string
      */
-    private $type;
+    public $type = null;
 
-    // Methods
     /**
      * @return PaymentProductFieldDataRestrictions
      */
@@ -42,8 +38,9 @@ class PaymentProductField extends DataObject
     {
         return $this->dataRestrictions;
     }
+
     /**
-     * @var PaymentProductFieldDataRestrictions
+     * @param PaymentProductFieldDataRestrictions
      */
     public function setDataRestrictions($value)
     {
@@ -57,8 +54,9 @@ class PaymentProductField extends DataObject
     {
         return $this->displayHints;
     }
+
     /**
-     * @var PaymentProductFieldDisplayHints
+     * @param PaymentProductFieldDisplayHints
      */
     public function setDisplayHints($value)
     {
@@ -72,8 +70,9 @@ class PaymentProductField extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -87,8 +86,9 @@ class PaymentProductField extends DataObject
     {
         return $this->type;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setType($value)
     {
@@ -101,16 +101,16 @@ class PaymentProductField extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->dataRestrictions !== null) {
+        if (!is_null($this->dataRestrictions)) {
             $object->dataRestrictions = $this->dataRestrictions->toObject();
         }
-        if ($this->displayHints !== null) {
+        if (!is_null($this->displayHints)) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->type !== null) {
+        if (!is_null($this->type)) {
             $object->type = $this->type;
         }
         return $object;

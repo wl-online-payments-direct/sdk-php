@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class AcquirerInformation extends DataObject
 {
-    // Properties
     /**
      * @var AcquirerSelectionInformation
      */
-    private $acquirerSelectionInformation;
+    public $acquirerSelectionInformation = null;
 
     /**
      * @var string
      */
-    private $name;
+    public $name = null;
 
-    // Methods
     /**
      * @return AcquirerSelectionInformation
      */
@@ -32,8 +28,9 @@ class AcquirerInformation extends DataObject
     {
         return $this->acquirerSelectionInformation;
     }
+
     /**
-     * @var AcquirerSelectionInformation
+     * @param AcquirerSelectionInformation
      */
     public function setAcquirerSelectionInformation($value)
     {
@@ -47,8 +44,9 @@ class AcquirerInformation extends DataObject
     {
         return $this->name;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setName($value)
     {
@@ -61,10 +59,10 @@ class AcquirerInformation extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->acquirerSelectionInformation !== null) {
+        if (!is_null($this->acquirerSelectionInformation)) {
             $object->acquirerSelectionInformation = $this->acquirerSelectionInformation->toObject();
         }
-        if ($this->name !== null) {
+        if (!is_null($this->name)) {
             $object->name = $this->name;
         }
         return $object;

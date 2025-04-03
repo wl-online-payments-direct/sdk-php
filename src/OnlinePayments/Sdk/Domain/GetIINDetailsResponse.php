@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class GetIINDetailsResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $cardType;
+    public $cardType = null;
 
     /**
      * @var IINDetail[]
      */
-    private $coBrands;
+    public $coBrands = null;
 
     /**
      * @var string
      */
-    private $countryCode;
+    public $countryCode = null;
 
     /**
      * @var bool
      */
-    private $isAllowedInContext;
+    public $isAllowedInContext = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -47,8 +43,9 @@ class GetIINDetailsResponse extends DataObject
     {
         return $this->cardType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardType($value)
     {
@@ -62,8 +59,9 @@ class GetIINDetailsResponse extends DataObject
     {
         return $this->coBrands;
     }
+
     /**
-     * @var IINDetail[]
+     * @param IINDetail[]
      */
     public function setCoBrands($value)
     {
@@ -77,8 +75,9 @@ class GetIINDetailsResponse extends DataObject
     {
         return $this->countryCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCountryCode($value)
     {
@@ -92,8 +91,9 @@ class GetIINDetailsResponse extends DataObject
     {
         return $this->isAllowedInContext;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsAllowedInContext($value)
     {
@@ -107,8 +107,9 @@ class GetIINDetailsResponse extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -121,24 +122,24 @@ class GetIINDetailsResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardType !== null) {
+        if (!is_null($this->cardType)) {
             $object->cardType = $this->cardType;
         }
-        if ($this->coBrands !== null) {
+        if (!is_null($this->coBrands)) {
             $object->coBrands = [];
             foreach ($this->coBrands as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->coBrands[] = $element->toObject();
                 }
             }
         }
-        if ($this->countryCode !== null) {
+        if (!is_null($this->countryCode)) {
             $object->countryCode = $this->countryCode;
         }
-        if ($this->isAllowedInContext !== null) {
+        if (!is_null($this->isAllowedInContext)) {
             $object->isAllowedInContext = $this->isAllowedInContext;
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

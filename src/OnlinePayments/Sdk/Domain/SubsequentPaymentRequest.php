@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class SubsequentPaymentRequest extends DataObject
 {
-    // Properties
     /**
      * @var Order
      */
-    private $order;
+    public $order = null;
 
     /**
      * @var SubsequentPaymentProduct5001SpecificInput
      */
-    private $subsequentPaymentProduct5001SpecificInput;
+    public $subsequentPaymentProduct5001SpecificInput = null;
 
     /**
      * @var SubsequentCardPaymentMethodSpecificInput
      */
-    private $subsequentcardPaymentMethodSpecificInput;
+    public $subsequentcardPaymentMethodSpecificInput = null;
 
-    // Methods
     /**
      * @return Order
      */
@@ -37,8 +33,9 @@ class SubsequentPaymentRequest extends DataObject
     {
         return $this->order;
     }
+
     /**
-     * @var Order
+     * @param Order
      */
     public function setOrder($value)
     {
@@ -52,8 +49,9 @@ class SubsequentPaymentRequest extends DataObject
     {
         return $this->subsequentPaymentProduct5001SpecificInput;
     }
+
     /**
-     * @var SubsequentPaymentProduct5001SpecificInput
+     * @param SubsequentPaymentProduct5001SpecificInput
      */
     public function setSubsequentPaymentProduct5001SpecificInput($value)
     {
@@ -67,8 +65,9 @@ class SubsequentPaymentRequest extends DataObject
     {
         return $this->subsequentcardPaymentMethodSpecificInput;
     }
+
     /**
-     * @var SubsequentCardPaymentMethodSpecificInput
+     * @param SubsequentCardPaymentMethodSpecificInput
      */
     public function setSubsequentcardPaymentMethodSpecificInput($value)
     {
@@ -81,13 +80,13 @@ class SubsequentPaymentRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->order !== null) {
+        if (!is_null($this->order)) {
             $object->order = $this->order->toObject();
         }
-        if ($this->subsequentPaymentProduct5001SpecificInput !== null) {
+        if (!is_null($this->subsequentPaymentProduct5001SpecificInput)) {
             $object->subsequentPaymentProduct5001SpecificInput = $this->subsequentPaymentProduct5001SpecificInput->toObject();
         }
-        if ($this->subsequentcardPaymentMethodSpecificInput !== null) {
+        if (!is_null($this->subsequentcardPaymentMethodSpecificInput)) {
             $object->subsequentcardPaymentMethodSpecificInput = $this->subsequentcardPaymentMethodSpecificInput->toObject();
         }
         return $object;

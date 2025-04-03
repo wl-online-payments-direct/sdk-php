@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class SurchargeSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $mode;
+    public $mode = null;
 
     /**
      * @var AmountOfMoney
      */
-    private $surchargeAmount;
+    public $surchargeAmount = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class SurchargeSpecificInput extends DataObject
     {
         return $this->mode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMode($value)
     {
@@ -47,8 +44,9 @@ class SurchargeSpecificInput extends DataObject
     {
         return $this->surchargeAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setSurchargeAmount($value)
     {
@@ -61,10 +59,10 @@ class SurchargeSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->mode !== null) {
+        if (!is_null($this->mode)) {
             $object->mode = $this->mode;
         }
-        if ($this->surchargeAmount !== null) {
+        if (!is_null($this->surchargeAmount)) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
         return $object;

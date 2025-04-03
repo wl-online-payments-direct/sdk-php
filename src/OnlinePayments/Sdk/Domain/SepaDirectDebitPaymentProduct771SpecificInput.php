@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $existingUniqueMandateReference;
+    public $existingUniqueMandateReference = null;
 
     /**
      * @var CreateMandateWithReturnUrl
      */
-    private $mandate;
+    public $mandate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
     {
         return $this->existingUniqueMandateReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExistingUniqueMandateReference($value)
     {
@@ -47,8 +44,9 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
     {
         return $this->mandate;
     }
+
     /**
-     * @var CreateMandateWithReturnUrl
+     * @param CreateMandateWithReturnUrl
      */
     public function setMandate($value)
     {
@@ -61,10 +59,10 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->existingUniqueMandateReference !== null) {
+        if (!is_null($this->existingUniqueMandateReference)) {
             $object->existingUniqueMandateReference = $this->existingUniqueMandateReference;
         }
-        if ($this->mandate !== null) {
+        if (!is_null($this->mandate)) {
             $object->mandate = $this->mandate->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CapturesResponse extends DataObject
 {
-    // Properties
     /**
      * @var Capture[]
      */
-    private $captures;
+    public $captures = null;
 
-    // Methods
     /**
      * @return Capture[]
      */
@@ -27,8 +23,9 @@ class CapturesResponse extends DataObject
     {
         return $this->captures;
     }
+
     /**
-     * @var Capture[]
+     * @param Capture[]
      */
     public function setCaptures($value)
     {
@@ -41,10 +38,10 @@ class CapturesResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->captures !== null) {
+        if (!is_null($this->captures)) {
             $object->captures = [];
             foreach ($this->captures as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->captures[] = $element->toObject();
                 }
             }

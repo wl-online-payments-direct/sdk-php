@@ -1,6 +1,11 @@
 {
-    "merchant_id":    "MERCHANT_ID",
-    "api_key":        "API_KEY_ID",
-    "api_secret":     "API_SECRET",
-    "api_endpoint":   "API_ENDPOINT"
+    "merchant_id":          "MERCHANT_ID",
+    "api_endpoint":         "API_ENDPOINT",
+    "proxy_host":           "HOST_OR_EMPTY",
+    "proxy_port":           "PORT_OR_EMPTY",
+    "proxy_username":       "USERNAME_OR_EMPTY",
+    "proxy_password":       "PASSWORD_OR_EMPTY",
+    "v1hmac_api_key":       "API_KEY",
+    "v1hmac_api_secret":    "API_KEY_SECRET",
+    "httpbin_url":          "http://httpbin.org"
 }

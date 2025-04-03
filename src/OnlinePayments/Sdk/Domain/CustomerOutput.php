@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CustomerOutput extends DataObject
 {
-    // Properties
     /**
      * @var CustomerDeviceOutput
      */
-    private $device;
+    public $device = null;
 
-    // Methods
     /**
      * @return CustomerDeviceOutput
      */
@@ -27,8 +23,9 @@ class CustomerOutput extends DataObject
     {
         return $this->device;
     }
+
     /**
-     * @var CustomerDeviceOutput
+     * @param CustomerDeviceOutput
      */
     public function setDevice($value)
     {
@@ -41,7 +38,7 @@ class CustomerOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->device !== null) {
+        if (!is_null($this->device)) {
             $object->device = $this->device->toObject();
         }
         return $object;

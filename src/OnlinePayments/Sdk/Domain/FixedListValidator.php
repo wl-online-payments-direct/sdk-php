@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class FixedListValidator extends DataObject
 {
-    // Properties
     /**
      * @var string[]
      */
-    private $allowedValues;
+    public $allowedValues = null;
 
-    // Methods
     /**
      * @return string[]
      */
@@ -27,8 +23,9 @@ class FixedListValidator extends DataObject
     {
         return $this->allowedValues;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setAllowedValues($value)
     {
@@ -41,10 +38,10 @@ class FixedListValidator extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->allowedValues !== null) {
+        if (!is_null($this->allowedValues)) {
             $object->allowedValues = [];
             foreach ($this->allowedValues as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->allowedValues[] = $element;
                 }
             }

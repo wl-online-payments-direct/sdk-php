@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class AccountOnFile extends DataObject
 {
-    // Properties
     /**
      * @var AccountOnFileAttribute[]
      */
-    private $attributes;
+    public $attributes = null;
 
     /**
      * @var AccountOnFileDisplayHints
      */
-    private $displayHints;
+    public $displayHints = null;
 
     /**
      * @var int
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return AccountOnFileAttribute[]
      */
@@ -42,8 +38,9 @@ class AccountOnFile extends DataObject
     {
         return $this->attributes;
     }
+
     /**
-     * @var AccountOnFileAttribute[]
+     * @param AccountOnFileAttribute[]
      */
     public function setAttributes($value)
     {
@@ -57,8 +54,9 @@ class AccountOnFile extends DataObject
     {
         return $this->displayHints;
     }
+
     /**
-     * @var AccountOnFileDisplayHints
+     * @param AccountOnFileDisplayHints
      */
     public function setDisplayHints($value)
     {
@@ -72,8 +70,9 @@ class AccountOnFile extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setId($value)
     {
@@ -87,8 +86,9 @@ class AccountOnFile extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -101,21 +101,21 @@ class AccountOnFile extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->attributes !== null) {
+        if (!is_null($this->attributes)) {
             $object->attributes = [];
             foreach ($this->attributes as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->attributes[] = $element->toObject();
                 }
             }
         }
-        if ($this->displayHints !== null) {
+        if (!is_null($this->displayHints)) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

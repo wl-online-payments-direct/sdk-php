@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PaymentProductFilterHostedTokenization extends DataObject
 {
-    // Properties
     /**
      * @var int[]
      */
-    private $products;
+    public $products = null;
 
-    // Methods
     /**
      * @return int[]
      */
@@ -27,8 +23,9 @@ class PaymentProductFilterHostedTokenization extends DataObject
     {
         return $this->products;
     }
+
     /**
-     * @var int[]
+     * @param int[]
      */
     public function setProducts($value)
     {
@@ -41,10 +38,10 @@ class PaymentProductFilterHostedTokenization extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->products !== null) {
+        if (!is_null($this->products)) {
             $object->products = [];
             foreach ($this->products as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->products[] = $element;
                 }
             }

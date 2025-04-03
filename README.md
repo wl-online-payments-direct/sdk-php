@@ -2,26 +2,26 @@
 
 ## Introduction
 
-The PHP SDK helps you to communicate with the payment platform server API. Its primary features are:
+The Online Payments PHP SDK helps you to communicate with the Online Payments Server API. Its primary features are:
 
 * convenient PHP wrapper around the API calls and responses:
   * marshalls PHP request objects to HTTP requests
   * unmarshalls HTTP responses to PHP response objects or PHP exceptions
 * handling of all the details concerning authentication
-* handling of required meta data
+* handling of required metadata
 
-Its use is demonstrated by an example for most calls. The examples execute a call using the provided API keys.
+See the [Online Payments Developer Hub](https://github.com/Online-Payments/php/) for more information on how to use the SDK.
 
 ## Structure of this repository
 
 This repository consists out of the following components:
 
 1. The source code of the SDK itself: `/src` and `/lib`
-2. The source code of the unit and integration tests (including the examples): `/tests`
+2. The source code of the unit and integration tests: `/tests`
 
 ## Requirements
 
-PHP 7.4 or above is required.
+PHP 7.4 or above is required. In addition, to support streaming uploads, package [robtimus/multipart](https://packagist.org/packages/robtimus/multipart) is required.
 
 ## Installation via Composer
 
@@ -44,7 +44,7 @@ PHP 7.4 or above is required.
 
 ## Manual installation
 
-1. Download the latest version of the PHP SDK from GitHub. Choose the `onlinepayments-sdk-php-x.y.z.tar.gz` file from the [releases](https://github.com/wl-online-payments-direct/sdk-php/releases) page, where `x.y.z` is the version number.
+1. Download the latest version of the PHP SDK from GitHub. Choose the `sdk-php-x.y.z.tar.gz` file from the [releases](https://github.com/wl-online-payments-direct/sdk-php/releases) page, where `x.y.z` is the version number.
 2. Add the contents of the `tar.gz` file to your project. The content of the `/src` and `/lib` folders may be combined, if this is required by the project.
 3. Add all classes from the `/src` and `/lib` folders to your autoloader; all classes inside these folders are compliant with [PSR-4](http://www.php-fig.org/psr/psr-4/).
 

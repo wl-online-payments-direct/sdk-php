@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CreateMandateResponse extends DataObject
 {
-    // Properties
     /**
      * @var MandateResponse
      */
-    private $mandate;
+    public $mandate = null;
 
     /**
      * @var MandateMerchantAction
      */
-    private $merchantAction;
+    public $merchantAction = null;
 
-    // Methods
     /**
      * @return MandateResponse
      */
@@ -32,8 +28,9 @@ class CreateMandateResponse extends DataObject
     {
         return $this->mandate;
     }
+
     /**
-     * @var MandateResponse
+     * @param MandateResponse
      */
     public function setMandate($value)
     {
@@ -47,8 +44,9 @@ class CreateMandateResponse extends DataObject
     {
         return $this->merchantAction;
     }
+
     /**
-     * @var MandateMerchantAction
+     * @param MandateMerchantAction
      */
     public function setMerchantAction($value)
     {
@@ -61,10 +59,10 @@ class CreateMandateResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->mandate !== null) {
+        if (!is_null($this->mandate)) {
             $object->mandate = $this->mandate->toObject();
         }
-        if ($this->merchantAction !== null) {
+        if (!is_null($this->merchantAction)) {
             $object->merchantAction = $this->merchantAction->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CreateTokenRequest extends DataObject
 {
-    // Properties
     /**
      * @var TokenCardSpecificInput
      */
-    private $card;
+    public $card = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return TokenCardSpecificInput
      */
@@ -32,8 +28,9 @@ class CreateTokenRequest extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var TokenCardSpecificInput
+     * @param TokenCardSpecificInput
      */
     public function setCard($value)
     {
@@ -47,8 +44,9 @@ class CreateTokenRequest extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -61,10 +59,10 @@ class CreateTokenRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

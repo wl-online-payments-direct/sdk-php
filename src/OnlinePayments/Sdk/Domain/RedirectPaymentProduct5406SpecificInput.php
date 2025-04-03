@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RedirectPaymentProduct5406SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var CustomerBankAccount
      */
-    private $customerBankAccount;
+    public $customerBankAccount = null;
 
-    // Methods
     /**
      * @return CustomerBankAccount
      */
@@ -27,8 +23,9 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
     {
         return $this->customerBankAccount;
     }
+
     /**
-     * @var CustomerBankAccount
+     * @param CustomerBankAccount
      */
     public function setCustomerBankAccount($value)
     {
@@ -41,7 +38,7 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->customerBankAccount !== null) {
+        if (!is_null($this->customerBankAccount)) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
         return $object;

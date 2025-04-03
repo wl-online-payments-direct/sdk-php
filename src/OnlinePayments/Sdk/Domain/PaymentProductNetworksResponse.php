@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PaymentProductNetworksResponse extends DataObject
 {
-    // Properties
     /**
      * @var string[]
      */
-    private $networks;
+    public $networks = null;
 
-    // Methods
     /**
      * @return string[]
      */
@@ -27,8 +23,9 @@ class PaymentProductNetworksResponse extends DataObject
     {
         return $this->networks;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setNetworks($value)
     {
@@ -41,10 +38,10 @@ class PaymentProductNetworksResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->networks !== null) {
+        if (!is_null($this->networks)) {
             $object->networks = [];
             foreach ($this->networks as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->networks[] = $element;
                 }
             }

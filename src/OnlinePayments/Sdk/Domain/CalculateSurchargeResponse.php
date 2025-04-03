@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CalculateSurchargeResponse extends DataObject
 {
-    // Properties
     /**
      * @var Surcharge[]
      */
-    private $surcharges;
+    public $surcharges = null;
 
-    // Methods
     /**
      * @return Surcharge[]
      */
@@ -27,8 +23,9 @@ class CalculateSurchargeResponse extends DataObject
     {
         return $this->surcharges;
     }
+
     /**
-     * @var Surcharge[]
+     * @param Surcharge[]
      */
     public function setSurcharges($value)
     {
@@ -41,10 +38,10 @@ class CalculateSurchargeResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->surcharges !== null) {
+        if (!is_null($this->surcharges)) {
             $object->surcharges = [];
             foreach ($this->surcharges as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->surcharges[] = $element->toObject();
                 }
             }

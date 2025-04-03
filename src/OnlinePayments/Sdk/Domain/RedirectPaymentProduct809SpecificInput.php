@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RedirectPaymentProduct809SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $issuerId;
+    public $issuerId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class RedirectPaymentProduct809SpecificInput extends DataObject
     {
         return $this->issuerId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setIssuerId($value)
     {
@@ -41,7 +38,7 @@ class RedirectPaymentProduct809SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->issuerId !== null) {
+        if (!is_null($this->issuerId)) {
             $object->issuerId = $this->issuerId;
         }
         return $object;

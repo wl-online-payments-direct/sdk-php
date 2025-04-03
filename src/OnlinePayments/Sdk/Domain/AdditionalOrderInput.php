@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class AdditionalOrderInput extends DataObject
 {
-    // Properties
     /**
      * @var AirlineData
      */
-    private $airlineData;
+    public $airlineData = null;
 
     /**
      * @var LoanRecipient
      */
-    private $loanRecipient;
+    public $loanRecipient = null;
 
     /**
      * @var LodgingData
      */
-    private $lodgingData;
+    public $lodgingData = null;
 
     /**
      * @var OrderTypeInformation
      */
-    private $typeInformation;
+    public $typeInformation = null;
 
-    // Methods
     /**
      * @return AirlineData
      */
@@ -42,8 +38,9 @@ class AdditionalOrderInput extends DataObject
     {
         return $this->airlineData;
     }
+
     /**
-     * @var AirlineData
+     * @param AirlineData
      */
     public function setAirlineData($value)
     {
@@ -57,8 +54,9 @@ class AdditionalOrderInput extends DataObject
     {
         return $this->loanRecipient;
     }
+
     /**
-     * @var LoanRecipient
+     * @param LoanRecipient
      */
     public function setLoanRecipient($value)
     {
@@ -72,8 +70,9 @@ class AdditionalOrderInput extends DataObject
     {
         return $this->lodgingData;
     }
+
     /**
-     * @var LodgingData
+     * @param LodgingData
      */
     public function setLodgingData($value)
     {
@@ -87,8 +86,9 @@ class AdditionalOrderInput extends DataObject
     {
         return $this->typeInformation;
     }
+
     /**
-     * @var OrderTypeInformation
+     * @param OrderTypeInformation
      */
     public function setTypeInformation($value)
     {
@@ -101,16 +101,16 @@ class AdditionalOrderInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->airlineData !== null) {
+        if (!is_null($this->airlineData)) {
             $object->airlineData = $this->airlineData->toObject();
         }
-        if ($this->loanRecipient !== null) {
+        if (!is_null($this->loanRecipient)) {
             $object->loanRecipient = $this->loanRecipient->toObject();
         }
-        if ($this->lodgingData !== null) {
+        if (!is_null($this->lodgingData)) {
             $object->lodgingData = $this->lodgingData->toObject();
         }
-        if ($this->typeInformation !== null) {
+        if (!is_null($this->typeInformation)) {
             $object->typeInformation = $this->typeInformation->toObject();
         }
         return $object;

@@ -1,11 +1,10 @@
 <?php
-
 namespace OnlinePayments\Sdk\Webhooks;
 
-use OnlinePayments\Sdk\ConnectionResponse;
+use OnlinePayments\Sdk\Communication\ConnectionResponseInterface;
+use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Communication\ResponseFactory;
 use OnlinePayments\Sdk\Domain\WebhooksEvent;
-use OnlinePayments\Sdk\ResponseClassMap;
-use OnlinePayments\Sdk\ResponseFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 class WebhooksHelperTest extends TestCase
 {
     const SIGNATURE_HEADER = 'X-GCS-Signature';
-    const SIGNATURE = 'dvi9vUj6S0XVlRVPTldcyx11AEAvv9fHEzlacqT7r5s=';
+    const SIGNATURE = '2S7doBj/GnJnacIjSJzr5fxGM5xmfQyFAwxv1I53ZEk=';
 
     const KEY_ID_HEADER = 'X-GCS-KeyId';
     const KEY_ID = 'dummy-key-id';
@@ -24,32 +23,32 @@ class WebhooksHelperTest extends TestCase
     const VALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
   "apiVersion": "v1",
-  "id": "7433cde6-59d5-4de5-8be8-5b325038e267",
-  "created": "2020-01-01T01:00:00.000+0100",
-  "merchantId": "1",
+  "id": "8ee793f6-4553-4749-85dc-f2ef095c5ab0",
+  "created": "2017-02-02T11:24:14.040+0100",
+  "merchantId": "20000",
   "type": "payment.paid",
   "payment": {
-    "id": "1_1",
+    "id": "00000200000143570012",
     "paymentOutput": {
       "amountOfMoney": {
         "amount": 1000,
         "currencyCode": "EUR"
       },
       "references": {
-        "merchantReference": "ref1"
+        "paymentReference": "200001681810"
       },
-      "paymentMethod": "redirect",
-      "redirectPaymentMethodSpecificOutput": {
-        "paymentProductId": 809
+      "paymentMethod": "bankTransfer",
+      "bankTransferPaymentMethodSpecificOutput": {
+        "paymentProductId": 11
       }
     },
     "status": "PAID",
     "statusOutput": {
-      "isAuthorized": true,
       "isCancellable": false,
       "statusCategory": "COMPLETED",
-      "statusCode": "1000",
-      "statusCodeChangeDateTime": "20200101000000"
+      "statusCode": 1000,
+      "statusCodeChangeDateTime": "20170202112414",
+      "isAuthorized": true
     }
   }
 }
@@ -58,32 +57,32 @@ EOD;
     const INVALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
   "apiVersion": "v1",
-  "id": "689570ea-8207-451e-bb31-6d2e3a5e0ec0",
+  "id": "8ee793f6-4553-4749-85dc-f2ef095c5ab0",
   "created": "2017-02-02T11:25:14.040+0100",
-  "merchantId": "1",
+  "merchantId": "20000",
   "type": "payment.paid",
   "payment": {
-    "id": "1_1",
+    "id": "00000200000143570012",
     "paymentOutput": {
       "amountOfMoney": {
         "amount": 1000,
         "currencyCode": "EUR"
       },
       "references": {
-        "merchantReference": "ref2"
+        "paymentReference": "200001681810"
       },
-      "paymentMethod": "redirect",
-      "redirectPaymentMethodSpecificOutput": {
-        "paymentProductId": 809
+      "paymentMethod": "bankTransfer",
+      "bankTransferPaymentMethodSpecificOutput": {
+        "paymentProductId": 11
       }
     },
     "status": "PAID",
     "statusOutput": {
-      "isAuthorized": true,
       "isCancellable": false,
       "statusCategory": "COMPLETED",
-      "statusCode": "1000",
-      "statusCodeChangeDateTime": "20200101000000"
+      "statusCode": 1000,
+      "statusCodeChangeDateTime": "20170202112514",
+      "isAuthorized": true
     }
   }
 }
@@ -93,8 +92,9 @@ EOD;
 
     private $invalidBody;
 
-    protected function setUp(): void
+    public function __construct()
     {
+        parent::__construct();
         $this->validBody = preg_replace("/\r\n/", "\n", self::VALID_BODY_WITHOUT_LINEBREAK_FIX);
         $this->invalidBody = preg_replace("/\r\n/", "\n", self::INVALID_BODY_WITHOUT_LINEBREAK_FIX);
     }
@@ -109,7 +109,7 @@ EOD;
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (ApiVersionMismatchException $e) {
             $this->assertEquals('v0', $e->getEventApiVersion());
-            $this->assertEquals("v1", $e->getSdkApiVersion());
+            $this->assertEquals('v1', $e->getSdkApiVersion());
             return;
         }
         $this->fail('an expected exception has not been raised');
@@ -133,8 +133,6 @@ EOD;
 
     function testUnmarshalMissingHeaders()
     {
-        $this->expectNotToPerformAssertions();
-
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 
@@ -142,12 +140,13 @@ EOD;
         try {
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (SignatureValidationException $e) {
+            $this->assertEquals("could not find header '" . static::SIGNATURE_HEADER . "'", $e->getMessage());
             return;
         }
         $this->fail('an expected exception has not been raised');
     }
 
-    function testUnmarshalBytesSuccess()
+    function testUnmarshalSuccess()
     {
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
@@ -156,44 +155,15 @@ EOD;
 
         $event = $helper->unmarshal($this->validBody, $requestHeaders);
 
-        $this->assertEquals('v1', $event->getApiVersion());
-        $this->assertEquals('7433cde6-59d5-4de5-8be8-5b325038e267', $event->getId());
-        $this->assertEquals('2020-01-01T01:00:00.000+0100', $event->getCreated());
-        $this->assertEquals('1', $event->getMerchantId());
-        $this->assertEquals('payment.paid', $event->getType());
-
-        $this->assertNull($event->getPayout());
-        $this->assertNull($event->getRefund());
-        $this->assertNull($event->getToken());
-
-        $this->assertNotNull($event->getPayment());
-        $this->assertEquals('1_1', $event->getPayment()->getId());
-        $this->assertNotNull($event->getPayment()->getPaymentOutput());
-        $this->assertNotNull($event->getPayment()->getPaymentOutput()->getAmountOfMoney());
-        $this->assertEquals(1000, $event->getPayment()->getPaymentOutput()->getAmountOfMoney()->getAmount());
-        $this->assertEquals('EUR', $event->getPayment()->getPaymentOutput()->getAmountOfMoney()->getCurrencyCode());
-        $this->assertNotNull($event->getPayment()->getPaymentOutput()->getReferences());
-        $this->assertEquals('ref1', $event->getPayment()->getPaymentOutput()->getReferences()->getMerchantReference());
-        $this->assertEquals('redirect', $event->getPayment()->getPaymentOutput()->getPaymentMethod());
-
-        $this->assertNull($event->getPayment()->getPaymentOutput()->getCardPaymentMethodSpecificOutput());
-        $this->assertNull($event->getPayment()->getPaymentOutput()->getSepaDirectDebitPaymentMethodSpecificOutput());
-        $this->assertNotNull($event->getPayment()->getPaymentOutput()->getRedirectPaymentMethodSpecificOutput());
-        $this->assertEquals(809, $event->getPayment()->getPaymentOutput()->getRedirectPaymentMethodSpecificOutput()->getPaymentProductId());
-
-        $this->assertEquals('PAID', $event->getPayment()->getStatus());
-        $this->assertNotNull($event->getPayment()->getStatusOutput());
-        $this->assertEquals(false, $event->getPayment()->getStatusOutput()->getIsCancellable());
-        $this->assertEquals('COMPLETED', $event->getPayment()->getStatusOutput()->getStatusCategory());
-        $this->assertEquals('1000', $event->getPayment()->getStatusOutput()->getStatusCode());
-        $this->assertEquals('20200101000000', $event->getPayment()->getStatusOutput()->getStatusCodeChangeDateTime());
-        $this->assertEquals(true, $event->getPayment()->getStatusOutput()->getIsAuthorized());
+        $this->assertEquals('v1', $event->apiVersion);
+        $this->assertEquals('8ee793f6-4553-4749-85dc-f2ef095c5ab0', $event->id);
+        $this->assertEquals('2017-02-02T11:24:14.040+0100', $event->created);
+        $this->assertEquals('20000', $event->merchantId);
+        $this->assertEquals('payment.paid', $event->type);
     }
 
-    function testUnmarshalBytesInvalidBody()
+    function testUnmarshalInvalidBody()
     {
-        $this->expectNotToPerformAssertions();
-
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 
@@ -201,15 +171,14 @@ EOD;
         try {
             $helper->unmarshal($this->invalidBody, $requestHeaders);
         } catch (SignatureValidationException $e) {
+            $this->assertStringStartsWith('failed to validate signature', $e->getMessage());
             return;
         }
         $this->fail('an expected exception has not been raised');
     }
 
-    function testUnmarshalBytesInvalidSecretKey()
+    function testUnmarshalInvalidSecretKey()
     {
-        $this->expectNotToPerformAssertions();
-
         $invalidSecretKey = '1' . self::SECRET_KEY;
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => $invalidSecretKey));
         $helper = $this->createHelper($secretKeyStore);
@@ -218,15 +187,14 @@ EOD;
         try {
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (SignatureValidationException $e) {
+            $this->assertStringStartsWith('failed to validate signature', $e->getMessage());
             return;
         }
         $this->fail('an expected exception has not been raised');
     }
 
-    function testUnmarshalBytesInvalidSignature()
+    function testUnmarshalInvalidSignature()
     {
-        $this->expectNotToPerformAssertions();
-
         $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
         $helper = $this->createHelper($secretKeyStore);
 
@@ -234,6 +202,7 @@ EOD;
         try {
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (SignatureValidationException $e) {
+            $this->assertStringStartsWith('failed to validate signature', $e->getMessage());
             return;
         }
         $this->fail('an expected exception has not been raised');
@@ -260,13 +229,12 @@ class ApiVersionMismatchTestingWebhooksHelper extends WebhooksHelper
 class ApiVersionMismatchTestingResponseFactory extends ResponseFactory
 {
     public function createResponse(
-        ConnectionResponse $response,
-        ResponseClassMap   $responseClassMap
-    )
-    {
+        ConnectionResponseInterface $response,
+        ResponseClassMap $responseClassMap
+    ) {
         /** @var WebhooksEvent $event */
         $event = parent::createResponse($response, $responseClassMap);
-        $event->setApiVersion('v0');
+        $event->apiVersion = 'v0';
         return $event;
     }
 }

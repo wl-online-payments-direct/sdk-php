@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,17 @@ use UnexpectedValueException;
  */
 class PaymentProductFieldFormElement extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $type;
+    public $type = null;
 
     /**
      * @var ValueMappingElement[]
+     * @deprecated This field is not used by any payment product
      */
-    private $valueMapping;
+    public $valueMapping = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +29,9 @@ class PaymentProductFieldFormElement extends DataObject
     {
         return $this->type;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setType($value)
     {
@@ -42,13 +40,16 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @return ValueMappingElement[]
+     * @deprecated This field is not used by any payment product
      */
     public function getValueMapping()
     {
         return $this->valueMapping;
     }
+
     /**
-     * @var ValueMappingElement[]
+     * @param ValueMappingElement[]
+     * @deprecated This field is not used by any payment product
      */
     public function setValueMapping($value)
     {
@@ -61,13 +62,13 @@ class PaymentProductFieldFormElement extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->type !== null) {
+        if (!is_null($this->type)) {
             $object->type = $this->type;
         }
-        if ($this->valueMapping !== null) {
+        if (!is_null($this->valueMapping)) {
             $object->valueMapping = [];
             foreach ($this->valueMapping as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->valueMapping[] = $element->toObject();
                 }
             }

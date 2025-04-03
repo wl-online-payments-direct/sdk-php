@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,38 +11,36 @@ use UnexpectedValueException;
  */
 class Surcharge extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $netAmount;
+    public $netAmount = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
     /**
      * @var string
      */
-    private $result;
+    public $result = null;
 
     /**
      * @var AmountOfMoney
      */
-    private $surchargeAmount;
+    public $surchargeAmount = null;
 
     /**
      * @var SurchargeRate
      */
-    private $surchargeRate;
+    public $surchargeRate = null;
 
     /**
      * @var AmountOfMoney
      */
-    private $totalAmount;
+    public $totalAmount = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -52,8 +48,9 @@ class Surcharge extends DataObject
     {
         return $this->netAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setNetAmount($value)
     {
@@ -67,8 +64,9 @@ class Surcharge extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -82,8 +80,9 @@ class Surcharge extends DataObject
     {
         return $this->result;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setResult($value)
     {
@@ -97,8 +96,9 @@ class Surcharge extends DataObject
     {
         return $this->surchargeAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setSurchargeAmount($value)
     {
@@ -112,8 +112,9 @@ class Surcharge extends DataObject
     {
         return $this->surchargeRate;
     }
+
     /**
-     * @var SurchargeRate
+     * @param SurchargeRate
      */
     public function setSurchargeRate($value)
     {
@@ -127,8 +128,9 @@ class Surcharge extends DataObject
     {
         return $this->totalAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setTotalAmount($value)
     {
@@ -141,22 +143,22 @@ class Surcharge extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->netAmount !== null) {
+        if (!is_null($this->netAmount)) {
             $object->netAmount = $this->netAmount->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if ($this->result !== null) {
+        if (!is_null($this->result)) {
             $object->result = $this->result;
         }
-        if ($this->surchargeAmount !== null) {
+        if (!is_null($this->surchargeAmount)) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
-        if ($this->surchargeRate !== null) {
+        if (!is_null($this->surchargeRate)) {
             $object->surchargeRate = $this->surchargeRate->toObject();
         }
-        if ($this->totalAmount !== null) {
+        if (!is_null($this->totalAmount)) {
             $object->totalAmount = $this->totalAmount->toObject();
         }
         return $object;

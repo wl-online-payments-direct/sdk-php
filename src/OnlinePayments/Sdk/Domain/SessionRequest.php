@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class SessionRequest extends DataObject
 {
-    // Properties
     /**
      * @var string[]
      */
-    private $tokens;
+    public $tokens = null;
 
-    // Methods
     /**
      * @return string[]
      */
@@ -27,8 +23,9 @@ class SessionRequest extends DataObject
     {
         return $this->tokens;
     }
+
     /**
-     * @var string[]
+     * @param string[]
      */
     public function setTokens($value)
     {
@@ -41,10 +38,10 @@ class SessionRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->tokens !== null) {
+        if (!is_null($this->tokens)) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->tokens[] = $element;
                 }
             }

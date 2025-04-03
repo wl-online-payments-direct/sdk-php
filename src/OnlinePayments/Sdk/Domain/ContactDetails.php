@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class ContactDetails extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $emailAddress;
+    public $emailAddress = null;
 
     /**
      * @var string
      */
-    private $faxNumber;
+    public $faxNumber = null;
 
     /**
      * @var string
      */
-    private $mobilePhoneNumber;
+    public $mobilePhoneNumber = null;
 
     /**
      * @var string
      */
-    private $phoneNumber;
+    public $phoneNumber = null;
 
     /**
      * @var string
      */
-    private $workPhoneNumber;
+    public $workPhoneNumber = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -47,8 +43,9 @@ class ContactDetails extends DataObject
     {
         return $this->emailAddress;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEmailAddress($value)
     {
@@ -62,8 +59,9 @@ class ContactDetails extends DataObject
     {
         return $this->faxNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setFaxNumber($value)
     {
@@ -77,8 +75,9 @@ class ContactDetails extends DataObject
     {
         return $this->mobilePhoneNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMobilePhoneNumber($value)
     {
@@ -92,8 +91,9 @@ class ContactDetails extends DataObject
     {
         return $this->phoneNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPhoneNumber($value)
     {
@@ -107,8 +107,9 @@ class ContactDetails extends DataObject
     {
         return $this->workPhoneNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setWorkPhoneNumber($value)
     {
@@ -121,19 +122,19 @@ class ContactDetails extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->emailAddress !== null) {
+        if (!is_null($this->emailAddress)) {
             $object->emailAddress = $this->emailAddress;
         }
-        if ($this->faxNumber !== null) {
+        if (!is_null($this->faxNumber)) {
             $object->faxNumber = $this->faxNumber;
         }
-        if ($this->mobilePhoneNumber !== null) {
+        if (!is_null($this->mobilePhoneNumber)) {
             $object->mobilePhoneNumber = $this->mobilePhoneNumber;
         }
-        if ($this->phoneNumber !== null) {
+        if (!is_null($this->phoneNumber)) {
             $object->phoneNumber = $this->phoneNumber;
         }
-        if ($this->workPhoneNumber !== null) {
+        if (!is_null($this->workPhoneNumber)) {
             $object->workPhoneNumber = $this->workPhoneNumber;
         }
         return $object;

@@ -1,11 +1,10 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -13,68 +12,74 @@ use UnexpectedValueException;
  */
 class CreatePaymentLinkRequest extends DataObject
 {
-    // Properties
     /**
      * @var CardPaymentMethodSpecificInputBase
      */
-    private $cardPaymentMethodSpecificInput;
+    public $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var string
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
-    private $description;
+    public $description = null;
 
     /**
-     * @var string
+     * @var DateTime
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
-    private $expirationDate;
+    public $expirationDate = null;
+
+    /**
+     * @var Feedbacks
+     */
+    public $feedbacks = null;
 
     /**
      * @var FraudFields
      */
-    private $fraudFields;
+    public $fraudFields = null;
 
     /**
      * @var HostedCheckoutSpecificInput
      */
-    private $hostedCheckoutSpecificInput;
+    public $hostedCheckoutSpecificInput = null;
 
     /**
      * @var MobilePaymentMethodHostedCheckoutSpecificInput
      */
-    private $mobilePaymentMethodSpecificInput;
+    public $mobilePaymentMethodSpecificInput = null;
 
     /**
      * @var Order
      */
-    private $order;
+    public $order = null;
 
     /**
      * @var PaymentLinkOrderInput
      */
-    private $paymentLinkOrder;
+    public $paymentLinkOrder = null;
 
     /**
      * @var PaymentLinkSpecificInput
      */
-    private $paymentLinkSpecificInput;
+    public $paymentLinkSpecificInput = null;
 
     /**
      * @var string
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
-    private $recipientName;
+    public $recipientName = null;
 
     /**
      * @var RedirectPaymentMethodSpecificInput
      */
-    private $redirectPaymentMethodSpecificInput;
+    public $redirectPaymentMethodSpecificInput = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificInputBase
      */
-    private $sepaDirectDebitPaymentMethodSpecificInput;
+    public $sepaDirectDebitPaymentMethodSpecificInput = null;
 
-    // Methods
     /**
      * @return CardPaymentMethodSpecificInputBase
      */
@@ -82,8 +87,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->cardPaymentMethodSpecificInput;
     }
+
     /**
-     * @var CardPaymentMethodSpecificInputBase
+     * @param CardPaymentMethodSpecificInputBase
      */
     public function setCardPaymentMethodSpecificInput($value)
     {
@@ -92,13 +98,16 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return string
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
     public function getDescription()
     {
         return $this->description;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
     public function setDescription($value)
     {
@@ -106,18 +115,37 @@ class CreatePaymentLinkRequest extends DataObject
     }
 
     /**
-     * @return string
+     * @return DateTime
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
     public function getExpirationDate()
     {
         return $this->expirationDate;
     }
+
     /**
-     * @var string
+     * @param DateTime
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
     public function setExpirationDate($value)
     {
         $this->expirationDate = $value;
+    }
+
+    /**
+     * @return Feedbacks
+     */
+    public function getFeedbacks()
+    {
+        return $this->feedbacks;
+    }
+
+    /**
+     * @param Feedbacks
+     */
+    public function setFeedbacks($value)
+    {
+        $this->feedbacks = $value;
     }
 
     /**
@@ -127,8 +155,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->fraudFields;
     }
+
     /**
-     * @var FraudFields
+     * @param FraudFields
      */
     public function setFraudFields($value)
     {
@@ -142,8 +171,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->hostedCheckoutSpecificInput;
     }
+
     /**
-     * @var HostedCheckoutSpecificInput
+     * @param HostedCheckoutSpecificInput
      */
     public function setHostedCheckoutSpecificInput($value)
     {
@@ -157,8 +187,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->mobilePaymentMethodSpecificInput;
     }
+
     /**
-     * @var MobilePaymentMethodHostedCheckoutSpecificInput
+     * @param MobilePaymentMethodHostedCheckoutSpecificInput
      */
     public function setMobilePaymentMethodSpecificInput($value)
     {
@@ -172,8 +203,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->order;
     }
+
     /**
-     * @var Order
+     * @param Order
      */
     public function setOrder($value)
     {
@@ -187,8 +219,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->paymentLinkOrder;
     }
+
     /**
-     * @var PaymentLinkOrderInput
+     * @param PaymentLinkOrderInput
      */
     public function setPaymentLinkOrder($value)
     {
@@ -202,8 +235,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->paymentLinkSpecificInput;
     }
+
     /**
-     * @var PaymentLinkSpecificInput
+     * @param PaymentLinkSpecificInput
      */
     public function setPaymentLinkSpecificInput($value)
     {
@@ -212,13 +246,16 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return string
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
     public function getRecipientName()
     {
         return $this->recipientName;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
     public function setRecipientName($value)
     {
@@ -232,8 +269,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->redirectPaymentMethodSpecificInput;
     }
+
     /**
-     * @var RedirectPaymentMethodSpecificInput
+     * @param RedirectPaymentMethodSpecificInput
      */
     public function setRedirectPaymentMethodSpecificInput($value)
     {
@@ -247,8 +285,9 @@ class CreatePaymentLinkRequest extends DataObject
     {
         return $this->sepaDirectDebitPaymentMethodSpecificInput;
     }
+
     /**
-     * @var SepaDirectDebitPaymentMethodSpecificInputBase
+     * @param SepaDirectDebitPaymentMethodSpecificInputBase
      */
     public function setSepaDirectDebitPaymentMethodSpecificInput($value)
     {
@@ -261,40 +300,43 @@ class CreatePaymentLinkRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardPaymentMethodSpecificInput !== null) {
+        if (!is_null($this->cardPaymentMethodSpecificInput)) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
-        if ($this->description !== null) {
+        if (!is_null($this->description)) {
             $object->description = $this->description;
         }
-        if ($this->expirationDate !== null) {
-            $object->expirationDate = $this->expirationDate;
+        if (!is_null($this->expirationDate)) {
+            $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if ($this->fraudFields !== null) {
+        if (!is_null($this->feedbacks)) {
+            $object->feedbacks = $this->feedbacks->toObject();
+        }
+        if (!is_null($this->fraudFields)) {
             $object->fraudFields = $this->fraudFields->toObject();
         }
-        if ($this->hostedCheckoutSpecificInput !== null) {
+        if (!is_null($this->hostedCheckoutSpecificInput)) {
             $object->hostedCheckoutSpecificInput = $this->hostedCheckoutSpecificInput->toObject();
         }
-        if ($this->mobilePaymentMethodSpecificInput !== null) {
+        if (!is_null($this->mobilePaymentMethodSpecificInput)) {
             $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
         }
-        if ($this->order !== null) {
+        if (!is_null($this->order)) {
             $object->order = $this->order->toObject();
         }
-        if ($this->paymentLinkOrder !== null) {
+        if (!is_null($this->paymentLinkOrder)) {
             $object->paymentLinkOrder = $this->paymentLinkOrder->toObject();
         }
-        if ($this->paymentLinkSpecificInput !== null) {
+        if (!is_null($this->paymentLinkSpecificInput)) {
             $object->paymentLinkSpecificInput = $this->paymentLinkSpecificInput->toObject();
         }
-        if ($this->recipientName !== null) {
+        if (!is_null($this->recipientName)) {
             $object->recipientName = $this->recipientName;
         }
-        if ($this->redirectPaymentMethodSpecificInput !== null) {
+        if (!is_null($this->redirectPaymentMethodSpecificInput)) {
             $object->redirectPaymentMethodSpecificInput = $this->redirectPaymentMethodSpecificInput->toObject();
         }
-        if ($this->sepaDirectDebitPaymentMethodSpecificInput !== null) {
+        if (!is_null($this->sepaDirectDebitPaymentMethodSpecificInput)) {
             $object->sepaDirectDebitPaymentMethodSpecificInput = $this->sepaDirectDebitPaymentMethodSpecificInput->toObject();
         }
         return $object;
@@ -319,7 +361,14 @@ class CreatePaymentLinkRequest extends DataObject
             $this->description = $object->description;
         }
         if (property_exists($object, 'expirationDate')) {
-            $this->expirationDate = $object->expirationDate;
+            $this->expirationDate = new DateTime($object->expirationDate);
+        }
+        if (property_exists($object, 'feedbacks')) {
+            if (!is_object($object->feedbacks)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->feedbacks, true) . '\' is not an object');
+            }
+            $value = new Feedbacks();
+            $this->feedbacks = $value->fromObject($object->feedbacks);
         }
         if (property_exists($object, 'fraudFields')) {
             if (!is_object($object->fraudFields)) {

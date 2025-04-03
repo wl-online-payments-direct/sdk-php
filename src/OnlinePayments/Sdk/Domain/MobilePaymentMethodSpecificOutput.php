@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,38 +11,36 @@ use UnexpectedValueException;
  */
 class MobilePaymentMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $authorisationCode;
+    public $authorisationCode = null;
 
     /**
      * @var CardFraudResults
      */
-    private $fraudResults;
+    public $fraudResults = null;
 
     /**
      * @var string
      */
-    private $network;
+    public $network = null;
 
     /**
      * @var MobilePaymentData
      */
-    private $paymentData;
+    public $paymentData = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
     /**
      * @var ThreeDSecureResults
      */
-    private $threeDSecureResults;
+    public $threeDSecureResults = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -52,8 +48,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->authorisationCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAuthorisationCode($value)
     {
@@ -67,8 +64,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->fraudResults;
     }
+
     /**
-     * @var CardFraudResults
+     * @param CardFraudResults
      */
     public function setFraudResults($value)
     {
@@ -82,8 +80,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->network;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setNetwork($value)
     {
@@ -97,8 +96,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentData;
     }
+
     /**
-     * @var MobilePaymentData
+     * @param MobilePaymentData
      */
     public function setPaymentData($value)
     {
@@ -112,8 +112,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -127,8 +128,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     {
         return $this->threeDSecureResults;
     }
+
     /**
-     * @var ThreeDSecureResults
+     * @param ThreeDSecureResults
      */
     public function setThreeDSecureResults($value)
     {
@@ -141,22 +143,22 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->authorisationCode !== null) {
+        if (!is_null($this->authorisationCode)) {
             $object->authorisationCode = $this->authorisationCode;
         }
-        if ($this->fraudResults !== null) {
+        if (!is_null($this->fraudResults)) {
             $object->fraudResults = $this->fraudResults->toObject();
         }
-        if ($this->network !== null) {
+        if (!is_null($this->network)) {
             $object->network = $this->network;
         }
-        if ($this->paymentData !== null) {
+        if (!is_null($this->paymentData)) {
             $object->paymentData = $this->paymentData->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if ($this->threeDSecureResults !== null) {
+        if (!is_null($this->threeDSecureResults)) {
             $object->threeDSecureResults = $this->threeDSecureResults->toObject();
         }
         return $object;

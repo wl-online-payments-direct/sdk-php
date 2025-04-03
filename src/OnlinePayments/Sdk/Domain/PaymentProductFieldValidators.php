@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,53 +11,51 @@ use UnexpectedValueException;
  */
 class PaymentProductFieldValidators extends DataObject
 {
-    // Properties
     /**
      * @var EmptyValidator
      */
-    private $emailAddress;
+    public $emailAddress = null;
 
     /**
      * @var EmptyValidator
      */
-    private $expirationDate;
+    public $expirationDate = null;
 
     /**
      * @var FixedListValidator
      */
-    private $fixedList;
+    public $fixedList = null;
 
     /**
      * @var EmptyValidator
      */
-    private $iban;
+    public $iban = null;
 
     /**
      * @var LengthValidator
      */
-    private $length;
+    public $length = null;
 
     /**
      * @var EmptyValidator
      */
-    private $luhn;
+    public $luhn = null;
 
     /**
      * @var RangeValidator
      */
-    private $range;
+    public $range = null;
 
     /**
      * @var RegularExpressionValidator
      */
-    private $regularExpression;
+    public $regularExpression = null;
 
     /**
      * @var EmptyValidator
      */
-    private $termsAndConditions;
+    public $termsAndConditions = null;
 
-    // Methods
     /**
      * @return EmptyValidator
      */
@@ -67,8 +63,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->emailAddress;
     }
+
     /**
-     * @var EmptyValidator
+     * @param EmptyValidator
      */
     public function setEmailAddress($value)
     {
@@ -82,8 +79,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->expirationDate;
     }
+
     /**
-     * @var EmptyValidator
+     * @param EmptyValidator
      */
     public function setExpirationDate($value)
     {
@@ -97,8 +95,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->fixedList;
     }
+
     /**
-     * @var FixedListValidator
+     * @param FixedListValidator
      */
     public function setFixedList($value)
     {
@@ -112,8 +111,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->iban;
     }
+
     /**
-     * @var EmptyValidator
+     * @param EmptyValidator
      */
     public function setIban($value)
     {
@@ -127,8 +127,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->length;
     }
+
     /**
-     * @var LengthValidator
+     * @param LengthValidator
      */
     public function setLength($value)
     {
@@ -142,8 +143,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->luhn;
     }
+
     /**
-     * @var EmptyValidator
+     * @param EmptyValidator
      */
     public function setLuhn($value)
     {
@@ -157,8 +159,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->range;
     }
+
     /**
-     * @var RangeValidator
+     * @param RangeValidator
      */
     public function setRange($value)
     {
@@ -172,8 +175,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->regularExpression;
     }
+
     /**
-     * @var RegularExpressionValidator
+     * @param RegularExpressionValidator
      */
     public function setRegularExpression($value)
     {
@@ -187,8 +191,9 @@ class PaymentProductFieldValidators extends DataObject
     {
         return $this->termsAndConditions;
     }
+
     /**
-     * @var EmptyValidator
+     * @param EmptyValidator
      */
     public function setTermsAndConditions($value)
     {
@@ -201,31 +206,31 @@ class PaymentProductFieldValidators extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->emailAddress !== null) {
+        if (!is_null($this->emailAddress)) {
             $object->emailAddress = $this->emailAddress->toObject();
         }
-        if ($this->expirationDate !== null) {
+        if (!is_null($this->expirationDate)) {
             $object->expirationDate = $this->expirationDate->toObject();
         }
-        if ($this->fixedList !== null) {
+        if (!is_null($this->fixedList)) {
             $object->fixedList = $this->fixedList->toObject();
         }
-        if ($this->iban !== null) {
+        if (!is_null($this->iban)) {
             $object->iban = $this->iban->toObject();
         }
-        if ($this->length !== null) {
+        if (!is_null($this->length)) {
             $object->length = $this->length->toObject();
         }
-        if ($this->luhn !== null) {
+        if (!is_null($this->luhn)) {
             $object->luhn = $this->luhn->toObject();
         }
-        if ($this->range !== null) {
+        if (!is_null($this->range)) {
             $object->range = $this->range->toObject();
         }
-        if ($this->regularExpression !== null) {
+        if (!is_null($this->regularExpression)) {
             $object->regularExpression = $this->regularExpression->toObject();
         }
-        if ($this->termsAndConditions !== null) {
+        if (!is_null($this->termsAndConditions)) {
             $object->termsAndConditions = $this->termsAndConditions->toObject();
         }
         return $object;

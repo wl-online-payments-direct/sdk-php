@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var FraudResults
      */
-    private $fraudResults;
+    public $fraudResults = null;
 
     /**
      * @var PaymentProduct771SpecificOutput
      */
-    private $paymentProduct771SpecificOutput;
+    public $paymentProduct771SpecificOutput = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return FraudResults
      */
@@ -37,8 +33,9 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
     {
         return $this->fraudResults;
     }
+
     /**
-     * @var FraudResults
+     * @param FraudResults
      */
     public function setFraudResults($value)
     {
@@ -52,8 +49,9 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct771SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct771SpecificOutput
+     * @param PaymentProduct771SpecificOutput
      */
     public function setPaymentProduct771SpecificOutput($value)
     {
@@ -67,8 +65,9 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -81,13 +80,13 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->fraudResults !== null) {
+        if (!is_null($this->fraudResults)) {
             $object->fraudResults = $this->fraudResults->toObject();
         }
-        if ($this->paymentProduct771SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct771SpecificOutput)) {
             $object->paymentProduct771SpecificOutput = $this->paymentProduct771SpecificOutput->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

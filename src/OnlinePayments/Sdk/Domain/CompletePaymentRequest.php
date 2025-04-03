@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CompletePaymentRequest extends DataObject
 {
-    // Properties
     /**
      * @var CompletePaymentCardPaymentMethodSpecificInput
      */
-    private $cardPaymentMethodSpecificInput;
+    public $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var Order
      */
-    private $order;
+    public $order = null;
 
-    // Methods
     /**
      * @return CompletePaymentCardPaymentMethodSpecificInput
      */
@@ -32,8 +28,9 @@ class CompletePaymentRequest extends DataObject
     {
         return $this->cardPaymentMethodSpecificInput;
     }
+
     /**
-     * @var CompletePaymentCardPaymentMethodSpecificInput
+     * @param CompletePaymentCardPaymentMethodSpecificInput
      */
     public function setCardPaymentMethodSpecificInput($value)
     {
@@ -47,8 +44,9 @@ class CompletePaymentRequest extends DataObject
     {
         return $this->order;
     }
+
     /**
-     * @var Order
+     * @param Order
      */
     public function setOrder($value)
     {
@@ -61,10 +59,10 @@ class CompletePaymentRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardPaymentMethodSpecificInput !== null) {
+        if (!is_null($this->cardPaymentMethodSpecificInput)) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
-        if ($this->order !== null) {
+        if (!is_null($this->order)) {
             $object->order = $this->order->toObject();
         }
         return $object;

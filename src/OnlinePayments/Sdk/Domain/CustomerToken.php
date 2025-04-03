@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CustomerToken extends DataObject
 {
-    // Properties
     /**
      * @var Address
      */
-    private $billingAddress;
+    public $billingAddress = null;
 
     /**
      * @var CompanyInformation
      */
-    private $companyInformation;
+    public $companyInformation = null;
 
     /**
      * @var PersonalInformationToken
      */
-    private $personalInformation;
+    public $personalInformation = null;
 
-    // Methods
     /**
      * @return Address
      */
@@ -37,8 +33,9 @@ class CustomerToken extends DataObject
     {
         return $this->billingAddress;
     }
+
     /**
-     * @var Address
+     * @param Address
      */
     public function setBillingAddress($value)
     {
@@ -52,8 +49,9 @@ class CustomerToken extends DataObject
     {
         return $this->companyInformation;
     }
+
     /**
-     * @var CompanyInformation
+     * @param CompanyInformation
      */
     public function setCompanyInformation($value)
     {
@@ -67,8 +65,9 @@ class CustomerToken extends DataObject
     {
         return $this->personalInformation;
     }
+
     /**
-     * @var PersonalInformationToken
+     * @param PersonalInformationToken
      */
     public function setPersonalInformation($value)
     {
@@ -81,13 +80,13 @@ class CustomerToken extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->billingAddress !== null) {
+        if (!is_null($this->billingAddress)) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if ($this->companyInformation !== null) {
+        if (!is_null($this->companyInformation)) {
             $object->companyInformation = $this->companyInformation->toObject();
         }
-        if ($this->personalInformation !== null) {
+        if (!is_null($this->personalInformation)) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class LodgingData extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $checkInDate;
+    public $checkInDate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class LodgingData extends DataObject
     {
         return $this->checkInDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCheckInDate($value)
     {
@@ -41,7 +38,7 @@ class LodgingData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->checkInDate !== null) {
+        if (!is_null($this->checkInDate)) {
             $object->checkInDate = $this->checkInDate;
         }
         return $object;

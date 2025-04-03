@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RefundPaymentProduct840SpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var RefundPaymentProduct840CustomerAccount
      */
-    private $customerAccount;
+    public $customerAccount = null;
 
-    // Methods
     /**
      * @return RefundPaymentProduct840CustomerAccount
      */
@@ -27,8 +23,9 @@ class RefundPaymentProduct840SpecificOutput extends DataObject
     {
         return $this->customerAccount;
     }
+
     /**
-     * @var RefundPaymentProduct840CustomerAccount
+     * @param RefundPaymentProduct840CustomerAccount
      */
     public function setCustomerAccount($value)
     {
@@ -41,7 +38,7 @@ class RefundPaymentProduct840SpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->customerAccount !== null) {
+        if (!is_null($this->customerAccount)) {
             $object->customerAccount = $this->customerAccount->toObject();
         }
         return $object;

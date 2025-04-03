@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,73 +11,71 @@ use UnexpectedValueException;
  */
 class ThreeDSecureResults extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $acsTransactionId;
+    public $acsTransactionId = null;
 
     /**
      * @var string
      */
-    private $appliedExemption;
+    public $appliedExemption = null;
 
     /**
      * @var string
      */
-    private $authenticationStatus;
+    public $authenticationStatus = null;
 
     /**
      * @var string
      */
-    private $cavv;
+    public $cavv = null;
 
     /**
      * @var string
      */
-    private $challengeIndicator;
+    public $challengeIndicator = null;
 
     /**
      * @var string
      */
-    private $dsTransactionId;
+    public $dsTransactionId = null;
 
     /**
      * @var string
      */
-    private $eci;
+    public $eci = null;
 
     /**
      * @var string
      */
-    private $exemptionEngineFlow;
+    public $exemptionEngineFlow = null;
 
     /**
      * @var string
      */
-    private $flow;
+    public $flow = null;
 
     /**
      * @var string
      */
-    private $liability;
+    public $liability = null;
 
     /**
      * @var string
      */
-    private $schemeEci;
+    public $schemeEci = null;
 
     /**
      * @var string
      */
-    private $version;
+    public $version = null;
 
     /**
      * @var string
      */
-    private $xid;
+    public $xid = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -87,8 +83,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->acsTransactionId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAcsTransactionId($value)
     {
@@ -102,8 +99,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->appliedExemption;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAppliedExemption($value)
     {
@@ -117,8 +115,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->authenticationStatus;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAuthenticationStatus($value)
     {
@@ -132,8 +131,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->cavv;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCavv($value)
     {
@@ -147,8 +147,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->challengeIndicator;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setChallengeIndicator($value)
     {
@@ -162,8 +163,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->dsTransactionId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDsTransactionId($value)
     {
@@ -177,8 +179,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->eci;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEci($value)
     {
@@ -192,8 +195,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->exemptionEngineFlow;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExemptionEngineFlow($value)
     {
@@ -207,8 +211,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->flow;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setFlow($value)
     {
@@ -222,8 +227,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->liability;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLiability($value)
     {
@@ -237,8 +243,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->schemeEci;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setSchemeEci($value)
     {
@@ -252,8 +259,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->version;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setVersion($value)
     {
@@ -267,8 +275,9 @@ class ThreeDSecureResults extends DataObject
     {
         return $this->xid;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setXid($value)
     {
@@ -281,43 +290,43 @@ class ThreeDSecureResults extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->acsTransactionId !== null) {
+        if (!is_null($this->acsTransactionId)) {
             $object->acsTransactionId = $this->acsTransactionId;
         }
-        if ($this->appliedExemption !== null) {
+        if (!is_null($this->appliedExemption)) {
             $object->appliedExemption = $this->appliedExemption;
         }
-        if ($this->authenticationStatus !== null) {
+        if (!is_null($this->authenticationStatus)) {
             $object->authenticationStatus = $this->authenticationStatus;
         }
-        if ($this->cavv !== null) {
+        if (!is_null($this->cavv)) {
             $object->cavv = $this->cavv;
         }
-        if ($this->challengeIndicator !== null) {
+        if (!is_null($this->challengeIndicator)) {
             $object->challengeIndicator = $this->challengeIndicator;
         }
-        if ($this->dsTransactionId !== null) {
+        if (!is_null($this->dsTransactionId)) {
             $object->dsTransactionId = $this->dsTransactionId;
         }
-        if ($this->eci !== null) {
+        if (!is_null($this->eci)) {
             $object->eci = $this->eci;
         }
-        if ($this->exemptionEngineFlow !== null) {
+        if (!is_null($this->exemptionEngineFlow)) {
             $object->exemptionEngineFlow = $this->exemptionEngineFlow;
         }
-        if ($this->flow !== null) {
+        if (!is_null($this->flow)) {
             $object->flow = $this->flow;
         }
-        if ($this->liability !== null) {
+        if (!is_null($this->liability)) {
             $object->liability = $this->liability;
         }
-        if ($this->schemeEci !== null) {
+        if (!is_null($this->schemeEci)) {
             $object->schemeEci = $this->schemeEci;
         }
-        if ($this->version !== null) {
+        if (!is_null($this->version)) {
             $object->version = $this->version;
         }
-        if ($this->xid !== null) {
+        if (!is_null($this->xid)) {
             $object->xid = $this->xid;
         }
         return $object;

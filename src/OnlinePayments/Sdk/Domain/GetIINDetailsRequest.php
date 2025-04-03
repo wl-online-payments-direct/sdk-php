@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class GetIINDetailsRequest extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $bin;
+    public $bin = null;
 
     /**
      * @var PaymentContext
      */
-    private $paymentContext;
+    public $paymentContext = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class GetIINDetailsRequest extends DataObject
     {
         return $this->bin;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setBin($value)
     {
@@ -47,8 +44,9 @@ class GetIINDetailsRequest extends DataObject
     {
         return $this->paymentContext;
     }
+
     /**
-     * @var PaymentContext
+     * @param PaymentContext
      */
     public function setPaymentContext($value)
     {
@@ -61,10 +59,10 @@ class GetIINDetailsRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->bin !== null) {
+        if (!is_null($this->bin)) {
             $object->bin = $this->bin;
         }
-        if ($this->paymentContext !== null) {
+        if (!is_null($this->paymentContext)) {
             $object->paymentContext = $this->paymentContext->toObject();
         }
         return $object;

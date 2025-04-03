@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,26 @@ use UnexpectedValueException;
  */
 class LineItem extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var LineItemInvoiceData
      */
-    private $invoiceData;
+    public $invoiceData = null;
 
     /**
      * @var OrderLineDetails
      */
-    private $orderLineDetails;
+    public $orderLineDetails = null;
 
-    // Methods
+    /**
+     * @var OtherDetails
+     */
+    public $otherDetails = null;
+
     /**
      * @return AmountOfMoney
      */
@@ -37,8 +38,9 @@ class LineItem extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -52,8 +54,9 @@ class LineItem extends DataObject
     {
         return $this->invoiceData;
     }
+
     /**
-     * @var LineItemInvoiceData
+     * @param LineItemInvoiceData
      */
     public function setInvoiceData($value)
     {
@@ -67,12 +70,29 @@ class LineItem extends DataObject
     {
         return $this->orderLineDetails;
     }
+
     /**
-     * @var OrderLineDetails
+     * @param OrderLineDetails
      */
     public function setOrderLineDetails($value)
     {
         $this->orderLineDetails = $value;
+    }
+
+    /**
+     * @return OtherDetails
+     */
+    public function getOtherDetails()
+    {
+        return $this->otherDetails;
+    }
+
+    /**
+     * @param OtherDetails
+     */
+    public function setOtherDetails($value)
+    {
+        $this->otherDetails = $value;
     }
 
     /**
@@ -81,14 +101,17 @@ class LineItem extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->invoiceData !== null) {
+        if (!is_null($this->invoiceData)) {
             $object->invoiceData = $this->invoiceData->toObject();
         }
-        if ($this->orderLineDetails !== null) {
+        if (!is_null($this->orderLineDetails)) {
             $object->orderLineDetails = $this->orderLineDetails->toObject();
+        }
+        if (!is_null($this->otherDetails)) {
+            $object->otherDetails = $this->otherDetails->toObject();
         }
         return $object;
     }
@@ -121,6 +144,13 @@ class LineItem extends DataObject
             }
             $value = new OrderLineDetails();
             $this->orderLineDetails = $value->fromObject($object->orderLineDetails);
+        }
+        if (property_exists($object, 'otherDetails')) {
+            if (!is_object($object->otherDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->otherDetails, true) . '\' is not an object');
+            }
+            $value = new OtherDetails();
+            $this->otherDetails = $value->fromObject($object->otherDetails);
         }
         return $this;
     }

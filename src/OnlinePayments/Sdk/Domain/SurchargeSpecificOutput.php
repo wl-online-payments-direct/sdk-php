@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class SurchargeSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $mode;
+    public $mode = null;
 
     /**
      * @var AmountOfMoney
      */
-    private $surchargeAmount;
+    public $surchargeAmount = null;
 
     /**
      * @var SurchargeRate
      */
-    private $surchargeRate;
+    public $surchargeRate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class SurchargeSpecificOutput extends DataObject
     {
         return $this->mode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMode($value)
     {
@@ -52,8 +49,9 @@ class SurchargeSpecificOutput extends DataObject
     {
         return $this->surchargeAmount;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setSurchargeAmount($value)
     {
@@ -67,8 +65,9 @@ class SurchargeSpecificOutput extends DataObject
     {
         return $this->surchargeRate;
     }
+
     /**
-     * @var SurchargeRate
+     * @param SurchargeRate
      */
     public function setSurchargeRate($value)
     {
@@ -81,13 +80,13 @@ class SurchargeSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->mode !== null) {
+        if (!is_null($this->mode)) {
             $object->mode = $this->mode;
         }
-        if ($this->surchargeAmount !== null) {
+        if (!is_null($this->surchargeAmount)) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
-        if ($this->surchargeRate !== null) {
+        if (!is_null($this->surchargeRate)) {
             $object->surchargeRate = $this->surchargeRate->toObject();
         }
         return $object;

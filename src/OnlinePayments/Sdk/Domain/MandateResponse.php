@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,43 +11,41 @@ use UnexpectedValueException;
  */
 class MandateResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $alias;
+    public $alias = null;
 
     /**
      * @var MandateCustomerResponse
      */
-    private $customer;
+    public $customer = null;
 
     /**
      * @var string
      */
-    private $customerReference;
+    public $customerReference = null;
 
     /**
      * @var string
      */
-    private $mandatePdf;
+    public $mandatePdf = null;
 
     /**
      * @var string
      */
-    private $recurrenceType;
+    public $recurrenceType = null;
 
     /**
      * @var string
      */
-    private $status;
+    public $status = null;
 
     /**
      * @var string
      */
-    private $uniqueMandateReference;
+    public $uniqueMandateReference = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -57,8 +53,9 @@ class MandateResponse extends DataObject
     {
         return $this->alias;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAlias($value)
     {
@@ -72,8 +69,9 @@ class MandateResponse extends DataObject
     {
         return $this->customer;
     }
+
     /**
-     * @var MandateCustomerResponse
+     * @param MandateCustomerResponse
      */
     public function setCustomer($value)
     {
@@ -87,8 +85,9 @@ class MandateResponse extends DataObject
     {
         return $this->customerReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCustomerReference($value)
     {
@@ -102,8 +101,9 @@ class MandateResponse extends DataObject
     {
         return $this->mandatePdf;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMandatePdf($value)
     {
@@ -117,8 +117,9 @@ class MandateResponse extends DataObject
     {
         return $this->recurrenceType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRecurrenceType($value)
     {
@@ -132,8 +133,9 @@ class MandateResponse extends DataObject
     {
         return $this->status;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatus($value)
     {
@@ -147,8 +149,9 @@ class MandateResponse extends DataObject
     {
         return $this->uniqueMandateReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setUniqueMandateReference($value)
     {
@@ -161,25 +164,25 @@ class MandateResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->alias !== null) {
+        if (!is_null($this->alias)) {
             $object->alias = $this->alias;
         }
-        if ($this->customer !== null) {
+        if (!is_null($this->customer)) {
             $object->customer = $this->customer->toObject();
         }
-        if ($this->customerReference !== null) {
+        if (!is_null($this->customerReference)) {
             $object->customerReference = $this->customerReference;
         }
-        if ($this->mandatePdf !== null) {
+        if (!is_null($this->mandatePdf)) {
             $object->mandatePdf = $this->mandatePdf;
         }
-        if ($this->recurrenceType !== null) {
+        if (!is_null($this->recurrenceType)) {
             $object->recurrenceType = $this->recurrenceType;
         }
-        if ($this->status !== null) {
+        if (!is_null($this->status)) {
             $object->status = $this->status;
         }
-        if ($this->uniqueMandateReference !== null) {
+        if (!is_null($this->uniqueMandateReference)) {
             $object->uniqueMandateReference = $this->uniqueMandateReference;
         }
         return $object;

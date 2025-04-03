@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CurrencyConversionRequest extends DataObject
 {
-    // Properties
     /**
      * @var DccCardSource
      */
-    private $cardSource;
+    public $cardSource = null;
 
     /**
      * @var Transaction
      */
-    private $transaction;
+    public $transaction = null;
 
-    // Methods
     /**
      * @return DccCardSource
      */
@@ -32,8 +28,9 @@ class CurrencyConversionRequest extends DataObject
     {
         return $this->cardSource;
     }
+
     /**
-     * @var DccCardSource
+     * @param DccCardSource
      */
     public function setCardSource($value)
     {
@@ -47,8 +44,9 @@ class CurrencyConversionRequest extends DataObject
     {
         return $this->transaction;
     }
+
     /**
-     * @var Transaction
+     * @param Transaction
      */
     public function setTransaction($value)
     {
@@ -61,10 +59,10 @@ class CurrencyConversionRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardSource !== null) {
+        if (!is_null($this->cardSource)) {
             $object->cardSource = $this->cardSource->toObject();
         }
-        if ($this->transaction !== null) {
+        if (!is_null($this->transaction)) {
             $object->transaction = $this->transaction->toObject();
         }
         return $object;

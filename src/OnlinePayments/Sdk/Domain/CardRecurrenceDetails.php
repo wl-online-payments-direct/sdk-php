@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CardRecurrenceDetails extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $recurringPaymentSequenceIndicator;
+    public $recurringPaymentSequenceIndicator = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class CardRecurrenceDetails extends DataObject
     {
         return $this->recurringPaymentSequenceIndicator;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRecurringPaymentSequenceIndicator($value)
     {
@@ -41,7 +38,7 @@ class CardRecurrenceDetails extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->recurringPaymentSequenceIndicator !== null) {
+        if (!is_null($this->recurringPaymentSequenceIndicator)) {
             $object->recurringPaymentSequenceIndicator = $this->recurringPaymentSequenceIndicator;
         }
         return $object;

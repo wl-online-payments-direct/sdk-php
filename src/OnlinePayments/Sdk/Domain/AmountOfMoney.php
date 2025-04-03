@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class AmountOfMoney extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $amount;
+    public $amount = null;
 
     /**
      * @var string
      */
-    private $currencyCode;
+    public $currencyCode = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -32,8 +28,9 @@ class AmountOfMoney extends DataObject
     {
         return $this->amount;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setAmount($value)
     {
@@ -47,8 +44,9 @@ class AmountOfMoney extends DataObject
     {
         return $this->currencyCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCurrencyCode($value)
     {
@@ -61,10 +59,10 @@ class AmountOfMoney extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amount !== null) {
+        if (!is_null($this->amount)) {
             $object->amount = $this->amount;
         }
-        if ($this->currencyCode !== null) {
+        if (!is_null($this->currencyCode)) {
             $object->currencyCode = $this->currencyCode;
         }
         return $object;

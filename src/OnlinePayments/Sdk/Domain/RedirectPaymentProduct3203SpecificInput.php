@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RedirectPaymentProduct3203SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $checkoutType;
+    public $checkoutType = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
     {
         return $this->checkoutType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCheckoutType($value)
     {
@@ -41,7 +38,7 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->checkoutType !== null) {
+        if (!is_null($this->checkoutType)) {
             $object->checkoutType = $this->checkoutType;
         }
         return $object;

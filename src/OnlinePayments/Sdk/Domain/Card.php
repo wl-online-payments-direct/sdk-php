@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class Card extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $cardNumber;
+    public $cardNumber = null;
 
     /**
      * @var string
      */
-    private $cardholderName;
+    public $cardholderName = null;
 
     /**
      * @var string
      */
-    private $cvv;
+    public $cvv = null;
 
     /**
      * @var string
      */
-    private $expiryDate;
+    public $expiryDate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -42,8 +38,9 @@ class Card extends DataObject
     {
         return $this->cardNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardNumber($value)
     {
@@ -57,8 +54,9 @@ class Card extends DataObject
     {
         return $this->cardholderName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardholderName($value)
     {
@@ -72,8 +70,9 @@ class Card extends DataObject
     {
         return $this->cvv;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCvv($value)
     {
@@ -87,8 +86,9 @@ class Card extends DataObject
     {
         return $this->expiryDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExpiryDate($value)
     {
@@ -101,16 +101,16 @@ class Card extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardNumber !== null) {
+        if (!is_null($this->cardNumber)) {
             $object->cardNumber = $this->cardNumber;
         }
-        if ($this->cardholderName !== null) {
+        if (!is_null($this->cardholderName)) {
             $object->cardholderName = $this->cardholderName;
         }
-        if ($this->cvv !== null) {
+        if (!is_null($this->cvv)) {
             $object->cvv = $this->cvv;
         }
-        if ($this->expiryDate !== null) {
+        if (!is_null($this->expiryDate)) {
             $object->expiryDate = $this->expiryDate;
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,53 +11,56 @@ use UnexpectedValueException;
  */
 class RefundOutput extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var int
      */
-    private $amountPaid;
+    public $amountPaid = null;
 
     /**
      * @var RefundCardMethodSpecificOutput
      */
-    private $cardRefundMethodSpecificOutput;
+    public $cardRefundMethodSpecificOutput = null;
 
     /**
      * @var RefundEWalletMethodSpecificOutput
      */
-    private $eWalletRefundMethodSpecificOutput;
+    public $eWalletRefundMethodSpecificOutput = null;
 
     /**
      * @var string
      */
-    private $merchantParameters;
+    public $merchantParameters = null;
 
     /**
      * @var RefundMobileMethodSpecificOutput
      */
-    private $mobileRefundMethodSpecificOutput;
+    public $mobileRefundMethodSpecificOutput = null;
+
+    /**
+     * @var OperationPaymentReferences
+     */
+    public $operationReferences = null;
 
     /**
      * @var string
      */
-    private $paymentMethod;
+    public $paymentMethod = null;
 
     /**
      * @var RefundRedirectMethodSpecificOutput
      */
-    private $redirectRefundMethodSpecificOutput;
+    public $redirectRefundMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences
      */
-    private $references;
+    public $references = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -67,8 +68,9 @@ class RefundOutput extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -82,8 +84,9 @@ class RefundOutput extends DataObject
     {
         return $this->amountPaid;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setAmountPaid($value)
     {
@@ -97,8 +100,9 @@ class RefundOutput extends DataObject
     {
         return $this->cardRefundMethodSpecificOutput;
     }
+
     /**
-     * @var RefundCardMethodSpecificOutput
+     * @param RefundCardMethodSpecificOutput
      */
     public function setCardRefundMethodSpecificOutput($value)
     {
@@ -112,8 +116,9 @@ class RefundOutput extends DataObject
     {
         return $this->eWalletRefundMethodSpecificOutput;
     }
+
     /**
-     * @var RefundEWalletMethodSpecificOutput
+     * @param RefundEWalletMethodSpecificOutput
      */
     public function setEWalletRefundMethodSpecificOutput($value)
     {
@@ -127,8 +132,9 @@ class RefundOutput extends DataObject
     {
         return $this->merchantParameters;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantParameters($value)
     {
@@ -142,12 +148,29 @@ class RefundOutput extends DataObject
     {
         return $this->mobileRefundMethodSpecificOutput;
     }
+
     /**
-     * @var RefundMobileMethodSpecificOutput
+     * @param RefundMobileMethodSpecificOutput
      */
     public function setMobileRefundMethodSpecificOutput($value)
     {
         $this->mobileRefundMethodSpecificOutput = $value;
+    }
+
+    /**
+     * @return OperationPaymentReferences
+     */
+    public function getOperationReferences()
+    {
+        return $this->operationReferences;
+    }
+
+    /**
+     * @param OperationPaymentReferences
+     */
+    public function setOperationReferences($value)
+    {
+        $this->operationReferences = $value;
     }
 
     /**
@@ -157,8 +180,9 @@ class RefundOutput extends DataObject
     {
         return $this->paymentMethod;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPaymentMethod($value)
     {
@@ -172,8 +196,9 @@ class RefundOutput extends DataObject
     {
         return $this->redirectRefundMethodSpecificOutput;
     }
+
     /**
-     * @var RefundRedirectMethodSpecificOutput
+     * @param RefundRedirectMethodSpecificOutput
      */
     public function setRedirectRefundMethodSpecificOutput($value)
     {
@@ -187,8 +212,9 @@ class RefundOutput extends DataObject
     {
         return $this->references;
     }
+
     /**
-     * @var PaymentReferences
+     * @param PaymentReferences
      */
     public function setReferences($value)
     {
@@ -201,31 +227,34 @@ class RefundOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->amountPaid !== null) {
+        if (!is_null($this->amountPaid)) {
             $object->amountPaid = $this->amountPaid;
         }
-        if ($this->cardRefundMethodSpecificOutput !== null) {
+        if (!is_null($this->cardRefundMethodSpecificOutput)) {
             $object->cardRefundMethodSpecificOutput = $this->cardRefundMethodSpecificOutput->toObject();
         }
-        if ($this->eWalletRefundMethodSpecificOutput !== null) {
+        if (!is_null($this->eWalletRefundMethodSpecificOutput)) {
             $object->eWalletRefundMethodSpecificOutput = $this->eWalletRefundMethodSpecificOutput->toObject();
         }
-        if ($this->merchantParameters !== null) {
+        if (!is_null($this->merchantParameters)) {
             $object->merchantParameters = $this->merchantParameters;
         }
-        if ($this->mobileRefundMethodSpecificOutput !== null) {
+        if (!is_null($this->mobileRefundMethodSpecificOutput)) {
             $object->mobileRefundMethodSpecificOutput = $this->mobileRefundMethodSpecificOutput->toObject();
         }
-        if ($this->paymentMethod !== null) {
+        if (!is_null($this->operationReferences)) {
+            $object->operationReferences = $this->operationReferences->toObject();
+        }
+        if (!is_null($this->paymentMethod)) {
             $object->paymentMethod = $this->paymentMethod;
         }
-        if ($this->redirectRefundMethodSpecificOutput !== null) {
+        if (!is_null($this->redirectRefundMethodSpecificOutput)) {
             $object->redirectRefundMethodSpecificOutput = $this->redirectRefundMethodSpecificOutput->toObject();
         }
-        if ($this->references !== null) {
+        if (!is_null($this->references)) {
             $object->references = $this->references->toObject();
         }
         return $object;
@@ -272,6 +301,13 @@ class RefundOutput extends DataObject
             }
             $value = new RefundMobileMethodSpecificOutput();
             $this->mobileRefundMethodSpecificOutput = $value->fromObject($object->mobileRefundMethodSpecificOutput);
+        }
+        if (property_exists($object, 'operationReferences')) {
+            if (!is_object($object->operationReferences)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->operationReferences, true) . '\' is not an object');
+            }
+            $value = new OperationPaymentReferences();
+            $this->operationReferences = $value->fromObject($object->operationReferences);
         }
         if (property_exists($object, 'paymentMethod')) {
             $this->paymentMethod = $object->paymentMethod;

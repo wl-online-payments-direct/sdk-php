@@ -1,42 +1,39 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk;
 
+use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\Merchant\MerchantClient;
 
 /**
- * API specifications
+ * Payment platform client.
  */
 class Client extends ApiResource implements ClientInterface
 {
-    const API_VERSION = 'v2';
-
-    /** @var Communicator */
+    /** @var CommunicatorInterface */
     private $communicator;
 
     /** @var string */
     private $clientMetaInfo;
 
     /**
-     * Construct a new payment platform server-to-server API client.
+     * Construct a new Payment platform API client.
      *
-     * @param Communicator $communicator
+     * @param CommunicatorInterface $communicator
      * @param string $clientMetaInfo
-     *
      */
-    public function __construct(Communicator $communicator, $clientMetaInfo = '')
+    public function __construct(CommunicatorInterface $communicator, $clientMetaInfo = '')
     {
         parent::__construct();
         $this->communicator = $communicator;
         $this->setClientMetaInfo($clientMetaInfo);
-        $this->context = array('apiVersion' => static::API_VERSION);
+        $this->context = array();
     }
 
     /**
-     * @return Communicator
+     * @return CommunicatorInterface
      */
     protected function getCommunicator()
     {
@@ -44,7 +41,7 @@ class Client extends ApiResource implements ClientInterface
     }
 
     /**
-     * @param CommunicatorLogger $communicatorLogger
+     * @inheritdoc
      */
     public function enableLogging(CommunicatorLogger $communicatorLogger)
     {
@@ -52,7 +49,7 @@ class Client extends ApiResource implements ClientInterface
     }
 
     /**
-     *
+     * @inheritdoc
      */
     public function disableLogging()
     {
@@ -60,8 +57,7 @@ class Client extends ApiResource implements ClientInterface
     }
 
     /**
-     * @param string $clientMetaInfo
-     * @return $this
+     * @inheritdoc
      */
     public function setClientMetaInfo($clientMetaInfo)
     {
@@ -78,7 +74,7 @@ class Client extends ApiResource implements ClientInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function merchant($merchantId)
     {

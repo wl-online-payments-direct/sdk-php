@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,43 +11,41 @@ use UnexpectedValueException;
  */
 class CustomerDevice extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $acceptHeader;
+    public $acceptHeader = null;
 
     /**
      * @var BrowserData
      */
-    private $browserData;
+    public $browserData = null;
 
     /**
      * @var string
      */
-    private $deviceFingerprint;
+    public $deviceFingerprint = null;
 
     /**
      * @var string
      */
-    private $ipAddress;
+    public $ipAddress = null;
 
     /**
      * @var string
      */
-    private $locale;
+    public $locale = null;
 
     /**
      * @var string
      */
-    private $timezoneOffsetUtcMinutes;
+    public $timezoneOffsetUtcMinutes = null;
 
     /**
      * @var string
      */
-    private $userAgent;
+    public $userAgent = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -57,8 +53,9 @@ class CustomerDevice extends DataObject
     {
         return $this->acceptHeader;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAcceptHeader($value)
     {
@@ -72,8 +69,9 @@ class CustomerDevice extends DataObject
     {
         return $this->browserData;
     }
+
     /**
-     * @var BrowserData
+     * @param BrowserData
      */
     public function setBrowserData($value)
     {
@@ -87,8 +85,9 @@ class CustomerDevice extends DataObject
     {
         return $this->deviceFingerprint;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDeviceFingerprint($value)
     {
@@ -102,8 +101,9 @@ class CustomerDevice extends DataObject
     {
         return $this->ipAddress;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setIpAddress($value)
     {
@@ -117,8 +117,9 @@ class CustomerDevice extends DataObject
     {
         return $this->locale;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLocale($value)
     {
@@ -132,8 +133,9 @@ class CustomerDevice extends DataObject
     {
         return $this->timezoneOffsetUtcMinutes;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTimezoneOffsetUtcMinutes($value)
     {
@@ -147,8 +149,9 @@ class CustomerDevice extends DataObject
     {
         return $this->userAgent;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setUserAgent($value)
     {
@@ -161,25 +164,25 @@ class CustomerDevice extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->acceptHeader !== null) {
+        if (!is_null($this->acceptHeader)) {
             $object->acceptHeader = $this->acceptHeader;
         }
-        if ($this->browserData !== null) {
+        if (!is_null($this->browserData)) {
             $object->browserData = $this->browserData->toObject();
         }
-        if ($this->deviceFingerprint !== null) {
+        if (!is_null($this->deviceFingerprint)) {
             $object->deviceFingerprint = $this->deviceFingerprint;
         }
-        if ($this->ipAddress !== null) {
+        if (!is_null($this->ipAddress)) {
             $object->ipAddress = $this->ipAddress;
         }
-        if ($this->locale !== null) {
+        if (!is_null($this->locale)) {
             $object->locale = $this->locale;
         }
-        if ($this->timezoneOffsetUtcMinutes !== null) {
+        if (!is_null($this->timezoneOffsetUtcMinutes)) {
             $object->timezoneOffsetUtcMinutes = $this->timezoneOffsetUtcMinutes;
         }
-        if ($this->userAgent !== null) {
+        if (!is_null($this->userAgent)) {
             $object->userAgent = $this->userAgent;
         }
         return $object;

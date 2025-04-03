@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentProduct840SpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var Address
      */
-    private $billingAddress;
+    public $billingAddress = null;
 
     /**
      * @var PaymentProduct840CustomerAccount
      */
-    private $customerAccount;
+    public $customerAccount = null;
 
     /**
      * @var Address
      */
-    private $customerAddress;
+    public $customerAddress = null;
 
     /**
      * @var ProtectionEligibility
      */
-    private $protectionEligibility;
+    public $protectionEligibility = null;
 
-    // Methods
     /**
      * @return Address
      */
@@ -42,8 +38,9 @@ class PaymentProduct840SpecificOutput extends DataObject
     {
         return $this->billingAddress;
     }
+
     /**
-     * @var Address
+     * @param Address
      */
     public function setBillingAddress($value)
     {
@@ -57,8 +54,9 @@ class PaymentProduct840SpecificOutput extends DataObject
     {
         return $this->customerAccount;
     }
+
     /**
-     * @var PaymentProduct840CustomerAccount
+     * @param PaymentProduct840CustomerAccount
      */
     public function setCustomerAccount($value)
     {
@@ -72,8 +70,9 @@ class PaymentProduct840SpecificOutput extends DataObject
     {
         return $this->customerAddress;
     }
+
     /**
-     * @var Address
+     * @param Address
      */
     public function setCustomerAddress($value)
     {
@@ -87,8 +86,9 @@ class PaymentProduct840SpecificOutput extends DataObject
     {
         return $this->protectionEligibility;
     }
+
     /**
-     * @var ProtectionEligibility
+     * @param ProtectionEligibility
      */
     public function setProtectionEligibility($value)
     {
@@ -101,16 +101,16 @@ class PaymentProduct840SpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->billingAddress !== null) {
+        if (!is_null($this->billingAddress)) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if ($this->customerAccount !== null) {
+        if (!is_null($this->customerAccount)) {
             $object->customerAccount = $this->customerAccount->toObject();
         }
-        if ($this->customerAddress !== null) {
+        if (!is_null($this->customerAddress)) {
             $object->customerAddress = $this->customerAddress->toObject();
         }
-        if ($this->protectionEligibility !== null) {
+        if (!is_null($this->protectionEligibility)) {
             $object->protectionEligibility = $this->protectionEligibility->toObject();
         }
         return $object;

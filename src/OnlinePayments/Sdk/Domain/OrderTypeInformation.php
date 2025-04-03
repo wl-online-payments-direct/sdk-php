@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class OrderTypeInformation extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $purchaseType;
+    public $purchaseType = null;
 
     /**
      * @var string
      */
-    private $transactionType;
+    public $transactionType = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class OrderTypeInformation extends DataObject
     {
         return $this->purchaseType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPurchaseType($value)
     {
@@ -47,8 +44,9 @@ class OrderTypeInformation extends DataObject
     {
         return $this->transactionType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTransactionType($value)
     {
@@ -61,10 +59,10 @@ class OrderTypeInformation extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->purchaseType !== null) {
+        if (!is_null($this->purchaseType)) {
             $object->purchaseType = $this->purchaseType;
         }
-        if ($this->transactionType !== null) {
+        if (!is_null($this->transactionType)) {
             $object->transactionType = $this->transactionType;
         }
         return $object;

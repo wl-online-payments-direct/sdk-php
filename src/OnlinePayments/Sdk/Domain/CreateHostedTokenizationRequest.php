@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,38 +11,36 @@ use UnexpectedValueException;
  */
 class CreateHostedTokenizationRequest extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $askConsumerConsent;
+    public $askConsumerConsent = null;
 
     /**
      * @var CreditCardSpecificInputHostedTokenization
      */
-    private $creditCardSpecificInput;
+    public $creditCardSpecificInput = null;
 
     /**
      * @var string
      */
-    private $locale;
+    public $locale = null;
 
     /**
      * @var PaymentProductFiltersHostedTokenization
      */
-    private $paymentProductFilters;
+    public $paymentProductFilters = null;
 
     /**
      * @var string
      */
-    private $tokens;
+    public $tokens = null;
 
     /**
      * @var string
      */
-    private $variant;
+    public $variant = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -52,8 +48,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->askConsumerConsent;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setAskConsumerConsent($value)
     {
@@ -67,8 +64,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->creditCardSpecificInput;
     }
+
     /**
-     * @var CreditCardSpecificInputHostedTokenization
+     * @param CreditCardSpecificInputHostedTokenization
      */
     public function setCreditCardSpecificInput($value)
     {
@@ -82,8 +80,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->locale;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLocale($value)
     {
@@ -97,8 +96,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->paymentProductFilters;
     }
+
     /**
-     * @var PaymentProductFiltersHostedTokenization
+     * @param PaymentProductFiltersHostedTokenization
      */
     public function setPaymentProductFilters($value)
     {
@@ -112,8 +112,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->tokens;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTokens($value)
     {
@@ -127,8 +128,9 @@ class CreateHostedTokenizationRequest extends DataObject
     {
         return $this->variant;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setVariant($value)
     {
@@ -141,22 +143,22 @@ class CreateHostedTokenizationRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->askConsumerConsent !== null) {
+        if (!is_null($this->askConsumerConsent)) {
             $object->askConsumerConsent = $this->askConsumerConsent;
         }
-        if ($this->creditCardSpecificInput !== null) {
+        if (!is_null($this->creditCardSpecificInput)) {
             $object->creditCardSpecificInput = $this->creditCardSpecificInput->toObject();
         }
-        if ($this->locale !== null) {
+        if (!is_null($this->locale)) {
             $object->locale = $this->locale;
         }
-        if ($this->paymentProductFilters !== null) {
+        if (!is_null($this->paymentProductFilters)) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
-        if ($this->tokens !== null) {
+        if (!is_null($this->tokens)) {
             $object->tokens = $this->tokens;
         }
-        if ($this->variant !== null) {
+        if (!is_null($this->variant)) {
             $object->variant = $this->variant;
         }
         return $object;

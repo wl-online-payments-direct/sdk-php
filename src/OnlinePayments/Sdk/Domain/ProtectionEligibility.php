@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class ProtectionEligibility extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $eligibility;
+    public $eligibility = null;
 
     /**
      * @var string
      */
-    private $type;
+    public $type = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class ProtectionEligibility extends DataObject
     {
         return $this->eligibility;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEligibility($value)
     {
@@ -47,8 +44,9 @@ class ProtectionEligibility extends DataObject
     {
         return $this->type;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setType($value)
     {
@@ -61,10 +59,10 @@ class ProtectionEligibility extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->eligibility !== null) {
+        if (!is_null($this->eligibility)) {
             $object->eligibility = $this->eligibility;
         }
-        if ($this->type !== null) {
+        if (!is_null($this->type)) {
             $object->type = $this->type;
         }
         return $object;

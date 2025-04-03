@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,8 +11,6 @@ use UnexpectedValueException;
  */
 class EmptyValidator extends DataObject
 {
-    // Properties
-    // Methods
     /**
      * @return object
      */

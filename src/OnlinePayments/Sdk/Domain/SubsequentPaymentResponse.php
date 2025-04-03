@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class SubsequentPaymentResponse extends DataObject
 {
-    // Properties
     /**
      * @var PaymentResponse
      */
-    private $payment;
+    public $payment = null;
 
-    // Methods
     /**
      * @return PaymentResponse
      */
@@ -27,8 +23,9 @@ class SubsequentPaymentResponse extends DataObject
     {
         return $this->payment;
     }
+
     /**
-     * @var PaymentResponse
+     * @param PaymentResponse
      */
     public function setPayment($value)
     {
@@ -41,7 +38,7 @@ class SubsequentPaymentResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->payment !== null) {
+        if (!is_null($this->payment)) {
             $object->payment = $this->payment->toObject();
         }
         return $object;

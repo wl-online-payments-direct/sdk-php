@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class TestConnection extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $result;
+    public $result = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class TestConnection extends DataObject
     {
         return $this->result;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setResult($value)
     {
@@ -41,7 +38,7 @@ class TestConnection extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->result !== null) {
+        if (!is_null($this->result)) {
             $object->result = $this->result;
         }
         return $object;

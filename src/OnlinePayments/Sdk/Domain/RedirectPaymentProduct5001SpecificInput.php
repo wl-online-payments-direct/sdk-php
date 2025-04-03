@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RedirectPaymentProduct5001SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $subsequentType;
+    public $subsequentType = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     {
         return $this->subsequentType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setSubsequentType($value)
     {
@@ -41,7 +38,7 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->subsequentType !== null) {
+        if (!is_null($this->subsequentType)) {
             $object->subsequentType = $this->subsequentType;
         }
         return $object;

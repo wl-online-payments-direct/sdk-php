@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CurrencyConversionResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $dccSessionId;
+    public $dccSessionId = null;
 
     /**
      * @var DccProposal
      */
-    private $proposal;
+    public $proposal = null;
 
     /**
      * @var CurrencyConversionResult
      */
-    private $result;
+    public $result = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class CurrencyConversionResponse extends DataObject
     {
         return $this->dccSessionId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDccSessionId($value)
     {
@@ -52,8 +49,9 @@ class CurrencyConversionResponse extends DataObject
     {
         return $this->proposal;
     }
+
     /**
-     * @var DccProposal
+     * @param DccProposal
      */
     public function setProposal($value)
     {
@@ -67,8 +65,9 @@ class CurrencyConversionResponse extends DataObject
     {
         return $this->result;
     }
+
     /**
-     * @var CurrencyConversionResult
+     * @param CurrencyConversionResult
      */
     public function setResult($value)
     {
@@ -81,13 +80,13 @@ class CurrencyConversionResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->dccSessionId !== null) {
+        if (!is_null($this->dccSessionId)) {
             $object->dccSessionId = $this->dccSessionId;
         }
-        if ($this->proposal !== null) {
+        if (!is_null($this->proposal)) {
             $object->proposal = $this->proposal->toObject();
         }
-        if ($this->result !== null) {
+        if (!is_null($this->result)) {
             $object->result = $this->result->toObject();
         }
         return $object;

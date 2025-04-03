@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class RedirectPaymentProduct5408SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var CustomerBankAccount
      */
-    private $customerBankAccount;
+    public $customerBankAccount = null;
 
     /**
      * @var bool
      */
-    private $instantPaymentOnly;
+    public $instantPaymentOnly = null;
 
-    // Methods
     /**
      * @return CustomerBankAccount
      */
@@ -32,8 +28,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     {
         return $this->customerBankAccount;
     }
+
     /**
-     * @var CustomerBankAccount
+     * @param CustomerBankAccount
      */
     public function setCustomerBankAccount($value)
     {
@@ -47,8 +44,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     {
         return $this->instantPaymentOnly;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setInstantPaymentOnly($value)
     {
@@ -61,10 +59,10 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->customerBankAccount !== null) {
+        if (!is_null($this->customerBankAccount)) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
-        if ($this->instantPaymentOnly !== null) {
+        if (!is_null($this->instantPaymentOnly)) {
             $object->instantPaymentOnly = $this->instantPaymentOnly;
         }
         return $object;

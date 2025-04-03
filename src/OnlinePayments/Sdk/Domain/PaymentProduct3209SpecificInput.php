@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PaymentProduct3209SpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $merchantFinanceCode;
+    public $merchantFinanceCode = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class PaymentProduct3209SpecificInput extends DataObject
     {
         return $this->merchantFinanceCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantFinanceCode($value)
     {
@@ -41,7 +38,7 @@ class PaymentProduct3209SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->merchantFinanceCode !== null) {
+        if (!is_null($this->merchantFinanceCode)) {
             $object->merchantFinanceCode = $this->merchantFinanceCode;
         }
         return $object;

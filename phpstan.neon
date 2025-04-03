@@ -1,11 +1,25 @@
-includes:
-    - phpstan-baseline.neon
-
 parameters:
-    level: 5
-    phpVersion: 80100
-    paths:
-        - src
-        - lib
-        - tests
+  paths:
+    - src
+    - lib
+    - tests
+  level: 5
 
+  treatPhpDocTypesAsCertain: false
+
+  ignoreErrors:
+    - message: '#Method .* should return OnlinePayments\\Sdk\\V.*\\Domain\\.* but returns OnlinePayments\\Sdk\\Domain\\DataObject\|null\.#'
+      path: */OnlinePayments/Sdk/*
+    - message: '#Method .* should return OnlinePayments\\Sdk\\V.*\\Domain\\.* but returns OnlinePayments\\Sdk\\Domain\\DataObject\.#'
+      path: */OnlinePayments/Sdk/*
+    - message: '#Method .* should return null but returns OnlinePayments\\Sdk\\Domain\\DataObject\.#'
+      path: */OnlinePayments/Sdk/*
+    - message: '#Call to function is_null\(\) with .* will always evaluate to false\.#'
+      path: */OnlinePayments/Sdk/*
+
+    - message: '#Method .* should return .* but returns PHPUnit[\\_]Framework[\\_]MockObject[\\_]MockObject\.#'
+      path: tests/OnlinePayments/Sdk/*
+    - message: '#Parameter .* of class OnlinePayments\\Sdk\\.* constructor expects OnlinePayments\\Sdk\\.*, PHPUnit_Framework_MockObject_MockObject given.#'
+      path: tests/OnlinePayments/Sdk/*
+    - message: '#Parameter .* of method OnlinePayments\\Sdk\\.* expects OnlinePayments\\Sdk\\.*, PHPUnit_Framework_MockObject_MockObject given.#'
+      path: tests/OnlinePayments/Sdk/*

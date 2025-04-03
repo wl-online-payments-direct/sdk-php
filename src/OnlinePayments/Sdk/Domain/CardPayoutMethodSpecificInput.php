@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class CardPayoutMethodSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var Card
      */
-    private $card;
+    public $card = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
     /**
      * @var string
      */
-    private $payoutReason;
+    public $payoutReason = null;
 
     /**
      * @var string
      */
-    private $token;
+    public $token = null;
 
-    // Methods
     /**
      * @return Card
      */
@@ -42,8 +38,9 @@ class CardPayoutMethodSpecificInput extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var Card
+     * @param Card
      */
     public function setCard($value)
     {
@@ -57,8 +54,9 @@ class CardPayoutMethodSpecificInput extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -72,8 +70,9 @@ class CardPayoutMethodSpecificInput extends DataObject
     {
         return $this->payoutReason;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPayoutReason($value)
     {
@@ -87,8 +86,9 @@ class CardPayoutMethodSpecificInput extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setToken($value)
     {
@@ -101,16 +101,16 @@ class CardPayoutMethodSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if ($this->payoutReason !== null) {
+        if (!is_null($this->payoutReason)) {
             $object->payoutReason = $this->payoutReason;
         }
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token;
         }
         return $object;

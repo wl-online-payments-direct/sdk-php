@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class CaptureResponse extends DataObject
 {
-    // Properties
     /**
      * @var CaptureOutput
      */
-    private $captureOutput;
+    public $captureOutput = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var string
      */
-    private $status;
+    public $status = null;
 
     /**
      * @var CaptureStatusOutput
      */
-    private $statusOutput;
+    public $statusOutput = null;
 
-    // Methods
     /**
      * @return CaptureOutput
      */
@@ -42,8 +38,9 @@ class CaptureResponse extends DataObject
     {
         return $this->captureOutput;
     }
+
     /**
-     * @var CaptureOutput
+     * @param CaptureOutput
      */
     public function setCaptureOutput($value)
     {
@@ -57,8 +54,9 @@ class CaptureResponse extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -72,8 +70,9 @@ class CaptureResponse extends DataObject
     {
         return $this->status;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatus($value)
     {
@@ -87,8 +86,9 @@ class CaptureResponse extends DataObject
     {
         return $this->statusOutput;
     }
+
     /**
-     * @var CaptureStatusOutput
+     * @param CaptureStatusOutput
      */
     public function setStatusOutput($value)
     {
@@ -101,16 +101,16 @@ class CaptureResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->captureOutput !== null) {
+        if (!is_null($this->captureOutput)) {
             $object->captureOutput = $this->captureOutput->toObject();
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->status !== null) {
+        if (!is_null($this->status)) {
             $object->status = $this->status;
         }
-        if ($this->statusOutput !== null) {
+        if (!is_null($this->statusOutput)) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;

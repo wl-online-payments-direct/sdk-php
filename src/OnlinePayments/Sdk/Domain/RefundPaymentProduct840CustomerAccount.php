@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class RefundPaymentProduct840CustomerAccount extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $customerAccountStatus;
+    public $customerAccountStatus = null;
 
     /**
      * @var string
      */
-    private $customerAddressStatus;
+    public $customerAddressStatus = null;
 
     /**
      * @var string
      */
-    private $payerId;
+    public $payerId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
     {
         return $this->customerAccountStatus;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCustomerAccountStatus($value)
     {
@@ -52,8 +49,9 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
     {
         return $this->customerAddressStatus;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCustomerAddressStatus($value)
     {
@@ -67,8 +65,9 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
     {
         return $this->payerId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPayerId($value)
     {
@@ -81,13 +80,13 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->customerAccountStatus !== null) {
+        if (!is_null($this->customerAccountStatus)) {
             $object->customerAccountStatus = $this->customerAccountStatus;
         }
-        if ($this->customerAddressStatus !== null) {
+        if (!is_null($this->customerAddressStatus)) {
             $object->customerAddressStatus = $this->customerAddressStatus;
         }
-        if ($this->payerId !== null) {
+        if (!is_null($this->payerId)) {
             $object->payerId = $this->payerId;
         }
         return $object;

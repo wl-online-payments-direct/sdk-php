@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class DecryptedPaymentData extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $cardholderName;
+    public $cardholderName = null;
 
     /**
      * @var string
      */
-    private $cryptogram;
+    public $cryptogram = null;
 
     /**
      * @var string
      */
-    private $dpan;
+    public $dpan = null;
 
     /**
      * @var int
      */
-    private $eci;
+    public $eci = null;
 
     /**
      * @var string
      */
-    private $expiryDate;
+    public $expiryDate = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -47,8 +43,9 @@ class DecryptedPaymentData extends DataObject
     {
         return $this->cardholderName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardholderName($value)
     {
@@ -62,8 +59,9 @@ class DecryptedPaymentData extends DataObject
     {
         return $this->cryptogram;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCryptogram($value)
     {
@@ -77,8 +75,9 @@ class DecryptedPaymentData extends DataObject
     {
         return $this->dpan;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDpan($value)
     {
@@ -92,8 +91,9 @@ class DecryptedPaymentData extends DataObject
     {
         return $this->eci;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setEci($value)
     {
@@ -107,8 +107,9 @@ class DecryptedPaymentData extends DataObject
     {
         return $this->expiryDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExpiryDate($value)
     {
@@ -121,19 +122,19 @@ class DecryptedPaymentData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardholderName !== null) {
+        if (!is_null($this->cardholderName)) {
             $object->cardholderName = $this->cardholderName;
         }
-        if ($this->cryptogram !== null) {
+        if (!is_null($this->cryptogram)) {
             $object->cryptogram = $this->cryptogram;
         }
-        if ($this->dpan !== null) {
+        if (!is_null($this->dpan)) {
             $object->dpan = $this->dpan;
         }
-        if ($this->eci !== null) {
+        if (!is_null($this->eci)) {
             $object->eci = $this->eci;
         }
-        if ($this->expiryDate !== null) {
+        if (!is_null($this->expiryDate)) {
             $object->expiryDate = $this->expiryDate;
         }
         return $object;

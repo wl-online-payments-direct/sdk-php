@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CustomerBankAccount extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $accountHolderName;
+    public $accountHolderName = null;
 
     /**
      * @var string
      */
-    private $bic;
+    public $bic = null;
 
     /**
      * @var string
      */
-    private $iban;
+    public $iban = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class CustomerBankAccount extends DataObject
     {
         return $this->accountHolderName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAccountHolderName($value)
     {
@@ -52,8 +49,9 @@ class CustomerBankAccount extends DataObject
     {
         return $this->bic;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setBic($value)
     {
@@ -67,8 +65,9 @@ class CustomerBankAccount extends DataObject
     {
         return $this->iban;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setIban($value)
     {
@@ -81,13 +80,13 @@ class CustomerBankAccount extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->accountHolderName !== null) {
+        if (!is_null($this->accountHolderName)) {
             $object->accountHolderName = $this->accountHolderName;
         }
-        if ($this->bic !== null) {
+        if (!is_null($this->bic)) {
             $object->bic = $this->bic;
         }
-        if ($this->iban !== null) {
+        if (!is_null($this->iban)) {
             $object->iban = $this->iban;
         }
         return $object;

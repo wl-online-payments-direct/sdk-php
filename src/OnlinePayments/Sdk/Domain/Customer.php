@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,58 +11,56 @@ use UnexpectedValueException;
  */
 class Customer extends DataObject
 {
-    // Properties
     /**
      * @var CustomerAccount
      */
-    private $account;
+    public $account = null;
 
     /**
      * @var string
      */
-    private $accountType;
+    public $accountType = null;
 
     /**
      * @var Address
      */
-    private $billingAddress;
+    public $billingAddress = null;
 
     /**
      * @var CompanyInformation
      */
-    private $companyInformation;
+    public $companyInformation = null;
 
     /**
      * @var ContactDetails
      */
-    private $contactDetails;
+    public $contactDetails = null;
 
     /**
      * @var CustomerDevice
      */
-    private $device;
+    public $device = null;
 
     /**
      * @var string
      */
-    private $fiscalNumber;
+    public $fiscalNumber = null;
 
     /**
      * @var string
      */
-    private $locale;
+    public $locale = null;
 
     /**
      * @var string
      */
-    private $merchantCustomerId;
+    public $merchantCustomerId = null;
 
     /**
      * @var PersonalInformation
      */
-    private $personalInformation;
+    public $personalInformation = null;
 
-    // Methods
     /**
      * @return CustomerAccount
      */
@@ -72,8 +68,9 @@ class Customer extends DataObject
     {
         return $this->account;
     }
+
     /**
-     * @var CustomerAccount
+     * @param CustomerAccount
      */
     public function setAccount($value)
     {
@@ -87,8 +84,9 @@ class Customer extends DataObject
     {
         return $this->accountType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAccountType($value)
     {
@@ -102,8 +100,9 @@ class Customer extends DataObject
     {
         return $this->billingAddress;
     }
+
     /**
-     * @var Address
+     * @param Address
      */
     public function setBillingAddress($value)
     {
@@ -117,8 +116,9 @@ class Customer extends DataObject
     {
         return $this->companyInformation;
     }
+
     /**
-     * @var CompanyInformation
+     * @param CompanyInformation
      */
     public function setCompanyInformation($value)
     {
@@ -132,8 +132,9 @@ class Customer extends DataObject
     {
         return $this->contactDetails;
     }
+
     /**
-     * @var ContactDetails
+     * @param ContactDetails
      */
     public function setContactDetails($value)
     {
@@ -147,8 +148,9 @@ class Customer extends DataObject
     {
         return $this->device;
     }
+
     /**
-     * @var CustomerDevice
+     * @param CustomerDevice
      */
     public function setDevice($value)
     {
@@ -162,8 +164,9 @@ class Customer extends DataObject
     {
         return $this->fiscalNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setFiscalNumber($value)
     {
@@ -177,8 +180,9 @@ class Customer extends DataObject
     {
         return $this->locale;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLocale($value)
     {
@@ -192,8 +196,9 @@ class Customer extends DataObject
     {
         return $this->merchantCustomerId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantCustomerId($value)
     {
@@ -207,8 +212,9 @@ class Customer extends DataObject
     {
         return $this->personalInformation;
     }
+
     /**
-     * @var PersonalInformation
+     * @param PersonalInformation
      */
     public function setPersonalInformation($value)
     {
@@ -221,34 +227,34 @@ class Customer extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->account !== null) {
+        if (!is_null($this->account)) {
             $object->account = $this->account->toObject();
         }
-        if ($this->accountType !== null) {
+        if (!is_null($this->accountType)) {
             $object->accountType = $this->accountType;
         }
-        if ($this->billingAddress !== null) {
+        if (!is_null($this->billingAddress)) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if ($this->companyInformation !== null) {
+        if (!is_null($this->companyInformation)) {
             $object->companyInformation = $this->companyInformation->toObject();
         }
-        if ($this->contactDetails !== null) {
+        if (!is_null($this->contactDetails)) {
             $object->contactDetails = $this->contactDetails->toObject();
         }
-        if ($this->device !== null) {
+        if (!is_null($this->device)) {
             $object->device = $this->device->toObject();
         }
-        if ($this->fiscalNumber !== null) {
+        if (!is_null($this->fiscalNumber)) {
             $object->fiscalNumber = $this->fiscalNumber;
         }
-        if ($this->locale !== null) {
+        if (!is_null($this->locale)) {
             $object->locale = $this->locale;
         }
-        if ($this->merchantCustomerId !== null) {
+        if (!is_null($this->merchantCustomerId)) {
             $object->merchantCustomerId = $this->merchantCustomerId;
         }
-        if ($this->personalInformation !== null) {
+        if (!is_null($this->personalInformation)) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;

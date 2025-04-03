@@ -3,9 +3,13 @@
 namespace OnlinePayments\Sdk;
 
 use Exception;
+use OnlinePayments\Sdk\Communication\RequestObject;
+use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\DataObject;
+use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 
 /**
- * Class Communicator
+ * Interface CommunicatorInterface
  *
  * @package OnlinePayments\Sdk
  */
@@ -66,20 +70,4 @@ interface CommunicatorInterface
      * @throws Exception
      */
     public function put(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', $requestBodyObject = null, RequestObject $requestParameters = null, CallContext $callContext = null);
-
-    /**
-     * @return Connection
-     */
-    public function getConnection();
-
-    /**
-     * @param Connection $connection
-     */
-    public function setConnection(Connection $connection);
-
-    /**
-     * @param CommunicatorConfiguration $communicatorConfiguration
-     * @return CommunicatorInterface
-     */
-    public function setCommunicatorConfiguration(CommunicatorConfiguration $communicatorConfiguration);
 }

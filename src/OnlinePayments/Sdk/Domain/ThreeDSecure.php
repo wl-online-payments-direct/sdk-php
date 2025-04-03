@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,63 +11,66 @@ use UnexpectedValueException;
  */
 class ThreeDSecure extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $authenticationAmount;
+    public $authenticationAmount = null;
 
     /**
      * @var string
      */
-    private $challengeCanvasSize;
+    public $challengeCanvasSize = null;
 
     /**
      * @var string
      */
-    private $challengeIndicator;
+    public $challengeIndicator = null;
 
     /**
      * @var string
      */
-    private $exemptionRequest;
+    public $deviceChannel = null;
+
+    /**
+     * @var string
+     */
+    public $exemptionRequest = null;
 
     /**
      * @var ExternalCardholderAuthenticationData
      */
-    private $externalCardholderAuthenticationData;
+    public $externalCardholderAuthenticationData = null;
 
     /**
      * @var int
      */
-    private $merchantFraudRate;
+    public $merchantFraudRate = null;
 
     /**
      * @var ThreeDSecureData
      */
-    private $priorThreeDSecureData;
+    public $priorThreeDSecureData = null;
 
     /**
      * @var RedirectionData
      */
-    private $redirectionData;
+    public $redirectionData = null;
 
     /**
      * @var bool
      */
-    private $secureCorporatePayment;
+    public $secureCorporatePayment = null;
 
     /**
      * @var bool
      */
-    private $skipAuthentication;
+    public $skipAuthentication = null;
 
     /**
      * @var bool
      */
-    private $skipSoftDecline;
+    public $skipSoftDecline = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -77,8 +78,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->authenticationAmount;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setAuthenticationAmount($value)
     {
@@ -92,8 +94,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->challengeCanvasSize;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setChallengeCanvasSize($value)
     {
@@ -107,8 +110,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->challengeIndicator;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setChallengeIndicator($value)
     {
@@ -118,12 +122,29 @@ class ThreeDSecure extends DataObject
     /**
      * @return string
      */
+    public function getDeviceChannel()
+    {
+        return $this->deviceChannel;
+    }
+
+    /**
+     * @param string
+     */
+    public function setDeviceChannel($value)
+    {
+        $this->deviceChannel = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getExemptionRequest()
     {
         return $this->exemptionRequest;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExemptionRequest($value)
     {
@@ -137,8 +158,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->externalCardholderAuthenticationData;
     }
+
     /**
-     * @var ExternalCardholderAuthenticationData
+     * @param ExternalCardholderAuthenticationData
      */
     public function setExternalCardholderAuthenticationData($value)
     {
@@ -152,8 +174,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->merchantFraudRate;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setMerchantFraudRate($value)
     {
@@ -167,8 +190,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->priorThreeDSecureData;
     }
+
     /**
-     * @var ThreeDSecureData
+     * @param ThreeDSecureData
      */
     public function setPriorThreeDSecureData($value)
     {
@@ -182,8 +206,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->redirectionData;
     }
+
     /**
-     * @var RedirectionData
+     * @param RedirectionData
      */
     public function setRedirectionData($value)
     {
@@ -197,8 +222,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->secureCorporatePayment;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setSecureCorporatePayment($value)
     {
@@ -212,8 +238,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->skipAuthentication;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setSkipAuthentication($value)
     {
@@ -227,8 +254,9 @@ class ThreeDSecure extends DataObject
     {
         return $this->skipSoftDecline;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setSkipSoftDecline($value)
     {
@@ -241,37 +269,40 @@ class ThreeDSecure extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->authenticationAmount !== null) {
+        if (!is_null($this->authenticationAmount)) {
             $object->authenticationAmount = $this->authenticationAmount;
         }
-        if ($this->challengeCanvasSize !== null) {
+        if (!is_null($this->challengeCanvasSize)) {
             $object->challengeCanvasSize = $this->challengeCanvasSize;
         }
-        if ($this->challengeIndicator !== null) {
+        if (!is_null($this->challengeIndicator)) {
             $object->challengeIndicator = $this->challengeIndicator;
         }
-        if ($this->exemptionRequest !== null) {
+        if (!is_null($this->deviceChannel)) {
+            $object->deviceChannel = $this->deviceChannel;
+        }
+        if (!is_null($this->exemptionRequest)) {
             $object->exemptionRequest = $this->exemptionRequest;
         }
-        if ($this->externalCardholderAuthenticationData !== null) {
+        if (!is_null($this->externalCardholderAuthenticationData)) {
             $object->externalCardholderAuthenticationData = $this->externalCardholderAuthenticationData->toObject();
         }
-        if ($this->merchantFraudRate !== null) {
+        if (!is_null($this->merchantFraudRate)) {
             $object->merchantFraudRate = $this->merchantFraudRate;
         }
-        if ($this->priorThreeDSecureData !== null) {
+        if (!is_null($this->priorThreeDSecureData)) {
             $object->priorThreeDSecureData = $this->priorThreeDSecureData->toObject();
         }
-        if ($this->redirectionData !== null) {
+        if (!is_null($this->redirectionData)) {
             $object->redirectionData = $this->redirectionData->toObject();
         }
-        if ($this->secureCorporatePayment !== null) {
+        if (!is_null($this->secureCorporatePayment)) {
             $object->secureCorporatePayment = $this->secureCorporatePayment;
         }
-        if ($this->skipAuthentication !== null) {
+        if (!is_null($this->skipAuthentication)) {
             $object->skipAuthentication = $this->skipAuthentication;
         }
-        if ($this->skipSoftDecline !== null) {
+        if (!is_null($this->skipSoftDecline)) {
             $object->skipSoftDecline = $this->skipSoftDecline;
         }
         return $object;
@@ -293,6 +324,9 @@ class ThreeDSecure extends DataObject
         }
         if (property_exists($object, 'challengeIndicator')) {
             $this->challengeIndicator = $object->challengeIndicator;
+        }
+        if (property_exists($object, 'deviceChannel')) {
+            $this->deviceChannel = $object->deviceChannel;
         }
         if (property_exists($object, 'exemptionRequest')) {
             $this->exemptionRequest = $object->exemptionRequest;

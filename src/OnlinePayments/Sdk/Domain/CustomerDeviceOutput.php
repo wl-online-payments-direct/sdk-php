@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class CustomerDeviceOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $ipAddressCountryCode;
+    public $ipAddressCountryCode = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class CustomerDeviceOutput extends DataObject
     {
         return $this->ipAddressCountryCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setIpAddressCountryCode($value)
     {
@@ -41,7 +38,7 @@ class CustomerDeviceOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->ipAddressCountryCode !== null) {
+        if (!is_null($this->ipAddressCountryCode)) {
             $object->ipAddressCountryCode = $this->ipAddressCountryCode;
         }
         return $object;

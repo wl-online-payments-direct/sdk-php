@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class LengthValidator extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $maxLength;
+    public $maxLength = null;
 
     /**
      * @var int
      */
-    private $minLength;
+    public $minLength = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -32,8 +28,9 @@ class LengthValidator extends DataObject
     {
         return $this->maxLength;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setMaxLength($value)
     {
@@ -47,8 +44,9 @@ class LengthValidator extends DataObject
     {
         return $this->minLength;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setMinLength($value)
     {
@@ -61,10 +59,10 @@ class LengthValidator extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->maxLength !== null) {
+        if (!is_null($this->maxLength)) {
             $object->maxLength = $this->maxLength;
         }
-        if ($this->minLength !== null) {
+        if (!is_null($this->minLength)) {
             $object->minLength = $this->minLength;
         }
         return $object;

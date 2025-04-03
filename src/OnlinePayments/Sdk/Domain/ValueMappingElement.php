@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class ValueMappingElement extends DataObject
 {
-    // Properties
     /**
      * @var PaymentProductFieldDisplayElement[]
      */
-    private $displayElements;
+    public $displayElements = null;
 
     /**
      * @var string
      */
-    private $value;
+    public $value = null;
 
-    // Methods
     /**
      * @return PaymentProductFieldDisplayElement[]
      */
@@ -32,8 +28,9 @@ class ValueMappingElement extends DataObject
     {
         return $this->displayElements;
     }
+
     /**
-     * @var PaymentProductFieldDisplayElement[]
+     * @param PaymentProductFieldDisplayElement[]
      */
     public function setDisplayElements($value)
     {
@@ -47,8 +44,9 @@ class ValueMappingElement extends DataObject
     {
         return $this->value;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setValue($value)
     {
@@ -61,15 +59,15 @@ class ValueMappingElement extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->displayElements !== null) {
+        if (!is_null($this->displayElements)) {
             $object->displayElements = [];
             foreach ($this->displayElements as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->displayElements[] = $element->toObject();
                 }
             }
         }
-        if ($this->value !== null) {
+        if (!is_null($this->value)) {
             $object->value = $this->value;
         }
         return $object;

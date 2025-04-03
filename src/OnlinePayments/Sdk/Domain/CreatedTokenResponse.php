@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class CreatedTokenResponse extends DataObject
 {
-    // Properties
     /**
      * @var CardWithoutCvv
      */
-    private $card;
+    public $card = null;
 
     /**
      * @var ExternalTokenLinked
      */
-    private $externalTokenLinked;
+    public $externalTokenLinked = null;
 
     /**
      * @var bool
      */
-    private $isNewToken;
+    public $isNewToken = null;
 
     /**
      * @var string
      */
-    private $token;
+    public $token = null;
 
     /**
      * @var string
      */
-    private $tokenStatus;
+    public $tokenStatus = null;
 
-    // Methods
     /**
      * @return CardWithoutCvv
      */
@@ -47,8 +43,9 @@ class CreatedTokenResponse extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var CardWithoutCvv
+     * @param CardWithoutCvv
      */
     public function setCard($value)
     {
@@ -62,8 +59,9 @@ class CreatedTokenResponse extends DataObject
     {
         return $this->externalTokenLinked;
     }
+
     /**
-     * @var ExternalTokenLinked
+     * @param ExternalTokenLinked
      */
     public function setExternalTokenLinked($value)
     {
@@ -77,8 +75,9 @@ class CreatedTokenResponse extends DataObject
     {
         return $this->isNewToken;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsNewToken($value)
     {
@@ -92,8 +91,9 @@ class CreatedTokenResponse extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setToken($value)
     {
@@ -107,8 +107,9 @@ class CreatedTokenResponse extends DataObject
     {
         return $this->tokenStatus;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTokenStatus($value)
     {
@@ -121,19 +122,19 @@ class CreatedTokenResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
-        if ($this->externalTokenLinked !== null) {
+        if (!is_null($this->externalTokenLinked)) {
             $object->externalTokenLinked = $this->externalTokenLinked->toObject();
         }
-        if ($this->isNewToken !== null) {
+        if (!is_null($this->isNewToken)) {
             $object->isNewToken = $this->isNewToken;
         }
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token;
         }
-        if ($this->tokenStatus !== null) {
+        if (!is_null($this->tokenStatus)) {
             $object->tokenStatus = $this->tokenStatus;
         }
         return $object;

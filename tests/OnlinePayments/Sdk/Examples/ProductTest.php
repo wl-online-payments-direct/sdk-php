@@ -10,7 +10,7 @@ use OnlinePayments\Sdk\Domain\PaymentProduct;
 use OnlinePayments\Sdk\Domain\ProductDirectory;
 use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductParams;
 use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductsParams;
-use OnlinePayments\Sdk\Merchant\Products\GetProductDirectoryParams;
+use OnlinePayments\Sdk\Merchant\Products\GetProductDirectoryApiParams;
 
 /**
  * @group examples
@@ -93,11 +93,13 @@ class ProductTest extends ClientTestCase
      */
     public function testRetrievePaymentProductDirectory()
     {
+        $this->markTestSkipped('Directory might not be found');
+
         $this->expectNotToPerformAssertions();
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
-        $getParams = new GetProductDirectoryParams();
+        $getParams = new GetProductDirectoryApiParams();
 
         $getParams->setCurrencyCode("EUR");
         $getParams->setCountryCode("NL");

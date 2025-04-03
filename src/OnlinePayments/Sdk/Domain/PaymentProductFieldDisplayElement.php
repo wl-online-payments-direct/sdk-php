@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentProductFieldDisplayElement extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var string
      */
-    private $label;
+    public $label = null;
 
     /**
      * @var string
      */
-    private $type;
+    public $type = null;
 
     /**
      * @var string
      */
-    private $value;
+    public $value = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -42,8 +38,9 @@ class PaymentProductFieldDisplayElement extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -57,8 +54,9 @@ class PaymentProductFieldDisplayElement extends DataObject
     {
         return $this->label;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLabel($value)
     {
@@ -72,8 +70,9 @@ class PaymentProductFieldDisplayElement extends DataObject
     {
         return $this->type;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setType($value)
     {
@@ -87,8 +86,9 @@ class PaymentProductFieldDisplayElement extends DataObject
     {
         return $this->value;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setValue($value)
     {
@@ -101,16 +101,16 @@ class PaymentProductFieldDisplayElement extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->label !== null) {
+        if (!is_null($this->label)) {
             $object->label = $this->label;
         }
-        if ($this->type !== null) {
+        if (!is_null($this->type)) {
             $object->type = $this->type;
         }
-        if ($this->value !== null) {
+        if (!is_null($this->value)) {
             $object->value = $this->value;
         }
         return $object;

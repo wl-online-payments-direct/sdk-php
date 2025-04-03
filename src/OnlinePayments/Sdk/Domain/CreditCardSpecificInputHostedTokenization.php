@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CreditCardSpecificInputHostedTokenization extends DataObject
 {
-    // Properties
     /**
      * @var CreditCardValidationRulesHostedTokenization
      */
-    private $ValidationRules;
+    public $ValidationRules = null;
 
     /**
      * @var int[]
      */
-    private $paymentProductPreferredOrder;
+    public $paymentProductPreferredOrder = null;
 
-    // Methods
     /**
      * @return CreditCardValidationRulesHostedTokenization
      */
@@ -32,8 +28,9 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     {
         return $this->ValidationRules;
     }
+
     /**
-     * @var CreditCardValidationRulesHostedTokenization
+     * @param CreditCardValidationRulesHostedTokenization
      */
     public function setValidationRules($value)
     {
@@ -47,8 +44,9 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     {
         return $this->paymentProductPreferredOrder;
     }
+
     /**
-     * @var int[]
+     * @param int[]
      */
     public function setPaymentProductPreferredOrder($value)
     {
@@ -61,13 +59,13 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->ValidationRules !== null) {
+        if (!is_null($this->ValidationRules)) {
             $object->ValidationRules = $this->ValidationRules->toObject();
         }
-        if ($this->paymentProductPreferredOrder !== null) {
+        if (!is_null($this->paymentProductPreferredOrder)) {
             $object->paymentProductPreferredOrder = [];
             foreach ($this->paymentProductPreferredOrder as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->paymentProductPreferredOrder[] = $element;
                 }
             }

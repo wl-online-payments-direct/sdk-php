@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,48 +11,51 @@ use UnexpectedValueException;
  */
 class OrderLineDetails extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $discountAmount;
+    public $discountAmount = null;
 
     /**
      * @var string
      */
-    private $productCode;
+    public $productBrand = null;
 
     /**
      * @var string
      */
-    private $productName;
-
-    /**
-     * @var int
-     */
-    private $productPrice;
+    public $productCode = null;
 
     /**
      * @var string
      */
-    private $productType;
+    public $productName = null;
 
     /**
      * @var int
      */
-    private $quantity;
-
-    /**
-     * @var int
-     */
-    private $taxAmount;
+    public $productPrice = null;
 
     /**
      * @var string
      */
-    private $unit;
+    public $productType = null;
 
-    // Methods
+    /**
+     * @var int
+     */
+    public $quantity = null;
+
+    /**
+     * @var int
+     */
+    public $taxAmount = null;
+
+    /**
+     * @var string
+     */
+    public $unit = null;
+
     /**
      * @return int
      */
@@ -62,8 +63,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->discountAmount;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setDiscountAmount($value)
     {
@@ -73,12 +75,29 @@ class OrderLineDetails extends DataObject
     /**
      * @return string
      */
+    public function getProductBrand()
+    {
+        return $this->productBrand;
+    }
+
+    /**
+     * @param string
+     */
+    public function setProductBrand($value)
+    {
+        $this->productBrand = $value;
+    }
+
+    /**
+     * @return string
+     */
     public function getProductCode()
     {
         return $this->productCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setProductCode($value)
     {
@@ -92,8 +111,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->productName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setProductName($value)
     {
@@ -107,8 +127,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->productPrice;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setProductPrice($value)
     {
@@ -122,8 +143,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->productType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setProductType($value)
     {
@@ -137,8 +159,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->quantity;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setQuantity($value)
     {
@@ -152,8 +175,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->taxAmount;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTaxAmount($value)
     {
@@ -167,8 +191,9 @@ class OrderLineDetails extends DataObject
     {
         return $this->unit;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setUnit($value)
     {
@@ -181,28 +206,31 @@ class OrderLineDetails extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->discountAmount !== null) {
+        if (!is_null($this->discountAmount)) {
             $object->discountAmount = $this->discountAmount;
         }
-        if ($this->productCode !== null) {
+        if (!is_null($this->productBrand)) {
+            $object->productBrand = $this->productBrand;
+        }
+        if (!is_null($this->productCode)) {
             $object->productCode = $this->productCode;
         }
-        if ($this->productName !== null) {
+        if (!is_null($this->productName)) {
             $object->productName = $this->productName;
         }
-        if ($this->productPrice !== null) {
+        if (!is_null($this->productPrice)) {
             $object->productPrice = $this->productPrice;
         }
-        if ($this->productType !== null) {
+        if (!is_null($this->productType)) {
             $object->productType = $this->productType;
         }
-        if ($this->quantity !== null) {
+        if (!is_null($this->quantity)) {
             $object->quantity = $this->quantity;
         }
-        if ($this->taxAmount !== null) {
+        if (!is_null($this->taxAmount)) {
             $object->taxAmount = $this->taxAmount;
         }
-        if ($this->unit !== null) {
+        if (!is_null($this->unit)) {
             $object->unit = $this->unit;
         }
         return $object;
@@ -218,6 +246,9 @@ class OrderLineDetails extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'discountAmount')) {
             $this->discountAmount = $object->discountAmount;
+        }
+        if (property_exists($object, 'productBrand')) {
+            $this->productBrand = $object->productBrand;
         }
         if (property_exists($object, 'productCode')) {
             $this->productCode = $object->productCode;

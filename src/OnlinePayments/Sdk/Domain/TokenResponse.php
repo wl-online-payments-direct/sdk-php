@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,38 +11,36 @@ use UnexpectedValueException;
  */
 class TokenResponse extends DataObject
 {
-    // Properties
     /**
      * @var TokenCard
      */
-    private $card;
+    public $card = null;
 
     /**
      * @var TokenEWallet
      */
-    private $eWallet;
+    public $eWallet = null;
 
     /**
      * @var ExternalTokenLinked
      */
-    private $externalTokenLinked;
+    public $externalTokenLinked = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var bool
      */
-    private $isTemporary;
+    public $isTemporary = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return TokenCard
      */
@@ -52,8 +48,9 @@ class TokenResponse extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var TokenCard
+     * @param TokenCard
      */
     public function setCard($value)
     {
@@ -67,8 +64,9 @@ class TokenResponse extends DataObject
     {
         return $this->eWallet;
     }
+
     /**
-     * @var TokenEWallet
+     * @param TokenEWallet
      */
     public function setEWallet($value)
     {
@@ -82,8 +80,9 @@ class TokenResponse extends DataObject
     {
         return $this->externalTokenLinked;
     }
+
     /**
-     * @var ExternalTokenLinked
+     * @param ExternalTokenLinked
      */
     public function setExternalTokenLinked($value)
     {
@@ -97,8 +96,9 @@ class TokenResponse extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -112,8 +112,9 @@ class TokenResponse extends DataObject
     {
         return $this->isTemporary;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsTemporary($value)
     {
@@ -127,8 +128,9 @@ class TokenResponse extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -141,22 +143,22 @@ class TokenResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
-        if ($this->eWallet !== null) {
+        if (!is_null($this->eWallet)) {
             $object->eWallet = $this->eWallet->toObject();
         }
-        if ($this->externalTokenLinked !== null) {
+        if (!is_null($this->externalTokenLinked)) {
             $object->externalTokenLinked = $this->externalTokenLinked->toObject();
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->isTemporary !== null) {
+        if (!is_null($this->isTemporary)) {
             $object->isTemporary = $this->isTemporary;
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

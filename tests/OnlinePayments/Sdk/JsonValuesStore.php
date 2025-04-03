@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk;
 
 use Exception;
@@ -13,12 +12,12 @@ class JsonValuesStore
     /**
      * @var null|string
      */
-    protected $valuesFilePath = null;
+    private $valuesFilePath;
 
     /**
      * @var null|StdClass
      */
-    protected $valuesObject = null;
+    private $valuesObject = null;
 
     /**
      * @param $valuesFilePath

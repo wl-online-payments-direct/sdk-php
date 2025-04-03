@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class AccountOnFileDisplayHints extends DataObject
 {
-    // Properties
     /**
      * @var LabelTemplateElement[]
      */
-    private $labelTemplate;
+    public $labelTemplate = null;
 
     /**
      * @var string
      */
-    private $logo;
+    public $logo = null;
 
-    // Methods
     /**
      * @return LabelTemplateElement[]
      */
@@ -32,8 +28,9 @@ class AccountOnFileDisplayHints extends DataObject
     {
         return $this->labelTemplate;
     }
+
     /**
-     * @var LabelTemplateElement[]
+     * @param LabelTemplateElement[]
      */
     public function setLabelTemplate($value)
     {
@@ -47,8 +44,9 @@ class AccountOnFileDisplayHints extends DataObject
     {
         return $this->logo;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLogo($value)
     {
@@ -61,15 +59,15 @@ class AccountOnFileDisplayHints extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->labelTemplate !== null) {
+        if (!is_null($this->labelTemplate)) {
             $object->labelTemplate = [];
             foreach ($this->labelTemplate as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->labelTemplate[] = $element->toObject();
                 }
             }
         }
-        if ($this->logo !== null) {
+        if (!is_null($this->logo)) {
             $object->logo = $this->logo;
         }
         return $object;

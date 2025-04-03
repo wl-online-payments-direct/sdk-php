@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class RefundRedirectMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $totalAmountPaid;
+    public $totalAmountPaid = null;
 
     /**
      * @var int
      */
-    private $totalAmountRefunded;
+    public $totalAmountRefunded = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -32,8 +28,9 @@ class RefundRedirectMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountPaid;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountPaid($value)
     {
@@ -47,8 +44,9 @@ class RefundRedirectMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountRefunded;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountRefunded($value)
     {
@@ -61,10 +59,10 @@ class RefundRedirectMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->totalAmountPaid !== null) {
+        if (!is_null($this->totalAmountPaid)) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if ($this->totalAmountRefunded !== null) {
+        if (!is_null($this->totalAmountRefunded)) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;

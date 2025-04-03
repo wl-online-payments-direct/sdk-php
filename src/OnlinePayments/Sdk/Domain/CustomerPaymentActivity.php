@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CustomerPaymentActivity extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $numberOfPaymentAttemptsLast24Hours;
+    public $numberOfPaymentAttemptsLast24Hours = null;
 
     /**
      * @var int
      */
-    private $numberOfPaymentAttemptsLastYear;
+    public $numberOfPaymentAttemptsLastYear = null;
 
     /**
      * @var int
      */
-    private $numberOfPurchasesLast6Months;
+    public $numberOfPurchasesLast6Months = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -37,8 +33,9 @@ class CustomerPaymentActivity extends DataObject
     {
         return $this->numberOfPaymentAttemptsLast24Hours;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfPaymentAttemptsLast24Hours($value)
     {
@@ -52,8 +49,9 @@ class CustomerPaymentActivity extends DataObject
     {
         return $this->numberOfPaymentAttemptsLastYear;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfPaymentAttemptsLastYear($value)
     {
@@ -67,8 +65,9 @@ class CustomerPaymentActivity extends DataObject
     {
         return $this->numberOfPurchasesLast6Months;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfPurchasesLast6Months($value)
     {
@@ -81,13 +80,13 @@ class CustomerPaymentActivity extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->numberOfPaymentAttemptsLast24Hours !== null) {
+        if (!is_null($this->numberOfPaymentAttemptsLast24Hours)) {
             $object->numberOfPaymentAttemptsLast24Hours = $this->numberOfPaymentAttemptsLast24Hours;
         }
-        if ($this->numberOfPaymentAttemptsLastYear !== null) {
+        if (!is_null($this->numberOfPaymentAttemptsLastYear)) {
             $object->numberOfPaymentAttemptsLastYear = $this->numberOfPaymentAttemptsLastYear;
         }
-        if ($this->numberOfPurchasesLast6Months !== null) {
+        if (!is_null($this->numberOfPurchasesLast6Months)) {
             $object->numberOfPurchasesLast6Months = $this->numberOfPurchasesLast6Months;
         }
         return $object;

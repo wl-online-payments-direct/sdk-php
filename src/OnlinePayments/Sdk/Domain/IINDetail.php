@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class IINDetail extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $cardType;
+    public $cardType = null;
 
     /**
      * @var bool
      */
-    private $isAllowedInContext;
+    public $isAllowedInContext = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class IINDetail extends DataObject
     {
         return $this->cardType;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardType($value)
     {
@@ -52,8 +49,9 @@ class IINDetail extends DataObject
     {
         return $this->isAllowedInContext;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsAllowedInContext($value)
     {
@@ -67,8 +65,9 @@ class IINDetail extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -81,13 +80,13 @@ class IINDetail extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardType !== null) {
+        if (!is_null($this->cardType)) {
             $object->cardType = $this->cardType;
         }
-        if ($this->isAllowedInContext !== null) {
+        if (!is_null($this->isAllowedInContext)) {
             $object->isAllowedInContext = $this->isAllowedInContext;
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

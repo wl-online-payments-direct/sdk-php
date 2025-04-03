@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,16 @@ use UnexpectedValueException;
  */
 class TokenCardData extends DataObject
 {
-    // Properties
     /**
      * @var CardWithoutCvv
      */
-    private $cardWithoutCvv;
+    public $cardWithoutCvv = null;
 
-    // Methods
+    /**
+     * @var string
+     */
+    public $cobrandSelectionIndicator = null;
+
     /**
      * @return CardWithoutCvv
      */
@@ -27,12 +28,29 @@ class TokenCardData extends DataObject
     {
         return $this->cardWithoutCvv;
     }
+
     /**
-     * @var CardWithoutCvv
+     * @param CardWithoutCvv
      */
     public function setCardWithoutCvv($value)
     {
         $this->cardWithoutCvv = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCobrandSelectionIndicator()
+    {
+        return $this->cobrandSelectionIndicator;
+    }
+
+    /**
+     * @param string
+     */
+    public function setCobrandSelectionIndicator($value)
+    {
+        $this->cobrandSelectionIndicator = $value;
     }
 
     /**
@@ -41,8 +59,11 @@ class TokenCardData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardWithoutCvv !== null) {
+        if (!is_null($this->cardWithoutCvv)) {
             $object->cardWithoutCvv = $this->cardWithoutCvv->toObject();
+        }
+        if (!is_null($this->cobrandSelectionIndicator)) {
+            $object->cobrandSelectionIndicator = $this->cobrandSelectionIndicator;
         }
         return $object;
     }
@@ -61,6 +82,9 @@ class TokenCardData extends DataObject
             }
             $value = new CardWithoutCvv();
             $this->cardWithoutCvv = $value->fromObject($object->cardWithoutCvv);
+        }
+        if (property_exists($object, 'cobrandSelectionIndicator')) {
+            $this->cobrandSelectionIndicator = $object->cobrandSelectionIndicator;
         }
         return $this;
     }

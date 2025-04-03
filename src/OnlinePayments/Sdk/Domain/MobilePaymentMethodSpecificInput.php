@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,48 +11,46 @@ use UnexpectedValueException;
  */
 class MobilePaymentMethodSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $authorizationMode;
+    public $authorizationMode = null;
 
     /**
      * @var DecryptedPaymentData
      */
-    private $decryptedPaymentData;
+    public $decryptedPaymentData = null;
 
     /**
      * @var string
      */
-    private $encryptedPaymentData;
+    public $encryptedPaymentData = null;
 
     /**
      * @var string
      */
-    private $ephemeralKey;
+    public $ephemeralKey = null;
 
     /**
      * @var MobilePaymentProduct320SpecificInput
      */
-    private $paymentProduct320SpecificInput;
+    public $paymentProduct320SpecificInput = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
     /**
      * @var string
      */
-    private $publicKeyHash;
+    public $publicKeyHash = null;
 
     /**
      * @var bool
      */
-    private $requiresApproval;
+    public $requiresApproval = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -62,8 +58,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->authorizationMode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAuthorizationMode($value)
     {
@@ -77,8 +74,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->decryptedPaymentData;
     }
+
     /**
-     * @var DecryptedPaymentData
+     * @param DecryptedPaymentData
      */
     public function setDecryptedPaymentData($value)
     {
@@ -92,8 +90,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->encryptedPaymentData;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEncryptedPaymentData($value)
     {
@@ -107,8 +106,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->ephemeralKey;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setEphemeralKey($value)
     {
@@ -122,8 +122,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->paymentProduct320SpecificInput;
     }
+
     /**
-     * @var MobilePaymentProduct320SpecificInput
+     * @param MobilePaymentProduct320SpecificInput
      */
     public function setPaymentProduct320SpecificInput($value)
     {
@@ -137,8 +138,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -152,8 +154,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->publicKeyHash;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPublicKeyHash($value)
     {
@@ -167,8 +170,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
     {
         return $this->requiresApproval;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setRequiresApproval($value)
     {
@@ -181,28 +185,28 @@ class MobilePaymentMethodSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->authorizationMode !== null) {
+        if (!is_null($this->authorizationMode)) {
             $object->authorizationMode = $this->authorizationMode;
         }
-        if ($this->decryptedPaymentData !== null) {
+        if (!is_null($this->decryptedPaymentData)) {
             $object->decryptedPaymentData = $this->decryptedPaymentData->toObject();
         }
-        if ($this->encryptedPaymentData !== null) {
+        if (!is_null($this->encryptedPaymentData)) {
             $object->encryptedPaymentData = $this->encryptedPaymentData;
         }
-        if ($this->ephemeralKey !== null) {
+        if (!is_null($this->ephemeralKey)) {
             $object->ephemeralKey = $this->ephemeralKey;
         }
-        if ($this->paymentProduct320SpecificInput !== null) {
+        if (!is_null($this->paymentProduct320SpecificInput)) {
             $object->paymentProduct320SpecificInput = $this->paymentProduct320SpecificInput->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if ($this->publicKeyHash !== null) {
+        if (!is_null($this->publicKeyHash)) {
             $object->publicKeyHash = $this->publicKeyHash;
         }
-        if ($this->requiresApproval !== null) {
+        if (!is_null($this->requiresApproval)) {
             $object->requiresApproval = $this->requiresApproval;
         }
         return $object;

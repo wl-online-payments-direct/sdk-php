@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class MandateCustomer extends DataObject
 {
-    // Properties
     /**
      * @var BankAccountIban
      */
-    private $bankAccountIban;
+    public $bankAccountIban = null;
 
     /**
      * @var string
      */
-    private $companyName;
+    public $companyName = null;
 
     /**
      * @var MandateContactDetails
      */
-    private $contactDetails;
+    public $contactDetails = null;
 
     /**
      * @var MandateAddress
      */
-    private $mandateAddress;
+    public $mandateAddress = null;
 
     /**
      * @var MandatePersonalInformation
      */
-    private $personalInformation;
+    public $personalInformation = null;
 
-    // Methods
     /**
      * @return BankAccountIban
      */
@@ -47,8 +43,9 @@ class MandateCustomer extends DataObject
     {
         return $this->bankAccountIban;
     }
+
     /**
-     * @var BankAccountIban
+     * @param BankAccountIban
      */
     public function setBankAccountIban($value)
     {
@@ -62,8 +59,9 @@ class MandateCustomer extends DataObject
     {
         return $this->companyName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCompanyName($value)
     {
@@ -77,8 +75,9 @@ class MandateCustomer extends DataObject
     {
         return $this->contactDetails;
     }
+
     /**
-     * @var MandateContactDetails
+     * @param MandateContactDetails
      */
     public function setContactDetails($value)
     {
@@ -92,8 +91,9 @@ class MandateCustomer extends DataObject
     {
         return $this->mandateAddress;
     }
+
     /**
-     * @var MandateAddress
+     * @param MandateAddress
      */
     public function setMandateAddress($value)
     {
@@ -107,8 +107,9 @@ class MandateCustomer extends DataObject
     {
         return $this->personalInformation;
     }
+
     /**
-     * @var MandatePersonalInformation
+     * @param MandatePersonalInformation
      */
     public function setPersonalInformation($value)
     {
@@ -121,19 +122,19 @@ class MandateCustomer extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->bankAccountIban !== null) {
+        if (!is_null($this->bankAccountIban)) {
             $object->bankAccountIban = $this->bankAccountIban->toObject();
         }
-        if ($this->companyName !== null) {
+        if (!is_null($this->companyName)) {
             $object->companyName = $this->companyName;
         }
-        if ($this->contactDetails !== null) {
+        if (!is_null($this->contactDetails)) {
             $object->contactDetails = $this->contactDetails->toObject();
         }
-        if ($this->mandateAddress !== null) {
+        if (!is_null($this->mandateAddress)) {
             $object->mandateAddress = $this->mandateAddress->toObject();
         }
-        if ($this->personalInformation !== null) {
+        if (!is_null($this->personalInformation)) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentProductFiltersHostedTokenization extends DataObject
 {
-    // Properties
     /**
      * @var PaymentProductFilterHostedTokenization
      */
-    private $exclude;
+    public $exclude = null;
 
     /**
      * @var PaymentProductFilterHostedTokenization
      */
-    private $restrictTo;
+    public $restrictTo = null;
 
-    // Methods
     /**
      * @return PaymentProductFilterHostedTokenization
      */
@@ -32,8 +28,9 @@ class PaymentProductFiltersHostedTokenization extends DataObject
     {
         return $this->exclude;
     }
+
     /**
-     * @var PaymentProductFilterHostedTokenization
+     * @param PaymentProductFilterHostedTokenization
      */
     public function setExclude($value)
     {
@@ -47,8 +44,9 @@ class PaymentProductFiltersHostedTokenization extends DataObject
     {
         return $this->restrictTo;
     }
+
     /**
-     * @var PaymentProductFilterHostedTokenization
+     * @param PaymentProductFilterHostedTokenization
      */
     public function setRestrictTo($value)
     {
@@ -61,10 +59,10 @@ class PaymentProductFiltersHostedTokenization extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->exclude !== null) {
+        if (!is_null($this->exclude)) {
             $object->exclude = $this->exclude->toObject();
         }
-        if ($this->restrictTo !== null) {
+        if (!is_null($this->restrictTo)) {
             $object->restrictTo = $this->restrictTo->toObject();
         }
         return $object;

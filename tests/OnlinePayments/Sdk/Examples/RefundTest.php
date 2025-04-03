@@ -3,11 +3,11 @@
 namespace OnlinePayments\Sdk\Examples;
 
 use Exception;
-use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\ClientTestCase;
 use OnlinePayments\Sdk\Domain\AmountOfMoney;
 use OnlinePayments\Sdk\Domain\RefundRequest;
 use OnlinePayments\Sdk\Domain\RefundResponse;
+use OnlinePayments\Sdk\ApiException;
 
 /**
  * @group examples

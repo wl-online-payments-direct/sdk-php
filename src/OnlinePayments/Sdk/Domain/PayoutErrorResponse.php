@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class PayoutErrorResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $errorId;
+    public $errorId = null;
 
     /**
      * @var APIError[]
      */
-    private $errors;
+    public $errors = null;
 
     /**
      * @var PayoutResult
      */
-    private $payoutResult;
+    public $payoutResult = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class PayoutErrorResponse extends DataObject
     {
         return $this->errorId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setErrorId($value)
     {
@@ -52,8 +49,9 @@ class PayoutErrorResponse extends DataObject
     {
         return $this->errors;
     }
+
     /**
-     * @var APIError[]
+     * @param APIError[]
      */
     public function setErrors($value)
     {
@@ -67,8 +65,9 @@ class PayoutErrorResponse extends DataObject
     {
         return $this->payoutResult;
     }
+
     /**
-     * @var PayoutResult
+     * @param PayoutResult
      */
     public function setPayoutResult($value)
     {
@@ -81,18 +80,18 @@ class PayoutErrorResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->errorId !== null) {
+        if (!is_null($this->errorId)) {
             $object->errorId = $this->errorId;
         }
-        if ($this->errors !== null) {
+        if (!is_null($this->errors)) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if ($this->payoutResult !== null) {
+        if (!is_null($this->payoutResult)) {
             $object->payoutResult = $this->payoutResult->toObject();
         }
         return $object;

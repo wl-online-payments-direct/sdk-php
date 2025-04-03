@@ -1,81 +1,53 @@
 <?php
-
 namespace OnlinePayments\Sdk;
 
-use Exception;
-use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductsParams;
+use OnlinePayments\Sdk\Communication\InvalidResponseException;
+use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\DataObject;
+use OnlinePayments\Sdk\TestUtil\AppendingBodyHandler;
+use OnlinePayments\Sdk\TestUtil\TestingAuthenticator;
 
 /**
  * @group communicator
  *
  */
-class CommunicatorTest extends OnlinePaymentsTestCase
+class CommunicatorTest extends TestCase
 {
 
-    /** @var Communicator */
+    /** @var CommunicatorInterface */
     protected $defaultCommunicator = null;
 
     /** @var ResponseClassMap */
     protected $defaultResponseClassMap = null;
 
-    /**
-     * @throws Exception
-     */
-    protected function setUp(): void
+    public function setUp(): void
     {
-        $this->defaultCommunicator = new Communicator(
-            new DefaultConnection(),
-            $this->getCommunicatorConfiguration()
-        );
-        $this->defaultResponseClassMap = new ResponseClassMap('');
+        $this->skipWithoutHttpBin();
+
+        $communicatorConfiguration = $this->getCommunicatorConfiguration();
+        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
+        $this->defaultCommunicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        $this->defaultResponseClassMap = new ResponseClassMap();
+        $this->defaultResponseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\SimpleHttpBinResponse';
+        $this->defaultResponseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\TestUtil\TestErrorResponse';
     }
 
-    protected function tearDown(): void
+    public function tearDown(): void
     {
     }
 
-    public function testApiRequestNoop()
-    {
-        $this->expectNotToPerformAssertions();
-
-        new Communicator(new DefaultConnection(), new CommunicatorConfiguration('', '', '', ''));
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testConnectionSharing()
-    {
-        $sharedConnection = new DefaultConnection();
-        $relativeUri = sprintf('/%s/%s/services/testconnection', Client::API_VERSION, $this->getMerchantId());
-        $communicator1 = new Communicator($sharedConnection, $this->getCommunicatorConfiguration());
-        $communicator1->get($this->defaultResponseClassMap, $relativeUri);
-        $communicator2 = new Communicator($sharedConnection, $this->getCommunicatorConfiguration());
-        $communicator2->get($this->defaultResponseClassMap, $relativeUri);
-        $this->assertEquals($communicator1->getConnection(), $communicator2->getConnection());
-    }
-
-    /**
-     * @throws Exception
-     */
     public function testApiRequestGet()
     {
-        $this->expectNotToPerformAssertions();
-
-        $relativeUri = sprintf('/%s/%s/products', Client::API_VERSION, $this->getMerchantId());
-        $findParams = new GetPaymentProductsParams();
-        $findParams->setCountryCode('NL');
-        $findParams->setCurrencyCode('EUR');
-        $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri, '', $findParams);
+        $relativeUri = '/get';
+        $response = $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri);
+        $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
+        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
     }
 
-    /**
-     * @throws Exception
-     */
     public function testExceptionInvalidUrl()
     {
         try {
-            $relativeUri = sprintf('/%s/%s/foo', Client::API_VERSION, $this->getMerchantId());
+            $relativeUri = '/foo';
             $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri);
         } catch (InvalidResponseException $e) {
             $this->assertEquals(404, $e->getResponse()->getHttpStatusCode());
@@ -84,51 +56,90 @@ class CommunicatorTest extends OnlinePaymentsTestCase
         $this->fail('an expected exception has not been raised');
     }
 
-    /**
-     * @throws Exception
-     */
     public function testApiRequestPost()
     {
-        $this->expectNotToPerformAssertions();
-
-        try {
-            $relativeUri = sprintf('/%s/%s/payments/1/cancel', Client::API_VERSION, $this->getMerchantId());
-            $this->defaultCommunicator->post($this->defaultResponseClassMap, $relativeUri);
-        } catch (ReferenceException $e) {
-            return;
-        }
-        $this->fail();
+        $relativeUri = '/post';
+        $response = $this->defaultCommunicator->post($this->defaultResponseClassMap, $relativeUri);
+        $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
+        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
     }
 
-    /**
-     * @throws Exception
-     */
     public function testApiRequestPut()
     {
-        $this->expectNotToPerformAssertions();
-
-        try {
-            $relativeUri = sprintf('/%s/%s/tokens/1', Client::API_VERSION, $this->getMerchantId());
-            $this->defaultCommunicator->put($this->defaultResponseClassMap, $relativeUri);
-        } catch (InvalidResponseException $e) {
-            return;
-        }
-        $this->fail();
+        $relativeUri = '/put';
+        $response = $this->defaultCommunicator->put($this->defaultResponseClassMap, $relativeUri);
+        $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
+        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
     }
 
-    /**
-     * @throws Exception
-     */
     public function testApiRequestDelete()
     {
-        $this->expectNotToPerformAssertions();
+        $relativeUri = '/delete';
+        $response = $this->defaultCommunicator->delete($this->defaultResponseClassMap, $relativeUri);
+        $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
+        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
+    }
 
-        try {
-            $relativeUri = sprintf('/%s/%s/tokens/1', Client::API_VERSION, $this->getMerchantId());
-            $this->defaultCommunicator->delete($this->defaultResponseClassMap, $relativeUri);
-        } catch (ReferenceException $e) {
-            return;
+    public function testApiRequestGetWithBinaryResponse()
+    {
+        $bodyHandler = new AppendingBodyHandler();
+        $relativeUri = '/get';
+        $this->defaultCommunicator->getWithBinaryResponse(array($bodyHandler, 'handleBodyPart'), $this->defaultResponseClassMap, $relativeUri);
+        $this->assertNotEquals('', $bodyHandler->getBody());
+        $this->assertStringStartsWith('{', $bodyHandler->getBody());
+        $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
+    }
+
+    public function testApiRequestPostWithBinaryResponse()
+    {
+        $bodyHandler = new AppendingBodyHandler();
+        $relativeUri = '/post';
+        $this->defaultCommunicator->postWithBinaryResponse(array($bodyHandler, 'handleBodyPart'), $this->defaultResponseClassMap, $relativeUri);
+        $this->assertNotEquals('', $bodyHandler->getBody());
+        $this->assertStringStartsWith('{', $bodyHandler->getBody());
+        $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
+    }
+
+    public function testApiRequestPutWithBinaryResponse()
+    {
+        $bodyHandler = new AppendingBodyHandler();
+        $relativeUri = '/put';
+        $this->defaultCommunicator->putWithBinaryResponse(array($bodyHandler, 'handleBodyPart'), $this->defaultResponseClassMap, $relativeUri);
+        $this->assertNotEquals('', $bodyHandler->getBody());
+        $this->assertStringStartsWith('{', $bodyHandler->getBody());
+        $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
+    }
+
+    public function testApiRequestDeleteWithBinaryResponse()
+    {
+        $bodyHandler = new AppendingBodyHandler();
+        $relativeUri = '/delete';
+        $this->defaultCommunicator->deleteWithBinaryResponse(array($bodyHandler, 'handleBodyPart'), $this->defaultResponseClassMap, $relativeUri);
+        $this->assertNotEquals('', $bodyHandler->getBody());
+        $this->assertStringStartsWith('{', $bodyHandler->getBody());
+        $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
+    }
+}
+
+class SimpleHttpBinResponse extends DataObject
+{
+    public $url;
+
+    public function toObject()
+    {
+        $object = parent::toObject();
+        if (!is_null($this->url)) {
+            $object->url = $this->url;
         }
-        $this->fail();
+        return $object;
+    }
+
+    public function fromObject($object)
+    {
+        parent::fromObject($object);
+        if (property_exists($object, 'url')) {
+            $this->url = $object->url;
+        }
+        return $this;
     }
 }

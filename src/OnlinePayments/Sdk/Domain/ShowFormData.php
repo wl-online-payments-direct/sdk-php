@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class ShowFormData extends DataObject
 {
-    // Properties
     /**
      * @var PaymentProduct3012
      */
-    private $paymentProduct3012;
+    public $paymentProduct3012 = null;
 
     /**
      * @var PaymentProduct5404
      */
-    private $paymentProduct5404;
+    public $paymentProduct5404 = null;
 
     /**
      * @var PaymentProduct5407
      */
-    private $paymentProduct5407;
+    public $paymentProduct5407 = null;
 
-    // Methods
     /**
      * @return PaymentProduct3012
      */
@@ -37,8 +33,9 @@ class ShowFormData extends DataObject
     {
         return $this->paymentProduct3012;
     }
+
     /**
-     * @var PaymentProduct3012
+     * @param PaymentProduct3012
      */
     public function setPaymentProduct3012($value)
     {
@@ -52,8 +49,9 @@ class ShowFormData extends DataObject
     {
         return $this->paymentProduct5404;
     }
+
     /**
-     * @var PaymentProduct5404
+     * @param PaymentProduct5404
      */
     public function setPaymentProduct5404($value)
     {
@@ -67,8 +65,9 @@ class ShowFormData extends DataObject
     {
         return $this->paymentProduct5407;
     }
+
     /**
-     * @var PaymentProduct5407
+     * @param PaymentProduct5407
      */
     public function setPaymentProduct5407($value)
     {
@@ -81,13 +80,13 @@ class ShowFormData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->paymentProduct3012 !== null) {
+        if (!is_null($this->paymentProduct3012)) {
             $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
         }
-        if ($this->paymentProduct5404 !== null) {
+        if (!is_null($this->paymentProduct5404)) {
             $object->paymentProduct5404 = $this->paymentProduct5404->toObject();
         }
-        if ($this->paymentProduct5407 !== null) {
+        if (!is_null($this->paymentProduct5407)) {
             $object->paymentProduct5407 = $this->paymentProduct5407->toObject();
         }
         return $object;

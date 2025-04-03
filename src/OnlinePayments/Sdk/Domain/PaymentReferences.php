@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentReferences extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $merchantParameters;
+    public $merchantParameters = null;
 
     /**
      * @var string
      */
-    private $merchantReference;
+    public $merchantReference = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class PaymentReferences extends DataObject
     {
         return $this->merchantParameters;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantParameters($value)
     {
@@ -47,8 +44,9 @@ class PaymentReferences extends DataObject
     {
         return $this->merchantReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantReference($value)
     {
@@ -61,10 +59,10 @@ class PaymentReferences extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->merchantParameters !== null) {
+        if (!is_null($this->merchantParameters)) {
             $object->merchantParameters = $this->merchantParameters;
         }
-        if ($this->merchantReference !== null) {
+        if (!is_null($this->merchantReference)) {
             $object->merchantReference = $this->merchantReference;
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,16 @@ use UnexpectedValueException;
  */
 class TokenData extends DataObject
 {
-    // Properties
     /**
      * @var Card
      */
-    private $card;
+    public $card = null;
 
-    // Methods
+    /**
+     * @var string
+     */
+    public $cobrandSelectionIndicator = null;
+
     /**
      * @return Card
      */
@@ -27,12 +28,29 @@ class TokenData extends DataObject
     {
         return $this->card;
     }
+
     /**
-     * @var Card
+     * @param Card
      */
     public function setCard($value)
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCobrandSelectionIndicator()
+    {
+        return $this->cobrandSelectionIndicator;
+    }
+
+    /**
+     * @param string
+     */
+    public function setCobrandSelectionIndicator($value)
+    {
+        $this->cobrandSelectionIndicator = $value;
     }
 
     /**
@@ -41,8 +59,11 @@ class TokenData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->card !== null) {
+        if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
+        }
+        if (!is_null($this->cobrandSelectionIndicator)) {
+            $object->cobrandSelectionIndicator = $this->cobrandSelectionIndicator;
         }
         return $object;
     }
@@ -61,6 +82,9 @@ class TokenData extends DataObject
             }
             $value = new Card();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'cobrandSelectionIndicator')) {
+            $this->cobrandSelectionIndicator = $object->cobrandSelectionIndicator;
         }
         return $this;
     }

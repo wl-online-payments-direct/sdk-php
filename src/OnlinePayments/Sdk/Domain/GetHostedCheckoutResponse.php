@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class GetHostedCheckoutResponse extends DataObject
 {
-    // Properties
     /**
      * @var CreatedPaymentOutput
      */
-    private $createdPaymentOutput;
+    public $createdPaymentOutput = null;
 
     /**
      * @var string
      */
-    private $status;
+    public $status = null;
 
-    // Methods
     /**
      * @return CreatedPaymentOutput
      */
@@ -32,8 +28,9 @@ class GetHostedCheckoutResponse extends DataObject
     {
         return $this->createdPaymentOutput;
     }
+
     /**
-     * @var CreatedPaymentOutput
+     * @param CreatedPaymentOutput
      */
     public function setCreatedPaymentOutput($value)
     {
@@ -47,8 +44,9 @@ class GetHostedCheckoutResponse extends DataObject
     {
         return $this->status;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatus($value)
     {
@@ -61,10 +59,10 @@ class GetHostedCheckoutResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->createdPaymentOutput !== null) {
+        if (!is_null($this->createdPaymentOutput)) {
             $object->createdPaymentOutput = $this->createdPaymentOutput->toObject();
         }
-        if ($this->status !== null) {
+        if (!is_null($this->status)) {
             $object->status = $this->status;
         }
         return $object;

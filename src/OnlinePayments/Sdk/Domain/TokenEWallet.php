@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,27 +11,29 @@ use UnexpectedValueException;
  */
 class TokenEWallet extends DataObject
 {
-    // Properties
     /**
      * @var string
+     * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
-    private $alias;
+    public $alias = null;
 
     /**
      * @var CustomerToken
      */
-    private $customer;
+    public $customer = null;
 
-    // Methods
     /**
      * @return string
+     * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
     public function getAlias()
     {
         return $this->alias;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
     public function setAlias($value)
     {
@@ -47,8 +47,9 @@ class TokenEWallet extends DataObject
     {
         return $this->customer;
     }
+
     /**
-     * @var CustomerToken
+     * @param CustomerToken
      */
     public function setCustomer($value)
     {
@@ -61,10 +62,10 @@ class TokenEWallet extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->alias !== null) {
+        if (!is_null($this->alias)) {
             $object->alias = $this->alias;
         }
-        if ($this->customer !== null) {
+        if (!is_null($this->customer)) {
             $object->customer = $this->customer->toObject();
         }
         return $object;

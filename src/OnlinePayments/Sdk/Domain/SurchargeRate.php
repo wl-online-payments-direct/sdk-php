@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class SurchargeRate extends DataObject
 {
-    // Properties
     /**
      * @var float
      */
-    private $adValoremRate;
+    public $adValoremRate = null;
 
     /**
      * @var int
      */
-    private $specificRate;
+    public $specificRate = null;
 
     /**
      * @var string
      */
-    private $surchargeProductTypeId;
+    public $surchargeProductTypeId = null;
 
     /**
      * @var string
      */
-    private $surchargeProductTypeVersion;
+    public $surchargeProductTypeVersion = null;
 
-    // Methods
     /**
      * @return float
      */
@@ -42,8 +38,9 @@ class SurchargeRate extends DataObject
     {
         return $this->adValoremRate;
     }
+
     /**
-     * @var float
+     * @param float
      */
     public function setAdValoremRate($value)
     {
@@ -57,8 +54,9 @@ class SurchargeRate extends DataObject
     {
         return $this->specificRate;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setSpecificRate($value)
     {
@@ -72,8 +70,9 @@ class SurchargeRate extends DataObject
     {
         return $this->surchargeProductTypeId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setSurchargeProductTypeId($value)
     {
@@ -87,8 +86,9 @@ class SurchargeRate extends DataObject
     {
         return $this->surchargeProductTypeVersion;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setSurchargeProductTypeVersion($value)
     {
@@ -101,16 +101,16 @@ class SurchargeRate extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->adValoremRate !== null) {
+        if (!is_null($this->adValoremRate)) {
             $object->adValoremRate = $this->adValoremRate;
         }
-        if ($this->specificRate !== null) {
+        if (!is_null($this->specificRate)) {
             $object->specificRate = $this->specificRate;
         }
-        if ($this->surchargeProductTypeId !== null) {
+        if (!is_null($this->surchargeProductTypeId)) {
             $object->surchargeProductTypeId = $this->surchargeProductTypeId;
         }
-        if ($this->surchargeProductTypeVersion !== null) {
+        if (!is_null($this->surchargeProductTypeVersion)) {
             $object->surchargeProductTypeVersion = $this->surchargeProductTypeVersion;
         }
         return $object;

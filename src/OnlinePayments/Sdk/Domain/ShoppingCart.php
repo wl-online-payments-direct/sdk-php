@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,47 +11,49 @@ use UnexpectedValueException;
  */
 class ShoppingCart extends DataObject
 {
-    // Properties
     /**
      * @var AmountBreakdown[]
+     * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
-    private $amountBreakdown;
+    public $amountBreakdown = null;
 
     /**
      * @var GiftCardPurchase
      */
-    private $giftCardPurchase;
+    public $giftCardPurchase = null;
 
     /**
      * @var bool
      */
-    private $isPreOrder;
+    public $isPreOrder = null;
 
     /**
      * @var LineItem[]
      */
-    private $items;
+    public $items = null;
 
     /**
      * @var string
      */
-    private $preOrderItemAvailabilityDate;
+    public $preOrderItemAvailabilityDate = null;
 
     /**
      * @var bool
      */
-    private $reOrderIndicator;
+    public $reOrderIndicator = null;
 
-    // Methods
     /**
      * @return AmountBreakdown[]
+     * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
     public function getAmountBreakdown()
     {
         return $this->amountBreakdown;
     }
+
     /**
-     * @var AmountBreakdown[]
+     * @param AmountBreakdown[]
+     * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
     public function setAmountBreakdown($value)
     {
@@ -67,8 +67,9 @@ class ShoppingCart extends DataObject
     {
         return $this->giftCardPurchase;
     }
+
     /**
-     * @var GiftCardPurchase
+     * @param GiftCardPurchase
      */
     public function setGiftCardPurchase($value)
     {
@@ -82,8 +83,9 @@ class ShoppingCart extends DataObject
     {
         return $this->isPreOrder;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsPreOrder($value)
     {
@@ -97,8 +99,9 @@ class ShoppingCart extends DataObject
     {
         return $this->items;
     }
+
     /**
-     * @var LineItem[]
+     * @param LineItem[]
      */
     public function setItems($value)
     {
@@ -112,8 +115,9 @@ class ShoppingCart extends DataObject
     {
         return $this->preOrderItemAvailabilityDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPreOrderItemAvailabilityDate($value)
     {
@@ -127,8 +131,9 @@ class ShoppingCart extends DataObject
     {
         return $this->reOrderIndicator;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setReOrderIndicator($value)
     {
@@ -141,32 +146,32 @@ class ShoppingCart extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountBreakdown !== null) {
+        if (!is_null($this->amountBreakdown)) {
             $object->amountBreakdown = [];
             foreach ($this->amountBreakdown as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->amountBreakdown[] = $element->toObject();
                 }
             }
         }
-        if ($this->giftCardPurchase !== null) {
+        if (!is_null($this->giftCardPurchase)) {
             $object->giftCardPurchase = $this->giftCardPurchase->toObject();
         }
-        if ($this->isPreOrder !== null) {
+        if (!is_null($this->isPreOrder)) {
             $object->isPreOrder = $this->isPreOrder;
         }
-        if ($this->items !== null) {
+        if (!is_null($this->items)) {
             $object->items = [];
             foreach ($this->items as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->items[] = $element->toObject();
                 }
             }
         }
-        if ($this->preOrderItemAvailabilityDate !== null) {
+        if (!is_null($this->preOrderItemAvailabilityDate)) {
             $object->preOrderItemAvailabilityDate = $this->preOrderItemAvailabilityDate;
         }
-        if ($this->reOrderIndicator !== null) {
+        if (!is_null($this->reOrderIndicator)) {
             $object->reOrderIndicator = $this->reOrderIndicator;
         }
         return $object;

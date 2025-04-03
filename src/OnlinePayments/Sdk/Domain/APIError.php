@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,48 +11,47 @@ use UnexpectedValueException;
  */
 class APIError extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $category;
+    public $category = null;
+
+    /**
+     * @var string
+     * @deprecated Use errorCode instead. Error code
+     */
+    public $code = null;
 
     /**
      * @var string
      */
-    private $code;
-
-    /**
-     * @var string
-     */
-    private $errorCode;
+    public $errorCode = null;
 
     /**
      * @var int
      */
-    private $httpStatusCode;
+    public $httpStatusCode = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var string
      */
-    private $message;
+    public $message = null;
 
     /**
      * @var string
      */
-    private $propertyName;
+    public $propertyName = null;
 
     /**
      * @var bool
      */
-    private $retriable;
+    public $retriable = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -62,8 +59,9 @@ class APIError extends DataObject
     {
         return $this->category;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCategory($value)
     {
@@ -72,13 +70,16 @@ class APIError extends DataObject
 
     /**
      * @return string
+     * @deprecated Use errorCode instead. Error code
      */
     public function getCode()
     {
         return $this->code;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated Use errorCode instead. Error code
      */
     public function setCode($value)
     {
@@ -92,8 +93,9 @@ class APIError extends DataObject
     {
         return $this->errorCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setErrorCode($value)
     {
@@ -107,8 +109,9 @@ class APIError extends DataObject
     {
         return $this->httpStatusCode;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setHttpStatusCode($value)
     {
@@ -122,8 +125,9 @@ class APIError extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -137,8 +141,9 @@ class APIError extends DataObject
     {
         return $this->message;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMessage($value)
     {
@@ -152,8 +157,9 @@ class APIError extends DataObject
     {
         return $this->propertyName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPropertyName($value)
     {
@@ -167,8 +173,9 @@ class APIError extends DataObject
     {
         return $this->retriable;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setRetriable($value)
     {
@@ -181,28 +188,28 @@ class APIError extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->category !== null) {
+        if (!is_null($this->category)) {
             $object->category = $this->category;
         }
-        if ($this->code !== null) {
+        if (!is_null($this->code)) {
             $object->code = $this->code;
         }
-        if ($this->errorCode !== null) {
+        if (!is_null($this->errorCode)) {
             $object->errorCode = $this->errorCode;
         }
-        if ($this->httpStatusCode !== null) {
+        if (!is_null($this->httpStatusCode)) {
             $object->httpStatusCode = $this->httpStatusCode;
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->message !== null) {
+        if (!is_null($this->message)) {
             $object->message = $this->message;
         }
-        if ($this->propertyName !== null) {
+        if (!is_null($this->propertyName)) {
             $object->propertyName = $this->propertyName;
         }
-        if ($this->retriable !== null) {
+        if (!is_null($this->retriable)) {
             $object->retriable = $this->retriable;
         }
         return $object;

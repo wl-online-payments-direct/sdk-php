@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,22 @@ use UnexpectedValueException;
  */
 class ExternalTokenLinked extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $ComputedToken;
+    public $ComputedToken = null;
+
+    /**
+     * @var string
+     * @deprecated Use the field ComputedToken instead.
+     */
+    public $GTSComputedToken = null;
 
     /**
      * @var string
      */
-    private $GTSComputedToken;
+    public $GeneratedToken = null;
 
-    /**
-     * @var string
-     */
-    private $GeneratedToken;
-
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +34,9 @@ class ExternalTokenLinked extends DataObject
     {
         return $this->ComputedToken;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setComputedToken($value)
     {
@@ -47,13 +45,16 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @return string
+     * @deprecated Use the field ComputedToken instead.
      */
     public function getGTSComputedToken()
     {
         return $this->GTSComputedToken;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated Use the field ComputedToken instead.
      */
     public function setGTSComputedToken($value)
     {
@@ -67,8 +68,9 @@ class ExternalTokenLinked extends DataObject
     {
         return $this->GeneratedToken;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setGeneratedToken($value)
     {
@@ -81,13 +83,13 @@ class ExternalTokenLinked extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->ComputedToken !== null) {
+        if (!is_null($this->ComputedToken)) {
             $object->ComputedToken = $this->ComputedToken;
         }
-        if ($this->GTSComputedToken !== null) {
+        if (!is_null($this->GTSComputedToken)) {
             $object->GTSComputedToken = $this->GTSComputedToken;
         }
-        if ($this->GeneratedToken !== null) {
+        if (!is_null($this->GeneratedToken)) {
             $object->GeneratedToken = $this->GeneratedToken;
         }
         return $object;

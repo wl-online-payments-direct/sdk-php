@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class HostedCheckoutSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $hostedCheckoutId;
+    public $hostedCheckoutId = null;
 
     /**
      * @var string
      */
-    private $variant;
+    public $variant = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class HostedCheckoutSpecificOutput extends DataObject
     {
         return $this->hostedCheckoutId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setHostedCheckoutId($value)
     {
@@ -47,8 +44,9 @@ class HostedCheckoutSpecificOutput extends DataObject
     {
         return $this->variant;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setVariant($value)
     {
@@ -61,10 +59,10 @@ class HostedCheckoutSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->hostedCheckoutId !== null) {
+        if (!is_null($this->hostedCheckoutId)) {
             $object->hostedCheckoutId = $this->hostedCheckoutId;
         }
-        if ($this->variant !== null) {
+        if (!is_null($this->variant)) {
             $object->variant = $this->variant;
         }
         return $object;

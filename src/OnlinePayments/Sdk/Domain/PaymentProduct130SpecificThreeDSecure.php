@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentProduct130SpecificThreeDSecure extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $acquirerExemption;
+    public $acquirerExemption = null;
 
     /**
      * @var string
      */
-    private $merchantScore;
+    public $merchantScore = null;
 
     /**
      * @var int
      */
-    private $numberOfItems;
+    public $numberOfItems = null;
 
     /**
      * @var string
      */
-    private $usecase;
+    public $usecase = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -42,8 +38,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     {
         return $this->acquirerExemption;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setAcquirerExemption($value)
     {
@@ -57,8 +54,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     {
         return $this->merchantScore;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantScore($value)
     {
@@ -72,8 +70,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     {
         return $this->numberOfItems;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfItems($value)
     {
@@ -87,8 +86,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     {
         return $this->usecase;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setUsecase($value)
     {
@@ -101,16 +101,16 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->acquirerExemption !== null) {
+        if (!is_null($this->acquirerExemption)) {
             $object->acquirerExemption = $this->acquirerExemption;
         }
-        if ($this->merchantScore !== null) {
+        if (!is_null($this->merchantScore)) {
             $object->merchantScore = $this->merchantScore;
         }
-        if ($this->numberOfItems !== null) {
+        if (!is_null($this->numberOfItems)) {
             $object->numberOfItems = $this->numberOfItems;
         }
-        if ($this->usecase !== null) {
+        if (!is_null($this->usecase)) {
             $object->usecase = $this->usecase;
         }
         return $object;

@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk\Webhooks;
 
 use UnexpectedValueException;
@@ -11,13 +10,13 @@ use UnexpectedValueException;
  */
 class InMemorySecretKeyStore implements SecretKeyStore
 {
-    /** @var array<string> */
+    /** @var array<string, string> */
     private $secretKeys;
 
     /**
-     * @param array<string> $secretKeys
+     * @param array<string, string> $secretKeys
      */
-    public function __construct($secretKeys = [])
+    public function  __construct($secretKeys = array())
     {
         $this->secretKeys = $secretKeys;
     }
@@ -37,8 +36,8 @@ class InMemorySecretKeyStore implements SecretKeyStore
 
     /**
      * Stores the given secret key for the given key id.
-     * @param string|null $keyId
-     * @param string|null $secretKey
+     * @param string $keyId
+     * @param string $secretKey
      */
     public function storeSecretKey($keyId, $secretKey)
     {

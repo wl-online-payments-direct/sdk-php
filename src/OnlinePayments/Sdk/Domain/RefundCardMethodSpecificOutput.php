@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class RefundCardMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var CurrencyConversion
      */
-    private $currencyConversion;
+    public $currencyConversion = null;
 
     /**
      * @var int
      */
-    private $totalAmountPaid;
+    public $totalAmountPaid = null;
 
     /**
      * @var int
      */
-    private $totalAmountRefunded;
+    public $totalAmountRefunded = null;
 
-    // Methods
     /**
      * @return CurrencyConversion
      */
@@ -37,8 +33,9 @@ class RefundCardMethodSpecificOutput extends DataObject
     {
         return $this->currencyConversion;
     }
+
     /**
-     * @var CurrencyConversion
+     * @param CurrencyConversion
      */
     public function setCurrencyConversion($value)
     {
@@ -52,8 +49,9 @@ class RefundCardMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountPaid;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountPaid($value)
     {
@@ -67,8 +65,9 @@ class RefundCardMethodSpecificOutput extends DataObject
     {
         return $this->totalAmountRefunded;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalAmountRefunded($value)
     {
@@ -81,13 +80,13 @@ class RefundCardMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->currencyConversion !== null) {
+        if (!is_null($this->currencyConversion)) {
             $object->currencyConversion = $this->currencyConversion->toObject();
         }
-        if ($this->totalAmountPaid !== null) {
+        if (!is_null($this->totalAmountPaid)) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if ($this->totalAmountRefunded !== null) {
+        if (!is_null($this->totalAmountRefunded)) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,28 +11,26 @@ use UnexpectedValueException;
  */
 class PaymentCreationOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $externalReference;
+    public $externalReference = null;
 
     /**
      * @var bool
      */
-    private $isNewToken;
+    public $isNewToken = null;
 
     /**
      * @var string
      */
-    private $token;
+    public $token = null;
 
     /**
      * @var bool
      */
-    private $tokenizationSucceeded;
+    public $tokenizationSucceeded = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -42,8 +38,9 @@ class PaymentCreationOutput extends DataObject
     {
         return $this->externalReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setExternalReference($value)
     {
@@ -57,8 +54,9 @@ class PaymentCreationOutput extends DataObject
     {
         return $this->isNewToken;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsNewToken($value)
     {
@@ -72,8 +70,9 @@ class PaymentCreationOutput extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setToken($value)
     {
@@ -87,8 +86,9 @@ class PaymentCreationOutput extends DataObject
     {
         return $this->tokenizationSucceeded;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setTokenizationSucceeded($value)
     {
@@ -101,16 +101,16 @@ class PaymentCreationOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->externalReference !== null) {
+        if (!is_null($this->externalReference)) {
             $object->externalReference = $this->externalReference;
         }
-        if ($this->isNewToken !== null) {
+        if (!is_null($this->isNewToken)) {
             $object->isNewToken = $this->isNewToken;
         }
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token;
         }
-        if ($this->tokenizationSucceeded !== null) {
+        if (!is_null($this->tokenizationSucceeded)) {
             $object->tokenizationSucceeded = $this->tokenizationSucceeded;
         }
         return $object;

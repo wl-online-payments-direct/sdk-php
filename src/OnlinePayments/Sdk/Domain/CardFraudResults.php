@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class CardFraudResults extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $avsResult;
+    public $avsResult = null;
 
     /**
      * @var string
      */
-    private $cvvResult;
+    public $cvvResult = null;
 
     /**
      * @var string
      */
-    private $fraudServiceResult;
+    public $fraudServiceResult = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class CardFraudResults extends DataObject
     {
         return $this->avsResult;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAvsResult($value)
     {
@@ -52,8 +49,9 @@ class CardFraudResults extends DataObject
     {
         return $this->cvvResult;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCvvResult($value)
     {
@@ -67,8 +65,9 @@ class CardFraudResults extends DataObject
     {
         return $this->fraudServiceResult;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setFraudServiceResult($value)
     {
@@ -81,13 +80,13 @@ class CardFraudResults extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->avsResult !== null) {
+        if (!is_null($this->avsResult)) {
             $object->avsResult = $this->avsResult;
         }
-        if ($this->cvvResult !== null) {
+        if (!is_null($this->cvvResult)) {
             $object->cvvResult = $this->cvvResult;
         }
-        if ($this->fraudServiceResult !== null) {
+        if (!is_null($this->fraudServiceResult)) {
             $object->fraudServiceResult = $this->fraudServiceResult;
         }
         return $object;

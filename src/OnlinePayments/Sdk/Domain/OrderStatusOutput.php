@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class OrderStatusOutput extends DataObject
 {
-    // Properties
     /**
      * @var APIError[]
      */
-    private $errors;
+    public $errors = null;
 
     /**
      * @var bool
      */
-    private $isCancellable;
+    public $isCancellable = null;
 
     /**
      * @var string
      */
-    private $statusCategory;
+    public $statusCategory = null;
 
     /**
      * @var int
      */
-    private $statusCode;
+    public $statusCode = null;
 
     /**
      * @var string
      */
-    private $statusCodeChangeDateTime;
+    public $statusCodeChangeDateTime = null;
 
-    // Methods
     /**
      * @return APIError[]
      */
@@ -47,8 +43,9 @@ class OrderStatusOutput extends DataObject
     {
         return $this->errors;
     }
+
     /**
-     * @var APIError[]
+     * @param APIError[]
      */
     public function setErrors($value)
     {
@@ -62,8 +59,9 @@ class OrderStatusOutput extends DataObject
     {
         return $this->isCancellable;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsCancellable($value)
     {
@@ -77,8 +75,9 @@ class OrderStatusOutput extends DataObject
     {
         return $this->statusCategory;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatusCategory($value)
     {
@@ -92,8 +91,9 @@ class OrderStatusOutput extends DataObject
     {
         return $this->statusCode;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setStatusCode($value)
     {
@@ -107,8 +107,9 @@ class OrderStatusOutput extends DataObject
     {
         return $this->statusCodeChangeDateTime;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatusCodeChangeDateTime($value)
     {
@@ -121,24 +122,24 @@ class OrderStatusOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->errors !== null) {
+        if (!is_null($this->errors)) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if ($this->isCancellable !== null) {
+        if (!is_null($this->isCancellable)) {
             $object->isCancellable = $this->isCancellable;
         }
-        if ($this->statusCategory !== null) {
+        if (!is_null($this->statusCategory)) {
             $object->statusCategory = $this->statusCategory;
         }
-        if ($this->statusCode !== null) {
+        if (!is_null($this->statusCode)) {
             $object->statusCode = $this->statusCode;
         }
-        if ($this->statusCodeChangeDateTime !== null) {
+        if (!is_null($this->statusCodeChangeDateTime)) {
             $object->statusCodeChangeDateTime = $this->statusCodeChangeDateTime;
         }
         return $object;

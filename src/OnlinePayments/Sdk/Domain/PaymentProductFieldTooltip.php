@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,27 +11,29 @@ use UnexpectedValueException;
  */
 class PaymentProductFieldTooltip extends DataObject
 {
-    // Properties
     /**
      * @var string
+     * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
-    private $image;
+    public $image = null;
 
     /**
      * @var string
      */
-    private $label;
+    public $label = null;
 
-    // Methods
     /**
      * @return string
+     * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
     public function getImage()
     {
         return $this->image;
     }
+
     /**
-     * @var string
+     * @param string
+     * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
     public function setImage($value)
     {
@@ -47,8 +47,9 @@ class PaymentProductFieldTooltip extends DataObject
     {
         return $this->label;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setLabel($value)
     {
@@ -61,10 +62,10 @@ class PaymentProductFieldTooltip extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->image !== null) {
+        if (!is_null($this->image)) {
             $object->image = $this->image;
         }
-        if ($this->label !== null) {
+        if (!is_null($this->label)) {
             $object->label = $this->label;
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class PaymentErrorResponse extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $errorId;
+    public $errorId = null;
 
     /**
      * @var APIError[]
      */
-    private $errors;
+    public $errors = null;
 
     /**
      * @var CreatePaymentResponse
      */
-    private $paymentResult;
+    public $paymentResult = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class PaymentErrorResponse extends DataObject
     {
         return $this->errorId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setErrorId($value)
     {
@@ -52,8 +49,9 @@ class PaymentErrorResponse extends DataObject
     {
         return $this->errors;
     }
+
     /**
-     * @var APIError[]
+     * @param APIError[]
      */
     public function setErrors($value)
     {
@@ -67,8 +65,9 @@ class PaymentErrorResponse extends DataObject
     {
         return $this->paymentResult;
     }
+
     /**
-     * @var CreatePaymentResponse
+     * @param CreatePaymentResponse
      */
     public function setPaymentResult($value)
     {
@@ -81,18 +80,18 @@ class PaymentErrorResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->errorId !== null) {
+        if (!is_null($this->errorId)) {
             $object->errorId = $this->errorId;
         }
-        if ($this->errors !== null) {
+        if (!is_null($this->errors)) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if ($this->paymentResult !== null) {
+        if (!is_null($this->paymentResult)) {
             $object->paymentResult = $this->paymentResult->toObject();
         }
         return $object;

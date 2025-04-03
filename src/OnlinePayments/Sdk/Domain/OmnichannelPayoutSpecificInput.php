@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class OmnichannelPayoutSpecificInput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $paymentId;
+    public $paymentId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class OmnichannelPayoutSpecificInput extends DataObject
     {
         return $this->paymentId;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPaymentId($value)
     {
@@ -41,7 +38,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->paymentId !== null) {
+        if (!is_null($this->paymentId)) {
             $object->paymentId = $this->paymentId;
         }
         return $object;

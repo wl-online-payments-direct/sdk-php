@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CalculateSurchargeRequest extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var CardSource
      */
-    private $cardSource;
+    public $cardSource = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -32,8 +28,9 @@ class CalculateSurchargeRequest extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -47,8 +44,9 @@ class CalculateSurchargeRequest extends DataObject
     {
         return $this->cardSource;
     }
+
     /**
-     * @var CardSource
+     * @param CardSource
      */
     public function setCardSource($value)
     {
@@ -61,10 +59,10 @@ class CalculateSurchargeRequest extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->cardSource !== null) {
+        if (!is_null($this->cardSource)) {
             $object->cardSource = $this->cardSource->toObject();
         }
         return $object;

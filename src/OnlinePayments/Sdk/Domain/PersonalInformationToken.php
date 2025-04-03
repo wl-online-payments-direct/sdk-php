@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PersonalInformationToken extends DataObject
 {
-    // Properties
     /**
      * @var PersonalNameToken
      */
-    private $name;
+    public $name = null;
 
-    // Methods
     /**
      * @return PersonalNameToken
      */
@@ -27,8 +23,9 @@ class PersonalInformationToken extends DataObject
     {
         return $this->name;
     }
+
     /**
-     * @var PersonalNameToken
+     * @param PersonalNameToken
      */
     public function setName($value)
     {
@@ -41,7 +38,7 @@ class PersonalInformationToken extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->name !== null) {
+        if (!is_null($this->name)) {
             $object->name = $this->name->toObject();
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class SurchargeCalculationCard extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $cardNumber;
+    public $cardNumber = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class SurchargeCalculationCard extends DataObject
     {
         return $this->cardNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCardNumber($value)
     {
@@ -47,8 +44,9 @@ class SurchargeCalculationCard extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -61,10 +59,10 @@ class SurchargeCalculationCard extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->cardNumber !== null) {
+        if (!is_null($this->cardNumber)) {
             $object->cardNumber = $this->cardNumber;
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;

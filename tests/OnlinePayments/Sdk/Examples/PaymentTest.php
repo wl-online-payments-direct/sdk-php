@@ -4,26 +4,23 @@ namespace OnlinePayments\Sdk\Examples;
 
 use DateTime;
 use Exception;
-use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\ClientTestCase;
+use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\Domain\Address;
 use OnlinePayments\Sdk\Domain\AddressPersonal;
 use OnlinePayments\Sdk\Domain\AmountOfMoney;
 use OnlinePayments\Sdk\Domain\CapturePaymentRequest;
-use OnlinePayments\Sdk\Domain\CaptureResponse;
 use OnlinePayments\Sdk\Domain\Card;
 use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\CompanyInformation;
 use OnlinePayments\Sdk\Domain\ContactDetails;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
-use OnlinePayments\Sdk\Domain\CreatePaymentResponse;
 use OnlinePayments\Sdk\Domain\Customer;
 use OnlinePayments\Sdk\Domain\LineItem;
 use OnlinePayments\Sdk\Domain\LineItemInvoiceData;
 use OnlinePayments\Sdk\Domain\Order;
 use OnlinePayments\Sdk\Domain\OrderReferences;
-use OnlinePayments\Sdk\Domain\PaymentResponse;
 use OnlinePayments\Sdk\Domain\PersonalInformation;
 use OnlinePayments\Sdk\Domain\PersonalName;
 use OnlinePayments\Sdk\Domain\ShoppingCart;
@@ -147,7 +144,6 @@ class PaymentTest extends ClientTestCase
 
         $createPaymentRequest->setCardPaymentMethodSpecificInput($cardPaymentMethodSpecificInput);
 
-        /** @var CreatePaymentResponse $createPaymentResponse */
         $createPaymentResponse = $client->merchant($merchantId)->payments()->createPayment($createPaymentRequest);
         return $createPaymentResponse->getPayment()->getId();
     }
@@ -163,7 +159,6 @@ class PaymentTest extends ClientTestCase
     {
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
-        /** @var PaymentResponse $paymentResponse */
         $paymentResponse = $client->merchant($merchantId)->payments()->getPayment($paymentId);
         return $paymentResponse->getId();
     }
@@ -185,7 +180,6 @@ class PaymentTest extends ClientTestCase
 
         $capturePaymentRequest->setAmount(2980);
 
-        /** @var CaptureResponse $captureResponse */
         $captureResponse =
             $client->merchant($merchantId)->payments()->capturePayment($paymentId, $capturePaymentRequest);
         return $captureResponse->getId();
@@ -202,7 +196,6 @@ class PaymentTest extends ClientTestCase
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
-        /** @var CreatePaymentResponse $createPaymentResponse */
         $createPaymentResponse = $client->merchant($merchantId)->payments()->createPayment(
             $this->getMinimalCreatePaymentRequest()
         );

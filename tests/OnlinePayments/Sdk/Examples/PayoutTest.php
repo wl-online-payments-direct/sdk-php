@@ -3,8 +3,8 @@
 namespace OnlinePayments\Sdk\Examples;
 
 use Exception;
-use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\ClientTestCase;
+use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\Domain\AmountOfMoney;
 use OnlinePayments\Sdk\Domain\Card;
 use OnlinePayments\Sdk\Domain\CardPayoutMethodSpecificInput;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class PaymentContext extends DataObject
 {
-    // Properties
     /**
      * @var AmountOfMoney
      */
-    private $amountOfMoney;
+    public $amountOfMoney = null;
 
     /**
      * @var string
      */
-    private $countryCode;
+    public $countryCode = null;
 
     /**
      * @var bool
      */
-    private $isRecurring;
+    public $isRecurring = null;
 
-    // Methods
     /**
      * @return AmountOfMoney
      */
@@ -37,8 +33,9 @@ class PaymentContext extends DataObject
     {
         return $this->amountOfMoney;
     }
+
     /**
-     * @var AmountOfMoney
+     * @param AmountOfMoney
      */
     public function setAmountOfMoney($value)
     {
@@ -52,8 +49,9 @@ class PaymentContext extends DataObject
     {
         return $this->countryCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCountryCode($value)
     {
@@ -67,8 +65,9 @@ class PaymentContext extends DataObject
     {
         return $this->isRecurring;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsRecurring($value)
     {
@@ -81,13 +80,13 @@ class PaymentContext extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->amountOfMoney !== null) {
+        if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if ($this->countryCode !== null) {
+        if (!is_null($this->countryCode)) {
             $object->countryCode = $this->countryCode;
         }
-        if ($this->isRecurring !== null) {
+        if (!is_null($this->isRecurring)) {
             $object->isRecurring = $this->isRecurring;
         }
         return $object;

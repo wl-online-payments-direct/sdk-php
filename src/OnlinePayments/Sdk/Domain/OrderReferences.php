@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class OrderReferences extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $descriptor;
+    public $descriptor = null;
 
     /**
      * @var string
      */
-    private $merchantParameters;
+    public $merchantParameters = null;
 
     /**
      * @var string
      */
-    private $merchantReference;
+    public $merchantReference = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -37,8 +33,9 @@ class OrderReferences extends DataObject
     {
         return $this->descriptor;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setDescriptor($value)
     {
@@ -52,8 +49,9 @@ class OrderReferences extends DataObject
     {
         return $this->merchantParameters;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantParameters($value)
     {
@@ -67,8 +65,9 @@ class OrderReferences extends DataObject
     {
         return $this->merchantReference;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setMerchantReference($value)
     {
@@ -81,13 +80,13 @@ class OrderReferences extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->descriptor !== null) {
+        if (!is_null($this->descriptor)) {
             $object->descriptor = $this->descriptor;
         }
-        if ($this->merchantParameters !== null) {
+        if (!is_null($this->merchantParameters)) {
             $object->merchantParameters = $this->merchantParameters;
         }
-        if ($this->merchantReference !== null) {
+        if (!is_null($this->merchantReference)) {
             $object->merchantReference = $this->merchantReference;
         }
         return $object;

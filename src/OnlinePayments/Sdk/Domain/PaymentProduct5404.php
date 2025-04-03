@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentProduct5404 extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $appSwitchLink;
+    public $appSwitchLink = null;
 
     /**
      * @var string
      */
-    private $qrCodeUrl;
+    public $qrCodeUrl = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class PaymentProduct5404 extends DataObject
     {
         return $this->appSwitchLink;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAppSwitchLink($value)
     {
@@ -47,8 +44,9 @@ class PaymentProduct5404 extends DataObject
     {
         return $this->qrCodeUrl;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setQrCodeUrl($value)
     {
@@ -61,10 +59,10 @@ class PaymentProduct5404 extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->appSwitchLink !== null) {
+        if (!is_null($this->appSwitchLink)) {
             $object->appSwitchLink = $this->appSwitchLink;
         }
-        if ($this->qrCodeUrl !== null) {
+        if (!is_null($this->qrCodeUrl)) {
             $object->qrCodeUrl = $this->qrCodeUrl;
         }
         return $object;

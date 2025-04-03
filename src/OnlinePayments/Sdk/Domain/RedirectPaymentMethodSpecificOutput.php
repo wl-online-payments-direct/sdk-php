@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,63 +11,61 @@ use UnexpectedValueException;
  */
 class RedirectPaymentMethodSpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $authorisationCode;
+    public $authorisationCode = null;
 
     /**
      * @var CustomerBankAccount
      */
-    private $customerBankAccount;
+    public $customerBankAccount = null;
 
     /**
      * @var FraudResults
      */
-    private $fraudResults;
+    public $fraudResults = null;
 
     /**
      * @var string
      */
-    private $paymentOption;
+    public $paymentOption = null;
 
     /**
      * @var PaymentProduct3203SpecificOutput
      */
-    private $paymentProduct3203SpecificOutput;
+    public $paymentProduct3203SpecificOutput = null;
 
     /**
      * @var PaymentProduct5001SpecificOutput
      */
-    private $paymentProduct5001SpecificOutput;
+    public $paymentProduct5001SpecificOutput = null;
 
     /**
      * @var PaymentProduct5402SpecificOutput
      */
-    private $paymentProduct5402SpecificOutput;
+    public $paymentProduct5402SpecificOutput = null;
 
     /**
      * @var PaymentProduct5500SpecificOutput
      */
-    private $paymentProduct5500SpecificOutput;
+    public $paymentProduct5500SpecificOutput = null;
 
     /**
      * @var PaymentProduct840SpecificOutput
      */
-    private $paymentProduct840SpecificOutput;
+    public $paymentProduct840SpecificOutput = null;
 
     /**
      * @var int
      */
-    private $paymentProductId;
+    public $paymentProductId = null;
 
     /**
      * @var string
      */
-    private $token;
+    public $token = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -77,8 +73,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->authorisationCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAuthorisationCode($value)
     {
@@ -92,8 +89,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->customerBankAccount;
     }
+
     /**
-     * @var CustomerBankAccount
+     * @param CustomerBankAccount
      */
     public function setCustomerBankAccount($value)
     {
@@ -107,8 +105,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->fraudResults;
     }
+
     /**
-     * @var FraudResults
+     * @param FraudResults
      */
     public function setFraudResults($value)
     {
@@ -122,8 +121,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentOption;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPaymentOption($value)
     {
@@ -137,8 +137,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct3203SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct3203SpecificOutput
+     * @param PaymentProduct3203SpecificOutput
      */
     public function setPaymentProduct3203SpecificOutput($value)
     {
@@ -152,8 +153,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct5001SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct5001SpecificOutput
+     * @param PaymentProduct5001SpecificOutput
      */
     public function setPaymentProduct5001SpecificOutput($value)
     {
@@ -167,8 +169,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct5402SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct5402SpecificOutput
+     * @param PaymentProduct5402SpecificOutput
      */
     public function setPaymentProduct5402SpecificOutput($value)
     {
@@ -182,8 +185,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct5500SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct5500SpecificOutput
+     * @param PaymentProduct5500SpecificOutput
      */
     public function setPaymentProduct5500SpecificOutput($value)
     {
@@ -197,8 +201,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProduct840SpecificOutput;
     }
+
     /**
-     * @var PaymentProduct840SpecificOutput
+     * @param PaymentProduct840SpecificOutput
      */
     public function setPaymentProduct840SpecificOutput($value)
     {
@@ -212,8 +217,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->paymentProductId;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setPaymentProductId($value)
     {
@@ -227,8 +233,9 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setToken($value)
     {
@@ -241,37 +248,37 @@ class RedirectPaymentMethodSpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->authorisationCode !== null) {
+        if (!is_null($this->authorisationCode)) {
             $object->authorisationCode = $this->authorisationCode;
         }
-        if ($this->customerBankAccount !== null) {
+        if (!is_null($this->customerBankAccount)) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
-        if ($this->fraudResults !== null) {
+        if (!is_null($this->fraudResults)) {
             $object->fraudResults = $this->fraudResults->toObject();
         }
-        if ($this->paymentOption !== null) {
+        if (!is_null($this->paymentOption)) {
             $object->paymentOption = $this->paymentOption;
         }
-        if ($this->paymentProduct3203SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct3203SpecificOutput)) {
             $object->paymentProduct3203SpecificOutput = $this->paymentProduct3203SpecificOutput->toObject();
         }
-        if ($this->paymentProduct5001SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct5001SpecificOutput)) {
             $object->paymentProduct5001SpecificOutput = $this->paymentProduct5001SpecificOutput->toObject();
         }
-        if ($this->paymentProduct5402SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct5402SpecificOutput)) {
             $object->paymentProduct5402SpecificOutput = $this->paymentProduct5402SpecificOutput->toObject();
         }
-        if ($this->paymentProduct5500SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct5500SpecificOutput)) {
             $object->paymentProduct5500SpecificOutput = $this->paymentProduct5500SpecificOutput->toObject();
         }
-        if ($this->paymentProduct840SpecificOutput !== null) {
+        if (!is_null($this->paymentProduct840SpecificOutput)) {
             $object->paymentProduct840SpecificOutput = $this->paymentProduct840SpecificOutput->toObject();
         }
-        if ($this->paymentProductId !== null) {
+        if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token;
         }
         return $object;

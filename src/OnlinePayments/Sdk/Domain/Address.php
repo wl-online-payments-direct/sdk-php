@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,43 +11,41 @@ use UnexpectedValueException;
  */
 class Address extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $additionalInfo;
+    public $additionalInfo = null;
 
     /**
      * @var string
      */
-    private $city;
+    public $city = null;
 
     /**
      * @var string
      */
-    private $countryCode;
+    public $countryCode = null;
 
     /**
      * @var string
      */
-    private $houseNumber;
+    public $houseNumber = null;
 
     /**
      * @var string
      */
-    private $state;
+    public $state = null;
 
     /**
      * @var string
      */
-    private $street;
+    public $street = null;
 
     /**
      * @var string
      */
-    private $zip;
+    public $zip = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -57,8 +53,9 @@ class Address extends DataObject
     {
         return $this->additionalInfo;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setAdditionalInfo($value)
     {
@@ -72,8 +69,9 @@ class Address extends DataObject
     {
         return $this->city;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCity($value)
     {
@@ -87,8 +85,9 @@ class Address extends DataObject
     {
         return $this->countryCode;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCountryCode($value)
     {
@@ -102,8 +101,9 @@ class Address extends DataObject
     {
         return $this->houseNumber;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setHouseNumber($value)
     {
@@ -117,8 +117,9 @@ class Address extends DataObject
     {
         return $this->state;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setState($value)
     {
@@ -132,8 +133,9 @@ class Address extends DataObject
     {
         return $this->street;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStreet($value)
     {
@@ -147,8 +149,9 @@ class Address extends DataObject
     {
         return $this->zip;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setZip($value)
     {
@@ -161,25 +164,25 @@ class Address extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->additionalInfo !== null) {
+        if (!is_null($this->additionalInfo)) {
             $object->additionalInfo = $this->additionalInfo;
         }
-        if ($this->city !== null) {
+        if (!is_null($this->city)) {
             $object->city = $this->city;
         }
-        if ($this->countryCode !== null) {
+        if (!is_null($this->countryCode)) {
             $object->countryCode = $this->countryCode;
         }
-        if ($this->houseNumber !== null) {
+        if (!is_null($this->houseNumber)) {
             $object->houseNumber = $this->houseNumber;
         }
-        if ($this->state !== null) {
+        if (!is_null($this->state)) {
             $object->state = $this->state;
         }
-        if ($this->street !== null) {
+        if (!is_null($this->street)) {
             $object->street = $this->street;
         }
-        if ($this->zip !== null) {
+        if (!is_null($this->zip)) {
             $object->zip = $this->zip;
         }
         return $object;

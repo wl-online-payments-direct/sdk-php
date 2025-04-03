@@ -1,6 +1,7 @@
 <?php
-
 namespace OnlinePayments\Sdk;
+
+use DateTime;
 
 /**
  * Class CallContext
@@ -14,6 +15,9 @@ class CallContext
 
     /** @var string */
     private $idempotenceRequestTimestamp = '';
+
+    /** @var DateTime|null */
+    private $idempotenceResponseDateTime;
 
     /**
      * @return string
@@ -45,5 +49,21 @@ class CallContext
     public function setIdempotenceRequestTimestamp($idempotenceRequestTimestamp)
     {
         $this->idempotenceRequestTimestamp = $idempotenceRequestTimestamp;
+    }
+
+    /**
+     * @return DateTime|null
+     */
+    public function getIdempotenceResponseDateTime()
+    {
+        return $this->idempotenceResponseDateTime;
+    }
+
+    /**
+     * @param DateTime $idempotenceResponseDateTime
+     */
+    public function setIdempotenceResponseDateTime(DateTime $idempotenceResponseDateTime)
+    {
+        $this->idempotenceResponseDateTime = $idempotenceResponseDateTime;
     }
 }

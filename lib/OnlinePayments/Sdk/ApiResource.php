@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk;
 
 /**
@@ -10,7 +9,7 @@ namespace OnlinePayments\Sdk;
 class ApiResource
 {
     /**
-     * @var ApiResource
+     * @var ApiResource|null
      */
     private $parent;
 
@@ -20,9 +19,9 @@ class ApiResource
     protected $context = array();
 
     /**
-     * Creates a new proxy object for a RAML resource.
+     * Creates a new proxy object for a API resource.
      *
-     * @param ApiResource $parent The parent resource.
+     * @param ApiResource|null $parent The parent resource.
      * @param array $context An associative array that maps URI parameters to values.
      */
     public function __construct(ApiResource $parent = null, $context = array())
@@ -32,7 +31,7 @@ class ApiResource
     }
 
     /**
-     * Returns the communicator associated with this resource.
+     * Returns the connection associated with this resource.
      *
      * @return CommunicatorInterface
      */
@@ -52,16 +51,16 @@ class ApiResource
     }
 
     /**
-     * Converts an URI template to a fully qualified URI by replacing
+     * Converts a URI template to a fully qualified URI by replacing
      * URI parameters ('{...}') by their corresponding value in
      * $this->context.
      *
      * @param string $template The URL template to instantiate.
      * @return string The URL in which the URI parameters have been replaced.
      */
-    public function instantiateUri($template)
+    protected function instantiateUri($template)
     {
-        // We assume that RAML URLs follow the recommendations in
+        // We assume that API URLs follow the recommendations in
         // RFC 1738, and therefore do not use unencoded { and }.
         foreach ($this->context as $name => $value) {
             $template = str_replace('{' . $name . '}', $value, $template);

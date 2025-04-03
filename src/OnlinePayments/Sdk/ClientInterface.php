@@ -1,14 +1,14 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk;
 
+use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\Merchant\MerchantClientInterface;
 
 /**
- * API specifications
+ * Payment platform client interface.
  */
 interface ClientInterface
 {
@@ -17,13 +17,22 @@ interface ClientInterface
      */
     function enableLogging(CommunicatorLogger $communicatorLogger);
 
+    /**
+     * @return void
+     */
     function disableLogging();
 
     /**
-     * ApiResource /v2/{merchantId}
+     * @param string $clientMetaInfo
+     * @return $this
+     */
+    function setClientMetaInfo($clientMetaInfo);
+
+    /**
+     * Resource /v2/{merchantId}
      *
      * @param string $merchantId
      * @return MerchantClientInterface
      */
-    public function merchant($merchantId);
+    function merchant($merchantId);
 }

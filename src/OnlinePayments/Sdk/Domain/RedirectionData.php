@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class RedirectionData extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $returnUrl;
+    public $returnUrl = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class RedirectionData extends DataObject
     {
         return $this->returnUrl;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setReturnUrl($value)
     {
@@ -41,7 +38,7 @@ class RedirectionData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->returnUrl !== null) {
+        if (!is_null($this->returnUrl)) {
             $object->returnUrl = $this->returnUrl;
         }
         return $object;

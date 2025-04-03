@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk\Webhooks;
 
 /**

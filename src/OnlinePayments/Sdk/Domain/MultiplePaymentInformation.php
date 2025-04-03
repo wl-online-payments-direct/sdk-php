@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class MultiplePaymentInformation extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $paymentPattern;
+    public $paymentPattern = null;
 
     /**
      * @var int
      */
-    private $totalNumberOfPayments;
+    public $totalNumberOfPayments = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class MultiplePaymentInformation extends DataObject
     {
         return $this->paymentPattern;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPaymentPattern($value)
     {
@@ -47,8 +44,9 @@ class MultiplePaymentInformation extends DataObject
     {
         return $this->totalNumberOfPayments;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setTotalNumberOfPayments($value)
     {
@@ -61,10 +59,10 @@ class MultiplePaymentInformation extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->paymentPattern !== null) {
+        if (!is_null($this->paymentPattern)) {
             $object->paymentPattern = $this->paymentPattern;
         }
-        if ($this->totalNumberOfPayments !== null) {
+        if (!is_null($this->totalNumberOfPayments)) {
             $object->totalNumberOfPayments = $this->totalNumberOfPayments;
         }
         return $object;

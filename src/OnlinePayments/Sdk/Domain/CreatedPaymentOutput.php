@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class CreatedPaymentOutput extends DataObject
 {
-    // Properties
     /**
      * @var PaymentResponse
      */
-    private $payment;
+    public $payment = null;
 
     /**
      * @var string
      */
-    private $paymentStatusCategory;
+    public $paymentStatusCategory = null;
 
-    // Methods
     /**
      * @return PaymentResponse
      */
@@ -32,8 +28,9 @@ class CreatedPaymentOutput extends DataObject
     {
         return $this->payment;
     }
+
     /**
-     * @var PaymentResponse
+     * @param PaymentResponse
      */
     public function setPayment($value)
     {
@@ -47,8 +44,9 @@ class CreatedPaymentOutput extends DataObject
     {
         return $this->paymentStatusCategory;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setPaymentStatusCategory($value)
     {
@@ -61,10 +59,10 @@ class CreatedPaymentOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->payment !== null) {
+        if (!is_null($this->payment)) {
             $object->payment = $this->payment->toObject();
         }
-        if ($this->paymentStatusCategory !== null) {
+        if (!is_null($this->paymentStatusCategory)) {
             $object->paymentStatusCategory = $this->paymentStatusCategory;
         }
         return $object;

@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class BankAccountIban extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $iban;
+    public $iban = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class BankAccountIban extends DataObject
     {
         return $this->iban;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setIban($value)
     {
@@ -41,7 +38,7 @@ class BankAccountIban extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->iban !== null) {
+        if (!is_null($this->iban)) {
             $object->iban = $this->iban;
         }
         return $object;

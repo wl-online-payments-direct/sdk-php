@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,13 +11,11 @@ use UnexpectedValueException;
  */
 class PaymentProduct5402SpecificOutput extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $brand;
+    public $brand = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -27,8 +23,9 @@ class PaymentProduct5402SpecificOutput extends DataObject
     {
         return $this->brand;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setBrand($value)
     {
@@ -41,7 +38,7 @@ class PaymentProduct5402SpecificOutput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->brand !== null) {
+        if (!is_null($this->brand)) {
             $object->brand = $this->brand;
         }
         return $object;

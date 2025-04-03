@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentAccountOnFile extends DataObject
 {
-    // Properties
     /**
      * @var string
      */
-    private $createDate;
+    public $createDate = null;
 
     /**
      * @var int
      */
-    private $numberOfCardOnFileCreationAttemptsLast24Hours;
+    public $numberOfCardOnFileCreationAttemptsLast24Hours = null;
 
-    // Methods
     /**
      * @return string
      */
@@ -32,8 +28,9 @@ class PaymentAccountOnFile extends DataObject
     {
         return $this->createDate;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setCreateDate($value)
     {
@@ -47,8 +44,9 @@ class PaymentAccountOnFile extends DataObject
     {
         return $this->numberOfCardOnFileCreationAttemptsLast24Hours;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setNumberOfCardOnFileCreationAttemptsLast24Hours($value)
     {
@@ -61,10 +59,10 @@ class PaymentAccountOnFile extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->createDate !== null) {
+        if (!is_null($this->createDate)) {
             $object->createDate = $this->createDate;
         }
-        if ($this->numberOfCardOnFileCreationAttemptsLast24Hours !== null) {
+        if (!is_null($this->numberOfCardOnFileCreationAttemptsLast24Hours)) {
             $object->numberOfCardOnFileCreationAttemptsLast24Hours = $this->numberOfCardOnFileCreationAttemptsLast24Hours;
         }
         return $object;

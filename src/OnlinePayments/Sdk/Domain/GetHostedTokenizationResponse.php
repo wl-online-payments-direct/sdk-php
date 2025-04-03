@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class GetHostedTokenizationResponse extends DataObject
 {
-    // Properties
     /**
      * @var TokenResponse
      */
-    private $token;
+    public $token = null;
 
     /**
      * @var string
      */
-    private $tokenStatus;
+    public $tokenStatus = null;
 
-    // Methods
     /**
      * @return TokenResponse
      */
@@ -32,8 +28,9 @@ class GetHostedTokenizationResponse extends DataObject
     {
         return $this->token;
     }
+
     /**
-     * @var TokenResponse
+     * @param TokenResponse
      */
     public function setToken($value)
     {
@@ -47,8 +44,9 @@ class GetHostedTokenizationResponse extends DataObject
     {
         return $this->tokenStatus;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setTokenStatus($value)
     {
@@ -61,10 +59,10 @@ class GetHostedTokenizationResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->token !== null) {
+        if (!is_null($this->token)) {
             $object->token = $this->token->toObject();
         }
-        if ($this->tokenStatus !== null) {
+        if (!is_null($this->tokenStatus)) {
             $object->tokenStatus = $this->tokenStatus;
         }
         return $object;

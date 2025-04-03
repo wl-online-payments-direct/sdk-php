@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,38 +11,36 @@ use UnexpectedValueException;
  */
 class PaymentDetailsResponse extends DataObject
 {
-    // Properties
     /**
      * @var OperationOutput[]
      */
-    private $Operations;
+    public $Operations = null;
 
     /**
      * @var HostedCheckoutSpecificOutput
      */
-    private $hostedCheckoutSpecificOutput;
+    public $hostedCheckoutSpecificOutput = null;
 
     /**
      * @var string
      */
-    private $id;
+    public $id = null;
 
     /**
      * @var PaymentOutput
      */
-    private $paymentOutput;
+    public $paymentOutput = null;
 
     /**
      * @var string
      */
-    private $status;
+    public $status = null;
 
     /**
      * @var PaymentStatusOutput
      */
-    private $statusOutput;
+    public $statusOutput = null;
 
-    // Methods
     /**
      * @return OperationOutput[]
      */
@@ -52,8 +48,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->Operations;
     }
+
     /**
-     * @var OperationOutput[]
+     * @param OperationOutput[]
      */
     public function setOperations($value)
     {
@@ -67,8 +64,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->hostedCheckoutSpecificOutput;
     }
+
     /**
-     * @var HostedCheckoutSpecificOutput
+     * @param HostedCheckoutSpecificOutput
      */
     public function setHostedCheckoutSpecificOutput($value)
     {
@@ -82,8 +80,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->id;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setId($value)
     {
@@ -97,8 +96,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->paymentOutput;
     }
+
     /**
-     * @var PaymentOutput
+     * @param PaymentOutput
      */
     public function setPaymentOutput($value)
     {
@@ -112,8 +112,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->status;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setStatus($value)
     {
@@ -127,8 +128,9 @@ class PaymentDetailsResponse extends DataObject
     {
         return $this->statusOutput;
     }
+
     /**
-     * @var PaymentStatusOutput
+     * @param PaymentStatusOutput
      */
     public function setStatusOutput($value)
     {
@@ -141,27 +143,27 @@ class PaymentDetailsResponse extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->Operations !== null) {
+        if (!is_null($this->Operations)) {
             $object->Operations = [];
             foreach ($this->Operations as $element) {
-                if ($element !== null) {
+                if (!is_null($element)) {
                     $object->Operations[] = $element->toObject();
                 }
             }
         }
-        if ($this->hostedCheckoutSpecificOutput !== null) {
+        if (!is_null($this->hostedCheckoutSpecificOutput)) {
             $object->hostedCheckoutSpecificOutput = $this->hostedCheckoutSpecificOutput->toObject();
         }
-        if ($this->id !== null) {
+        if (!is_null($this->id)) {
             $object->id = $this->id;
         }
-        if ($this->paymentOutput !== null) {
+        if (!is_null($this->paymentOutput)) {
             $object->paymentOutput = $this->paymentOutput->toObject();
         }
-        if ($this->status !== null) {
+        if (!is_null($this->status)) {
             $object->status = $this->status;
         }
-        if ($this->statusOutput !== null) {
+        if (!is_null($this->statusOutput)) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;

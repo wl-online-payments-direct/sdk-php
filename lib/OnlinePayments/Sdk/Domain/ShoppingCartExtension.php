@@ -1,106 +1,46 @@
 <?php
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
  * Class ShoppingCartExtension
  *
- * @package OnlinePayments\Sdk\Domain\MetaData
+ * @package OnlinePayments\Sdk\Domain
  */
 class ShoppingCartExtension extends DataObject
 {
     /**
      * @var string|null
      */
-    private $creator = null;
+    public $creator = null;
 
     /**
      * @var string|null
      */
-    private $name = null;
+    public $name = null;
 
     /**
      * @var string|null
      */
-    private $version = null;
+    public $version = null;
 
     /**
      * @var string|null
      */
-    private $extensionId = null;
+    public $extensionId = null;
 
+    /**
+     * @param string $creator
+     * @param string $name
+     * @param string $version
+     * @param string|null $extensionId
+     */
     public function __construct($creator, $name, $version, $extensionId = null)
     {
         $this->creator = $creator;
         $this->name = $name;
         $this->version = $version;
-        $this->extensionId = $extensionId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreator()
-    {
-        return $this->creator;
-    }
-
-    /**
-     * @param string $creator
-     */
-    public function setCreator($creator)
-    {
-        $this->creator = $creator;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @param string $version
-     */
-    public function setVersion($version)
-    {
-        $this->version = $version;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExtensionId()
-    {
-        return $this->extensionId;
-    }
-
-    /**
-     * @param string $extensionId
-     */
-    public function setExtensionId($extensionId)
-    {
         $this->extensionId = $extensionId;
     }
 

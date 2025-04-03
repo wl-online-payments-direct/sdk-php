@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,18 +11,16 @@ use UnexpectedValueException;
  */
 class PaymentProductFieldDataRestrictions extends DataObject
 {
-    // Properties
     /**
      * @var bool
      */
-    private $isRequired;
+    public $isRequired = null;
 
     /**
      * @var PaymentProductFieldValidators
      */
-    private $validators;
+    public $validators = null;
 
-    // Methods
     /**
      * @return bool
      */
@@ -32,8 +28,9 @@ class PaymentProductFieldDataRestrictions extends DataObject
     {
         return $this->isRequired;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setIsRequired($value)
     {
@@ -47,8 +44,9 @@ class PaymentProductFieldDataRestrictions extends DataObject
     {
         return $this->validators;
     }
+
     /**
-     * @var PaymentProductFieldValidators
+     * @param PaymentProductFieldValidators
      */
     public function setValidators($value)
     {
@@ -61,10 +59,10 @@ class PaymentProductFieldDataRestrictions extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->isRequired !== null) {
+        if (!is_null($this->isRequired)) {
             $object->isRequired = $this->isRequired;
         }
-        if ($this->validators !== null) {
+        if (!is_null($this->validators)) {
             $object->validators = $this->validators->toObject();
         }
         return $object;

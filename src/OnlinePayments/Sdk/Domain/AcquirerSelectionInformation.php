@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,23 +11,21 @@ use UnexpectedValueException;
  */
 class AcquirerSelectionInformation extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $fallbackLevel;
+    public $fallbackLevel = null;
 
     /**
      * @var string
      */
-    private $result;
+    public $result = null;
 
     /**
      * @var string
      */
-    private $ruleName;
+    public $ruleName = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -37,8 +33,9 @@ class AcquirerSelectionInformation extends DataObject
     {
         return $this->fallbackLevel;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setFallbackLevel($value)
     {
@@ -52,8 +49,9 @@ class AcquirerSelectionInformation extends DataObject
     {
         return $this->result;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setResult($value)
     {
@@ -67,8 +65,9 @@ class AcquirerSelectionInformation extends DataObject
     {
         return $this->ruleName;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setRuleName($value)
     {
@@ -81,13 +80,13 @@ class AcquirerSelectionInformation extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->fallbackLevel !== null) {
+        if (!is_null($this->fallbackLevel)) {
             $object->fallbackLevel = $this->fallbackLevel;
         }
-        if ($this->result !== null) {
+        if (!is_null($this->result)) {
             $object->result = $this->result;
         }
-        if ($this->ruleName !== null) {
+        if (!is_null($this->ruleName)) {
             $object->ruleName = $this->ruleName;
         }
         return $object;

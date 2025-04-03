@@ -1,5 +1,4 @@
 <?php
-
 namespace OnlinePayments\Sdk\Webhooks;
 
 use RuntimeException;
@@ -12,10 +11,10 @@ use RuntimeException;
 class ApiVersionMismatchException extends RuntimeException
 {
     /** @var string */
-    protected $eventApiVersion;
+    private $eventApiVersion;
 
     /** @var string */
-    protected $sdkApiVersion;
+    private $sdkApiVersion;
 
     /**
      * @param string $eventApiVersion

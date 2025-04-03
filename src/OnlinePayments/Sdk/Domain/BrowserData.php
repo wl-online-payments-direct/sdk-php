@@ -1,11 +1,9 @@
 <?php
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
-
 namespace OnlinePayments\Sdk\Domain;
 
-use OnlinePayments\Sdk\DataObject;
 use UnexpectedValueException;
 
 /**
@@ -13,33 +11,31 @@ use UnexpectedValueException;
  */
 class BrowserData extends DataObject
 {
-    // Properties
     /**
      * @var int
      */
-    private $colorDepth;
+    public $colorDepth = null;
 
     /**
      * @var bool
      */
-    private $javaEnabled;
+    public $javaEnabled = null;
 
     /**
      * @var bool
      */
-    private $javaScriptEnabled;
+    public $javaScriptEnabled = null;
 
     /**
      * @var string
      */
-    private $screenHeight;
+    public $screenHeight = null;
 
     /**
      * @var string
      */
-    private $screenWidth;
+    public $screenWidth = null;
 
-    // Methods
     /**
      * @return int
      */
@@ -47,8 +43,9 @@ class BrowserData extends DataObject
     {
         return $this->colorDepth;
     }
+
     /**
-     * @var int
+     * @param int
      */
     public function setColorDepth($value)
     {
@@ -62,8 +59,9 @@ class BrowserData extends DataObject
     {
         return $this->javaEnabled;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setJavaEnabled($value)
     {
@@ -77,8 +75,9 @@ class BrowserData extends DataObject
     {
         return $this->javaScriptEnabled;
     }
+
     /**
-     * @var bool
+     * @param bool
      */
     public function setJavaScriptEnabled($value)
     {
@@ -92,8 +91,9 @@ class BrowserData extends DataObject
     {
         return $this->screenHeight;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setScreenHeight($value)
     {
@@ -107,8 +107,9 @@ class BrowserData extends DataObject
     {
         return $this->screenWidth;
     }
+
     /**
-     * @var string
+     * @param string
      */
     public function setScreenWidth($value)
     {
@@ -121,19 +122,19 @@ class BrowserData extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
-        if ($this->colorDepth !== null) {
+        if (!is_null($this->colorDepth)) {
             $object->colorDepth = $this->colorDepth;
         }
-        if ($this->javaEnabled !== null) {
+        if (!is_null($this->javaEnabled)) {
             $object->javaEnabled = $this->javaEnabled;
         }
-        if ($this->javaScriptEnabled !== null) {
+        if (!is_null($this->javaScriptEnabled)) {
             $object->javaScriptEnabled = $this->javaScriptEnabled;
         }
-        if ($this->screenHeight !== null) {
+        if (!is_null($this->screenHeight)) {
             $object->screenHeight = $this->screenHeight;
         }
-        if ($this->screenWidth !== null) {
+        if (!is_null($this->screenWidth)) {
             $object->screenWidth = $this->screenWidth;
         }
         return $object;
