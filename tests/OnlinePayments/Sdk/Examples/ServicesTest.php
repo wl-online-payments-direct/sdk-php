@@ -39,7 +39,7 @@ class ServicesTest extends ClientTestCase
         $merchantId = $this->getMerchantId();
         $body = new GetIINDetailsRequest();
 
-        $body->setBin("4567350000427977");
+        $body->setBin("401200");
 
         return $client->merchant($merchantId)->services()->getIINdetails($body);
     }

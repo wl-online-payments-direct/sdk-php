@@ -22,6 +22,11 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     public $paymentProduct3203SpecificInput = null;
 
     /**
+     * @var RedirectPaymentProduct3204SpecificInput
+     */
+    public $paymentProduct3204SpecificInput = null;
+
+    /**
      * @var RedirectPaymentProduct3302SpecificInput
      */
     public $paymentProduct3302SpecificInput = null;
@@ -40,6 +45,16 @@ class RedirectPaymentMethodSpecificInput extends DataObject
      * @var RedirectPaymentProduct5300SpecificInput
      */
     public $paymentProduct5300SpecificInput = null;
+
+    /**
+     * @var RedirectPaymentProduct5402SpecificInput
+     */
+    public $paymentProduct5402SpecificInput = null;
+
+    /**
+     * @var RedirectPaymentProduct5403SpecificInput
+     */
+    public $paymentProduct5403SpecificInput = null;
 
     /**
      * @var RedirectPaymentProduct5406SpecificInput
@@ -124,6 +139,22 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return RedirectPaymentProduct3204SpecificInput
+     */
+    public function getPaymentProduct3204SpecificInput()
+    {
+        return $this->paymentProduct3204SpecificInput;
+    }
+
+    /**
+     * @param RedirectPaymentProduct3204SpecificInput
+     */
+    public function setPaymentProduct3204SpecificInput($value)
+    {
+        $this->paymentProduct3204SpecificInput = $value;
+    }
+
+    /**
      * @return RedirectPaymentProduct3302SpecificInput
      */
     public function getPaymentProduct3302SpecificInput()
@@ -185,6 +216,38 @@ class RedirectPaymentMethodSpecificInput extends DataObject
     public function setPaymentProduct5300SpecificInput($value)
     {
         $this->paymentProduct5300SpecificInput = $value;
+    }
+
+    /**
+     * @return RedirectPaymentProduct5402SpecificInput
+     */
+    public function getPaymentProduct5402SpecificInput()
+    {
+        return $this->paymentProduct5402SpecificInput;
+    }
+
+    /**
+     * @param RedirectPaymentProduct5402SpecificInput
+     */
+    public function setPaymentProduct5402SpecificInput($value)
+    {
+        $this->paymentProduct5402SpecificInput = $value;
+    }
+
+    /**
+     * @return RedirectPaymentProduct5403SpecificInput
+     */
+    public function getPaymentProduct5403SpecificInput()
+    {
+        return $this->paymentProduct5403SpecificInput;
+    }
+
+    /**
+     * @param RedirectPaymentProduct5403SpecificInput
+     */
+    public function setPaymentProduct5403SpecificInput($value)
+    {
+        $this->paymentProduct5403SpecificInput = $value;
     }
 
     /**
@@ -359,6 +422,9 @@ class RedirectPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->paymentProduct3203SpecificInput)) {
             $object->paymentProduct3203SpecificInput = $this->paymentProduct3203SpecificInput->toObject();
         }
+        if (!is_null($this->paymentProduct3204SpecificInput)) {
+            $object->paymentProduct3204SpecificInput = $this->paymentProduct3204SpecificInput->toObject();
+        }
         if (!is_null($this->paymentProduct3302SpecificInput)) {
             $object->paymentProduct3302SpecificInput = $this->paymentProduct3302SpecificInput->toObject();
         }
@@ -370,6 +436,12 @@ class RedirectPaymentMethodSpecificInput extends DataObject
         }
         if (!is_null($this->paymentProduct5300SpecificInput)) {
             $object->paymentProduct5300SpecificInput = $this->paymentProduct5300SpecificInput->toObject();
+        }
+        if (!is_null($this->paymentProduct5402SpecificInput)) {
+            $object->paymentProduct5402SpecificInput = $this->paymentProduct5402SpecificInput->toObject();
+        }
+        if (!is_null($this->paymentProduct5403SpecificInput)) {
+            $object->paymentProduct5403SpecificInput = $this->paymentProduct5403SpecificInput->toObject();
         }
         if (!is_null($this->paymentProduct5406SpecificInput)) {
             $object->paymentProduct5406SpecificInput = $this->paymentProduct5406SpecificInput->toObject();
@@ -422,6 +494,13 @@ class RedirectPaymentMethodSpecificInput extends DataObject
             $value = new RedirectPaymentProduct3203SpecificInput();
             $this->paymentProduct3203SpecificInput = $value->fromObject($object->paymentProduct3203SpecificInput);
         }
+        if (property_exists($object, 'paymentProduct3204SpecificInput')) {
+            if (!is_object($object->paymentProduct3204SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3204SpecificInput, true) . '\' is not an object');
+            }
+            $value = new RedirectPaymentProduct3204SpecificInput();
+            $this->paymentProduct3204SpecificInput = $value->fromObject($object->paymentProduct3204SpecificInput);
+        }
         if (property_exists($object, 'paymentProduct3302SpecificInput')) {
             if (!is_object($object->paymentProduct3302SpecificInput)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3302SpecificInput, true) . '\' is not an object');
@@ -449,6 +528,20 @@ class RedirectPaymentMethodSpecificInput extends DataObject
             }
             $value = new RedirectPaymentProduct5300SpecificInput();
             $this->paymentProduct5300SpecificInput = $value->fromObject($object->paymentProduct5300SpecificInput);
+        }
+        if (property_exists($object, 'paymentProduct5402SpecificInput')) {
+            if (!is_object($object->paymentProduct5402SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5402SpecificInput, true) . '\' is not an object');
+            }
+            $value = new RedirectPaymentProduct5402SpecificInput();
+            $this->paymentProduct5402SpecificInput = $value->fromObject($object->paymentProduct5402SpecificInput);
+        }
+        if (property_exists($object, 'paymentProduct5403SpecificInput')) {
+            if (!is_object($object->paymentProduct5403SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5403SpecificInput, true) . '\' is not an object');
+            }
+            $value = new RedirectPaymentProduct5403SpecificInput();
+            $this->paymentProduct5403SpecificInput = $value->fromObject($object->paymentProduct5403SpecificInput);
         }
         if (property_exists($object, 'paymentProduct5406SpecificInput')) {
             if (!is_object($object->paymentProduct5406SpecificInput)) {

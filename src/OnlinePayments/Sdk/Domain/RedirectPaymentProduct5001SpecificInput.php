@@ -14,7 +14,28 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     /**
      * @var string
      */
+    public $exemptionRequest = null;
+
+    /**
+     * @var string
+     */
     public $subsequentType = null;
+
+    /**
+     * @return string
+     */
+    public function getExemptionRequest()
+    {
+        return $this->exemptionRequest;
+    }
+
+    /**
+     * @param string
+     */
+    public function setExemptionRequest($value)
+    {
+        $this->exemptionRequest = $value;
+    }
 
     /**
      * @return string
@@ -38,6 +59,9 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     public function toObject()
     {
         $object = parent::toObject();
+        if (!is_null($this->exemptionRequest)) {
+            $object->exemptionRequest = $this->exemptionRequest;
+        }
         if (!is_null($this->subsequentType)) {
             $object->subsequentType = $this->subsequentType;
         }
@@ -52,6 +76,9 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     public function fromObject($object)
     {
         parent::fromObject($object);
+        if (property_exists($object, 'exemptionRequest')) {
+            $this->exemptionRequest = $object->exemptionRequest;
+        }
         if (property_exists($object, 'subsequentType')) {
             $this->subsequentType = $object->subsequentType;
         }

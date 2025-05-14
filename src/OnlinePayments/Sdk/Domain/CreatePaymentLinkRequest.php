@@ -45,6 +45,11 @@ class CreatePaymentLinkRequest extends DataObject
     public $hostedCheckoutSpecificInput = null;
 
     /**
+     * @var bool
+     */
+    public $isReusableLink = null;
+
+    /**
      * @var MobilePaymentMethodHostedCheckoutSpecificInput
      */
     public $mobilePaymentMethodSpecificInput = null;
@@ -178,6 +183,22 @@ class CreatePaymentLinkRequest extends DataObject
     public function setHostedCheckoutSpecificInput($value)
     {
         $this->hostedCheckoutSpecificInput = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsReusableLink()
+    {
+        return $this->isReusableLink;
+    }
+
+    /**
+     * @param bool
+     */
+    public function setIsReusableLink($value)
+    {
+        $this->isReusableLink = $value;
     }
 
     /**
@@ -318,6 +339,9 @@ class CreatePaymentLinkRequest extends DataObject
         if (!is_null($this->hostedCheckoutSpecificInput)) {
             $object->hostedCheckoutSpecificInput = $this->hostedCheckoutSpecificInput->toObject();
         }
+        if (!is_null($this->isReusableLink)) {
+            $object->isReusableLink = $this->isReusableLink;
+        }
         if (!is_null($this->mobilePaymentMethodSpecificInput)) {
             $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
         }
@@ -383,6 +407,9 @@ class CreatePaymentLinkRequest extends DataObject
             }
             $value = new HostedCheckoutSpecificInput();
             $this->hostedCheckoutSpecificInput = $value->fromObject($object->hostedCheckoutSpecificInput);
+        }
+        if (property_exists($object, 'isReusableLink')) {
+            $this->isReusableLink = $object->isReusableLink;
         }
         if (property_exists($object, 'mobilePaymentMethodSpecificInput')) {
             if (!is_object($object->mobilePaymentMethodSpecificInput)) {

@@ -18,6 +18,11 @@ class PaymentLinkResponse extends DataObject
     public $expirationDate = null;
 
     /**
+     * @var bool
+     */
+    public $isReusableLink = null;
+
+    /**
      * @var string
      */
     public $paymentId = null;
@@ -66,6 +71,22 @@ class PaymentLinkResponse extends DataObject
     public function setExpirationDate($value)
     {
         $this->expirationDate = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsReusableLink()
+    {
+        return $this->isReusableLink;
+    }
+
+    /**
+     * @param bool
+     */
+    public function setIsReusableLink($value)
+    {
+        $this->isReusableLink = $value;
     }
 
     /**
@@ -189,6 +210,9 @@ class PaymentLinkResponse extends DataObject
         if (!is_null($this->expirationDate)) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
+        if (!is_null($this->isReusableLink)) {
+            $object->isReusableLink = $this->isReusableLink;
+        }
         if (!is_null($this->paymentId)) {
             $object->paymentId = $this->paymentId;
         }
@@ -228,6 +252,9 @@ class PaymentLinkResponse extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'expirationDate')) {
             $this->expirationDate = new DateTime($object->expirationDate);
+        }
+        if (property_exists($object, 'isReusableLink')) {
+            $this->isReusableLink = $object->isReusableLink;
         }
         if (property_exists($object, 'paymentId')) {
             $this->paymentId = $object->paymentId;

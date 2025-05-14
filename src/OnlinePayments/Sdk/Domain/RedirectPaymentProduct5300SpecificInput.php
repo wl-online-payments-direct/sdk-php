@@ -4,7 +4,6 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
-use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -38,7 +37,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     public $loyaltyCardNumber = null;
 
     /**
-     * @var DateTime
+     * @var string
      */
     public $secondInstallmentPaymentDate = null;
 
@@ -128,7 +127,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     }
 
     /**
-     * @return DateTime
+     * @return string
      */
     public function getSecondInstallmentPaymentDate()
     {
@@ -136,7 +135,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     }
 
     /**
-     * @param DateTime
+     * @param string
      */
     public function setSecondInstallmentPaymentDate($value)
     {
@@ -181,7 +180,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
             $object->loyaltyCardNumber = $this->loyaltyCardNumber;
         }
         if (!is_null($this->secondInstallmentPaymentDate)) {
-            $object->secondInstallmentPaymentDate = $this->secondInstallmentPaymentDate->format('Y-m-d');
+            $object->secondInstallmentPaymentDate = $this->secondInstallmentPaymentDate;
         }
         if (!is_null($this->sessionDuration)) {
             $object->sessionDuration = $this->sessionDuration;
@@ -213,7 +212,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
             $this->loyaltyCardNumber = $object->loyaltyCardNumber;
         }
         if (property_exists($object, 'secondInstallmentPaymentDate')) {
-            $this->secondInstallmentPaymentDate = new DateTime($object->secondInstallmentPaymentDate);
+            $this->secondInstallmentPaymentDate = $object->secondInstallmentPaymentDate;
         }
         if (property_exists($object, 'sessionDuration')) {
             $this->sessionDuration = $object->sessionDuration;

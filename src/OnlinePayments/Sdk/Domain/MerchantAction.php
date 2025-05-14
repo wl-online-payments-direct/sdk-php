@@ -32,6 +32,11 @@ class MerchantAction extends DataObject
     public $showFormData = null;
 
     /**
+     * @var ShowInstructionsData
+     */
+    public $showInstructionsData = null;
+
+    /**
      * @return string
      */
     public function getActionType()
@@ -96,6 +101,22 @@ class MerchantAction extends DataObject
     }
 
     /**
+     * @return ShowInstructionsData
+     */
+    public function getShowInstructionsData()
+    {
+        return $this->showInstructionsData;
+    }
+
+    /**
+     * @param ShowInstructionsData
+     */
+    public function setShowInstructionsData($value)
+    {
+        $this->showInstructionsData = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject()
@@ -112,6 +133,9 @@ class MerchantAction extends DataObject
         }
         if (!is_null($this->showFormData)) {
             $object->showFormData = $this->showFormData->toObject();
+        }
+        if (!is_null($this->showInstructionsData)) {
+            $object->showInstructionsData = $this->showInstructionsData->toObject();
         }
         return $object;
     }
@@ -147,6 +171,13 @@ class MerchantAction extends DataObject
             }
             $value = new ShowFormData();
             $this->showFormData = $value->fromObject($object->showFormData);
+        }
+        if (property_exists($object, 'showInstructionsData')) {
+            if (!is_object($object->showInstructionsData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->showInstructionsData, true) . '\' is not an object');
+            }
+            $value = new ShowInstructionsData();
+            $this->showInstructionsData = $value->fromObject($object->showInstructionsData);
         }
         return $this;
     }

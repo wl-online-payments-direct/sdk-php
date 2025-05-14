@@ -77,6 +77,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public $paymentProductId = null;
 
     /**
+     * @var ReattemptInstructions
+     */
+    public $reattemptInstructions = null;
+
+    /**
      * @var string
      */
     public $schemeReferenceData = null;
@@ -300,6 +305,22 @@ class CardPaymentMethodSpecificOutput extends DataObject
     }
 
     /**
+     * @return ReattemptInstructions
+     */
+    public function getReattemptInstructions()
+    {
+        return $this->reattemptInstructions;
+    }
+
+    /**
+     * @param ReattemptInstructions
+     */
+    public function setReattemptInstructions($value)
+    {
+        $this->reattemptInstructions = $value;
+    }
+
+    /**
      * @return string
      */
     public function getSchemeReferenceData()
@@ -392,6 +413,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
+        if (!is_null($this->reattemptInstructions)) {
+            $object->reattemptInstructions = $this->reattemptInstructions->toObject();
+        }
         if (!is_null($this->schemeReferenceData)) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
@@ -478,6 +502,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;
+        }
+        if (property_exists($object, 'reattemptInstructions')) {
+            if (!is_object($object->reattemptInstructions)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->reattemptInstructions, true) . '\' is not an object');
+            }
+            $value = new ReattemptInstructions();
+            $this->reattemptInstructions = $value->fromObject($object->reattemptInstructions);
         }
         if (property_exists($object, 'schemeReferenceData')) {
             $this->schemeReferenceData = $object->schemeReferenceData;
