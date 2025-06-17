@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\HostedCheckout;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null)
+    public function createHostedCheckout(CreateHostedCheckoutRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedCheckoutResponse';
@@ -48,7 +50,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
     /**
      * @inheritdoc
      */
-    public function getHostedCheckout($hostedCheckoutId, CallContext $callContext = null)
+    public function getHostedCheckout($hostedCheckoutId, ?CallContext $callContext = null)
     {
         $this->context['hostedCheckoutId'] = $hostedCheckoutId;
         $responseClassMap = new ResponseClassMap();

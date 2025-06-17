@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Mandates;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createMandate(CreateMandateRequest $body, CallContext $callContext = null)
+    public function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateMandateResponse';
@@ -48,7 +50,7 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     /**
      * @inheritdoc
      */
-    public function getMandate($uniqueMandateReference, CallContext $callContext = null)
+    public function getMandate($uniqueMandateReference, ?CallContext $callContext = null)
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -73,8 +75,9 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function blockMandate($uniqueMandateReference, CallContext $callContext = null)
+    public function blockMandate($uniqueMandateReference, ?CallContext $callContext = null)
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -100,8 +103,9 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function unblockMandate($uniqueMandateReference, CallContext $callContext = null)
+    public function unblockMandate($uniqueMandateReference, ?CallContext $callContext = null)
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -127,8 +131,9 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function revokeMandate($uniqueMandateReference, CallContext $callContext = null)
+    public function revokeMandate($uniqueMandateReference, ?CallContext $callContext = null)
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();

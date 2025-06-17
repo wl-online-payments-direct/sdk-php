@@ -21,7 +21,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null)
+    public function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPaymentProductsResponse';
@@ -46,7 +46,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null)
+    public function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null)
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -72,7 +72,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, CallContext $callContext = null)
+    public function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null)
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -98,7 +98,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null)
+    public function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null)
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();

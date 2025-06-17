@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Tokens;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -22,7 +23,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
-    public function getToken($tokenId, CallContext $callContext = null)
+    public function getToken($tokenId, ?CallContext $callContext = null)
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
@@ -47,8 +48,9 @@ class TokensClient extends ApiResource implements TokensClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function deleteToken($tokenId, CallContext $callContext = null)
+    public function deleteToken($tokenId, ?CallContext $callContext = null)
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
@@ -72,8 +74,9 @@ class TokensClient extends ApiResource implements TokensClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createToken(CreateTokenRequest $body, CallContext $callContext = null)
+    public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';

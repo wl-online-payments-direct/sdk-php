@@ -65,7 +65,7 @@ class CommunicatorConfiguration
         $apiSecret,
         $apiEndpoint,
         $integrator,
-        ProxyConfiguration $proxyConfiguration = null,
+        ?ProxyConfiguration $proxyConfiguration = null,
         $connectTimeout = -1,
         $readTimeout = -1)
     {
@@ -160,7 +160,7 @@ class CommunicatorConfiguration
     /**
      * @param ProxyConfiguration|null $proxyConfiguration
      */
-    public function setProxyConfiguration(ProxyConfiguration $proxyConfiguration = null)
+    public function setProxyConfiguration(?ProxyConfiguration $proxyConfiguration = null)
     {
         $this->proxyConfiguration = $proxyConfiguration;
     }
@@ -225,7 +225,7 @@ class CommunicatorConfiguration
     /**
      * @param ShoppingCartExtension|null $shoppingCartExtension
      */
-    public function setShoppingCartExtension(ShoppingCartExtension $shoppingCartExtension = null)
+    public function setShoppingCartExtension(?ShoppingCartExtension $shoppingCartExtension = null)
     {
         $this->shoppingCartExtension = $shoppingCartExtension;
     }

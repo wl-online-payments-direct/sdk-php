@@ -37,7 +37,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null);
+    function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId} - Get payment product
@@ -55,7 +55,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null);
+    function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId}/networks - Get payment product networks
@@ -73,7 +73,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, CallContext $callContext = null);
+    function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId}/directory - Get payment product directory
@@ -91,5 +91,5 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null);
+    function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null);
 }

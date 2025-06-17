@@ -35,5 +35,5 @@ interface SessionsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createSession(SessionRequest $body, CallContext $callContext = null);
+    function createSession(SessionRequest $body, ?CallContext $callContext = null);
 }

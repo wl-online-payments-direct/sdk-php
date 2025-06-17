@@ -93,31 +93,21 @@ class BodyObfuscator
         }
 
         switch ($lowerKey) {
-            case 'additionalinfo':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'cardholdername':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'dateofbirth':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'emailaddress':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'faxnumber':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'firstname':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'housenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'mobilephonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'passengername':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'phonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'street':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'workphonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'zip':
+            case 'value':
+            case 'cvv':
+            case 'additionalinfo':
                 return $this->valueObfuscator->obfuscateAll($value);
             case 'keyid':
             case 'secretkey':
@@ -127,9 +117,6 @@ class BodyObfuscator
             case 'decryptedpayload':
             case 'encryptedcustomerinput':
                 return $this->valueObfuscator->obfuscateFixedLength(8);
-            case 'cvv':
-            case 'value':
-                return $this->valueObfuscator->obfuscateAll($value);
             case 'bin':
                 return $this->valueObfuscator->obfuscateAllKeepStart($value, 6);
             case 'accountnumber':

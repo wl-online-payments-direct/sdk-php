@@ -36,7 +36,7 @@ interface HostedTokenizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createHostedTokenization(CreateHostedTokenizationRequest $body, CallContext $callContext = null);
+    function createHostedTokenization(CreateHostedTokenizationRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId} - Get hosted tokenization session
@@ -53,5 +53,5 @@ interface HostedTokenizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getHostedTokenization($hostedTokenizationId, CallContext $callContext = null);
+    function getHostedTokenization($hostedTokenizationId, ?CallContext $callContext = null);
 }

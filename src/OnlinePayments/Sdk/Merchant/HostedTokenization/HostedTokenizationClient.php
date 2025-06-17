@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\HostedTokenization;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createHostedTokenization(CreateHostedTokenizationRequest $body, CallContext $callContext = null)
+    public function createHostedTokenization(CreateHostedTokenizationRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedTokenizationResponse';
@@ -48,7 +50,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     /**
      * @inheritdoc
      */
-    public function getHostedTokenization($hostedTokenizationId, CallContext $callContext = null)
+    public function getHostedTokenization($hostedTokenizationId, ?CallContext $callContext = null)
     {
         $this->context['hostedTokenizationId'] = $hostedTokenizationId;
         $responseClassMap = new ResponseClassMap();

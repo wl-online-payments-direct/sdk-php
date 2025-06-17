@@ -39,7 +39,7 @@ class DefaultConnection implements Connection
     /**
      * @param CommunicatorConfiguration|null $communicatorConfiguration
      */
-    public function __construct(CommunicatorConfiguration $communicatorConfiguration = null)
+    public function __construct(?CommunicatorConfiguration $communicatorConfiguration = null)
     {
         if ($communicatorConfiguration) {
             $this->connectTimeout = $communicatorConfiguration->getConnectTimeout();
@@ -63,6 +63,7 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
+     * @throws ErrorException
      */
     public function get($requestUri, $requestHeaders, callable $responseHandler)
     {
@@ -83,6 +84,7 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
+     * @throws ErrorException
      */
     public function delete($requestUri, $requestHeaders, callable $responseHandler)
     {
@@ -104,6 +106,7 @@ class DefaultConnection implements Connection
      * @param string[] $requestHeaders
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
+     * @throws ErrorException
      */
     public function post($requestUri, $requestHeaders, $body, callable $responseHandler)
     {
@@ -126,6 +129,7 @@ class DefaultConnection implements Connection
      * @param string[] $requestHeaders
      * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
+     * @throws ErrorException
      */
     public function put($requestUri, $requestHeaders, $body, callable $responseHandler)
     {
@@ -199,10 +203,9 @@ class DefaultConnection implements Connection
 
     /**
      * @param resource $multiHandle
-     * @param resource $curlHandle
      * @throws ErrorException
      */
-    private function executeCurlHandleShared($multiHandle, $curlHandle)
+    private function executeCurlHandleShared($multiHandle)
     {
         $running = 0;
         do {
@@ -264,7 +267,7 @@ class DefaultConnection implements Connection
         curl_setopt($curlHandle, CURLOPT_WRITEFUNCTION, $writeFunction);
 
         try {
-            $this->executeCurlHandleShared($multiHandle, $curlHandle);
+            $this->executeCurlHandleShared($multiHandle);
 
             // always emit an empty chunk, to make sure that the status code and headers are sent,
             // even if there is no response body

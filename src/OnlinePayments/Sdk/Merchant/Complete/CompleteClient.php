@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Complete;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function completePayment($paymentId, CompletePaymentRequest $body, CallContext $callContext = null)
+    public function completePayment($paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();

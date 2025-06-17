@@ -21,7 +21,7 @@ class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInte
     /**
      * @inheritdoc
      */
-    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null)
+    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse';

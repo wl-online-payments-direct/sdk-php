@@ -36,7 +36,7 @@ interface WebhooksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function validateWebhookCredentials(ValidateCredentialsRequest $body, CallContext $callContext = null);
+    function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/webhooks/sendtest - Send test
@@ -53,5 +53,5 @@ interface WebhooksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function sendTestWebhook(SendTestRequest $body, CallContext $callContext = null);
+    function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null);
 }

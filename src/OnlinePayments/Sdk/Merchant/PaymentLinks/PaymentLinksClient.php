@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\PaymentLinks;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createPaymentLink(CreatePaymentLinkRequest $body, CallContext $callContext = null)
+    public function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentLinkResponse';
@@ -48,7 +50,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function getPaymentLinkById($paymentLinkId, CallContext $callContext = null)
+    public function getPaymentLinkById($paymentLinkId, ?CallContext $callContext = null)
     {
         $this->context['paymentLinkId'] = $paymentLinkId;
         $responseClassMap = new ResponseClassMap();
@@ -73,8 +75,9 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function cancelPaymentLinkById($paymentLinkId, CallContext $callContext = null)
+    public function cancelPaymentLinkById($paymentLinkId, ?CallContext $callContext = null)
     {
         $this->context['paymentLinkId'] = $paymentLinkId;
         $responseClassMap = new ResponseClassMap();

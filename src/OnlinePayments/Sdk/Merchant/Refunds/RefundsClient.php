@@ -21,7 +21,7 @@ class RefundsClient extends ApiResource implements RefundsClientInterface
     /**
      * @inheritdoc
      */
-    public function getRefunds($paymentId, CallContext $callContext = null)
+    public function getRefunds($paymentId, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();

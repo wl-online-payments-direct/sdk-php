@@ -48,7 +48,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createPayment(CreatePaymentRequest $body, CallContext $callContext = null);
+    function createPayment(CreatePaymentRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId} - Get payment
@@ -65,7 +65,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPayment($paymentId, CallContext $callContext = null);
+    function getPayment($paymentId, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/details - Get payment details
@@ -82,7 +82,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentDetails($paymentId, CallContext $callContext = null);
+    function getPaymentDetails($paymentId, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/cancel - Cancel payment
@@ -100,7 +100,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function cancelPayment($paymentId, CancelPaymentRequest $body, CallContext $callContext = null);
+    function cancelPayment($paymentId, CancelPaymentRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/capture - Capture payment
@@ -118,7 +118,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function capturePayment($paymentId, CapturePaymentRequest $body, CallContext $callContext = null);
+    function capturePayment($paymentId, CapturePaymentRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/refund - Refund payment
@@ -137,7 +137,7 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function refundPayment($paymentId, RefundRequest $body, CallContext $callContext = null);
+    function refundPayment($paymentId, RefundRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/subsequent - Subsequent payment
@@ -156,5 +156,5 @@ interface PaymentsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function subsequentPayment($paymentId, SubsequentPaymentRequest $body, CallContext $callContext = null);
+    function subsequentPayment($paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null);
 }

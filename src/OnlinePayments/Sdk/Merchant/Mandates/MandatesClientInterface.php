@@ -36,7 +36,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createMandate(CreateMandateRequest $body, CallContext $callContext = null);
+    function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference} - Get mandate
@@ -53,7 +53,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getMandate($uniqueMandateReference, CallContext $callContext = null);
+    function getMandate($uniqueMandateReference, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/block - Block mandate
@@ -70,7 +70,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function blockMandate($uniqueMandateReference, CallContext $callContext = null);
+    function blockMandate($uniqueMandateReference, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/unblock - Unblock mandate
@@ -87,7 +87,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function unblockMandate($uniqueMandateReference, CallContext $callContext = null);
+    function unblockMandate($uniqueMandateReference, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
@@ -104,5 +104,5 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function revokeMandate($uniqueMandateReference, CallContext $callContext = null);
+    function revokeMandate($uniqueMandateReference, ?CallContext $callContext = null);
 }

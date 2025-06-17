@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Sessions;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -21,8 +22,9 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createSession(SessionRequest $body, CallContext $callContext = null)
+    public function createSession(SessionRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SessionResponse';

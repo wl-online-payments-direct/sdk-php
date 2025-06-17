@@ -34,30 +34,18 @@ interface CommunicatorInterface
      * @return DataObject
      * @throws ResponseException
      */
-    public function get(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', RequestObject $requestParameters = null, CallContext $callContext = null);
+    public function get(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', ?RequestObject $requestParameters = null, ?CallContext $callContext = null);
 
     /**
      * @param ResponseClassMap $responseClassMap
      * @param string $relativeUriPath
      * @param string $clientMetaInfo
      * @param RequestObject|null $requestParameters
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return DataObject
      * @throws Exception
      */
-    public function delete(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', RequestObject $requestParameters = null, CallContext $callContext = null);
-
-    /**
-     * @param ResponseClassMap $responseClassMap
-     * @param string $relativeUriPath
-     * @param string $clientMetaInfo
-     * @param DataObject|null $requestBodyObject
-     * @param RequestObject|null $requestParameters
-     * @param CallContext $callContext
-     * @return DataObject
-     * @throws Exception
-     */
-    public function post(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', $requestBodyObject = null, RequestObject $requestParameters = null, CallContext $callContext = null);
+    public function delete(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', ?RequestObject $requestParameters = null, ?CallContext $callContext = null);
 
     /**
      * @param ResponseClassMap $responseClassMap
@@ -65,9 +53,21 @@ interface CommunicatorInterface
      * @param string $clientMetaInfo
      * @param DataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return DataObject
      * @throws Exception
      */
-    public function put(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', $requestBodyObject = null, RequestObject $requestParameters = null, CallContext $callContext = null);
+    public function post(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', $requestBodyObject = null, ?RequestObject $requestParameters = null, ?CallContext $callContext = null);
+
+    /**
+     * @param ResponseClassMap $responseClassMap
+     * @param string $relativeUriPath
+     * @param string $clientMetaInfo
+     * @param DataObject|null $requestBodyObject
+     * @param RequestObject|null $requestParameters
+     * @param CallContext|null $callContext
+     * @return DataObject
+     * @throws Exception
+     */
+    public function put(ResponseClassMap $responseClassMap, $relativeUriPath, $clientMetaInfo = '', $requestBodyObject = null, ?RequestObject $requestParameters = null, ?CallContext $callContext = null);
 }

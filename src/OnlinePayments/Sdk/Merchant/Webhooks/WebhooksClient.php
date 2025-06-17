@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Webhooks;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -22,8 +23,9 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function validateWebhookCredentials(ValidateCredentialsRequest $body, CallContext $callContext = null)
+    public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ValidateCredentialsResponse';
@@ -48,8 +50,9 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function sendTestWebhook(SendTestRequest $body, CallContext $callContext = null)
+    public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';

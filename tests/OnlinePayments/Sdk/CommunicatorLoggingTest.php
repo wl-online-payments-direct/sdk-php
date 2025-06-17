@@ -280,7 +280,7 @@ class CommunicatorLoggingTest extends TestCase
         $httpMethod,
         $relativeUriPathWithRequestParameters,
         $clientMetaInfo = '',
-        CallContext $callContext = null
+        ?CallContext $callContext = null
     ) {
         $method = new ReflectionMethod($communicator, 'getRequestHeaders');
         $method->setAccessible(true);

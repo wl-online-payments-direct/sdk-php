@@ -36,7 +36,7 @@ interface HostedCheckoutClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null);
+    function createHostedCheckout(CreateHostedCheckoutRequest $body, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId} - Get hosted checkout status
@@ -53,5 +53,5 @@ interface HostedCheckoutClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getHostedCheckout($hostedCheckoutId, CallContext $callContext = null);
+    function getHostedCheckout($hostedCheckoutId, ?CallContext $callContext = null);
 }

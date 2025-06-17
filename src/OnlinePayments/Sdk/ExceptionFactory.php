@@ -22,13 +22,13 @@ class ExceptionFactory
     /**
      * @param int $httpStatusCode
      * @param DataObject $errorObject
-     * @param CallContext $callContext
+     * @param CallContext|null $callContext
      * @return ResponseException
      */
     public function createException(
         $httpStatusCode,
         DataObject $errorObject,
-        CallContext $callContext = null
+        ?CallContext $callContext = null
     ) {
         if ($errorObject instanceof PaymentErrorResponse && !is_null($errorObject->paymentResult)) {
             return new DeclinedPaymentException($httpStatusCode, $errorObject);

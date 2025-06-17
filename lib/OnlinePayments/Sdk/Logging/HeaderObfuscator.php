@@ -44,9 +44,8 @@ class HeaderObfuscator
         }
 
         switch ($lowerKey) {
-            case 'x-gcs-authentication-token':
-                return $this->valueObfuscator->obfuscateFixedLength(8);
             case 'x-gcs-callerpassword':
+            case 'x-gcs-authentication-token':
                 return $this->valueObfuscator->obfuscateFixedLength(8);
             case 'authorization':
             case 'www-authenticate':

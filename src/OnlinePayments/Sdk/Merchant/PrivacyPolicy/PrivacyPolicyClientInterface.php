@@ -34,5 +34,5 @@ interface PrivacyPolicyClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null);
+    function getPrivacyPolicy(GetPrivacyPolicyParams $query, ?CallContext $callContext = null);
 }

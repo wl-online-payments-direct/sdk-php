@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Payments;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -25,8 +26,9 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createPayment(CreatePaymentRequest $body, CallContext $callContext = null)
+    public function createPayment(CreatePaymentRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatePaymentResponse';
@@ -52,7 +54,7 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPayment($paymentId, CallContext $callContext = null)
+    public function getPayment($paymentId, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -78,7 +80,7 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentDetails($paymentId, CallContext $callContext = null)
+    public function getPaymentDetails($paymentId, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -103,8 +105,9 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function cancelPayment($paymentId, CancelPaymentRequest $body, CallContext $callContext = null)
+    public function cancelPayment($paymentId, CancelPaymentRequest $body, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -130,8 +133,9 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function capturePayment($paymentId, CapturePaymentRequest $body, CallContext $callContext = null)
+    public function capturePayment($paymentId, CapturePaymentRequest $body, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -157,8 +161,9 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function refundPayment($paymentId, RefundRequest $body, CallContext $callContext = null)
+    public function refundPayment($paymentId, RefundRequest $body, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -184,8 +189,9 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function subsequentPayment($paymentId, SubsequentPaymentRequest $body, CallContext $callContext = null)
+    public function subsequentPayment($paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null)
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();

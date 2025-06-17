@@ -36,7 +36,7 @@ interface PayoutsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPayout($payoutId, CallContext $callContext = null);
+    function getPayout($payoutId, ?CallContext $callContext = null);
 
     /**
      * Resource /v2/{merchantId}/payouts - Create payout
@@ -54,5 +54,5 @@ interface PayoutsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createPayout(CreatePayoutRequest $body, CallContext $callContext = null);
+    function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null);
 }

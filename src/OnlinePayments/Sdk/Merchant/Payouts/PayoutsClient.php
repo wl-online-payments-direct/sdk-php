@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Payouts;
 
+use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
@@ -22,7 +23,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPayout($payoutId, CallContext $callContext = null)
+    public function getPayout($payoutId, ?CallContext $callContext = null)
     {
         $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
@@ -47,8 +48,9 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
 
     /**
      * @inheritdoc
+     * @throws Exception
      */
-    public function createPayout(CreatePayoutRequest $body, CallContext $callContext = null)
+    public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null)
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
