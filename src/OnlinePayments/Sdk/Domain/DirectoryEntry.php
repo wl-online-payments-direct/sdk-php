@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class DirectoryEntry extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $issuerId = null;
+    public ?string $issuerId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $issuerList = null;
+    public ?string $issuerList = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $issuerName = null;
+    public ?string $issuerName = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIssuerId()
+    public function getIssuerId(): ?string
     {
         return $this->issuerId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIssuerId($value)
+    public function setIssuerId(?string $value): void
     {
         $this->issuerId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIssuerList()
+    public function getIssuerList(): ?string
     {
         return $this->issuerList;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIssuerList($value)
+    public function setIssuerList(?string $value): void
     {
         $this->issuerList = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIssuerName()
+    public function getIssuerName(): ?string
     {
         return $this->issuerName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIssuerName($value)
+    public function setIssuerName(?string $value): void
     {
         $this->issuerName = $value;
     }
@@ -77,7 +77,7 @@ class DirectoryEntry extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->issuerId)) {
@@ -97,7 +97,7 @@ class DirectoryEntry extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): DirectoryEntry
     {
         parent::fromObject($object);
         if (property_exists($object, 'issuerId')) {

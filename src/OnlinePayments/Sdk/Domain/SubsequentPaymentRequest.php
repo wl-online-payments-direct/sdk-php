@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class SubsequentPaymentRequest extends DataObject
 {
     /**
-     * @var Order
+     * @var Order|null
      */
-    public $order = null;
+    public ?Order $order = null;
 
     /**
-     * @var SubsequentPaymentProduct5001SpecificInput
+     * @var SubsequentPaymentProduct5001SpecificInput|null
      */
-    public $subsequentPaymentProduct5001SpecificInput = null;
+    public ?SubsequentPaymentProduct5001SpecificInput $subsequentPaymentProduct5001SpecificInput = null;
 
     /**
-     * @var SubsequentCardPaymentMethodSpecificInput
+     * @var SubsequentCardPaymentMethodSpecificInput|null
      */
-    public $subsequentcardPaymentMethodSpecificInput = null;
+    public ?SubsequentCardPaymentMethodSpecificInput $subsequentcardPaymentMethodSpecificInput = null;
 
     /**
-     * @return Order
+     * @return Order|null
      */
-    public function getOrder()
+    public function getOrder(): ?Order
     {
         return $this->order;
     }
 
     /**
-     * @param Order
+     * @param Order|null $value
      */
-    public function setOrder($value)
+    public function setOrder(?Order $value): void
     {
         $this->order = $value;
     }
 
     /**
-     * @return SubsequentPaymentProduct5001SpecificInput
+     * @return SubsequentPaymentProduct5001SpecificInput|null
      */
-    public function getSubsequentPaymentProduct5001SpecificInput()
+    public function getSubsequentPaymentProduct5001SpecificInput(): ?SubsequentPaymentProduct5001SpecificInput
     {
         return $this->subsequentPaymentProduct5001SpecificInput;
     }
 
     /**
-     * @param SubsequentPaymentProduct5001SpecificInput
+     * @param SubsequentPaymentProduct5001SpecificInput|null $value
      */
-    public function setSubsequentPaymentProduct5001SpecificInput($value)
+    public function setSubsequentPaymentProduct5001SpecificInput(?SubsequentPaymentProduct5001SpecificInput $value): void
     {
         $this->subsequentPaymentProduct5001SpecificInput = $value;
     }
 
     /**
-     * @return SubsequentCardPaymentMethodSpecificInput
+     * @return SubsequentCardPaymentMethodSpecificInput|null
      */
-    public function getSubsequentcardPaymentMethodSpecificInput()
+    public function getSubsequentcardPaymentMethodSpecificInput(): ?SubsequentCardPaymentMethodSpecificInput
     {
         return $this->subsequentcardPaymentMethodSpecificInput;
     }
 
     /**
-     * @param SubsequentCardPaymentMethodSpecificInput
+     * @param SubsequentCardPaymentMethodSpecificInput|null $value
      */
-    public function setSubsequentcardPaymentMethodSpecificInput($value)
+    public function setSubsequentcardPaymentMethodSpecificInput(?SubsequentCardPaymentMethodSpecificInput $value): void
     {
         $this->subsequentcardPaymentMethodSpecificInput = $value;
     }
@@ -77,7 +77,7 @@ class SubsequentPaymentRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->order)) {
@@ -97,7 +97,7 @@ class SubsequentPaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SubsequentPaymentRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'order')) {

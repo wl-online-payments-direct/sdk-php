@@ -12,169 +12,169 @@ use UnexpectedValueException;
 class MobilePaymentMethodSpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $authorizationMode = null;
+    public ?string $authorizationMode = null;
 
     /**
-     * @var DecryptedPaymentData
+     * @var DecryptedPaymentData|null
      */
-    public $decryptedPaymentData = null;
+    public ?DecryptedPaymentData $decryptedPaymentData = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $encryptedPaymentData = null;
+    public ?string $encryptedPaymentData = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $ephemeralKey = null;
+    public ?string $ephemeralKey = null;
 
     /**
-     * @var MobilePaymentProduct320SpecificInput
+     * @var MobilePaymentProduct320SpecificInput|null
      */
-    public $paymentProduct320SpecificInput = null;
+    public ?MobilePaymentProduct320SpecificInput $paymentProduct320SpecificInput = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $publicKeyHash = null;
+    public ?string $publicKeyHash = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $requiresApproval = null;
+    public ?bool $requiresApproval = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAuthorizationMode()
+    public function getAuthorizationMode(): ?string
     {
         return $this->authorizationMode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAuthorizationMode($value)
+    public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
     }
 
     /**
-     * @return DecryptedPaymentData
+     * @return DecryptedPaymentData|null
      */
-    public function getDecryptedPaymentData()
+    public function getDecryptedPaymentData(): ?DecryptedPaymentData
     {
         return $this->decryptedPaymentData;
     }
 
     /**
-     * @param DecryptedPaymentData
+     * @param DecryptedPaymentData|null $value
      */
-    public function setDecryptedPaymentData($value)
+    public function setDecryptedPaymentData(?DecryptedPaymentData $value): void
     {
         $this->decryptedPaymentData = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEncryptedPaymentData()
+    public function getEncryptedPaymentData(): ?string
     {
         return $this->encryptedPaymentData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEncryptedPaymentData($value)
+    public function setEncryptedPaymentData(?string $value): void
     {
         $this->encryptedPaymentData = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEphemeralKey()
+    public function getEphemeralKey(): ?string
     {
         return $this->ephemeralKey;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEphemeralKey($value)
+    public function setEphemeralKey(?string $value): void
     {
         $this->ephemeralKey = $value;
     }
 
     /**
-     * @return MobilePaymentProduct320SpecificInput
+     * @return MobilePaymentProduct320SpecificInput|null
      */
-    public function getPaymentProduct320SpecificInput()
+    public function getPaymentProduct320SpecificInput(): ?MobilePaymentProduct320SpecificInput
     {
         return $this->paymentProduct320SpecificInput;
     }
 
     /**
-     * @param MobilePaymentProduct320SpecificInput
+     * @param MobilePaymentProduct320SpecificInput|null $value
      */
-    public function setPaymentProduct320SpecificInput($value)
+    public function setPaymentProduct320SpecificInput(?MobilePaymentProduct320SpecificInput $value): void
     {
         $this->paymentProduct320SpecificInput = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPublicKeyHash()
+    public function getPublicKeyHash(): ?string
     {
         return $this->publicKeyHash;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPublicKeyHash($value)
+    public function setPublicKeyHash(?string $value): void
     {
         $this->publicKeyHash = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getRequiresApproval()
+    public function getRequiresApproval(): ?bool
     {
         return $this->requiresApproval;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setRequiresApproval($value)
+    public function setRequiresApproval(?bool $value): void
     {
         $this->requiresApproval = $value;
     }
@@ -182,7 +182,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->authorizationMode)) {
@@ -217,7 +217,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MobilePaymentMethodSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {

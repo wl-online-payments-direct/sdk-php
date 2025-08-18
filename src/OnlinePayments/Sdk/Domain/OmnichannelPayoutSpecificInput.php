@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class OmnichannelPayoutSpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentId = null;
+    public ?string $paymentId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentId()
+    public function getPaymentId(): ?string
     {
         return $this->paymentId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentId($value)
+    public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
     }
@@ -35,7 +35,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->paymentId)) {
@@ -49,7 +49,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): OmnichannelPayoutSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentId')) {

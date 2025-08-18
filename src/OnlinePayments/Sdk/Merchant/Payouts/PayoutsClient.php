@@ -4,12 +4,12 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Payouts;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreatePayoutRequest;
+use OnlinePayments\Sdk\Domain\PayoutResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,12 +18,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class PayoutsClient extends ApiResource implements PayoutsClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
      */
-    public function getPayout($payoutId, ?CallContext $callContext = null)
+    public function getPayout(string $payoutId, CallContext $callContext = null): PayoutResponse
     {
         $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
@@ -48,9 +48,8 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null)
+    public function createPayout(CreatePayoutRequest $body, CallContext $callContext = null): PayoutResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
@@ -74,7 +73,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

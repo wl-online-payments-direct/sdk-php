@@ -12,148 +12,148 @@ use UnexpectedValueException;
 class OperationOutput extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @var OperationPaymentReferences
+     * @var OperationPaymentReferences|null
      */
-    public $operationReferences = null;
+    public ?OperationPaymentReferences $operationReferences = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentMethod = null;
+    public ?string $paymentMethod = null;
 
     /**
-     * @var PaymentReferences
+     * @var PaymentReferences|null
      */
-    public $references = null;
+    public ?PaymentReferences $references = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $status = null;
+    public ?string $status = null;
 
     /**
-     * @var PaymentStatusOutput
+     * @var PaymentStatusOutput|null
      */
-    public $statusOutput = null;
+    public ?PaymentStatusOutput $statusOutput = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
-     * @return OperationPaymentReferences
+     * @return OperationPaymentReferences|null
      */
-    public function getOperationReferences()
+    public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
     }
 
     /**
-     * @param OperationPaymentReferences
+     * @param OperationPaymentReferences|null $value
      */
-    public function setOperationReferences($value)
+    public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentMethod($value)
+    public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
     }
 
     /**
-     * @return PaymentReferences
+     * @return PaymentReferences|null
      */
-    public function getReferences()
+    public function getReferences(): ?PaymentReferences
     {
         return $this->references;
     }
 
     /**
-     * @param PaymentReferences
+     * @param PaymentReferences|null $value
      */
-    public function setReferences($value)
+    public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setStatus($value)
+    public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
-     * @return PaymentStatusOutput
+     * @return PaymentStatusOutput|null
      */
-    public function getStatusOutput()
+    public function getStatusOutput(): ?PaymentStatusOutput
     {
         return $this->statusOutput;
     }
 
     /**
-     * @param PaymentStatusOutput
+     * @param PaymentStatusOutput|null $value
      */
-    public function setStatusOutput($value)
+    public function setStatusOutput(?PaymentStatusOutput $value): void
     {
         $this->statusOutput = $value;
     }
@@ -161,7 +161,7 @@ class OperationOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -193,7 +193,7 @@ class OperationOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): OperationOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

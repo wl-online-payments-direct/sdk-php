@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class LabelTemplateElement extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $attributeKey = null;
+    public ?string $attributeKey = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $mask = null;
+    public ?string $mask = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAttributeKey()
+    public function getAttributeKey(): ?string
     {
         return $this->attributeKey;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAttributeKey($value)
+    public function setAttributeKey(?string $value): void
     {
         $this->attributeKey = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMask()
+    public function getMask(): ?string
     {
         return $this->mask;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMask($value)
+    public function setMask(?string $value): void
     {
         $this->mask = $value;
     }
@@ -56,7 +56,7 @@ class LabelTemplateElement extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->attributeKey)) {
@@ -73,7 +73,7 @@ class LabelTemplateElement extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): LabelTemplateElement
     {
         parent::fromObject($object);
         if (property_exists($object, 'attributeKey')) {

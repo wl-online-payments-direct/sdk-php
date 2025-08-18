@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class CustomerOutput extends DataObject
 {
     /**
-     * @var CustomerDeviceOutput
+     * @var CustomerDeviceOutput|null
      */
-    public $device = null;
+    public ?CustomerDeviceOutput $device = null;
 
     /**
-     * @return CustomerDeviceOutput
+     * @return CustomerDeviceOutput|null
      */
-    public function getDevice()
+    public function getDevice(): ?CustomerDeviceOutput
     {
         return $this->device;
     }
 
     /**
-     * @param CustomerDeviceOutput
+     * @param CustomerDeviceOutput|null $value
      */
-    public function setDevice($value)
+    public function setDevice(?CustomerDeviceOutput $value): void
     {
         $this->device = $value;
     }
@@ -35,7 +35,7 @@ class CustomerOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->device)) {
@@ -49,7 +49,7 @@ class CustomerOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CustomerOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'device')) {

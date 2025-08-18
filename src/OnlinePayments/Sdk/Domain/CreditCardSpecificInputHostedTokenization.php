@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CreditCardSpecificInputHostedTokenization extends DataObject
 {
     /**
-     * @var CreditCardValidationRulesHostedTokenization
+     * @var CreditCardValidationRulesHostedTokenization|null
      */
-    public $ValidationRules = null;
+    public ?CreditCardValidationRulesHostedTokenization $ValidationRules = null;
 
     /**
-     * @var int[]
+     * @var int[]|null
      */
-    public $paymentProductPreferredOrder = null;
+    public ?array $paymentProductPreferredOrder = null;
 
     /**
-     * @return CreditCardValidationRulesHostedTokenization
+     * @return CreditCardValidationRulesHostedTokenization|null
      */
-    public function getValidationRules()
+    public function getValidationRules(): ?CreditCardValidationRulesHostedTokenization
     {
         return $this->ValidationRules;
     }
 
     /**
-     * @param CreditCardValidationRulesHostedTokenization
+     * @param CreditCardValidationRulesHostedTokenization|null $value
      */
-    public function setValidationRules($value)
+    public function setValidationRules(?CreditCardValidationRulesHostedTokenization $value): void
     {
         $this->ValidationRules = $value;
     }
 
     /**
-     * @return int[]
+     * @return int[]|null
      */
-    public function getPaymentProductPreferredOrder()
+    public function getPaymentProductPreferredOrder(): ?array
     {
         return $this->paymentProductPreferredOrder;
     }
 
     /**
-     * @param int[]
+     * @param int[]|null $value
      */
-    public function setPaymentProductPreferredOrder($value)
+    public function setPaymentProductPreferredOrder(?array $value): void
     {
         $this->paymentProductPreferredOrder = $value;
     }
@@ -56,7 +56,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->ValidationRules)) {
@@ -78,7 +78,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreditCardSpecificInputHostedTokenization
     {
         parent::fromObject($object);
         if (property_exists($object, 'ValidationRules')) {

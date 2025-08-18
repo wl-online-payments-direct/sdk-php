@@ -125,7 +125,7 @@ class SimpleHttpBinResponse extends DataObject
 {
     public $url;
 
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->url)) {
@@ -134,7 +134,7 @@ class SimpleHttpBinResponse extends DataObject
         return $object;
     }
 
-    public function fromObject($object)
+    public function fromObject(object $object): DataObject
     {
         parent::fromObject($object);
         if (property_exists($object, 'url')) {

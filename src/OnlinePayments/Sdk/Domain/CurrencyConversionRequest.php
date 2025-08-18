@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CurrencyConversionRequest extends DataObject
 {
     /**
-     * @var DccCardSource
+     * @var DccCardSource|null
      */
-    public $cardSource = null;
+    public ?DccCardSource $cardSource = null;
 
     /**
-     * @var Transaction
+     * @var Transaction|null
      */
-    public $transaction = null;
+    public ?Transaction $transaction = null;
 
     /**
-     * @return DccCardSource
+     * @return DccCardSource|null
      */
-    public function getCardSource()
+    public function getCardSource(): ?DccCardSource
     {
         return $this->cardSource;
     }
 
     /**
-     * @param DccCardSource
+     * @param DccCardSource|null $value
      */
-    public function setCardSource($value)
+    public function setCardSource(?DccCardSource $value): void
     {
         $this->cardSource = $value;
     }
 
     /**
-     * @return Transaction
+     * @return Transaction|null
      */
-    public function getTransaction()
+    public function getTransaction(): ?Transaction
     {
         return $this->transaction;
     }
 
     /**
-     * @param Transaction
+     * @param Transaction|null $value
      */
-    public function setTransaction($value)
+    public function setTransaction(?Transaction $value): void
     {
         $this->transaction = $value;
     }
@@ -56,7 +56,7 @@ class CurrencyConversionRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->cardSource)) {
@@ -73,7 +73,7 @@ class CurrencyConversionRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CurrencyConversionRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardSource')) {

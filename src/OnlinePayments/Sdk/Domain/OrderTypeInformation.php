@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class OrderTypeInformation extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $purchaseType = null;
+    public ?string $purchaseType = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $transactionType = null;
+    public ?string $transactionType = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPurchaseType()
+    public function getPurchaseType(): ?string
     {
         return $this->purchaseType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPurchaseType($value)
+    public function setPurchaseType(?string $value): void
     {
         $this->purchaseType = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionType()
+    public function getTransactionType(): ?string
     {
         return $this->transactionType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTransactionType($value)
+    public function setTransactionType(?string $value): void
     {
         $this->transactionType = $value;
     }
@@ -56,7 +56,7 @@ class OrderTypeInformation extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->purchaseType)) {
@@ -73,7 +73,7 @@ class OrderTypeInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): OrderTypeInformation
     {
         parent::fromObject($object);
         if (property_exists($object, 'purchaseType')) {

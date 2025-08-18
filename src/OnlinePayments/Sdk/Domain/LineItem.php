@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class LineItem extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var LineItemInvoiceData
+     * @var LineItemInvoiceData|null
      */
-    public $invoiceData = null;
+    public ?LineItemInvoiceData $invoiceData = null;
 
     /**
-     * @var OrderLineDetails
+     * @var OrderLineDetails|null
      */
-    public $orderLineDetails = null;
+    public ?OrderLineDetails $orderLineDetails = null;
 
     /**
-     * @var OtherDetails
+     * @var OtherDetails|null
      */
-    public $otherDetails = null;
+    public ?OtherDetails $otherDetails = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return LineItemInvoiceData
+     * @return LineItemInvoiceData|null
      */
-    public function getInvoiceData()
+    public function getInvoiceData(): ?LineItemInvoiceData
     {
         return $this->invoiceData;
     }
 
     /**
-     * @param LineItemInvoiceData
+     * @param LineItemInvoiceData|null $value
      */
-    public function setInvoiceData($value)
+    public function setInvoiceData(?LineItemInvoiceData $value): void
     {
         $this->invoiceData = $value;
     }
 
     /**
-     * @return OrderLineDetails
+     * @return OrderLineDetails|null
      */
-    public function getOrderLineDetails()
+    public function getOrderLineDetails(): ?OrderLineDetails
     {
         return $this->orderLineDetails;
     }
 
     /**
-     * @param OrderLineDetails
+     * @param OrderLineDetails|null $value
      */
-    public function setOrderLineDetails($value)
+    public function setOrderLineDetails(?OrderLineDetails $value): void
     {
         $this->orderLineDetails = $value;
     }
 
     /**
-     * @return OtherDetails
+     * @return OtherDetails|null
      */
-    public function getOtherDetails()
+    public function getOtherDetails(): ?OtherDetails
     {
         return $this->otherDetails;
     }
 
     /**
-     * @param OtherDetails
+     * @param OtherDetails|null $value
      */
-    public function setOtherDetails($value)
+    public function setOtherDetails(?OtherDetails $value): void
     {
         $this->otherDetails = $value;
     }
@@ -98,7 +98,7 @@ class LineItem extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -121,7 +121,7 @@ class LineItem extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): LineItem
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

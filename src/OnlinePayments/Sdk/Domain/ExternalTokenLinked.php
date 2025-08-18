@@ -12,67 +12,67 @@ use UnexpectedValueException;
 class ExternalTokenLinked extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $ComputedToken = null;
+    public ?string $ComputedToken = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Use the field ComputedToken instead.
      */
-    public $GTSComputedToken = null;
+    public ?string $GTSComputedToken = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $GeneratedToken = null;
+    public ?string $GeneratedToken = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getComputedToken()
+    public function getComputedToken(): ?string
     {
         return $this->ComputedToken;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setComputedToken($value)
+    public function setComputedToken(?string $value): void
     {
         $this->ComputedToken = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Use the field ComputedToken instead.
      */
-    public function getGTSComputedToken()
+    public function getGTSComputedToken(): ?string
     {
         return $this->GTSComputedToken;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Use the field ComputedToken instead.
      */
-    public function setGTSComputedToken($value)
+    public function setGTSComputedToken(?string $value): void
     {
         $this->GTSComputedToken = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGeneratedToken()
+    public function getGeneratedToken(): ?string
     {
         return $this->GeneratedToken;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setGeneratedToken($value)
+    public function setGeneratedToken(?string $value): void
     {
         $this->GeneratedToken = $value;
     }
@@ -80,7 +80,7 @@ class ExternalTokenLinked extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->ComputedToken)) {
@@ -100,7 +100,7 @@ class ExternalTokenLinked extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ExternalTokenLinked
     {
         parent::fromObject($object);
         if (property_exists($object, 'ComputedToken')) {

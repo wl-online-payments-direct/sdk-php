@@ -12,46 +12,46 @@ use UnexpectedValueException;
 class Feedbacks extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
-    public $webhookUrl = null;
+    public ?string $webhookUrl = null;
 
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $webhooksUrls = null;
+    public ?array $webhooksUrls = null;
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
-    public function getWebhookUrl()
+    public function getWebhookUrl(): ?string
     {
         return $this->webhookUrl;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
-    public function setWebhookUrl($value)
+    public function setWebhookUrl(?string $value): void
     {
         $this->webhookUrl = $value;
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getWebhooksUrls()
+    public function getWebhooksUrls(): ?array
     {
         return $this->webhooksUrls;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setWebhooksUrls($value)
+    public function setWebhooksUrls(?array $value): void
     {
         $this->webhooksUrls = $value;
     }
@@ -59,7 +59,7 @@ class Feedbacks extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->webhookUrl)) {
@@ -81,7 +81,7 @@ class Feedbacks extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): Feedbacks
     {
         parent::fromObject($object);
         if (property_exists($object, 'webhookUrl')) {

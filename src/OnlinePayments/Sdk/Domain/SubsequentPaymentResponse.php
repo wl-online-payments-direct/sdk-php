@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class SubsequentPaymentResponse extends DataObject
 {
     /**
-     * @var PaymentResponse
+     * @var PaymentResponse|null
      */
-    public $payment = null;
+    public ?PaymentResponse $payment = null;
 
     /**
-     * @return PaymentResponse
+     * @return PaymentResponse|null
      */
-    public function getPayment()
+    public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
     }
 
     /**
-     * @param PaymentResponse
+     * @param PaymentResponse|null $value
      */
-    public function setPayment($value)
+    public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
     }
@@ -35,7 +35,7 @@ class SubsequentPaymentResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->payment)) {
@@ -49,7 +49,7 @@ class SubsequentPaymentResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SubsequentPaymentResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'payment')) {

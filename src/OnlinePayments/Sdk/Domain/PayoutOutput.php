@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PayoutOutput extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $payoutReason = null;
+    public ?string $payoutReason = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPayoutReason()
+    public function getPayoutReason(): ?string
     {
         return $this->payoutReason;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPayoutReason($value)
+    public function setPayoutReason(?string $value): void
     {
         $this->payoutReason = $value;
     }
@@ -56,7 +56,7 @@ class PayoutOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -73,7 +73,7 @@ class PayoutOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PayoutOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

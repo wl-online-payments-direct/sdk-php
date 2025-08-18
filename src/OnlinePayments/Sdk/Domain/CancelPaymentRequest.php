@@ -12,51 +12,72 @@ use UnexpectedValueException;
 class CancelPaymentRequest extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isFinal = null;
+    public ?bool $isFinal = null;
 
     /**
-     * @return AmountOfMoney
+     * @var OperationPaymentReferences|null
      */
-    public function getAmountOfMoney()
+    public ?OperationPaymentReferences $operationReferences = null;
+
+    /**
+     * @return AmountOfMoney|null
+     */
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsFinal()
+    public function getIsFinal(): ?bool
     {
         return $this->isFinal;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsFinal($value)
+    public function setIsFinal(?bool $value): void
     {
         $this->isFinal = $value;
     }
 
     /**
+     * @return OperationPaymentReferences|null
+     */
+    public function getOperationReferences(): ?OperationPaymentReferences
+    {
+        return $this->operationReferences;
+    }
+
+    /**
+     * @param OperationPaymentReferences|null $value
+     */
+    public function setOperationReferences(?OperationPaymentReferences $value): void
+    {
+        $this->operationReferences = $value;
+    }
+
+    /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -64,6 +85,9 @@ class CancelPaymentRequest extends DataObject
         }
         if (!is_null($this->isFinal)) {
             $object->isFinal = $this->isFinal;
+        }
+        if (!is_null($this->operationReferences)) {
+            $object->operationReferences = $this->operationReferences->toObject();
         }
         return $object;
     }
@@ -73,7 +97,7 @@ class CancelPaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CancelPaymentRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {
@@ -85,6 +109,13 @@ class CancelPaymentRequest extends DataObject
         }
         if (property_exists($object, 'isFinal')) {
             $this->isFinal = $object->isFinal;
+        }
+        if (property_exists($object, 'operationReferences')) {
+            if (!is_object($object->operationReferences)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->operationReferences, true) . '\' is not an object');
+            }
+            $value = new OperationPaymentReferences();
+            $this->operationReferences = $value->fromObject($object->operationReferences);
         }
         return $this;
     }

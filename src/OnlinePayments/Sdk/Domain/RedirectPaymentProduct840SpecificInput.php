@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class RedirectPaymentProduct840SpecificInput extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $JavaScriptSdkFlow = null;
+    public ?bool $JavaScriptSdkFlow = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $addressSelectionAtPayPal = null;
+    public ?bool $addressSelectionAtPayPal = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $custom = null;
+    public ?string $custom = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $payLater = null;
+    public ?bool $payLater = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getJavaScriptSdkFlow()
+    public function getJavaScriptSdkFlow(): ?bool
     {
         return $this->JavaScriptSdkFlow;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setJavaScriptSdkFlow($value)
+    public function setJavaScriptSdkFlow(?bool $value): void
     {
         $this->JavaScriptSdkFlow = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAddressSelectionAtPayPal()
+    public function getAddressSelectionAtPayPal(): ?bool
     {
         return $this->addressSelectionAtPayPal;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setAddressSelectionAtPayPal($value)
+    public function setAddressSelectionAtPayPal(?bool $value): void
     {
         $this->addressSelectionAtPayPal = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustom()
+    public function getCustom(): ?string
     {
         return $this->custom;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCustom($value)
+    public function setCustom(?string $value): void
     {
         $this->custom = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getPayLater()
+    public function getPayLater(): ?bool
     {
         return $this->payLater;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setPayLater($value)
+    public function setPayLater(?bool $value): void
     {
         $this->payLater = $value;
     }
@@ -98,7 +98,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->JavaScriptSdkFlow)) {
@@ -121,7 +121,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct840SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'JavaScriptSdkFlow')) {

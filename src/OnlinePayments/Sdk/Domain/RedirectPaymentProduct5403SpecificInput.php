@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class RedirectPaymentProduct5403SpecificInput extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $completeRemainingPaymentAmount = null;
+    public ?bool $completeRemainingPaymentAmount = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getCompleteRemainingPaymentAmount()
+    public function getCompleteRemainingPaymentAmount(): ?bool
     {
         return $this->completeRemainingPaymentAmount;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setCompleteRemainingPaymentAmount($value)
+    public function setCompleteRemainingPaymentAmount(?bool $value): void
     {
         $this->completeRemainingPaymentAmount = $value;
     }
@@ -35,7 +35,7 @@ class RedirectPaymentProduct5403SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->completeRemainingPaymentAmount)) {
@@ -49,7 +49,7 @@ class RedirectPaymentProduct5403SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct5403SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'completeRemainingPaymentAmount')) {

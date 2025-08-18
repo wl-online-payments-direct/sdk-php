@@ -23,7 +23,8 @@ class TestingConnection extends DefaultConnection
         $requestHeaders,
         $body,
         callable $responseHandler
-    ) {
+    ): ?\OnlinePayments\Sdk\Communication\ConnectionResponse
+    {
         if (!is_null($this->exception)) {
             throw $this->exception;
         } else {

@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentCreationOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $externalReference = null;
+    public ?string $externalReference = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isNewToken = null;
+    public ?bool $isNewToken = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $token = null;
+    public ?string $token = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $tokenizationSucceeded = null;
+    public ?bool $tokenizationSucceeded = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExternalReference()
+    public function getExternalReference(): ?string
     {
         return $this->externalReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExternalReference($value)
+    public function setExternalReference(?string $value): void
     {
         $this->externalReference = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsNewToken()
+    public function getIsNewToken(): ?bool
     {
         return $this->isNewToken;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsNewToken($value)
+    public function setIsNewToken(?bool $value): void
     {
         $this->isNewToken = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setToken($value)
+    public function setToken(?string $value): void
     {
         $this->token = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getTokenizationSucceeded()
+    public function getTokenizationSucceeded(): ?bool
     {
         return $this->tokenizationSucceeded;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setTokenizationSucceeded($value)
+    public function setTokenizationSucceeded(?bool $value): void
     {
         $this->tokenizationSucceeded = $value;
     }
@@ -98,7 +98,7 @@ class PaymentCreationOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->externalReference)) {
@@ -121,7 +121,7 @@ class PaymentCreationOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentCreationOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'externalReference')) {

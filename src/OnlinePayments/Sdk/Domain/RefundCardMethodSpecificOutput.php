@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class RefundCardMethodSpecificOutput extends DataObject
 {
     /**
-     * @var CurrencyConversion
+     * @var CurrencyConversion|null
      */
-    public $currencyConversion = null;
+    public ?CurrencyConversion $currencyConversion = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountPaid = null;
+    public ?int $totalAmountPaid = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountRefunded = null;
+    public ?int $totalAmountRefunded = null;
 
     /**
-     * @return CurrencyConversion
+     * @return CurrencyConversion|null
      */
-    public function getCurrencyConversion()
+    public function getCurrencyConversion(): ?CurrencyConversion
     {
         return $this->currencyConversion;
     }
 
     /**
-     * @param CurrencyConversion
+     * @param CurrencyConversion|null $value
      */
-    public function setCurrencyConversion($value)
+    public function setCurrencyConversion(?CurrencyConversion $value): void
     {
         $this->currencyConversion = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountPaid()
+    public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountPaid($value)
+    public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountRefunded()
+    public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountRefunded($value)
+    public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
     }
@@ -77,7 +77,7 @@ class RefundCardMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->currencyConversion)) {
@@ -97,7 +97,7 @@ class RefundCardMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RefundCardMethodSpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'currencyConversion')) {

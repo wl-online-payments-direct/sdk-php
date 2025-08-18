@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CreateTokenRequest extends DataObject
 {
     /**
-     * @var TokenCardSpecificInput
+     * @var TokenCardSpecificInput|null
      */
-    public $card = null;
+    public ?TokenCardSpecificInput $card = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return TokenCardSpecificInput
+     * @return TokenCardSpecificInput|null
      */
-    public function getCard()
+    public function getCard(): ?TokenCardSpecificInput
     {
         return $this->card;
     }
 
     /**
-     * @param TokenCardSpecificInput
+     * @param TokenCardSpecificInput|null $value
      */
-    public function setCard($value)
+    public function setCard(?TokenCardSpecificInput $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -56,7 +56,7 @@ class CreateTokenRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->card)) {
@@ -73,7 +73,7 @@ class CreateTokenRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreateTokenRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

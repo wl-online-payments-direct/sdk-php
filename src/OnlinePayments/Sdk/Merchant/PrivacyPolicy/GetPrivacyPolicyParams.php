@@ -4,7 +4,6 @@
  */
 namespace OnlinePayments\Sdk\Merchant\PrivacyPolicy;
 
-
 use OnlinePayments\Sdk\Communication\RequestObject;
 
 /**
@@ -15,73 +14,51 @@ use OnlinePayments\Sdk\Communication\RequestObject;
 class GetPrivacyPolicyParams extends RequestObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $locale;
+    public ?string $locale = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocale()
+    public function getLocale(): ?string
     {
         return $this->locale;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLocale($value)
+    public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
-     * @param string
+     * @return int|null
      */
-    public function addLocale($value)
-    {
-        if (is_null($this->locale)) {
-            $this->locale = [];
-        }
-        $this->locale[] = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
-     * @param int
-     */
-    public function addPaymentProductId($value)
-    {
-        if (is_null($this->paymentProductId)) {
-            $this->paymentProductId = [];
-        }
-        $this->paymentProductId[] = $value;
-    }
-
-    /**
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $array = [];
         if ($this->locale != null) {

@@ -12,19 +12,19 @@ use OnlinePayments\Sdk\Domain\DataObject;
 class ErrorResponseException extends RuntimeException
 {
     /** @var int */
-    private $httpStatusCode;
+    private int $httpStatusCode;
 
     /**
      * @var DataObject
      */
-    private $errorResponse;
+    private DataObject $errorResponse;
 
     /**
      * @param int $httpStatusCode
      * @param DataObject $errorResponse
      * @param string|null $message
      */
-    public function __construct($httpStatusCode, DataObject $errorResponse, $message = null)
+    public function __construct(int $httpStatusCode, DataObject $errorResponse, string $message = null)
     {
         if (is_null($message)) {
             $message = 'The server returned an error.';
@@ -37,7 +37,7 @@ class ErrorResponseException extends RuntimeException
     /**
      * @return int
      */
-    public function getHttpStatusCode()
+    public function getHttpStatusCode(): int
     {
         return $this->httpStatusCode;
     }
@@ -45,7 +45,7 @@ class ErrorResponseException extends RuntimeException
     /**
      * @return DataObject
      */
-    public function getErrorResponse()
+    public function getErrorResponse(): DataObject
     {
         return $this->errorResponse;
     }

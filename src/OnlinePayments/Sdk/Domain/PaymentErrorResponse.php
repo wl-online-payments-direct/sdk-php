@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class PaymentErrorResponse extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $errorId = null;
+    public ?string $errorId = null;
 
     /**
-     * @var APIError[]
+     * @var APIError[]|null
      */
-    public $errors = null;
+    public ?array $errors = null;
 
     /**
-     * @var CreatePaymentResponse
+     * @var CreatePaymentResponse|null
      */
-    public $paymentResult = null;
+    public ?CreatePaymentResponse $paymentResult = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getErrorId()
+    public function getErrorId(): ?string
     {
         return $this->errorId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setErrorId($value)
+    public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
     }
 
     /**
-     * @return APIError[]
+     * @return APIError[]|null
      */
-    public function getErrors()
+    public function getErrors(): ?array
     {
         return $this->errors;
     }
 
     /**
-     * @param APIError[]
+     * @param APIError[]|null $value
      */
-    public function setErrors($value)
+    public function setErrors(?array $value): void
     {
         $this->errors = $value;
     }
 
     /**
-     * @return CreatePaymentResponse
+     * @return CreatePaymentResponse|null
      */
-    public function getPaymentResult()
+    public function getPaymentResult(): ?CreatePaymentResponse
     {
         return $this->paymentResult;
     }
 
     /**
-     * @param CreatePaymentResponse
+     * @param CreatePaymentResponse|null $value
      */
-    public function setPaymentResult($value)
+    public function setPaymentResult(?CreatePaymentResponse $value): void
     {
         $this->paymentResult = $value;
     }
@@ -77,7 +77,7 @@ class PaymentErrorResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->errorId)) {
@@ -102,7 +102,7 @@ class PaymentErrorResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentErrorResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'errorId')) {

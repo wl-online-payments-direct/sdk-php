@@ -34,5 +34,5 @@ interface CapturesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getCaptures($paymentId, ?CallContext $callContext = null);
+    function getCaptures(string $paymentId, ?CallContext $callContext = null): CapturesResponse;
 }

@@ -26,7 +26,7 @@ interface ClientInterface
      * @param string $clientMetaInfo
      * @return $this
      */
-    function setClientMetaInfo($clientMetaInfo);
+    function setClientMetaInfo(string $clientMetaInfo): ClientInterface;
 
     /**
      * Resource /v2/{merchantId}
@@ -34,5 +34,5 @@ interface ClientInterface
      * @param string $merchantId
      * @return MerchantClientInterface
      */
-    function merchant($merchantId);
+    function merchant(string $merchantId);
 }

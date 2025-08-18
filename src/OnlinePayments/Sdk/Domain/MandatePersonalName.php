@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class MandatePersonalName extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $firstName = null;
+    public ?string $firstName = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $surname = null;
+    public ?string $surname = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFirstName($value)
+    public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->surname;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSurname($value)
+    public function setSurname(?string $value): void
     {
         $this->surname = $value;
     }
@@ -56,7 +56,7 @@ class MandatePersonalName extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->firstName)) {
@@ -73,7 +73,7 @@ class MandatePersonalName extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MandatePersonalName
     {
         parent::fromObject($object);
         if (property_exists($object, 'firstName')) {

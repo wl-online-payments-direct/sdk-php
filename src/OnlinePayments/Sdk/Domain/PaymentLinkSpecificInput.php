@@ -13,64 +13,64 @@ use UnexpectedValueException;
 class PaymentLinkSpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $description = null;
+    public ?string $description = null;
 
     /**
-     * @var DateTime
+     * @var DateTime|null
      */
-    public $expirationDate = null;
+    public ?DateTime $expirationDate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $recipientName = null;
+    public ?string $recipientName = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDescription($value)
+    public function setDescription(?string $value): void
     {
         $this->description = $value;
     }
 
     /**
-     * @return DateTime
+     * @return DateTime|null
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
     }
 
     /**
-     * @param DateTime
+     * @param DateTime|null $value
      */
-    public function setExpirationDate($value)
+    public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecipientName()
+    public function getRecipientName(): ?string
     {
         return $this->recipientName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecipientName($value)
+    public function setRecipientName(?string $value): void
     {
         $this->recipientName = $value;
     }
@@ -78,7 +78,7 @@ class PaymentLinkSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->description)) {
@@ -98,7 +98,7 @@ class PaymentLinkSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentLinkSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'description')) {

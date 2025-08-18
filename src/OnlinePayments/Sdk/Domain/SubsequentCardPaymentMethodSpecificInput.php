@@ -12,133 +12,133 @@ use UnexpectedValueException;
 class SubsequentCardPaymentMethodSpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $authorizationMode = null;
+    public ?string $authorizationMode = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentNumber = null;
+    public ?int $paymentNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Deprecated
      */
-    public $schemeReferenceData = null;
+    public ?string $schemeReferenceData = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $subsequentType = null;
+    public ?string $subsequentType = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated ID of the token to use to create the payment.
      */
-    public $token = null;
+    public ?string $token = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $transactionChannel = null;
+    public ?string $transactionChannel = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAuthorizationMode()
+    public function getAuthorizationMode(): ?string
     {
         return $this->authorizationMode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAuthorizationMode($value)
+    public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentNumber()
+    public function getPaymentNumber(): ?int
     {
         return $this->paymentNumber;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentNumber($value)
+    public function setPaymentNumber(?int $value): void
     {
         $this->paymentNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Deprecated
      */
-    public function getSchemeReferenceData()
+    public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Deprecated
      */
-    public function setSchemeReferenceData($value)
+    public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSubsequentType()
+    public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSubsequentType($value)
+    public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated ID of the token to use to create the payment.
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated ID of the token to use to create the payment.
      */
-    public function setToken($value)
+    public function setToken(?string $value): void
     {
         $this->token = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionChannel()
+    public function getTransactionChannel(): ?string
     {
         return $this->transactionChannel;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTransactionChannel($value)
+    public function setTransactionChannel(?string $value): void
     {
         $this->transactionChannel = $value;
     }
@@ -146,7 +146,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->authorizationMode)) {
@@ -175,7 +175,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SubsequentCardPaymentMethodSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {

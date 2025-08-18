@@ -12,274 +12,274 @@ use UnexpectedValueException;
 class ThreeDSecureResults extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsTransactionId = null;
+    public ?string $acsTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $appliedExemption = null;
+    public ?string $appliedExemption = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $authenticationStatus = null;
+    public ?string $authenticationStatus = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cavv = null;
+    public ?string $cavv = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $challengeIndicator = null;
+    public ?string $challengeIndicator = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $dsTransactionId = null;
+    public ?string $dsTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $eci = null;
+    public ?string $eci = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $exemptionEngineFlow = null;
+    public ?string $exemptionEngineFlow = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $flow = null;
+    public ?string $flow = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $liability = null;
+    public ?string $liability = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $schemeEci = null;
+    public ?string $schemeEci = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $version = null;
+    public ?string $version = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $xid = null;
+    public ?string $xid = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsTransactionId()
+    public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsTransactionId($value)
+    public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAppliedExemption()
+    public function getAppliedExemption(): ?string
     {
         return $this->appliedExemption;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAppliedExemption($value)
+    public function setAppliedExemption(?string $value): void
     {
         $this->appliedExemption = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAuthenticationStatus()
+    public function getAuthenticationStatus(): ?string
     {
         return $this->authenticationStatus;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAuthenticationStatus($value)
+    public function setAuthenticationStatus(?string $value): void
     {
         $this->authenticationStatus = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCavv()
+    public function getCavv(): ?string
     {
         return $this->cavv;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCavv($value)
+    public function setCavv(?string $value): void
     {
         $this->cavv = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getChallengeIndicator()
+    public function getChallengeIndicator(): ?string
     {
         return $this->challengeIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setChallengeIndicator($value)
+    public function setChallengeIndicator(?string $value): void
     {
         $this->challengeIndicator = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDsTransactionId()
+    public function getDsTransactionId(): ?string
     {
         return $this->dsTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDsTransactionId($value)
+    public function setDsTransactionId(?string $value): void
     {
         $this->dsTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEci()
+    public function getEci(): ?string
     {
         return $this->eci;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEci($value)
+    public function setEci(?string $value): void
     {
         $this->eci = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExemptionEngineFlow()
+    public function getExemptionEngineFlow(): ?string
     {
         return $this->exemptionEngineFlow;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExemptionEngineFlow($value)
+    public function setExemptionEngineFlow(?string $value): void
     {
         $this->exemptionEngineFlow = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFlow()
+    public function getFlow(): ?string
     {
         return $this->flow;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFlow($value)
+    public function setFlow(?string $value): void
     {
         $this->flow = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLiability()
+    public function getLiability(): ?string
     {
         return $this->liability;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLiability($value)
+    public function setLiability(?string $value): void
     {
         $this->liability = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSchemeEci()
+    public function getSchemeEci(): ?string
     {
         return $this->schemeEci;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSchemeEci($value)
+    public function setSchemeEci(?string $value): void
     {
         $this->schemeEci = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVersion()
+    public function getVersion(): ?string
     {
         return $this->version;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setVersion($value)
+    public function setVersion(?string $value): void
     {
         $this->version = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getXid()
+    public function getXid(): ?string
     {
         return $this->xid;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setXid($value)
+    public function setXid(?string $value): void
     {
         $this->xid = $value;
     }
@@ -287,7 +287,7 @@ class ThreeDSecureResults extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acsTransactionId)) {
@@ -337,7 +337,7 @@ class ThreeDSecureResults extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ThreeDSecureResults
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsTransactionId')) {

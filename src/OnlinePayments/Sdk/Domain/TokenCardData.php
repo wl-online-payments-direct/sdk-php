@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class TokenCardData extends DataObject
 {
     /**
-     * @var CardWithoutCvv
+     * @var CardWithoutCvv|null
      */
-    public $cardWithoutCvv = null;
+    public ?CardWithoutCvv $cardWithoutCvv = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cobrandSelectionIndicator = null;
+    public ?string $cobrandSelectionIndicator = null;
 
     /**
-     * @return CardWithoutCvv
+     * @return CardWithoutCvv|null
      */
-    public function getCardWithoutCvv()
+    public function getCardWithoutCvv(): ?CardWithoutCvv
     {
         return $this->cardWithoutCvv;
     }
 
     /**
-     * @param CardWithoutCvv
+     * @param CardWithoutCvv|null $value
      */
-    public function setCardWithoutCvv($value)
+    public function setCardWithoutCvv(?CardWithoutCvv $value): void
     {
         $this->cardWithoutCvv = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCobrandSelectionIndicator()
+    public function getCobrandSelectionIndicator(): ?string
     {
         return $this->cobrandSelectionIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCobrandSelectionIndicator($value)
+    public function setCobrandSelectionIndicator(?string $value): void
     {
         $this->cobrandSelectionIndicator = $value;
     }
@@ -56,7 +56,7 @@ class TokenCardData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->cardWithoutCvv)) {
@@ -73,7 +73,7 @@ class TokenCardData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TokenCardData
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardWithoutCvv')) {

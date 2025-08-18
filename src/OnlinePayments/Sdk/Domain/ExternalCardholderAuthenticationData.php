@@ -12,211 +12,211 @@ use UnexpectedValueException;
 class ExternalCardholderAuthenticationData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsTransactionId = null;
+    public ?string $acsTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $appliedExemption = null;
+    public ?string $appliedExemption = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cavv = null;
+    public ?string $cavv = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cavvAlgorithm = null;
+    public ?string $cavvAlgorithm = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $directoryServerTransactionId = null;
+    public ?string $directoryServerTransactionId = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $eci = null;
+    public ?int $eci = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $flow = null;
+    public ?string $flow = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $schemeRiskScore = null;
+    public ?int $schemeRiskScore = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $threeDSecureVersion = null;
+    public ?string $threeDSecureVersion = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $xid = null;
+    public ?string $xid = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsTransactionId()
+    public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsTransactionId($value)
+    public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAppliedExemption()
+    public function getAppliedExemption(): ?string
     {
         return $this->appliedExemption;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAppliedExemption($value)
+    public function setAppliedExemption(?string $value): void
     {
         $this->appliedExemption = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCavv()
+    public function getCavv(): ?string
     {
         return $this->cavv;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCavv($value)
+    public function setCavv(?string $value): void
     {
         $this->cavv = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCavvAlgorithm()
+    public function getCavvAlgorithm(): ?string
     {
         return $this->cavvAlgorithm;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCavvAlgorithm($value)
+    public function setCavvAlgorithm(?string $value): void
     {
         $this->cavvAlgorithm = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDirectoryServerTransactionId()
+    public function getDirectoryServerTransactionId(): ?string
     {
         return $this->directoryServerTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDirectoryServerTransactionId($value)
+    public function setDirectoryServerTransactionId(?string $value): void
     {
         $this->directoryServerTransactionId = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getEci()
+    public function getEci(): ?int
     {
         return $this->eci;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setEci($value)
+    public function setEci(?int $value): void
     {
         $this->eci = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFlow()
+    public function getFlow(): ?string
     {
         return $this->flow;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFlow($value)
+    public function setFlow(?string $value): void
     {
         $this->flow = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSchemeRiskScore()
+    public function getSchemeRiskScore(): ?int
     {
         return $this->schemeRiskScore;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setSchemeRiskScore($value)
+    public function setSchemeRiskScore(?int $value): void
     {
         $this->schemeRiskScore = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getThreeDSecureVersion()
+    public function getThreeDSecureVersion(): ?string
     {
         return $this->threeDSecureVersion;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setThreeDSecureVersion($value)
+    public function setThreeDSecureVersion(?string $value): void
     {
         $this->threeDSecureVersion = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getXid()
+    public function getXid(): ?string
     {
         return $this->xid;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setXid($value)
+    public function setXid(?string $value): void
     {
         $this->xid = $value;
     }
@@ -224,7 +224,7 @@ class ExternalCardholderAuthenticationData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acsTransactionId)) {
@@ -265,7 +265,7 @@ class ExternalCardholderAuthenticationData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ExternalCardholderAuthenticationData
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsTransactionId')) {

@@ -4,13 +4,13 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Webhooks;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\SendTestRequest;
 use OnlinePayments\Sdk\Domain\ValidateCredentialsRequest;
+use OnlinePayments\Sdk\Domain\ValidateCredentialsResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -19,13 +19,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class WebhooksClient extends ApiResource implements WebhooksClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null)
+    public function validateWebhookCredentials(ValidateCredentialsRequest $body, CallContext $callContext = null): ValidateCredentialsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ValidateCredentialsResponse';
@@ -50,14 +49,13 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null)
+    public function sendTestWebhook(SendTestRequest $body, CallContext $callContext = null): void
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
-            return $this->getCommunicator()->post(
+            $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/webhooks/sendtest'),
                 $this->getClientMetaInfo(),
@@ -75,7 +73,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

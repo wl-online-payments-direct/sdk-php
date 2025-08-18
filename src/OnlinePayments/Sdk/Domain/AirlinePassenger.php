@@ -12,130 +12,130 @@ use UnexpectedValueException;
 class AirlinePassenger extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $airlineLoyaltyStatus = null;
+    public ?string $airlineLoyaltyStatus = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $firstName = null;
+    public ?string $firstName = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $passengerType = null;
+    public ?string $passengerType = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $surname = null;
+    public ?string $surname = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $surnamePrefix = null;
+    public ?string $surnamePrefix = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
-    public $title = null;
+    public ?string $title = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAirlineLoyaltyStatus()
+    public function getAirlineLoyaltyStatus(): ?string
     {
         return $this->airlineLoyaltyStatus;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAirlineLoyaltyStatus($value)
+    public function setAirlineLoyaltyStatus(?string $value): void
     {
         $this->airlineLoyaltyStatus = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFirstName($value)
+    public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPassengerType()
+    public function getPassengerType(): ?string
     {
         return $this->passengerType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPassengerType($value)
+    public function setPassengerType(?string $value): void
     {
         $this->passengerType = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->surname;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSurname($value)
+    public function setSurname(?string $value): void
     {
         $this->surname = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSurnamePrefix()
+    public function getSurnamePrefix(): ?string
     {
         return $this->surnamePrefix;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSurnamePrefix($value)
+    public function setSurnamePrefix(?string $value): void
     {
         $this->surnamePrefix = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
-    public function setTitle($value)
+    public function setTitle(?string $value): void
     {
         $this->title = $value;
     }
@@ -143,7 +143,7 @@ class AirlinePassenger extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->airlineLoyaltyStatus)) {
@@ -172,7 +172,7 @@ class AirlinePassenger extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): AirlinePassenger
     {
         parent::fromObject($object);
         if (property_exists($object, 'airlineLoyaltyStatus')) {

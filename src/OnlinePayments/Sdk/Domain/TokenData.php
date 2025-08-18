@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class TokenData extends DataObject
 {
     /**
-     * @var Card
+     * @var Card|null
      */
-    public $card = null;
+    public ?Card $card = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cobrandSelectionIndicator = null;
+    public ?string $cobrandSelectionIndicator = null;
 
     /**
-     * @return Card
+     * @return Card|null
      */
-    public function getCard()
+    public function getCard(): ?Card
     {
         return $this->card;
     }
 
     /**
-     * @param Card
+     * @param Card|null $value
      */
-    public function setCard($value)
+    public function setCard(?Card $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCobrandSelectionIndicator()
+    public function getCobrandSelectionIndicator(): ?string
     {
         return $this->cobrandSelectionIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCobrandSelectionIndicator($value)
+    public function setCobrandSelectionIndicator(?string $value): void
     {
         $this->cobrandSelectionIndicator = $value;
     }
@@ -56,7 +56,7 @@ class TokenData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->card)) {
@@ -73,7 +73,7 @@ class TokenData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TokenData
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

@@ -4,12 +4,12 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Complete;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CompletePaymentRequest;
+use OnlinePayments\Sdk\Domain\CompletePaymentResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,13 +18,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class CompleteClient extends ApiResource implements CompleteClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function completePayment($paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null)
+    public function completePayment(string $paymentId, CompletePaymentRequest $body, CallContext $callContext = null): CompletePaymentResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -49,7 +48,7 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

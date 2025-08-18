@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PaymentProductFieldDataRestrictions extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isRequired = null;
+    public ?bool $isRequired = null;
 
     /**
-     * @var PaymentProductFieldValidators
+     * @var PaymentProductFieldValidators|null
      */
-    public $validators = null;
+    public ?PaymentProductFieldValidators $validators = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsRequired()
+    public function getIsRequired(): ?bool
     {
         return $this->isRequired;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsRequired($value)
+    public function setIsRequired(?bool $value): void
     {
         $this->isRequired = $value;
     }
 
     /**
-     * @return PaymentProductFieldValidators
+     * @return PaymentProductFieldValidators|null
      */
-    public function getValidators()
+    public function getValidators(): ?PaymentProductFieldValidators
     {
         return $this->validators;
     }
 
     /**
-     * @param PaymentProductFieldValidators
+     * @param PaymentProductFieldValidators|null $value
      */
-    public function setValidators($value)
+    public function setValidators(?PaymentProductFieldValidators $value): void
     {
         $this->validators = $value;
     }
@@ -56,7 +56,7 @@ class PaymentProductFieldDataRestrictions extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->isRequired)) {
@@ -73,7 +73,7 @@ class PaymentProductFieldDataRestrictions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFieldDataRestrictions
     {
         parent::fromObject($object);
         if (property_exists($object, 'isRequired')) {

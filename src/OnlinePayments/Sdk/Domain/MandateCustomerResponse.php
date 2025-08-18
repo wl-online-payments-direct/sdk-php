@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class MandateCustomerResponse extends DataObject
 {
     /**
-     * @var BankAccountIban
+     * @var BankAccountIban|null
      */
-    public $bankAccountIban = null;
+    public ?BankAccountIban $bankAccountIban = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $companyName = null;
+    public ?string $companyName = null;
 
     /**
-     * @var MandateContactDetails
+     * @var MandateContactDetails|null
      */
-    public $contactDetails = null;
+    public ?MandateContactDetails $contactDetails = null;
 
     /**
-     * @var MandateAddressResponse
+     * @var MandateAddressResponse|null
      */
-    public $mandateAddress = null;
+    public ?MandateAddressResponse $mandateAddress = null;
 
     /**
-     * @var MandatePersonalInformationResponse
+     * @var MandatePersonalInformationResponse|null
      */
-    public $personalInformation = null;
+    public ?MandatePersonalInformationResponse $personalInformation = null;
 
     /**
-     * @return BankAccountIban
+     * @return BankAccountIban|null
      */
-    public function getBankAccountIban()
+    public function getBankAccountIban(): ?BankAccountIban
     {
         return $this->bankAccountIban;
     }
 
     /**
-     * @param BankAccountIban
+     * @param BankAccountIban|null $value
      */
-    public function setBankAccountIban($value)
+    public function setBankAccountIban(?BankAccountIban $value): void
     {
         $this->bankAccountIban = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCompanyName($value)
+    public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
-     * @return MandateContactDetails
+     * @return MandateContactDetails|null
      */
-    public function getContactDetails()
+    public function getContactDetails(): ?MandateContactDetails
     {
         return $this->contactDetails;
     }
 
     /**
-     * @param MandateContactDetails
+     * @param MandateContactDetails|null $value
      */
-    public function setContactDetails($value)
+    public function setContactDetails(?MandateContactDetails $value): void
     {
         $this->contactDetails = $value;
     }
 
     /**
-     * @return MandateAddressResponse
+     * @return MandateAddressResponse|null
      */
-    public function getMandateAddress()
+    public function getMandateAddress(): ?MandateAddressResponse
     {
         return $this->mandateAddress;
     }
 
     /**
-     * @param MandateAddressResponse
+     * @param MandateAddressResponse|null $value
      */
-    public function setMandateAddress($value)
+    public function setMandateAddress(?MandateAddressResponse $value): void
     {
         $this->mandateAddress = $value;
     }
 
     /**
-     * @return MandatePersonalInformationResponse
+     * @return MandatePersonalInformationResponse|null
      */
-    public function getPersonalInformation()
+    public function getPersonalInformation(): ?MandatePersonalInformationResponse
     {
         return $this->personalInformation;
     }
 
     /**
-     * @param MandatePersonalInformationResponse
+     * @param MandatePersonalInformationResponse|null $value
      */
-    public function setPersonalInformation($value)
+    public function setPersonalInformation(?MandatePersonalInformationResponse $value): void
     {
         $this->personalInformation = $value;
     }
@@ -119,7 +119,7 @@ class MandateCustomerResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->bankAccountIban)) {
@@ -145,7 +145,7 @@ class MandateCustomerResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MandateCustomerResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'bankAccountIban')) {

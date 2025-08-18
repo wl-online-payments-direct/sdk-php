@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class MandateMerchantAction extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $actionType = null;
+    public ?string $actionType = null;
 
     /**
-     * @var MandateRedirectData
+     * @var MandateRedirectData|null
      */
-    public $redirectData = null;
+    public ?MandateRedirectData $redirectData = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getActionType()
+    public function getActionType(): ?string
     {
         return $this->actionType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setActionType($value)
+    public function setActionType(?string $value): void
     {
         $this->actionType = $value;
     }
 
     /**
-     * @return MandateRedirectData
+     * @return MandateRedirectData|null
      */
-    public function getRedirectData()
+    public function getRedirectData(): ?MandateRedirectData
     {
         return $this->redirectData;
     }
 
     /**
-     * @param MandateRedirectData
+     * @param MandateRedirectData|null $value
      */
-    public function setRedirectData($value)
+    public function setRedirectData(?MandateRedirectData $value): void
     {
         $this->redirectData = $value;
     }
@@ -56,7 +56,7 @@ class MandateMerchantAction extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->actionType)) {
@@ -73,7 +73,7 @@ class MandateMerchantAction extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MandateMerchantAction
     {
         parent::fromObject($object);
         if (property_exists($object, 'actionType')) {

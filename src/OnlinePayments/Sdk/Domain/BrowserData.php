@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class BrowserData extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $colorDepth = null;
+    public ?int $colorDepth = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $javaEnabled = null;
+    public ?bool $javaEnabled = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $javaScriptEnabled = null;
+    public ?bool $javaScriptEnabled = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $screenHeight = null;
+    public ?string $screenHeight = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $screenWidth = null;
+    public ?string $screenWidth = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getColorDepth()
+    public function getColorDepth(): ?int
     {
         return $this->colorDepth;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setColorDepth($value)
+    public function setColorDepth(?int $value): void
     {
         $this->colorDepth = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getJavaEnabled()
+    public function getJavaEnabled(): ?bool
     {
         return $this->javaEnabled;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setJavaEnabled($value)
+    public function setJavaEnabled(?bool $value): void
     {
         $this->javaEnabled = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getJavaScriptEnabled()
+    public function getJavaScriptEnabled(): ?bool
     {
         return $this->javaScriptEnabled;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setJavaScriptEnabled($value)
+    public function setJavaScriptEnabled(?bool $value): void
     {
         $this->javaScriptEnabled = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getScreenHeight()
+    public function getScreenHeight(): ?string
     {
         return $this->screenHeight;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setScreenHeight($value)
+    public function setScreenHeight(?string $value): void
     {
         $this->screenHeight = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getScreenWidth()
+    public function getScreenWidth(): ?string
     {
         return $this->screenWidth;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setScreenWidth($value)
+    public function setScreenWidth(?string $value): void
     {
         $this->screenWidth = $value;
     }
@@ -119,7 +119,7 @@ class BrowserData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->colorDepth)) {
@@ -145,7 +145,7 @@ class BrowserData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): BrowserData
     {
         parent::fromObject($object);
         if (property_exists($object, 'colorDepth')) {

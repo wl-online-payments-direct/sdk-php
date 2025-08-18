@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CustomerPaymentActivity extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $numberOfPaymentAttemptsLast24Hours = null;
+    public ?int $numberOfPaymentAttemptsLast24Hours = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $numberOfPaymentAttemptsLastYear = null;
+    public ?int $numberOfPaymentAttemptsLastYear = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $numberOfPurchasesLast6Months = null;
+    public ?int $numberOfPurchasesLast6Months = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfPaymentAttemptsLast24Hours()
+    public function getNumberOfPaymentAttemptsLast24Hours(): ?int
     {
         return $this->numberOfPaymentAttemptsLast24Hours;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setNumberOfPaymentAttemptsLast24Hours($value)
+    public function setNumberOfPaymentAttemptsLast24Hours(?int $value): void
     {
         $this->numberOfPaymentAttemptsLast24Hours = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfPaymentAttemptsLastYear()
+    public function getNumberOfPaymentAttemptsLastYear(): ?int
     {
         return $this->numberOfPaymentAttemptsLastYear;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setNumberOfPaymentAttemptsLastYear($value)
+    public function setNumberOfPaymentAttemptsLastYear(?int $value): void
     {
         $this->numberOfPaymentAttemptsLastYear = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfPurchasesLast6Months()
+    public function getNumberOfPurchasesLast6Months(): ?int
     {
         return $this->numberOfPurchasesLast6Months;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setNumberOfPurchasesLast6Months($value)
+    public function setNumberOfPurchasesLast6Months(?int $value): void
     {
         $this->numberOfPurchasesLast6Months = $value;
     }
@@ -77,7 +77,7 @@ class CustomerPaymentActivity extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->numberOfPaymentAttemptsLast24Hours)) {
@@ -97,7 +97,7 @@ class CustomerPaymentActivity extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CustomerPaymentActivity
     {
         parent::fromObject($object);
         if (property_exists($object, 'numberOfPaymentAttemptsLast24Hours')) {

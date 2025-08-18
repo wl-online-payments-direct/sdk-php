@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class RefundPaymentProduct840CustomerAccount extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $customerAccountStatus = null;
+    public ?string $customerAccountStatus = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $customerAddressStatus = null;
+    public ?string $customerAddressStatus = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $payerId = null;
+    public ?string $payerId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerAccountStatus()
+    public function getCustomerAccountStatus(): ?string
     {
         return $this->customerAccountStatus;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCustomerAccountStatus($value)
+    public function setCustomerAccountStatus(?string $value): void
     {
         $this->customerAccountStatus = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerAddressStatus()
+    public function getCustomerAddressStatus(): ?string
     {
         return $this->customerAddressStatus;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCustomerAddressStatus($value)
+    public function setCustomerAddressStatus(?string $value): void
     {
         $this->customerAddressStatus = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPayerId()
+    public function getPayerId(): ?string
     {
         return $this->payerId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPayerId($value)
+    public function setPayerId(?string $value): void
     {
         $this->payerId = $value;
     }
@@ -77,7 +77,7 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->customerAccountStatus)) {
@@ -97,7 +97,7 @@ class RefundPaymentProduct840CustomerAccount extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RefundPaymentProduct840CustomerAccount
     {
         parent::fromObject($object);
         if (property_exists($object, 'customerAccountStatus')) {

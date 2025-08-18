@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class RefundMobileMethodSpecificOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $network = null;
+    public ?string $network = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountPaid = null;
+    public ?int $totalAmountPaid = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountRefunded = null;
+    public ?int $totalAmountRefunded = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNetwork()
+    public function getNetwork(): ?string
     {
         return $this->network;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setNetwork($value)
+    public function setNetwork(?string $value): void
     {
         $this->network = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountPaid()
+    public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountPaid($value)
+    public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountRefunded()
+    public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountRefunded($value)
+    public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
     }
@@ -77,7 +77,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->network)) {
@@ -97,7 +97,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RefundMobileMethodSpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'network')) {

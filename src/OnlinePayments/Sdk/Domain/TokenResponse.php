@@ -12,127 +12,127 @@ use UnexpectedValueException;
 class TokenResponse extends DataObject
 {
     /**
-     * @var TokenCard
+     * @var TokenCard|null
      */
-    public $card = null;
+    public ?TokenCard $card = null;
 
     /**
-     * @var TokenEWallet
+     * @var TokenEWallet|null
      */
-    public $eWallet = null;
+    public ?TokenEWallet $eWallet = null;
 
     /**
-     * @var ExternalTokenLinked
+     * @var ExternalTokenLinked|null
      */
-    public $externalTokenLinked = null;
+    public ?ExternalTokenLinked $externalTokenLinked = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isTemporary = null;
+    public ?bool $isTemporary = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return TokenCard
+     * @return TokenCard|null
      */
-    public function getCard()
+    public function getCard(): ?TokenCard
     {
         return $this->card;
     }
 
     /**
-     * @param TokenCard
+     * @param TokenCard|null $value
      */
-    public function setCard($value)
+    public function setCard(?TokenCard $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return TokenEWallet
+     * @return TokenEWallet|null
      */
-    public function getEWallet()
+    public function getEWallet(): ?TokenEWallet
     {
         return $this->eWallet;
     }
 
     /**
-     * @param TokenEWallet
+     * @param TokenEWallet|null $value
      */
-    public function setEWallet($value)
+    public function setEWallet(?TokenEWallet $value): void
     {
         $this->eWallet = $value;
     }
 
     /**
-     * @return ExternalTokenLinked
+     * @return ExternalTokenLinked|null
      */
-    public function getExternalTokenLinked()
+    public function getExternalTokenLinked(): ?ExternalTokenLinked
     {
         return $this->externalTokenLinked;
     }
 
     /**
-     * @param ExternalTokenLinked
+     * @param ExternalTokenLinked|null $value
      */
-    public function setExternalTokenLinked($value)
+    public function setExternalTokenLinked(?ExternalTokenLinked $value): void
     {
         $this->externalTokenLinked = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsTemporary()
+    public function getIsTemporary(): ?bool
     {
         return $this->isTemporary;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsTemporary($value)
+    public function setIsTemporary(?bool $value): void
     {
         $this->isTemporary = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -140,7 +140,7 @@ class TokenResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->card)) {
@@ -169,7 +169,7 @@ class TokenResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TokenResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

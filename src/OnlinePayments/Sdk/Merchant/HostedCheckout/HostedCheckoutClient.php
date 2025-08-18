@@ -4,12 +4,13 @@
  */
 namespace OnlinePayments\Sdk\Merchant\HostedCheckout;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreateHostedCheckoutRequest;
+use OnlinePayments\Sdk\Domain\CreateHostedCheckoutResponse;
+use OnlinePayments\Sdk\Domain\GetHostedCheckoutResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,13 +19,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function createHostedCheckout(CreateHostedCheckoutRequest $body, ?CallContext $callContext = null)
+    public function createHostedCheckout(CreateHostedCheckoutRequest $body, CallContext $callContext = null): CreateHostedCheckoutResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedCheckoutResponse';
@@ -50,7 +50,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
     /**
      * @inheritdoc
      */
-    public function getHostedCheckout($hostedCheckoutId, ?CallContext $callContext = null)
+    public function getHostedCheckout(string $hostedCheckoutId, CallContext $callContext = null): GetHostedCheckoutResponse
     {
         $this->context['hostedCheckoutId'] = $hostedCheckoutId;
         $responseClassMap = new ResponseClassMap();
@@ -74,7 +74,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

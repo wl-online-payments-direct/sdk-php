@@ -211,7 +211,7 @@ class HttpBinResponse extends DataObject
     public $form;
     public $files;
 
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->form)) {
@@ -223,7 +223,7 @@ class HttpBinResponse extends DataObject
         return $object;
     }
 
-    public function fromObject($object)
+    public function fromObject(object $object): DataObject
     {
         parent::fromObject($object);
         if (property_exists($object, 'form')) {
@@ -245,7 +245,7 @@ class MultipartFormDataWrapper extends MultipartDataObject
         $this->multipart = $multipart;
     }
 
-    public function toMultipartFormDataObject()
+    public function toMultipartFormDataObject(): MultipartFormDataObject
     {
         return $this->multipart;
     }

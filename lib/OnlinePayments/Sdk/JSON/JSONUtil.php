@@ -20,7 +20,7 @@ class JSONUtil
      * @return stdClass
      * @throws UnexpectedValueException
      */
-    public static function decode($value)
+    public static function decode(string $value): stdClass
     {
         $object = json_decode($value);
         if (json_last_error()) {

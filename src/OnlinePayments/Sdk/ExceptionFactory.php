@@ -26,10 +26,11 @@ class ExceptionFactory
      * @return ResponseException
      */
     public function createException(
-        $httpStatusCode,
+        int $httpStatusCode,
         DataObject $errorObject,
         ?CallContext $callContext = null
-    ) {
+    ): ResponseException
+    {
         if ($errorObject instanceof PaymentErrorResponse && !is_null($errorObject->paymentResult)) {
             return new DeclinedPaymentException($httpStatusCode, $errorObject);
         }
@@ -81,7 +82,7 @@ class ExceptionFactory
      * @param DataObject $errorObject
      * @return bool
      */
-    protected function isIdempotenceError(DataObject $errorObject)
+    protected function isIdempotenceError(DataObject $errorObject): bool
     {
         $errorObjectVariables = get_object_vars($errorObject);
         if (!array_key_exists('errors', $errorObjectVariables)) {

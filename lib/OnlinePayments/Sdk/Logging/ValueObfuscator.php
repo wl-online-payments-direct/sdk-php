@@ -16,7 +16,7 @@ class ValueObfuscator
      * @param int $numberOfCharactersToKeep
      * @return string
      */
-    public function obfuscateAllKeepEnd($value, $numberOfCharactersToKeep)
+    public function obfuscateAllKeepEnd(string $value, int $numberOfCharactersToKeep): string
     {
         if ($numberOfCharactersToKeep <= 0) {
             return $this->obfuscateAll($value);
@@ -35,7 +35,7 @@ class ValueObfuscator
      * @param int $numberOfCharactersToKeep
      * @return string
      */
-    public function obfuscateAllKeepStart($value, $numberOfCharactersToKeep)
+    public function obfuscateAllKeepStart(string $value, int $numberOfCharactersToKeep): string
     {
         if ($numberOfCharactersToKeep <= 0) {
             return $this->obfuscateAll($value);
@@ -53,7 +53,7 @@ class ValueObfuscator
      * @param string $value
      * @return string
      */
-    public function obfuscateAll($value)
+    public function obfuscateAll(string $value): string
     {
         return str_repeat(static::MASK_CHARACTER, mb_strlen($value, 'UTF-8'));
     }
@@ -62,7 +62,7 @@ class ValueObfuscator
      * @param int $length
      * @return string
      */
-    public function obfuscateFixedLength($length)
+    public function obfuscateFixedLength(int $length): string
     {
         if ($length <= 0) {
             return '';

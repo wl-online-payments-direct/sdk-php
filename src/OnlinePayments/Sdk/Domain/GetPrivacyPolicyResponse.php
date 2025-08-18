@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class GetPrivacyPolicyResponse extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $htmlContent = null;
+    public ?string $htmlContent = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getHtmlContent()
+    public function getHtmlContent(): ?string
     {
         return $this->htmlContent;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setHtmlContent($value)
+    public function setHtmlContent(?string $value): void
     {
         $this->htmlContent = $value;
     }
@@ -35,7 +35,7 @@ class GetPrivacyPolicyResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->htmlContent)) {
@@ -49,7 +49,7 @@ class GetPrivacyPolicyResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): GetPrivacyPolicyResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'htmlContent')) {

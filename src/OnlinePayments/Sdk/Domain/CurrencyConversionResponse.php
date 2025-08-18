@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CurrencyConversionResponse extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $dccSessionId = null;
+    public ?string $dccSessionId = null;
 
     /**
-     * @var DccProposal
+     * @var DccProposal|null
      */
-    public $proposal = null;
+    public ?DccProposal $proposal = null;
 
     /**
-     * @var CurrencyConversionResult
+     * @var CurrencyConversionResult|null
      */
-    public $result = null;
+    public ?CurrencyConversionResult $result = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDccSessionId()
+    public function getDccSessionId(): ?string
     {
         return $this->dccSessionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDccSessionId($value)
+    public function setDccSessionId(?string $value): void
     {
         $this->dccSessionId = $value;
     }
 
     /**
-     * @return DccProposal
+     * @return DccProposal|null
      */
-    public function getProposal()
+    public function getProposal(): ?DccProposal
     {
         return $this->proposal;
     }
 
     /**
-     * @param DccProposal
+     * @param DccProposal|null $value
      */
-    public function setProposal($value)
+    public function setProposal(?DccProposal $value): void
     {
         $this->proposal = $value;
     }
 
     /**
-     * @return CurrencyConversionResult
+     * @return CurrencyConversionResult|null
      */
-    public function getResult()
+    public function getResult(): ?CurrencyConversionResult
     {
         return $this->result;
     }
 
     /**
-     * @param CurrencyConversionResult
+     * @param CurrencyConversionResult|null $value
      */
-    public function setResult($value)
+    public function setResult(?CurrencyConversionResult $value): void
     {
         $this->result = $value;
     }
@@ -77,7 +77,7 @@ class CurrencyConversionResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->dccSessionId)) {
@@ -97,7 +97,7 @@ class CurrencyConversionResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CurrencyConversionResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'dccSessionId')) {

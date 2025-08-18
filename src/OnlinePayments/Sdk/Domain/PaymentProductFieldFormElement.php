@@ -12,46 +12,46 @@ use UnexpectedValueException;
 class PaymentProductFieldFormElement extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $type = null;
+    public ?string $type = null;
 
     /**
-     * @var ValueMappingElement[]
+     * @var ValueMappingElement[]|null
      * @deprecated This field is not used by any payment product
      */
-    public $valueMapping = null;
+    public ?array $valueMapping = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setType($value)
+    public function setType(?string $value): void
     {
         $this->type = $value;
     }
 
     /**
-     * @return ValueMappingElement[]
+     * @return ValueMappingElement[]|null
      * @deprecated This field is not used by any payment product
      */
-    public function getValueMapping()
+    public function getValueMapping(): ?array
     {
         return $this->valueMapping;
     }
 
     /**
-     * @param ValueMappingElement[]
+     * @param ValueMappingElement[]|null $value
      * @deprecated This field is not used by any payment product
      */
-    public function setValueMapping($value)
+    public function setValueMapping(?array $value): void
     {
         $this->valueMapping = $value;
     }
@@ -59,7 +59,7 @@ class PaymentProductFieldFormElement extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->type)) {
@@ -81,7 +81,7 @@ class PaymentProductFieldFormElement extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFieldFormElement
     {
         parent::fromObject($object);
         if (property_exists($object, 'type')) {

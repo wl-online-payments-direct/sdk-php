@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -16,12 +17,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
      */
-    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, ?CallContext $callContext = null)
+    public function getPrivacyPolicy(GetPrivacyPolicyParams $query, CallContext $callContext = null): GetPrivacyPolicyResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse';
@@ -44,7 +45,7 @@ class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInte
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

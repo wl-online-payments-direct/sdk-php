@@ -12,67 +12,67 @@ use UnexpectedValueException;
 class FraudFields extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $blackListData = null;
+    public ?string $blackListData = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
-    public $customerIpAddress = null;
+    public ?string $customerIpAddress = null;
 
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $productCategories = null;
+    public ?array $productCategories = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBlackListData()
+    public function getBlackListData(): ?string
     {
         return $this->blackListData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setBlackListData($value)
+    public function setBlackListData(?string $value): void
     {
         $this->blackListData = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
-    public function getCustomerIpAddress()
+    public function getCustomerIpAddress(): ?string
     {
         return $this->customerIpAddress;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
-    public function setCustomerIpAddress($value)
+    public function setCustomerIpAddress(?string $value): void
     {
         $this->customerIpAddress = $value;
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getProductCategories()
+    public function getProductCategories(): ?array
     {
         return $this->productCategories;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setProductCategories($value)
+    public function setProductCategories(?array $value): void
     {
         $this->productCategories = $value;
     }
@@ -80,7 +80,7 @@ class FraudFields extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->blackListData)) {
@@ -105,7 +105,7 @@ class FraudFields extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): FraudFields
     {
         parent::fromObject($object);
         if (property_exists($object, 'blackListData')) {

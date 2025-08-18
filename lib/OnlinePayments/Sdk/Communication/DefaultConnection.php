@@ -22,19 +22,19 @@ class DefaultConnection implements Connection
     protected $multiHandle = null;
 
     /** @var CommunicatorLogger|null */
-    protected $communicatorLogger = null;
+    protected ?CommunicatorLogger $communicatorLogger = null;
 
     /** @var CommunicatorLoggerHelper|null */
-    private $communicatorLoggerHelper = null;
+    private ?CommunicatorLoggerHelper $communicatorLoggerHelper = null;
 
     /** @var int */
-    private $connectTimeout = -1;
+    private int $connectTimeout = -1;
 
     /** @var int */
-    private $readTimeout = -1;
+    private int $readTimeout = -1;
 
     /** @var ProxyConfiguration|null */
-    private $proxyConfiguration = null;
+    private ?ProxyConfiguration $proxyConfiguration = null;
 
     /**
      * @param CommunicatorConfiguration|null $communicatorConfiguration
@@ -63,9 +63,8 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
-     * @throws ErrorException
      */
-    public function get($requestUri, $requestHeaders, callable $responseHandler)
+    public function get(string $requestUri, array $requestHeaders, callable $responseHandler): void
     {
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'GET', $requestUri, $requestHeaders);
@@ -84,9 +83,8 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
-     * @throws ErrorException
      */
-    public function delete($requestUri, $requestHeaders, callable $responseHandler)
+    public function delete(string $requestUri, array $requestHeaders, callable $responseHandler): void
     {
         $requestId = UuidGenerator::generatedUuid();
         $this->logRequest($requestId, 'DELETE', $requestUri, $requestHeaders);
@@ -106,9 +104,8 @@ class DefaultConnection implements Connection
      * @param string[] $requestHeaders
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
-     * @throws ErrorException
      */
-    public function post($requestUri, $requestHeaders, $body, callable $responseHandler)
+    public function post(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void
     {
         $requestId = UuidGenerator::generatedUuid();
         $bodyToLog = is_string($body) ? $body : '<binary content>';
@@ -129,9 +126,8 @@ class DefaultConnection implements Connection
      * @param string[] $requestHeaders
      * @param string $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
-     * @throws ErrorException
      */
-    public function put($requestUri, $requestHeaders, $body, callable $responseHandler)
+    public function put(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void
     {
         $requestId = UuidGenerator::generatedUuid();
         $bodyToLog = is_string($body) ? $body : '<binary content>';
@@ -150,7 +146,7 @@ class DefaultConnection implements Connection
     /**
      * @param CommunicatorLogger $communicatorLogger
      */
-    public function enableLogging(CommunicatorLogger $communicatorLogger)
+    public function enableLogging(CommunicatorLogger $communicatorLogger): void
     {
         $this->communicatorLogger = $communicatorLogger;
     }
@@ -158,7 +154,7 @@ class DefaultConnection implements Connection
     /**
      *
      */
-    public function disableLogging()
+    public function disableLogging(): void
     {
         $this->communicatorLogger = null;
     }
@@ -173,12 +169,12 @@ class DefaultConnection implements Connection
      * @throws ErrorException
      */
     protected function executeRequest(
-        $httpMethod,
-        $requestUri,
-        $requestHeaders,
-        $body,
+        string   $httpMethod,
+        string   $requestUri,
+        array    $requestHeaders,
+                 $body,
         callable $responseHandler
-    )
+    ): ?ConnectionResponse
     {
         if (!in_array($httpMethod, array('GET', 'DELETE', 'POST', 'PUT'))) {
             throw new UnexpectedValueException(sprintf('Http method \'%s\' is not supported', $httpMethod));
@@ -203,9 +199,10 @@ class DefaultConnection implements Connection
 
     /**
      * @param resource $multiHandle
+     * @param resource $curlHandle
      * @throws ErrorException
      */
-    private function executeCurlHandleShared($multiHandle)
+    private function executeCurlHandleShared($multiHandle, $curlHandle): void
     {
         $running = 0;
         do {
@@ -235,7 +232,7 @@ class DefaultConnection implements Connection
      * @return ConnectionResponseInterface|null
      * @throws Exception
      */
-    private function executeCurlHandle($curlHandle, callable $responseHandler)
+    private function executeCurlHandle($curlHandle, callable $responseHandler): ?ConnectionResponse
     {
         $multiHandle = $this->getCurlMultiHandle();
         curl_multi_add_handle($multiHandle, $curlHandle);
@@ -267,7 +264,7 @@ class DefaultConnection implements Connection
         curl_setopt($curlHandle, CURLOPT_WRITEFUNCTION, $writeFunction);
 
         try {
-            $this->executeCurlHandleShared($multiHandle);
+            $this->executeCurlHandleShared($multiHandle, $curlHandle);
 
             // always emit an empty chunk, to make sure that the status code and headers are sent,
             // even if there is no response body
@@ -292,15 +289,12 @@ class DefaultConnection implements Connection
      */
     protected function setCurlOptions(
         $curlHandle,
-        $httpMethod,
-        $requestUri,
-        $requestHeaders,
+        string $httpMethod,
+        string $requestUri,
+        array  $requestHeaders,
         $body
-    )
+    ): void
     {
-        if (!is_array($requestHeaders)) {
-            throw new UnexpectedValueException('Invalid request headers; expected array');
-        }
         curl_setopt($curlHandle, CURLOPT_HEADER, false);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $httpMethod);
@@ -373,7 +367,7 @@ class DefaultConnection implements Connection
     /**
      * @return bool
      */
-    private function isBinaryResponse($headerBuilder)
+    private function isBinaryResponse(ResponseHeaderBuilder $headerBuilder): bool
     {
         $contentType = $headerBuilder->getContentType();
         return $contentType
@@ -392,7 +386,13 @@ class DefaultConnection implements Connection
      * @param array $requestHeaders
      * @param string $requestBody
      */
-    protected function logRequest($requestId, $requestMethod, $requestUri, array $requestHeaders, $requestBody = '')
+    protected function logRequest(
+        string $requestId,
+        string $requestMethod,
+        string $requestUri,
+        array  $requestHeaders,
+        $requestBody = ''
+    ): void
     {
         if ($this->communicatorLogger) {
             $this->getCommunicatorLoggerHelper()->logRequest(
@@ -411,7 +411,7 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param ConnectionResponseInterface $response
      */
-    protected function logResponse($requestId, $requestUri, ConnectionResponseInterface $response)
+    protected function logResponse(string $requestId, string $requestUri, ConnectionResponseInterface $response): void
     {
         if ($this->communicatorLogger) {
             $this->getCommunicatorLoggerHelper()->logResponse(
@@ -428,7 +428,7 @@ class DefaultConnection implements Connection
      * @param string $requestUri
      * @param Exception $exception
      */
-    protected function logException($requestId, $requestUri, Exception $exception)
+    protected function logException(string $requestId, string $requestUri, Exception $exception): void
     {
         if ($this->communicatorLogger) {
             $this->getCommunicatorLoggerHelper()->logException(
@@ -441,7 +441,7 @@ class DefaultConnection implements Connection
     }
 
     /** @return CommunicatorLoggerHelper */
-    protected function getCommunicatorLoggerHelper()
+    protected function getCommunicatorLoggerHelper(): CommunicatorLoggerHelper
     {
         if (is_null($this->communicatorLoggerHelper)) {
             $this->communicatorLoggerHelper = new CommunicatorLoggerHelper;
@@ -452,7 +452,7 @@ class DefaultConnection implements Connection
     /**
      * @param BodyObfuscator $bodyObfuscator
      */
-    public function setBodyObfuscator(BodyObfuscator $bodyObfuscator)
+    public function setBodyObfuscator(BodyObfuscator $bodyObfuscator): void
     {
         $this->getCommunicatorLoggerHelper()->setBodyObfuscator($bodyObfuscator);
     }
@@ -460,7 +460,7 @@ class DefaultConnection implements Connection
     /**
      * @param HeaderObfuscator $headerObfuscator
      */
-    public function setHeaderObfuscator(HeaderObfuscator $headerObfuscator)
+    public function setHeaderObfuscator(HeaderObfuscator $headerObfuscator): void
     {
         $this->getCommunicatorLoggerHelper()->setHeaderObfuscator($headerObfuscator);
     }

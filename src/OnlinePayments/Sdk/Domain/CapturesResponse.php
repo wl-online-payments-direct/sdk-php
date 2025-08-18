@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class CapturesResponse extends DataObject
 {
     /**
-     * @var Capture[]
+     * @var Capture[]|null
      */
-    public $captures = null;
+    public ?array $captures = null;
 
     /**
-     * @return Capture[]
+     * @return Capture[]|null
      */
-    public function getCaptures()
+    public function getCaptures(): ?array
     {
         return $this->captures;
     }
 
     /**
-     * @param Capture[]
+     * @param Capture[]|null $value
      */
-    public function setCaptures($value)
+    public function setCaptures(?array $value): void
     {
         $this->captures = $value;
     }
@@ -35,7 +35,7 @@ class CapturesResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->captures)) {
@@ -54,7 +54,7 @@ class CapturesResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CapturesResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'captures')) {

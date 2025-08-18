@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class CardRecurrenceDetails extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $recurringPaymentSequenceIndicator = null;
+    public ?string $recurringPaymentSequenceIndicator = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecurringPaymentSequenceIndicator()
+    public function getRecurringPaymentSequenceIndicator(): ?string
     {
         return $this->recurringPaymentSequenceIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecurringPaymentSequenceIndicator($value)
+    public function setRecurringPaymentSequenceIndicator(?string $value): void
     {
         $this->recurringPaymentSequenceIndicator = $value;
     }
@@ -35,7 +35,7 @@ class CardRecurrenceDetails extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->recurringPaymentSequenceIndicator)) {
@@ -49,7 +49,7 @@ class CardRecurrenceDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardRecurrenceDetails
     {
         parent::fromObject($object);
         if (property_exists($object, 'recurringPaymentSequenceIndicator')) {

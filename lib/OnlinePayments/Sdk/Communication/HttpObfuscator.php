@@ -14,10 +14,10 @@ class HttpObfuscator
     const HTTP_VERSION = 'HTTP/1.1';
 
     /** @var HeaderObfuscator */
-    protected $headerObfuscator;
+    protected HeaderObfuscator $headerObfuscator;
 
     /** @var BodyObfuscator */
-    protected $bodyObfuscator;
+    protected BodyObfuscator $bodyObfuscator;
 
     public function __construct()
     {
@@ -28,7 +28,7 @@ class HttpObfuscator
     /**
      * @param BodyObfuscator $bodyObfuscator
      */
-    public function setBodyObfuscator(BodyObfuscator $bodyObfuscator)
+    public function setBodyObfuscator(BodyObfuscator $bodyObfuscator): void
     {
         $this->bodyObfuscator = $bodyObfuscator;
     }
@@ -36,7 +36,7 @@ class HttpObfuscator
     /**
      * @param HeaderObfuscator $headerObfuscator
      */
-    public function setHeaderObfuscator(HeaderObfuscator $headerObfuscator)
+    public function setHeaderObfuscator(HeaderObfuscator $headerObfuscator): void
     {
         $this->headerObfuscator = $headerObfuscator;
     }
@@ -49,10 +49,10 @@ class HttpObfuscator
      * @return string
      */
     public function getRawObfuscatedRequest(
-        $requestMethod,
-        $relativeRequestUri,
-        array $requestHeaders,
-        $requestBody = ''
+        string $requestMethod,
+        string $relativeRequestUri,
+        array  $requestHeaders,
+        string $requestBody = ''
     ) {
         $rawObfuscatedRequest = $requestMethod . ' ' . $relativeRequestUri . ' ' . static::HTTP_VERSION;
         if ($requestHeaders) {

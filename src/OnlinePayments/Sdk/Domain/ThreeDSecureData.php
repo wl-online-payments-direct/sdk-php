@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class ThreeDSecureData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsTransactionId = null;
+    public ?string $acsTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $method = null;
+    public ?string $method = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $utcTimestamp = null;
+    public ?string $utcTimestamp = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsTransactionId()
+    public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsTransactionId($value)
+    public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMethod()
+    public function getMethod(): ?string
     {
         return $this->method;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMethod($value)
+    public function setMethod(?string $value): void
     {
         $this->method = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUtcTimestamp()
+    public function getUtcTimestamp(): ?string
     {
         return $this->utcTimestamp;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setUtcTimestamp($value)
+    public function setUtcTimestamp(?string $value): void
     {
         $this->utcTimestamp = $value;
     }
@@ -77,7 +77,7 @@ class ThreeDSecureData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acsTransactionId)) {
@@ -97,7 +97,7 @@ class ThreeDSecureData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ThreeDSecureData
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsTransactionId')) {

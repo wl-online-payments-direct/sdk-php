@@ -31,110 +31,110 @@ interface MerchantClientInterface
      *
      * @return HostedCheckoutClientInterface
      */
-    function hostedCheckout();
+    function hostedCheckout(): HostedCheckoutClientInterface;
 
     /**
      * Resource /v2/{merchantId}/hostedtokenizations
      *
      * @return HostedTokenizationClientInterface
      */
-    function hostedTokenization();
+    function hostedTokenization(): HostedTokenizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments
      *
      * @return PaymentsClientInterface
      */
-    function payments();
+    function payments(): PaymentsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
      * @return CapturesClientInterface
      */
-    function captures();
+    function captures(): CapturesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/refunds
      *
      * @return RefundsClientInterface
      */
-    function refunds();
+    function refunds(): RefundsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/complete
      *
      * @return CompleteClientInterface
      */
-    function complete();
+    function complete(): CompleteClientInterface;
 
     /**
      * Resource /v2/{merchantId}/productgroups
      *
      * @return ProductGroupsClientInterface
      */
-    function productGroups();
+    function productGroups(): ProductGroupsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/products
      *
      * @return ProductsClientInterface
      */
-    function products();
+    function products(): ProductsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/services/testconnection
      *
      * @return ServicesClientInterface
      */
-    function services();
+    function services(): ServicesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/webhooks/validateCredentials
      *
      * @return WebhooksClientInterface
      */
-    function webhooks();
+    function webhooks(): WebhooksClientInterface;
 
     /**
      * Resource /v2/{merchantId}/sessions
      *
      * @return SessionsClientInterface
      */
-    function sessions();
+    function sessions(): SessionsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/tokens/{tokenId}
      *
      * @return TokensClientInterface
      */
-    function tokens();
+    function tokens(): TokensClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payouts/{payoutId}
      *
      * @return PayoutsClientInterface
      */
-    function payouts();
+    function payouts(): PayoutsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/mandates
      *
      * @return MandatesClientInterface
      */
-    function mandates();
+    function mandates(): MandatesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/services/privacypolicy
      *
      * @return PrivacyPolicyClientInterface
      */
-    function privacyPolicy();
+    function privacyPolicy(): PrivacyPolicyClientInterface;
 
     /**
      * Resource /v2/{merchantId}/paymentlinks
      *
      * @return PaymentLinksClientInterface
      */
-    function paymentLinks();
+    function paymentLinks(): PaymentLinksClientInterface;
 }

@@ -12,148 +12,148 @@ use UnexpectedValueException;
 class MandateResponse extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $alias = null;
+    public ?string $alias = null;
 
     /**
-     * @var MandateCustomerResponse
+     * @var MandateCustomerResponse|null
      */
-    public $customer = null;
+    public ?MandateCustomerResponse $customer = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $customerReference = null;
+    public ?string $customerReference = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $mandatePdf = null;
+    public ?string $mandatePdf = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $recurrenceType = null;
+    public ?string $recurrenceType = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $status = null;
+    public ?string $status = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $uniqueMandateReference = null;
+    public ?string $uniqueMandateReference = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->alias;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAlias($value)
+    public function setAlias(?string $value): void
     {
         $this->alias = $value;
     }
 
     /**
-     * @return MandateCustomerResponse
+     * @return MandateCustomerResponse|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?MandateCustomerResponse
     {
         return $this->customer;
     }
 
     /**
-     * @param MandateCustomerResponse
+     * @param MandateCustomerResponse|null $value
      */
-    public function setCustomer($value)
+    public function setCustomer(?MandateCustomerResponse $value): void
     {
         $this->customer = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerReference()
+    public function getCustomerReference(): ?string
     {
         return $this->customerReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCustomerReference($value)
+    public function setCustomerReference(?string $value): void
     {
         $this->customerReference = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMandatePdf()
+    public function getMandatePdf(): ?string
     {
         return $this->mandatePdf;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMandatePdf($value)
+    public function setMandatePdf(?string $value): void
     {
         $this->mandatePdf = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecurrenceType()
+    public function getRecurrenceType(): ?string
     {
         return $this->recurrenceType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecurrenceType($value)
+    public function setRecurrenceType(?string $value): void
     {
         $this->recurrenceType = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setStatus($value)
+    public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUniqueMandateReference()
+    public function getUniqueMandateReference(): ?string
     {
         return $this->uniqueMandateReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setUniqueMandateReference($value)
+    public function setUniqueMandateReference(?string $value): void
     {
         $this->uniqueMandateReference = $value;
     }
@@ -161,7 +161,7 @@ class MandateResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->alias)) {
@@ -193,7 +193,7 @@ class MandateResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MandateResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'alias')) {

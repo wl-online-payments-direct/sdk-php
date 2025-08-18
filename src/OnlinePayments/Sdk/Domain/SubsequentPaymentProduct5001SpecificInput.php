@@ -12,22 +12,43 @@ use UnexpectedValueException;
 class SubsequentPaymentProduct5001SpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $subsequentType = null;
+    public ?string $authorizationMode = null;
 
     /**
-     * @return string
+     * @var string|null
      */
-    public function getSubsequentType()
+    public ?string $subsequentType = null;
+
+    /**
+     * @return string|null
+     */
+    public function getAuthorizationMode(): ?string
+    {
+        return $this->authorizationMode;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setAuthorizationMode(?string $value): void
+    {
+        $this->authorizationMode = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSubsequentType($value)
+    public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
     }
@@ -35,9 +56,12 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->authorizationMode)) {
+            $object->authorizationMode = $this->authorizationMode;
+        }
         if (!is_null($this->subsequentType)) {
             $object->subsequentType = $this->subsequentType;
         }
@@ -49,9 +73,12 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SubsequentPaymentProduct5001SpecificInput
     {
         parent::fromObject($object);
+        if (property_exists($object, 'authorizationMode')) {
+            $this->authorizationMode = $object->authorizationMode;
+        }
         if (property_exists($object, 'subsequentType')) {
             $this->subsequentType = $object->subsequentType;
         }

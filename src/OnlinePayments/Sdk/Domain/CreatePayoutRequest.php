@@ -12,127 +12,127 @@ use UnexpectedValueException;
 class CreatePayoutRequest extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var CardPayoutMethodSpecificInput
+     * @var CardPayoutMethodSpecificInput|null
      */
-    public $cardPayoutMethodSpecificInput = null;
+    public ?CardPayoutMethodSpecificInput $cardPayoutMethodSpecificInput = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $descriptor = null;
+    public ?string $descriptor = null;
 
     /**
-     * @var Feedbacks
+     * @var Feedbacks|null
      */
-    public $feedbacks = null;
+    public ?Feedbacks $feedbacks = null;
 
     /**
-     * @var OmnichannelPayoutSpecificInput
+     * @var OmnichannelPayoutSpecificInput|null
      */
-    public $omnichannelPayoutSpecificInput = null;
+    public ?OmnichannelPayoutSpecificInput $omnichannelPayoutSpecificInput = null;
 
     /**
-     * @var PaymentReferences
+     * @var PaymentReferences|null
      */
-    public $references = null;
+    public ?PaymentReferences $references = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return CardPayoutMethodSpecificInput
+     * @return CardPayoutMethodSpecificInput|null
      */
-    public function getCardPayoutMethodSpecificInput()
+    public function getCardPayoutMethodSpecificInput(): ?CardPayoutMethodSpecificInput
     {
         return $this->cardPayoutMethodSpecificInput;
     }
 
     /**
-     * @param CardPayoutMethodSpecificInput
+     * @param CardPayoutMethodSpecificInput|null $value
      */
-    public function setCardPayoutMethodSpecificInput($value)
+    public function setCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): void
     {
         $this->cardPayoutMethodSpecificInput = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescriptor()
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDescriptor($value)
+    public function setDescriptor(?string $value): void
     {
         $this->descriptor = $value;
     }
 
     /**
-     * @return Feedbacks
+     * @return Feedbacks|null
      */
-    public function getFeedbacks()
+    public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
     }
 
     /**
-     * @param Feedbacks
+     * @param Feedbacks|null $value
      */
-    public function setFeedbacks($value)
+    public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
     }
 
     /**
-     * @return OmnichannelPayoutSpecificInput
+     * @return OmnichannelPayoutSpecificInput|null
      */
-    public function getOmnichannelPayoutSpecificInput()
+    public function getOmnichannelPayoutSpecificInput(): ?OmnichannelPayoutSpecificInput
     {
         return $this->omnichannelPayoutSpecificInput;
     }
 
     /**
-     * @param OmnichannelPayoutSpecificInput
+     * @param OmnichannelPayoutSpecificInput|null $value
      */
-    public function setOmnichannelPayoutSpecificInput($value)
+    public function setOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): void
     {
         $this->omnichannelPayoutSpecificInput = $value;
     }
 
     /**
-     * @return PaymentReferences
+     * @return PaymentReferences|null
      */
-    public function getReferences()
+    public function getReferences(): ?PaymentReferences
     {
         return $this->references;
     }
 
     /**
-     * @param PaymentReferences
+     * @param PaymentReferences|null $value
      */
-    public function setReferences($value)
+    public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
@@ -140,7 +140,7 @@ class CreatePayoutRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -169,7 +169,7 @@ class CreatePayoutRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreatePayoutRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

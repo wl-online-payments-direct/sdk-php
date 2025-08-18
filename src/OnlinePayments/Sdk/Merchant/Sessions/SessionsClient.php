@@ -4,12 +4,12 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Sessions;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\SessionRequest;
+use OnlinePayments\Sdk\Domain\SessionResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,13 +18,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class SessionsClient extends ApiResource implements SessionsClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function createSession(SessionRequest $body, ?CallContext $callContext = null)
+    public function createSession(SessionRequest $body, CallContext $callContext = null): SessionResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SessionResponse';
@@ -48,7 +47,7 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

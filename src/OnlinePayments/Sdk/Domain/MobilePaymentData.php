@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class MobilePaymentData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $dpan = null;
+    public ?string $dpan = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $expiryDate = null;
+    public ?string $expiryDate = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDpan()
+    public function getDpan(): ?string
     {
         return $this->dpan;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDpan($value)
+    public function setDpan(?string $value): void
     {
         $this->dpan = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExpiryDate()
+    public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExpiryDate($value)
+    public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
     }
@@ -56,7 +56,7 @@ class MobilePaymentData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->dpan)) {
@@ -73,7 +73,7 @@ class MobilePaymentData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MobilePaymentData
     {
         parent::fromObject($object);
         if (property_exists($object, 'dpan')) {

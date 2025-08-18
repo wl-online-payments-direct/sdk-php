@@ -3,10 +3,10 @@ namespace OnlinePayments\Sdk;
 
 use DateTime;
 use Exception;
-use OnlinePayments\Sdk\Communication\ConnectionResponseInterface;
 use UnexpectedValueException;
 use OnlinePayments\Sdk\Authentication\Authenticator;
 use OnlinePayments\Sdk\Communication\Connection;
+use OnlinePayments\Sdk\Communication\ConnectionResponseInterface;
 use OnlinePayments\Sdk\Communication\DefaultConnection;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\MetadataProvider;
@@ -30,19 +30,19 @@ class Communicator implements CommunicatorInterface
     const MIME_APPLICATION_JSON = 'application/json';
 
     /** @var string */
-    private $apiEndpoint;
+    private string $apiEndpoint;
 
     /** @var Authenticator */
-    private $authenticator;
+    private Authenticator$authenticator;
 
     /** @var Connection */
-    private $connection;
+    private Connection $connection;
 
-    /** @var MetadataProviderInterface */
-    private $metadataProvider;
+    /** @var MetadataProvider */
+    private MetadataProvider $metadataProvider;
 
     /** @var ResponseFactory|null */
-    private $responseFactory = null;
+    private ?ResponseFactory $responseFactory = null;
 
     /**
      * @param CommunicatorConfiguration $communicatorConfiguration
@@ -51,9 +51,9 @@ class Communicator implements CommunicatorInterface
      * @param MetadataProviderInterface|null $metadataProvider
      */
     public function __construct(
-        CommunicatorConfiguration  $communicatorConfiguration,
-        Authenticator              $authenticator,
-        ?Connection                $connection = null,
+        CommunicatorConfiguration $communicatorConfiguration,
+        Authenticator $authenticator,
+        ?Connection $connection = null,
         ?MetadataProviderInterface $metadataProvider = null
     ) {
         $this->apiEndpoint = $communicatorConfiguration->getApiEndpoint();
@@ -65,7 +65,7 @@ class Communicator implements CommunicatorInterface
     /**
      * @param CommunicatorLogger $communicatorLogger
      */
-    public function enableLogging(CommunicatorLogger $communicatorLogger)
+    public function enableLogging(CommunicatorLogger $communicatorLogger): void
     {
         $this->connection->enableLogging($communicatorLogger);
     }
@@ -73,7 +73,7 @@ class Communicator implements CommunicatorInterface
     /**
      *
      */
-    public function disableLogging()
+    public function disableLogging(): void
     {
         $this->connection->disableLogging();
     }
@@ -89,11 +89,12 @@ class Communicator implements CommunicatorInterface
      */
     public function get(
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): ?DataObject
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
@@ -133,11 +134,12 @@ class Communicator implements CommunicatorInterface
     public function getWithBinaryResponse(
         callable         $bodyHandler,
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): void
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
@@ -179,11 +181,12 @@ class Communicator implements CommunicatorInterface
      */
     public function delete(
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): ?DataObject
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
@@ -223,11 +226,12 @@ class Communicator implements CommunicatorInterface
     public function deleteWithBinaryResponse(
         callable         $bodyHandler,
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): void
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         $requestHeaders =
@@ -270,12 +274,13 @@ class Communicator implements CommunicatorInterface
      */
     public function post(
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-                         $requestBodyObject = null,
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        $requestBodyObject = null,
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): ?DataObject
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         if ($requestBodyObject instanceof MultipartFormDataObject) {
@@ -330,12 +335,13 @@ class Communicator implements CommunicatorInterface
     public function postWithBinaryResponse(
         callable         $bodyHandler,
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-                         $requestBodyObject = null,
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        $requestBodyObject = null,
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): void
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         if ($requestBodyObject instanceof MultipartFormDataObject) {
@@ -392,12 +398,13 @@ class Communicator implements CommunicatorInterface
      */
     public function put(
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-                         $requestBodyObject = null,
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        $requestBodyObject = null,
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): ?DataObject
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         if ($requestBodyObject instanceof MultipartFormDataObject) {
@@ -452,12 +459,13 @@ class Communicator implements CommunicatorInterface
     public function putWithBinaryResponse(
         callable         $bodyHandler,
         ResponseClassMap $responseClassMap,
-                         $relativeUriPath,
-                         $clientMetaInfo = '',
-                         $requestBodyObject = null,
-        ?RequestObject   $requestParameters = null,
-        ?CallContext     $callContext = null
-    ) {
+        string           $relativeUriPath,
+        string           $clientMetaInfo = '',
+        $requestBodyObject = null,
+        ?RequestObject $requestParameters = null,
+        ?CallContext $callContext = null
+    ): void
+    {
         $relativeUriPathWithRequestParameters =
             $this->getRelativeUriPathWithRequestParameters($relativeUriPath, $requestParameters);
         if ($requestBodyObject instanceof MultipartFormDataObject) {
@@ -506,7 +514,7 @@ class Communicator implements CommunicatorInterface
      * @param ConnectionResponseInterface $response
      * @param CallContext|null $callContext
      */
-    protected function updateCallContext(ConnectionResponseInterface $response, ?CallContext $callContext = null)
+    protected function updateCallContext(ConnectionResponseInterface $response, ?CallContext $callContext = null): void
     {
         if ($callContext) {
             $callContext->setIdempotenceRequestTimestamp(
@@ -518,18 +526,13 @@ class Communicator implements CommunicatorInterface
         }
     }
 
-    protected function getConnection(): Connection
-    {
-        return $this->connection;
-    }
-
     /**
      * @param $relativeUriPath
      * @param RequestObject|null $requestParameters
      * @return string
      * @throws Exception
      */
-    protected function getRequestUri($relativeUriPath, ?RequestObject $requestParameters = null)
+    protected function getRequestUri(string $relativeUriPath, ?RequestObject $requestParameters = null): string
     {
         return
             $this->apiEndpoint .
@@ -545,12 +548,13 @@ class Communicator implements CommunicatorInterface
      * @return string[]
      */
     protected function getRequestHeaders(
-        $httpMethod,
-        $relativeUriPathWithRequestParameters,
-        $contentType = null,
-        $clientMetaInfo = '',
+        string      $httpMethod,
+        string      $relativeUriPathWithRequestParameters,
+        ?string     $contentType = null,
+        string      $clientMetaInfo = '',
         ?CallContext $callContext = null
-    ) {
+    ): array
+    {
         $rfc2616Date = self::getRfc161Date();
         $requestHeaders = array();
         if (!empty($contentType)) {
@@ -571,7 +575,7 @@ class Communicator implements CommunicatorInterface
     /**
      * @return string
      */
-    protected static function getRfc161Date()
+    protected static function getRfc161Date(): string
     {
         return gmdate('D, d M Y H:i:s T');
     }
@@ -582,9 +586,10 @@ class Communicator implements CommunicatorInterface
      * @return string
      */
     protected function getRelativeUriPathWithRequestParameters(
-        $relativeUriPath,
+        string        $relativeUriPath,
         ?RequestObject $requestParameters = null
-    ) {
+    ): string
+    {
         if (is_null($requestParameters)) {
             return $relativeUriPath;
         }
@@ -594,13 +599,13 @@ class Communicator implements CommunicatorInterface
             return $relativeUriPath;
         }
         $httpQuery = http_build_query($requestParameterObjectVars);
-        // remove [0], [1] etc that are added if properties are arrays
+        // remove [0], [1] etc. that are added if properties are arrays
         $httpQuery = preg_replace('/%5B[0-9]+%5D/simU', '', $httpQuery);
         return $relativeUriPath . '?' . $httpQuery;
     }
 
     /** @return ResponseFactory */
-    protected function getResponseFactory()
+    protected function getResponseFactory(): ResponseFactory
     {
         if (is_null($this->responseFactory)) {
             $this->responseFactory = new ResponseFactory();

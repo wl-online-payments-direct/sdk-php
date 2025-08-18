@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class AccountOnFileDisplayHints extends DataObject
 {
     /**
-     * @var LabelTemplateElement[]
+     * @var LabelTemplateElement[]|null
      */
-    public $labelTemplate = null;
+    public ?array $labelTemplate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $logo = null;
+    public ?string $logo = null;
 
     /**
-     * @return LabelTemplateElement[]
+     * @return LabelTemplateElement[]|null
      */
-    public function getLabelTemplate()
+    public function getLabelTemplate(): ?array
     {
         return $this->labelTemplate;
     }
 
     /**
-     * @param LabelTemplateElement[]
+     * @param LabelTemplateElement[]|null $value
      */
-    public function setLabelTemplate($value)
+    public function setLabelTemplate(?array $value): void
     {
         $this->labelTemplate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLogo()
+    public function getLogo(): ?string
     {
         return $this->logo;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLogo($value)
+    public function setLogo(?string $value): void
     {
         $this->logo = $value;
     }
@@ -56,7 +56,7 @@ class AccountOnFileDisplayHints extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->labelTemplate)) {
@@ -78,7 +78,7 @@ class AccountOnFileDisplayHints extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): AccountOnFileDisplayHints
     {
         parent::fromObject($object);
         if (property_exists($object, 'labelTemplate')) {

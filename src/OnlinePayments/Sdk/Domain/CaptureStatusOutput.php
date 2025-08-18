@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class CaptureStatusOutput extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $statusCode = null;
+    public ?int $statusCode = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStatusCode()
+    public function getStatusCode(): ?int
     {
         return $this->statusCode;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setStatusCode($value)
+    public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
     }
@@ -35,7 +35,7 @@ class CaptureStatusOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->statusCode)) {
@@ -49,7 +49,7 @@ class CaptureStatusOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CaptureStatusOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'statusCode')) {

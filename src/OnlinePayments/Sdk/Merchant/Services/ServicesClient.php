@@ -4,14 +4,17 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Services;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
+use OnlinePayments\Sdk\Domain\CalculateSurchargeResponse;
 use OnlinePayments\Sdk\Domain\CurrencyConversionRequest;
+use OnlinePayments\Sdk\Domain\CurrencyConversionResponse;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
+use OnlinePayments\Sdk\Domain\GetIINDetailsResponse;
+use OnlinePayments\Sdk\Domain\TestConnection;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -20,12 +23,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class ServicesClient extends ApiResource implements ServicesClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
      */
-    public function testConnection(?CallContext $callContext = null)
+    public function testConnection(CallContext $callContext = null): TestConnection
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\TestConnection';
@@ -49,9 +52,8 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function getIINDetails(GetIINDetailsRequest $body, ?CallContext $callContext = null)
+    public function getIINDetails(GetIINDetailsRequest $body, CallContext $callContext = null): GetIINDetailsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetIINDetailsResponse';
@@ -76,9 +78,8 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function getDccRateInquiry(CurrencyConversionRequest $body, ?CallContext $callContext = null)
+    public function getDccRateInquiry(CurrencyConversionRequest $body, CallContext $callContext = null): CurrencyConversionResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CurrencyConversionResponse';
@@ -103,9 +104,8 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function surchargeCalculation(CalculateSurchargeRequest $body, ?CallContext $callContext = null)
+    public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null): CalculateSurchargeResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CalculateSurchargeResponse';
@@ -129,7 +129,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

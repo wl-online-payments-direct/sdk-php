@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class AccountOnFile extends DataObject
 {
     /**
-     * @var AccountOnFileAttribute[]
+     * @var AccountOnFileAttribute[]|null
      */
-    public $attributes = null;
+    public ?array $attributes = null;
 
     /**
-     * @var AccountOnFileDisplayHints
+     * @var AccountOnFileDisplayHints|null
      */
-    public $displayHints = null;
+    public ?AccountOnFileDisplayHints $displayHints = null;
 
     /**
-     * @var int
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return AccountOnFileAttribute[]
+     * @return AccountOnFileAttribute[]|null
      */
-    public function getAttributes()
+    public function getAttributes(): ?array
     {
         return $this->attributes;
     }
 
     /**
-     * @param AccountOnFileAttribute[]
+     * @param AccountOnFileAttribute[]|null $value
      */
-    public function setAttributes($value)
+    public function setAttributes(?array $value): void
     {
         $this->attributes = $value;
     }
 
     /**
-     * @return AccountOnFileDisplayHints
+     * @return AccountOnFileDisplayHints|null
      */
-    public function getDisplayHints()
+    public function getDisplayHints(): ?AccountOnFileDisplayHints
     {
         return $this->displayHints;
     }
 
     /**
-     * @param AccountOnFileDisplayHints
+     * @param AccountOnFileDisplayHints|null $value
      */
-    public function setDisplayHints($value)
+    public function setDisplayHints(?AccountOnFileDisplayHints $value): void
     {
         $this->displayHints = $value;
     }
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param int
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -98,7 +98,7 @@ class AccountOnFile extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->attributes)) {
@@ -126,7 +126,7 @@ class AccountOnFile extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): AccountOnFile
     {
         parent::fromObject($object);
         if (property_exists($object, 'attributes')) {

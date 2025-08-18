@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
 {
     /**
-     * @var FraudResults
+     * @var FraudResults|null
      */
-    public $fraudResults = null;
+    public ?FraudResults $fraudResults = null;
 
     /**
-     * @var PaymentProduct771SpecificOutput
+     * @var PaymentProduct771SpecificOutput|null
      */
-    public $paymentProduct771SpecificOutput = null;
+    public ?PaymentProduct771SpecificOutput $paymentProduct771SpecificOutput = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return FraudResults
+     * @return FraudResults|null
      */
-    public function getFraudResults()
+    public function getFraudResults(): ?FraudResults
     {
         return $this->fraudResults;
     }
 
     /**
-     * @param FraudResults
+     * @param FraudResults|null $value
      */
-    public function setFraudResults($value)
+    public function setFraudResults(?FraudResults $value): void
     {
         $this->fraudResults = $value;
     }
 
     /**
-     * @return PaymentProduct771SpecificOutput
+     * @return PaymentProduct771SpecificOutput|null
      */
-    public function getPaymentProduct771SpecificOutput()
+    public function getPaymentProduct771SpecificOutput(): ?PaymentProduct771SpecificOutput
     {
         return $this->paymentProduct771SpecificOutput;
     }
 
     /**
-     * @param PaymentProduct771SpecificOutput
+     * @param PaymentProduct771SpecificOutput|null $value
      */
-    public function setPaymentProduct771SpecificOutput($value)
+    public function setPaymentProduct771SpecificOutput(?PaymentProduct771SpecificOutput $value): void
     {
         $this->paymentProduct771SpecificOutput = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -77,7 +77,7 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->fraudResults)) {
@@ -97,7 +97,7 @@ class SepaDirectDebitPaymentMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SepaDirectDebitPaymentMethodSpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'fraudResults')) {

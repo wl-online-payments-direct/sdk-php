@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class SurchargeForPaymentLink extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $surchargeMode = null;
+    public ?string $surchargeMode = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSurchargeMode()
+    public function getSurchargeMode(): ?string
     {
         return $this->surchargeMode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSurchargeMode($value)
+    public function setSurchargeMode(?string $value): void
     {
         $this->surchargeMode = $value;
     }
@@ -35,7 +35,7 @@ class SurchargeForPaymentLink extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->surchargeMode)) {
@@ -49,7 +49,7 @@ class SurchargeForPaymentLink extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SurchargeForPaymentLink
     {
         parent::fromObject($object);
         if (property_exists($object, 'surchargeMode')) {

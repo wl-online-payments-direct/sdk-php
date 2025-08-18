@@ -12,46 +12,46 @@ use UnexpectedValueException;
 class PaymentProductFieldTooltip extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
-    public $image = null;
+    public ?string $image = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $label = null;
+    public ?string $label = null;
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
-    public function getImage()
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
-    public function setImage($value)
+    public function setImage(?string $value): void
     {
         $this->image = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLabel($value)
+    public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
@@ -59,7 +59,7 @@ class PaymentProductFieldTooltip extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->image)) {
@@ -76,7 +76,7 @@ class PaymentProductFieldTooltip extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFieldTooltip
     {
         parent::fromObject($object);
         if (property_exists($object, 'image')) {

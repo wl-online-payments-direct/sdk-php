@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentProductGroup extends DataObject
 {
     /**
-     * @var AccountOnFile
+     * @var AccountOnFile|null
      */
-    public $accountOnFile = null;
+    public ?AccountOnFile $accountOnFile = null;
 
     /**
-     * @var PaymentProductDisplayHints
+     * @var PaymentProductDisplayHints|null
      */
-    public $displayHints = null;
+    public ?PaymentProductDisplayHints $displayHints = null;
 
     /**
-     * @var PaymentProductDisplayHints[]
+     * @var PaymentProductDisplayHints[]|null
      */
-    public $displayHintsList = null;
+    public ?array $displayHintsList = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @return AccountOnFile
+     * @return AccountOnFile|null
      */
-    public function getAccountOnFile()
+    public function getAccountOnFile(): ?AccountOnFile
     {
         return $this->accountOnFile;
     }
 
     /**
-     * @param AccountOnFile
+     * @param AccountOnFile|null $value
      */
-    public function setAccountOnFile($value)
+    public function setAccountOnFile(?AccountOnFile $value): void
     {
         $this->accountOnFile = $value;
     }
 
     /**
-     * @return PaymentProductDisplayHints
+     * @return PaymentProductDisplayHints|null
      */
-    public function getDisplayHints()
+    public function getDisplayHints(): ?PaymentProductDisplayHints
     {
         return $this->displayHints;
     }
 
     /**
-     * @param PaymentProductDisplayHints
+     * @param PaymentProductDisplayHints|null $value
      */
-    public function setDisplayHints($value)
+    public function setDisplayHints(?PaymentProductDisplayHints $value): void
     {
         $this->displayHints = $value;
     }
 
     /**
-     * @return PaymentProductDisplayHints[]
+     * @return PaymentProductDisplayHints[]|null
      */
-    public function getDisplayHintsList()
+    public function getDisplayHintsList(): ?array
     {
         return $this->displayHintsList;
     }
 
     /**
-     * @param PaymentProductDisplayHints[]
+     * @param PaymentProductDisplayHints[]|null $value
      */
-    public function setDisplayHintsList($value)
+    public function setDisplayHintsList(?array $value): void
     {
         $this->displayHintsList = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
@@ -98,7 +98,7 @@ class PaymentProductGroup extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->accountOnFile)) {
@@ -126,7 +126,7 @@ class PaymentProductGroup extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductGroup
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountOnFile')) {

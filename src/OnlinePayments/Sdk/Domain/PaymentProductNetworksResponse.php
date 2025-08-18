@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class PaymentProductNetworksResponse extends DataObject
 {
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $networks = null;
+    public ?array $networks = null;
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getNetworks()
+    public function getNetworks(): ?array
     {
         return $this->networks;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setNetworks($value)
+    public function setNetworks(?array $value): void
     {
         $this->networks = $value;
     }
@@ -35,7 +35,7 @@ class PaymentProductNetworksResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->networks)) {
@@ -54,7 +54,7 @@ class PaymentProductNetworksResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductNetworksResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'networks')) {

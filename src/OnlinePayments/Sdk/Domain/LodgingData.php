@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class LodgingData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $checkInDate = null;
+    public ?string $checkInDate = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCheckInDate()
+    public function getCheckInDate(): ?string
     {
         return $this->checkInDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCheckInDate($value)
+    public function setCheckInDate(?string $value): void
     {
         $this->checkInDate = $value;
     }
@@ -35,7 +35,7 @@ class LodgingData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->checkInDate)) {
@@ -49,7 +49,7 @@ class LodgingData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): LodgingData
     {
         parent::fromObject($object);
         if (property_exists($object, 'checkInDate')) {

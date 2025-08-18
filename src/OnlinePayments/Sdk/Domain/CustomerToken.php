@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CustomerToken extends DataObject
 {
     /**
-     * @var Address
+     * @var Address|null
      */
-    public $billingAddress = null;
+    public ?Address $billingAddress = null;
 
     /**
-     * @var CompanyInformation
+     * @var CompanyInformation|null
      */
-    public $companyInformation = null;
+    public ?CompanyInformation $companyInformation = null;
 
     /**
-     * @var PersonalInformationToken
+     * @var PersonalInformationToken|null
      */
-    public $personalInformation = null;
+    public ?PersonalInformationToken $personalInformation = null;
 
     /**
-     * @return Address
+     * @return Address|null
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
     }
 
     /**
-     * @param Address
+     * @param Address|null $value
      */
-    public function setBillingAddress($value)
+    public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
     }
 
     /**
-     * @return CompanyInformation
+     * @return CompanyInformation|null
      */
-    public function getCompanyInformation()
+    public function getCompanyInformation(): ?CompanyInformation
     {
         return $this->companyInformation;
     }
 
     /**
-     * @param CompanyInformation
+     * @param CompanyInformation|null $value
      */
-    public function setCompanyInformation($value)
+    public function setCompanyInformation(?CompanyInformation $value): void
     {
         $this->companyInformation = $value;
     }
 
     /**
-     * @return PersonalInformationToken
+     * @return PersonalInformationToken|null
      */
-    public function getPersonalInformation()
+    public function getPersonalInformation(): ?PersonalInformationToken
     {
         return $this->personalInformation;
     }
 
     /**
-     * @param PersonalInformationToken
+     * @param PersonalInformationToken|null $value
      */
-    public function setPersonalInformation($value)
+    public function setPersonalInformation(?PersonalInformationToken $value): void
     {
         $this->personalInformation = $value;
     }
@@ -77,7 +77,7 @@ class CustomerToken extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->billingAddress)) {
@@ -97,7 +97,7 @@ class CustomerToken extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CustomerToken
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAddress')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CurrencyConversionInput extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $acceptedByUser = null;
+    public ?bool $acceptedByUser = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $dccSessionId = null;
+    public ?string $dccSessionId = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAcceptedByUser()
+    public function getAcceptedByUser(): ?bool
     {
         return $this->acceptedByUser;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setAcceptedByUser($value)
+    public function setAcceptedByUser(?bool $value): void
     {
         $this->acceptedByUser = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDccSessionId()
+    public function getDccSessionId(): ?string
     {
         return $this->dccSessionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDccSessionId($value)
+    public function setDccSessionId(?string $value): void
     {
         $this->dccSessionId = $value;
     }
@@ -56,7 +56,7 @@ class CurrencyConversionInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acceptedByUser)) {
@@ -73,7 +73,7 @@ class CurrencyConversionInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CurrencyConversionInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'acceptedByUser')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PaymentProductFiltersHostedCheckout extends DataObject
 {
     /**
-     * @var PaymentProductFilter
+     * @var PaymentProductFilter|null
      */
-    public $exclude = null;
+    public ?PaymentProductFilter $exclude = null;
 
     /**
-     * @var PaymentProductFilter
+     * @var PaymentProductFilter|null
      */
-    public $restrictTo = null;
+    public ?PaymentProductFilter $restrictTo = null;
 
     /**
-     * @return PaymentProductFilter
+     * @return PaymentProductFilter|null
      */
-    public function getExclude()
+    public function getExclude(): ?PaymentProductFilter
     {
         return $this->exclude;
     }
 
     /**
-     * @param PaymentProductFilter
+     * @param PaymentProductFilter|null $value
      */
-    public function setExclude($value)
+    public function setExclude(?PaymentProductFilter $value): void
     {
         $this->exclude = $value;
     }
 
     /**
-     * @return PaymentProductFilter
+     * @return PaymentProductFilter|null
      */
-    public function getRestrictTo()
+    public function getRestrictTo(): ?PaymentProductFilter
     {
         return $this->restrictTo;
     }
 
     /**
-     * @param PaymentProductFilter
+     * @param PaymentProductFilter|null $value
      */
-    public function setRestrictTo($value)
+    public function setRestrictTo(?PaymentProductFilter $value): void
     {
         $this->restrictTo = $value;
     }
@@ -56,7 +56,7 @@ class PaymentProductFiltersHostedCheckout extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->exclude)) {
@@ -73,7 +73,7 @@ class PaymentProductFiltersHostedCheckout extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFiltersHostedCheckout
     {
         parent::fromObject($object);
         if (property_exists($object, 'exclude')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class GetIINDetailsRequest extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $bin = null;
+    public ?string $bin = null;
 
     /**
-     * @var PaymentContext
+     * @var PaymentContext|null
      */
-    public $paymentContext = null;
+    public ?PaymentContext $paymentContext = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBin()
+    public function getBin(): ?string
     {
         return $this->bin;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setBin($value)
+    public function setBin(?string $value): void
     {
         $this->bin = $value;
     }
 
     /**
-     * @return PaymentContext
+     * @return PaymentContext|null
      */
-    public function getPaymentContext()
+    public function getPaymentContext(): ?PaymentContext
     {
         return $this->paymentContext;
     }
 
     /**
-     * @param PaymentContext
+     * @param PaymentContext|null $value
      */
-    public function setPaymentContext($value)
+    public function setPaymentContext(?PaymentContext $value): void
     {
         $this->paymentContext = $value;
     }
@@ -56,7 +56,7 @@ class GetIINDetailsRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->bin)) {
@@ -73,7 +73,7 @@ class GetIINDetailsRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): GetIINDetailsRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'bin')) {

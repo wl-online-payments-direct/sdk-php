@@ -15,22 +15,14 @@ interface Connection
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
-    public function get($requestUri, $requestHeaders, callable $responseHandler);
+    public function get(string $requestUri, array $requestHeaders, callable $responseHandler): void;
 
     /**
      * @param string $requestUri
      * @param string[] $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
-    public function delete($requestUri, $requestHeaders, callable $responseHandler);
-
-    /**
-     * @param string $requestUri
-     * @param string[] $requestHeaders
-     * @param string|MultipartFormDataObject $body
-     * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
-     */
-    public function post($requestUri, $requestHeaders, $body, callable $responseHandler);
+    public function delete(string $requestUri, array $requestHeaders, callable $responseHandler): void;
 
     /**
      * @param string $requestUri
@@ -38,15 +30,23 @@ interface Connection
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
-    public function put($requestUri, $requestHeaders, $body, callable $responseHandler);
+    public function post(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void;
+
+    /**
+     * @param string $requestUri
+     * @param string[] $requestHeaders
+     * @param string|MultipartFormDataObject $body
+     * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
+     */
+    public function put(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void;
 
     /**
      * @param CommunicatorLogger $communicatorLogger
      */
-    public function enableLogging(CommunicatorLogger $communicatorLogger);
+    public function enableLogging(CommunicatorLogger $communicatorLogger): void;
 
     /**
      *
      */
-    public function disableLogging();
+    public function disableLogging(): void;
 }

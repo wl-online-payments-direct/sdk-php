@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class MerchantAction extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $actionType = null;
+    public ?string $actionType = null;
 
     /**
-     * @var MobileThreeDSecureChallengeParameters
+     * @var MobileThreeDSecureChallengeParameters|null
      */
-    public $mobileThreeDSecureChallengeParameters = null;
+    public ?MobileThreeDSecureChallengeParameters $mobileThreeDSecureChallengeParameters = null;
 
     /**
-     * @var RedirectData
+     * @var RedirectData|null
      */
-    public $redirectData = null;
+    public ?RedirectData $redirectData = null;
 
     /**
-     * @var ShowFormData
+     * @var ShowFormData|null
      */
-    public $showFormData = null;
+    public ?ShowFormData $showFormData = null;
 
     /**
-     * @var ShowInstructionsData
+     * @var ShowInstructionsData|null
      */
-    public $showInstructionsData = null;
+    public ?ShowInstructionsData $showInstructionsData = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getActionType()
+    public function getActionType(): ?string
     {
         return $this->actionType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setActionType($value)
+    public function setActionType(?string $value): void
     {
         $this->actionType = $value;
     }
 
     /**
-     * @return MobileThreeDSecureChallengeParameters
+     * @return MobileThreeDSecureChallengeParameters|null
      */
-    public function getMobileThreeDSecureChallengeParameters()
+    public function getMobileThreeDSecureChallengeParameters(): ?MobileThreeDSecureChallengeParameters
     {
         return $this->mobileThreeDSecureChallengeParameters;
     }
 
     /**
-     * @param MobileThreeDSecureChallengeParameters
+     * @param MobileThreeDSecureChallengeParameters|null $value
      */
-    public function setMobileThreeDSecureChallengeParameters($value)
+    public function setMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): void
     {
         $this->mobileThreeDSecureChallengeParameters = $value;
     }
 
     /**
-     * @return RedirectData
+     * @return RedirectData|null
      */
-    public function getRedirectData()
+    public function getRedirectData(): ?RedirectData
     {
         return $this->redirectData;
     }
 
     /**
-     * @param RedirectData
+     * @param RedirectData|null $value
      */
-    public function setRedirectData($value)
+    public function setRedirectData(?RedirectData $value): void
     {
         $this->redirectData = $value;
     }
 
     /**
-     * @return ShowFormData
+     * @return ShowFormData|null
      */
-    public function getShowFormData()
+    public function getShowFormData(): ?ShowFormData
     {
         return $this->showFormData;
     }
 
     /**
-     * @param ShowFormData
+     * @param ShowFormData|null $value
      */
-    public function setShowFormData($value)
+    public function setShowFormData(?ShowFormData $value): void
     {
         $this->showFormData = $value;
     }
 
     /**
-     * @return ShowInstructionsData
+     * @return ShowInstructionsData|null
      */
-    public function getShowInstructionsData()
+    public function getShowInstructionsData(): ?ShowInstructionsData
     {
         return $this->showInstructionsData;
     }
 
     /**
-     * @param ShowInstructionsData
+     * @param ShowInstructionsData|null $value
      */
-    public function setShowInstructionsData($value)
+    public function setShowInstructionsData(?ShowInstructionsData $value): void
     {
         $this->showInstructionsData = $value;
     }
@@ -119,7 +119,7 @@ class MerchantAction extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->actionType)) {
@@ -145,7 +145,7 @@ class MerchantAction extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MerchantAction
     {
         parent::fromObject($object);
         if (property_exists($object, 'actionType')) {

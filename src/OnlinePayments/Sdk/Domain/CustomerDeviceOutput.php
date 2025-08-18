@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class CustomerDeviceOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $ipAddressCountryCode = null;
+    public ?string $ipAddressCountryCode = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIpAddressCountryCode()
+    public function getIpAddressCountryCode(): ?string
     {
         return $this->ipAddressCountryCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIpAddressCountryCode($value)
+    public function setIpAddressCountryCode(?string $value): void
     {
         $this->ipAddressCountryCode = $value;
     }
@@ -35,7 +35,7 @@ class CustomerDeviceOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->ipAddressCountryCode)) {
@@ -49,7 +49,7 @@ class CustomerDeviceOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CustomerDeviceOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'ipAddressCountryCode')) {

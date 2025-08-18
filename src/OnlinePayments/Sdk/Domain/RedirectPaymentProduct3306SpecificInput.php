@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class RedirectPaymentProduct3306SpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $extraMerchantData = null;
+    public ?string $extraMerchantData = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExtraMerchantData()
+    public function getExtraMerchantData(): ?string
     {
         return $this->extraMerchantData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExtraMerchantData($value)
+    public function setExtraMerchantData(?string $value): void
     {
         $this->extraMerchantData = $value;
     }
@@ -35,7 +35,7 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->extraMerchantData)) {
@@ -49,7 +49,7 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct3306SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'extraMerchantData')) {

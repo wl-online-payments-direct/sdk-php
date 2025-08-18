@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class SendTestRequest extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $url = null;
+    public ?string $url = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrl()
+    public function getUrl(): ?string
     {
         return $this->url;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setUrl($value)
+    public function setUrl(?string $value): void
     {
         $this->url = $value;
     }
@@ -35,7 +35,7 @@ class SendTestRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->url)) {
@@ -49,7 +49,7 @@ class SendTestRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SendTestRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'url')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CalculateSurchargeRequest extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var CardSource
+     * @var CardSource|null
      */
-    public $cardSource = null;
+    public ?CardSource $cardSource = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return CardSource
+     * @return CardSource|null
      */
-    public function getCardSource()
+    public function getCardSource(): ?CardSource
     {
         return $this->cardSource;
     }
 
     /**
-     * @param CardSource
+     * @param CardSource|null $value
      */
-    public function setCardSource($value)
+    public function setCardSource(?CardSource $value): void
     {
         $this->cardSource = $value;
     }
@@ -56,7 +56,7 @@ class CalculateSurchargeRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -73,7 +73,7 @@ class CalculateSurchargeRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CalculateSurchargeRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

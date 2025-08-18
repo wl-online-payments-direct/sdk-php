@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class RedirectPaymentProduct5001SpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $exemptionRequest = null;
+    public ?string $exemptionRequest = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $subsequentType = null;
+    public ?string $subsequentType = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExemptionRequest()
+    public function getExemptionRequest(): ?string
     {
         return $this->exemptionRequest;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExemptionRequest($value)
+    public function setExemptionRequest(?string $value): void
     {
         $this->exemptionRequest = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSubsequentType()
+    public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSubsequentType($value)
+    public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
     }
@@ -56,7 +56,7 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->exemptionRequest)) {
@@ -73,7 +73,7 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct5001SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'exemptionRequest')) {

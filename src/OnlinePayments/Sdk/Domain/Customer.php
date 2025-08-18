@@ -12,211 +12,211 @@ use UnexpectedValueException;
 class Customer extends DataObject
 {
     /**
-     * @var CustomerAccount
+     * @var CustomerAccount|null
      */
-    public $account = null;
+    public ?CustomerAccount $account = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $accountType = null;
+    public ?string $accountType = null;
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    public $billingAddress = null;
+    public ?Address $billingAddress = null;
 
     /**
-     * @var CompanyInformation
+     * @var CompanyInformation|null
      */
-    public $companyInformation = null;
+    public ?CompanyInformation $companyInformation = null;
 
     /**
-     * @var ContactDetails
+     * @var ContactDetails|null
      */
-    public $contactDetails = null;
+    public ?ContactDetails $contactDetails = null;
 
     /**
-     * @var CustomerDevice
+     * @var CustomerDevice|null
      */
-    public $device = null;
+    public ?CustomerDevice $device = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $fiscalNumber = null;
+    public ?string $fiscalNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $locale = null;
+    public ?string $locale = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $merchantCustomerId = null;
+    public ?string $merchantCustomerId = null;
 
     /**
-     * @var PersonalInformation
+     * @var PersonalInformation|null
      */
-    public $personalInformation = null;
+    public ?PersonalInformation $personalInformation = null;
 
     /**
-     * @return CustomerAccount
+     * @return CustomerAccount|null
      */
-    public function getAccount()
+    public function getAccount(): ?CustomerAccount
     {
         return $this->account;
     }
 
     /**
-     * @param CustomerAccount
+     * @param CustomerAccount|null $value
      */
-    public function setAccount($value)
+    public function setAccount(?CustomerAccount $value): void
     {
         $this->account = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAccountType()
+    public function getAccountType(): ?string
     {
         return $this->accountType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAccountType($value)
+    public function setAccountType(?string $value): void
     {
         $this->accountType = $value;
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
     }
 
     /**
-     * @param Address
+     * @param Address|null $value
      */
-    public function setBillingAddress($value)
+    public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
     }
 
     /**
-     * @return CompanyInformation
+     * @return CompanyInformation|null
      */
-    public function getCompanyInformation()
+    public function getCompanyInformation(): ?CompanyInformation
     {
         return $this->companyInformation;
     }
 
     /**
-     * @param CompanyInformation
+     * @param CompanyInformation|null $value
      */
-    public function setCompanyInformation($value)
+    public function setCompanyInformation(?CompanyInformation $value): void
     {
         $this->companyInformation = $value;
     }
 
     /**
-     * @return ContactDetails
+     * @return ContactDetails|null
      */
-    public function getContactDetails()
+    public function getContactDetails(): ?ContactDetails
     {
         return $this->contactDetails;
     }
 
     /**
-     * @param ContactDetails
+     * @param ContactDetails|null $value
      */
-    public function setContactDetails($value)
+    public function setContactDetails(?ContactDetails $value): void
     {
         $this->contactDetails = $value;
     }
 
     /**
-     * @return CustomerDevice
+     * @return CustomerDevice|null
      */
-    public function getDevice()
+    public function getDevice(): ?CustomerDevice
     {
         return $this->device;
     }
 
     /**
-     * @param CustomerDevice
+     * @param CustomerDevice|null $value
      */
-    public function setDevice($value)
+    public function setDevice(?CustomerDevice $value): void
     {
         $this->device = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFiscalNumber()
+    public function getFiscalNumber(): ?string
     {
         return $this->fiscalNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFiscalNumber($value)
+    public function setFiscalNumber(?string $value): void
     {
         $this->fiscalNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocale()
+    public function getLocale(): ?string
     {
         return $this->locale;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLocale($value)
+    public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantCustomerId()
+    public function getMerchantCustomerId(): ?string
     {
         return $this->merchantCustomerId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMerchantCustomerId($value)
+    public function setMerchantCustomerId(?string $value): void
     {
         $this->merchantCustomerId = $value;
     }
 
     /**
-     * @return PersonalInformation
+     * @return PersonalInformation|null
      */
-    public function getPersonalInformation()
+    public function getPersonalInformation(): ?PersonalInformation
     {
         return $this->personalInformation;
     }
 
     /**
-     * @param PersonalInformation
+     * @param PersonalInformation|null $value
      */
-    public function setPersonalInformation($value)
+    public function setPersonalInformation(?PersonalInformation $value): void
     {
         $this->personalInformation = $value;
     }
@@ -224,7 +224,7 @@ class Customer extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->account)) {
@@ -265,7 +265,7 @@ class Customer extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): Customer
     {
         parent::fromObject($object);
         if (property_exists($object, 'account')) {

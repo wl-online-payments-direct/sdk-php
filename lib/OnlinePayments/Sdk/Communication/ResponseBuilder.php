@@ -9,18 +9,18 @@ namespace OnlinePayments\Sdk\Communication;
 class ResponseBuilder
 {
     /** @var int */
-    private $httpStatusCode;
+    private int $httpStatusCode = 0;
 
     /** @var array */
-    private $headers;
+    private array $headers = array();
 
     /** @var string */
-    private $body = '';
+    private string $body = '';
 
     /**
      * @param int $httpStatusCode
      */
-    public function setHttpStatusCode($httpStatusCode)
+    public function setHttpStatusCode(int $httpStatusCode): void
     {
         $this->httpStatusCode = $httpStatusCode;
     }
@@ -28,7 +28,7 @@ class ResponseBuilder
     /**
      * @param array $headers
      */
-    public function setHeaders(array $headers)
+    public function setHeaders(array $headers): void
     {
         $this->headers = $headers;
     }
@@ -36,7 +36,7 @@ class ResponseBuilder
     /**
      * @param string $data
      */
-    public function appendBody($data)
+    public function appendBody(string $data): void
     {
         $this->body .= $data;
     }
@@ -44,7 +44,7 @@ class ResponseBuilder
     /**
      * @param string $body
      */
-    public function setBody($body)
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
@@ -52,7 +52,7 @@ class ResponseBuilder
     /**
      * @return ConnectionResponseInterface
      */
-    public function getResponse()
+    public function getResponse(): ConnectionResponse
     {
         return new ConnectionResponse($this->httpStatusCode, $this->headers, $this->body);
     }

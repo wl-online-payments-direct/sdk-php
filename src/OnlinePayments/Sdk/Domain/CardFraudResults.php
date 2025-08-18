@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CardFraudResults extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $avsResult = null;
+    public ?string $avsResult = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cvvResult = null;
+    public ?string $cvvResult = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $fraudServiceResult = null;
+    public ?string $fraudServiceResult = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAvsResult()
+    public function getAvsResult(): ?string
     {
         return $this->avsResult;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAvsResult($value)
+    public function setAvsResult(?string $value): void
     {
         $this->avsResult = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCvvResult()
+    public function getCvvResult(): ?string
     {
         return $this->cvvResult;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCvvResult($value)
+    public function setCvvResult(?string $value): void
     {
         $this->cvvResult = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFraudServiceResult()
+    public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFraudServiceResult($value)
+    public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
     }
@@ -77,7 +77,7 @@ class CardFraudResults extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->avsResult)) {
@@ -97,7 +97,7 @@ class CardFraudResults extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardFraudResults
     {
         parent::fromObject($object);
         if (property_exists($object, 'avsResult')) {

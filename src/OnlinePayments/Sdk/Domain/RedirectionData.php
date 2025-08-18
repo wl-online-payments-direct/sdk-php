@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class RedirectionData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $returnUrl = null;
+    public ?string $returnUrl = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setReturnUrl($value)
+    public function setReturnUrl(?string $value): void
     {
         $this->returnUrl = $value;
     }
@@ -35,7 +35,7 @@ class RedirectionData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->returnUrl)) {
@@ -49,7 +49,7 @@ class RedirectionData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectionData
     {
         parent::fromObject($object);
         if (property_exists($object, 'returnUrl')) {

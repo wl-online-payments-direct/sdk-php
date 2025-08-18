@@ -12,169 +12,169 @@ use UnexpectedValueException;
 class Order extends DataObject
 {
     /**
-     * @var AdditionalOrderInput
+     * @var AdditionalOrderInput|null
      */
-    public $additionalInput = null;
+    public ?AdditionalOrderInput $additionalInput = null;
 
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var Customer
+     * @var Customer|null
      */
-    public $customer = null;
+    public ?Customer $customer = null;
 
     /**
-     * @var Discount
+     * @var Discount|null
      */
-    public $discount = null;
+    public ?Discount $discount = null;
 
     /**
-     * @var OrderReferences
+     * @var OrderReferences|null
      */
-    public $references = null;
+    public ?OrderReferences $references = null;
 
     /**
-     * @var Shipping
+     * @var Shipping|null
      */
-    public $shipping = null;
+    public ?Shipping $shipping = null;
 
     /**
-     * @var ShoppingCart
+     * @var ShoppingCart|null
      */
-    public $shoppingCart = null;
+    public ?ShoppingCart $shoppingCart = null;
 
     /**
-     * @var SurchargeSpecificInput
+     * @var SurchargeSpecificInput|null
      */
-    public $surchargeSpecificInput = null;
+    public ?SurchargeSpecificInput $surchargeSpecificInput = null;
 
     /**
-     * @return AdditionalOrderInput
+     * @return AdditionalOrderInput|null
      */
-    public function getAdditionalInput()
+    public function getAdditionalInput(): ?AdditionalOrderInput
     {
         return $this->additionalInput;
     }
 
     /**
-     * @param AdditionalOrderInput
+     * @param AdditionalOrderInput|null $value
      */
-    public function setAdditionalInput($value)
+    public function setAdditionalInput(?AdditionalOrderInput $value): void
     {
         $this->additionalInput = $value;
     }
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return Customer
+     * @return Customer|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?Customer
     {
         return $this->customer;
     }
 
     /**
-     * @param Customer
+     * @param Customer|null $value
      */
-    public function setCustomer($value)
+    public function setCustomer(?Customer $value): void
     {
         $this->customer = $value;
     }
 
     /**
-     * @return Discount
+     * @return Discount|null
      */
-    public function getDiscount()
+    public function getDiscount(): ?Discount
     {
         return $this->discount;
     }
 
     /**
-     * @param Discount
+     * @param Discount|null $value
      */
-    public function setDiscount($value)
+    public function setDiscount(?Discount $value): void
     {
         $this->discount = $value;
     }
 
     /**
-     * @return OrderReferences
+     * @return OrderReferences|null
      */
-    public function getReferences()
+    public function getReferences(): ?OrderReferences
     {
         return $this->references;
     }
 
     /**
-     * @param OrderReferences
+     * @param OrderReferences|null $value
      */
-    public function setReferences($value)
+    public function setReferences(?OrderReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
-     * @return Shipping
+     * @return Shipping|null
      */
-    public function getShipping()
+    public function getShipping(): ?Shipping
     {
         return $this->shipping;
     }
 
     /**
-     * @param Shipping
+     * @param Shipping|null $value
      */
-    public function setShipping($value)
+    public function setShipping(?Shipping $value): void
     {
         $this->shipping = $value;
     }
 
     /**
-     * @return ShoppingCart
+     * @return ShoppingCart|null
      */
-    public function getShoppingCart()
+    public function getShoppingCart(): ?ShoppingCart
     {
         return $this->shoppingCart;
     }
 
     /**
-     * @param ShoppingCart
+     * @param ShoppingCart|null $value
      */
-    public function setShoppingCart($value)
+    public function setShoppingCart(?ShoppingCart $value): void
     {
         $this->shoppingCart = $value;
     }
 
     /**
-     * @return SurchargeSpecificInput
+     * @return SurchargeSpecificInput|null
      */
-    public function getSurchargeSpecificInput()
+    public function getSurchargeSpecificInput(): ?SurchargeSpecificInput
     {
         return $this->surchargeSpecificInput;
     }
 
     /**
-     * @param SurchargeSpecificInput
+     * @param SurchargeSpecificInput|null $value
      */
-    public function setSurchargeSpecificInput($value)
+    public function setSurchargeSpecificInput(?SurchargeSpecificInput $value): void
     {
         $this->surchargeSpecificInput = $value;
     }
@@ -182,7 +182,7 @@ class Order extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->additionalInput)) {
@@ -217,7 +217,7 @@ class Order extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): Order
     {
         parent::fromObject($object);
         if (property_exists($object, 'additionalInput')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PaymentProductFilter extends DataObject
 {
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $groups = null;
+    public ?array $groups = null;
 
     /**
-     * @var int[]
+     * @var int[]|null
      */
-    public $products = null;
+    public ?array $products = null;
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getGroups()
+    public function getGroups(): ?array
     {
         return $this->groups;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setGroups($value)
+    public function setGroups(?array $value): void
     {
         $this->groups = $value;
     }
 
     /**
-     * @return int[]
+     * @return int[]|null
      */
-    public function getProducts()
+    public function getProducts(): ?array
     {
         return $this->products;
     }
 
     /**
-     * @param int[]
+     * @param int[]|null $value
      */
-    public function setProducts($value)
+    public function setProducts(?array $value): void
     {
         $this->products = $value;
     }
@@ -56,7 +56,7 @@ class PaymentProductFilter extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->groups)) {
@@ -83,7 +83,7 @@ class PaymentProductFilter extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFilter
     {
         parent::fromObject($object);
         if (property_exists($object, 'groups')) {

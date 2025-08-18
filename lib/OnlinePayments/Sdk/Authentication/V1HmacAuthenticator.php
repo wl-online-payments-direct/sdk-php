@@ -82,9 +82,12 @@ class V1HmacAuthenticator implements Authenticator
             $signData .= "\n";
         }
 
-        $gcsHeaders = array_filter($requestHeaders, function ($headerKey) {
-            return preg_match('/X-GCS/i', $headerKey);
-        }, ARRAY_FILTER_USE_KEY);
+        $gcsHeaders = array();
+        foreach ($requestHeaders as $headerKey => $headerValue) {
+            if (preg_match('/X-GCS/i', $headerKey)) {
+                $gcsHeaders[$headerKey] = $headerValue;
+            }
+        }
 
         ksort($gcsHeaders);
         foreach ($gcsHeaders as $gcsHeaderKey => $gcsHeaderValue) {

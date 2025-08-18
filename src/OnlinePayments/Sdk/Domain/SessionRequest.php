@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class SessionRequest extends DataObject
 {
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $tokens = null;
+    public ?array $tokens = null;
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getTokens()
+    public function getTokens(): ?array
     {
         return $this->tokens;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setTokens($value)
+    public function setTokens(?array $value): void
     {
         $this->tokens = $value;
     }
@@ -35,7 +35,7 @@ class SessionRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->tokens)) {
@@ -54,7 +54,7 @@ class SessionRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SessionRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'tokens')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PaymentProduct5404 extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $appSwitchLink = null;
+    public ?string $appSwitchLink = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $qrCodeUrl = null;
+    public ?string $qrCodeUrl = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAppSwitchLink()
+    public function getAppSwitchLink(): ?string
     {
         return $this->appSwitchLink;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAppSwitchLink($value)
+    public function setAppSwitchLink(?string $value): void
     {
         $this->appSwitchLink = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getQrCodeUrl()
+    public function getQrCodeUrl(): ?string
     {
         return $this->qrCodeUrl;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setQrCodeUrl($value)
+    public function setQrCodeUrl(?string $value): void
     {
         $this->qrCodeUrl = $value;
     }
@@ -56,7 +56,7 @@ class PaymentProduct5404 extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->appSwitchLink)) {
@@ -73,7 +73,7 @@ class PaymentProduct5404 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct5404
     {
         parent::fromObject($object);
         if (property_exists($object, 'appSwitchLink')) {

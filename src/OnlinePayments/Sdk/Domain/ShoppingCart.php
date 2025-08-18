@@ -12,130 +12,130 @@ use UnexpectedValueException;
 class ShoppingCart extends DataObject
 {
     /**
-     * @var AmountBreakdown[]
+     * @var AmountBreakdown[]|null
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
-    public $amountBreakdown = null;
+    public ?array $amountBreakdown = null;
 
     /**
-     * @var GiftCardPurchase
+     * @var GiftCardPurchase|null
      */
-    public $giftCardPurchase = null;
+    public ?GiftCardPurchase $giftCardPurchase = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isPreOrder = null;
+    public ?bool $isPreOrder = null;
 
     /**
-     * @var LineItem[]
+     * @var LineItem[]|null
      */
-    public $items = null;
+    public ?array $items = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $preOrderItemAvailabilityDate = null;
+    public ?string $preOrderItemAvailabilityDate = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $reOrderIndicator = null;
+    public ?bool $reOrderIndicator = null;
 
     /**
-     * @return AmountBreakdown[]
+     * @return AmountBreakdown[]|null
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
-    public function getAmountBreakdown()
+    public function getAmountBreakdown(): ?array
     {
         return $this->amountBreakdown;
     }
 
     /**
-     * @param AmountBreakdown[]
+     * @param AmountBreakdown[]|null $value
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
-    public function setAmountBreakdown($value)
+    public function setAmountBreakdown(?array $value): void
     {
         $this->amountBreakdown = $value;
     }
 
     /**
-     * @return GiftCardPurchase
+     * @return GiftCardPurchase|null
      */
-    public function getGiftCardPurchase()
+    public function getGiftCardPurchase(): ?GiftCardPurchase
     {
         return $this->giftCardPurchase;
     }
 
     /**
-     * @param GiftCardPurchase
+     * @param GiftCardPurchase|null $value
      */
-    public function setGiftCardPurchase($value)
+    public function setGiftCardPurchase(?GiftCardPurchase $value): void
     {
         $this->giftCardPurchase = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsPreOrder()
+    public function getIsPreOrder(): ?bool
     {
         return $this->isPreOrder;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsPreOrder($value)
+    public function setIsPreOrder(?bool $value): void
     {
         $this->isPreOrder = $value;
     }
 
     /**
-     * @return LineItem[]
+     * @return LineItem[]|null
      */
-    public function getItems()
+    public function getItems(): ?array
     {
         return $this->items;
     }
 
     /**
-     * @param LineItem[]
+     * @param LineItem[]|null $value
      */
-    public function setItems($value)
+    public function setItems(?array $value): void
     {
         $this->items = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPreOrderItemAvailabilityDate()
+    public function getPreOrderItemAvailabilityDate(): ?string
     {
         return $this->preOrderItemAvailabilityDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPreOrderItemAvailabilityDate($value)
+    public function setPreOrderItemAvailabilityDate(?string $value): void
     {
         $this->preOrderItemAvailabilityDate = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getReOrderIndicator()
+    public function getReOrderIndicator(): ?bool
     {
         return $this->reOrderIndicator;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setReOrderIndicator($value)
+    public function setReOrderIndicator(?bool $value): void
     {
         $this->reOrderIndicator = $value;
     }
@@ -143,7 +143,7 @@ class ShoppingCart extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountBreakdown)) {
@@ -182,7 +182,7 @@ class ShoppingCart extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ShoppingCart
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountBreakdown')) {

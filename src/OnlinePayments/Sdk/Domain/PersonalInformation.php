@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class PersonalInformation extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $dateOfBirth = null;
+    public ?string $dateOfBirth = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $gender = null;
+    public ?string $gender = null;
 
     /**
-     * @var PersonalName
+     * @var PersonalName|null
      */
-    public $name = null;
+    public ?PersonalName $name = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDateOfBirth()
+    public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDateOfBirth($value)
+    public function setDateOfBirth(?string $value): void
     {
         $this->dateOfBirth = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGender()
+    public function getGender(): ?string
     {
         return $this->gender;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setGender($value)
+    public function setGender(?string $value): void
     {
         $this->gender = $value;
     }
 
     /**
-     * @return PersonalName
+     * @return PersonalName|null
      */
-    public function getName()
+    public function getName(): ?PersonalName
     {
         return $this->name;
     }
 
     /**
-     * @param PersonalName
+     * @param PersonalName|null $value
      */
-    public function setName($value)
+    public function setName(?PersonalName $value): void
     {
         $this->name = $value;
     }
@@ -77,7 +77,7 @@ class PersonalInformation extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->dateOfBirth)) {
@@ -97,7 +97,7 @@ class PersonalInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PersonalInformation
     {
         parent::fromObject($object);
         if (property_exists($object, 'dateOfBirth')) {

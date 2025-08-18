@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class DccCardSource extends DataObject
 {
     /**
-     * @var CardInfo
+     * @var CardInfo|null
      */
-    public $card = null;
+    public ?CardInfo $card = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $encryptedCustomerInput = null;
+    public ?string $encryptedCustomerInput = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $hostedTokenizationId = null;
+    public ?string $hostedTokenizationId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $token = null;
+    public ?string $token = null;
 
     /**
-     * @return CardInfo
+     * @return CardInfo|null
      */
-    public function getCard()
+    public function getCard(): ?CardInfo
     {
         return $this->card;
     }
 
     /**
-     * @param CardInfo
+     * @param CardInfo|null $value
      */
-    public function setCard($value)
+    public function setCard(?CardInfo $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEncryptedCustomerInput()
+    public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEncryptedCustomerInput($value)
+    public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getHostedTokenizationId()
+    public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setHostedTokenizationId($value)
+    public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setToken($value)
+    public function setToken(?string $value): void
     {
         $this->token = $value;
     }
@@ -98,7 +98,7 @@ class DccCardSource extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->card)) {
@@ -121,7 +121,7 @@ class DccCardSource extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): DccCardSource
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CompletePaymentResponse extends DataObject
 {
     /**
-     * @var PaymentCreationOutput
+     * @var PaymentCreationOutput|null
      */
-    public $creationOutput = null;
+    public ?PaymentCreationOutput $creationOutput = null;
 
     /**
-     * @var MerchantAction
+     * @var MerchantAction|null
      */
-    public $merchantAction = null;
+    public ?MerchantAction $merchantAction = null;
 
     /**
-     * @var PaymentResponse
+     * @var PaymentResponse|null
      */
-    public $payment = null;
+    public ?PaymentResponse $payment = null;
 
     /**
-     * @return PaymentCreationOutput
+     * @return PaymentCreationOutput|null
      */
-    public function getCreationOutput()
+    public function getCreationOutput(): ?PaymentCreationOutput
     {
         return $this->creationOutput;
     }
 
     /**
-     * @param PaymentCreationOutput
+     * @param PaymentCreationOutput|null $value
      */
-    public function setCreationOutput($value)
+    public function setCreationOutput(?PaymentCreationOutput $value): void
     {
         $this->creationOutput = $value;
     }
 
     /**
-     * @return MerchantAction
+     * @return MerchantAction|null
      */
-    public function getMerchantAction()
+    public function getMerchantAction(): ?MerchantAction
     {
         return $this->merchantAction;
     }
 
     /**
-     * @param MerchantAction
+     * @param MerchantAction|null $value
      */
-    public function setMerchantAction($value)
+    public function setMerchantAction(?MerchantAction $value): void
     {
         $this->merchantAction = $value;
     }
 
     /**
-     * @return PaymentResponse
+     * @return PaymentResponse|null
      */
-    public function getPayment()
+    public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
     }
 
     /**
-     * @param PaymentResponse
+     * @param PaymentResponse|null $value
      */
-    public function setPayment($value)
+    public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
     }
@@ -77,7 +77,7 @@ class CompletePaymentResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->creationOutput)) {
@@ -97,7 +97,7 @@ class CompletePaymentResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CompletePaymentResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'creationOutput')) {

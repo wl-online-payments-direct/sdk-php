@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class GetHostedTokenizationResponse extends DataObject
 {
     /**
-     * @var TokenResponse
+     * @var TokenResponse|null
      */
-    public $token = null;
+    public ?TokenResponse $token = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $tokenStatus = null;
+    public ?string $tokenStatus = null;
 
     /**
-     * @return TokenResponse
+     * @return TokenResponse|null
      */
-    public function getToken()
+    public function getToken(): ?TokenResponse
     {
         return $this->token;
     }
 
     /**
-     * @param TokenResponse
+     * @param TokenResponse|null $value
      */
-    public function setToken($value)
+    public function setToken(?TokenResponse $value): void
     {
         $this->token = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTokenStatus()
+    public function getTokenStatus(): ?string
     {
         return $this->tokenStatus;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTokenStatus($value)
+    public function setTokenStatus(?string $value): void
     {
         $this->tokenStatus = $value;
     }
@@ -56,7 +56,7 @@ class GetHostedTokenizationResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->token)) {
@@ -73,7 +73,7 @@ class GetHostedTokenizationResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): GetHostedTokenizationResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'token')) {

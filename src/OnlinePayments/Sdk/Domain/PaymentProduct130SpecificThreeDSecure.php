@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentProduct130SpecificThreeDSecure extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $acquirerExemption = null;
+    public ?bool $acquirerExemption = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $merchantScore = null;
+    public ?string $merchantScore = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $numberOfItems = null;
+    public ?int $numberOfItems = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $usecase = null;
+    public ?string $usecase = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAcquirerExemption()
+    public function getAcquirerExemption(): ?bool
     {
         return $this->acquirerExemption;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setAcquirerExemption($value)
+    public function setAcquirerExemption(?bool $value): void
     {
         $this->acquirerExemption = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantScore()
+    public function getMerchantScore(): ?string
     {
         return $this->merchantScore;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMerchantScore($value)
+    public function setMerchantScore(?string $value): void
     {
         $this->merchantScore = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfItems()
+    public function getNumberOfItems(): ?int
     {
         return $this->numberOfItems;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setNumberOfItems($value)
+    public function setNumberOfItems(?int $value): void
     {
         $this->numberOfItems = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUsecase()
+    public function getUsecase(): ?string
     {
         return $this->usecase;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setUsecase($value)
+    public function setUsecase(?string $value): void
     {
         $this->usecase = $value;
     }
@@ -98,7 +98,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acquirerExemption)) {
@@ -121,7 +121,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct130SpecificThreeDSecure
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerExemption')) {

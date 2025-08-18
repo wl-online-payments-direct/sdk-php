@@ -12,211 +12,211 @@ use UnexpectedValueException;
 class HostedCheckoutSpecificInput extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $allowedNumberOfPaymentAttempts = null;
+    public ?int $allowedNumberOfPaymentAttempts = null;
 
     /**
-     * @var CardPaymentMethodSpecificInputForHostedCheckout
+     * @var CardPaymentMethodSpecificInputForHostedCheckout|null
      */
-    public $cardPaymentMethodSpecificInput = null;
+    public ?CardPaymentMethodSpecificInputForHostedCheckout $cardPaymentMethodSpecificInput = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isRecurring = null;
+    public ?bool $isRecurring = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $locale = null;
+    public ?string $locale = null;
 
     /**
-     * @var PaymentProductFiltersHostedCheckout
+     * @var PaymentProductFiltersHostedCheckout|null
      */
-    public $paymentProductFilters = null;
+    public ?PaymentProductFiltersHostedCheckout $paymentProductFilters = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $returnUrl = null;
+    public ?string $returnUrl = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $sessionTimeout = null;
+    public ?int $sessionTimeout = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $showResultPage = null;
+    public ?bool $showResultPage = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $tokens = null;
+    public ?string $tokens = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $variant = null;
+    public ?string $variant = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getAllowedNumberOfPaymentAttempts()
+    public function getAllowedNumberOfPaymentAttempts(): ?int
     {
         return $this->allowedNumberOfPaymentAttempts;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setAllowedNumberOfPaymentAttempts($value)
+    public function setAllowedNumberOfPaymentAttempts(?int $value): void
     {
         $this->allowedNumberOfPaymentAttempts = $value;
     }
 
     /**
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
+     * @return CardPaymentMethodSpecificInputForHostedCheckout|null
      */
-    public function getCardPaymentMethodSpecificInput()
+    public function getCardPaymentMethodSpecificInput(): ?CardPaymentMethodSpecificInputForHostedCheckout
     {
         return $this->cardPaymentMethodSpecificInput;
     }
 
     /**
-     * @param CardPaymentMethodSpecificInputForHostedCheckout
+     * @param CardPaymentMethodSpecificInputForHostedCheckout|null $value
      */
-    public function setCardPaymentMethodSpecificInput($value)
+    public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputForHostedCheckout $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsRecurring()
+    public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsRecurring($value)
+    public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocale()
+    public function getLocale(): ?string
     {
         return $this->locale;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLocale($value)
+    public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
-     * @return PaymentProductFiltersHostedCheckout
+     * @return PaymentProductFiltersHostedCheckout|null
      */
-    public function getPaymentProductFilters()
+    public function getPaymentProductFilters(): ?PaymentProductFiltersHostedCheckout
     {
         return $this->paymentProductFilters;
     }
 
     /**
-     * @param PaymentProductFiltersHostedCheckout
+     * @param PaymentProductFiltersHostedCheckout|null $value
      */
-    public function setPaymentProductFilters($value)
+    public function setPaymentProductFilters(?PaymentProductFiltersHostedCheckout $value): void
     {
         $this->paymentProductFilters = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setReturnUrl($value)
+    public function setReturnUrl(?string $value): void
     {
         $this->returnUrl = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSessionTimeout()
+    public function getSessionTimeout(): ?int
     {
         return $this->sessionTimeout;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setSessionTimeout($value)
+    public function setSessionTimeout(?int $value): void
     {
         $this->sessionTimeout = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getShowResultPage()
+    public function getShowResultPage(): ?bool
     {
         return $this->showResultPage;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setShowResultPage($value)
+    public function setShowResultPage(?bool $value): void
     {
         $this->showResultPage = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTokens()
+    public function getTokens(): ?string
     {
         return $this->tokens;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTokens($value)
+    public function setTokens(?string $value): void
     {
         $this->tokens = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVariant()
+    public function getVariant(): ?string
     {
         return $this->variant;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setVariant($value)
+    public function setVariant(?string $value): void
     {
         $this->variant = $value;
     }
@@ -224,7 +224,7 @@ class HostedCheckoutSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->allowedNumberOfPaymentAttempts)) {
@@ -265,7 +265,7 @@ class HostedCheckoutSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): HostedCheckoutSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'allowedNumberOfPaymentAttempts')) {

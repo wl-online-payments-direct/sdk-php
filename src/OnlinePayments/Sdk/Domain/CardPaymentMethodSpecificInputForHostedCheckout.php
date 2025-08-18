@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $clickToPay = null;
+    public ?bool $clickToPay = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $groupCards = null;
+    public ?bool $groupCards = null;
 
     /**
-     * @var int[]
+     * @var int[]|null
      */
-    public $paymentProductPreferredOrder = null;
+    public ?array $paymentProductPreferredOrder = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getClickToPay()
+    public function getClickToPay(): ?bool
     {
         return $this->clickToPay;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setClickToPay($value)
+    public function setClickToPay(?bool $value): void
     {
         $this->clickToPay = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getGroupCards()
+    public function getGroupCards(): ?bool
     {
         return $this->groupCards;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setGroupCards($value)
+    public function setGroupCards(?bool $value): void
     {
         $this->groupCards = $value;
     }
 
     /**
-     * @return int[]
+     * @return int[]|null
      */
-    public function getPaymentProductPreferredOrder()
+    public function getPaymentProductPreferredOrder(): ?array
     {
         return $this->paymentProductPreferredOrder;
     }
 
     /**
-     * @param int[]
+     * @param int[]|null $value
      */
-    public function setPaymentProductPreferredOrder($value)
+    public function setPaymentProductPreferredOrder(?array $value): void
     {
         $this->paymentProductPreferredOrder = $value;
     }
@@ -77,7 +77,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->clickToPay)) {
@@ -102,7 +102,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardPaymentMethodSpecificInputForHostedCheckout
     {
         parent::fromObject($object);
         if (property_exists($object, 'clickToPay')) {

@@ -27,19 +27,19 @@ class ResourceLogger implements CommunicatorLogger
     }
 
     /** @inheritdoc */
-    public function log($message)
+    public function log(string $message): void
     {
         fwrite($this->resource, $this->getDatePrefix() . $message . PHP_EOL);
     }
 
     /** @inheritdoc */
-    public function logException($message, Exception $exception)
+    public function logException(string $message, Exception $exception): void
     {
         fwrite($this->resource, $this->getDatePrefix() . $message . PHP_EOL . $exception . PHP_EOL);
     }
 
     /** @return string */
-    protected function getDatePrefix()
+    protected function getDatePrefix(): string
     {
         return date(static::DATE_FORMAT_STRING) . ' ';
     }

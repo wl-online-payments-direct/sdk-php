@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentProductField extends DataObject
 {
     /**
-     * @var PaymentProductFieldDataRestrictions
+     * @var PaymentProductFieldDataRestrictions|null
      */
-    public $dataRestrictions = null;
+    public ?PaymentProductFieldDataRestrictions $dataRestrictions = null;
 
     /**
-     * @var PaymentProductFieldDisplayHints
+     * @var PaymentProductFieldDisplayHints|null
      */
-    public $displayHints = null;
+    public ?PaymentProductFieldDisplayHints $displayHints = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $type = null;
+    public ?string $type = null;
 
     /**
-     * @return PaymentProductFieldDataRestrictions
+     * @return PaymentProductFieldDataRestrictions|null
      */
-    public function getDataRestrictions()
+    public function getDataRestrictions(): ?PaymentProductFieldDataRestrictions
     {
         return $this->dataRestrictions;
     }
 
     /**
-     * @param PaymentProductFieldDataRestrictions
+     * @param PaymentProductFieldDataRestrictions|null $value
      */
-    public function setDataRestrictions($value)
+    public function setDataRestrictions(?PaymentProductFieldDataRestrictions $value): void
     {
         $this->dataRestrictions = $value;
     }
 
     /**
-     * @return PaymentProductFieldDisplayHints
+     * @return PaymentProductFieldDisplayHints|null
      */
-    public function getDisplayHints()
+    public function getDisplayHints(): ?PaymentProductFieldDisplayHints
     {
         return $this->displayHints;
     }
 
     /**
-     * @param PaymentProductFieldDisplayHints
+     * @param PaymentProductFieldDisplayHints|null $value
      */
-    public function setDisplayHints($value)
+    public function setDisplayHints(?PaymentProductFieldDisplayHints $value): void
     {
         $this->displayHints = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setType($value)
+    public function setType(?string $value): void
     {
         $this->type = $value;
     }
@@ -98,7 +98,7 @@ class PaymentProductField extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->dataRestrictions)) {
@@ -121,7 +121,7 @@ class PaymentProductField extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductField
     {
         parent::fromObject($object);
         if (property_exists($object, 'dataRestrictions')) {

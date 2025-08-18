@@ -14,10 +14,10 @@ class BodyObfuscator
     const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
 
     /** @var  ValueObfuscator */
-    protected $valueObfuscator;
+    protected ValueObfuscator $valueObfuscator;
 
     /** @var array<string, callable> */
-    private $customRules = array();
+    private array $customRules = array();
 
     public function __construct()
     {
@@ -29,7 +29,7 @@ class BodyObfuscator
      * @param string $body
      * @return string
      */
-    public function obfuscateBody($contentType, $body)
+    public function obfuscateBody(string $contentType, string $body): string
     {
         if (!$this->isJsonContentType($contentType)) {
             return $body;
@@ -41,7 +41,7 @@ class BodyObfuscator
         return json_encode($this->obfuscateDecodedJsonPart($decodedJsonBody), JSON_PRETTY_PRINT);
     }
 
-    private function isJsonContentType($contentType)
+    private function isJsonContentType(string $contentType): bool
     {
         return $contentType === static::MIME_APPLICATION_JSON
             || $contentType === static::MIME_APPLICATION_PROBLEM_JSON
@@ -82,32 +82,42 @@ class BodyObfuscator
      * @param scalar $value
      * @return string
      */
-    protected function obfuscateScalarValue($key, $value)
+    protected function obfuscateScalarValue(string $key, $value): string
     {
         if (!is_scalar($value)) {
             throw new UnexpectedValueException('scalar value expected');
         }
-        $lowerKey = mb_strtolower(strval($key), 'UTF-8');
+        $lowerKey = mb_strtolower($key, 'UTF-8');
         if (isset($this->customRules[$lowerKey])) {
             return call_user_func($this->customRules[$lowerKey], $value, $this->valueObfuscator);
         }
 
         switch ($lowerKey) {
-            case 'cardholdername':
-            case 'dateofbirth':
-            case 'emailaddress':
-            case 'faxnumber':
-            case 'firstname':
-            case 'housenumber':
-            case 'mobilephonenumber':
-            case 'passengername':
-            case 'phonenumber':
-            case 'street':
-            case 'workphonenumber':
-            case 'zip':
-            case 'value':
-            case 'cvv':
             case 'additionalinfo':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'cardholdername':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'dateofbirth':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'emailaddress':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'faxnumber':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'firstname':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'housenumber':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'mobilephonenumber':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'passengername':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'phonenumber':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'street':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'workphonenumber':
+                return $this->valueObfuscator->obfuscateAll($value);
+            case 'zip':
                 return $this->valueObfuscator->obfuscateAll($value);
             case 'keyid':
             case 'secretkey':
@@ -117,6 +127,9 @@ class BodyObfuscator
             case 'decryptedpayload':
             case 'encryptedcustomerinput':
                 return $this->valueObfuscator->obfuscateFixedLength(8);
+            case 'cvv':
+            case 'value':
+                return $this->valueObfuscator->obfuscateAll($value);
             case 'bin':
                 return $this->valueObfuscator->obfuscateAllKeepStart($value, 6);
             case 'accountnumber':
@@ -135,9 +148,9 @@ class BodyObfuscator
      * @param string $propertyName
      * @param callable $customRule
      */
-    public function setCustomRule($propertyName, callable $customRule)
+    public function setCustomRule(string $propertyName, callable $customRule): void
     {
-        $lowerName = mb_strtolower(strval($propertyName), 'UTF-8');
+        $lowerName = mb_strtolower($propertyName, 'UTF-8');
         $this->customRules[$lowerName] = $customRule;
     }
 }

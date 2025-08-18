@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class RefundRedirectMethodSpecificOutput extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountPaid = null;
+    public ?int $totalAmountPaid = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalAmountRefunded = null;
+    public ?int $totalAmountRefunded = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountPaid()
+    public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountPaid($value)
+    public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmountRefunded()
+    public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalAmountRefunded($value)
+    public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
     }
@@ -56,7 +56,7 @@ class RefundRedirectMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->totalAmountPaid)) {
@@ -73,7 +73,7 @@ class RefundRedirectMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RefundRedirectMethodSpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'totalAmountPaid')) {

@@ -8,68 +8,69 @@ use UnexpectedValueException;
 
 /**
  * @package OnlinePayments\Sdk\Domain
+ * @deprecated An object containing the details of the related payment input.  All properties in paymentLinkOrder are deprecated. Use corresponding values as noted below: | Property | Replacement | | - | - | | merchantReference | references/merchantReference | | amount | order/amountOfMoney | | surchargeSpecificInput | order/surchargeSpecificInput |
  */
 class PaymentLinkOrderInput extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amount = null;
+    public ?AmountOfMoney $amount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $merchantReference = null;
+    public ?string $merchantReference = null;
 
     /**
-     * @var SurchargeForPaymentLink
+     * @var SurchargeForPaymentLink|null
      */
-    public $surchargeSpecificInput = null;
+    public ?SurchargeForPaymentLink $surchargeSpecificInput = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmount()
+    public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmount($value)
+    public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantReference()
+    public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMerchantReference($value)
+    public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
     }
 
     /**
-     * @return SurchargeForPaymentLink
+     * @return SurchargeForPaymentLink|null
      */
-    public function getSurchargeSpecificInput()
+    public function getSurchargeSpecificInput(): ?SurchargeForPaymentLink
     {
         return $this->surchargeSpecificInput;
     }
 
     /**
-     * @param SurchargeForPaymentLink
+     * @param SurchargeForPaymentLink|null $value
      */
-    public function setSurchargeSpecificInput($value)
+    public function setSurchargeSpecificInput(?SurchargeForPaymentLink $value): void
     {
         $this->surchargeSpecificInput = $value;
     }
@@ -77,7 +78,7 @@ class PaymentLinkOrderInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amount)) {
@@ -97,7 +98,7 @@ class PaymentLinkOrderInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentLinkOrderInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CompletePaymentRequest extends DataObject
 {
     /**
-     * @var CompletePaymentCardPaymentMethodSpecificInput
+     * @var CompletePaymentCardPaymentMethodSpecificInput|null
      */
-    public $cardPaymentMethodSpecificInput = null;
+    public ?CompletePaymentCardPaymentMethodSpecificInput $cardPaymentMethodSpecificInput = null;
 
     /**
-     * @var Order
+     * @var Order|null
      */
-    public $order = null;
+    public ?Order $order = null;
 
     /**
-     * @return CompletePaymentCardPaymentMethodSpecificInput
+     * @return CompletePaymentCardPaymentMethodSpecificInput|null
      */
-    public function getCardPaymentMethodSpecificInput()
+    public function getCardPaymentMethodSpecificInput(): ?CompletePaymentCardPaymentMethodSpecificInput
     {
         return $this->cardPaymentMethodSpecificInput;
     }
 
     /**
-     * @param CompletePaymentCardPaymentMethodSpecificInput
+     * @param CompletePaymentCardPaymentMethodSpecificInput|null $value
      */
-    public function setCardPaymentMethodSpecificInput($value)
+    public function setCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
     }
 
     /**
-     * @return Order
+     * @return Order|null
      */
-    public function getOrder()
+    public function getOrder(): ?Order
     {
         return $this->order;
     }
 
     /**
-     * @param Order
+     * @param Order|null $value
      */
-    public function setOrder($value)
+    public function setOrder(?Order $value): void
     {
         $this->order = $value;
     }
@@ -56,7 +56,7 @@ class CompletePaymentRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->cardPaymentMethodSpecificInput)) {
@@ -73,7 +73,7 @@ class CompletePaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CompletePaymentRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardPaymentMethodSpecificInput')) {

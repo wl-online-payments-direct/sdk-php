@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class ReattemptInstructions extends DataObject
 {
     /**
-     * @var ReattemptInstructionsConditions
+     * @var ReattemptInstructionsConditions|null
      */
-    public $conditions = null;
+    public ?ReattemptInstructionsConditions $conditions = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $frozenPeriod = null;
+    public ?int $frozenPeriod = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $indicator = null;
+    public ?string $indicator = null;
 
     /**
-     * @return ReattemptInstructionsConditions
+     * @return ReattemptInstructionsConditions|null
      */
-    public function getConditions()
+    public function getConditions(): ?ReattemptInstructionsConditions
     {
         return $this->conditions;
     }
 
     /**
-     * @param ReattemptInstructionsConditions
+     * @param ReattemptInstructionsConditions|null $value
      */
-    public function setConditions($value)
+    public function setConditions(?ReattemptInstructionsConditions $value): void
     {
         $this->conditions = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getFrozenPeriod()
+    public function getFrozenPeriod(): ?int
     {
         return $this->frozenPeriod;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setFrozenPeriod($value)
+    public function setFrozenPeriod(?int $value): void
     {
         $this->frozenPeriod = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIndicator()
+    public function getIndicator(): ?string
     {
         return $this->indicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIndicator($value)
+    public function setIndicator(?string $value): void
     {
         $this->indicator = $value;
     }
@@ -77,7 +77,7 @@ class ReattemptInstructions extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->conditions)) {
@@ -97,7 +97,7 @@ class ReattemptInstructions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ReattemptInstructions
     {
         parent::fromObject($object);
         if (property_exists($object, 'conditions')) {

@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class LineItemInvoiceData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $description = null;
+    public ?string $description = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDescription($value)
+    public function setDescription(?string $value): void
     {
         $this->description = $value;
     }
@@ -35,7 +35,7 @@ class LineItemInvoiceData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->description)) {
@@ -49,7 +49,7 @@ class LineItemInvoiceData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): LineItemInvoiceData
     {
         parent::fromObject($object);
         if (property_exists($object, 'description')) {

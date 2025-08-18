@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class OtherDetails extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $metaData = null;
+    public ?string $metaData = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $travelData = null;
+    public ?string $travelData = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMetaData()
+    public function getMetaData(): ?string
     {
         return $this->metaData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMetaData($value)
+    public function setMetaData(?string $value): void
     {
         $this->metaData = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTravelData()
+    public function getTravelData(): ?string
     {
         return $this->travelData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTravelData($value)
+    public function setTravelData(?string $value): void
     {
         $this->travelData = $value;
     }
@@ -56,7 +56,7 @@ class OtherDetails extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->metaData)) {
@@ -73,7 +73,7 @@ class OtherDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): OtherDetails
     {
         parent::fromObject($object);
         if (property_exists($object, 'metaData')) {

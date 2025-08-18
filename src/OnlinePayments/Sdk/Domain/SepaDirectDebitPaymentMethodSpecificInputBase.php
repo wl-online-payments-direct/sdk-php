@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 {
     /**
-     * @var SepaDirectDebitPaymentProduct771SpecificInputBase
+     * @var SepaDirectDebitPaymentProduct771SpecificInputBase|null
      */
-    public $paymentProduct771SpecificInput = null;
+    public ?SepaDirectDebitPaymentProduct771SpecificInputBase $paymentProduct771SpecificInput = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return SepaDirectDebitPaymentProduct771SpecificInputBase
+     * @return SepaDirectDebitPaymentProduct771SpecificInputBase|null
      */
-    public function getPaymentProduct771SpecificInput()
+    public function getPaymentProduct771SpecificInput(): ?SepaDirectDebitPaymentProduct771SpecificInputBase
     {
         return $this->paymentProduct771SpecificInput;
     }
 
     /**
-     * @param SepaDirectDebitPaymentProduct771SpecificInputBase
+     * @param SepaDirectDebitPaymentProduct771SpecificInputBase|null $value
      */
-    public function setPaymentProduct771SpecificInput($value)
+    public function setPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): void
     {
         $this->paymentProduct771SpecificInput = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -56,7 +56,7 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->paymentProduct771SpecificInput)) {
@@ -73,7 +73,7 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SepaDirectDebitPaymentMethodSpecificInputBase
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProduct771SpecificInput')) {

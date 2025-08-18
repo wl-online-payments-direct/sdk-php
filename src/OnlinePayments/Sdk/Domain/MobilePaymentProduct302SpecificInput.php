@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class MobilePaymentProduct302SpecificInput extends DataObject
 {
     /**
-     * @var ApplePayRecurringPaymentRequest
+     * @var ApplePayRecurringPaymentRequest|null
      */
-    public $applePayRecurringPaymentRequest = null;
+    public ?ApplePayRecurringPaymentRequest $applePayRecurringPaymentRequest = null;
 
     /**
-     * @return ApplePayRecurringPaymentRequest
+     * @return ApplePayRecurringPaymentRequest|null
      */
-    public function getApplePayRecurringPaymentRequest()
+    public function getApplePayRecurringPaymentRequest(): ?ApplePayRecurringPaymentRequest
     {
         return $this->applePayRecurringPaymentRequest;
     }
 
     /**
-     * @param ApplePayRecurringPaymentRequest
+     * @param ApplePayRecurringPaymentRequest|null $value
      */
-    public function setApplePayRecurringPaymentRequest($value)
+    public function setApplePayRecurringPaymentRequest(?ApplePayRecurringPaymentRequest $value): void
     {
         $this->applePayRecurringPaymentRequest = $value;
     }
@@ -35,7 +35,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->applePayRecurringPaymentRequest)) {
@@ -49,7 +49,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MobilePaymentProduct302SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'applePayRecurringPaymentRequest')) {

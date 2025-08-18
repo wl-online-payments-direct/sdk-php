@@ -12,18 +12,19 @@ use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
  */
 class MetadataProvider implements MetadataProviderInterface
 {
-    const SDK_VERSION = '6.2.0';
+    const SDK_VERSION = '7.0.0';
 
     /** @var string */
-    private $integrator;
+    private string $integrator;
 
     /** @var ShoppingCartExtension|null */
-    private $shoppingCartExtension;
+    private ?ShoppingCartExtension $shoppingCartExtension;
 
     /**
      * @param CommunicatorConfiguration $communicatorConfiguration
      */
-    public function __construct(CommunicatorConfiguration $communicatorConfiguration) {
+    public function __construct(CommunicatorConfiguration $communicatorConfiguration)
+    {
         $this->integrator = $communicatorConfiguration->getIntegrator();
         $this->shoppingCartExtension = $communicatorConfiguration->getShoppingCartExtension();
     }
@@ -31,7 +32,7 @@ class MetadataProvider implements MetadataProviderInterface
     /**
      * @return string
      */
-    public function getServerMetaInfoValue()
+    public function getServerMetaInfoValue(): string
     {
         // use a stdClass instead of specific class to keep out null properties
         $serverMetaInfo = new stdClass();

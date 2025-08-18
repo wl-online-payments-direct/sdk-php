@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class ReattemptInstructionsConditions extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $maxAttempts = null;
+    public ?int $maxAttempts = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $maxDelay = null;
+    public ?int $maxDelay = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMaxAttempts()
+    public function getMaxAttempts(): ?int
     {
         return $this->maxAttempts;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMaxAttempts($value)
+    public function setMaxAttempts(?int $value): void
     {
         $this->maxAttempts = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMaxDelay()
+    public function getMaxDelay(): ?int
     {
         return $this->maxDelay;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMaxDelay($value)
+    public function setMaxDelay(?int $value): void
     {
         $this->maxDelay = $value;
     }
@@ -56,7 +56,7 @@ class ReattemptInstructionsConditions extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->maxAttempts)) {
@@ -73,7 +73,7 @@ class ReattemptInstructionsConditions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ReattemptInstructionsConditions
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxAttempts')) {

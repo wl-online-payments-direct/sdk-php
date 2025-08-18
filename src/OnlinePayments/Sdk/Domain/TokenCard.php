@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class TokenCard extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $alias = null;
+    public ?string $alias = null;
 
     /**
-     * @var TokenCardData
+     * @var TokenCardData|null
      */
-    public $data = null;
+    public ?TokenCardData $data = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->alias;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAlias($value)
+    public function setAlias(?string $value): void
     {
         $this->alias = $value;
     }
 
     /**
-     * @return TokenCardData
+     * @return TokenCardData|null
      */
-    public function getData()
+    public function getData(): ?TokenCardData
     {
         return $this->data;
     }
 
     /**
-     * @param TokenCardData
+     * @param TokenCardData|null $value
      */
-    public function setData($value)
+    public function setData(?TokenCardData $value): void
     {
         $this->data = $value;
     }
@@ -56,7 +56,7 @@ class TokenCard extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->alias)) {
@@ -73,7 +73,7 @@ class TokenCard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TokenCard
     {
         parent::fromObject($object);
         if (property_exists($object, 'alias')) {

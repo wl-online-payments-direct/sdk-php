@@ -12,358 +12,379 @@ use UnexpectedValueException;
 class CardPaymentMethodSpecificOutput extends DataObject
 {
     /**
-     * @var AcquirerInformation
+     * @var AcquirerInformation|null
      */
-    public $acquirerInformation = null;
+    public ?AcquirerInformation $acquirerInformation = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $authenticatedAmount = null;
+    public ?int $authenticatedAmount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $authorisationCode = null;
+    public ?string $authorisationCode = null;
 
     /**
-     * @var CardEssentials
+     * @var CardEssentials|null
      */
-    public $card = null;
+    public ?CardEssentials $card = null;
 
     /**
-     * @var CurrencyConversion
+     * @var ClickToPay|null
      */
-    public $currencyConversion = null;
+    public ?ClickToPay $clickToPay = null;
 
     /**
-     * @var ExternalTokenLinked
+     * @var CurrencyConversion|null
      */
-    public $externalTokenLinked = null;
+    public ?CurrencyConversion $currencyConversion = null;
 
     /**
-     * @var CardFraudResults
+     * @var ExternalTokenLinked|null
      */
-    public $fraudResults = null;
+    public ?ExternalTokenLinked $externalTokenLinked = null;
 
     /**
-     * @var string
+     * @var CardFraudResults|null
      */
-    public $initialSchemeTransactionId = null;
+    public ?CardFraudResults $fraudResults = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentAccountReference = null;
+    public ?string $initialSchemeTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentOption = null;
+    public ?string $paymentAccountReference = null;
 
     /**
-     * @var PaymentProduct3208SpecificOutput
+     * @var string|null
      */
-    public $paymentProduct3208SpecificOutput = null;
+    public ?string $paymentOption = null;
 
     /**
-     * @var PaymentProduct3209SpecificOutput
+     * @var PaymentProduct3208SpecificOutput|null
      */
-    public $paymentProduct3209SpecificOutput = null;
+    public ?PaymentProduct3208SpecificOutput $paymentProduct3208SpecificOutput = null;
 
     /**
-     * @var int
+     * @var PaymentProduct3209SpecificOutput|null
      */
-    public $paymentProductId = null;
+    public ?PaymentProduct3209SpecificOutput $paymentProduct3209SpecificOutput = null;
 
     /**
-     * @var ReattemptInstructions
+     * @var int|null
      */
-    public $reattemptInstructions = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @var string
+     * @var ReattemptInstructions|null
      */
-    public $schemeReferenceData = null;
+    public ?ReattemptInstructions $reattemptInstructions = null;
 
     /**
-     * @var ThreeDSecureResults
+     * @var string|null
      */
-    public $threeDSecureResults = null;
+    public ?string $schemeReferenceData = null;
 
     /**
-     * @var string
+     * @var ThreeDSecureResults|null
      */
-    public $token = null;
+    public ?ThreeDSecureResults $threeDSecureResults = null;
 
     /**
-     * @return AcquirerInformation
+     * @var string|null
      */
-    public function getAcquirerInformation()
+    public ?string $token = null;
+
+    /**
+     * @return AcquirerInformation|null
+     */
+    public function getAcquirerInformation(): ?AcquirerInformation
     {
         return $this->acquirerInformation;
     }
 
     /**
-     * @param AcquirerInformation
+     * @param AcquirerInformation|null $value
      */
-    public function setAcquirerInformation($value)
+    public function setAcquirerInformation(?AcquirerInformation $value): void
     {
         $this->acquirerInformation = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getAuthenticatedAmount()
+    public function getAuthenticatedAmount(): ?int
     {
         return $this->authenticatedAmount;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setAuthenticatedAmount($value)
+    public function setAuthenticatedAmount(?int $value): void
     {
         $this->authenticatedAmount = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAuthorisationCode()
+    public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAuthorisationCode($value)
+    public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
     }
 
     /**
-     * @return CardEssentials
+     * @return CardEssentials|null
      */
-    public function getCard()
+    public function getCard(): ?CardEssentials
     {
         return $this->card;
     }
 
     /**
-     * @param CardEssentials
+     * @param CardEssentials|null $value
      */
-    public function setCard($value)
+    public function setCard(?CardEssentials $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return CurrencyConversion
+     * @return ClickToPay|null
      */
-    public function getCurrencyConversion()
+    public function getClickToPay(): ?ClickToPay
+    {
+        return $this->clickToPay;
+    }
+
+    /**
+     * @param ClickToPay|null $value
+     */
+    public function setClickToPay(?ClickToPay $value): void
+    {
+        $this->clickToPay = $value;
+    }
+
+    /**
+     * @return CurrencyConversion|null
+     */
+    public function getCurrencyConversion(): ?CurrencyConversion
     {
         return $this->currencyConversion;
     }
 
     /**
-     * @param CurrencyConversion
+     * @param CurrencyConversion|null $value
      */
-    public function setCurrencyConversion($value)
+    public function setCurrencyConversion(?CurrencyConversion $value): void
     {
         $this->currencyConversion = $value;
     }
 
     /**
-     * @return ExternalTokenLinked
+     * @return ExternalTokenLinked|null
      */
-    public function getExternalTokenLinked()
+    public function getExternalTokenLinked(): ?ExternalTokenLinked
     {
         return $this->externalTokenLinked;
     }
 
     /**
-     * @param ExternalTokenLinked
+     * @param ExternalTokenLinked|null $value
      */
-    public function setExternalTokenLinked($value)
+    public function setExternalTokenLinked(?ExternalTokenLinked $value): void
     {
         $this->externalTokenLinked = $value;
     }
 
     /**
-     * @return CardFraudResults
+     * @return CardFraudResults|null
      */
-    public function getFraudResults()
+    public function getFraudResults(): ?CardFraudResults
     {
         return $this->fraudResults;
     }
 
     /**
-     * @param CardFraudResults
+     * @param CardFraudResults|null $value
      */
-    public function setFraudResults($value)
+    public function setFraudResults(?CardFraudResults $value): void
     {
         $this->fraudResults = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getInitialSchemeTransactionId()
+    public function getInitialSchemeTransactionId(): ?string
     {
         return $this->initialSchemeTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setInitialSchemeTransactionId($value)
+    public function setInitialSchemeTransactionId(?string $value): void
     {
         $this->initialSchemeTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentAccountReference()
+    public function getPaymentAccountReference(): ?string
     {
         return $this->paymentAccountReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentAccountReference($value)
+    public function setPaymentAccountReference(?string $value): void
     {
         $this->paymentAccountReference = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentOption()
+    public function getPaymentOption(): ?string
     {
         return $this->paymentOption;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentOption($value)
+    public function setPaymentOption(?string $value): void
     {
         $this->paymentOption = $value;
     }
 
     /**
-     * @return PaymentProduct3208SpecificOutput
+     * @return PaymentProduct3208SpecificOutput|null
      */
-    public function getPaymentProduct3208SpecificOutput()
+    public function getPaymentProduct3208SpecificOutput(): ?PaymentProduct3208SpecificOutput
     {
         return $this->paymentProduct3208SpecificOutput;
     }
 
     /**
-     * @param PaymentProduct3208SpecificOutput
+     * @param PaymentProduct3208SpecificOutput|null $value
      */
-    public function setPaymentProduct3208SpecificOutput($value)
+    public function setPaymentProduct3208SpecificOutput(?PaymentProduct3208SpecificOutput $value): void
     {
         $this->paymentProduct3208SpecificOutput = $value;
     }
 
     /**
-     * @return PaymentProduct3209SpecificOutput
+     * @return PaymentProduct3209SpecificOutput|null
      */
-    public function getPaymentProduct3209SpecificOutput()
+    public function getPaymentProduct3209SpecificOutput(): ?PaymentProduct3209SpecificOutput
     {
         return $this->paymentProduct3209SpecificOutput;
     }
 
     /**
-     * @param PaymentProduct3209SpecificOutput
+     * @param PaymentProduct3209SpecificOutput|null $value
      */
-    public function setPaymentProduct3209SpecificOutput($value)
+    public function setPaymentProduct3209SpecificOutput(?PaymentProduct3209SpecificOutput $value): void
     {
         $this->paymentProduct3209SpecificOutput = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
-     * @return ReattemptInstructions
+     * @return ReattemptInstructions|null
      */
-    public function getReattemptInstructions()
+    public function getReattemptInstructions(): ?ReattemptInstructions
     {
         return $this->reattemptInstructions;
     }
 
     /**
-     * @param ReattemptInstructions
+     * @param ReattemptInstructions|null $value
      */
-    public function setReattemptInstructions($value)
+    public function setReattemptInstructions(?ReattemptInstructions $value): void
     {
         $this->reattemptInstructions = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSchemeReferenceData()
+    public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setSchemeReferenceData($value)
+    public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
     }
 
     /**
-     * @return ThreeDSecureResults
+     * @return ThreeDSecureResults|null
      */
-    public function getThreeDSecureResults()
+    public function getThreeDSecureResults(): ?ThreeDSecureResults
     {
         return $this->threeDSecureResults;
     }
 
     /**
-     * @param ThreeDSecureResults
+     * @param ThreeDSecureResults|null $value
      */
-    public function setThreeDSecureResults($value)
+    public function setThreeDSecureResults(?ThreeDSecureResults $value): void
     {
         $this->threeDSecureResults = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setToken($value)
+    public function setToken(?string $value): void
     {
         $this->token = $value;
     }
@@ -371,7 +392,7 @@ class CardPaymentMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acquirerInformation)) {
@@ -385,6 +406,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
+        }
+        if (!is_null($this->clickToPay)) {
+            $object->clickToPay = $this->clickToPay->toObject();
         }
         if (!is_null($this->currencyConversion)) {
             $object->currencyConversion = $this->currencyConversion->toObject();
@@ -433,7 +457,7 @@ class CardPaymentMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardPaymentMethodSpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerInformation')) {
@@ -455,6 +479,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
             }
             $value = new CardEssentials();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'clickToPay')) {
+            if (!is_object($object->clickToPay)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->clickToPay, true) . '\' is not an object');
+            }
+            $value = new ClickToPay();
+            $this->clickToPay = $value->fromObject($object->clickToPay);
         }
         if (property_exists($object, 'currencyConversion')) {
             if (!is_object($object->currencyConversion)) {

@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentProduct3012SpecificInput extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $forceAuthentication = null;
+    public ?bool $forceAuthentication = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isDeferredPayment = null;
+    public ?bool $isDeferredPayment = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isWipTransaction = null;
+    public ?bool $isWipTransaction = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $wipMerchantAuthenticationMethod = null;
+    public ?string $wipMerchantAuthenticationMethod = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getForceAuthentication()
+    public function getForceAuthentication(): ?bool
     {
         return $this->forceAuthentication;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setForceAuthentication($value)
+    public function setForceAuthentication(?bool $value): void
     {
         $this->forceAuthentication = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsDeferredPayment()
+    public function getIsDeferredPayment(): ?bool
     {
         return $this->isDeferredPayment;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsDeferredPayment($value)
+    public function setIsDeferredPayment(?bool $value): void
     {
         $this->isDeferredPayment = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsWipTransaction()
+    public function getIsWipTransaction(): ?bool
     {
         return $this->isWipTransaction;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsWipTransaction($value)
+    public function setIsWipTransaction(?bool $value): void
     {
         $this->isWipTransaction = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getWipMerchantAuthenticationMethod()
+    public function getWipMerchantAuthenticationMethod(): ?string
     {
         return $this->wipMerchantAuthenticationMethod;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setWipMerchantAuthenticationMethod($value)
+    public function setWipMerchantAuthenticationMethod(?string $value): void
     {
         $this->wipMerchantAuthenticationMethod = $value;
     }
@@ -98,7 +98,7 @@ class PaymentProduct3012SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->forceAuthentication)) {
@@ -121,7 +121,7 @@ class PaymentProduct3012SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct3012SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'forceAuthentication')) {

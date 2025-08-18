@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class LengthValidator extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $maxLength = null;
+    public ?int $maxLength = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $minLength = null;
+    public ?int $minLength = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMaxLength()
+    public function getMaxLength(): ?int
     {
         return $this->maxLength;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMaxLength($value)
+    public function setMaxLength(?int $value): void
     {
         $this->maxLength = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMinLength()
+    public function getMinLength(): ?int
     {
         return $this->minLength;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMinLength($value)
+    public function setMinLength(?int $value): void
     {
         $this->minLength = $value;
     }
@@ -56,7 +56,7 @@ class LengthValidator extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->maxLength)) {
@@ -73,7 +73,7 @@ class LengthValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): LengthValidator
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxLength')) {

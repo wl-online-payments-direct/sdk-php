@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class PaymentContext extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $countryCode = null;
+    public ?string $countryCode = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isRecurring = null;
+    public ?bool $isRecurring = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCountryCode($value)
+    public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsRecurring()
+    public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsRecurring($value)
+    public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
     }
@@ -77,7 +77,7 @@ class PaymentContext extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amountOfMoney)) {
@@ -97,7 +97,7 @@ class PaymentContext extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentContext
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

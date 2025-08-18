@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class ShowInstructionsData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $showData = null;
+    public ?string $showData = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShowData()
+    public function getShowData(): ?string
     {
         return $this->showData;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setShowData($value)
+    public function setShowData(?string $value): void
     {
         $this->showData = $value;
     }
@@ -35,7 +35,7 @@ class ShowInstructionsData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->showData)) {
@@ -49,7 +49,7 @@ class ShowInstructionsData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ShowInstructionsData
     {
         parent::fromObject($object);
         if (property_exists($object, 'showData')) {

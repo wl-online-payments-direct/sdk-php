@@ -6,21 +6,37 @@ namespace OnlinePayments\Sdk\Merchant;
 
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\Merchant\Captures\CapturesClient;
+use OnlinePayments\Sdk\Merchant\Captures\CapturesClientInterface;
 use OnlinePayments\Sdk\Merchant\Complete\CompleteClient;
+use OnlinePayments\Sdk\Merchant\Complete\CompleteClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClient;
+use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClient;
+use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClient;
+use OnlinePayments\Sdk\Merchant\Mandates\MandatesClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClient;
+use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClient;
+use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClient;
+use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
 use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClient;
+use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClientInterface;
 use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClient;
+use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClientInterface;
 use OnlinePayments\Sdk\Merchant\Products\ProductsClient;
+use OnlinePayments\Sdk\Merchant\Products\ProductsClientInterface;
 use OnlinePayments\Sdk\Merchant\Refunds\RefundsClient;
+use OnlinePayments\Sdk\Merchant\Refunds\RefundsClientInterface;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClient;
+use OnlinePayments\Sdk\Merchant\Services\ServicesClientInterface;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClient;
+use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClient;
+use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
 use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClient;
+use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
 
 /**
  * Merchant client.
@@ -30,7 +46,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function hostedCheckout()
+    public function hostedCheckout(): HostedCheckoutClientInterface
     {
         return new HostedCheckoutClient($this, $this->context);
     }
@@ -38,7 +54,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function hostedTokenization()
+    public function hostedTokenization(): HostedTokenizationClientInterface
     {
         return new HostedTokenizationClient($this, $this->context);
     }
@@ -46,7 +62,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function payments()
+    public function payments(): PaymentsClientInterface
     {
         return new PaymentsClient($this, $this->context);
     }
@@ -54,7 +70,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function captures()
+    public function captures(): CapturesClientInterface
     {
         return new CapturesClient($this, $this->context);
     }
@@ -62,7 +78,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function refunds()
+    public function refunds(): RefundsClientInterface
     {
         return new RefundsClient($this, $this->context);
     }
@@ -70,7 +86,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function complete()
+    public function complete(): CompleteClientInterface
     {
         return new CompleteClient($this, $this->context);
     }
@@ -78,7 +94,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function productGroups()
+    public function productGroups(): ProductGroupsClientInterface
     {
         return new ProductGroupsClient($this, $this->context);
     }
@@ -86,7 +102,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function products()
+    public function products(): ProductsClientInterface
     {
         return new ProductsClient($this, $this->context);
     }
@@ -94,7 +110,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function services()
+    public function services(): ServicesClientInterface
     {
         return new ServicesClient($this, $this->context);
     }
@@ -102,7 +118,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function webhooks()
+    public function webhooks(): WebhooksClientInterface
     {
         return new WebhooksClient($this, $this->context);
     }
@@ -110,7 +126,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function sessions()
+    public function sessions(): SessionsClientInterface
     {
         return new SessionsClient($this, $this->context);
     }
@@ -118,7 +134,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function tokens()
+    public function tokens(): TokensClientInterface
     {
         return new TokensClient($this, $this->context);
     }
@@ -126,7 +142,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function payouts()
+    public function payouts(): PayoutsClientInterface
     {
         return new PayoutsClient($this, $this->context);
     }
@@ -134,7 +150,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function mandates()
+    public function mandates(): MandatesClientInterface
     {
         return new MandatesClient($this, $this->context);
     }
@@ -142,7 +158,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function privacyPolicy()
+    public function privacyPolicy(): PrivacyPolicyClientInterface
     {
         return new PrivacyPolicyClient($this, $this->context);
     }
@@ -150,7 +166,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     /**
      * @inheritdoc
      */
-    public function paymentLinks()
+    public function paymentLinks(): PaymentLinksClientInterface
     {
         return new PaymentLinksClient($this, $this->context);
     }

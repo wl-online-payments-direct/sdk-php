@@ -12,127 +12,127 @@ use UnexpectedValueException;
 class CreateHostedTokenizationRequest extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $askConsumerConsent = null;
+    public ?bool $askConsumerConsent = null;
 
     /**
-     * @var CreditCardSpecificInputHostedTokenization
+     * @var CreditCardSpecificInputHostedTokenization|null
      */
-    public $creditCardSpecificInput = null;
+    public ?CreditCardSpecificInputHostedTokenization $creditCardSpecificInput = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $locale = null;
+    public ?string $locale = null;
 
     /**
-     * @var PaymentProductFiltersHostedTokenization
+     * @var PaymentProductFiltersHostedTokenization|null
      */
-    public $paymentProductFilters = null;
+    public ?PaymentProductFiltersHostedTokenization $paymentProductFilters = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $tokens = null;
+    public ?string $tokens = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $variant = null;
+    public ?string $variant = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAskConsumerConsent()
+    public function getAskConsumerConsent(): ?bool
     {
         return $this->askConsumerConsent;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setAskConsumerConsent($value)
+    public function setAskConsumerConsent(?bool $value): void
     {
         $this->askConsumerConsent = $value;
     }
 
     /**
-     * @return CreditCardSpecificInputHostedTokenization
+     * @return CreditCardSpecificInputHostedTokenization|null
      */
-    public function getCreditCardSpecificInput()
+    public function getCreditCardSpecificInput(): ?CreditCardSpecificInputHostedTokenization
     {
         return $this->creditCardSpecificInput;
     }
 
     /**
-     * @param CreditCardSpecificInputHostedTokenization
+     * @param CreditCardSpecificInputHostedTokenization|null $value
      */
-    public function setCreditCardSpecificInput($value)
+    public function setCreditCardSpecificInput(?CreditCardSpecificInputHostedTokenization $value): void
     {
         $this->creditCardSpecificInput = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocale()
+    public function getLocale(): ?string
     {
         return $this->locale;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLocale($value)
+    public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
-     * @return PaymentProductFiltersHostedTokenization
+     * @return PaymentProductFiltersHostedTokenization|null
      */
-    public function getPaymentProductFilters()
+    public function getPaymentProductFilters(): ?PaymentProductFiltersHostedTokenization
     {
         return $this->paymentProductFilters;
     }
 
     /**
-     * @param PaymentProductFiltersHostedTokenization
+     * @param PaymentProductFiltersHostedTokenization|null $value
      */
-    public function setPaymentProductFilters($value)
+    public function setPaymentProductFilters(?PaymentProductFiltersHostedTokenization $value): void
     {
         $this->paymentProductFilters = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTokens()
+    public function getTokens(): ?string
     {
         return $this->tokens;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTokens($value)
+    public function setTokens(?string $value): void
     {
         $this->tokens = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVariant()
+    public function getVariant(): ?string
     {
         return $this->variant;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setVariant($value)
+    public function setVariant(?string $value): void
     {
         $this->variant = $value;
     }
@@ -140,7 +140,7 @@ class CreateHostedTokenizationRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->askConsumerConsent)) {
@@ -169,7 +169,7 @@ class CreateHostedTokenizationRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreateHostedTokenizationRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'askConsumerConsent')) {

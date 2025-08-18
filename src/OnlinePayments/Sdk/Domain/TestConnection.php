@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class TestConnection extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $result = null;
+    public ?string $result = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getResult()
+    public function getResult(): ?string
     {
         return $this->result;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setResult($value)
+    public function setResult(?string $value): void
     {
         $this->result = $value;
     }
@@ -35,7 +35,7 @@ class TestConnection extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->result)) {
@@ -49,7 +49,7 @@ class TestConnection extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TestConnection
     {
         parent::fromObject($object);
         if (property_exists($object, 'result')) {

@@ -4,7 +4,6 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Products;
 
-
 use OnlinePayments\Sdk\Communication\RequestObject;
 
 /**
@@ -15,137 +14,93 @@ use OnlinePayments\Sdk\Communication\RequestObject;
 class GetPaymentProductNetworksParams extends RequestObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $countryCode;
+    public ?string $countryCode = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $currencyCode;
+    public ?string $currencyCode = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $amount;
+    public ?int $amount = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isRecurring;
+    public ?bool $isRecurring = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCountryCode($value)
+    public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
-     * @param string
+     * @return string|null
      */
-    public function addCountryCode($value)
-    {
-        if (is_null($this->countryCode)) {
-            $this->countryCode = [];
-        }
-        $this->countryCode[] = $value;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCurrencyCode($value)
+    public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
     }
 
     /**
-     * @param string
+     * @return int|null
      */
-    public function addCurrencyCode($value)
-    {
-        if (is_null($this->currencyCode)) {
-            $this->currencyCode = [];
-        }
-        $this->currencyCode[] = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getAmount()
+    public function getAmount(): ?int
     {
         return $this->amount;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setAmount($value)
+    public function setAmount(?int $value): void
     {
         $this->amount = $value;
     }
 
     /**
-     * @param int
+     * @return bool|null
      */
-    public function addAmount($value)
-    {
-        if (is_null($this->amount)) {
-            $this->amount = [];
-        }
-        $this->amount[] = $value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsRecurring()
+    public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsRecurring($value)
+    public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
     }
 
     /**
-     * @param bool
-     */
-    public function addIsRecurring($value)
-    {
-        if (is_null($this->isRecurring)) {
-            $this->isRecurring = [];
-        }
-        $this->isRecurring[] = $value;
-    }
-
-    /**
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $array = [];
         if ($this->countryCode != null) {

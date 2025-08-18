@@ -12,256 +12,256 @@ use UnexpectedValueException;
 class CaptureOutput extends DataObject
 {
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $acquiredAmount = null;
+    public ?AmountOfMoney $acquiredAmount = null;
 
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $amountOfMoney = null;
+    public ?AmountOfMoney $amountOfMoney = null;
 
     /**
-     * @var int
+     * @var int|null
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
-    public $amountPaid = null;
+    public ?int $amountPaid = null;
 
     /**
-     * @var CardPaymentMethodSpecificOutput
+     * @var CardPaymentMethodSpecificOutput|null
      */
-    public $cardPaymentMethodSpecificOutput = null;
+    public ?CardPaymentMethodSpecificOutput $cardPaymentMethodSpecificOutput = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $merchantParameters = null;
+    public ?string $merchantParameters = null;
 
     /**
-     * @var MobilePaymentMethodSpecificOutput
+     * @var MobilePaymentMethodSpecificOutput|null
      */
-    public $mobilePaymentMethodSpecificOutput = null;
+    public ?MobilePaymentMethodSpecificOutput $mobilePaymentMethodSpecificOutput = null;
 
     /**
-     * @var OperationPaymentReferences
+     * @var OperationPaymentReferences|null
      */
-    public $operationReferences = null;
+    public ?OperationPaymentReferences $operationReferences = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentMethod = null;
+    public ?string $paymentMethod = null;
 
     /**
-     * @var RedirectPaymentMethodSpecificOutput
+     * @var RedirectPaymentMethodSpecificOutput|null
      */
-    public $redirectPaymentMethodSpecificOutput = null;
+    public ?RedirectPaymentMethodSpecificOutput $redirectPaymentMethodSpecificOutput = null;
 
     /**
-     * @var PaymentReferences
+     * @var PaymentReferences|null
      */
-    public $references = null;
+    public ?PaymentReferences $references = null;
 
     /**
-     * @var SepaDirectDebitPaymentMethodSpecificOutput
+     * @var SepaDirectDebitPaymentMethodSpecificOutput|null
      */
-    public $sepaDirectDebitPaymentMethodSpecificOutput = null;
+    public ?SepaDirectDebitPaymentMethodSpecificOutput $sepaDirectDebitPaymentMethodSpecificOutput = null;
 
     /**
-     * @var SurchargeSpecificOutput
+     * @var SurchargeSpecificOutput|null
      */
-    public $surchargeSpecificOutput = null;
+    public ?SurchargeSpecificOutput $surchargeSpecificOutput = null;
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAcquiredAmount()
+    public function getAcquiredAmount(): ?AmountOfMoney
     {
         return $this->acquiredAmount;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAcquiredAmount($value)
+    public function setAcquiredAmount(?AmountOfMoney $value): void
     {
         $this->acquiredAmount = $value;
     }
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getAmountOfMoney()
+    public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setAmountOfMoney($value)
+    public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
-    public function getAmountPaid()
+    public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
-    public function setAmountPaid($value)
+    public function setAmountPaid(?int $value): void
     {
         $this->amountPaid = $value;
     }
 
     /**
-     * @return CardPaymentMethodSpecificOutput
+     * @return CardPaymentMethodSpecificOutput|null
      */
-    public function getCardPaymentMethodSpecificOutput()
+    public function getCardPaymentMethodSpecificOutput(): ?CardPaymentMethodSpecificOutput
     {
         return $this->cardPaymentMethodSpecificOutput;
     }
 
     /**
-     * @param CardPaymentMethodSpecificOutput
+     * @param CardPaymentMethodSpecificOutput|null $value
      */
-    public function setCardPaymentMethodSpecificOutput($value)
+    public function setCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): void
     {
         $this->cardPaymentMethodSpecificOutput = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantParameters()
+    public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMerchantParameters($value)
+    public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
     }
 
     /**
-     * @return MobilePaymentMethodSpecificOutput
+     * @return MobilePaymentMethodSpecificOutput|null
      */
-    public function getMobilePaymentMethodSpecificOutput()
+    public function getMobilePaymentMethodSpecificOutput(): ?MobilePaymentMethodSpecificOutput
     {
         return $this->mobilePaymentMethodSpecificOutput;
     }
 
     /**
-     * @param MobilePaymentMethodSpecificOutput
+     * @param MobilePaymentMethodSpecificOutput|null $value
      */
-    public function setMobilePaymentMethodSpecificOutput($value)
+    public function setMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): void
     {
         $this->mobilePaymentMethodSpecificOutput = $value;
     }
 
     /**
-     * @return OperationPaymentReferences
+     * @return OperationPaymentReferences|null
      */
-    public function getOperationReferences()
+    public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
     }
 
     /**
-     * @param OperationPaymentReferences
+     * @param OperationPaymentReferences|null $value
      */
-    public function setOperationReferences($value)
+    public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentMethod($value)
+    public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
     }
 
     /**
-     * @return RedirectPaymentMethodSpecificOutput
+     * @return RedirectPaymentMethodSpecificOutput|null
      */
-    public function getRedirectPaymentMethodSpecificOutput()
+    public function getRedirectPaymentMethodSpecificOutput(): ?RedirectPaymentMethodSpecificOutput
     {
         return $this->redirectPaymentMethodSpecificOutput;
     }
 
     /**
-     * @param RedirectPaymentMethodSpecificOutput
+     * @param RedirectPaymentMethodSpecificOutput|null $value
      */
-    public function setRedirectPaymentMethodSpecificOutput($value)
+    public function setRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): void
     {
         $this->redirectPaymentMethodSpecificOutput = $value;
     }
 
     /**
-     * @return PaymentReferences
+     * @return PaymentReferences|null
      */
-    public function getReferences()
+    public function getReferences(): ?PaymentReferences
     {
         return $this->references;
     }
 
     /**
-     * @param PaymentReferences
+     * @param PaymentReferences|null $value
      */
-    public function setReferences($value)
+    public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
-     * @return SepaDirectDebitPaymentMethodSpecificOutput
+     * @return SepaDirectDebitPaymentMethodSpecificOutput|null
      */
-    public function getSepaDirectDebitPaymentMethodSpecificOutput()
+    public function getSepaDirectDebitPaymentMethodSpecificOutput(): ?SepaDirectDebitPaymentMethodSpecificOutput
     {
         return $this->sepaDirectDebitPaymentMethodSpecificOutput;
     }
 
     /**
-     * @param SepaDirectDebitPaymentMethodSpecificOutput
+     * @param SepaDirectDebitPaymentMethodSpecificOutput|null $value
      */
-    public function setSepaDirectDebitPaymentMethodSpecificOutput($value)
+    public function setSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificOutput = $value;
     }
 
     /**
-     * @return SurchargeSpecificOutput
+     * @return SurchargeSpecificOutput|null
      */
-    public function getSurchargeSpecificOutput()
+    public function getSurchargeSpecificOutput(): ?SurchargeSpecificOutput
     {
         return $this->surchargeSpecificOutput;
     }
 
     /**
-     * @param SurchargeSpecificOutput
+     * @param SurchargeSpecificOutput|null $value
      */
-    public function setSurchargeSpecificOutput($value)
+    public function setSurchargeSpecificOutput(?SurchargeSpecificOutput $value): void
     {
         $this->surchargeSpecificOutput = $value;
     }
@@ -269,7 +269,7 @@ class CaptureOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acquiredAmount)) {
@@ -316,7 +316,7 @@ class CaptureOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CaptureOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquiredAmount')) {

@@ -4,12 +4,13 @@
  */
 namespace OnlinePayments\Sdk\Merchant\HostedTokenization;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreateHostedTokenizationRequest;
+use OnlinePayments\Sdk\Domain\CreateHostedTokenizationResponse;
+use OnlinePayments\Sdk\Domain\GetHostedTokenizationResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,13 +19,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class HostedTokenizationClient extends ApiResource implements HostedTokenizationClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function createHostedTokenization(CreateHostedTokenizationRequest $body, ?CallContext $callContext = null)
+    public function createHostedTokenization(CreateHostedTokenizationRequest $body, CallContext $callContext = null): CreateHostedTokenizationResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedTokenizationResponse';
@@ -50,7 +50,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     /**
      * @inheritdoc
      */
-    public function getHostedTokenization($hostedTokenizationId, ?CallContext $callContext = null)
+    public function getHostedTokenization(string $hostedTokenizationId, CallContext $callContext = null): GetHostedTokenizationResponse
     {
         $this->context['hostedTokenizationId'] = $hostedTokenizationId;
         $responseClassMap = new ResponseClassMap();
@@ -74,7 +74,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

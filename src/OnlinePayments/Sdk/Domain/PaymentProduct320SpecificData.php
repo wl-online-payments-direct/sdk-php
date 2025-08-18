@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class PaymentProduct320SpecificData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $gateway = null;
+    public ?string $gateway = null;
 
     /**
-     * @var string[]
+     * @var string[]|null
      */
-    public $networks = null;
+    public ?array $networks = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGateway()
+    public function getGateway(): ?string
     {
         return $this->gateway;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setGateway($value)
+    public function setGateway(?string $value): void
     {
         $this->gateway = $value;
     }
 
     /**
-     * @return string[]
+     * @return string[]|null
      */
-    public function getNetworks()
+    public function getNetworks(): ?array
     {
         return $this->networks;
     }
 
     /**
-     * @param string[]
+     * @param string[]|null $value
      */
-    public function setNetworks($value)
+    public function setNetworks(?array $value): void
     {
         $this->networks = $value;
     }
@@ -56,7 +56,7 @@ class PaymentProduct320SpecificData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->gateway)) {
@@ -78,7 +78,7 @@ class PaymentProduct320SpecificData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct320SpecificData
     {
         parent::fromObject($object);
         if (property_exists($object, 'gateway')) {

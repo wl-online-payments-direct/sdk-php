@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class SurchargeCalculationCard extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $cardNumber = null;
+    public ?string $cardNumber = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCardNumber()
+    public function getCardNumber(): ?string
     {
         return $this->cardNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCardNumber($value)
+    public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
@@ -56,7 +56,7 @@ class SurchargeCalculationCard extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->cardNumber)) {
@@ -73,7 +73,7 @@ class SurchargeCalculationCard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SurchargeCalculationCard
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardNumber')) {

@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\RefundsResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -16,12 +17,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class RefundsClient extends ApiResource implements RefundsClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
      */
-    public function getRefunds($paymentId, ?CallContext $callContext = null)
+    public function getRefunds(string $paymentId, CallContext $callContext = null): RefundsResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
@@ -45,7 +46,7 @@ class RefundsClient extends ApiResource implements RefundsClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

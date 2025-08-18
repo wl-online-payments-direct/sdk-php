@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class MobileThreeDSecureChallengeParameters extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsReferenceNumber = null;
+    public ?string $acsReferenceNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsSignedContent = null;
+    public ?string $acsSignedContent = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $acsTransactionId = null;
+    public ?string $acsTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $threeDServerTransactionId = null;
+    public ?string $threeDServerTransactionId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsReferenceNumber()
+    public function getAcsReferenceNumber(): ?string
     {
         return $this->acsReferenceNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsReferenceNumber($value)
+    public function setAcsReferenceNumber(?string $value): void
     {
         $this->acsReferenceNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsSignedContent()
+    public function getAcsSignedContent(): ?string
     {
         return $this->acsSignedContent;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsSignedContent($value)
+    public function setAcsSignedContent(?string $value): void
     {
         $this->acsSignedContent = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAcsTransactionId()
+    public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAcsTransactionId($value)
+    public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getThreeDServerTransactionId()
+    public function getThreeDServerTransactionId(): ?string
     {
         return $this->threeDServerTransactionId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setThreeDServerTransactionId($value)
+    public function setThreeDServerTransactionId(?string $value): void
     {
         $this->threeDServerTransactionId = $value;
     }
@@ -98,7 +98,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->acsReferenceNumber)) {
@@ -121,7 +121,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MobileThreeDSecureChallengeParameters
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsReferenceNumber')) {

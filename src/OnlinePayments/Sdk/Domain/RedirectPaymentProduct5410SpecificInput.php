@@ -13,22 +13,22 @@ use UnexpectedValueException;
 class RedirectPaymentProduct5410SpecificInput extends DataObject
 {
     /**
-     * @var DateTime
+     * @var DateTime|null
      */
-    public $secondInstallmentPaymentDate = null;
+    public ?DateTime $secondInstallmentPaymentDate = null;
 
     /**
-     * @return DateTime
+     * @return DateTime|null
      */
-    public function getSecondInstallmentPaymentDate()
+    public function getSecondInstallmentPaymentDate(): ?DateTime
     {
         return $this->secondInstallmentPaymentDate;
     }
 
     /**
-     * @param DateTime
+     * @param DateTime|null $value
      */
-    public function setSecondInstallmentPaymentDate($value)
+    public function setSecondInstallmentPaymentDate(?DateTime $value): void
     {
         $this->secondInstallmentPaymentDate = $value;
     }
@@ -36,7 +36,7 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->secondInstallmentPaymentDate)) {
@@ -50,7 +50,7 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct5410SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'secondInstallmentPaymentDate')) {

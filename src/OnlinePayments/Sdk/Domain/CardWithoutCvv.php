@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class CardWithoutCvv extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $cardNumber = null;
+    public ?string $cardNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $cardholderName = null;
+    public ?string $cardholderName = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $expiryDate = null;
+    public ?string $expiryDate = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCardNumber()
+    public function getCardNumber(): ?string
     {
         return $this->cardNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCardNumber($value)
+    public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCardholderName()
+    public function getCardholderName(): ?string
     {
         return $this->cardholderName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCardholderName($value)
+    public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExpiryDate()
+    public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setExpiryDate($value)
+    public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
     }
@@ -77,7 +77,7 @@ class CardWithoutCvv extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->cardNumber)) {
@@ -97,7 +97,7 @@ class CardWithoutCvv extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardWithoutCvv
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardNumber')) {

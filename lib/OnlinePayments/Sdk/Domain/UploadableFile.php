@@ -11,16 +11,16 @@ use UnexpectedValueException;
 class UploadableFile
 {
     /** @var string */
-    private $fileName;
+    private string $fileName;
 
     /** @var resource|string|callable */
     private $content;
 
     /** @var string */
-    private $contentType;
+    private string $contentType;
 
     /** @var int */
-    private $contentLength;
+    private int $contentLength;
 
     /**
      * @param string $fileName
@@ -29,15 +29,15 @@ class UploadableFile
      * @param string $contentType
      * @param int $contentLength
      */
-    public function __construct($fileName, $content, $contentType, $contentLength = -1)
+    public function __construct(string $fileName, $content, string $contentType, int $contentLength = -1)
     {
-        if (is_null($fileName) || strlen(trim($fileName)) == 0) {
+        if (strlen(trim($fileName)) == 0) {
             throw new UnexpectedValueException("fileName is required");
         }
         if (!is_resource($content) && !is_string($content) && !is_callable($content)) {
             throw new UnexpectedValueException('content is required as resource, string or callable');
         }
-        if (is_null($contentType) || strlen(trim($contentType)) == 0) {
+        if (strlen(trim($contentType)) == 0) {
             throw new UnexpectedValueException("contentType is required");
         }
         $this->fileName = $fileName;
@@ -52,7 +52,7 @@ class UploadableFile
     /**
      * @return string The name of the file.
      */
-    public function getFileName()
+    public function getFileName(): string
     {
         return $this->fileName;
     }
@@ -69,7 +69,7 @@ class UploadableFile
     /**
      * @return string The file's content type.
      */
-    public function getContentType()
+    public function getContentType(): string
     {
         return $this->contentType;
     }
@@ -77,7 +77,7 @@ class UploadableFile
     /**
      * @return int The file's content length, or -1 if not known.
      */
-    public function getContentLength()
+    public function getContentLength(): int
     {
         return $this->contentLength;
     }

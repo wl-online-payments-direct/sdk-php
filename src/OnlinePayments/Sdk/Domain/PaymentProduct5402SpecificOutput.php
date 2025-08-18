@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class PaymentProduct5402SpecificOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $brand = null;
+    public ?string $brand = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBrand()
+    public function getBrand(): ?string
     {
         return $this->brand;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setBrand($value)
+    public function setBrand(?string $value): void
     {
         $this->brand = $value;
     }
@@ -35,7 +35,7 @@ class PaymentProduct5402SpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->brand)) {
@@ -49,7 +49,7 @@ class PaymentProduct5402SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct5402SpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'brand')) {

@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class CardPayoutMethodSpecificInput extends DataObject
 {
     /**
-     * @var Card
+     * @var Card|null
      */
-    public $card = null;
+    public ?Card $card = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $paymentProductId = null;
+    public ?int $paymentProductId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $payoutReason = null;
+    public ?string $payoutReason = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $token = null;
+    public ?string $token = null;
 
     /**
-     * @return Card
+     * @return Card|null
      */
-    public function getCard()
+    public function getCard(): ?Card
     {
         return $this->card;
     }
 
     /**
-     * @param Card
+     * @param Card|null $value
      */
-    public function setCard($value)
+    public function setCard(?Card $value): void
     {
         $this->card = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentProductId()
+    public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setPaymentProductId($value)
+    public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPayoutReason()
+    public function getPayoutReason(): ?string
     {
         return $this->payoutReason;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPayoutReason($value)
+    public function setPayoutReason(?string $value): void
     {
         $this->payoutReason = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setToken($value)
+    public function setToken(?string $value): void
     {
         $this->token = $value;
     }
@@ -98,7 +98,7 @@ class CardPayoutMethodSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->card)) {
@@ -121,7 +121,7 @@ class CardPayoutMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CardPayoutMethodSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

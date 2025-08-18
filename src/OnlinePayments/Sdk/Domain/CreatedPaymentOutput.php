@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CreatedPaymentOutput extends DataObject
 {
     /**
-     * @var PaymentResponse
+     * @var PaymentResponse|null
      */
-    public $payment = null;
+    public ?PaymentResponse $payment = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentStatusCategory = null;
+    public ?string $paymentStatusCategory = null;
 
     /**
-     * @return PaymentResponse
+     * @return PaymentResponse|null
      */
-    public function getPayment()
+    public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
     }
 
     /**
-     * @param PaymentResponse
+     * @param PaymentResponse|null $value
      */
-    public function setPayment($value)
+    public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentStatusCategory()
+    public function getPaymentStatusCategory(): ?string
     {
         return $this->paymentStatusCategory;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentStatusCategory($value)
+    public function setPaymentStatusCategory(?string $value): void
     {
         $this->paymentStatusCategory = $value;
     }
@@ -56,7 +56,7 @@ class CreatedPaymentOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->payment)) {
@@ -73,7 +73,7 @@ class CreatedPaymentOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreatedPaymentOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'payment')) {

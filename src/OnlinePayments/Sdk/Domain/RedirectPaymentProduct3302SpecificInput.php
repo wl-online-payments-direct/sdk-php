@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class RedirectPaymentProduct3302SpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $organizationEntityType = null;
+    public ?string $organizationEntityType = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $organizationRegistrationId = null;
+    public ?string $organizationRegistrationId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $vatId = null;
+    public ?string $vatId = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrganizationEntityType()
+    public function getOrganizationEntityType(): ?string
     {
         return $this->organizationEntityType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setOrganizationEntityType($value)
+    public function setOrganizationEntityType(?string $value): void
     {
         $this->organizationEntityType = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrganizationRegistrationId()
+    public function getOrganizationRegistrationId(): ?string
     {
         return $this->organizationRegistrationId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setOrganizationRegistrationId($value)
+    public function setOrganizationRegistrationId(?string $value): void
     {
         $this->organizationRegistrationId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVatId()
+    public function getVatId(): ?string
     {
         return $this->vatId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setVatId($value)
+    public function setVatId(?string $value): void
     {
         $this->vatId = $value;
     }
@@ -77,7 +77,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->organizationEntityType)) {
@@ -97,7 +97,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct3302SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'organizationEntityType')) {

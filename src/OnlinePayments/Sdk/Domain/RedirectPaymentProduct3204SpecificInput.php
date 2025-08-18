@@ -12,22 +12,43 @@ use UnexpectedValueException;
 class RedirectPaymentProduct3204SpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $blikCode = null;
+    public ?string $aliasLabel = null;
 
     /**
-     * @return string
+     * @var string|null
      */
-    public function getBlikCode()
+    public ?string $blikCode = null;
+
+    /**
+     * @return string|null
+     */
+    public function getAliasLabel(): ?string
+    {
+        return $this->aliasLabel;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setAliasLabel(?string $value): void
+    {
+        $this->aliasLabel = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBlikCode(): ?string
     {
         return $this->blikCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setBlikCode($value)
+    public function setBlikCode(?string $value): void
     {
         $this->blikCode = $value;
     }
@@ -35,9 +56,12 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->aliasLabel)) {
+            $object->aliasLabel = $this->aliasLabel;
+        }
         if (!is_null($this->blikCode)) {
             $object->blikCode = $this->blikCode;
         }
@@ -49,9 +73,12 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct3204SpecificInput
     {
         parent::fromObject($object);
+        if (property_exists($object, 'aliasLabel')) {
+            $this->aliasLabel = $object->aliasLabel;
+        }
         if (property_exists($object, 'blikCode')) {
             $this->blikCode = $object->blikCode;
         }

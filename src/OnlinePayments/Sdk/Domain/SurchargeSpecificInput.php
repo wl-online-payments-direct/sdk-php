@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class SurchargeSpecificInput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $mode = null;
+    public ?string $mode = null;
 
     /**
-     * @var AmountOfMoney
+     * @var AmountOfMoney|null
      */
-    public $surchargeAmount = null;
+    public ?AmountOfMoney $surchargeAmount = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMode()
+    public function getMode(): ?string
     {
         return $this->mode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMode($value)
+    public function setMode(?string $value): void
     {
         $this->mode = $value;
     }
 
     /**
-     * @return AmountOfMoney
+     * @return AmountOfMoney|null
      */
-    public function getSurchargeAmount()
+    public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
     }
 
     /**
-     * @param AmountOfMoney
+     * @param AmountOfMoney|null $value
      */
-    public function setSurchargeAmount($value)
+    public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
     }
@@ -56,7 +56,7 @@ class SurchargeSpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->mode)) {
@@ -73,7 +73,7 @@ class SurchargeSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): SurchargeSpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'mode')) {

@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PayoutResult extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $id = null;
+    public ?string $id = null;
 
     /**
-     * @var PayoutOutput
+     * @var PayoutOutput|null
      */
-    public $payoutOutput = null;
+    public ?PayoutOutput $payoutOutput = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $status = null;
+    public ?string $status = null;
 
     /**
-     * @var PayoutStatusOutput
+     * @var PayoutStatusOutput|null
      */
-    public $statusOutput = null;
+    public ?PayoutStatusOutput $statusOutput = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setId($value)
+    public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
-     * @return PayoutOutput
+     * @return PayoutOutput|null
      */
-    public function getPayoutOutput()
+    public function getPayoutOutput(): ?PayoutOutput
     {
         return $this->payoutOutput;
     }
 
     /**
-     * @param PayoutOutput
+     * @param PayoutOutput|null $value
      */
-    public function setPayoutOutput($value)
+    public function setPayoutOutput(?PayoutOutput $value): void
     {
         $this->payoutOutput = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setStatus($value)
+    public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
-     * @return PayoutStatusOutput
+     * @return PayoutStatusOutput|null
      */
-    public function getStatusOutput()
+    public function getStatusOutput(): ?PayoutStatusOutput
     {
         return $this->statusOutput;
     }
 
     /**
-     * @param PayoutStatusOutput
+     * @param PayoutStatusOutput|null $value
      */
-    public function setStatusOutput($value)
+    public function setStatusOutput(?PayoutStatusOutput $value): void
     {
         $this->statusOutput = $value;
     }
@@ -98,7 +98,7 @@ class PayoutResult extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->id)) {
@@ -121,7 +121,7 @@ class PayoutResult extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PayoutResult
     {
         parent::fromObject($object);
         if (property_exists($object, 'id')) {

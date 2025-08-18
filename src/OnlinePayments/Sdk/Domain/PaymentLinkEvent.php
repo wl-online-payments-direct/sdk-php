@@ -12,64 +12,64 @@ use UnexpectedValueException;
 class PaymentLinkEvent extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $dateTime = null;
+    public ?string $dateTime = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $details = null;
+    public ?string $details = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $type = null;
+    public ?string $type = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDateTime()
+    public function getDateTime(): ?string
     {
         return $this->dateTime;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDateTime($value)
+    public function setDateTime(?string $value): void
     {
         $this->dateTime = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDetails()
+    public function getDetails(): ?string
     {
         return $this->details;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setDetails($value)
+    public function setDetails(?string $value): void
     {
         $this->details = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setType($value)
+    public function setType(?string $value): void
     {
         $this->type = $value;
     }
@@ -77,7 +77,7 @@ class PaymentLinkEvent extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->dateTime)) {
@@ -97,7 +97,7 @@ class PaymentLinkEvent extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentLinkEvent
     {
         parent::fromObject($object);
         if (property_exists($object, 'dateTime')) {

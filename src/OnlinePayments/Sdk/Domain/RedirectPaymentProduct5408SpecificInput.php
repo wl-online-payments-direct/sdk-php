@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class RedirectPaymentProduct5408SpecificInput extends DataObject
 {
     /**
-     * @var CustomerBankAccount
+     * @var CustomerBankAccount|null
      */
-    public $customerBankAccount = null;
+    public ?CustomerBankAccount $customerBankAccount = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $instantPaymentOnly = null;
+    public ?bool $instantPaymentOnly = null;
 
     /**
-     * @return CustomerBankAccount
+     * @return CustomerBankAccount|null
      */
-    public function getCustomerBankAccount()
+    public function getCustomerBankAccount(): ?CustomerBankAccount
     {
         return $this->customerBankAccount;
     }
 
     /**
-     * @param CustomerBankAccount
+     * @param CustomerBankAccount|null $value
      */
-    public function setCustomerBankAccount($value)
+    public function setCustomerBankAccount(?CustomerBankAccount $value): void
     {
         $this->customerBankAccount = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getInstantPaymentOnly()
+    public function getInstantPaymentOnly(): ?bool
     {
         return $this->instantPaymentOnly;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setInstantPaymentOnly($value)
+    public function setInstantPaymentOnly(?bool $value): void
     {
         $this->instantPaymentOnly = $value;
     }
@@ -56,7 +56,7 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->customerBankAccount)) {
@@ -73,7 +73,7 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RedirectPaymentProduct5408SpecificInput
     {
         parent::fromObject($object);
         if (property_exists($object, 'customerBankAccount')) {

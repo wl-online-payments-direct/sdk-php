@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class ProtectionEligibility extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $eligibility = null;
+    public ?string $eligibility = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $type = null;
+    public ?string $type = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEligibility()
+    public function getEligibility(): ?string
     {
         return $this->eligibility;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEligibility($value)
+    public function setEligibility(?string $value): void
     {
         $this->eligibility = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setType($value)
+    public function setType(?string $value): void
     {
         $this->type = $value;
     }
@@ -56,7 +56,7 @@ class ProtectionEligibility extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->eligibility)) {
@@ -73,7 +73,7 @@ class ProtectionEligibility extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ProtectionEligibility
     {
         parent::fromObject($object);
         if (property_exists($object, 'eligibility')) {

@@ -12,190 +12,190 @@ use UnexpectedValueException;
 class Shipping extends DataObject
 {
     /**
-     * @var AddressPersonal
+     * @var AddressPersonal|null
      */
-    public $address = null;
+    public ?AddressPersonal $address = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $addressIndicator = null;
+    public ?string $addressIndicator = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $emailAddress = null;
+    public ?string $emailAddress = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $firstUsageDate = null;
+    public ?string $firstUsageDate = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isFirstUsage = null;
+    public ?bool $isFirstUsage = null;
 
     /**
-     * @var ShippingMethod
+     * @var ShippingMethod|null
      */
-    public $method = null;
+    public ?ShippingMethod $method = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $shippingCost = null;
+    public ?int $shippingCost = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $shippingCostTax = null;
+    public ?int $shippingCostTax = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $type = null;
+    public ?string $type = null;
 
     /**
-     * @return AddressPersonal
+     * @return AddressPersonal|null
      */
-    public function getAddress()
+    public function getAddress(): ?AddressPersonal
     {
         return $this->address;
     }
 
     /**
-     * @param AddressPersonal
+     * @param AddressPersonal|null $value
      */
-    public function setAddress($value)
+    public function setAddress(?AddressPersonal $value): void
     {
         $this->address = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressIndicator()
+    public function getAddressIndicator(): ?string
     {
         return $this->addressIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAddressIndicator($value)
+    public function setAddressIndicator(?string $value): void
     {
         $this->addressIndicator = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEmailAddress($value)
+    public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFirstUsageDate()
+    public function getFirstUsageDate(): ?string
     {
         return $this->firstUsageDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFirstUsageDate($value)
+    public function setFirstUsageDate(?string $value): void
     {
         $this->firstUsageDate = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsFirstUsage()
+    public function getIsFirstUsage(): ?bool
     {
         return $this->isFirstUsage;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsFirstUsage($value)
+    public function setIsFirstUsage(?bool $value): void
     {
         $this->isFirstUsage = $value;
     }
 
     /**
-     * @return ShippingMethod
+     * @return ShippingMethod|null
      */
-    public function getMethod()
+    public function getMethod(): ?ShippingMethod
     {
         return $this->method;
     }
 
     /**
-     * @param ShippingMethod
+     * @param ShippingMethod|null $value
      */
-    public function setMethod($value)
+    public function setMethod(?ShippingMethod $value): void
     {
         $this->method = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getShippingCost()
+    public function getShippingCost(): ?int
     {
         return $this->shippingCost;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setShippingCost($value)
+    public function setShippingCost(?int $value): void
     {
         $this->shippingCost = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getShippingCostTax()
+    public function getShippingCostTax(): ?int
     {
         return $this->shippingCostTax;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setShippingCostTax($value)
+    public function setShippingCostTax(?int $value): void
     {
         $this->shippingCostTax = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setType($value)
+    public function setType(?string $value): void
     {
         $this->type = $value;
     }
@@ -203,7 +203,7 @@ class Shipping extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->address)) {
@@ -241,7 +241,7 @@ class Shipping extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): Shipping
     {
         parent::fromObject($object);
         if (property_exists($object, 'address')) {

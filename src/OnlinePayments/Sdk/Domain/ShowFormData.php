@@ -12,64 +12,85 @@ use UnexpectedValueException;
 class ShowFormData extends DataObject
 {
     /**
-     * @var PaymentProduct3012
+     * @var PaymentProduct3012|null
      */
-    public $paymentProduct3012 = null;
+    public ?PaymentProduct3012 $paymentProduct3012 = null;
 
     /**
-     * @var PaymentProduct5404
+     * @var PaymentProduct5001|null
      */
-    public $paymentProduct5404 = null;
+    public ?PaymentProduct5001 $paymentProduct5001 = null;
 
     /**
-     * @var PaymentProduct5407
+     * @var PaymentProduct5404|null
      */
-    public $paymentProduct5407 = null;
+    public ?PaymentProduct5404 $paymentProduct5404 = null;
 
     /**
-     * @return PaymentProduct3012
+     * @var PaymentProduct5407|null
      */
-    public function getPaymentProduct3012()
+    public ?PaymentProduct5407 $paymentProduct5407 = null;
+
+    /**
+     * @return PaymentProduct3012|null
+     */
+    public function getPaymentProduct3012(): ?PaymentProduct3012
     {
         return $this->paymentProduct3012;
     }
 
     /**
-     * @param PaymentProduct3012
+     * @param PaymentProduct3012|null $value
      */
-    public function setPaymentProduct3012($value)
+    public function setPaymentProduct3012(?PaymentProduct3012 $value): void
     {
         $this->paymentProduct3012 = $value;
     }
 
     /**
-     * @return PaymentProduct5404
+     * @return PaymentProduct5001|null
      */
-    public function getPaymentProduct5404()
+    public function getPaymentProduct5001(): ?PaymentProduct5001
+    {
+        return $this->paymentProduct5001;
+    }
+
+    /**
+     * @param PaymentProduct5001|null $value
+     */
+    public function setPaymentProduct5001(?PaymentProduct5001 $value): void
+    {
+        $this->paymentProduct5001 = $value;
+    }
+
+    /**
+     * @return PaymentProduct5404|null
+     */
+    public function getPaymentProduct5404(): ?PaymentProduct5404
     {
         return $this->paymentProduct5404;
     }
 
     /**
-     * @param PaymentProduct5404
+     * @param PaymentProduct5404|null $value
      */
-    public function setPaymentProduct5404($value)
+    public function setPaymentProduct5404(?PaymentProduct5404 $value): void
     {
         $this->paymentProduct5404 = $value;
     }
 
     /**
-     * @return PaymentProduct5407
+     * @return PaymentProduct5407|null
      */
-    public function getPaymentProduct5407()
+    public function getPaymentProduct5407(): ?PaymentProduct5407
     {
         return $this->paymentProduct5407;
     }
 
     /**
-     * @param PaymentProduct5407
+     * @param PaymentProduct5407|null $value
      */
-    public function setPaymentProduct5407($value)
+    public function setPaymentProduct5407(?PaymentProduct5407 $value): void
     {
         $this->paymentProduct5407 = $value;
     }
@@ -77,11 +98,14 @@ class ShowFormData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->paymentProduct3012)) {
             $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
+        }
+        if (!is_null($this->paymentProduct5001)) {
+            $object->paymentProduct5001 = $this->paymentProduct5001->toObject();
         }
         if (!is_null($this->paymentProduct5404)) {
             $object->paymentProduct5404 = $this->paymentProduct5404->toObject();
@@ -97,7 +121,7 @@ class ShowFormData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ShowFormData
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProduct3012')) {
@@ -106,6 +130,13 @@ class ShowFormData extends DataObject
             }
             $value = new PaymentProduct3012();
             $this->paymentProduct3012 = $value->fromObject($object->paymentProduct3012);
+        }
+        if (property_exists($object, 'paymentProduct5001')) {
+            if (!is_object($object->paymentProduct5001)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5001, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5001();
+            $this->paymentProduct5001 = $value->fromObject($object->paymentProduct5001);
         }
         if (property_exists($object, 'paymentProduct5404')) {
             if (!is_object($object->paymentProduct5404)) {

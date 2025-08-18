@@ -4,12 +4,14 @@
  */
 namespace OnlinePayments\Sdk\Merchant\Mandates;
 
-use Exception;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreateMandateRequest;
+use OnlinePayments\Sdk\Domain\CreateMandateResponse;
+use OnlinePayments\Sdk\Domain\GetMandateResponse;
+use OnlinePayments\Sdk\Domain\RevokeMandateRequest;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -18,13 +20,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class MandatesClient extends ApiResource implements MandatesClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null)
+    public function createMandate(CreateMandateRequest $body, CallContext $callContext = null): CreateMandateResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateMandateResponse';
@@ -50,7 +51,7 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     /**
      * @inheritdoc
      */
-    public function getMandate($uniqueMandateReference, ?CallContext $callContext = null)
+    public function getMandate(string $uniqueMandateReference, CallContext $callContext = null): GetMandateResponse
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -75,9 +76,8 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function blockMandate($uniqueMandateReference, ?CallContext $callContext = null)
+    public function blockMandate(string $uniqueMandateReference, CallContext $callContext = null): GetMandateResponse
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -103,9 +103,8 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function unblockMandate($uniqueMandateReference, ?CallContext $callContext = null)
+    public function unblockMandate(string $uniqueMandateReference, CallContext $callContext = null): GetMandateResponse
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -131,9 +130,8 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
 
     /**
      * @inheritdoc
-     * @throws Exception
      */
-    public function revokeMandate($uniqueMandateReference, ?CallContext $callContext = null)
+    public function revokeMandate(string $uniqueMandateReference, RevokeMandateRequest $body, CallContext $callContext = null): GetMandateResponse
     {
         $this->context['uniqueMandateReference'] = $uniqueMandateReference;
         $responseClassMap = new ResponseClassMap();
@@ -144,7 +142,7 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/mandates/{uniqueMandateReference}/revoke'),
                 $this->getClientMetaInfo(),
-                null,
+                $body,
                 null,
                 $callContext
             );
@@ -158,7 +156,7 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

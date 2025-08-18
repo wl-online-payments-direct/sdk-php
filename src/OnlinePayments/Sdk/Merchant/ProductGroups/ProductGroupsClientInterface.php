@@ -35,7 +35,7 @@ interface ProductGroupsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getProductGroups(GetProductGroupsParams $query, ?CallContext $callContext = null);
+    function getProductGroups(GetProductGroupsParams $query, ?CallContext $callContext = null): GetPaymentProductGroupsResponse;
 
     /**
      * Resource /v2/{merchantId}/productgroups/{paymentProductGroupId} - Get product group
@@ -53,5 +53,5 @@ interface ProductGroupsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getProductGroup($paymentProductGroupId, GetProductGroupParams $query, ?CallContext $callContext = null);
+    function getProductGroup(string $paymentProductGroupId, GetProductGroupParams $query, ?CallContext $callContext = null): PaymentProductGroup;
 }

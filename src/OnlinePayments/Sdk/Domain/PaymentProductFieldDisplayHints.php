@@ -12,214 +12,214 @@ use UnexpectedValueException;
 class PaymentProductFieldDisplayHints extends DataObject
 {
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $alwaysShow = null;
+    public ?bool $alwaysShow = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $displayOrder = null;
+    public ?int $displayOrder = null;
 
     /**
-     * @var PaymentProductFieldFormElement
+     * @var PaymentProductFieldFormElement|null
      */
-    public $formElement = null;
+    public ?PaymentProductFieldFormElement $formElement = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $label = null;
+    public ?string $label = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Deprecated
      */
-    public $link = null;
+    public ?string $link = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $mask = null;
+    public ?string $mask = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $obfuscate = null;
+    public ?bool $obfuscate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $placeholderLabel = null;
+    public ?string $placeholderLabel = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $preferredInputType = null;
+    public ?string $preferredInputType = null;
 
     /**
-     * @var PaymentProductFieldTooltip
+     * @var PaymentProductFieldTooltip|null
      */
-    public $tooltip = null;
+    public ?PaymentProductFieldTooltip $tooltip = null;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAlwaysShow()
+    public function getAlwaysShow(): ?bool
     {
         return $this->alwaysShow;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setAlwaysShow($value)
+    public function setAlwaysShow(?bool $value): void
     {
         $this->alwaysShow = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getDisplayOrder()
+    public function getDisplayOrder(): ?int
     {
         return $this->displayOrder;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setDisplayOrder($value)
+    public function setDisplayOrder(?int $value): void
     {
         $this->displayOrder = $value;
     }
 
     /**
-     * @return PaymentProductFieldFormElement
+     * @return PaymentProductFieldFormElement|null
      */
-    public function getFormElement()
+    public function getFormElement(): ?PaymentProductFieldFormElement
     {
         return $this->formElement;
     }
 
     /**
-     * @param PaymentProductFieldFormElement
+     * @param PaymentProductFieldFormElement|null $value
      */
-    public function setFormElement($value)
+    public function setFormElement(?PaymentProductFieldFormElement $value): void
     {
         $this->formElement = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLabel($value)
+    public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Deprecated
      */
-    public function getLink()
+    public function getLink(): ?string
     {
         return $this->link;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Deprecated
      */
-    public function setLink($value)
+    public function setLink(?string $value): void
     {
         $this->link = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMask()
+    public function getMask(): ?string
     {
         return $this->mask;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMask($value)
+    public function setMask(?string $value): void
     {
         $this->mask = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getObfuscate()
+    public function getObfuscate(): ?bool
     {
         return $this->obfuscate;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setObfuscate($value)
+    public function setObfuscate(?bool $value): void
     {
         $this->obfuscate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPlaceholderLabel()
+    public function getPlaceholderLabel(): ?string
     {
         return $this->placeholderLabel;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPlaceholderLabel($value)
+    public function setPlaceholderLabel(?string $value): void
     {
         $this->placeholderLabel = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPreferredInputType()
+    public function getPreferredInputType(): ?string
     {
         return $this->preferredInputType;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPreferredInputType($value)
+    public function setPreferredInputType(?string $value): void
     {
         $this->preferredInputType = $value;
     }
 
     /**
-     * @return PaymentProductFieldTooltip
+     * @return PaymentProductFieldTooltip|null
      */
-    public function getTooltip()
+    public function getTooltip(): ?PaymentProductFieldTooltip
     {
         return $this->tooltip;
     }
 
     /**
-     * @param PaymentProductFieldTooltip
+     * @param PaymentProductFieldTooltip|null $value
      */
-    public function setTooltip($value)
+    public function setTooltip(?PaymentProductFieldTooltip $value): void
     {
         $this->tooltip = $value;
     }
@@ -227,7 +227,7 @@ class PaymentProductFieldDisplayHints extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->alwaysShow)) {
@@ -268,7 +268,7 @@ class PaymentProductFieldDisplayHints extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProductFieldDisplayHints
     {
         parent::fromObject($object);
         if (property_exists($object, 'alwaysShow')) {

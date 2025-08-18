@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class ContactDetails extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $emailAddress = null;
+    public ?string $emailAddress = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $faxNumber = null;
+    public ?string $faxNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $mobilePhoneNumber = null;
+    public ?string $mobilePhoneNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $phoneNumber = null;
+    public ?string $phoneNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $workPhoneNumber = null;
+    public ?string $workPhoneNumber = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEmailAddress($value)
+    public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFaxNumber()
+    public function getFaxNumber(): ?string
     {
         return $this->faxNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFaxNumber($value)
+    public function setFaxNumber(?string $value): void
     {
         $this->faxNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMobilePhoneNumber()
+    public function getMobilePhoneNumber(): ?string
     {
         return $this->mobilePhoneNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMobilePhoneNumber($value)
+    public function setMobilePhoneNumber(?string $value): void
     {
         $this->mobilePhoneNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPhoneNumber($value)
+    public function setPhoneNumber(?string $value): void
     {
         $this->phoneNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getWorkPhoneNumber()
+    public function getWorkPhoneNumber(): ?string
     {
         return $this->workPhoneNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setWorkPhoneNumber($value)
+    public function setWorkPhoneNumber(?string $value): void
     {
         $this->workPhoneNumber = $value;
     }
@@ -119,7 +119,7 @@ class ContactDetails extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->emailAddress)) {
@@ -145,7 +145,7 @@ class ContactDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ContactDetails
     {
         parent::fromObject($object);
         if (property_exists($object, 'emailAddress')) {

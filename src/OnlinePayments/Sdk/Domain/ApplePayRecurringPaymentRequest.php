@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class ApplePayRecurringPaymentRequest extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $billingAgreement = null;
+    public ?string $billingAgreement = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $managementUrl = null;
+    public ?string $managementUrl = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentDescription = null;
+    public ?string $paymentDescription = null;
 
     /**
-     * @var ApplePayLineItem
+     * @var ApplePayLineItem|null
      */
-    public $regularBilling = null;
+    public ?ApplePayLineItem $regularBilling = null;
 
     /**
-     * @var ApplePayLineItem
+     * @var ApplePayLineItem|null
      */
-    public $trialBilling = null;
+    public ?ApplePayLineItem $trialBilling = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBillingAgreement()
+    public function getBillingAgreement(): ?string
     {
         return $this->billingAgreement;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setBillingAgreement($value)
+    public function setBillingAgreement(?string $value): void
     {
         $this->billingAgreement = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getManagementUrl()
+    public function getManagementUrl(): ?string
     {
         return $this->managementUrl;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setManagementUrl($value)
+    public function setManagementUrl(?string $value): void
     {
         $this->managementUrl = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentDescription()
+    public function getPaymentDescription(): ?string
     {
         return $this->paymentDescription;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentDescription($value)
+    public function setPaymentDescription(?string $value): void
     {
         $this->paymentDescription = $value;
     }
 
     /**
-     * @return ApplePayLineItem
+     * @return ApplePayLineItem|null
      */
-    public function getRegularBilling()
+    public function getRegularBilling(): ?ApplePayLineItem
     {
         return $this->regularBilling;
     }
 
     /**
-     * @param ApplePayLineItem
+     * @param ApplePayLineItem|null $value
      */
-    public function setRegularBilling($value)
+    public function setRegularBilling(?ApplePayLineItem $value): void
     {
         $this->regularBilling = $value;
     }
 
     /**
-     * @return ApplePayLineItem
+     * @return ApplePayLineItem|null
      */
-    public function getTrialBilling()
+    public function getTrialBilling(): ?ApplePayLineItem
     {
         return $this->trialBilling;
     }
 
     /**
-     * @param ApplePayLineItem
+     * @param ApplePayLineItem|null $value
      */
-    public function setTrialBilling($value)
+    public function setTrialBilling(?ApplePayLineItem $value): void
     {
         $this->trialBilling = $value;
     }
@@ -119,7 +119,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->billingAgreement)) {
@@ -145,7 +145,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ApplePayRecurringPaymentRequest
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAgreement')) {

@@ -12,148 +12,148 @@ use UnexpectedValueException;
 class ApplePayLineItem extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $amount = null;
+    public ?string $amount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $label = null;
+    public ?string $label = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentTiming = null;
+    public ?string $paymentTiming = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $recurringPaymentEndDate = null;
+    public ?string $recurringPaymentEndDate = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $recurringPaymentIntervalCount = null;
+    public ?int $recurringPaymentIntervalCount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $recurringPaymentIntervalUnit = null;
+    public ?string $recurringPaymentIntervalUnit = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $recurringPaymentStartDate = null;
+    public ?string $recurringPaymentStartDate = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAmount()
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAmount($value)
+    public function setAmount(?string $value): void
     {
         $this->amount = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLabel($value)
+    public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentTiming()
+    public function getPaymentTiming(): ?string
     {
         return $this->paymentTiming;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentTiming($value)
+    public function setPaymentTiming(?string $value): void
     {
         $this->paymentTiming = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecurringPaymentEndDate()
+    public function getRecurringPaymentEndDate(): ?string
     {
         return $this->recurringPaymentEndDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecurringPaymentEndDate($value)
+    public function setRecurringPaymentEndDate(?string $value): void
     {
         $this->recurringPaymentEndDate = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRecurringPaymentIntervalCount()
+    public function getRecurringPaymentIntervalCount(): ?int
     {
         return $this->recurringPaymentIntervalCount;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setRecurringPaymentIntervalCount($value)
+    public function setRecurringPaymentIntervalCount(?int $value): void
     {
         $this->recurringPaymentIntervalCount = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecurringPaymentIntervalUnit()
+    public function getRecurringPaymentIntervalUnit(): ?string
     {
         return $this->recurringPaymentIntervalUnit;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecurringPaymentIntervalUnit($value)
+    public function setRecurringPaymentIntervalUnit(?string $value): void
     {
         $this->recurringPaymentIntervalUnit = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRecurringPaymentStartDate()
+    public function getRecurringPaymentStartDate(): ?string
     {
         return $this->recurringPaymentStartDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setRecurringPaymentStartDate($value)
+    public function setRecurringPaymentStartDate(?string $value): void
     {
         $this->recurringPaymentStartDate = $value;
     }
@@ -161,7 +161,7 @@ class ApplePayLineItem extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->amount)) {
@@ -193,7 +193,7 @@ class ApplePayLineItem extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): ApplePayLineItem
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

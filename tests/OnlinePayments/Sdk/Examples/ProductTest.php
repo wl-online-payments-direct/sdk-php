@@ -33,7 +33,7 @@ class ProductTest extends ClientTestCase
         $findParams->setAmount(1000);
         $findParams->setCountryCode("NL");
         $findParams->setCurrencyCode("EUR");
-        $findParams->addHide("fields");
+        $findParams->addHide(["fields"]);
         $findParams->setIsRecurring(true);
         $findParams->setLocale("en_US");
 

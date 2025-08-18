@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class RangeValidator extends DataObject
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public $maxValue = null;
+    public ?int $maxValue = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $minValue = null;
+    public ?int $minValue = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMaxValue()
+    public function getMaxValue(): ?int
     {
         return $this->maxValue;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMaxValue($value)
+    public function setMaxValue(?int $value): void
     {
         $this->maxValue = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMinValue()
+    public function getMinValue(): ?int
     {
         return $this->minValue;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setMinValue($value)
+    public function setMinValue(?int $value): void
     {
         $this->minValue = $value;
     }
@@ -56,7 +56,7 @@ class RangeValidator extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->maxValue)) {
@@ -73,7 +73,7 @@ class RangeValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): RangeValidator
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxValue')) {

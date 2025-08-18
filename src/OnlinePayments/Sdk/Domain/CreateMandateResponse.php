@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class CreateMandateResponse extends DataObject
 {
     /**
-     * @var MandateResponse
+     * @var MandateResponse|null
      */
-    public $mandate = null;
+    public ?MandateResponse $mandate = null;
 
     /**
-     * @var MandateMerchantAction
+     * @var MandateMerchantAction|null
      */
-    public $merchantAction = null;
+    public ?MandateMerchantAction $merchantAction = null;
 
     /**
-     * @return MandateResponse
+     * @return MandateResponse|null
      */
-    public function getMandate()
+    public function getMandate(): ?MandateResponse
     {
         return $this->mandate;
     }
 
     /**
-     * @param MandateResponse
+     * @param MandateResponse|null $value
      */
-    public function setMandate($value)
+    public function setMandate(?MandateResponse $value): void
     {
         $this->mandate = $value;
     }
 
     /**
-     * @return MandateMerchantAction
+     * @return MandateMerchantAction|null
      */
-    public function getMerchantAction()
+    public function getMerchantAction(): ?MandateMerchantAction
     {
         return $this->merchantAction;
     }
 
     /**
-     * @param MandateMerchantAction
+     * @param MandateMerchantAction|null $value
      */
-    public function setMerchantAction($value)
+    public function setMerchantAction(?MandateMerchantAction $value): void
     {
         $this->merchantAction = $value;
     }
@@ -56,7 +56,7 @@ class CreateMandateResponse extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->mandate)) {
@@ -73,7 +73,7 @@ class CreateMandateResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): CreateMandateResponse
     {
         parent::fromObject($object);
         if (property_exists($object, 'mandate')) {

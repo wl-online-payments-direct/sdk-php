@@ -8,6 +8,10 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\GetPaymentProductsResponse;
+use OnlinePayments\Sdk\Domain\PaymentProduct;
+use OnlinePayments\Sdk\Domain\PaymentProductNetworksResponse;
+use OnlinePayments\Sdk\Domain\ProductDirectory;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -16,12 +20,12 @@ use OnlinePayments\Sdk\ExceptionFactory;
 class ProductsClient extends ApiResource implements ProductsClientInterface
 {
     /** @var ExceptionFactory|null */
-    private $responseExceptionFactory = null;
+    private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
      * @inheritdoc
      */
-    public function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null)
+    public function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null): GetPaymentProductsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPaymentProductsResponse';
@@ -46,7 +50,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProduct($paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null)
+    public function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null): PaymentProduct
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -72,7 +76,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProductNetworks($paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null)
+    public function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, CallContext $callContext = null): PaymentProductNetworksResponse
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -98,7 +102,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getProductDirectory($paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null)
+    public function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null): ProductDirectory
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -122,7 +126,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     }
 
     /** @return ExceptionFactory */
-    private function getResponseExceptionFactory()
+    private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
             $this->responseExceptionFactory = new ExceptionFactory();

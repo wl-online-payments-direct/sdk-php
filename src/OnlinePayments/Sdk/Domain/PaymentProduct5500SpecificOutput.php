@@ -12,85 +12,85 @@ use UnexpectedValueException;
 class PaymentProduct5500SpecificOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $entityId = null;
+    public ?string $entityId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentEndDate = null;
+    public ?string $paymentEndDate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentReference = null;
+    public ?string $paymentReference = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentStartDate = null;
+    public ?string $paymentStartDate = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEntityId()
+    public function getEntityId(): ?string
     {
         return $this->entityId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setEntityId($value)
+    public function setEntityId(?string $value): void
     {
         $this->entityId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentEndDate()
+    public function getPaymentEndDate(): ?string
     {
         return $this->paymentEndDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentEndDate($value)
+    public function setPaymentEndDate(?string $value): void
     {
         $this->paymentEndDate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentReference()
+    public function getPaymentReference(): ?string
     {
         return $this->paymentReference;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentReference($value)
+    public function setPaymentReference(?string $value): void
     {
         $this->paymentReference = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentStartDate()
+    public function getPaymentStartDate(): ?string
     {
         return $this->paymentStartDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentStartDate($value)
+    public function setPaymentStartDate(?string $value): void
     {
         $this->paymentStartDate = $value;
     }
@@ -98,7 +98,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->entityId)) {
@@ -121,7 +121,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct5500SpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'entityId')) {

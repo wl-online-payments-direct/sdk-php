@@ -12,43 +12,43 @@ use UnexpectedValueException;
 class MultiplePaymentInformation extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $paymentPattern = null;
+    public ?string $paymentPattern = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalNumberOfPayments = null;
+    public ?int $totalNumberOfPayments = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentPattern()
+    public function getPaymentPattern(): ?string
     {
         return $this->paymentPattern;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPaymentPattern($value)
+    public function setPaymentPattern(?string $value): void
     {
         $this->paymentPattern = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalNumberOfPayments()
+    public function getTotalNumberOfPayments(): ?int
     {
         return $this->totalNumberOfPayments;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalNumberOfPayments($value)
+    public function setTotalNumberOfPayments(?int $value): void
     {
         $this->totalNumberOfPayments = $value;
     }
@@ -56,7 +56,7 @@ class MultiplePaymentInformation extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->paymentPattern)) {
@@ -73,7 +73,7 @@ class MultiplePaymentInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): MultiplePaymentInformation
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentPattern')) {

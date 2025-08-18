@@ -12,88 +12,88 @@ use UnexpectedValueException;
 class AccountOnFileAttribute extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $key = null;
+    public ?string $key = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Deprecated
      */
-    public $mustWriteReason = null;
+    public ?string $mustWriteReason = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $status = null;
+    public ?string $status = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $value = null;
+    public ?string $value = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getKey()
+    public function getKey(): ?string
     {
         return $this->key;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setKey($value)
+    public function setKey(?string $value): void
     {
         $this->key = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Deprecated
      */
-    public function getMustWriteReason()
+    public function getMustWriteReason(): ?string
     {
         return $this->mustWriteReason;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Deprecated
      */
-    public function setMustWriteReason($value)
+    public function setMustWriteReason(?string $value): void
     {
         $this->mustWriteReason = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setStatus($value)
+    public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setValue($value)
+    public function setValue(?string $value): void
     {
         $this->value = $value;
     }
@@ -101,7 +101,7 @@ class AccountOnFileAttribute extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->key)) {
@@ -124,7 +124,7 @@ class AccountOnFileAttribute extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): AccountOnFileAttribute
     {
         parent::fromObject($object);
         if (property_exists($object, 'key')) {

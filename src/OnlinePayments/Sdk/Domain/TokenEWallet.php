@@ -12,46 +12,46 @@ use UnexpectedValueException;
 class TokenEWallet extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
-    public $alias = null;
+    public ?string $alias = null;
 
     /**
-     * @var CustomerToken
+     * @var CustomerToken|null
      */
-    public $customer = null;
+    public ?CustomerToken $customer = null;
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->alias;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
-    public function setAlias($value)
+    public function setAlias(?string $value): void
     {
         $this->alias = $value;
     }
 
     /**
-     * @return CustomerToken
+     * @return CustomerToken|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?CustomerToken
     {
         return $this->customer;
     }
 
     /**
-     * @param CustomerToken
+     * @param CustomerToken|null $value
      */
-    public function setCustomer($value)
+    public function setCustomer(?CustomerToken $value): void
     {
         $this->customer = $value;
     }
@@ -59,7 +59,7 @@ class TokenEWallet extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->alias)) {
@@ -76,7 +76,7 @@ class TokenEWallet extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): TokenEWallet
     {
         parent::fromObject($object);
         if (property_exists($object, 'alias')) {

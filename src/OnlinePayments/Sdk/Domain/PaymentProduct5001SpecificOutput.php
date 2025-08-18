@@ -12,106 +12,106 @@ use UnexpectedValueException;
 class PaymentProduct5001SpecificOutput extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $accountNumber = null;
+    public ?string $accountNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $authorisationCode = null;
+    public ?string $authorisationCode = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $liability = null;
+    public ?string $liability = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $mobilePhoneNumber = null;
+    public ?string $mobilePhoneNumber = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $operationCode = null;
+    public ?string $operationCode = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAccountNumber()
+    public function getAccountNumber(): ?string
     {
         return $this->accountNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAccountNumber($value)
+    public function setAccountNumber(?string $value): void
     {
         $this->accountNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAuthorisationCode()
+    public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAuthorisationCode($value)
+    public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLiability()
+    public function getLiability(): ?string
     {
         return $this->liability;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setLiability($value)
+    public function setLiability(?string $value): void
     {
         $this->liability = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMobilePhoneNumber()
+    public function getMobilePhoneNumber(): ?string
     {
         return $this->mobilePhoneNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMobilePhoneNumber($value)
+    public function setMobilePhoneNumber(?string $value): void
     {
         $this->mobilePhoneNumber = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOperationCode()
+    public function getOperationCode(): ?string
     {
         return $this->operationCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setOperationCode($value)
+    public function setOperationCode(?string $value): void
     {
         $this->operationCode = $value;
     }
@@ -119,7 +119,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->accountNumber)) {
@@ -145,7 +145,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): PaymentProduct5001SpecificOutput
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountNumber')) {

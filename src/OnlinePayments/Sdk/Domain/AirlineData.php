@@ -12,553 +12,553 @@ use UnexpectedValueException;
 class AirlineData extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $agentNumericCode = null;
+    public ?string $agentNumericCode = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $code = null;
+    public ?string $code = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
-    public $flightDate = null;
+    public ?string $flightDate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $flightIndicator = null;
+    public ?string $flightIndicator = null;
 
     /**
-     * @var AirlineFlightLeg[]
+     * @var AirlineFlightLeg[]|null
      */
-    public $flightLegs = null;
+    public ?array $flightLegs = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $invoiceNumber = null;
+    public ?string $invoiceNumber = null;
 
     /**
-     * @var bool
+     * @var bool|null
      * @deprecated Deprecated
      */
-    public $isETicket = null;
+    public ?bool $isETicket = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    public $isRestrictedTicket = null;
+    public ?bool $isRestrictedTicket = null;
 
     /**
-     * @var bool
+     * @var bool|null
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
-    public $isThirdParty = null;
+    public ?bool $isThirdParty = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $issueDate = null;
+    public ?string $issueDate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $merchantCustomerId = null;
+    public ?string $merchantCustomerId = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Name of the airline
      */
-    public $name = null;
+    public ?string $name = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Use passengers instead Name of passenger
      */
-    public $passengerName = null;
+    public ?string $passengerName = null;
 
     /**
-     * @var AirlinePassenger[]
+     * @var AirlinePassenger[]|null
      */
-    public $passengers = null;
+    public ?array $passengers = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
-    public $placeOfIssue = null;
+    public ?string $placeOfIssue = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated Use passengers instead.
      */
-    public $pnr = null;
+    public ?string $pnr = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $pointOfSale = null;
+    public ?string $pointOfSale = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
-    public $posCityCode = null;
+    public ?string $posCityCode = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $ticketCurrency = null;
+    public ?string $ticketCurrency = null;
 
     /**
-     * @var string
+     * @var string|null
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
-    public $ticketDeliveryMethod = null;
+    public ?string $ticketDeliveryMethod = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $ticketNumber = null;
+    public ?string $ticketNumber = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalFare = null;
+    public ?int $totalFare = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalFee = null;
+    public ?int $totalFee = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    public $totalTaxes = null;
+    public ?int $totalTaxes = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $travelAgencyName = null;
+    public ?string $travelAgencyName = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAgentNumericCode()
+    public function getAgentNumericCode(): ?string
     {
         return $this->agentNumericCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setAgentNumericCode($value)
+    public function setAgentNumericCode(?string $value): void
     {
         $this->agentNumericCode = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCode()
+    public function getCode(): ?string
     {
         return $this->code;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setCode($value)
+    public function setCode(?string $value): void
     {
         $this->code = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
-    public function getFlightDate()
+    public function getFlightDate(): ?string
     {
         return $this->flightDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
-    public function setFlightDate($value)
+    public function setFlightDate(?string $value): void
     {
         $this->flightDate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFlightIndicator()
+    public function getFlightIndicator(): ?string
     {
         return $this->flightIndicator;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFlightIndicator($value)
+    public function setFlightIndicator(?string $value): void
     {
         $this->flightIndicator = $value;
     }
 
     /**
-     * @return AirlineFlightLeg[]
+     * @return AirlineFlightLeg[]|null
      */
-    public function getFlightLegs()
+    public function getFlightLegs(): ?array
     {
         return $this->flightLegs;
     }
 
     /**
-     * @param AirlineFlightLeg[]
+     * @param AirlineFlightLeg[]|null $value
      */
-    public function setFlightLegs($value)
+    public function setFlightLegs(?array $value): void
     {
         $this->flightLegs = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getInvoiceNumber()
+    public function getInvoiceNumber(): ?string
     {
         return $this->invoiceNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setInvoiceNumber($value)
+    public function setInvoiceNumber(?string $value): void
     {
         $this->invoiceNumber = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      * @deprecated Deprecated
      */
-    public function getIsETicket()
+    public function getIsETicket(): ?bool
     {
         return $this->isETicket;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      * @deprecated Deprecated
      */
-    public function setIsETicket($value)
+    public function setIsETicket(?bool $value): void
     {
         $this->isETicket = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsRestrictedTicket()
+    public function getIsRestrictedTicket(): ?bool
     {
         return $this->isRestrictedTicket;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      */
-    public function setIsRestrictedTicket($value)
+    public function setIsRestrictedTicket(?bool $value): void
     {
         $this->isRestrictedTicket = $value;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
-    public function getIsThirdParty()
+    public function getIsThirdParty(): ?bool
     {
         return $this->isThirdParty;
     }
 
     /**
-     * @param bool
+     * @param bool|null $value
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
-    public function setIsThirdParty($value)
+    public function setIsThirdParty(?bool $value): void
     {
         $this->isThirdParty = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIssueDate()
+    public function getIssueDate(): ?string
     {
         return $this->issueDate;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setIssueDate($value)
+    public function setIssueDate(?string $value): void
     {
         $this->issueDate = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantCustomerId()
+    public function getMerchantCustomerId(): ?string
     {
         return $this->merchantCustomerId;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setMerchantCustomerId($value)
+    public function setMerchantCustomerId(?string $value): void
     {
         $this->merchantCustomerId = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Name of the airline
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Name of the airline
      */
-    public function setName($value)
+    public function setName(?string $value): void
     {
         $this->name = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Use passengers instead Name of passenger
      */
-    public function getPassengerName()
+    public function getPassengerName(): ?string
     {
         return $this->passengerName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Use passengers instead Name of passenger
      */
-    public function setPassengerName($value)
+    public function setPassengerName(?string $value): void
     {
         $this->passengerName = $value;
     }
 
     /**
-     * @return AirlinePassenger[]
+     * @return AirlinePassenger[]|null
      */
-    public function getPassengers()
+    public function getPassengers(): ?array
     {
         return $this->passengers;
     }
 
     /**
-     * @param AirlinePassenger[]
+     * @param AirlinePassenger[]|null $value
      */
-    public function setPassengers($value)
+    public function setPassengers(?array $value): void
     {
         $this->passengers = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
-    public function getPlaceOfIssue()
+    public function getPlaceOfIssue(): ?string
     {
         return $this->placeOfIssue;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
-    public function setPlaceOfIssue($value)
+    public function setPlaceOfIssue(?string $value): void
     {
         $this->placeOfIssue = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated Use passengers instead.
      */
-    public function getPnr()
+    public function getPnr(): ?string
     {
         return $this->pnr;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated Use passengers instead.
      */
-    public function setPnr($value)
+    public function setPnr(?string $value): void
     {
         $this->pnr = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPointOfSale()
+    public function getPointOfSale(): ?string
     {
         return $this->pointOfSale;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setPointOfSale($value)
+    public function setPointOfSale(?string $value): void
     {
         $this->pointOfSale = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
-    public function getPosCityCode()
+    public function getPosCityCode(): ?string
     {
         return $this->posCityCode;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
-    public function setPosCityCode($value)
+    public function setPosCityCode(?string $value): void
     {
         $this->posCityCode = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTicketCurrency()
+    public function getTicketCurrency(): ?string
     {
         return $this->ticketCurrency;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTicketCurrency($value)
+    public function setTicketCurrency(?string $value): void
     {
         $this->ticketCurrency = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
-    public function getTicketDeliveryMethod()
+    public function getTicketDeliveryMethod(): ?string
     {
         return $this->ticketDeliveryMethod;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
-    public function setTicketDeliveryMethod($value)
+    public function setTicketDeliveryMethod(?string $value): void
     {
         $this->ticketDeliveryMethod = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTicketNumber()
+    public function getTicketNumber(): ?string
     {
         return $this->ticketNumber;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTicketNumber($value)
+    public function setTicketNumber(?string $value): void
     {
         $this->ticketNumber = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalFare()
+    public function getTotalFare(): ?int
     {
         return $this->totalFare;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalFare($value)
+    public function setTotalFare(?int $value): void
     {
         $this->totalFare = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalFee()
+    public function getTotalFee(): ?int
     {
         return $this->totalFee;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalFee($value)
+    public function setTotalFee(?int $value): void
     {
         $this->totalFee = $value;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalTaxes()
+    public function getTotalTaxes(): ?int
     {
         return $this->totalTaxes;
     }
 
     /**
-     * @param int
+     * @param int|null $value
      */
-    public function setTotalTaxes($value)
+    public function setTotalTaxes(?int $value): void
     {
         $this->totalTaxes = $value;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTravelAgencyName()
+    public function getTravelAgencyName(): ?string
     {
         return $this->travelAgencyName;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setTravelAgencyName($value)
+    public function setTravelAgencyName(?string $value): void
     {
         $this->travelAgencyName = $value;
     }
@@ -566,7 +566,7 @@ class AirlineData extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->agentNumericCode)) {
@@ -662,7 +662,7 @@ class AirlineData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): AirlineData
     {
         parent::fromObject($object);
         if (property_exists($object, 'agentNumericCode')) {

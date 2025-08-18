@@ -12,22 +12,22 @@ use UnexpectedValueException;
 class FraudResults extends DataObject
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $fraudServiceResult = null;
+    public ?string $fraudServiceResult = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFraudServiceResult()
+    public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
     }
 
     /**
-     * @param string
+     * @param string|null $value
      */
-    public function setFraudServiceResult($value)
+    public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
     }
@@ -35,7 +35,7 @@ class FraudResults extends DataObject
     /**
      * @return object
      */
-    public function toObject()
+    public function toObject(): object
     {
         $object = parent::toObject();
         if (!is_null($this->fraudServiceResult)) {
@@ -49,7 +49,7 @@ class FraudResults extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject($object)
+    public function fromObject(object $object): FraudResults
     {
         parent::fromObject($object);
         if (property_exists($object, 'fraudServiceResult')) {
