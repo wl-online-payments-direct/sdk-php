@@ -40,6 +40,11 @@ class IINDetail extends DataObject
     /**
      * @var string|null
      */
+    public ?string $cardProductName = null;
+
+    /**
+     * @var string|null
+     */
     public ?string $cardProductUsageLabel = null;
 
     /**
@@ -75,6 +80,11 @@ class IINDetail extends DataObject
     /**
      * @var string|null
      */
+    public ?string $issuerRegionCode = null;
+
+    /**
+     * @var string|null
+     */
     public ?string $issuingCountryCode = null;
 
     /**
@@ -96,6 +106,11 @@ class IINDetail extends DataObject
      * @var int|null
      */
     public ?int $paymentProductId = null;
+
+    /**
+     * @var bool|null
+     */
+    public ?bool $virtualCardIndicator = null;
 
     /**
      * @return bool|null
@@ -175,6 +190,22 @@ class IINDetail extends DataObject
     public function setCardProductCode(?string $value): void
     {
         $this->cardProductCode = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCardProductName(): ?string
+    {
+        return $this->cardProductName;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setCardProductName(?string $value): void
+    {
+        $this->cardProductName = $value;
     }
 
     /**
@@ -292,6 +323,22 @@ class IINDetail extends DataObject
     /**
      * @return string|null
      */
+    public function getIssuerRegionCode(): ?string
+    {
+        return $this->issuerRegionCode;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setIssuerRegionCode(?string $value): void
+    {
+        $this->issuerRegionCode = $value;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getIssuingCountryCode(): ?string
     {
         return $this->issuingCountryCode;
@@ -370,6 +417,22 @@ class IINDetail extends DataObject
     }
 
     /**
+     * @return bool|null
+     */
+    public function getVirtualCardIndicator(): ?bool
+    {
+        return $this->virtualCardIndicator;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setVirtualCardIndicator(?bool $value): void
+    {
+        $this->virtualCardIndicator = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -389,6 +452,9 @@ class IINDetail extends DataObject
         }
         if (!is_null($this->cardProductCode)) {
             $object->cardProductCode = $this->cardProductCode;
+        }
+        if (!is_null($this->cardProductName)) {
+            $object->cardProductName = $this->cardProductName;
         }
         if (!is_null($this->cardProductUsageLabel)) {
             $object->cardProductUsageLabel = $this->cardProductUsageLabel;
@@ -411,6 +477,9 @@ class IINDetail extends DataObject
         if (!is_null($this->issuerName)) {
             $object->issuerName = $this->issuerName;
         }
+        if (!is_null($this->issuerRegionCode)) {
+            $object->issuerRegionCode = $this->issuerRegionCode;
+        }
         if (!is_null($this->issuingCountryCode)) {
             $object->issuingCountryCode = $this->issuingCountryCode;
         }
@@ -425,6 +494,9 @@ class IINDetail extends DataObject
         }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
+        }
+        if (!is_null($this->virtualCardIndicator)) {
+            $object->virtualCardIndicator = $this->virtualCardIndicator;
         }
         return $object;
     }
@@ -452,6 +524,9 @@ class IINDetail extends DataObject
         if (property_exists($object, 'cardProductCode')) {
             $this->cardProductCode = $object->cardProductCode;
         }
+        if (property_exists($object, 'cardProductName')) {
+            $this->cardProductName = $object->cardProductName;
+        }
         if (property_exists($object, 'cardProductUsageLabel')) {
             $this->cardProductUsageLabel = $object->cardProductUsageLabel;
         }
@@ -473,6 +548,9 @@ class IINDetail extends DataObject
         if (property_exists($object, 'issuerName')) {
             $this->issuerName = $object->issuerName;
         }
+        if (property_exists($object, 'issuerRegionCode')) {
+            $this->issuerRegionCode = $object->issuerRegionCode;
+        }
         if (property_exists($object, 'issuingCountryCode')) {
             $this->issuingCountryCode = $object->issuingCountryCode;
         }
@@ -487,6 +565,9 @@ class IINDetail extends DataObject
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;
+        }
+        if (property_exists($object, 'virtualCardIndicator')) {
+            $this->virtualCardIndicator = $object->virtualCardIndicator;
         }
         return $this;
     }

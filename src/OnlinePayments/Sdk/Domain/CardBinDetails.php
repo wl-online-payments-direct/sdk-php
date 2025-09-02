@@ -10,13 +10,8 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class CardEssentials extends DataObject
+class CardBinDetails extends DataObject
 {
-    /**
-     * @var string|null
-     */
-    public ?string $bin = null;
-
     /**
      * @var bool|null
      */
@@ -31,11 +26,6 @@ class CardEssentials extends DataObject
      * @var bool|null
      */
     public ?bool $cardEffectiveDateIndicator = null;
-
-    /**
-     * @var string|null
-     */
-    public ?string $cardNumber = null;
 
     /**
      * @var string|null
@@ -71,11 +61,6 @@ class CardEssentials extends DataObject
      * @var string|null
      */
     public ?string $countryCode = null;
-
-    /**
-     * @var string|null
-     */
-    public ?string $expiryDate = null;
 
     /**
      * @var string|null
@@ -116,22 +101,6 @@ class CardEssentials extends DataObject
      * @var bool|null
      */
     public ?bool $virtualCardIndicator = null;
-
-    /**
-     * @return string|null
-     */
-    public function getBin(): ?string
-    {
-        return $this->bin;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setBin(?string $value): void
-    {
-        $this->bin = $value;
-    }
 
     /**
      * @return bool|null
@@ -179,22 +148,6 @@ class CardEssentials extends DataObject
     public function setCardEffectiveDateIndicator(?bool $value): void
     {
         $this->cardEffectiveDateIndicator = $value;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCardNumber(): ?string
-    {
-        return $this->cardNumber;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setCardNumber(?string $value): void
-    {
-        $this->cardNumber = $value;
     }
 
     /**
@@ -307,22 +260,6 @@ class CardEssentials extends DataObject
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getExpiryDate(): ?string
-    {
-        return $this->expiryDate;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setExpiryDate(?string $value): void
-    {
-        $this->expiryDate = $value;
     }
 
     /**
@@ -459,9 +396,6 @@ class CardEssentials extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->bin)) {
-            $object->bin = $this->bin;
-        }
         if (!is_null($this->cardCorporateIndicator)) {
             $object->cardCorporateIndicator = $this->cardCorporateIndicator;
         }
@@ -470,9 +404,6 @@ class CardEssentials extends DataObject
         }
         if (!is_null($this->cardEffectiveDateIndicator)) {
             $object->cardEffectiveDateIndicator = $this->cardEffectiveDateIndicator;
-        }
-        if (!is_null($this->cardNumber)) {
-            $object->cardNumber = $this->cardNumber;
         }
         if (!is_null($this->cardPanType)) {
             $object->cardPanType = $this->cardPanType;
@@ -494,9 +425,6 @@ class CardEssentials extends DataObject
         }
         if (!is_null($this->countryCode)) {
             $object->countryCode = $this->countryCode;
-        }
-        if (!is_null($this->expiryDate)) {
-            $object->expiryDate = $this->expiryDate;
         }
         if (!is_null($this->issuerCode)) {
             $object->issuerCode = $this->issuerCode;
@@ -530,12 +458,9 @@ class CardEssentials extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardEssentials
+    public function fromObject(object $object): CardBinDetails
     {
         parent::fromObject($object);
-        if (property_exists($object, 'bin')) {
-            $this->bin = $object->bin;
-        }
         if (property_exists($object, 'cardCorporateIndicator')) {
             $this->cardCorporateIndicator = $object->cardCorporateIndicator;
         }
@@ -544,9 +469,6 @@ class CardEssentials extends DataObject
         }
         if (property_exists($object, 'cardEffectiveDateIndicator')) {
             $this->cardEffectiveDateIndicator = $object->cardEffectiveDateIndicator;
-        }
-        if (property_exists($object, 'cardNumber')) {
-            $this->cardNumber = $object->cardNumber;
         }
         if (property_exists($object, 'cardPanType')) {
             $this->cardPanType = $object->cardPanType;
@@ -568,9 +490,6 @@ class CardEssentials extends DataObject
         }
         if (property_exists($object, 'countryCode')) {
             $this->countryCode = $object->countryCode;
-        }
-        if (property_exists($object, 'expiryDate')) {
-            $this->expiryDate = $object->expiryDate;
         }
         if (property_exists($object, 'issuerCode')) {
             $this->issuerCode = $object->issuerCode;
