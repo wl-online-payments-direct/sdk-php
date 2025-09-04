@@ -24,7 +24,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
-    public function getToken(string $tokenId, CallContext $callContext = null): TokenResponse
+    public function getToken(string $tokenId, ?CallContext $callContext = null): TokenResponse
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
@@ -50,7 +50,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
-    public function deleteToken(string $tokenId, CallContext $callContext = null): void
+    public function deleteToken(string $tokenId, ?CallContext $callContext = null): void
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
@@ -75,7 +75,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
-    public function createToken(CreateTokenRequest $body, CallContext $callContext = null): CreatedTokenResponse
+    public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';

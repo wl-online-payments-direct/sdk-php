@@ -22,7 +22,7 @@ class CapturesClient extends ApiResource implements CapturesClientInterface
     /**
      * @inheritdoc
      */
-    public function getCaptures(string $paymentId, CallContext $callContext = null): CapturesResponse
+    public function getCaptures(string $paymentId, ?CallContext $callContext = null): CapturesResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();

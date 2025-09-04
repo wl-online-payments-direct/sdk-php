@@ -23,7 +23,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function createPaymentLink(CreatePaymentLinkRequest $body, CallContext $callContext = null): PaymentLinkResponse
+    public function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null): PaymentLinkResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentLinkResponse';
@@ -49,7 +49,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function getPaymentLinkById(string $paymentLinkId, CallContext $callContext = null): PaymentLinkResponse
+    public function getPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): PaymentLinkResponse
     {
         $this->context['paymentLinkId'] = $paymentLinkId;
         $responseClassMap = new ResponseClassMap();
@@ -75,7 +75,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function cancelPaymentLinkById(string $paymentLinkId, CallContext $callContext = null): void
+    public function cancelPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): void
     {
         $this->context['paymentLinkId'] = $paymentLinkId;
         $responseClassMap = new ResponseClassMap();

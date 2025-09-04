@@ -31,7 +31,7 @@ class ProxyConfiguration
      * @param string|null $username
      * @param string|null $password
      */
-    public function __construct(string $host, $port = null, string $username = null, string $password = null)
+    public function __construct(string $host, $port = null, ?string $username = null, ?string $password = null)
     {
         if ($host) {
             $this->host = $host;
