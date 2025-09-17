@@ -24,7 +24,7 @@ class ErrorResponseException extends RuntimeException
      * @param DataObject $errorResponse
      * @param string|null $message
      */
-    public function __construct(int $httpStatusCode, DataObject $errorResponse, string $message = null)
+    public function __construct(int $httpStatusCode, DataObject $errorResponse, ?string $message = null)
     {
         if (is_null($message)) {
             $message = 'The server returned an error.';

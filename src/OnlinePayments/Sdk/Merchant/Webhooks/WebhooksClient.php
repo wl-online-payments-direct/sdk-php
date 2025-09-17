@@ -24,7 +24,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     /**
      * @inheritdoc
      */
-    public function validateWebhookCredentials(ValidateCredentialsRequest $body, CallContext $callContext = null): ValidateCredentialsResponse
+    public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null): ValidateCredentialsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ValidateCredentialsResponse';
@@ -50,7 +50,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     /**
      * @inheritdoc
      */
-    public function sendTestWebhook(SendTestRequest $body, CallContext $callContext = null): void
+    public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null): void
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';

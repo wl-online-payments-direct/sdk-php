@@ -23,7 +23,7 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     /**
      * @inheritdoc
      */
-    public function getProductGroups(GetProductGroupsParams $query, CallContext $callContext = null): GetPaymentProductGroupsResponse
+    public function getProductGroups(GetProductGroupsParams $query, ?CallContext $callContext = null): GetPaymentProductGroupsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPaymentProductGroupsResponse';
@@ -48,7 +48,7 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     /**
      * @inheritdoc
      */
-    public function getProductGroup(string $paymentProductGroupId, GetProductGroupParams $query, CallContext $callContext = null): PaymentProductGroup
+    public function getProductGroup(string $paymentProductGroupId, GetProductGroupParams $query, ?CallContext $callContext = null): PaymentProductGroup
     {
         $this->context['paymentProductGroupId'] = $paymentProductGroupId;
         $responseClassMap = new ResponseClassMap();

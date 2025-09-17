@@ -28,7 +28,7 @@ class ResponseException extends RuntimeException
      * @param DataObject $response
      * @param string|null $message
      */
-    public function __construct(int $httpStatusCode, DataObject $response, string $message = null)
+    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
     {
         if (is_null($message)) {
             $message = 'the payment platform returned an error response';

@@ -24,7 +24,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     /**
      * @inheritdoc
      */
-    public function createHostedTokenization(CreateHostedTokenizationRequest $body, CallContext $callContext = null): CreateHostedTokenizationResponse
+    public function createHostedTokenization(CreateHostedTokenizationRequest $body, ?CallContext $callContext = null): CreateHostedTokenizationResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedTokenizationResponse';
@@ -50,7 +50,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     /**
      * @inheritdoc
      */
-    public function getHostedTokenization(string $hostedTokenizationId, CallContext $callContext = null): GetHostedTokenizationResponse
+    public function getHostedTokenization(string $hostedTokenizationId, ?CallContext $callContext = null): GetHostedTokenizationResponse
     {
         $this->context['hostedTokenizationId'] = $hostedTokenizationId;
         $responseClassMap = new ResponseClassMap();

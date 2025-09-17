@@ -29,7 +29,7 @@ class IdempotenceException extends ResponseException
     public function __construct(
         int        $httpStatusCode,
         DataObject $response,
-        string     $message = null,
+        ?string     $message = null,
         string     $idempotenceKey = '',
         string     $idempotenceRequestTimestamp = ''
     ) {

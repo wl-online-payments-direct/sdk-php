@@ -36,7 +36,7 @@ class ShoppingCartExtension extends DataObject
      * @param string $version
      * @param string|null $extensionId
      */
-    public function __construct(string $creator, string $name, string $version, string $extensionId = null)
+    public function __construct(string $creator, string $name, string $version, ?string $extensionId = null)
     {
         $this->creator = $creator;
         $this->name = $name;

@@ -23,7 +23,7 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
     /**
      * @inheritdoc
      */
-    public function completePayment(string $paymentId, CompletePaymentRequest $body, CallContext $callContext = null): CompletePaymentResponse
+    public function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();

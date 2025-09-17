@@ -23,7 +23,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPayout(string $payoutId, CallContext $callContext = null): PayoutResponse
+    public function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse
     {
         $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
@@ -49,7 +49,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
-    public function createPayout(CreatePayoutRequest $body, CallContext $callContext = null): PayoutResponse
+    public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';

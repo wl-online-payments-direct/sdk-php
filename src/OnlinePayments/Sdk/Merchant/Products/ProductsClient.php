@@ -25,7 +25,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProducts(GetPaymentProductsParams $query, CallContext $callContext = null): GetPaymentProductsResponse
+    public function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null): GetPaymentProductsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPaymentProductsResponse';
@@ -50,7 +50,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, CallContext $callContext = null): PaymentProduct
+    public function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null): PaymentProduct
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -76,7 +76,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, CallContext $callContext = null): PaymentProductNetworksResponse
+    public function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null): PaymentProductNetworksResponse
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();
@@ -102,7 +102,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     /**
      * @inheritdoc
      */
-    public function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, CallContext $callContext = null): ProductDirectory
+    public function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null): ProductDirectory
     {
         $this->context['paymentProductId'] = $paymentProductId;
         $responseClassMap = new ResponseClassMap();

@@ -24,7 +24,7 @@ class Client extends ApiResource implements ClientInterface
      * @param CommunicatorInterface $communicator
      * @param string $clientMetaInfo
      */
-    public function __construct(CommunicatorInterface $communicator, $clientMetaInfo = '')
+    public function __construct(CommunicatorInterface $communicator, string $clientMetaInfo = '')
     {
         parent::__construct();
         $this->communicator = $communicator;
@@ -43,7 +43,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
-    public function enableLogging(CommunicatorLogger $communicatorLogger)
+    public function enableLogging(CommunicatorLogger $communicatorLogger): void
     {
         $this->getCommunicator()->enableLogging($communicatorLogger);
     }
@@ -51,7 +51,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
-    public function disableLogging()
+    public function disableLogging(): void
     {
         $this->getCommunicator()->disableLogging();
     }

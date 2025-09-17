@@ -28,7 +28,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
-    public function testConnection(CallContext $callContext = null): TestConnection
+    public function testConnection(?CallContext $callContext = null): TestConnection
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\TestConnection';
@@ -53,7 +53,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
-    public function getIINDetails(GetIINDetailsRequest $body, CallContext $callContext = null): GetIINDetailsResponse
+    public function getIINDetails(GetIINDetailsRequest $body, ?CallContext $callContext = null): GetIINDetailsResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetIINDetailsResponse';
@@ -79,7 +79,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
-    public function getDccRateInquiry(CurrencyConversionRequest $body, CallContext $callContext = null): CurrencyConversionResponse
+    public function getDccRateInquiry(CurrencyConversionRequest $body, ?CallContext $callContext = null): CurrencyConversionResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CurrencyConversionResponse';
@@ -105,7 +105,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
-    public function surchargeCalculation(CalculateSurchargeRequest $body, CallContext $callContext = null): CalculateSurchargeResponse
+    public function surchargeCalculation(CalculateSurchargeRequest $body, ?CallContext $callContext = null): CalculateSurchargeResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CalculateSurchargeResponse';

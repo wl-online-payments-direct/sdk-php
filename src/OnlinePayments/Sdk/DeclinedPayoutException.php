@@ -20,7 +20,7 @@ class DeclinedPayoutException extends ResponseException
      * @param DataObject $response
      * @param string|null $message
      */
-    public function __construct(int $httpStatusCode, DataObject $response, string $message = null)
+    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
     {
         if (is_null($message)) {
             $message = DeclinedPayoutException::buildMessage($response);

@@ -23,7 +23,7 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
     /**
      * @inheritdoc
      */
-    public function createSession(SessionRequest $body, CallContext $callContext = null): SessionResponse
+    public function createSession(SessionRequest $body, ?CallContext $callContext = null): SessionResponse
     {
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SessionResponse';

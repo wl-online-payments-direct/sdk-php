@@ -22,6 +22,11 @@ class RefundRequest extends DataObject
     public ?string $captureId = null;
 
     /**
+     * @var OmnichannelRefundSpecificInput|null
+     */
+    public ?OmnichannelRefundSpecificInput $omnichannelRefundSpecificInput = null;
+
+    /**
      * @var OperationPaymentReferences|null
      */
     public ?OperationPaymentReferences $operationReferences = null;
@@ -66,6 +71,22 @@ class RefundRequest extends DataObject
     public function setCaptureId(?string $value): void
     {
         $this->captureId = $value;
+    }
+
+    /**
+     * @return OmnichannelRefundSpecificInput|null
+     */
+    public function getOmnichannelRefundSpecificInput(): ?OmnichannelRefundSpecificInput
+    {
+        return $this->omnichannelRefundSpecificInput;
+    }
+
+    /**
+     * @param OmnichannelRefundSpecificInput|null $value
+     */
+    public function setOmnichannelRefundSpecificInput(?OmnichannelRefundSpecificInput $value): void
+    {
+        $this->omnichannelRefundSpecificInput = $value;
     }
 
     /**
@@ -128,6 +149,9 @@ class RefundRequest extends DataObject
         if (!is_null($this->captureId)) {
             $object->captureId = $this->captureId;
         }
+        if (!is_null($this->omnichannelRefundSpecificInput)) {
+            $object->omnichannelRefundSpecificInput = $this->omnichannelRefundSpecificInput->toObject();
+        }
         if (!is_null($this->operationReferences)) {
             $object->operationReferences = $this->operationReferences->toObject();
         }
@@ -157,6 +181,13 @@ class RefundRequest extends DataObject
         }
         if (property_exists($object, 'captureId')) {
             $this->captureId = $object->captureId;
+        }
+        if (property_exists($object, 'omnichannelRefundSpecificInput')) {
+            if (!is_object($object->omnichannelRefundSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->omnichannelRefundSpecificInput, true) . '\' is not an object');
+            }
+            $value = new OmnichannelRefundSpecificInput();
+            $this->omnichannelRefundSpecificInput = $value->fromObject($object->omnichannelRefundSpecificInput);
         }
         if (property_exists($object, 'operationReferences')) {
             if (!is_object($object->operationReferences)) {
