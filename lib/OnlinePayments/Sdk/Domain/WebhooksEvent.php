@@ -34,6 +34,11 @@ class WebhooksEvent extends DataObject
     public $type = null;
 
     /**
+     * @var PaymentLinkResponse
+     */
+    public $paymentlink = null;
+
+    /**
      * @var PaymentResponse
      */
     public $payment = null;
@@ -52,6 +57,22 @@ class WebhooksEvent extends DataObject
      * @var TokenResponse
      */
     public $token = null;
+
+    /**
+     * @return PaymentLinkResponse
+     */
+    public function getPaymentLink()
+    {
+        return $this->paymentlink;
+    }
+
+    /**
+     * @param PaymentLinkResponse $paymentlink
+     */
+    public function setPaymentLink($paymentlink)
+    {
+        $this->paymentlink = $paymentlink;
+    }
 
     /**
      * @return PaymentResponse
@@ -138,6 +159,9 @@ class WebhooksEvent extends DataObject
         if (!is_null($this->type)) {
             $object->type = $this->type;
         }
+        if (!is_null($this->paymentlink)) {
+            $object->paymentlink = $this->paymentlink->toObject();
+        }
         if (!is_null($this->payment)) {
             $object->payment = $this->payment->toObject();
         }
@@ -175,6 +199,13 @@ class WebhooksEvent extends DataObject
         }
         if (property_exists($object, 'type')) {
             $this->type = $object->type;
+        }
+        if (property_exists($object, 'paymentlink')) {
+            if (!is_object($object->paymentlink)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentlink, true) . '\' is not an object');
+            }
+            $value = new PaymentLinkResponse();
+            $this->paymentlink = $value->fromObject($object->paymentlink);
         }
         if (property_exists($object, 'payment')) {
             if (!is_object($object->payment)) {

@@ -91,8 +91,8 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): ?DataObject
     {
         $relativeUriPathWithRequestParameters =
@@ -136,8 +136,8 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): void
     {
         $relativeUriPathWithRequestParameters =
@@ -183,8 +183,8 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): ?DataObject
     {
         $relativeUriPathWithRequestParameters =
@@ -228,8 +228,8 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): void
     {
         $relativeUriPathWithRequestParameters =
@@ -276,9 +276,9 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        $requestBodyObject = null,
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+                         $requestBodyObject = null,
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): ?DataObject
     {
         $relativeUriPathWithRequestParameters =
@@ -337,9 +337,9 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        $requestBodyObject = null,
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+                         $requestBodyObject = null,
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): void
     {
         $relativeUriPathWithRequestParameters =
@@ -400,9 +400,9 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        $requestBodyObject = null,
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+                         $requestBodyObject = null,
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): ?DataObject
     {
         $relativeUriPathWithRequestParameters =
@@ -461,9 +461,9 @@ class Communicator implements CommunicatorInterface
         ResponseClassMap $responseClassMap,
         string           $relativeUriPath,
         string           $clientMetaInfo = '',
-        $requestBodyObject = null,
-        ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+                         $requestBodyObject = null,
+        ?RequestObject   $requestParameters = null,
+        ?CallContext     $callContext = null
     ): void
     {
         $relativeUriPathWithRequestParameters =
@@ -551,7 +551,7 @@ class Communicator implements CommunicatorInterface
         string      $httpMethod,
         string      $relativeUriPathWithRequestParameters,
         ?string     $contentType = null,
-        string      $clientMetaInfo = '',
+        string       $clientMetaInfo = '',
         ?CallContext $callContext = null
     ): array
     {
@@ -586,7 +586,7 @@ class Communicator implements CommunicatorInterface
      * @return string
      */
     protected function getRelativeUriPathWithRequestParameters(
-        string        $relativeUriPath,
+        string         $relativeUriPath,
         ?RequestObject $requestParameters = null
     ): string
     {

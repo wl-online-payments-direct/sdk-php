@@ -52,6 +52,11 @@ class Order extends DataObject
     public ?SurchargeSpecificInput $surchargeSpecificInput = null;
 
     /**
+     * @var int|null
+     */
+    public ?int $totalTaxAmount = null;
+
+    /**
      * @return AdditionalOrderInput|null
      */
     public function getAdditionalInput(): ?AdditionalOrderInput
@@ -180,6 +185,22 @@ class Order extends DataObject
     }
 
     /**
+     * @return int|null
+     */
+    public function getTotalTaxAmount(): ?int
+    {
+        return $this->totalTaxAmount;
+    }
+
+    /**
+     * @param int|null $value
+     */
+    public function setTotalTaxAmount(?int $value): void
+    {
+        $this->totalTaxAmount = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -208,6 +229,9 @@ class Order extends DataObject
         }
         if (!is_null($this->surchargeSpecificInput)) {
             $object->surchargeSpecificInput = $this->surchargeSpecificInput->toObject();
+        }
+        if (!is_null($this->totalTaxAmount)) {
+            $object->totalTaxAmount = $this->totalTaxAmount;
         }
         return $object;
     }
@@ -275,6 +299,9 @@ class Order extends DataObject
             }
             $value = new SurchargeSpecificInput();
             $this->surchargeSpecificInput = $value->fromObject($object->surchargeSpecificInput);
+        }
+        if (property_exists($object, 'totalTaxAmount')) {
+            $this->totalTaxAmount = $object->totalTaxAmount;
         }
         return $this;
     }

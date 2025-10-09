@@ -17,6 +17,11 @@ class CreateTokenRequest extends DataObject
     public ?TokenCardSpecificInput $card = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $encryptedCustomerInput = null;
+
+    /**
      * @var int|null
      */
     public ?int $paymentProductId = null;
@@ -35,6 +40,22 @@ class CreateTokenRequest extends DataObject
     public function setCard(?TokenCardSpecificInput $value): void
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEncryptedCustomerInput(): ?string
+    {
+        return $this->encryptedCustomerInput;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setEncryptedCustomerInput(?string $value): void
+    {
+        $this->encryptedCustomerInput = $value;
     }
 
     /**
@@ -62,6 +83,9 @@ class CreateTokenRequest extends DataObject
         if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
+        if (!is_null($this->encryptedCustomerInput)) {
+            $object->encryptedCustomerInput = $this->encryptedCustomerInput;
+        }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -82,6 +106,9 @@ class CreateTokenRequest extends DataObject
             }
             $value = new TokenCardSpecificInput();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'encryptedCustomerInput')) {
+            $this->encryptedCustomerInput = $object->encryptedCustomerInput;
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

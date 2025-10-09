@@ -33,6 +33,8 @@ use OnlinePayments\Sdk\Merchant\Services\ServicesClient;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClientInterface;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClient;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
+use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClient;
+use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClient;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
 use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClient;
@@ -89,6 +91,14 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function complete(): CompleteClientInterface
     {
         return new CompleteClient($this, $this->context);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function subsequent(): SubsequentClientInterface
+    {
+        return new SubsequentClient($this, $this->context);
     }
 
     /**

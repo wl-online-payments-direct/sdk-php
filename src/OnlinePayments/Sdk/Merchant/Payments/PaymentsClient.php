@@ -18,8 +18,6 @@ use OnlinePayments\Sdk\Domain\PaymentDetailsResponse;
 use OnlinePayments\Sdk\Domain\PaymentResponse;
 use OnlinePayments\Sdk\Domain\RefundRequest;
 use OnlinePayments\Sdk\Domain\RefundResponse;
-use OnlinePayments\Sdk\Domain\SubsequentPaymentRequest;
-use OnlinePayments\Sdk\Domain\SubsequentPaymentResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -175,33 +173,6 @@ class PaymentsClient extends ApiResource implements PaymentsClientInterface
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/refund'),
-                $this->getClientMetaInfo(),
-                $body,
-                null,
-                $callContext
-            );
-        } catch (ErrorResponseException $e) {
-            throw $this->getResponseExceptionFactory()->createException(
-                $e->getHttpStatusCode(),
-                $e->getErrorResponse(),
-                $callContext
-            );
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse
-    {
-        $this->context['paymentId'] = $paymentId;
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SubsequentPaymentResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentErrorResponse';
-        try {
-            return $this->getCommunicator()->post(
-                $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/subsequent'),
                 $this->getClientMetaInfo(),
                 $body,
                 null,

@@ -18,6 +18,7 @@ use OnlinePayments\Sdk\Merchant\Products\ProductsClientInterface;
 use OnlinePayments\Sdk\Merchant\Refunds\RefundsClientInterface;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClientInterface;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
+use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
 use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
 
@@ -67,6 +68,13 @@ interface MerchantClientInterface
      * @return CompleteClientInterface
      */
     function complete(): CompleteClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
+     *
+     * @return SubsequentClientInterface
+     */
+    function subsequent(): SubsequentClientInterface;
 
     /**
      * Resource /v2/{merchantId}/productgroups

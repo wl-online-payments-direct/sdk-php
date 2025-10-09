@@ -20,8 +20,6 @@ use OnlinePayments\Sdk\Domain\PaymentDetailsResponse;
 use OnlinePayments\Sdk\Domain\PaymentResponse;
 use OnlinePayments\Sdk\Domain\RefundRequest;
 use OnlinePayments\Sdk\Domain\RefundResponse;
-use OnlinePayments\Sdk\Domain\SubsequentPaymentRequest;
-use OnlinePayments\Sdk\Domain\SubsequentPaymentResponse;
 use OnlinePayments\Sdk\IdempotenceException;
 use OnlinePayments\Sdk\PlatformException;
 use OnlinePayments\Sdk\ReferenceException;
@@ -138,23 +136,4 @@ interface PaymentsClientInterface
      * @throws InvalidResponseException
      */
     function refundPayment(string $paymentId, RefundRequest $body, ?CallContext $callContext = null): RefundResponse;
-
-    /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/subsequent - Subsequent payment
-     *
-     * @param string $paymentId
-     * @param SubsequentPaymentRequest $body
-     * @param CallContext|null $callContext
-     * @return SubsequentPaymentResponse
-     *
-     * @throws DeclinedPaymentException
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
-     */
-    function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse;
 }

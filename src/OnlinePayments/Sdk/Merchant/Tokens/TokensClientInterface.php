@@ -56,7 +56,7 @@ interface TokensClientInterface
     function deleteToken(string $tokenId, ?CallContext $callContext = null): void;
 
     /**
-     * Resource /v2/{merchantId}/tokens - Create token
+     * Resource /v2/{merchantId}/tokens - Please create a token.
      *
      * @param CreateTokenRequest $body
      * @param CallContext|null $callContext
