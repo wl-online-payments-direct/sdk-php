@@ -12,7 +12,7 @@ use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
  */
 class MetadataProvider implements MetadataProviderInterface
 {
-    const SDK_VERSION = '7.3.0';
+    const SDK_VERSION = '7.3.1';
 
     /** @var string */
     private string $integrator;

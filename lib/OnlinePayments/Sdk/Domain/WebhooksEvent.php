@@ -36,7 +36,7 @@ class WebhooksEvent extends DataObject
     /**
      * @var PaymentLinkResponse
      */
-    public $paymentlink = null;
+    public $paymentLink = null;
 
     /**
      * @var PaymentResponse
@@ -63,15 +63,15 @@ class WebhooksEvent extends DataObject
      */
     public function getPaymentLink()
     {
-        return $this->paymentlink;
+        return $this->paymentLink;
     }
 
     /**
-     * @param PaymentLinkResponse $paymentlink
+     * @param PaymentLinkResponse $paymentLink
      */
-    public function setPaymentLink($paymentlink)
+    public function setPaymentLink($paymentLink)
     {
-        $this->paymentlink = $paymentlink;
+        $this->paymentLink = $paymentLink;
     }
 
     /**
@@ -159,8 +159,8 @@ class WebhooksEvent extends DataObject
         if (!is_null($this->type)) {
             $object->type = $this->type;
         }
-        if (!is_null($this->paymentlink)) {
-            $object->paymentlink = $this->paymentlink->toObject();
+        if (!is_null($this->paymentLink)) {
+            $object->paymentLink = $this->paymentLink->toObject();
         }
         if (!is_null($this->payment)) {
             $object->payment = $this->payment->toObject();
@@ -200,12 +200,12 @@ class WebhooksEvent extends DataObject
         if (property_exists($object, 'type')) {
             $this->type = $object->type;
         }
-        if (property_exists($object, 'paymentlink')) {
-            if (!is_object($object->paymentlink)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->paymentlink, true) . '\' is not an object');
+        if (property_exists($object, 'paymentLink')) {
+            if (!is_object($object->paymentLink)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentLink, true) . '\' is not an object');
             }
             $value = new PaymentLinkResponse();
-            $this->paymentlink = $value->fromObject($object->paymentlink);
+            $this->paymentLink = $value->fromObject($object->paymentLink);
         }
         if (property_exists($object, 'payment')) {
             if (!is_object($object->payment)) {
