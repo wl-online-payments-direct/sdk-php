@@ -24,6 +24,11 @@ class HostedCheckoutSpecificInput extends DataObject
     /**
      * @var bool|null
      */
+    public ?bool $isNewUnscheduledCardOnFileSeries = null;
+
+    /**
+     * @var bool|null
+     */
     public ?bool $isRecurring = null;
 
     /**
@@ -91,6 +96,22 @@ class HostedCheckoutSpecificInput extends DataObject
     public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputForHostedCheckout $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsNewUnscheduledCardOnFileSeries(): ?bool
+    {
+        return $this->isNewUnscheduledCardOnFileSeries;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setIsNewUnscheduledCardOnFileSeries(?bool $value): void
+    {
+        $this->isNewUnscheduledCardOnFileSeries = $value;
     }
 
     /**
@@ -233,6 +254,9 @@ class HostedCheckoutSpecificInput extends DataObject
         if (!is_null($this->cardPaymentMethodSpecificInput)) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
+        if (!is_null($this->isNewUnscheduledCardOnFileSeries)) {
+            $object->isNewUnscheduledCardOnFileSeries = $this->isNewUnscheduledCardOnFileSeries;
+        }
         if (!is_null($this->isRecurring)) {
             $object->isRecurring = $this->isRecurring;
         }
@@ -277,6 +301,9 @@ class HostedCheckoutSpecificInput extends DataObject
             }
             $value = new CardPaymentMethodSpecificInputForHostedCheckout();
             $this->cardPaymentMethodSpecificInput = $value->fromObject($object->cardPaymentMethodSpecificInput);
+        }
+        if (property_exists($object, 'isNewUnscheduledCardOnFileSeries')) {
+            $this->isNewUnscheduledCardOnFileSeries = $object->isNewUnscheduledCardOnFileSeries;
         }
         if (property_exists($object, 'isRecurring')) {
             $this->isRecurring = $object->isRecurring;

@@ -37,6 +37,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public ?ClickToPay $clickToPay = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $cobrandSelectionIndicator = null;
+
+    /**
      * @var CurrencyConversion|null
      */
     public ?CurrencyConversion $currencyConversion = null;
@@ -55,6 +60,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
      * @var string|null
      */
     public ?string $initialSchemeTransactionId = null;
+
+    /**
+     * @var NetworkTokenEssentials|null
+     */
+    public ?NetworkTokenEssentials $networkTokenData = null;
 
     /**
      * @var string|null
@@ -182,6 +192,22 @@ class CardPaymentMethodSpecificOutput extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getCobrandSelectionIndicator(): ?string
+    {
+        return $this->cobrandSelectionIndicator;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setCobrandSelectionIndicator(?string $value): void
+    {
+        $this->cobrandSelectionIndicator = $value;
+    }
+
+    /**
      * @return CurrencyConversion|null
      */
     public function getCurrencyConversion(): ?CurrencyConversion
@@ -243,6 +269,22 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function setInitialSchemeTransactionId(?string $value): void
     {
         $this->initialSchemeTransactionId = $value;
+    }
+
+    /**
+     * @return NetworkTokenEssentials|null
+     */
+    public function getNetworkTokenData(): ?NetworkTokenEssentials
+    {
+        return $this->networkTokenData;
+    }
+
+    /**
+     * @param NetworkTokenEssentials|null $value
+     */
+    public function setNetworkTokenData(?NetworkTokenEssentials $value): void
+    {
+        $this->networkTokenData = $value;
     }
 
     /**
@@ -410,6 +452,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if (!is_null($this->clickToPay)) {
             $object->clickToPay = $this->clickToPay->toObject();
         }
+        if (!is_null($this->cobrandSelectionIndicator)) {
+            $object->cobrandSelectionIndicator = $this->cobrandSelectionIndicator;
+        }
         if (!is_null($this->currencyConversion)) {
             $object->currencyConversion = $this->currencyConversion->toObject();
         }
@@ -421,6 +466,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (!is_null($this->initialSchemeTransactionId)) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
+        }
+        if (!is_null($this->networkTokenData)) {
+            $object->networkTokenData = $this->networkTokenData->toObject();
         }
         if (!is_null($this->paymentAccountReference)) {
             $object->paymentAccountReference = $this->paymentAccountReference;
@@ -487,6 +535,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
             $value = new ClickToPay();
             $this->clickToPay = $value->fromObject($object->clickToPay);
         }
+        if (property_exists($object, 'cobrandSelectionIndicator')) {
+            $this->cobrandSelectionIndicator = $object->cobrandSelectionIndicator;
+        }
         if (property_exists($object, 'currencyConversion')) {
             if (!is_object($object->currencyConversion)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->currencyConversion, true) . '\' is not an object');
@@ -510,6 +561,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'networkTokenData')) {
+            if (!is_object($object->networkTokenData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->networkTokenData, true) . '\' is not an object');
+            }
+            $value = new NetworkTokenEssentials();
+            $this->networkTokenData = $value->fromObject($object->networkTokenData);
         }
         if (property_exists($object, 'paymentAccountReference')) {
             $this->paymentAccountReference = $object->paymentAccountReference;

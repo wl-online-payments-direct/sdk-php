@@ -17,6 +17,11 @@ class ShowFormData extends DataObject
     public ?PaymentProduct3012 $paymentProduct3012 = null;
 
     /**
+     * @var PaymentProduct350|null
+     */
+    public ?PaymentProduct350 $paymentProduct350 = null;
+
+    /**
      * @var PaymentProduct5001|null
      */
     public ?PaymentProduct5001 $paymentProduct5001 = null;
@@ -32,6 +37,11 @@ class ShowFormData extends DataObject
     public ?PaymentProduct5407 $paymentProduct5407 = null;
 
     /**
+     * @var PendingAuthentication|null
+     */
+    public ?PendingAuthentication $pendingAuthentication = null;
+
+    /**
      * @return PaymentProduct3012|null
      */
     public function getPaymentProduct3012(): ?PaymentProduct3012
@@ -45,6 +55,22 @@ class ShowFormData extends DataObject
     public function setPaymentProduct3012(?PaymentProduct3012 $value): void
     {
         $this->paymentProduct3012 = $value;
+    }
+
+    /**
+     * @return PaymentProduct350|null
+     */
+    public function getPaymentProduct350(): ?PaymentProduct350
+    {
+        return $this->paymentProduct350;
+    }
+
+    /**
+     * @param PaymentProduct350|null $value
+     */
+    public function setPaymentProduct350(?PaymentProduct350 $value): void
+    {
+        $this->paymentProduct350 = $value;
     }
 
     /**
@@ -96,6 +122,22 @@ class ShowFormData extends DataObject
     }
 
     /**
+     * @return PendingAuthentication|null
+     */
+    public function getPendingAuthentication(): ?PendingAuthentication
+    {
+        return $this->pendingAuthentication;
+    }
+
+    /**
+     * @param PendingAuthentication|null $value
+     */
+    public function setPendingAuthentication(?PendingAuthentication $value): void
+    {
+        $this->pendingAuthentication = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -103,6 +145,9 @@ class ShowFormData extends DataObject
         $object = parent::toObject();
         if (!is_null($this->paymentProduct3012)) {
             $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
+        }
+        if (!is_null($this->paymentProduct350)) {
+            $object->paymentProduct350 = $this->paymentProduct350->toObject();
         }
         if (!is_null($this->paymentProduct5001)) {
             $object->paymentProduct5001 = $this->paymentProduct5001->toObject();
@@ -112,6 +157,9 @@ class ShowFormData extends DataObject
         }
         if (!is_null($this->paymentProduct5407)) {
             $object->paymentProduct5407 = $this->paymentProduct5407->toObject();
+        }
+        if (!is_null($this->pendingAuthentication)) {
+            $object->pendingAuthentication = $this->pendingAuthentication->toObject();
         }
         return $object;
     }
@@ -130,6 +178,13 @@ class ShowFormData extends DataObject
             }
             $value = new PaymentProduct3012();
             $this->paymentProduct3012 = $value->fromObject($object->paymentProduct3012);
+        }
+        if (property_exists($object, 'paymentProduct350')) {
+            if (!is_object($object->paymentProduct350)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct350, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct350();
+            $this->paymentProduct350 = $value->fromObject($object->paymentProduct350);
         }
         if (property_exists($object, 'paymentProduct5001')) {
             if (!is_object($object->paymentProduct5001)) {
@@ -151,6 +206,13 @@ class ShowFormData extends DataObject
             }
             $value = new PaymentProduct5407();
             $this->paymentProduct5407 = $value->fromObject($object->paymentProduct5407);
+        }
+        if (property_exists($object, 'pendingAuthentication')) {
+            if (!is_object($object->pendingAuthentication)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->pendingAuthentication, true) . '\' is not an object');
+            }
+            $value = new PendingAuthentication();
+            $this->pendingAuthentication = $value->fromObject($object->pendingAuthentication);
         }
         return $this;
     }

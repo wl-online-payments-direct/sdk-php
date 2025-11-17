@@ -37,6 +37,11 @@ class TokenResponse extends DataObject
     public ?bool $isTemporary = null;
 
     /**
+     * @var NetworkTokenLinked|null
+     */
+    public ?NetworkTokenLinked $networkTokenLinked = null;
+
+    /**
      * @var int|null
      */
     public ?int $paymentProductId = null;
@@ -122,6 +127,22 @@ class TokenResponse extends DataObject
     }
 
     /**
+     * @return NetworkTokenLinked|null
+     */
+    public function getNetworkTokenLinked(): ?NetworkTokenLinked
+    {
+        return $this->networkTokenLinked;
+    }
+
+    /**
+     * @param NetworkTokenLinked|null $value
+     */
+    public function setNetworkTokenLinked(?NetworkTokenLinked $value): void
+    {
+        $this->networkTokenLinked = $value;
+    }
+
+    /**
      * @return int|null
      */
     public function getPaymentProductId(): ?int
@@ -157,6 +178,9 @@ class TokenResponse extends DataObject
         }
         if (!is_null($this->isTemporary)) {
             $object->isTemporary = $this->isTemporary;
+        }
+        if (!is_null($this->networkTokenLinked)) {
+            $object->networkTokenLinked = $this->networkTokenLinked->toObject();
         }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
@@ -198,6 +222,13 @@ class TokenResponse extends DataObject
         }
         if (property_exists($object, 'isTemporary')) {
             $this->isTemporary = $object->isTemporary;
+        }
+        if (property_exists($object, 'networkTokenLinked')) {
+            if (!is_object($object->networkTokenLinked)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->networkTokenLinked, true) . '\' is not an object');
+            }
+            $value = new NetworkTokenLinked();
+            $this->networkTokenLinked = $value->fromObject($object->networkTokenLinked);
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

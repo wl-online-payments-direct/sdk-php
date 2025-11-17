@@ -8,6 +8,7 @@ use UnexpectedValueException;
 
 /**
  * @package OnlinePayments\Sdk\Domain
+ * @deprecated Deprecated by pendingAuthentication. Contains the third party data for payment product 5001 (Bizum)
  */
 class PaymentProduct5001 extends DataObject
 {

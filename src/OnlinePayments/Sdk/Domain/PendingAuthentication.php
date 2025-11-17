@@ -9,27 +9,27 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class SubsequentPaymentProduct5001SpecificInput extends DataObject
+class PendingAuthentication extends DataObject
 {
     /**
      * @var string|null
      */
-    public ?string $subsequentType = null;
+    public ?string $pollingUrl = null;
 
     /**
      * @return string|null
      */
-    public function getSubsequentType(): ?string
+    public function getPollingUrl(): ?string
     {
-        return $this->subsequentType;
+        return $this->pollingUrl;
     }
 
     /**
      * @param string|null $value
      */
-    public function setSubsequentType(?string $value): void
+    public function setPollingUrl(?string $value): void
     {
-        $this->subsequentType = $value;
+        $this->pollingUrl = $value;
     }
 
     /**
@@ -38,8 +38,8 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->subsequentType)) {
-            $object->subsequentType = $this->subsequentType;
+        if (!is_null($this->pollingUrl)) {
+            $object->pollingUrl = $this->pollingUrl;
         }
         return $object;
     }
@@ -49,11 +49,11 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubsequentPaymentProduct5001SpecificInput
+    public function fromObject(object $object): PendingAuthentication
     {
         parent::fromObject($object);
-        if (property_exists($object, 'subsequentType')) {
-            $this->subsequentType = $object->subsequentType;
+        if (property_exists($object, 'pollingUrl')) {
+            $this->pollingUrl = $object->pollingUrl;
         }
         return $this;
     }

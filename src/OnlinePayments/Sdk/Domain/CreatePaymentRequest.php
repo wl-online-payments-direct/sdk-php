@@ -34,6 +34,11 @@ class CreatePaymentRequest extends DataObject
     /**
      * @var string|null
      */
+    public ?string $hostedFieldsSessionId = null;
+
+    /**
+     * @var string|null
+     */
     public ?string $hostedTokenizationId = null;
 
     /**
@@ -118,6 +123,22 @@ class CreatePaymentRequest extends DataObject
     public function setFraudFields(?FraudFields $value): void
     {
         $this->fraudFields = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getHostedFieldsSessionId(): ?string
+    {
+        return $this->hostedFieldsSessionId;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setHostedFieldsSessionId(?string $value): void
+    {
+        $this->hostedFieldsSessionId = $value;
     }
 
     /**
@@ -218,6 +239,9 @@ class CreatePaymentRequest extends DataObject
         if (!is_null($this->fraudFields)) {
             $object->fraudFields = $this->fraudFields->toObject();
         }
+        if (!is_null($this->hostedFieldsSessionId)) {
+            $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
+        }
         if (!is_null($this->hostedTokenizationId)) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
@@ -267,6 +291,9 @@ class CreatePaymentRequest extends DataObject
             }
             $value = new FraudFields();
             $this->fraudFields = $value->fromObject($object->fraudFields);
+        }
+        if (property_exists($object, 'hostedFieldsSessionId')) {
+            $this->hostedFieldsSessionId = $object->hostedFieldsSessionId;
         }
         if (property_exists($object, 'hostedTokenizationId')) {
             $this->hostedTokenizationId = $object->hostedTokenizationId;
