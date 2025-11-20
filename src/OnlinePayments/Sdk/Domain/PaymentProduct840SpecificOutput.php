@@ -32,9 +32,19 @@ class PaymentProduct840SpecificOutput extends DataObject
     public ?Address $customerAddress = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $payPalTransactionId = null;
+
+    /**
      * @var ProtectionEligibility|null
      */
     public ?ProtectionEligibility $protectionEligibility = null;
+
+    /**
+     * @var AddressPersonal|null
+     */
+    public ?AddressPersonal $shippingAddress = null;
 
     /**
      * @return Address|null
@@ -101,6 +111,22 @@ class PaymentProduct840SpecificOutput extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getPayPalTransactionId(): ?string
+    {
+        return $this->payPalTransactionId;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setPayPalTransactionId(?string $value): void
+    {
+        $this->payPalTransactionId = $value;
+    }
+
+    /**
      * @return ProtectionEligibility|null
      */
     public function getProtectionEligibility(): ?ProtectionEligibility
@@ -114,6 +140,22 @@ class PaymentProduct840SpecificOutput extends DataObject
     public function setProtectionEligibility(?ProtectionEligibility $value): void
     {
         $this->protectionEligibility = $value;
+    }
+
+    /**
+     * @return AddressPersonal|null
+     */
+    public function getShippingAddress(): ?AddressPersonal
+    {
+        return $this->shippingAddress;
+    }
+
+    /**
+     * @param AddressPersonal|null $value
+     */
+    public function setShippingAddress(?AddressPersonal $value): void
+    {
+        $this->shippingAddress = $value;
     }
 
     /**
@@ -134,8 +176,14 @@ class PaymentProduct840SpecificOutput extends DataObject
         if (!is_null($this->customerAddress)) {
             $object->customerAddress = $this->customerAddress->toObject();
         }
+        if (!is_null($this->payPalTransactionId)) {
+            $object->payPalTransactionId = $this->payPalTransactionId;
+        }
         if (!is_null($this->protectionEligibility)) {
             $object->protectionEligibility = $this->protectionEligibility->toObject();
+        }
+        if (!is_null($this->shippingAddress)) {
+            $object->shippingAddress = $this->shippingAddress->toObject();
         }
         return $object;
     }
@@ -176,12 +224,22 @@ class PaymentProduct840SpecificOutput extends DataObject
             $value = new Address();
             $this->customerAddress = $value->fromObject($object->customerAddress);
         }
+        if (property_exists($object, 'payPalTransactionId')) {
+            $this->payPalTransactionId = $object->payPalTransactionId;
+        }
         if (property_exists($object, 'protectionEligibility')) {
             if (!is_object($object->protectionEligibility)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->protectionEligibility, true) . '\' is not an object');
             }
             $value = new ProtectionEligibility();
             $this->protectionEligibility = $value->fromObject($object->protectionEligibility);
+        }
+        if (property_exists($object, 'shippingAddress')) {
+            if (!is_object($object->shippingAddress)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->shippingAddress, true) . '\' is not an object');
+            }
+            $value = new AddressPersonal();
+            $this->shippingAddress = $value->fromObject($object->shippingAddress);
         }
         return $this;
     }
