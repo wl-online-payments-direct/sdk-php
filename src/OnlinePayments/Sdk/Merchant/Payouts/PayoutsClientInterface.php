@@ -22,23 +22,6 @@ use OnlinePayments\Sdk\ValidationException;
 interface PayoutsClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/payouts/{payoutId} - Get payout
-     *
-     * @param string $payoutId
-     * @param CallContext|null $callContext
-     * @return PayoutResponse
-     *
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
-     */
-    function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse;
-
-    /**
      * Resource /v2/{merchantId}/payouts - Create payout
      *
      * @param CreatePayoutRequest $body
@@ -55,4 +38,21 @@ interface PayoutsClientInterface
      * @throws InvalidResponseException
      */
     function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse;
+
+    /**
+     * Resource /v2/{merchantId}/payouts/{payoutId} - Get payout
+     *
+     * @param string $payoutId
+     * @param CallContext|null $callContext
+     * @return PayoutResponse
+     *
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
+     */
+    function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse;
 }

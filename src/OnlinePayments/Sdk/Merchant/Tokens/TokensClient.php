@@ -24,6 +24,32 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
+    public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse
+    {
+        $responseClassMap = new ResponseClassMap();
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        try {
+            return $this->getCommunicator()->post(
+                $responseClassMap,
+                $this->instantiateUri('/v2/{merchantId}/tokens'),
+                $this->getClientMetaInfo(),
+                $body,
+                null,
+                $callContext
+            );
+        } catch (ErrorResponseException $e) {
+            throw $this->getResponseExceptionFactory()->createException(
+                $e->getHttpStatusCode(),
+                $e->getErrorResponse(),
+                $callContext
+            );
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getToken(string $tokenId, ?CallContext $callContext = null): TokenResponse
     {
         $this->context['tokenId'] = $tokenId;
@@ -60,32 +86,6 @@ class TokensClient extends ApiResource implements TokensClientInterface
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),
                 $this->getClientMetaInfo(),
-                null,
-                $callContext
-            );
-        } catch (ErrorResponseException $e) {
-            throw $this->getResponseExceptionFactory()->createException(
-                $e->getHttpStatusCode(),
-                $e->getErrorResponse(),
-                $callContext
-            );
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse
-    {
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
-        try {
-            return $this->getCommunicator()->post(
-                $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/tokens'),
-                $this->getClientMetaInfo(),
-                $body,
                 null,
                 $callContext
             );

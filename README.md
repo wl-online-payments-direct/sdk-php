@@ -10,7 +10,7 @@ The Online Payments PHP SDK helps you to communicate with the Online Payments Se
 * handling of all the details concerning authentication
 * handling of required metadata
 
-See the [Online Payments Developer Hub](https://github.com/Online-Payments/php/) for more information on how to use the SDK.
+See the [Online Payments Developer Hub](https://docs.direct.worldline-solutions.com/documentation/sdk/server/php/) for more information on how to use the SDK.
 
 ## Structure of this repository
 

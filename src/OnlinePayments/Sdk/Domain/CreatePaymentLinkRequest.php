@@ -24,6 +24,11 @@ class CreatePaymentLinkRequest extends DataObject
     public ?string $description = null;
 
     /**
+     * @var bool|null
+     */
+    public ?bool $displayQRCode = null;
+
+    /**
      * @var DateTime|null
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
@@ -117,6 +122,22 @@ class CreatePaymentLinkRequest extends DataObject
     public function setDescription(?string $value): void
     {
         $this->description = $value;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getDisplayQRCode(): ?bool
+    {
+        return $this->displayQRCode;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setDisplayQRCode(?bool $value): void
+    {
+        $this->displayQRCode = $value;
     }
 
     /**
@@ -327,6 +348,9 @@ class CreatePaymentLinkRequest extends DataObject
         if (!is_null($this->description)) {
             $object->description = $this->description;
         }
+        if (!is_null($this->displayQRCode)) {
+            $object->displayQRCode = $this->displayQRCode;
+        }
         if (!is_null($this->expirationDate)) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
@@ -383,6 +407,9 @@ class CreatePaymentLinkRequest extends DataObject
         }
         if (property_exists($object, 'description')) {
             $this->description = $object->description;
+        }
+        if (property_exists($object, 'displayQRCode')) {
+            $this->displayQRCode = $object->displayQRCode;
         }
         if (property_exists($object, 'expirationDate')) {
             $this->expirationDate = new DateTime($object->expirationDate);

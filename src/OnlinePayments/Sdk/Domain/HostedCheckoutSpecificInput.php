@@ -57,6 +57,11 @@ class HostedCheckoutSpecificInput extends DataObject
     public ?bool $showResultPage = null;
 
     /**
+     * @var SplitPaymentProductFiltersHostedCheckout|null
+     */
+    public ?SplitPaymentProductFiltersHostedCheckout $splitPaymentProductFilters = null;
+
+    /**
      * @var string|null
      */
     public ?string $tokens = null;
@@ -211,6 +216,22 @@ class HostedCheckoutSpecificInput extends DataObject
     }
 
     /**
+     * @return SplitPaymentProductFiltersHostedCheckout|null
+     */
+    public function getSplitPaymentProductFilters(): ?SplitPaymentProductFiltersHostedCheckout
+    {
+        return $this->splitPaymentProductFilters;
+    }
+
+    /**
+     * @param SplitPaymentProductFiltersHostedCheckout|null $value
+     */
+    public function setSplitPaymentProductFilters(?SplitPaymentProductFiltersHostedCheckout $value): void
+    {
+        $this->splitPaymentProductFilters = $value;
+    }
+
+    /**
      * @return string|null
      */
     public function getTokens(): ?string
@@ -275,6 +296,9 @@ class HostedCheckoutSpecificInput extends DataObject
         if (!is_null($this->showResultPage)) {
             $object->showResultPage = $this->showResultPage;
         }
+        if (!is_null($this->splitPaymentProductFilters)) {
+            $object->splitPaymentProductFilters = $this->splitPaymentProductFilters->toObject();
+        }
         if (!is_null($this->tokens)) {
             $object->tokens = $this->tokens;
         }
@@ -326,6 +350,13 @@ class HostedCheckoutSpecificInput extends DataObject
         }
         if (property_exists($object, 'showResultPage')) {
             $this->showResultPage = $object->showResultPage;
+        }
+        if (property_exists($object, 'splitPaymentProductFilters')) {
+            if (!is_object($object->splitPaymentProductFilters)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->splitPaymentProductFilters, true) . '\' is not an object');
+            }
+            $value = new SplitPaymentProductFiltersHostedCheckout();
+            $this->splitPaymentProductFilters = $value->fromObject($object->splitPaymentProductFilters);
         }
         if (property_exists($object, 'tokens')) {
             $this->tokens = $object->tokens;

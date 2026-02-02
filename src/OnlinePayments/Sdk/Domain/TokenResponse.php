@@ -17,6 +17,11 @@ class TokenResponse extends DataObject
     public ?TokenCard $card = null;
 
     /**
+     * @var CrmToken|null
+     */
+    public ?CrmToken $crmToken = null;
+
+    /**
      * @var TokenEWallet|null
      */
     public ?TokenEWallet $eWallet = null;
@@ -60,6 +65,22 @@ class TokenResponse extends DataObject
     public function setCard(?TokenCard $value): void
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return CrmToken|null
+     */
+    public function getCrmToken(): ?CrmToken
+    {
+        return $this->crmToken;
+    }
+
+    /**
+     * @param CrmToken|null $value
+     */
+    public function setCrmToken(?CrmToken $value): void
+    {
+        $this->crmToken = $value;
     }
 
     /**
@@ -167,6 +188,9 @@ class TokenResponse extends DataObject
         if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
+        if (!is_null($this->crmToken)) {
+            $object->crmToken = $this->crmToken->toObject();
+        }
         if (!is_null($this->eWallet)) {
             $object->eWallet = $this->eWallet->toObject();
         }
@@ -202,6 +226,13 @@ class TokenResponse extends DataObject
             }
             $value = new TokenCard();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'crmToken')) {
+            if (!is_object($object->crmToken)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->crmToken, true) . '\' is not an object');
+            }
+            $value = new CrmToken();
+            $this->crmToken = $value->fromObject($object->crmToken);
         }
         if (property_exists($object, 'eWallet')) {
             if (!is_object($object->eWallet)) {

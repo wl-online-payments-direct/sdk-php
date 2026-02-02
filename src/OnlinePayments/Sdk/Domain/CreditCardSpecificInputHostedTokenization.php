@@ -12,9 +12,9 @@ use UnexpectedValueException;
 class CreditCardSpecificInputHostedTokenization extends DataObject
 {
     /**
-     * @var CreditCardValidationRulesHostedTokenization|null
+     * @var CreditCardValidationRules|null
      */
-    public ?CreditCardValidationRulesHostedTokenization $ValidationRules = null;
+    public ?CreditCardValidationRules $ValidationRules = null;
 
     /**
      * @var int[]|null
@@ -22,17 +22,17 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     public ?array $paymentProductPreferredOrder = null;
 
     /**
-     * @return CreditCardValidationRulesHostedTokenization|null
+     * @return CreditCardValidationRules|null
      */
-    public function getValidationRules(): ?CreditCardValidationRulesHostedTokenization
+    public function getValidationRules(): ?CreditCardValidationRules
     {
         return $this->ValidationRules;
     }
 
     /**
-     * @param CreditCardValidationRulesHostedTokenization|null $value
+     * @param CreditCardValidationRules|null $value
      */
-    public function setValidationRules(?CreditCardValidationRulesHostedTokenization $value): void
+    public function setValidationRules(?CreditCardValidationRules $value): void
     {
         $this->ValidationRules = $value;
     }
@@ -85,7 +85,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
             if (!is_object($object->ValidationRules)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->ValidationRules, true) . '\' is not an object');
             }
-            $value = new CreditCardValidationRulesHostedTokenization();
+            $value = new CreditCardValidationRules();
             $this->ValidationRules = $value->fromObject($object->ValidationRules);
         }
         if (property_exists($object, 'paymentProductPreferredOrder')) {

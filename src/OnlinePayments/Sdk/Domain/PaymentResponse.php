@@ -27,6 +27,11 @@ class PaymentResponse extends DataObject
     public ?PaymentOutput $paymentOutput = null;
 
     /**
+     * @var SessionDetails|null
+     */
+    public ?SessionDetails $sessionDetails = null;
+
+    /**
      * @var string|null
      */
     public ?string $status = null;
@@ -85,6 +90,22 @@ class PaymentResponse extends DataObject
     }
 
     /**
+     * @return SessionDetails|null
+     */
+    public function getSessionDetails(): ?SessionDetails
+    {
+        return $this->sessionDetails;
+    }
+
+    /**
+     * @param SessionDetails|null $value
+     */
+    public function setSessionDetails(?SessionDetails $value): void
+    {
+        $this->sessionDetails = $value;
+    }
+
+    /**
      * @return string|null
      */
     public function getStatus(): ?string
@@ -131,6 +152,9 @@ class PaymentResponse extends DataObject
         if (!is_null($this->paymentOutput)) {
             $object->paymentOutput = $this->paymentOutput->toObject();
         }
+        if (!is_null($this->sessionDetails)) {
+            $object->sessionDetails = $this->sessionDetails->toObject();
+        }
         if (!is_null($this->status)) {
             $object->status = $this->status;
         }
@@ -164,6 +188,13 @@ class PaymentResponse extends DataObject
             }
             $value = new PaymentOutput();
             $this->paymentOutput = $value->fromObject($object->paymentOutput);
+        }
+        if (property_exists($object, 'sessionDetails')) {
+            if (!is_object($object->sessionDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->sessionDetails, true) . '\' is not an object');
+            }
+            $value = new SessionDetails();
+            $this->sessionDetails = $value->fromObject($object->sessionDetails);
         }
         if (property_exists($object, 'status')) {
             $this->status = $object->status;

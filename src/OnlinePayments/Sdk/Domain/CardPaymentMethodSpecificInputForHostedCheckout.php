@@ -27,6 +27,11 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     public ?array $paymentProductPreferredOrder = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $tokenizationMode = null;
+
+    /**
      * @return bool|null
      */
     public function getClickToPay(): ?bool
@@ -75,6 +80,22 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getTokenizationMode(): ?string
+    {
+        return $this->tokenizationMode;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setTokenizationMode(?string $value): void
+    {
+        $this->tokenizationMode = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -93,6 +114,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
                     $object->paymentProductPreferredOrder[] = $element;
                 }
             }
+        }
+        if (!is_null($this->tokenizationMode)) {
+            $object->tokenizationMode = $this->tokenizationMode;
         }
         return $object;
     }
@@ -119,6 +143,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
             foreach ($object->paymentProductPreferredOrder as $element) {
                 $this->paymentProductPreferredOrder[] = $element;
             }
+        }
+        if (property_exists($object, 'tokenizationMode')) {
+            $this->tokenizationMode = $object->tokenizationMode;
         }
         return $this;
     }

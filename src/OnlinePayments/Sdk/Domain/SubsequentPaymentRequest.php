@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class SubsequentPaymentRequest extends DataObject
 {
     /**
+     * @var OmnichannelSubsequentSpecificInput|null
+     */
+    public ?OmnichannelSubsequentSpecificInput $omnichannelSubsequentSpecificInput = null;
+
+    /**
      * @var Order|null
      */
     public ?Order $order = null;
@@ -25,6 +30,22 @@ class SubsequentPaymentRequest extends DataObject
      * @var SubsequentCardPaymentMethodSpecificInput|null
      */
     public ?SubsequentCardPaymentMethodSpecificInput $subsequentcardPaymentMethodSpecificInput = null;
+
+    /**
+     * @return OmnichannelSubsequentSpecificInput|null
+     */
+    public function getOmnichannelSubsequentSpecificInput(): ?OmnichannelSubsequentSpecificInput
+    {
+        return $this->omnichannelSubsequentSpecificInput;
+    }
+
+    /**
+     * @param OmnichannelSubsequentSpecificInput|null $value
+     */
+    public function setOmnichannelSubsequentSpecificInput(?OmnichannelSubsequentSpecificInput $value): void
+    {
+        $this->omnichannelSubsequentSpecificInput = $value;
+    }
 
     /**
      * @return Order|null
@@ -80,6 +101,9 @@ class SubsequentPaymentRequest extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->omnichannelSubsequentSpecificInput)) {
+            $object->omnichannelSubsequentSpecificInput = $this->omnichannelSubsequentSpecificInput->toObject();
+        }
         if (!is_null($this->order)) {
             $object->order = $this->order->toObject();
         }
@@ -100,6 +124,13 @@ class SubsequentPaymentRequest extends DataObject
     public function fromObject(object $object): SubsequentPaymentRequest
     {
         parent::fromObject($object);
+        if (property_exists($object, 'omnichannelSubsequentSpecificInput')) {
+            if (!is_object($object->omnichannelSubsequentSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->omnichannelSubsequentSpecificInput, true) . '\' is not an object');
+            }
+            $value = new OmnichannelSubsequentSpecificInput();
+            $this->omnichannelSubsequentSpecificInput = $value->fromObject($object->omnichannelSubsequentSpecificInput);
+        }
         if (property_exists($object, 'order')) {
             if (!is_object($object->order)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->order, true) . '\' is not an object');

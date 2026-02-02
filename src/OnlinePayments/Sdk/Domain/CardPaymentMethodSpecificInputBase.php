@@ -32,6 +32,11 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public ?string $initialSchemeTransactionId = null;
 
     /**
+     * @var MarketPlace|null
+     */
+    public ?MarketPlace $marketPlace = null;
+
+    /**
      * @var MultiplePaymentInformation|null
      */
     public ?MultiplePaymentInformation $multiplePaymentInformation = null;
@@ -168,6 +173,22 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public function setInitialSchemeTransactionId(?string $value): void
     {
         $this->initialSchemeTransactionId = $value;
+    }
+
+    /**
+     * @return MarketPlace|null
+     */
+    public function getMarketPlace(): ?MarketPlace
+    {
+        return $this->marketPlace;
+    }
+
+    /**
+     * @param MarketPlace|null $value
+     */
+    public function setMarketPlace(?MarketPlace $value): void
+    {
+        $this->marketPlace = $value;
     }
 
     /**
@@ -428,6 +449,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         if (!is_null($this->initialSchemeTransactionId)) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
         }
+        if (!is_null($this->marketPlace)) {
+            $object->marketPlace = $this->marketPlace->toObject();
+        }
         if (!is_null($this->multiplePaymentInformation)) {
             $object->multiplePaymentInformation = $this->multiplePaymentInformation->toObject();
         }
@@ -499,6 +523,13 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'marketPlace')) {
+            if (!is_object($object->marketPlace)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->marketPlace, true) . '\' is not an object');
+            }
+            $value = new MarketPlace();
+            $this->marketPlace = $value->fromObject($object->marketPlace);
         }
         if (property_exists($object, 'multiplePaymentInformation')) {
             if (!is_object($object->multiplePaymentInformation)) {

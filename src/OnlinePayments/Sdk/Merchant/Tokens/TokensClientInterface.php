@@ -22,6 +22,23 @@ use OnlinePayments\Sdk\ValidationException;
 interface TokensClientInterface
 {
     /**
+     * Resource /v2/{merchantId}/tokens - Create token
+     *
+     * @param CreateTokenRequest $body
+     * @param CallContext|null $callContext
+     * @return CreatedTokenResponse
+     *
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
+     */
+    function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse;
+
+    /**
      * Resource /v2/{merchantId}/tokens/{tokenId} - Get token
      *
      * @param string $tokenId
@@ -54,21 +71,4 @@ interface TokensClientInterface
      * @throws InvalidResponseException
      */
     function deleteToken(string $tokenId, ?CallContext $callContext = null): void;
-
-    /**
-     * Resource /v2/{merchantId}/tokens - Please create a token.
-     *
-     * @param CreateTokenRequest $body
-     * @param CallContext|null $callContext
-     * @return CreatedTokenResponse
-     *
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
-     */
-    function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse;
 }

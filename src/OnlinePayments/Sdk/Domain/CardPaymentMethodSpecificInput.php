@@ -57,6 +57,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     public ?bool $isRecurring = null;
 
     /**
+     * @var MarketPlace|null
+     */
+    public ?MarketPlace $marketPlace = null;
+
+    /**
      * @var MultiplePaymentInformation|null
      */
     public ?MultiplePaymentInformation $multiplePaymentInformation = null;
@@ -289,6 +294,22 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
+    }
+
+    /**
+     * @return MarketPlace|null
+     */
+    public function getMarketPlace(): ?MarketPlace
+    {
+        return $this->marketPlace;
+    }
+
+    /**
+     * @param MarketPlace|null $value
+     */
+    public function setMarketPlace(?MarketPlace $value): void
+    {
+        $this->marketPlace = $value;
     }
 
     /**
@@ -614,6 +635,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->isRecurring)) {
             $object->isRecurring = $this->isRecurring;
         }
+        if (!is_null($this->marketPlace)) {
+            $object->marketPlace = $this->marketPlace->toObject();
+        }
         if (!is_null($this->multiplePaymentInformation)) {
             $object->multiplePaymentInformation = $this->multiplePaymentInformation->toObject();
         }
@@ -713,6 +737,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'isRecurring')) {
             $this->isRecurring = $object->isRecurring;
+        }
+        if (property_exists($object, 'marketPlace')) {
+            if (!is_object($object->marketPlace)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->marketPlace, true) . '\' is not an object');
+            }
+            $value = new MarketPlace();
+            $this->marketPlace = $value->fromObject($object->marketPlace);
         }
         if (property_exists($object, 'multiplePaymentInformation')) {
             if (!is_object($object->multiplePaymentInformation)) {

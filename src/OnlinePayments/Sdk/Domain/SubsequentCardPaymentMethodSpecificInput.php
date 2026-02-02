@@ -17,6 +17,11 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     public ?string $authorizationMode = null;
 
     /**
+     * @var MarketPlace|null
+     */
+    public ?MarketPlace $marketPlace = null;
+
+    /**
      * @var int|null
      */
     public ?int $paymentNumber = null;
@@ -57,6 +62,22 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
+    }
+
+    /**
+     * @return MarketPlace|null
+     */
+    public function getMarketPlace(): ?MarketPlace
+    {
+        return $this->marketPlace;
+    }
+
+    /**
+     * @param MarketPlace|null $value
+     */
+    public function setMarketPlace(?MarketPlace $value): void
+    {
+        $this->marketPlace = $value;
     }
 
     /**
@@ -152,6 +173,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->authorizationMode)) {
             $object->authorizationMode = $this->authorizationMode;
         }
+        if (!is_null($this->marketPlace)) {
+            $object->marketPlace = $this->marketPlace->toObject();
+        }
         if (!is_null($this->paymentNumber)) {
             $object->paymentNumber = $this->paymentNumber;
         }
@@ -180,6 +204,13 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {
             $this->authorizationMode = $object->authorizationMode;
+        }
+        if (property_exists($object, 'marketPlace')) {
+            if (!is_object($object->marketPlace)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->marketPlace, true) . '\' is not an object');
+            }
+            $value = new MarketPlace();
+            $this->marketPlace = $value->fromObject($object->marketPlace);
         }
         if (property_exists($object, 'paymentNumber')) {
             $this->paymentNumber = $object->paymentNumber;

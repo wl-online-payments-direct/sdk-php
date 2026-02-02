@@ -9,7 +9,7 @@ use UnexpectedValueException;
 /**
  * @package OnlinePayments\Sdk\Domain
  */
-class CreditCardValidationRulesHostedTokenization extends DataObject
+class CreditCardValidationRules extends DataObject
 {
     /**
      * @var bool|null
@@ -73,7 +73,7 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreditCardValidationRulesHostedTokenization
+    public function fromObject(object $object): CreditCardValidationRules
     {
         parent::fromObject($object);
         if (property_exists($object, 'cvvMandatoryForExistingToken')) {

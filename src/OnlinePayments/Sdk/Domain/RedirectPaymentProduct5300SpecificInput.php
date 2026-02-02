@@ -47,6 +47,11 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     public ?int $sessionDuration = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $title = null;
+
+    /**
      * @return string|null
      */
     public function getBirthCity(): ?string
@@ -159,6 +164,22 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setTitle(?string $value): void
+    {
+        $this->title = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -184,6 +205,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
         }
         if (!is_null($this->sessionDuration)) {
             $object->sessionDuration = $this->sessionDuration;
+        }
+        if (!is_null($this->title)) {
+            $object->title = $this->title;
         }
         return $object;
     }
@@ -216,6 +240,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
         }
         if (property_exists($object, 'sessionDuration')) {
             $this->sessionDuration = $object->sessionDuration;
+        }
+        if (property_exists($object, 'title')) {
+            $this->title = $object->title;
         }
         return $this;
     }

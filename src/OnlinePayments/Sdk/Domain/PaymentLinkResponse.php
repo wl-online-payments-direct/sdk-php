@@ -45,6 +45,11 @@ class PaymentLinkResponse extends DataObject
     /**
      * @var string|null
      */
+    public ?string $qrCodeBase64 = null;
+
+    /**
+     * @var string|null
+     */
     public ?string $recipientName = null;
 
     /**
@@ -156,6 +161,22 @@ class PaymentLinkResponse extends DataObject
     /**
      * @return string|null
      */
+    public function getQrCodeBase64(): ?string
+    {
+        return $this->qrCodeBase64;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setQrCodeBase64(?string $value): void
+    {
+        $this->qrCodeBase64 = $value;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getRecipientName(): ?string
     {
         return $this->recipientName;
@@ -230,6 +251,9 @@ class PaymentLinkResponse extends DataObject
         if (!is_null($this->paymentLinkOrder)) {
             $object->paymentLinkOrder = $this->paymentLinkOrder->toObject();
         }
+        if (!is_null($this->qrCodeBase64)) {
+            $object->qrCodeBase64 = $this->qrCodeBase64;
+        }
         if (!is_null($this->recipientName)) {
             $object->recipientName = $this->recipientName;
         }
@@ -278,6 +302,9 @@ class PaymentLinkResponse extends DataObject
             }
             $value = new PaymentLinkOrderOutput();
             $this->paymentLinkOrder = $value->fromObject($object->paymentLinkOrder);
+        }
+        if (property_exists($object, 'qrCodeBase64')) {
+            $this->qrCodeBase64 = $object->qrCodeBase64;
         }
         if (property_exists($object, 'recipientName')) {
             $this->recipientName = $object->recipientName;

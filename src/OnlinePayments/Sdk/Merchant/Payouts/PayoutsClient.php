@@ -23,17 +23,17 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
-    public function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse
+    public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse
     {
-        $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutErrorResponse';
         try {
-            return $this->getCommunicator()->get(
+            return $this->getCommunicator()->post(
                 $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/payouts/{payoutId}'),
+                $this->instantiateUri('/v2/{merchantId}/payouts'),
                 $this->getClientMetaInfo(),
+                $body,
                 null,
                 $callContext
             );
@@ -49,17 +49,17 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
-    public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse
+    public function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse
     {
+        $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutErrorResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
-            return $this->getCommunicator()->post(
+            return $this->getCommunicator()->get(
                 $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/payouts'),
+                $this->instantiateUri('/v2/{merchantId}/payouts/{payoutId}'),
                 $this->getClientMetaInfo(),
-                $body,
                 null,
                 $callContext
             );

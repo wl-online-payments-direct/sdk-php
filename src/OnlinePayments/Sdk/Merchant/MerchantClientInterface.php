@@ -112,14 +112,14 @@ interface MerchantClientInterface
     function sessions(): SessionsClientInterface;
 
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId}
+     * Resource /v2/{merchantId}/tokens
      *
      * @return TokensClientInterface
      */
     function tokens(): TokensClientInterface;
 
     /**
-     * Resource /v2/{merchantId}/payouts/{payoutId}
+     * Resource /v2/{merchantId}/payouts
      *
      * @return PayoutsClientInterface
      */

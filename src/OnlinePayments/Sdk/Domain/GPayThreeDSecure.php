@@ -37,6 +37,11 @@ class GPayThreeDSecure extends DataObject
     public ?bool $skipAuthentication = null;
 
     /**
+     * @var bool|null
+     */
+    public ?bool $skipSoftDecline = null;
+
+    /**
      * @return string|null
      */
     public function getChallengeCanvasSize(): ?string
@@ -117,6 +122,22 @@ class GPayThreeDSecure extends DataObject
     }
 
     /**
+     * @return bool|null
+     */
+    public function getSkipSoftDecline(): ?bool
+    {
+        return $this->skipSoftDecline;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setSkipSoftDecline(?bool $value): void
+    {
+        $this->skipSoftDecline = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -136,6 +157,9 @@ class GPayThreeDSecure extends DataObject
         }
         if (!is_null($this->skipAuthentication)) {
             $object->skipAuthentication = $this->skipAuthentication;
+        }
+        if (!is_null($this->skipSoftDecline)) {
+            $object->skipSoftDecline = $this->skipSoftDecline;
         }
         return $object;
     }
@@ -166,6 +190,9 @@ class GPayThreeDSecure extends DataObject
         }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
+        }
+        if (property_exists($object, 'skipSoftDecline')) {
+            $this->skipSoftDecline = $object->skipSoftDecline;
         }
         return $this;
     }

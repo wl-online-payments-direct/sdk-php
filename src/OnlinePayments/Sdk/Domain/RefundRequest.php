@@ -42,6 +42,11 @@ class RefundRequest extends DataObject
     public ?PaymentReferences $references = null;
 
     /**
+     * @var RefundRedirectPaymentMethodSpecificInput|null
+     */
+    public ?RefundRedirectPaymentMethodSpecificInput $refundRedirectPaymentMethodSpecificInput = null;
+
+    /**
      * @return AmountOfMoney|null
      */
     public function getAmountOfMoney(): ?AmountOfMoney
@@ -138,6 +143,22 @@ class RefundRequest extends DataObject
     }
 
     /**
+     * @return RefundRedirectPaymentMethodSpecificInput|null
+     */
+    public function getRefundRedirectPaymentMethodSpecificInput(): ?RefundRedirectPaymentMethodSpecificInput
+    {
+        return $this->refundRedirectPaymentMethodSpecificInput;
+    }
+
+    /**
+     * @param RefundRedirectPaymentMethodSpecificInput|null $value
+     */
+    public function setRefundRedirectPaymentMethodSpecificInput(?RefundRedirectPaymentMethodSpecificInput $value): void
+    {
+        $this->refundRedirectPaymentMethodSpecificInput = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -160,6 +181,9 @@ class RefundRequest extends DataObject
         }
         if (!is_null($this->references)) {
             $object->references = $this->references->toObject();
+        }
+        if (!is_null($this->refundRedirectPaymentMethodSpecificInput)) {
+            $object->refundRedirectPaymentMethodSpecificInput = $this->refundRedirectPaymentMethodSpecificInput->toObject();
         }
         return $object;
     }
@@ -205,6 +229,13 @@ class RefundRequest extends DataObject
             }
             $value = new PaymentReferences();
             $this->references = $value->fromObject($object->references);
+        }
+        if (property_exists($object, 'refundRedirectPaymentMethodSpecificInput')) {
+            if (!is_object($object->refundRedirectPaymentMethodSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->refundRedirectPaymentMethodSpecificInput, true) . '\' is not an object');
+            }
+            $value = new RefundRedirectPaymentMethodSpecificInput();
+            $this->refundRedirectPaymentMethodSpecificInput = $value->fromObject($object->refundRedirectPaymentMethodSpecificInput);
         }
         return $this;
     }

@@ -10,7 +10,6 @@ use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\InvalidResponseException;
 use OnlinePayments\Sdk\Domain\CreatePaymentLinkRequest;
 use OnlinePayments\Sdk\Domain\PaymentLinkResponse;
-use OnlinePayments\Sdk\Domain\PaymentLinksResponse;
 use OnlinePayments\Sdk\IdempotenceException;
 use OnlinePayments\Sdk\PlatformException;
 use OnlinePayments\Sdk\ReferenceException;
@@ -21,23 +20,6 @@ use OnlinePayments\Sdk\ValidationException;
  */
 interface PaymentLinksClientInterface
 {
-    /**
-     * Resource /v2/{merchantId}/paymentlinks - Get payment links
-     *
-     * @param GetPaymentLinksInBulkParams $query
-     * @param CallContext|null $callContext
-     * @return PaymentLinksResponse
-     *
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
-     */
-    function getPaymentLinksInBulk(GetPaymentLinksInBulkParams $query, ?CallContext $callContext = null): PaymentLinksResponse;
-
     /**
      * Resource /v2/{merchantId}/paymentlinks - Create payment link
      *
