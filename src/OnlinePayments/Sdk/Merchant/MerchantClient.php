@@ -7,10 +7,14 @@ namespace OnlinePayments\Sdk\Merchant;
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\Merchant\Captures\CapturesClient;
 use OnlinePayments\Sdk\Merchant\Captures\CapturesClientInterface;
+use OnlinePayments\Sdk\Merchant\CofSeries\CofSeriesClient;
+use OnlinePayments\Sdk\Merchant\CofSeries\CofSeriesClientInterface;
 use OnlinePayments\Sdk\Merchant\Complete\CompleteClient;
 use OnlinePayments\Sdk\Merchant\Complete\CompleteClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClient;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
+use OnlinePayments\Sdk\Merchant\HostedFields\HostedFieldsClient;
+use OnlinePayments\Sdk\Merchant\HostedFields\HostedFieldsClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClient;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClient;
@@ -35,6 +39,8 @@ use OnlinePayments\Sdk\Merchant\Sessions\SessionsClient;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
 use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClient;
 use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClientInterface;
+use OnlinePayments\Sdk\Merchant\Tokenization\TokenizationClient;
+use OnlinePayments\Sdk\Merchant\Tokenization\TokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClient;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
 use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClient;
@@ -59,6 +65,14 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function hostedTokenization(): HostedTokenizationClientInterface
     {
         return new HostedTokenizationClient($this, $this->context);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function hostedFields(): HostedFieldsClientInterface
+    {
+        return new HostedFieldsClient($this, $this->context);
     }
 
     /**
@@ -147,6 +161,22 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function tokens(): TokensClientInterface
     {
         return new TokensClient($this, $this->context);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function cofSeries(): CofSeriesClientInterface
+    {
+        return new CofSeriesClient($this, $this->context);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function tokenization(): TokenizationClientInterface
+    {
+        return new TokenizationClient($this, $this->context);
     }
 
     /**

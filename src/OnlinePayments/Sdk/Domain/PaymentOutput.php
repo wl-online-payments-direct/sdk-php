@@ -73,6 +73,11 @@ class PaymentOutput extends DataObject
     public ?SepaDirectDebitPaymentMethodSpecificOutput $sepaDirectDebitPaymentMethodSpecificOutput = null;
 
     /**
+     * @var ShoppingCartOutput|null
+     */
+    public ?ShoppingCartOutput $shoppingCartOutput = null;
+
+    /**
      * @var SurchargeSpecificOutput|null
      */
     public ?SurchargeSpecificOutput $surchargeSpecificOutput = null;
@@ -272,6 +277,22 @@ class PaymentOutput extends DataObject
     }
 
     /**
+     * @return ShoppingCartOutput|null
+     */
+    public function getShoppingCartOutput(): ?ShoppingCartOutput
+    {
+        return $this->shoppingCartOutput;
+    }
+
+    /**
+     * @param ShoppingCartOutput|null $value
+     */
+    public function setShoppingCartOutput(?ShoppingCartOutput $value): void
+    {
+        $this->shoppingCartOutput = $value;
+    }
+
+    /**
      * @return SurchargeSpecificOutput|null
      */
     public function getSurchargeSpecificOutput(): ?SurchargeSpecificOutput
@@ -328,6 +349,9 @@ class PaymentOutput extends DataObject
         }
         if (!is_null($this->sepaDirectDebitPaymentMethodSpecificOutput)) {
             $object->sepaDirectDebitPaymentMethodSpecificOutput = $this->sepaDirectDebitPaymentMethodSpecificOutput->toObject();
+        }
+        if (!is_null($this->shoppingCartOutput)) {
+            $object->shoppingCartOutput = $this->shoppingCartOutput->toObject();
         }
         if (!is_null($this->surchargeSpecificOutput)) {
             $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
@@ -414,6 +438,13 @@ class PaymentOutput extends DataObject
             }
             $value = new SepaDirectDebitPaymentMethodSpecificOutput();
             $this->sepaDirectDebitPaymentMethodSpecificOutput = $value->fromObject($object->sepaDirectDebitPaymentMethodSpecificOutput);
+        }
+        if (property_exists($object, 'shoppingCartOutput')) {
+            if (!is_object($object->shoppingCartOutput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->shoppingCartOutput, true) . '\' is not an object');
+            }
+            $value = new ShoppingCartOutput();
+            $this->shoppingCartOutput = $value->fromObject($object->shoppingCartOutput);
         }
         if (property_exists($object, 'surchargeSpecificOutput')) {
             if (!is_object($object->surchargeSpecificOutput)) {

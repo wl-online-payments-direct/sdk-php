@@ -1,6 +1,7 @@
 <?php
 namespace OnlinePayments\Sdk\It;
 
+use Exception;
 use OnlinePayments\Sdk\Communication\MultipartDataObject;
 use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
 use OnlinePayments\Sdk\Communication\ResponseBuilder;
@@ -17,192 +18,280 @@ use OnlinePayments\Sdk\TestUtil\TestingAuthenticator;
  */
 class MultipartFormDataTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPostWithMultipartFormDataObjectWithResponse()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
+            $responseClassMap = new ResponseClassMap();
+            $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
 
-        /** @var HttpBinResponse $response */
-        $response = $communicator->post($responseClassMap, '/post', '', $multipart);
+            /** @var HttpBinResponse $response */
+            $response = $communicator->post($responseClassMap, '/post', '', $multipart);
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPostWithMultipartDataObjectWithResponse()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
+            $responseClassMap = new ResponseClassMap();
+            $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
 
-        /** @var HttpBinResponse $response */
-        $response = $communicator->post($responseClassMap, '/post', '', new MultipartFormDataWrapper($multipart));
+            /** @var HttpBinResponse $response */
+            $response = $communicator->post(
+                $responseClassMap,
+                '/post',
+                '',
+                new MultipartFormDataWrapper($multipart)
+            );
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPostWithMultipartFormDataObjectWithCallable()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
+            $responseClassMap = new ResponseClassMap();
 
-        $responseBuilder = new ResponseBuilder();
-        $bodyHandler = function ($data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHeaders($headers);
-            $responseBuilder->appendBody($data);
-        };
+            $responseBuilder = new ResponseBuilder();
+            $bodyHandler = function ($data, $headers) use ($responseBuilder) {
+                $responseBuilder->setHeaders($headers);
+                $responseBuilder->appendBody($data);
+            };
 
-        $communicator->postWithBinaryResponse($bodyHandler, $responseClassMap, '/post', '', $multipart);
+            $communicator->postWithBinaryResponse(
+                $bodyHandler,
+                $responseClassMap,
+                '/post',
+                '',
+                $multipart
+            );
 
-        $response = new HttpBinResponse();
-        $response->fromJson($responseBuilder->getResponse()->getBody());
+            $response = new HttpBinResponse();
+            $response->fromJson($responseBuilder->getResponse()->getBody());
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPostWithMultipartDataObjectWithCallable()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
+            $responseClassMap = new ResponseClassMap();
 
-        $responseBuilder = new ResponseBuilder();
-        $bodyHandler = function ($data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHeaders($headers);
-            $responseBuilder->appendBody($data);
-        };
+            $responseBuilder = new ResponseBuilder();
+            $bodyHandler = function ($data, $headers) use ($responseBuilder) {
+                $responseBuilder->setHeaders($headers);
+                $responseBuilder->appendBody($data);
+            };
 
-        $communicator->postWithBinaryResponse($bodyHandler, $responseClassMap, '/post', '', new MultipartFormDataWrapper($multipart));
+            $communicator->postWithBinaryResponse(
+                $bodyHandler,
+                $responseClassMap,
+                '/post',
+                '',
+                new MultipartFormDataWrapper($multipart)
+            );
 
-        $response = new HttpBinResponse();
-        $response->fromJson($responseBuilder->getResponse()->getBody());
+            $response = new HttpBinResponse();
+            $response->fromJson($responseBuilder->getResponse()->getBody());
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPutWithMultipartFormDataObjectWithResponse()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
+            $responseClassMap = new ResponseClassMap();
+            $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
 
-        /** @var HttpBinResponse $response */
-        $response = $communicator->put($responseClassMap, '/put', '', $multipart);
+            /** @var HttpBinResponse $response */
+            $response = $communicator->put($responseClassMap, '/put', '', $multipart);
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPutWithMultipartDataObjectWithResponse()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
+            $responseClassMap = new ResponseClassMap();
+            $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\It\HttpBinResponse';
 
-        /** @var HttpBinResponse $response */
-        $response = $communicator->put($responseClassMap,  '/put', '', new MultipartFormDataWrapper($multipart));
+            /** @var HttpBinResponse $response */
+            $response = $communicator->put($responseClassMap, '/put', '', new MultipartFormDataWrapper($multipart));
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPutWithMultipartFormDataObjectWithCallable()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
+            $responseClassMap = new ResponseClassMap();
 
-        $responseBuilder = new ResponseBuilder();
-        $bodyHandler = function ($data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHeaders($headers);
-            $responseBuilder->appendBody($data);
-        };
+            $responseBuilder = new ResponseBuilder();
+            $bodyHandler = function ($data, $headers) use ($responseBuilder) {
+                $responseBuilder->setHeaders($headers);
+                $responseBuilder->appendBody($data);
+            };
 
-        $communicator->putWithBinaryResponse($bodyHandler, $responseClassMap, '/put', '', $multipart);
+            $communicator->putWithBinaryResponse($bodyHandler, $responseClassMap, '/put', '', $multipart);
 
-        $response = new HttpBinResponse();
-        $response->fromJson($responseBuilder->getResponse()->getBody());
+            $response = new HttpBinResponse();
+            $response->fromJson($responseBuilder->getResponse()->getBody());
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMultipartFormDataUploadPutWithMultipartDataObjectWithCallable()
     {
-        $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
-        $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
+        try {
+            $communicatorConfiguration = $this->getCommunicatorConfiguration();
+            $communicatorConfiguration->setApiEndpoint($this->startMockServerForTest());
+            $communicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
 
-        $multipart = new MultipartFormDataObject();
-        $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
-        $multipart->addValue('value', 'Hello World');
+            $multipart = new MultipartFormDataObject();
+            $multipart->addFile('file', new UploadableFile('file.txt', 'file-content', 'text/plain'));
+            $multipart->addValue('value', 'Hello World');
 
-        $responseClassMap = new ResponseClassMap();
+            $responseClassMap = new ResponseClassMap();
 
-        $responseBuilder = new ResponseBuilder();
-        $bodyHandler = function ($data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHeaders($headers);
-            $responseBuilder->appendBody($data);
-        };
+            $responseBuilder = new ResponseBuilder();
+            $bodyHandler = function ($data, $headers) use ($responseBuilder) {
+                $responseBuilder->setHeaders($headers);
+                $responseBuilder->appendBody($data);
+            };
 
-        $communicator->putWithBinaryResponse($bodyHandler, $responseClassMap, '/put', '', new MultipartFormDataWrapper($multipart));
+            $communicator->putWithBinaryResponse(
+                $bodyHandler,
+                $responseClassMap,
+                '/put',
+                '',
+                new MultipartFormDataWrapper($multipart)
+            );
 
-        $response = new HttpBinResponse();
-        $response->fromJson($responseBuilder->getResponse()->getBody());
+            $response = new HttpBinResponse();
+            $response->fromJson($responseBuilder->getResponse()->getBody());
 
-        $this->assertEquals('Hello World', $response->form->value);
-        $this->assertEquals('file-content', $response->files->file);
+            // Access form and files as arrays
+            $this->assertEquals('Hello World', $response->form->value);
+            $this->assertEquals('file-content', $response->files->file);
+
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 }
 

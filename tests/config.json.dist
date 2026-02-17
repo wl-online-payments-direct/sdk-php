@@ -6,6 +6,5 @@
     "proxy_username":       "USERNAME_OR_EMPTY",
     "proxy_password":       "PASSWORD_OR_EMPTY",
     "v1hmac_api_key":       "API_KEY",
-    "v1hmac_api_secret":    "API_KEY_SECRET",
-    "httpbin_url":          "http://httpbin.org"
+    "v1hmac_api_secret":    "API_KEY_SECRET"
 }

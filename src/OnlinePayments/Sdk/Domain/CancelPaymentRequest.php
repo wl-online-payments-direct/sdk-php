@@ -22,6 +22,11 @@ class CancelPaymentRequest extends DataObject
     public ?bool $isFinal = null;
 
     /**
+     * @var LineItemDetail[]|null
+     */
+    public ?array $lineItemDetails = null;
+
+    /**
      * @var OperationPaymentReferences|null
      */
     public ?OperationPaymentReferences $operationReferences = null;
@@ -59,6 +64,22 @@ class CancelPaymentRequest extends DataObject
     }
 
     /**
+     * @return LineItemDetail[]|null
+     */
+    public function getLineItemDetails(): ?array
+    {
+        return $this->lineItemDetails;
+    }
+
+    /**
+     * @param LineItemDetail[]|null $value
+     */
+    public function setLineItemDetails(?array $value): void
+    {
+        $this->lineItemDetails = $value;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
      */
     public function getOperationReferences(): ?OperationPaymentReferences
@@ -86,6 +107,14 @@ class CancelPaymentRequest extends DataObject
         if (!is_null($this->isFinal)) {
             $object->isFinal = $this->isFinal;
         }
+        if (!is_null($this->lineItemDetails)) {
+            $object->lineItemDetails = [];
+            foreach ($this->lineItemDetails as $element) {
+                if (!is_null($element)) {
+                    $object->lineItemDetails[] = $element->toObject();
+                }
+            }
+        }
         if (!is_null($this->operationReferences)) {
             $object->operationReferences = $this->operationReferences->toObject();
         }
@@ -109,6 +138,16 @@ class CancelPaymentRequest extends DataObject
         }
         if (property_exists($object, 'isFinal')) {
             $this->isFinal = $object->isFinal;
+        }
+        if (property_exists($object, 'lineItemDetails')) {
+            if (!is_array($object->lineItemDetails) && !is_object($object->lineItemDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->lineItemDetails, true) . '\' is not an array or object');
+            }
+            $this->lineItemDetails = [];
+            foreach ($object->lineItemDetails as $element) {
+                $value = new LineItemDetail();
+                $this->lineItemDetails[] = $value->fromObject($element);
+            }
         }
         if (property_exists($object, 'operationReferences')) {
             if (!is_object($object->operationReferences)) {

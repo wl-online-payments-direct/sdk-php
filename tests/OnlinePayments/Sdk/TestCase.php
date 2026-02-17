@@ -2,6 +2,7 @@
 namespace OnlinePayments\Sdk;
 
 use Exception;
+use RuntimeException;
 
 /**
  * Class TestCase
@@ -17,6 +18,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      * @var JsonValuesStore|null
      */
     private $jsonValuesStore = null;
+
+    /**
+     * @var int|null PID of the mock server
+     */
+    private $mockServerPid = null;
 
     /**
      *
@@ -100,19 +106,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @return string
-     * @throws Exception
-     */
-    protected function getHttpBinUrl()
-    {
-        $httpBinUrl = $this->getJsonValuesStore()->getValue('httpbin_url', false);
-        if (is_null($httpBinUrl)) {
-            $httpBinUrl = 'http://httpbin.org';
-        }
-        return $httpBinUrl;
-    }
-
-    /**
      * @return JsonValuesStore
      */
     protected function getJsonValuesStore()
@@ -136,9 +129,42 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         );
     }
 
-    protected function skipWithoutHttpBin() {
-        if (!$this->getHttpBinUrl()) {
-            $this->markTestSkipped('Testing with httpbin not possible');
+    /**
+     * Start a PHP built-in mock HTTP server for a specific test.
+     * @return string Base URL of the mock server
+     * @throws RuntimeException
+     */
+    protected function startMockServerForTest()
+    {
+        $mockServerScript = __DIR__ . '/../../mockHttpServer.php';
+        if (!file_exists($mockServerScript)) {
+            throw new RuntimeException("Mock server script not found: $mockServerScript");
+        }
+
+        $cmd = sprintf(
+            "php -S 127.0.0.1:8080 %s > /dev/null 2>&1 & echo $!",
+            escapeshellarg($mockServerScript)
+        );
+
+        $pid = (int)shell_exec($cmd);
+        if ($pid === 0) {
+            throw new RuntimeException("Failed to start mock server");
+        }
+
+        $this->mockServerPid = $pid;
+        usleep(200_000); // Give server a moment to start
+
+        return 'http://127.0.0.1:8080';
+    }
+
+    /**
+     * Stop the mock server for a test
+     */
+    protected function stopMockServerForTest()
+    {
+        if ($this->mockServerPid) {
+            exec("kill {$this->mockServerPid}");
+            $this->mockServerPid = null;
         }
     }
 }

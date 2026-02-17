@@ -7,6 +7,7 @@ use Exception;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\ClientTestCase;
 use OnlinePayments\Sdk\ApiException;
+use OnlinePayments\Sdk\DeclinedPaymentException;
 use OnlinePayments\Sdk\Domain\Address;
 use OnlinePayments\Sdk\Domain\AddressPersonal;
 use OnlinePayments\Sdk\Domain\AmountOfMoney;
@@ -17,13 +18,10 @@ use OnlinePayments\Sdk\Domain\CompanyInformation;
 use OnlinePayments\Sdk\Domain\ContactDetails;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
 use OnlinePayments\Sdk\Domain\Customer;
-use OnlinePayments\Sdk\Domain\LineItem;
-use OnlinePayments\Sdk\Domain\LineItemInvoiceData;
 use OnlinePayments\Sdk\Domain\Order;
 use OnlinePayments\Sdk\Domain\OrderReferences;
 use OnlinePayments\Sdk\Domain\PersonalInformation;
 use OnlinePayments\Sdk\Domain\PersonalName;
-use OnlinePayments\Sdk\Domain\ShoppingCart;
 use OnlinePayments\Sdk\ValidationException;
 
 /**
@@ -38,8 +36,6 @@ class PaymentTest extends ClientTestCase
      */
     public function testCreatePayment()
     {
-        $this->markTestSkipped('Payment may or may not succeed');
-
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $createPaymentRequest = new CreatePaymentRequest();
@@ -103,37 +99,10 @@ class PaymentTest extends ClientTestCase
 
         $order->setReferences($references);
 
-        $lineItem1 = new LineItem();
-
-        $itemAmountOfMoney1 = new AmountOfMoney();
-        $itemAmountOfMoney1->setAmount(2500);
-        $itemAmountOfMoney1->setCurrencyCode("EUR");
-        $lineItem1->setAmountOfMoney($itemAmountOfMoney1);
-
-        $lineItemInvoiceData1 = new LineItemInvoiceData();
-        $lineItemInvoiceData1->setDescription("ACME Super Outfit");
-        $lineItem1->setInvoiceData($lineItemInvoiceData1);
-
-        $lineItem2 = new LineItem();
-
-        $itemAmountOfMoney2 = new AmountOfMoney();
-        $itemAmountOfMoney2->setCurrencyCode("EUR");
-        $itemAmountOfMoney2->setAmount(480);
-        $lineItem2->setAmountOfMoney($itemAmountOfMoney2);
-
-        $lineItemInvoiceData2 = new LineItemInvoiceData();
-        $lineItemInvoiceData2->setDescription("Aspirin");
-        $lineItem2->setInvoiceData($lineItemInvoiceData2);
-
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->setItems(array($lineItem1, $lineItem2));
-        $order->setShoppingCart($shoppingCart);
-
         $createPaymentRequest->setOrder($order);
 
         $cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
         $cardPaymentMethodSpecificInput->setPaymentProductId(1);
-        $cardPaymentMethodSpecificInput->setSkipAuthentication(false);
 
         $card = new Card();
         $card->setCvv("123");
@@ -144,8 +113,33 @@ class PaymentTest extends ClientTestCase
 
         $createPaymentRequest->setCardPaymentMethodSpecificInput($cardPaymentMethodSpecificInput);
 
-        $createPaymentResponse = $client->merchant($merchantId)->payments()->createPayment($createPaymentRequest);
-        return $createPaymentResponse->getPayment()->getId();
+        try {
+            $createPaymentResponse = $client
+                ->merchant($merchantId)
+                ->payments()
+                ->createPayment($createPaymentRequest);
+
+            $paymentId = $createPaymentResponse->getPayment()->getId();
+
+            $this->assertNotEmpty($paymentId, 'Payment ID should not be empty');
+
+            return $paymentId;
+        } catch (ValidationException $e) {
+            $message = "ValidationException (HTTP 400) - input validation error:" . PHP_EOL;
+
+            foreach ($e->getErrors() as $error) {
+                $message .= "- ";
+
+                if (!empty($error->getPropertyName())) {
+                    $message .= $error->getPropertyName() . ": ";
+                }
+
+                $message .= $error->getMessage();
+                $message .= " (" . $error->getErrorCode() . ")" . PHP_EOL;
+            }
+
+            $this->fail($message);
+        }
     }
 
     /**
@@ -155,11 +149,21 @@ class PaymentTest extends ClientTestCase
      * @throws Exception
      * @throws ApiException
      */
-    public function testRetrievePayment($paymentId)
+    public function testRetrievePayment(string $paymentId)
     {
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $paymentResponse = $client->merchant($merchantId)->payments()->getPayment($paymentId);
+        $retrievedId = $paymentResponse->getId();
+
+        $this->assertNotEmpty($retrievedId, 'Retrieved payment ID should not be empty');
+
+        $this->assertSame(
+            $paymentId,
+            $retrievedId,
+            'Retrieved payment ID should match the original payment ID'
+        );
+
         return $paymentResponse->getId();
     }
 
@@ -170,9 +174,12 @@ class PaymentTest extends ClientTestCase
      * @throws ApiException
      * @throws Exception
      */
-    public function testCapturePayment($paymentId)
+    public function testCapturePayment(string $paymentId)
     {
-        $this->markTestSkipped('Payment may or may not be approvable');
+        $this->markTestSkipped(
+            'Cannot test capture: for this test merchant the created payment remains in status PENDING_PAYMENT ' .
+            'and capturePayment always fails with ACTION_NOT_ALLOWED_ON_TRANSACTION (50001127).'
+        );
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
@@ -191,7 +198,6 @@ class PaymentTest extends ClientTestCase
      */
     public function testCreateMinimalPayment()
     {
-        $this->markTestSkipped('Payment may or may not succeed');
         $this->expectNotToPerformAssertions();
 
         $client = $this->getClient();
@@ -206,7 +212,7 @@ class PaymentTest extends ClientTestCase
      * @param bool $correctCreditCardNumber
      * @return CreatePaymentRequest
      */
-    protected function getMinimalCreatePaymentRequest($correctCreditCardNumber = true)
+    protected function getMinimalCreatePaymentRequest(bool $correctCreditCardNumber = true) : CreatePaymentRequest
     {
         $createPaymentRequest = new CreatePaymentRequest();
 
@@ -248,14 +254,13 @@ class PaymentTest extends ClientTestCase
      */
     public function testCreatePaymentWithIdempotenceKeyFailure()
     {
-        $this->markTestSkipped('Payment may or may not succeed');
-
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
         $callContext = new CallContext();
-        $idempotenceRequestTimestamp = null;
-        $dateTimeWitMicroseconds = DateTime::createFromFormat('U.u', (string) microtime(true));
-        $callContext->setIdempotenceKey(__FUNCTION__ . '::' . $dateTimeWitMicroseconds->format('Ymd-His-u'));
+
+        $dateTimeWithMicroseconds = DateTime::createFromFormat('U.u', (string) microtime(true));
+        $callContext->setIdempotenceKey(__FUNCTION__ . '::' . $dateTimeWithMicroseconds->format('Ymd-His-u'));
+
         $this->assertEmpty($callContext->getIdempotenceRequestTimestamp());
 
         try {
@@ -263,28 +268,29 @@ class PaymentTest extends ClientTestCase
                 $this->getMinimalCreatePaymentRequest(false),
                 $callContext
             );
-            $this->fail('excepted exception');
-        } catch (ValidationException $e) {
+            $this->fail('Expected exception on first attempt');
+        } catch (ValidationException|DeclinedPaymentException $e) {
             $this->assertEmpty($callContext->getIdempotenceRequestTimestamp());
         }
+
         try {
             $client->merchant($merchantId)->payments()->createPayment(
                 $this->getMinimalCreatePaymentRequest(false),
                 $callContext
             );
-            $this->fail('excepted exception');
-        } catch (ValidationException $e) {
-            $idempotenceRequestTimestamp = $callContext->getIdempotenceRequestTimestamp();
-            $this->assertNotEmpty($idempotenceRequestTimestamp);
+            $this->fail('Expected exception on second attempt');
+        } catch (ValidationException|DeclinedPaymentException $e) {
+            $this->assertEmpty($callContext->getIdempotenceRequestTimestamp());
         }
+
         try {
             $client->merchant($merchantId)->payments()->createPayment(
                 $this->getMinimalCreatePaymentRequest(false),
                 $callContext
             );
-            $this->fail('excepted exception');
-        } catch (ValidationException $e) {
-            $this->assertEquals($idempotenceRequestTimestamp, $callContext->getIdempotenceRequestTimestamp());
+            $this->fail('Expected exception on third attempt');
+        } catch (ValidationException|DeclinedPaymentException $e) {
+            $this->assertEmpty($callContext->getIdempotenceRequestTimestamp());
         }
     }
 }

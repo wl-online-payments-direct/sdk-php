@@ -10,7 +10,7 @@ use OnlinePayments\Sdk\Domain\PaymentProduct;
 use OnlinePayments\Sdk\Domain\ProductDirectory;
 use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductParams;
 use OnlinePayments\Sdk\Merchant\Products\GetPaymentProductsParams;
-use OnlinePayments\Sdk\Merchant\Products\GetProductDirectoryApiParams;
+use OnlinePayments\Sdk\Merchant\Products\GetProductDirectoryParams;
 
 /**
  * @group examples
@@ -21,46 +21,63 @@ class ProductTest extends ClientTestCase
      * @return GetPaymentProductsResponse
      * @throws Exception
      */
-    public function testRetrievePaymentProducts()
+    public function testRetrievePaymentProducts(): GetPaymentProductsResponse
     {
-        $this->expectNotToPerformAssertions();
-
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
 
         $findParams = new GetPaymentProductsParams();
-
         $findParams->setAmount(1000);
         $findParams->setCountryCode("NL");
         $findParams->setCurrencyCode("EUR");
-        $findParams->addHide(["fields"]);
+        $findParams->addHide(['fields']);
         $findParams->setIsRecurring(true);
-        $findParams->setLocale("en_US");
+        $findParams->setLocale('en_US');
 
-        return $client->merchant($merchantId)->products()->getPaymentProducts($findParams);
+        $response = $client
+            ->merchant($merchantId)
+            ->products()
+            ->getPaymentProducts($findParams);
+
+        $this->assertNotEmpty(
+            $response->getPaymentProducts(),
+            'Expected at least one payment product'
+        );
+
+        return $response;
     }
+
 
     /**
      * @return GetPaymentProductsResponse
      * @throws Exception
      */
-    public function testRetrievePaymentProductsMultipleHide()
+    public function testRetrievePaymentProductsMultipleHide(): GetPaymentProductsResponse
     {
-        $this->expectNotToPerformAssertions();
-
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
 
         $getParams = new GetPaymentProductsParams();
-
         $getParams->setAmount(1000);
-        $getParams->setCountryCode("NL");
-        $getParams->setCurrencyCode("EUR");
-        $getParams->setHide(array("fields", "accountsOnFile"));
+        $getParams->setCountryCode('NL');
+        $getParams->setCurrencyCode('EUR');
+        $getParams->setHide(['fields', 'accountsOnFile']);
         $getParams->setIsRecurring(true);
-        $getParams->setLocale("en_US");
+        $getParams->setLocale('en_US');
 
-        return $client->merchant($merchantId)->products()->getPaymentProducts($getParams);
+        $response = $client
+            ->merchant($merchantId)
+            ->products()
+            ->getPaymentProducts($getParams);
+
+        $products = $response->getPaymentProducts();
+
+        $this->assertNotEmpty(
+            $products,
+            'Expected at least one payment product when using multiple hide options'
+        );
+
+        return $response;
     }
 
     /**
@@ -68,22 +85,35 @@ class ProductTest extends ClientTestCase
      * @throws Exception
      * @throws ApiException
      */
-    public function testRetrievePaymentProductFields()
+    public function testRetrievePaymentProductFields(): PaymentProduct
     {
-        $this->expectNotToPerformAssertions();
-
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
 
         $getParams = new GetPaymentProductParams();
-
         $getParams->setAmount(1000);
-        $getParams->setCurrencyCode("EUR");
-        $getParams->setLocale("en_US");
-        $getParams->setCountryCode("NL");
+        $getParams->setCurrencyCode('EUR');
+        $getParams->setLocale('en_US');
+        $getParams->setCountryCode('NL');
         $getParams->setIsRecurring(true);
 
-        return $client->merchant($merchantId)->products()->getPaymentProduct(1, $getParams);
+        $product = $client
+            ->merchant($merchantId)
+            ->products()
+            ->getPaymentProduct(1, $getParams);
+
+        $this->assertSame(
+            1,
+            $product->getId(),
+            'Expected payment product ID 1'
+        );
+        $this->assertSame(
+            1,
+            $product->getId(),
+            'Expected payment product ID 1'
+        );
+
+        return $product;
     }
 
     /**
@@ -93,13 +123,16 @@ class ProductTest extends ClientTestCase
      */
     public function testRetrievePaymentProductDirectory()
     {
-        $this->markTestSkipped('Directory might not be found');
+        $this->markTestSkipped(
+            'Cannot test product directory: for this test merchant the directory for product 809 in NL/EUR ' .
+            'is not available and the platform always returns ReferenceException.'
+        );
 
         $this->expectNotToPerformAssertions();
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();
-        $getParams = new GetProductDirectoryApiParams();
+        $getParams = new GetProductDirectoryParams();
 
         $getParams->setCurrencyCode("EUR");
         $getParams->setCountryCode("NL");

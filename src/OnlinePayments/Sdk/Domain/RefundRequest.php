@@ -22,6 +22,11 @@ class RefundRequest extends DataObject
     public ?string $captureId = null;
 
     /**
+     * @var LineItemDetail[]|null
+     */
+    public ?array $lineItemDetails = null;
+
+    /**
      * @var OmnichannelRefundSpecificInput|null
      */
     public ?OmnichannelRefundSpecificInput $omnichannelRefundSpecificInput = null;
@@ -76,6 +81,22 @@ class RefundRequest extends DataObject
     public function setCaptureId(?string $value): void
     {
         $this->captureId = $value;
+    }
+
+    /**
+     * @return LineItemDetail[]|null
+     */
+    public function getLineItemDetails(): ?array
+    {
+        return $this->lineItemDetails;
+    }
+
+    /**
+     * @param LineItemDetail[]|null $value
+     */
+    public function setLineItemDetails(?array $value): void
+    {
+        $this->lineItemDetails = $value;
     }
 
     /**
@@ -170,6 +191,14 @@ class RefundRequest extends DataObject
         if (!is_null($this->captureId)) {
             $object->captureId = $this->captureId;
         }
+        if (!is_null($this->lineItemDetails)) {
+            $object->lineItemDetails = [];
+            foreach ($this->lineItemDetails as $element) {
+                if (!is_null($element)) {
+                    $object->lineItemDetails[] = $element->toObject();
+                }
+            }
+        }
         if (!is_null($this->omnichannelRefundSpecificInput)) {
             $object->omnichannelRefundSpecificInput = $this->omnichannelRefundSpecificInput->toObject();
         }
@@ -205,6 +234,16 @@ class RefundRequest extends DataObject
         }
         if (property_exists($object, 'captureId')) {
             $this->captureId = $object->captureId;
+        }
+        if (property_exists($object, 'lineItemDetails')) {
+            if (!is_array($object->lineItemDetails) && !is_object($object->lineItemDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->lineItemDetails, true) . '\' is not an array or object');
+            }
+            $this->lineItemDetails = [];
+            foreach ($object->lineItemDetails as $element) {
+                $value = new LineItemDetail();
+                $this->lineItemDetails[] = $value->fromObject($element);
+            }
         }
         if (property_exists($object, 'omnichannelRefundSpecificInput')) {
             if (!is_object($object->omnichannelRefundSpecificInput)) {

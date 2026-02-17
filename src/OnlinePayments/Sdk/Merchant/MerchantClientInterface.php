@@ -5,8 +5,10 @@
 namespace OnlinePayments\Sdk\Merchant;
 
 use OnlinePayments\Sdk\Merchant\Captures\CapturesClientInterface;
+use OnlinePayments\Sdk\Merchant\CofSeries\CofSeriesClientInterface;
 use OnlinePayments\Sdk\Merchant\Complete\CompleteClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
+use OnlinePayments\Sdk\Merchant\HostedFields\HostedFieldsClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
@@ -19,6 +21,7 @@ use OnlinePayments\Sdk\Merchant\Refunds\RefundsClientInterface;
 use OnlinePayments\Sdk\Merchant\Services\ServicesClientInterface;
 use OnlinePayments\Sdk\Merchant\Sessions\SessionsClientInterface;
 use OnlinePayments\Sdk\Merchant\Subsequent\SubsequentClientInterface;
+use OnlinePayments\Sdk\Merchant\Tokenization\TokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Tokens\TokensClientInterface;
 use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
 
@@ -40,6 +43,13 @@ interface MerchantClientInterface
      * @return HostedTokenizationClientInterface
      */
     function hostedTokenization(): HostedTokenizationClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/hostedfields/sessions
+     *
+     * @return HostedFieldsClientInterface
+     */
+    function hostedFields(): HostedFieldsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments
@@ -117,6 +127,20 @@ interface MerchantClientInterface
      * @return TokensClientInterface
      */
     function tokens(): TokensClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/tokens/importCofSeries
+     *
+     * @return CofSeriesClientInterface
+     */
+    function cofSeries(): CofSeriesClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/detokenize/csr
+     *
+     * @return TokenizationClientInterface
+     */
+    function tokenization(): TokenizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payouts

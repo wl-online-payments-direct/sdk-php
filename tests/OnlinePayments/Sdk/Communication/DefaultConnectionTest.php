@@ -2,6 +2,7 @@
 namespace OnlinePayments\Sdk\Communication;
 
 use ErrorException;
+use Exception;
 use ReflectionMethod;
 use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
@@ -26,10 +27,11 @@ class DefaultConnectionTest extends TestCase
         $this->connection->setHeaderObfuscator(new HeaderObfuscator());
     }
 
+    /**
+     * @throws Exception
+     */
     public function test404()
     {
-        $this->skipWithoutHttpBin();
-
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
             $responseBuilder->setHttpStatusCode($httpStatusCode);
@@ -37,15 +39,21 @@ class DefaultConnectionTest extends TestCase
             $responseBuilder->appendBody($data);
         };
 
-        $relativeUriPath = '/status/404';
-        $this->connection->get($this->getHttpBinUrl() . $relativeUriPath, [], $responseHandler);
-        $this->assertEquals(404, $responseBuilder->getResponse()->getHttpStatusCode());
+        $mockServerUrl = $this->startMockServerForTest();
+        try {
+            $relativeUriPath = '/status/404';
+            $this->connection->get($mockServerUrl . $relativeUriPath, [], $responseHandler);
+            $this->assertEquals(404, $responseBuilder->getResponse()->getHttpStatusCode());
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testSuccess()
     {
-        $this->skipWithoutHttpBin();
-
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
             $responseBuilder->setHttpStatusCode($httpStatusCode);
@@ -53,15 +61,22 @@ class DefaultConnectionTest extends TestCase
             $responseBuilder->appendBody($data);
         };
 
-        $relativeUriPath = '/get';
-        $requestHeaders = $this->getRequestHeaders('GET', $relativeUriPath);
-        $this->connection->get($this->getHttpBinUrl() . $relativeUriPath, $requestHeaders, $responseHandler);
-        $response = $responseBuilder->getResponse();
-        $this->assertEquals(200, $response->getHttpStatusCode());
-        $this->assertStringStartsWith('application/json', $response->getHeaderValue('Content-Type'));
-        $body = json_decode($response->getBody(), true);
-        $this->assertArrayHasKey('url', $body);
-        $this->assertEquals($this->getHttpBinUrl() . $relativeUriPath, $body['url']);
+        $mockServerUrl = $this->startMockServerForTest();
+        try {
+            $relativeUriPath = '/get';
+            $requestHeaders = $this->getRequestHeaders('GET', $relativeUriPath);
+            $this->connection->get($mockServerUrl . $relativeUriPath, $requestHeaders, $responseHandler);
+
+            $response = $responseBuilder->getResponse();
+            $this->assertEquals(200, $response->getHttpStatusCode());
+            $this->assertStringStartsWith('application/json', $response->getHeaderValue('Content-Type'));
+
+            $body = json_decode($response->getBody(), true);
+            $this->assertArrayHasKey('url', $body);
+            $this->assertEquals($mockServerUrl . $relativeUriPath, $body['url']);
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
     public function testCurlErrors()
@@ -117,18 +132,22 @@ class DefaultConnectionTest extends TestCase
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function testReadTimeoutExceeded()
     {
-        $this->skipWithoutHttpBin();
-
         $communicatorConfiguration = $this->getCommunicatorConfiguration();
         $communicatorConfiguration->setConnectTimeout(-1);
         $communicatorConfiguration->setReadTimeout(1);
         $this->connection = new DefaultConnection($communicatorConfiguration);
+
+        $mockServerUrl = $this->startMockServerForTest();
         try {
             $responseHandler = function ($httpStatusCode, $data, $headers) {
             };
-            $this->connection->get($this->getHttpBinUrl() . '/delay/2', [], $responseHandler);
+
+            $this->connection->get($mockServerUrl . '/delay/2', [], $responseHandler);
             $this->fail('Expected read timeout error');
         } catch (ErrorException $e) {
             $expectedErrorMessage = 'cURL error ' . CURLE_OPERATION_TIMEOUTED;
@@ -136,6 +155,8 @@ class DefaultConnectionTest extends TestCase
                 $expectedErrorMessage .= ' (' . curl_strerror(CURLE_OPERATION_TIMEOUTED) . ')';
             }
             $this->assertEquals($expectedErrorMessage, $e->getMessage());
+        } finally {
+            $this->stopMockServerForTest();
         }
     }
 
@@ -143,22 +164,28 @@ class DefaultConnectionTest extends TestCase
      * @dataProvider timeoutAndDelayProvider
      * @param int $timeout
      * @param int $delay
+     * @throws Exception
      */
-    public function testReadTimeoutNotExceeded($timeout, $delay)
+    public function testReadTimeoutNotExceeded(int $timeout, int $delay)
     {
-        $this->skipWithoutHttpBin();
-
         $communicatorConfiguration = $this->getCommunicatorConfiguration();
         $communicatorConfiguration->setConnectTimeout(-1);
         $communicatorConfiguration->setReadTimeout($timeout);
         $this->connection = new DefaultConnection($communicatorConfiguration);
-        $responseBuilder = new ResponseBuilder();
-        $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
-            $responseBuilder->setHttpStatusCode($httpStatusCode);
-            $responseBuilder->setHeaders($headers);
-        };
-        $this->connection->get($this->getHttpBinUrl() .  '/delay/' . $delay, [], $responseHandler);
-        $this->assertEquals(200, $responseBuilder->getResponse()->getHttpStatusCode());
+
+        $mockServerUrl = $this->startMockServerForTest();
+        try {
+            $responseBuilder = new ResponseBuilder();
+            $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
+                $responseBuilder->setHttpStatusCode($httpStatusCode);
+                $responseBuilder->setHeaders($headers);
+            };
+
+            $this->connection->get($mockServerUrl . '/delay/' . $delay, [], $responseHandler);
+            $this->assertEquals(200, $responseBuilder->getResponse()->getHttpStatusCode());
+        } finally {
+            $this->stopMockServerForTest();
+        }
     }
 
     public function timeoutAndDelayProvider() {

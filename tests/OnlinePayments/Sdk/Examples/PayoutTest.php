@@ -23,7 +23,10 @@ class PayoutTest extends ClientTestCase
      */
     public function testCreatePayout()
     {
-        $this->markTestSkipped('Payouts are not available for all merchants');
+        $this->markTestSkipped(
+            'Cannot test payout: createPayout for this test merchant always fails with DeclinedPayoutException ' .
+            '(payouts are not available for this merchant in this environment).'
+        );
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();

@@ -47,6 +47,11 @@ class CreatePaymentRequest extends DataObject
     public ?MobilePaymentMethodSpecificInput $mobilePaymentMethodSpecificInput = null;
 
     /**
+     * @var OmnichannelPaymentSpecificInput|null
+     */
+    public ?OmnichannelPaymentSpecificInput $omnichannelPaymentSpecificInput = null;
+
+    /**
      * @var Order|null
      */
     public ?Order $order = null;
@@ -174,6 +179,22 @@ class CreatePaymentRequest extends DataObject
     }
 
     /**
+     * @return OmnichannelPaymentSpecificInput|null
+     */
+    public function getOmnichannelPaymentSpecificInput(): ?OmnichannelPaymentSpecificInput
+    {
+        return $this->omnichannelPaymentSpecificInput;
+    }
+
+    /**
+     * @param OmnichannelPaymentSpecificInput|null $value
+     */
+    public function setOmnichannelPaymentSpecificInput(?OmnichannelPaymentSpecificInput $value): void
+    {
+        $this->omnichannelPaymentSpecificInput = $value;
+    }
+
+    /**
      * @return Order|null
      */
     public function getOrder(): ?Order
@@ -248,6 +269,9 @@ class CreatePaymentRequest extends DataObject
         if (!is_null($this->mobilePaymentMethodSpecificInput)) {
             $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
         }
+        if (!is_null($this->omnichannelPaymentSpecificInput)) {
+            $object->omnichannelPaymentSpecificInput = $this->omnichannelPaymentSpecificInput->toObject();
+        }
         if (!is_null($this->order)) {
             $object->order = $this->order->toObject();
         }
@@ -304,6 +328,13 @@ class CreatePaymentRequest extends DataObject
             }
             $value = new MobilePaymentMethodSpecificInput();
             $this->mobilePaymentMethodSpecificInput = $value->fromObject($object->mobilePaymentMethodSpecificInput);
+        }
+        if (property_exists($object, 'omnichannelPaymentSpecificInput')) {
+            if (!is_object($object->omnichannelPaymentSpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->omnichannelPaymentSpecificInput, true) . '\' is not an object');
+            }
+            $value = new OmnichannelPaymentSpecificInput();
+            $this->omnichannelPaymentSpecificInput = $value->fromObject($object->omnichannelPaymentSpecificInput);
         }
         if (property_exists($object, 'order')) {
             if (!is_object($object->order)) {

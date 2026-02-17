@@ -37,6 +37,11 @@ class ShowFormData extends DataObject
     public ?PaymentProduct5407 $paymentProduct5407 = null;
 
     /**
+     * @var PaymentProduct840|null
+     */
+    public ?PaymentProduct840 $paymentProduct840 = null;
+
+    /**
      * @var PendingAuthentication|null
      */
     public ?PendingAuthentication $pendingAuthentication = null;
@@ -122,6 +127,22 @@ class ShowFormData extends DataObject
     }
 
     /**
+     * @return PaymentProduct840|null
+     */
+    public function getPaymentProduct840(): ?PaymentProduct840
+    {
+        return $this->paymentProduct840;
+    }
+
+    /**
+     * @param PaymentProduct840|null $value
+     */
+    public function setPaymentProduct840(?PaymentProduct840 $value): void
+    {
+        $this->paymentProduct840 = $value;
+    }
+
+    /**
      * @return PendingAuthentication|null
      */
     public function getPendingAuthentication(): ?PendingAuthentication
@@ -157,6 +178,9 @@ class ShowFormData extends DataObject
         }
         if (!is_null($this->paymentProduct5407)) {
             $object->paymentProduct5407 = $this->paymentProduct5407->toObject();
+        }
+        if (!is_null($this->paymentProduct840)) {
+            $object->paymentProduct840 = $this->paymentProduct840->toObject();
         }
         if (!is_null($this->pendingAuthentication)) {
             $object->pendingAuthentication = $this->pendingAuthentication->toObject();
@@ -206,6 +230,13 @@ class ShowFormData extends DataObject
             }
             $value = new PaymentProduct5407();
             $this->paymentProduct5407 = $value->fromObject($object->paymentProduct5407);
+        }
+        if (property_exists($object, 'paymentProduct840')) {
+            if (!is_object($object->paymentProduct840)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct840, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct840();
+            $this->paymentProduct840 = $value->fromObject($object->paymentProduct840);
         }
         if (property_exists($object, 'pendingAuthentication')) {
             if (!is_object($object->pendingAuthentication)) {

@@ -23,7 +23,10 @@ class RefundTest extends ClientTestCase
      */
     public function testCreateRefund()
     {
-        $this->markTestSkipped('No refundable payment is available at this time');
+        $this->markTestSkipped(
+            'No refundable payment is available at this time; refunds cannot be executed in this test environment ' .
+            'because the merchant does not have any completed or partially-refunded transactions eligible for a refund.'
+        );
 
         $client = $this->getClient();
         $merchantId = $this->getMerchantId();

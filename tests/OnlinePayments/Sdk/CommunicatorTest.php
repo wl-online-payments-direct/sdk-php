@@ -1,7 +1,8 @@
 <?php
 namespace OnlinePayments\Sdk;
 
-use OnlinePayments\Sdk\Communication\InvalidResponseException;
+use Exception;
+use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\TestUtil\AppendingBodyHandler;
@@ -20,12 +21,15 @@ class CommunicatorTest extends TestCase
     /** @var ResponseClassMap */
     protected $defaultResponseClassMap = null;
 
+    /** @var string */
+    protected $mockServerUrl;
+
     public function setUp(): void
     {
-        $this->skipWithoutHttpBin();
+        $this->mockServerUrl = $this->startMockServerForTest();
 
         $communicatorConfiguration = $this->getCommunicatorConfiguration();
-        $communicatorConfiguration->setApiEndpoint($this->getHttpBinUrl());
+        $communicatorConfiguration->setApiEndpoint($this->mockServerUrl);
         $this->defaultCommunicator = new Communicator($communicatorConfiguration, new TestingAuthenticator());
         $this->defaultResponseClassMap = new ResponseClassMap();
         $this->defaultResponseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\SimpleHttpBinResponse';
@@ -36,50 +40,68 @@ class CommunicatorTest extends TestCase
     {
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestGet()
     {
         $relativeUri = '/get';
         $response = $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri);
         $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
-        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
+        $this->assertEquals($this->mockServerUrl . $relativeUri, $response->url);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testExceptionInvalidUrl()
     {
         try {
             $relativeUri = '/foo';
             $this->defaultCommunicator->get($this->defaultResponseClassMap, $relativeUri);
-        } catch (InvalidResponseException $e) {
-            $this->assertEquals(404, $e->getResponse()->getHttpStatusCode());
+        } catch (ErrorResponseException $e) {
+            $this->assertEquals(404, $e->getHttpStatusCode());
             return;
         }
         $this->fail('an expected exception has not been raised');
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestPost()
     {
         $relativeUri = '/post';
         $response = $this->defaultCommunicator->post($this->defaultResponseClassMap, $relativeUri);
         $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
-        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
+        $this->assertEquals($this->mockServerUrl . $relativeUri, $response->url);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestPut()
     {
         $relativeUri = '/put';
         $response = $this->defaultCommunicator->put($this->defaultResponseClassMap, $relativeUri);
         $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
-        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
+        $this->assertEquals($this->mockServerUrl . $relativeUri, $response->url);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestDelete()
     {
         $relativeUri = '/delete';
         $response = $this->defaultCommunicator->delete($this->defaultResponseClassMap, $relativeUri);
         $this->assertInstanceOf('\OnlinePayments\Sdk\SimpleHttpBinResponse', $response);
-        $this->assertEquals($this->getHttpBinUrl() . $relativeUri, $response->url);
+        $this->assertEquals($this->mockServerUrl . $relativeUri, $response->url);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestGetWithBinaryResponse()
     {
         $bodyHandler = new AppendingBodyHandler();
@@ -90,6 +112,9 @@ class CommunicatorTest extends TestCase
         $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestPostWithBinaryResponse()
     {
         $bodyHandler = new AppendingBodyHandler();
@@ -100,6 +125,9 @@ class CommunicatorTest extends TestCase
         $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestPutWithBinaryResponse()
     {
         $bodyHandler = new AppendingBodyHandler();
@@ -110,6 +138,9 @@ class CommunicatorTest extends TestCase
         $this->assertStringEndsWith('}', trim($bodyHandler->getBody()));
     }
 
+    /**
+     * @throws Exception
+     */
     public function testApiRequestDeleteWithBinaryResponse()
     {
         $bodyHandler = new AppendingBodyHandler();
