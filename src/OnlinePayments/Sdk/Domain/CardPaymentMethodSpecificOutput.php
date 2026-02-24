@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class CardPaymentMethodSpecificOutput extends DataObject
 {
     /**
+     * @var Acceptance|null
+     */
+    public ?Acceptance $acceptance = null;
+
+    /**
      * @var AcquirerInformation|null
      */
     public ?AcquirerInformation $acquirerInformation = null;
@@ -110,6 +115,22 @@ class CardPaymentMethodSpecificOutput extends DataObject
      * @var string|null
      */
     public ?string $token = null;
+
+    /**
+     * @return Acceptance|null
+     */
+    public function getAcceptance(): ?Acceptance
+    {
+        return $this->acceptance;
+    }
+
+    /**
+     * @param Acceptance|null $value
+     */
+    public function setAcceptance(?Acceptance $value): void
+    {
+        $this->acceptance = $value;
+    }
 
     /**
      * @return AcquirerInformation|null
@@ -437,6 +458,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->acceptance)) {
+            $object->acceptance = $this->acceptance->toObject();
+        }
         if (!is_null($this->acquirerInformation)) {
             $object->acquirerInformation = $this->acquirerInformation->toObject();
         }
@@ -508,6 +532,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function fromObject(object $object): CardPaymentMethodSpecificOutput
     {
         parent::fromObject($object);
+        if (property_exists($object, 'acceptance')) {
+            if (!is_object($object->acceptance)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->acceptance, true) . '\' is not an object');
+            }
+            $value = new Acceptance();
+            $this->acceptance = $value->fromObject($object->acceptance);
+        }
         if (property_exists($object, 'acquirerInformation')) {
             if (!is_object($object->acquirerInformation)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->acquirerInformation, true) . '\' is not an object');

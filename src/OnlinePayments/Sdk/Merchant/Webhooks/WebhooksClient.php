@@ -30,6 +30,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ValidateCredentialsResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/webhooks/validateCredentials'),
@@ -55,6 +56,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/webhooks/sendtest'),

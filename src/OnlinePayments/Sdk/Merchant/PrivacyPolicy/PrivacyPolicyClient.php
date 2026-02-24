@@ -28,6 +28,7 @@ class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInte
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPrivacyPolicyResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/services/privacypolicy'),

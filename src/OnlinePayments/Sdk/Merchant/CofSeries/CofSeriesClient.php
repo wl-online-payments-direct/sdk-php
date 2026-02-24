@@ -29,6 +29,7 @@ class CofSeriesClient extends ApiResource implements CofSeriesClientInterface
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ImportCofSeriesResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/importCofSeries'),

@@ -66,4 +66,19 @@ class CallContext
     {
         $this->idempotenceResponseDateTime = $idempotenceResponseDateTime;
     }
+
+    /**
+     * @var bool The indicator whether the GZip action should be preformed on the request.
+     */
+    private bool $gzip = false;
+
+    public function getGzip(): bool
+    {
+        return $this->gzip;
+    }
+
+    public function setGzip(bool $gzip): void
+    {
+        $this->gzip = $gzip;
+    }
 }

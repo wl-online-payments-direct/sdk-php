@@ -30,6 +30,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateHostedCheckoutResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/hostedcheckouts'),
@@ -57,6 +58,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetHostedCheckoutResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/hostedcheckouts/{hostedCheckoutId}'),

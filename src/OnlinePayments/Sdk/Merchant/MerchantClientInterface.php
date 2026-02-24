@@ -11,6 +11,7 @@ use OnlinePayments\Sdk\Merchant\HostedCheckout\HostedCheckoutClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedFields\HostedFieldsClientInterface;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClientInterface;
+use OnlinePayments\Sdk\Merchant\MerchantBatch\MerchantBatchClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
@@ -169,4 +170,11 @@ interface MerchantClientInterface
      * @return PaymentLinksClientInterface
      */
     function paymentLinks(): PaymentLinksClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/merchant-batches
+     *
+     * @return MerchantBatchClientInterface
+     */
+    function merchantBatch(): MerchantBatchClientInterface;
 }

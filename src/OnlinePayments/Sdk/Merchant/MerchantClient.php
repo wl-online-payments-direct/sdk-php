@@ -19,6 +19,8 @@ use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClient;
 use OnlinePayments\Sdk\Merchant\HostedTokenization\HostedTokenizationClientInterface;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClient;
 use OnlinePayments\Sdk\Merchant\Mandates\MandatesClientInterface;
+use OnlinePayments\Sdk\Merchant\MerchantBatch\MerchantBatchClient;
+use OnlinePayments\Sdk\Merchant\MerchantBatch\MerchantBatchClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClient;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClient;
@@ -209,5 +211,13 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function paymentLinks(): PaymentLinksClientInterface
     {
         return new PaymentLinksClient($this, $this->context);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function merchantBatch(): MerchantBatchClientInterface
+    {
+        return new MerchantBatchClient($this, $this->context);
     }
 }

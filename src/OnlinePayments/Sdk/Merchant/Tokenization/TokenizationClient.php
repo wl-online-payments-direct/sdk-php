@@ -30,6 +30,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreateCertificateResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/detokenize/csr'),
@@ -56,6 +57,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\DetokenizationResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/detokenize/tokens'),
@@ -81,6 +83,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\DetokenizationResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/detokenize/payments'),

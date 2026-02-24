@@ -2,20 +2,21 @@
 /*
  * This file was automatically generated.
  */
-namespace OnlinePayments\Sdk\Merchant\PaymentLinks;
+namespace OnlinePayments\Sdk\Merchant\MerchantBatch;
 
 use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
-use OnlinePayments\Sdk\Domain\CreatePaymentLinkRequest;
-use OnlinePayments\Sdk\Domain\PaymentLinkResponse;
+use OnlinePayments\Sdk\Domain\GetBatchStatusResponse;
+use OnlinePayments\Sdk\Domain\SubmitBatchRequestBody;
+use OnlinePayments\Sdk\Domain\SubmitBatchResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
- * PaymentLinks client.
+ * MerchantBatch client.
  */
-class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterface
+class MerchantBatchClient extends ApiResource implements MerchantBatchClientInterface
 {
     /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
@@ -23,16 +24,18 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null): PaymentLinkResponse
+    public function submitBatch(SubmitBatchRequestBody $body, ?CallContext $callContext = null): SubmitBatchResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentLinkResponse';
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SubmitBatchResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+            $callContext = $callContext ?? new CallContext();
+            $callContext->setGzip(true);
 
             return $this->getCommunicator()->post(
                 $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/paymentlinks'),
+                $this->instantiateUri('/v2/{merchantId}/merchant-batches'),
                 $this->getClientMetaInfo(),
                 $body,
                 null,
@@ -50,18 +53,18 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function getPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): PaymentLinkResponse
+    public function processBatch(string $merchantBatchReference, ?CallContext $callContext = null): void
     {
-        $this->context['paymentLinkId'] = $paymentLinkId;
+        $this->context['merchantBatchReference'] = $merchantBatchReference;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentLinkResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
 
-            return $this->getCommunicator()->get(
+            $this->getCommunicator()->post(
                 $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/paymentlinks/{paymentLinkId}'),
+                $this->instantiateUri('/v2/{merchantId}/merchant-batches/{merchantBatchReference}/process'),
                 $this->getClientMetaInfo(),
+                null,
                 null,
                 $callContext
             );
@@ -77,18 +80,18 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     /**
      * @inheritdoc
      */
-    public function cancelPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): void
+    public function getBatchStatus(string $merchantBatchReference, ?CallContext $callContext = null): GetBatchStatusResponse
     {
-        $this->context['paymentLinkId'] = $paymentLinkId;
+        $this->context['merchantBatchReference'] = $merchantBatchReference;
         $responseClassMap = new ResponseClassMap();
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetBatchStatusResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
 
-            $this->getCommunicator()->post(
+            return $this->getCommunicator()->get(
                 $responseClassMap,
-                $this->instantiateUri('/v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel'),
+                $this->instantiateUri('/v2/{merchantId}/merchant-batches/{merchantBatchReference}'),
                 $this->getClientMetaInfo(),
-                null,
                 null,
                 $callContext
             );

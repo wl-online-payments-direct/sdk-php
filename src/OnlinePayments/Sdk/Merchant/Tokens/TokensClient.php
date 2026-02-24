@@ -30,6 +30,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens'),
@@ -57,6 +58,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
         $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\TokenResponse';
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             return $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),
@@ -82,6 +84,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
         try {
+
             $this->getCommunicator()->delete(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),

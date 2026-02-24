@@ -40,10 +40,10 @@ class ResponseFactory
             throw new UnexpectedValueException('HTTP status code is missing');
         }
         $contentType = $response->getHeaderValue('Content-Type');
-        if (!$contentType && $httpStatusCode !== 204) {
+        if (!$contentType && $httpStatusCode !== 204 && $httpStatusCode !== 202 ) {
             throw new UnexpectedValueException('Content type is missing or empty');
         }
-        if (!$this->isJsonContentType($contentType) && $httpStatusCode !== 204) {
+        if (!$this->isJsonContentType($contentType) && $httpStatusCode !== 204 && $httpStatusCode !== 202) {
             throw new UnexpectedValueException(
                 "Invalid content type; got '$contentType', expected '" .
                 static::MIME_APPLICATION_JSON . "' or '" . static::MIME_APPLICATION_PROBLEM_JSON . "'"

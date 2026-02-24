@@ -309,7 +309,14 @@ class DefaultConnection implements Connection
 
         if (in_array($httpMethod, array('PUT', 'POST')) && $body) {
             if (is_string($body)) {
-                curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
+                $useCompression = $this->shouldCompressRequestBody($requestHeaders);
+
+                if ($useCompression) {
+                    $gzip = gzencode($body, 9);
+                    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $gzip !== false ? $gzip : $body);
+                } else {
+                    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
+                }
             } elseif ($body instanceof MultipartFormDataObject) {
                 $multipart = new MultipartFormData($body->getBoundary());
                 foreach ($body->getValues() as $name => $value) {
@@ -391,7 +398,7 @@ class DefaultConnection implements Connection
         string $requestMethod,
         string $requestUri,
         array  $requestHeaders,
-        $requestBody = ''
+               $requestBody = ''
     ): void
     {
         if ($this->communicatorLogger) {
@@ -463,5 +470,20 @@ class DefaultConnection implements Connection
     public function setHeaderObfuscator(HeaderObfuscator $headerObfuscator): void
     {
         $this->getCommunicatorLoggerHelper()->setHeaderObfuscator($headerObfuscator);
+    }
+
+    /**
+     * @param array $requestHeaders
+     * @return bool
+     */
+    private function shouldCompressRequestBody(array $requestHeaders): bool
+    {
+        if (!array_key_exists('Content-Encoding', $requestHeaders)) {
+            return false;
+        }
+
+        $value = $requestHeaders['Content-Encoding'];
+
+        return strcasecmp((string) $value, 'gzip') === 0;
     }
 }

@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -81,6 +82,11 @@ class PaymentOutput extends DataObject
      * @var SurchargeSpecificOutput|null
      */
     public ?SurchargeSpecificOutput $surchargeSpecificOutput = null;
+
+    /**
+     * @var DateTime|null
+     */
+    public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
@@ -309,6 +315,22 @@ class PaymentOutput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+     */
+    public function getTransactionDate(): ?DateTime
+    {
+        return $this->transactionDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+     */
+    public function setTransactionDate(?DateTime $value): void
+    {
+        $this->transactionDate = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -355,6 +377,9 @@ class PaymentOutput extends DataObject
         }
         if (!is_null($this->surchargeSpecificOutput)) {
             $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
+        }
+        if (!is_null($this->transactionDate)) {
+            $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
     }
@@ -452,6 +477,9 @@ class PaymentOutput extends DataObject
             }
             $value = new SurchargeSpecificOutput();
             $this->surchargeSpecificOutput = $value->fromObject($object->surchargeSpecificOutput);
+        }
+        if (property_exists($object, 'transactionDate')) {
+            $this->transactionDate = new DateTime($object->transactionDate);
         }
         return $this;
     }

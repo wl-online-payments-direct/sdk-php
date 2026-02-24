@@ -28,12 +28,14 @@ use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 class Communicator implements CommunicatorInterface
 {
     const MIME_APPLICATION_JSON = 'application/json';
+    private const CONTENT_ENCODING_HEADER = 'Content-Encoding';
+    private const CONTENT_ENCODING_GZIP   = 'gzip';
 
     /** @var string */
     private string $apiEndpoint;
 
     /** @var Authenticator */
-    private Authenticator$authenticator;
+    private Authenticator $authenticator;
 
     /** @var Connection */
     private Connection $connection;
@@ -298,6 +300,18 @@ class Communicator implements CommunicatorInterface
         }
         $requestHeaders =
             $this->getRequestHeaders('POST', $relativeUriPathWithRequestParameters, $contentType, $clientMetaInfo, $callContext);
+
+        if ($contentType === self::MIME_APPLICATION_JSON && $requestBody !== '' && $callContext && $callContext->getGzip()
+            && function_exists('gzencode')
+        ) {
+            $requestHeaders[self::CONTENT_ENCODING_HEADER] = self::CONTENT_ENCODING_GZIP;
+
+            $requestHeaders['Authorization'] = $this->authenticator->getAuthorization(
+                'POST',
+                $relativeUriPathWithRequestParameters,
+                $requestHeaders
+            );
+        }
 
         $responseBuilder = new ResponseBuilder();
         $responseHandler = function ($httpStatusCode, $data, $headers) use ($responseBuilder) {
