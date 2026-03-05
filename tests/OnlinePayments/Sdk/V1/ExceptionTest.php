@@ -170,7 +170,7 @@ EOD;
         $createPaymentRequest->setOrder($order);
 
         $cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-        $cardPaymentMethodSpecificInput->setPaymentProductId(3);
+        $cardPaymentMethodSpecificInput->setPaymentProductId(1);
 
         $nonExistingCardNumber = "1234567890123452";
         $card = new Card();

@@ -34,6 +34,11 @@ class WebhooksEvent extends DataObject
     public $type = null;
 
     /**
+     * @var GetBatchStatusResponse
+     */
+    public $directBatch = null;
+
+    /**
      * @var PaymentLinkResponse
      */
     public $paymentLink = null;
@@ -57,6 +62,22 @@ class WebhooksEvent extends DataObject
      * @var TokenResponse
      */
     public $token = null;
+
+    /**
+     * @return GetBatchStatusResponse
+     */
+    public function getDirectBatch()
+    {
+        return $this->directBatch;
+    }
+
+    /**
+     * @param GetBatchStatusResponse $directBatch
+     */
+    public function setDirectBatch($directBatch)
+    {
+        $this->directBatch = $directBatch;
+    }
 
     /**
      * @return PaymentLinkResponse
@@ -159,6 +180,9 @@ class WebhooksEvent extends DataObject
         if (!is_null($this->type)) {
             $object->type = $this->type;
         }
+        if (!is_null($this->directBatch)) {
+            $object->directBatch = $this->directBatch->toObject();
+        }
         if (!is_null($this->paymentLink)) {
             $object->paymentLink = $this->paymentLink->toObject();
         }
@@ -199,6 +223,13 @@ class WebhooksEvent extends DataObject
         }
         if (property_exists($object, 'type')) {
             $this->type = $object->type;
+        }
+        if (property_exists($object, 'directBatch')) {
+            if (!is_object($object->directBatch)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->directBatch, true) . '\' is not an object');
+            }
+            $value = new GetBatchStatusResponse();
+            $this->directBatch = $value->fromObject($object->directBatch);
         }
         if (property_exists($object, 'paymentLink')) {
             if (!is_object($object->paymentLink)) {
