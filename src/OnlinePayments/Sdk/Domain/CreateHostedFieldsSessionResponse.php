@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class CreateHostedFieldsSessionResponse extends DataObject
 {
     /**
+     * @var string[]|null
+     */
+    public ?array $invalidTokens = null;
+
+    /**
      * @var string|null
      */
     public ?string $sdkSri = null;
@@ -25,6 +30,22 @@ class CreateHostedFieldsSessionResponse extends DataObject
      * @var SessionData|null
      */
     public ?SessionData $sessionData = null;
+
+    /**
+     * @return string[]|null
+     */
+    public function getInvalidTokens(): ?array
+    {
+        return $this->invalidTokens;
+    }
+
+    /**
+     * @param string[]|null $value
+     */
+    public function setInvalidTokens(?array $value): void
+    {
+        $this->invalidTokens = $value;
+    }
 
     /**
      * @return string|null
@@ -80,6 +101,14 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->invalidTokens)) {
+            $object->invalidTokens = [];
+            foreach ($this->invalidTokens as $element) {
+                if (!is_null($element)) {
+                    $object->invalidTokens[] = $element;
+                }
+            }
+        }
         if (!is_null($this->sdkSri)) {
             $object->sdkSri = $this->sdkSri;
         }
@@ -100,6 +129,15 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function fromObject(object $object): CreateHostedFieldsSessionResponse
     {
         parent::fromObject($object);
+        if (property_exists($object, 'invalidTokens')) {
+            if (!is_array($object->invalidTokens) && !is_object($object->invalidTokens)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->invalidTokens, true) . '\' is not an array or object');
+            }
+            $this->invalidTokens = [];
+            foreach ($object->invalidTokens as $element) {
+                $this->invalidTokens[] = $element;
+            }
+        }
         if (property_exists($object, 'sdkSri')) {
             $this->sdkSri = $object->sdkSri;
         }
