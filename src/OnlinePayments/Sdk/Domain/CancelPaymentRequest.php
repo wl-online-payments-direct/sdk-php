@@ -32,6 +32,11 @@ class CancelPaymentRequest extends DataObject
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
+     * @var ShippingDetail|null
+     */
+    public ?ShippingDetail $shipping = null;
+
+    /**
      * @return AmountOfMoney|null
      */
     public function getAmountOfMoney(): ?AmountOfMoney
@@ -96,6 +101,22 @@ class CancelPaymentRequest extends DataObject
     }
 
     /**
+     * @return ShippingDetail|null
+     */
+    public function getShipping(): ?ShippingDetail
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * @param ShippingDetail|null $value
+     */
+    public function setShipping(?ShippingDetail $value): void
+    {
+        $this->shipping = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -117,6 +138,9 @@ class CancelPaymentRequest extends DataObject
         }
         if (!is_null($this->operationReferences)) {
             $object->operationReferences = $this->operationReferences->toObject();
+        }
+        if (!is_null($this->shipping)) {
+            $object->shipping = $this->shipping->toObject();
         }
         return $object;
     }
@@ -155,6 +179,13 @@ class CancelPaymentRequest extends DataObject
             }
             $value = new OperationPaymentReferences();
             $this->operationReferences = $value->fromObject($object->operationReferences);
+        }
+        if (property_exists($object, 'shipping')) {
+            if (!is_object($object->shipping)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->shipping, true) . '\' is not an object');
+            }
+            $value = new ShippingDetail();
+            $this->shipping = $value->fromObject($object->shipping);
         }
         return $this;
     }

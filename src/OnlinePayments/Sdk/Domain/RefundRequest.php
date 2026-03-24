@@ -22,6 +22,11 @@ class RefundRequest extends DataObject
     public ?string $captureId = null;
 
     /**
+     * @var bool|null
+     */
+    public ?bool $isFinal = null;
+
+    /**
      * @var LineItemDetail[]|null
      */
     public ?array $lineItemDetails = null;
@@ -81,6 +86,22 @@ class RefundRequest extends DataObject
     public function setCaptureId(?string $value): void
     {
         $this->captureId = $value;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsFinal(): ?bool
+    {
+        return $this->isFinal;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setIsFinal(?bool $value): void
+    {
+        $this->isFinal = $value;
     }
 
     /**
@@ -191,6 +212,9 @@ class RefundRequest extends DataObject
         if (!is_null($this->captureId)) {
             $object->captureId = $this->captureId;
         }
+        if (!is_null($this->isFinal)) {
+            $object->isFinal = $this->isFinal;
+        }
         if (!is_null($this->lineItemDetails)) {
             $object->lineItemDetails = [];
             foreach ($this->lineItemDetails as $element) {
@@ -234,6 +258,9 @@ class RefundRequest extends DataObject
         }
         if (property_exists($object, 'captureId')) {
             $this->captureId = $object->captureId;
+        }
+        if (property_exists($object, 'isFinal')) {
+            $this->isFinal = $object->isFinal;
         }
         if (property_exists($object, 'lineItemDetails')) {
             if (!is_array($object->lineItemDetails) && !is_object($object->lineItemDetails)) {

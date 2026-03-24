@@ -47,6 +47,11 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public ?string $cobrandSelectionIndicator = null;
 
     /**
+     * @var CrmToken|null
+     */
+    public ?CrmToken $crmToken = null;
+
+    /**
      * @var CurrencyConversion|null
      */
     public ?CurrencyConversion $currencyConversion = null;
@@ -226,6 +231,22 @@ class CardPaymentMethodSpecificOutput extends DataObject
     public function setCobrandSelectionIndicator(?string $value): void
     {
         $this->cobrandSelectionIndicator = $value;
+    }
+
+    /**
+     * @return CrmToken|null
+     */
+    public function getCrmToken(): ?CrmToken
+    {
+        return $this->crmToken;
+    }
+
+    /**
+     * @param CrmToken|null $value
+     */
+    public function setCrmToken(?CrmToken $value): void
+    {
+        $this->crmToken = $value;
     }
 
     /**
@@ -479,6 +500,9 @@ class CardPaymentMethodSpecificOutput extends DataObject
         if (!is_null($this->cobrandSelectionIndicator)) {
             $object->cobrandSelectionIndicator = $this->cobrandSelectionIndicator;
         }
+        if (!is_null($this->crmToken)) {
+            $object->crmToken = $this->crmToken->toObject();
+        }
         if (!is_null($this->currencyConversion)) {
             $object->currencyConversion = $this->currencyConversion->toObject();
         }
@@ -568,6 +592,13 @@ class CardPaymentMethodSpecificOutput extends DataObject
         }
         if (property_exists($object, 'cobrandSelectionIndicator')) {
             $this->cobrandSelectionIndicator = $object->cobrandSelectionIndicator;
+        }
+        if (property_exists($object, 'crmToken')) {
+            if (!is_object($object->crmToken)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->crmToken, true) . '\' is not an object');
+            }
+            $value = new CrmToken();
+            $this->crmToken = $value->fromObject($object->crmToken);
         }
         if (property_exists($object, 'currencyConversion')) {
             if (!is_object($object->currencyConversion)) {
