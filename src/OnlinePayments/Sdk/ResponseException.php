@@ -15,7 +15,9 @@ use OnlinePayments\Sdk\Domain\DataObject;
  */
 class ResponseException extends RuntimeException
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     private int $httpStatusCode;
 
     /**
@@ -24,8 +26,8 @@ class ResponseException extends RuntimeException
     private DataObject $response;
 
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
      */
     public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
@@ -69,9 +71,9 @@ class ResponseException extends RuntimeException
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getErrorId(): string
+    public function getErrorId(): ?string
     {
         $responseVariables = get_object_vars($this->getResponse());
         if (!array_key_exists('errorId', $responseVariables)) {

@@ -52,6 +52,11 @@ class OrderLineDetails extends DataObject
     public ?int $taxAmount = null;
 
     /**
+     * @var float|null
+     */
+    public ?float $taxPercentage = null;
+
+    /**
      * @var string|null
      */
     public ?string $unit = null;
@@ -185,6 +190,22 @@ class OrderLineDetails extends DataObject
     }
 
     /**
+     * @return float|null
+     */
+    public function getTaxPercentage(): ?float
+    {
+        return $this->taxPercentage;
+    }
+
+    /**
+     * @param float|null $value
+     */
+    public function setTaxPercentage(?float $value): void
+    {
+        $this->taxPercentage = $value;
+    }
+
+    /**
      * @return string|null
      */
     public function getUnit(): ?string
@@ -230,6 +251,9 @@ class OrderLineDetails extends DataObject
         if (!is_null($this->taxAmount)) {
             $object->taxAmount = $this->taxAmount;
         }
+        if (!is_null($this->taxPercentage)) {
+            $object->taxPercentage = $this->taxPercentage;
+        }
         if (!is_null($this->unit)) {
             $object->unit = $this->unit;
         }
@@ -238,6 +262,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -267,6 +292,9 @@ class OrderLineDetails extends DataObject
         }
         if (property_exists($object, 'taxAmount')) {
             $this->taxAmount = $object->taxAmount;
+        }
+        if (property_exists($object, 'taxPercentage')) {
+            $this->taxPercentage = $object->taxPercentage;
         }
         if (property_exists($object, 'unit')) {
             $this->unit = $object->unit;

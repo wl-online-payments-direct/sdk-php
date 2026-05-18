@@ -14,8 +14,8 @@ use OnlinePayments\Sdk\Domain\DataObject;
 class ValidationException extends ResponseException
 {
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
      */
     public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)

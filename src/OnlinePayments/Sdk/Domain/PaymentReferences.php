@@ -27,6 +27,11 @@ class PaymentReferences extends DataObject
     public ?string $operationGroupReference = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $structuredCreditorReference = null;
+
+    /**
      * @return string|null
      */
     public function getMerchantParameters(): ?string
@@ -75,6 +80,22 @@ class PaymentReferences extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getStructuredCreditorReference(): ?string
+    {
+        return $this->structuredCreditorReference;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setStructuredCreditorReference(?string $value): void
+    {
+        $this->structuredCreditorReference = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -89,11 +110,15 @@ class PaymentReferences extends DataObject
         if (!is_null($this->operationGroupReference)) {
             $object->operationGroupReference = $this->operationGroupReference;
         }
+        if (!is_null($this->structuredCreditorReference)) {
+            $object->structuredCreditorReference = $this->structuredCreditorReference;
+        }
         return $object;
     }
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -108,6 +133,9 @@ class PaymentReferences extends DataObject
         }
         if (property_exists($object, 'operationGroupReference')) {
             $this->operationGroupReference = $object->operationGroupReference;
+        }
+        if (property_exists($object, 'structuredCreditorReference')) {
+            $this->structuredCreditorReference = $object->structuredCreditorReference;
         }
         return $this;
     }

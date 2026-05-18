@@ -52,6 +52,11 @@ class Order extends DataObject
     public ?SurchargeSpecificInput $surchargeSpecificInput = null;
 
     /**
+     * @var float|null
+     */
+    public ?float $taxPercentage = null;
+
+    /**
      * @var int|null
      */
     public ?int $totalTaxAmount = null;
@@ -185,6 +190,22 @@ class Order extends DataObject
     }
 
     /**
+     * @return float|null
+     */
+    public function getTaxPercentage(): ?float
+    {
+        return $this->taxPercentage;
+    }
+
+    /**
+     * @param float|null $value
+     */
+    public function setTaxPercentage(?float $value): void
+    {
+        $this->taxPercentage = $value;
+    }
+
+    /**
      * @return int|null
      */
     public function getTotalTaxAmount(): ?int
@@ -230,6 +251,9 @@ class Order extends DataObject
         if (!is_null($this->surchargeSpecificInput)) {
             $object->surchargeSpecificInput = $this->surchargeSpecificInput->toObject();
         }
+        if (!is_null($this->taxPercentage)) {
+            $object->taxPercentage = $this->taxPercentage;
+        }
         if (!is_null($this->totalTaxAmount)) {
             $object->totalTaxAmount = $this->totalTaxAmount;
         }
@@ -238,6 +262,7 @@ class Order extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -299,6 +324,9 @@ class Order extends DataObject
             }
             $value = new SurchargeSpecificInput();
             $this->surchargeSpecificInput = $value->fromObject($object->surchargeSpecificInput);
+        }
+        if (property_exists($object, 'taxPercentage')) {
+            $this->taxPercentage = $object->taxPercentage;
         }
         if (property_exists($object, 'totalTaxAmount')) {
             $this->totalTaxAmount = $object->totalTaxAmount;

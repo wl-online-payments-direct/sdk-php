@@ -118,6 +118,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

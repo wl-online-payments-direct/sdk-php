@@ -15,14 +15,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * MerchantBatch client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\MerchantBatch
  */
 class MerchantBatchClient extends ApiResource implements MerchantBatchClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/merchant-batches - Submit batch
+     *
+     * @param SubmitBatchRequestBody $body
+     * @param CallContext|null       $callContext
+     *
+     * @return SubmitBatchResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function submitBatch(SubmitBatchRequestBody $body, ?CallContext $callContext = null): SubmitBatchResponse
     {
@@ -51,7 +67,19 @@ class MerchantBatchClient extends ApiResource implements MerchantBatchClientInte
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference}/process - Process batch transactions
+     *
+     * @param string           $merchantBatchReference
+     * @param CallContext|null $callContext
+     *
+     * @return void
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function processBatch(string $merchantBatchReference, ?CallContext $callContext = null): void
     {
@@ -78,7 +106,19 @@ class MerchantBatchClient extends ApiResource implements MerchantBatchClientInte
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference} - Get batch status
+     *
+     * @param string           $merchantBatchReference
+     * @param CallContext|null $callContext
+     *
+     * @return GetBatchStatusResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getBatchStatus(string $merchantBatchReference, ?CallContext $callContext = null): GetBatchStatusResponse
     {
@@ -104,7 +144,9 @@ class MerchantBatchClient extends ApiResource implements MerchantBatchClientInte
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

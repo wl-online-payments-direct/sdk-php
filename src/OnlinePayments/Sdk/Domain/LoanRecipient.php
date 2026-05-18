@@ -142,6 +142,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

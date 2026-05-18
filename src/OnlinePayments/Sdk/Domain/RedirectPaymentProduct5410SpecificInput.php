@@ -47,6 +47,7 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

@@ -13,6 +13,7 @@ class PaymentProductFieldTooltip extends DataObject
 {
     /**
      * @var string|null
+     *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
     public ?string $image = null;
@@ -24,6 +25,7 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
     public function getImage(): ?string
@@ -33,6 +35,7 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
      */
     public function setImage(?string $value): void
@@ -73,6 +76,7 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

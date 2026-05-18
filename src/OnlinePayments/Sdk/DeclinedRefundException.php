@@ -16,8 +16,8 @@ use OnlinePayments\Sdk\Domain\RefundResponse;
 class DeclinedRefundException extends ResponseException
 {
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
      */
     public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
@@ -40,7 +40,7 @@ class DeclinedRefundException extends ResponseException
     /**
      * @return RefundResponse
      */
-    public function getRefundResponse()
+    public function getRefundResponse(): RefundResponse
     {
         $responseVariables = get_object_vars($this->getResponse());
         if (!array_key_exists('refundResult', $responseVariables)) {

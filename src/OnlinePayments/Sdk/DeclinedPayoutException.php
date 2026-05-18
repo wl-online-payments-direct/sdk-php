@@ -16,8 +16,8 @@ use OnlinePayments\Sdk\Domain\PayoutResult;
 class DeclinedPayoutException extends ResponseException
 {
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
      */
     public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
@@ -40,7 +40,7 @@ class DeclinedPayoutException extends ResponseException
     /**
      * @return PayoutResult
      */
-    public function getPayoutResult()
+    public function getPayoutResult(): PayoutResult
     {
         $responseVariables = get_object_vars($this->getResponse());
         if (!array_key_exists('payoutResult', $responseVariables)) {

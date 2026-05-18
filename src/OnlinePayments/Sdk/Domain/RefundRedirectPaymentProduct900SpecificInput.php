@@ -46,6 +46,7 @@ class RefundRedirectPaymentProduct900SpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

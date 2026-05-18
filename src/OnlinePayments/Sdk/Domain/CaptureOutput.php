@@ -23,6 +23,7 @@ class CaptureOutput extends DataObject
 
     /**
      * @var int|null
+     *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
     public ?int $amountPaid = null;
@@ -106,6 +107,7 @@ class CaptureOutput extends DataObject
 
     /**
      * @return int|null
+     *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
     public function getAmountPaid(): ?int
@@ -115,6 +117,7 @@ class CaptureOutput extends DataObject
 
     /**
      * @param int|null $value
+     *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
      */
     public function setAmountPaid(?int $value): void
@@ -313,6 +316,7 @@ class CaptureOutput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

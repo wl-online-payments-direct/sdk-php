@@ -25,6 +25,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @var string|null
+     *
      * @deprecated This field has no effect.
      */
     public ?string $locale = null;
@@ -78,6 +79,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @return string|null
+     *
      * @deprecated This field has no effect.
      */
     public function getLocale(): ?string
@@ -87,6 +89,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated This field has no effect.
      */
     public function setLocale(?string $value): void

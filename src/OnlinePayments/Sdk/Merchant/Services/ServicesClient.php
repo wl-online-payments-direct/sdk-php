@@ -19,14 +19,29 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Services client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Services
  */
 class ServicesClient extends ApiResource implements ServicesClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/services/testconnection - Test connection
+     *
+     * @param CallContext|null $callContext
+     *
+     * @return TestConnection
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function testConnection(?CallContext $callContext = null): TestConnection
     {
@@ -52,7 +67,19 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/services/getIINdetails - Get IIN details
+     *
+     * @param GetIINDetailsRequest $body
+     * @param CallContext|null     $callContext
+     *
+     * @return GetIINDetailsResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getIINDetails(GetIINDetailsRequest $body, ?CallContext $callContext = null): GetIINDetailsResponse
     {
@@ -79,7 +106,19 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/services/dccrate - Get currency conversion quote
+     *
+     * @param CurrencyConversionRequest $body
+     * @param CallContext|null          $callContext
+     *
+     * @return CurrencyConversionResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getDccRateInquiry(CurrencyConversionRequest $body, ?CallContext $callContext = null): CurrencyConversionResponse
     {
@@ -106,7 +145,19 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/services/surchargecalculation - Surcharge Calculation
+     *
+     * @param CalculateSurchargeRequest $body
+     * @param CallContext|null          $callContext
+     *
+     * @return CalculateSurchargeResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function surchargeCalculation(CalculateSurchargeRequest $body, ?CallContext $callContext = null): CalculateSurchargeResponse
     {
@@ -132,7 +183,9 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

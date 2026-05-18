@@ -37,6 +37,11 @@ class ShowFormData extends DataObject
     public ?PaymentProduct5407 $paymentProduct5407 = null;
 
     /**
+     * @var PaymentProduct5412|null
+     */
+    public ?PaymentProduct5412 $paymentProduct5412 = null;
+
+    /**
      * @var PaymentProduct840|null
      */
     public ?PaymentProduct840 $paymentProduct840 = null;
@@ -127,6 +132,22 @@ class ShowFormData extends DataObject
     }
 
     /**
+     * @return PaymentProduct5412|null
+     */
+    public function getPaymentProduct5412(): ?PaymentProduct5412
+    {
+        return $this->paymentProduct5412;
+    }
+
+    /**
+     * @param PaymentProduct5412|null $value
+     */
+    public function setPaymentProduct5412(?PaymentProduct5412 $value): void
+    {
+        $this->paymentProduct5412 = $value;
+    }
+
+    /**
      * @return PaymentProduct840|null
      */
     public function getPaymentProduct840(): ?PaymentProduct840
@@ -179,6 +200,9 @@ class ShowFormData extends DataObject
         if (!is_null($this->paymentProduct5407)) {
             $object->paymentProduct5407 = $this->paymentProduct5407->toObject();
         }
+        if (!is_null($this->paymentProduct5412)) {
+            $object->paymentProduct5412 = $this->paymentProduct5412->toObject();
+        }
         if (!is_null($this->paymentProduct840)) {
             $object->paymentProduct840 = $this->paymentProduct840->toObject();
         }
@@ -190,6 +214,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -230,6 +255,13 @@ class ShowFormData extends DataObject
             }
             $value = new PaymentProduct5407();
             $this->paymentProduct5407 = $value->fromObject($object->paymentProduct5407);
+        }
+        if (property_exists($object, 'paymentProduct5412')) {
+            if (!is_object($object->paymentProduct5412)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5412, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5412();
+            $this->paymentProduct5412 = $value->fromObject($object->paymentProduct5412);
         }
         if (property_exists($object, 'paymentProduct840')) {
             if (!is_object($object->paymentProduct840)) {

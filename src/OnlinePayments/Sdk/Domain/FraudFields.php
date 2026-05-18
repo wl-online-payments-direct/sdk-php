@@ -18,6 +18,7 @@ class FraudFields extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
     public ?string $customerIpAddress = null;
@@ -45,6 +46,7 @@ class FraudFields extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
     public function getCustomerIpAddress(): ?string
@@ -54,6 +56,7 @@ class FraudFields extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
      */
     public function setCustomerIpAddress(?string $value): void
@@ -102,6 +105,7 @@ class FraudFields extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

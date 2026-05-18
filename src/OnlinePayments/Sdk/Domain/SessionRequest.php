@@ -51,6 +51,7 @@ class SessionRequest extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

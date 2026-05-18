@@ -14,14 +14,32 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Subsequent client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Subsequent
  */
 class SubsequentClient extends ApiResource implements SubsequentClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/payments/{paymentId}/subsequent - Subsequent payment
+     *
+     * @param string                   $paymentId
+     * @param SubsequentPaymentRequest $body
+     * @param CallContext|null         $callContext
+     *
+     * @return SubsequentPaymentResponse
+     * @throws DeclinedPaymentException
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse
     {
@@ -48,7 +66,9 @@ class SubsequentClient extends ApiResource implements SubsequentClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

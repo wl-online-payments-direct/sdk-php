@@ -13,14 +13,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Refunds client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Refunds
  */
 class RefundsClient extends ApiResource implements RefundsClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/payments/{paymentId}/refunds - Get refunds of payment
+     *
+     * @param string           $paymentId
+     * @param CallContext|null $callContext
+     *
+     * @return RefundsResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getRefunds(string $paymentId, ?CallContext $callContext = null): RefundsResponse
     {
@@ -46,7 +62,9 @@ class RefundsClient extends ApiResource implements RefundsClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

@@ -14,14 +14,32 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Complete client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Complete
  */
 class CompleteClient extends ApiResource implements CompleteClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/payments/{paymentId}/complete - Complete payment
+     *
+     * @param string                 $paymentId
+     * @param CompletePaymentRequest $body
+     * @param CallContext|null       $callContext
+     *
+     * @return CompletePaymentResponse
+     * @throws DeclinedPaymentException
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse
     {
@@ -48,7 +66,9 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

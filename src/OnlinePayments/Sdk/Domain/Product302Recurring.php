@@ -46,6 +46,7 @@ class Product302Recurring extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

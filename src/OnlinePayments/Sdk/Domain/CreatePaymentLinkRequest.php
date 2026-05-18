@@ -19,6 +19,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
     public ?string $description = null;
@@ -30,6 +31,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @var DateTime|null
+     *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
     public ?DateTime $expirationDate = null;
@@ -76,6 +78,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
     public ?string $recipientName = null;
@@ -108,6 +111,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
     public function getDescription(): ?string
@@ -117,6 +121,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
      */
     public function setDescription(?string $value): void
@@ -142,6 +147,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return DateTime|null
+     *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
     public function getExpirationDate(): ?DateTime
@@ -151,6 +157,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param DateTime|null $value
+     *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
      */
     public function setExpirationDate(?DateTime $value): void
@@ -288,6 +295,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
     public function getRecipientName(): ?string
@@ -297,6 +305,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
      */
     public function setRecipientName(?string $value): void
@@ -392,6 +401,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

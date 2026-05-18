@@ -14,14 +14,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * CofSeries client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\CofSeries
  */
 class CofSeriesClient extends ApiResource implements CofSeriesClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/tokens/importCofSeries - Imports the COF Series token.
+     *
+     * @param ImportCofSeriesRequest $body
+     * @param CallContext|null       $callContext
+     *
+     * @return ImportCofSeriesResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function importCofSeries(ImportCofSeriesRequest $body, ?CallContext $callContext = null): ImportCofSeriesResponse
     {
@@ -47,7 +63,9 @@ class CofSeriesClient extends ApiResource implements CofSeriesClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {
