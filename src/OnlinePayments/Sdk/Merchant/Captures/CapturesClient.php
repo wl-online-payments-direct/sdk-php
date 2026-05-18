@@ -13,30 +13,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Captures client.
- *
- * @package OnlinePayments\Sdk\Merchant\Captures
  */
 class CapturesClient extends ApiResource implements CapturesClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/captures - Get captures of payment
-     *
-     * @param string           $paymentId
-     * @param CallContext|null $callContext
-     *
-     * @return CapturesResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getCaptures(string $paymentId, ?CallContext $callContext = null): CapturesResponse
     {
@@ -62,9 +46,7 @@ class CapturesClient extends ApiResource implements CapturesClientInterface
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

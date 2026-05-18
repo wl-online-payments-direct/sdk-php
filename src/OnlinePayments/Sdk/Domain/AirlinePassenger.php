@@ -19,16 +19,6 @@ class AirlinePassenger extends DataObject
     /**
      * @var string|null
      */
-    public ?string $countryCode = null;
-
-    /**
-     * @var string|null
-     */
-    public ?string $dateOfBirth = null;
-
-    /**
-     * @var string|null
-     */
     public ?string $firstName = null;
 
     /**
@@ -48,7 +38,6 @@ class AirlinePassenger extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
     public ?string $title = null;
@@ -67,38 +56,6 @@ class AirlinePassenger extends DataObject
     public function setAirlineLoyaltyStatus(?string $value): void
     {
         $this->airlineLoyaltyStatus = $value;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCountryCode(): ?string
-    {
-        return $this->countryCode;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setCountryCode(?string $value): void
-    {
-        $this->countryCode = $value;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDateOfBirth(): ?string
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setDateOfBirth(?string $value): void
-    {
-        $this->dateOfBirth = $value;
     }
 
     /**
@@ -167,7 +124,6 @@ class AirlinePassenger extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
     public function getTitle(): ?string
@@ -177,7 +133,6 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
      */
     public function setTitle(?string $value): void
@@ -193,12 +148,6 @@ class AirlinePassenger extends DataObject
         $object = parent::toObject();
         if (!is_null($this->airlineLoyaltyStatus)) {
             $object->airlineLoyaltyStatus = $this->airlineLoyaltyStatus;
-        }
-        if (!is_null($this->countryCode)) {
-            $object->countryCode = $this->countryCode;
-        }
-        if (!is_null($this->dateOfBirth)) {
-            $object->dateOfBirth = $this->dateOfBirth;
         }
         if (!is_null($this->firstName)) {
             $object->firstName = $this->firstName;
@@ -220,7 +169,6 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -229,12 +177,6 @@ class AirlinePassenger extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'airlineLoyaltyStatus')) {
             $this->airlineLoyaltyStatus = $object->airlineLoyaltyStatus;
-        }
-        if (property_exists($object, 'countryCode')) {
-            $this->countryCode = $object->countryCode;
-        }
-        if (property_exists($object, 'dateOfBirth')) {
-            $this->dateOfBirth = $object->dateOfBirth;
         }
         if (property_exists($object, 'firstName')) {
             $this->firstName = $object->firstName;

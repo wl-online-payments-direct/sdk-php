@@ -27,6 +27,11 @@ class LineItemDetail extends DataObject
     public ?int $quantity = null;
 
     /**
+     * @var int|null
+     */
+    public ?int $taxAmount = null;
+
+    /**
      * @return int|null
      */
     public function getDiscountAmount(): ?int
@@ -75,6 +80,22 @@ class LineItemDetail extends DataObject
     }
 
     /**
+     * @return int|null
+     */
+    public function getTaxAmount(): ?int
+    {
+        return $this->taxAmount;
+    }
+
+    /**
+     * @param int|null $value
+     */
+    public function setTaxAmount(?int $value): void
+    {
+        $this->taxAmount = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -89,12 +110,14 @@ class LineItemDetail extends DataObject
         if (!is_null($this->quantity)) {
             $object->quantity = $this->quantity;
         }
+        if (!is_null($this->taxAmount)) {
+            $object->taxAmount = $this->taxAmount;
+        }
         return $object;
     }
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -109,6 +132,9 @@ class LineItemDetail extends DataObject
         }
         if (property_exists($object, 'quantity')) {
             $this->quantity = $object->quantity;
+        }
+        if (property_exists($object, 'taxAmount')) {
+            $this->taxAmount = $object->taxAmount;
         }
         return $this;
     }

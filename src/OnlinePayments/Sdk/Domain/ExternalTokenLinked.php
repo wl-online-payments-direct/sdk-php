@@ -18,7 +18,6 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated Use the field ComputedToken instead.
      */
     public ?string $GTSComputedToken = null;
@@ -46,7 +45,6 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Use the field ComputedToken instead.
      */
     public function getGTSComputedToken(): ?string
@@ -56,7 +54,6 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Use the field ComputedToken instead.
      */
     public function setGTSComputedToken(?string $value): void
@@ -100,7 +97,6 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

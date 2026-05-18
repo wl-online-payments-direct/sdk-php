@@ -14,31 +14,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Payouts client.
- *
- * @package OnlinePayments\Sdk\Merchant\Payouts
  */
 class PayoutsClient extends ApiResource implements PayoutsClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/payouts - Create payout
-     *
-     * @param CreatePayoutRequest $body
-     * @param CallContext|null    $callContext
-     *
-     * @return PayoutResponse
-     * @throws DeclinedPayoutException
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse
     {
@@ -65,19 +48,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payouts/{payoutId} - Get payout
-     *
-     * @param string           $payoutId
-     * @param CallContext|null $callContext
-     *
-     * @return PayoutResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse
     {
@@ -103,9 +74,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

@@ -15,30 +15,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Tokenization client.
- *
- * @package OnlinePayments\Sdk\Merchant\Tokenization
  */
 class TokenizationClient extends ApiResource implements TokenizationClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/detokenize/csr - Sign certificate
-     *
-     * @param CsrRequest       $body
-     * @param CallContext|null $callContext
-     *
-     * @return CreateCertificateResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createCertificate(CsrRequest $body, ?CallContext $callContext = null): CreateCertificateResponse
     {
@@ -65,19 +49,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
     }
 
     /**
-     * Resource /v2/{merchantId}/detokenize/tokens - Get sensitive card details by card alias tokens
-     *
-     * @param GetCardDataByTokensParams $query
-     * @param CallContext|null          $callContext
-     *
-     * @return DetokenizationResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getCardDataByTokens(GetCardDataByTokensParams $query, ?CallContext $callContext = null): DetokenizationResponse
     {
@@ -103,19 +75,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
     }
 
     /**
-     * Resource /v2/{merchantId}/detokenize/payments - Get sensitive card details by card payment identifiers
-     *
-     * @param GetCardDataByPaymentsParams $query
-     * @param CallContext|null            $callContext
-     *
-     * @return DetokenizationResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getCardDataByPayments(GetCardDataByPaymentsParams $query, ?CallContext $callContext = null): DetokenizationResponse
     {
@@ -140,9 +100,7 @@ class TokenizationClient extends ApiResource implements TokenizationClientInterf
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

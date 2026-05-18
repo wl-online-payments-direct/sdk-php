@@ -33,7 +33,6 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated Deprecated
      */
     public ?string $link = null;
@@ -129,7 +128,6 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Deprecated
      */
     public function getLink(): ?string
@@ -139,7 +137,6 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Deprecated
      */
     public function setLink(?string $value): void
@@ -268,7 +265,6 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

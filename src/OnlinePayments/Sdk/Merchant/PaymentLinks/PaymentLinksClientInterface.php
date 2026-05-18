@@ -59,7 +59,7 @@ interface PaymentLinksClientInterface
      *
      * @param string $paymentLinkId
      * @param CallContext|null $callContext
-     * @return void
+     * @return null
      *
      * @throws IdempotenceException
      * @throws ValidationException

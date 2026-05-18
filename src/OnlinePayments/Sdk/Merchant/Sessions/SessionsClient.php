@@ -14,30 +14,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Sessions client.
- *
- * @package OnlinePayments\Sdk\Merchant\Sessions
  */
 class SessionsClient extends ApiResource implements SessionsClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/sessions - Create session
-     *
-     * @param SessionRequest   $body
-     * @param CallContext|null $callContext
-     *
-     * @return SessionResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createSession(SessionRequest $body, ?CallContext $callContext = null): SessionResponse
     {
@@ -63,9 +47,7 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

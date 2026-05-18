@@ -70,7 +70,6 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

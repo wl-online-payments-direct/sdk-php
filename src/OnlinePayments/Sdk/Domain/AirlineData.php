@@ -23,7 +23,6 @@ class AirlineData extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
     public ?string $flightDate = null;
@@ -45,7 +44,6 @@ class AirlineData extends DataObject
 
     /**
      * @var bool|null
-     *
      * @deprecated Deprecated
      */
     public ?bool $isETicket = null;
@@ -57,7 +55,6 @@ class AirlineData extends DataObject
 
     /**
      * @var bool|null
-     *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
     public ?bool $isThirdParty = null;
@@ -74,14 +71,12 @@ class AirlineData extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product Name of the airline
      */
     public ?string $name = null;
 
     /**
      * @var string|null
-     *
      * @deprecated Use passengers instead Name of passenger
      */
     public ?string $passengerName = null;
@@ -93,14 +88,12 @@ class AirlineData extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
     public ?string $placeOfIssue = null;
 
     /**
      * @var string|null
-     *
      * @deprecated Use passengers instead.
      */
     public ?string $pnr = null;
@@ -112,7 +105,6 @@ class AirlineData extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
     public ?string $posCityCode = null;
@@ -124,7 +116,6 @@ class AirlineData extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
     public ?string $ticketDeliveryMethod = null;
@@ -188,7 +179,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
     public function getFlightDate(): ?string
@@ -198,7 +188,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
      */
     public function setFlightDate(?string $value): void
@@ -256,7 +245,6 @@ class AirlineData extends DataObject
 
     /**
      * @return bool|null
-     *
      * @deprecated Deprecated
      */
     public function getIsETicket(): ?bool
@@ -266,7 +254,6 @@ class AirlineData extends DataObject
 
     /**
      * @param bool|null $value
-     *
      * @deprecated Deprecated
      */
     public function setIsETicket(?bool $value): void
@@ -292,7 +279,6 @@ class AirlineData extends DataObject
 
     /**
      * @return bool|null
-     *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
     public function getIsThirdParty(): ?bool
@@ -302,7 +288,6 @@ class AirlineData extends DataObject
 
     /**
      * @param bool|null $value
-     *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
      */
     public function setIsThirdParty(?bool $value): void
@@ -344,7 +329,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product Name of the airline
      */
     public function getName(): ?string
@@ -354,7 +338,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product Name of the airline
      */
     public function setName(?string $value): void
@@ -364,7 +347,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Use passengers instead Name of passenger
      */
     public function getPassengerName(): ?string
@@ -374,7 +356,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Use passengers instead Name of passenger
      */
     public function setPassengerName(?string $value): void
@@ -400,7 +381,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
     public function getPlaceOfIssue(): ?string
@@ -410,7 +390,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
      */
     public function setPlaceOfIssue(?string $value): void
@@ -420,7 +399,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Use passengers instead.
      */
     public function getPnr(): ?string
@@ -430,7 +408,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Use passengers instead.
      */
     public function setPnr(?string $value): void
@@ -456,7 +433,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
     public function getPosCityCode(): ?string
@@ -466,7 +442,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product City code of the point of sale
      */
     public function setPosCityCode(?string $value): void
@@ -492,7 +467,6 @@ class AirlineData extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
     public function getTicketDeliveryMethod(): ?string
@@ -502,7 +476,6 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
      */
     public function setTicketDeliveryMethod(?string $value): void
@@ -686,7 +659,6 @@ class AirlineData extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

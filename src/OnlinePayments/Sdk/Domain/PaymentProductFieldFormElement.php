@@ -18,7 +18,6 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @var ValueMappingElement[]|null
-     *
      * @deprecated This field is not used by any payment product
      */
     public ?array $valueMapping = null;
@@ -41,7 +40,6 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @return ValueMappingElement[]|null
-     *
      * @deprecated This field is not used by any payment product
      */
     public function getValueMapping(): ?array
@@ -51,7 +49,6 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @param ValueMappingElement[]|null $value
-     *
      * @deprecated This field is not used by any payment product
      */
     public function setValueMapping(?array $value): void
@@ -81,7 +78,6 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

@@ -18,7 +18,6 @@ class APIError extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated Use errorCode instead. Error code
      */
     public ?string $code = null;
@@ -71,7 +70,6 @@ class APIError extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Use errorCode instead. Error code
      */
     public function getCode(): ?string
@@ -81,7 +79,6 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Use errorCode instead. Error code
      */
     public function setCode(?string $value): void
@@ -220,7 +217,6 @@ class APIError extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

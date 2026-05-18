@@ -43,7 +43,7 @@ interface MerchantBatchClientInterface
      *
      * @param string $merchantBatchReference
      * @param CallContext|null $callContext
-     * @return void
+     * @return null
      *
      * @throws IdempotenceException
      * @throws ValidationException

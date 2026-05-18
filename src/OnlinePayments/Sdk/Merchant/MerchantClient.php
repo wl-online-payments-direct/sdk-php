@@ -50,15 +50,11 @@ use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
 
 /**
  * Merchant client.
- *
- * @package OnlinePayments\Sdk\Merchant
  */
 class MerchantClient extends ApiResource implements MerchantClientInterface
 {
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts
-     *
-     * @return HostedCheckoutClient
+     * @inheritdoc
      */
     public function hostedCheckout(): HostedCheckoutClientInterface
     {
@@ -66,9 +62,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedtokenizations
-     *
-     * @return HostedTokenizationClient
+     * @inheritdoc
      */
     public function hostedTokenization(): HostedTokenizationClientInterface
     {
@@ -76,9 +70,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedfields/sessions
-     *
-     * @return HostedFieldsClient
+     * @inheritdoc
      */
     public function hostedFields(): HostedFieldsClientInterface
     {
@@ -86,9 +78,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments
-     *
-     * @return PaymentsClient
+     * @inheritdoc
      */
     public function payments(): PaymentsClientInterface
     {
@@ -96,9 +86,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/captures
-     *
-     * @return CapturesClient
+     * @inheritdoc
      */
     public function captures(): CapturesClientInterface
     {
@@ -106,9 +94,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/refunds
-     *
-     * @return RefundsClient
+     * @inheritdoc
      */
     public function refunds(): RefundsClientInterface
     {
@@ -116,9 +102,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/complete
-     *
-     * @return CompleteClient
+     * @inheritdoc
      */
     public function complete(): CompleteClientInterface
     {
@@ -126,9 +110,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
-     *
-     * @return SubsequentClient
+     * @inheritdoc
      */
     public function subsequent(): SubsequentClientInterface
     {
@@ -136,9 +118,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/productgroups
-     *
-     * @return ProductGroupsClient
+     * @inheritdoc
      */
     public function productGroups(): ProductGroupsClientInterface
     {
@@ -146,9 +126,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/products
-     *
-     * @return ProductsClient
+     * @inheritdoc
      */
     public function products(): ProductsClientInterface
     {
@@ -156,9 +134,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/services/testconnection
-     *
-     * @return ServicesClient
+     * @inheritdoc
      */
     public function services(): ServicesClientInterface
     {
@@ -166,9 +142,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/webhooks/validateCredentials
-     *
-     * @return WebhooksClient
+     * @inheritdoc
      */
     public function webhooks(): WebhooksClientInterface
     {
@@ -176,9 +150,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/sessions
-     *
-     * @return SessionsClient
+     * @inheritdoc
      */
     public function sessions(): SessionsClientInterface
     {
@@ -186,9 +158,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/tokens
-     *
-     * @return TokensClient
+     * @inheritdoc
      */
     public function tokens(): TokensClientInterface
     {
@@ -196,9 +166,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/tokens/importCofSeries
-     *
-     * @return CofSeriesClient
+     * @inheritdoc
      */
     public function cofSeries(): CofSeriesClientInterface
     {
@@ -206,9 +174,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/detokenize/csr
-     *
-     * @return TokenizationClient
+     * @inheritdoc
      */
     public function tokenization(): TokenizationClientInterface
     {
@@ -216,9 +182,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/payouts
-     *
-     * @return PayoutsClient
+     * @inheritdoc
      */
     public function payouts(): PayoutsClientInterface
     {
@@ -226,9 +190,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/mandates
-     *
-     * @return MandatesClient
+     * @inheritdoc
      */
     public function mandates(): MandatesClientInterface
     {
@@ -236,9 +198,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/services/privacypolicy
-     *
-     * @return PrivacyPolicyClient
+     * @inheritdoc
      */
     public function privacyPolicy(): PrivacyPolicyClientInterface
     {
@@ -246,9 +206,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/paymentlinks
-     *
-     * @return PaymentLinksClient
+     * @inheritdoc
      */
     public function paymentLinks(): PaymentLinksClientInterface
     {
@@ -256,9 +214,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/merchant-batches
-     *
-     * @return MerchantBatchClient
+     * @inheritdoc
      */
     public function merchantBatch(): MerchantBatchClientInterface
     {

@@ -15,30 +15,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * HostedTokenization client.
- *
- * @package OnlinePayments\Sdk\Merchant\HostedTokenization
  */
 class HostedTokenizationClient extends ApiResource implements HostedTokenizationClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/hostedtokenizations - Create hosted tokenization session
-     *
-     * @param CreateHostedTokenizationRequest $body
-     * @param CallContext|null                $callContext
-     *
-     * @return CreateHostedTokenizationResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createHostedTokenization(CreateHostedTokenizationRequest $body, ?CallContext $callContext = null): CreateHostedTokenizationResponse
     {
@@ -65,19 +49,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId} - Get hosted tokenization session
-     *
-     * @param string           $hostedTokenizationId
-     * @param CallContext|null $callContext
-     *
-     * @return GetHostedTokenizationResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getHostedTokenization(string $hostedTokenizationId, ?CallContext $callContext = null): GetHostedTokenizationResponse
     {
@@ -103,9 +75,7 @@ class HostedTokenizationClient extends ApiResource implements HostedTokenization
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

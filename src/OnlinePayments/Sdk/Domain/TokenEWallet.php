@@ -13,7 +13,6 @@ class TokenEWallet extends DataObject
 {
     /**
      * @var string|null
-     *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
     public ?string $alias = null;
@@ -25,7 +24,6 @@ class TokenEWallet extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
     public function getAlias(): ?string
@@ -35,7 +33,6 @@ class TokenEWallet extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
      */
     public function setAlias(?string $value): void
@@ -76,7 +73,6 @@ class TokenEWallet extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

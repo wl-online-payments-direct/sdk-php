@@ -18,7 +18,6 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated Deprecated
      */
     public ?string $mustWriteReason = null;
@@ -51,7 +50,6 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Deprecated
      */
     public function getMustWriteReason(): ?string
@@ -61,7 +59,6 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Deprecated
      */
     public function setMustWriteReason(?string $value): void
@@ -124,7 +121,6 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

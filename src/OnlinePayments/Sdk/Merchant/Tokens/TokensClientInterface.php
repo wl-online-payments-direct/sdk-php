@@ -60,7 +60,7 @@ interface TokensClientInterface
      *
      * @param string $tokenId
      * @param CallContext|null $callContext
-     * @return void
+     * @return null
      *
      * @throws IdempotenceException
      * @throws ValidationException

@@ -46,7 +46,6 @@ class CustomerDeviceOutput extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

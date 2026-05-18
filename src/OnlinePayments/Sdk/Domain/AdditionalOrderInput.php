@@ -118,7 +118,6 @@ class AdditionalOrderInput extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

@@ -13,7 +13,6 @@ class Feedbacks extends DataObject
 {
     /**
      * @var string|null
-     *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
     public ?string $webhookUrl = null;
@@ -25,7 +24,6 @@ class Feedbacks extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
     public function getWebhookUrl(): ?string
@@ -35,7 +33,6 @@ class Feedbacks extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
      */
     public function setWebhookUrl(?string $value): void
@@ -81,7 +78,6 @@ class Feedbacks extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

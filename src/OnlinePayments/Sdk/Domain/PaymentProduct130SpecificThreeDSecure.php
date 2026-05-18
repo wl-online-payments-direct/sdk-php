@@ -118,7 +118,6 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

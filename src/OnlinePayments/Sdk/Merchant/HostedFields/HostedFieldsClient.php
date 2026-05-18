@@ -14,30 +14,14 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * HostedFields client.
- *
- * @package OnlinePayments\Sdk\Merchant\HostedFields
  */
 class HostedFieldsClient extends ApiResource implements HostedFieldsClientInterface
 {
-    /**
-     * @var ExceptionFactory|null
-     */
+    /** @var ExceptionFactory|null */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/hostedfields/sessions - Create hosted fields session
-     *
-     * @param CreateHostedFieldsSessionRequest $body
-     * @param CallContext|null                 $callContext
-     *
-     * @return CreateHostedFieldsSessionResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createHostedFieldsSession(CreateHostedFieldsSessionRequest $body, ?CallContext $callContext = null): CreateHostedFieldsSessionResponse
     {
@@ -63,9 +47,7 @@ class HostedFieldsClient extends ApiResource implements HostedFieldsClientInterf
         }
     }
 
-    /**
-     * @return ExceptionFactory
-     */
+    /** @return ExceptionFactory */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

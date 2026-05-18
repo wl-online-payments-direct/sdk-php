@@ -44,11 +44,6 @@ class GetPaymentProductsParams extends RequestObject
     public ?array $hide = null;
 
     /**
-     * @var string|null
-     */
-    public ?string $operationType = null;
-
-    /**
      * @return string|null
      */
     public function getCountryCode(): ?string
@@ -156,22 +151,6 @@ class GetPaymentProductsParams extends RequestObject
     }
 
     /**
-     * @return string|null
-     */
-    public function getOperationType(): ?string
-    {
-        return $this->operationType;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setOperationType(?string $value): void
-    {
-        $this->operationType = $value;
-    }
-
-    /**
      * @return array
      */
     public function toArray(): array
@@ -199,9 +178,6 @@ class GetPaymentProductsParams extends RequestObject
                     $array['hide'][] = $element;
                 }
             }
-        }
-        if ($this->operationType != null) {
-            $array['operationType'] = $this->operationType;
         }
         return $array;
     }

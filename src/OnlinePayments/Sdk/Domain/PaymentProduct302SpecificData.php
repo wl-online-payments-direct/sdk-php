@@ -51,7 +51,6 @@ class PaymentProduct302SpecificData extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */

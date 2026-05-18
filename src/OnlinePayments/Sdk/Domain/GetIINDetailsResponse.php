@@ -85,16 +85,6 @@ class GetIINDetailsResponse extends DataObject
     /**
      * @var string|null
      */
-    public ?string $issuerPrincipalMemberCode = null;
-
-    /**
-     * @var string|null
-     */
-    public ?string $issuerPrincipalMemberName = null;
-
-    /**
-     * @var string|null
-     */
     public ?string $issuerRegionCode = null;
 
     /**
@@ -354,38 +344,6 @@ class GetIINDetailsResponse extends DataObject
     /**
      * @return string|null
      */
-    public function getIssuerPrincipalMemberCode(): ?string
-    {
-        return $this->issuerPrincipalMemberCode;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setIssuerPrincipalMemberCode(?string $value): void
-    {
-        $this->issuerPrincipalMemberCode = $value;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getIssuerPrincipalMemberName(): ?string
-    {
-        return $this->issuerPrincipalMemberName;
-    }
-
-    /**
-     * @param string|null $value
-     */
-    public function setIssuerPrincipalMemberName(?string $value): void
-    {
-        $this->issuerPrincipalMemberName = $value;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getIssuerRegionCode(): ?string
     {
         return $this->issuerRegionCode;
@@ -548,12 +506,6 @@ class GetIINDetailsResponse extends DataObject
         if (!is_null($this->issuerName)) {
             $object->issuerName = $this->issuerName;
         }
-        if (!is_null($this->issuerPrincipalMemberCode)) {
-            $object->issuerPrincipalMemberCode = $this->issuerPrincipalMemberCode;
-        }
-        if (!is_null($this->issuerPrincipalMemberName)) {
-            $object->issuerPrincipalMemberName = $this->issuerPrincipalMemberName;
-        }
         if (!is_null($this->issuerRegionCode)) {
             $object->issuerRegionCode = $this->issuerRegionCode;
         }
@@ -580,7 +532,6 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -635,12 +586,6 @@ class GetIINDetailsResponse extends DataObject
         }
         if (property_exists($object, 'issuerName')) {
             $this->issuerName = $object->issuerName;
-        }
-        if (property_exists($object, 'issuerPrincipalMemberCode')) {
-            $this->issuerPrincipalMemberCode = $object->issuerPrincipalMemberCode;
-        }
-        if (property_exists($object, 'issuerPrincipalMemberName')) {
-            $this->issuerPrincipalMemberName = $object->issuerPrincipalMemberName;
         }
         if (property_exists($object, 'issuerRegionCode')) {
             $this->issuerRegionCode = $object->issuerRegionCode;

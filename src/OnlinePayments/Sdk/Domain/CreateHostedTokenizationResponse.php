@@ -33,7 +33,6 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @var string|null
-     *
      * @deprecated Deprecated
      */
     public ?string $partialRedirectUrl = null;
@@ -104,7 +103,6 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @return string|null
-     *
      * @deprecated Deprecated
      */
     public function getPartialRedirectUrl(): ?string
@@ -114,7 +112,6 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     *
      * @deprecated Deprecated
      */
     public function setPartialRedirectUrl(?string $value): void
@@ -158,7 +155,6 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param object $object
-     *
      * @return $this
      * @throws UnexpectedValueException
      */
