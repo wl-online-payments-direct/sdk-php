@@ -13,6 +13,7 @@ class ShoppingCart extends DataObject
 {
     /**
      * @var AmountBreakdown[]|null
+     *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
     public ?array $amountBreakdown = null;
@@ -44,6 +45,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return AmountBreakdown[]|null
+     *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
     public function getAmountBreakdown(): ?array
@@ -53,6 +55,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param AmountBreakdown[]|null $value
+     *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
      */
     public function setAmountBreakdown(?array $value): void
@@ -179,6 +182,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

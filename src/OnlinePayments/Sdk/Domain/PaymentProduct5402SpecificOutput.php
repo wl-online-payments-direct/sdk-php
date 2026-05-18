@@ -46,6 +46,7 @@ class PaymentProduct5402SpecificOutput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

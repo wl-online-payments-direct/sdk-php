@@ -118,6 +118,7 @@ class PaymentProduct3012SpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

@@ -63,6 +63,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated Use legFare instead. Fare of this leg
      */
     public ?string $fare = null;
@@ -80,6 +81,11 @@ class AirlineFlightLeg extends DataObject
     /**
      * @var string|null
      */
+    public ?string $flightCode = null;
+
+    /**
+     * @var string|null
+     */
     public ?string $flightNumber = null;
 
     /**
@@ -89,6 +95,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @var int|null
+     *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
      */
     public ?int $number = null;
@@ -275,6 +282,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated Use legFare instead. Fare of this leg
      */
     public function getFare(): ?string
@@ -284,6 +292,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated Use legFare instead. Fare of this leg
      */
     public function setFare(?string $value): void
@@ -326,6 +335,22 @@ class AirlineFlightLeg extends DataObject
     /**
      * @return string|null
      */
+    public function getFlightCode(): ?string
+    {
+        return $this->flightCode;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setFlightCode(?string $value): void
+    {
+        $this->flightCode = $value;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getFlightNumber(): ?string
     {
         return $this->flightNumber;
@@ -357,6 +382,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return int|null
+     *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
      */
     public function getNumber(): ?int
@@ -366,6 +392,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
+     *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
      */
     public function setNumber(?int $value): void
@@ -482,6 +509,9 @@ class AirlineFlightLeg extends DataObject
         if (!is_null($this->fee)) {
             $object->fee = $this->fee;
         }
+        if (!is_null($this->flightCode)) {
+            $object->flightCode = $this->flightCode;
+        }
         if (!is_null($this->flightNumber)) {
             $object->flightNumber = $this->flightNumber;
         }
@@ -508,6 +538,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -552,6 +583,9 @@ class AirlineFlightLeg extends DataObject
         }
         if (property_exists($object, 'fee')) {
             $this->fee = $object->fee;
+        }
+        if (property_exists($object, 'flightCode')) {
+            $this->flightCode = $object->flightCode;
         }
         if (property_exists($object, 'flightNumber')) {
             $this->flightNumber = $object->flightNumber;

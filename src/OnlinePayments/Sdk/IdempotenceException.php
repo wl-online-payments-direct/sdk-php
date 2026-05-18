@@ -13,23 +13,27 @@ use OnlinePayments\Sdk\Domain\DataObject;
  */
 class IdempotenceException extends ResponseException
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private string $idempotenceKey;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private string $idempotenceRequestTimestamp;
 
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
-     * @param string $idempotenceKey
-     * @param string $idempotenceRequestTimestamp;
+     * @param string      $idempotenceKey
+     * @param string      $idempotenceRequestTimestamp
      */
     public function __construct(
         int        $httpStatusCode,
         DataObject $response,
-        ?string     $message = null,
+        ?string    $message = null,
         string     $idempotenceKey = '',
         string     $idempotenceRequestTimestamp = ''
     ) {

@@ -22,6 +22,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     public ?string $authorizationMode = null;
 
     /**
+     * @var AutoCapture|null
+     */
+    public ?AutoCapture $autoCapture = null;
+
+    /**
      * @var Card|null
      */
     public ?Card $card = null;
@@ -118,6 +123,7 @@ class CardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @var bool|null
+     *
      * @deprecated Use threeDSecure.skipAuthentication instead.  * true = 3D Secure authentication will be skipped for this transaction. This setting should be used when isRecurring is set to true and recurringPaymentSequenceIndicator is set to recurring.  * false = 3D Secure authentication will not be skipped for this transaction.    Note: This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
      */
     public ?bool $skipAuthentication = null;
@@ -182,6 +188,22 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
+    }
+
+    /**
+     * @return AutoCapture|null
+     */
+    public function getAutoCapture(): ?AutoCapture
+    {
+        return $this->autoCapture;
+    }
+
+    /**
+     * @param AutoCapture|null $value
+     */
+    public function setAutoCapture(?AutoCapture $value): void
+    {
+        $this->autoCapture = $value;
     }
 
     /**
@@ -490,6 +512,7 @@ class CardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return bool|null
+     *
      * @deprecated Use threeDSecure.skipAuthentication instead.  * true = 3D Secure authentication will be skipped for this transaction. This setting should be used when isRecurring is set to true and recurringPaymentSequenceIndicator is set to recurring.  * false = 3D Secure authentication will not be skipped for this transaction.    Note: This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
      */
     public function getSkipAuthentication(): ?bool
@@ -499,6 +522,7 @@ class CardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
+     *
      * @deprecated Use threeDSecure.skipAuthentication instead.  * true = 3D Secure authentication will be skipped for this transaction. This setting should be used when isRecurring is set to true and recurringPaymentSequenceIndicator is set to recurring.  * false = 3D Secure authentication will not be skipped for this transaction.    Note: This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
      */
     public function setSkipAuthentication(?bool $value): void
@@ -614,6 +638,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->authorizationMode)) {
             $object->authorizationMode = $this->authorizationMode;
         }
+        if (!is_null($this->autoCapture)) {
+            $object->autoCapture = $this->autoCapture->toObject();
+        }
         if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
@@ -697,6 +724,7 @@ class CardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -708,6 +736,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'authorizationMode')) {
             $this->authorizationMode = $object->authorizationMode;
+        }
+        if (property_exists($object, 'autoCapture')) {
+            if (!is_object($object->autoCapture)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->autoCapture, true) . '\' is not an object');
+            }
+            $value = new AutoCapture();
+            $this->autoCapture = $value->fromObject($object->autoCapture);
         }
         if (property_exists($object, 'card')) {
             if (!is_object($object->card)) {

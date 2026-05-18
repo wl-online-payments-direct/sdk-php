@@ -8,6 +8,7 @@ use UnexpectedValueException;
 
 /**
  * @package OnlinePayments\Sdk\Domain
+ *
  * @deprecated An object containing the details of the related payment input.  All properties in paymentLinkOrder are deprecated. Use corresponding values as noted below: | Property | Replacement | | - | - | | merchantReference | references/merchantReference | | amount | order/amountOfMoney | | surchargeSpecificInput | order/surchargeSpecificInput |
  */
 class PaymentLinkOrderInput extends DataObject
@@ -95,6 +96,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

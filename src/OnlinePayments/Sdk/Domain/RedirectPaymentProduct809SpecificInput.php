@@ -8,6 +8,7 @@ use UnexpectedValueException;
 
 /**
  * @package OnlinePayments\Sdk\Domain
+ *
  * @deprecated Deprecated, this is no longer used.
  */
 class RedirectPaymentProduct809SpecificInput extends DataObject
@@ -47,6 +48,7 @@ class RedirectPaymentProduct809SpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

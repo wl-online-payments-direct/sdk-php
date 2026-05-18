@@ -16,14 +16,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Mandates client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Mandates
  */
 class MandatesClient extends ApiResource implements MandatesClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/mandates - Create mandate
+     *
+     * @param CreateMandateRequest $body
+     * @param CallContext|null     $callContext
+     *
+     * @return CreateMandateResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null): CreateMandateResponse
     {
@@ -50,7 +66,19 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference} - Get mandate
+     *
+     * @param string           $uniqueMandateReference
+     * @param CallContext|null $callContext
+     *
+     * @return GetMandateResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse
     {
@@ -77,7 +105,19 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/block - Block mandate
+     *
+     * @param string           $uniqueMandateReference
+     * @param CallContext|null $callContext
+     *
+     * @return GetMandateResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function blockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse
     {
@@ -105,7 +145,19 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/unblock - Unblock mandate
+     *
+     * @param string           $uniqueMandateReference
+     * @param CallContext|null $callContext
+     *
+     * @return GetMandateResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function unblockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse
     {
@@ -133,7 +185,20 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
+     *
+     * @param string               $uniqueMandateReference
+     * @param RevokeMandateRequest $body
+     * @param CallContext|null     $callContext
+     *
+     * @return GetMandateResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function revokeMandate(string $uniqueMandateReference, RevokeMandateRequest $body, ?CallContext $callContext = null): GetMandateResponse
     {
@@ -160,7 +225,9 @@ class MandatesClient extends ApiResource implements MandatesClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

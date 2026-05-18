@@ -15,14 +15,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * Webhooks client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\Webhooks
  */
 class WebhooksClient extends ApiResource implements WebhooksClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/webhooks/validateCredentials - Validate credentials
+     *
+     * @param ValidateCredentialsRequest $body
+     * @param CallContext|null           $callContext
+     *
+     * @return ValidateCredentialsResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null): ValidateCredentialsResponse
     {
@@ -49,7 +65,19 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     }
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/webhooks/sendtest - Send test
+     *
+     * @param SendTestRequest  $body
+     * @param CallContext|null $callContext
+     *
+     * @return void
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null): void
     {
@@ -74,7 +102,9 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

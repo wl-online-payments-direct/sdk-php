@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -50,6 +51,11 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
      * @var string|null
      */
     public ?string $title = null;
+
+    /**
+     * @var DateTime|null
+     */
+    public ?DateTime $transactionExpirationDateTime = null;
 
     /**
      * @return string|null
@@ -180,6 +186,22 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+     */
+    public function getTransactionExpirationDateTime(): ?DateTime
+    {
+        return $this->transactionExpirationDateTime;
+    }
+
+    /**
+     * @param DateTime|null $value
+     */
+    public function setTransactionExpirationDateTime(?DateTime $value): void
+    {
+        $this->transactionExpirationDateTime = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -209,11 +231,15 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
         if (!is_null($this->title)) {
             $object->title = $this->title;
         }
+        if (!is_null($this->transactionExpirationDateTime)) {
+            $object->transactionExpirationDateTime = $this->transactionExpirationDateTime->format('Y-m-d\\TH:i:s.vP');
+        }
         return $object;
     }
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */
@@ -243,6 +269,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
         }
         if (property_exists($object, 'title')) {
             $this->title = $object->title;
+        }
+        if (property_exists($object, 'transactionExpirationDateTime')) {
+            $this->transactionExpirationDateTime = new DateTime($object->transactionExpirationDateTime);
         }
         return $this;
     }

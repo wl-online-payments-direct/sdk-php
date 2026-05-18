@@ -28,6 +28,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated Deprecated
      */
     public ?string $schemeReferenceData = null;
@@ -39,6 +40,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @var string|null
+     *
      * @deprecated ID of the token to use to create the payment.
      */
     public ?string $token = null;
@@ -98,6 +100,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated Deprecated
      */
     public function getSchemeReferenceData(): ?string
@@ -107,6 +110,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated Deprecated
      */
     public function setSchemeReferenceData(?string $value): void
@@ -132,6 +136,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
+     *
      * @deprecated ID of the token to use to create the payment.
      */
     public function getToken(): ?string
@@ -141,6 +146,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
+     *
      * @deprecated ID of the token to use to create the payment.
      */
     public function setToken(?string $value): void
@@ -196,6 +202,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param object $object
+     *
      * @return $this
      * @throws UnexpectedValueException
      */

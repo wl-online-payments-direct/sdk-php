@@ -20,17 +20,17 @@ class ExceptionFactory
     const IDEMPOTENCE_ERROR_CODE = '1409';
 
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $errorObject
+     * @param int              $httpStatusCode
+     * @param DataObject       $errorObject
      * @param CallContext|null $callContext
+     *
      * @return ResponseException
      */
     public function createException(
-        int $httpStatusCode,
-        DataObject $errorObject,
+        int          $httpStatusCode,
+        DataObject   $errorObject,
         ?CallContext $callContext = null
-    ): ResponseException
-    {
+    ): ResponseException {
         if ($errorObject instanceof PaymentErrorResponse && !is_null($errorObject->paymentResult)) {
             return new DeclinedPaymentException($httpStatusCode, $errorObject);
         }
@@ -50,8 +50,8 @@ class ExceptionFactory
             return new ReferenceException($httpStatusCode, $errorObject);
         }
         if ($httpStatusCode === 409) {
-            if ($callContext && strlen($callContext->getIdempotenceKey()) > 0 &&
-                $this->isIdempotenceError($errorObject)
+            if ($callContext && strlen($callContext->getIdempotenceKey()) > 0
+                && $this->isIdempotenceError($errorObject)
             ) {
                 return new IdempotenceException(
                     $httpStatusCode,
@@ -80,6 +80,7 @@ class ExceptionFactory
 
     /**
      * @param DataObject $errorObject
+     *
      * @return bool
      */
     protected function isIdempotenceError(DataObject $errorObject): bool

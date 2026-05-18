@@ -13,14 +13,30 @@ use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
  * PrivacyPolicy client.
+ *
+ * @package OnlinePayments\Sdk\Merchant\PrivacyPolicy
  */
 class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInterface
 {
-    /** @var ExceptionFactory|null */
+    /**
+     * @var ExceptionFactory|null
+     */
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * @inheritdoc
+     * Resource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
+     *
+     * @param GetPrivacyPolicyParams $query
+     * @param CallContext|null       $callContext
+     *
+     * @return GetPrivacyPolicyResponse
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
      */
     public function getPrivacyPolicy(GetPrivacyPolicyParams $query, ?CallContext $callContext = null): GetPrivacyPolicyResponse
     {
@@ -45,7 +61,9 @@ class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInte
         }
     }
 
-    /** @return ExceptionFactory */
+    /**
+     * @return ExceptionFactory
+     */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
         if (is_null($this->responseExceptionFactory)) {

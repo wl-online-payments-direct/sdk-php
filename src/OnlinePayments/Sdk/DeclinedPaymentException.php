@@ -16,8 +16,8 @@ use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 class DeclinedPaymentException extends ResponseException
 {
     /**
-     * @param int $httpStatusCode
-     * @param DataObject $response
+     * @param int         $httpStatusCode
+     * @param DataObject  $response
      * @param string|null $message
      */
     public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
@@ -40,7 +40,7 @@ class DeclinedPaymentException extends ResponseException
     /**
      * @return CreatePaymentResponse
      */
-    public function getCreatePaymentResponse()
+    public function getCreatePaymentResponse(): CreatePaymentResponse
     {
         $responseVariables = get_object_vars($this->getResponse());
         if (!array_key_exists('paymentResult', $responseVariables)) {
