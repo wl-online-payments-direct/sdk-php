@@ -11,6 +11,8 @@ use OnlinePayments\Sdk\Communication\InvalidResponseException;
 use OnlinePayments\Sdk\Domain\GetPaymentProductsResponse;
 use OnlinePayments\Sdk\Domain\PaymentProduct;
 use OnlinePayments\Sdk\Domain\PaymentProductNetworksResponse;
+use OnlinePayments\Sdk\Domain\PaymentProductSessionRequest;
+use OnlinePayments\Sdk\Domain\PaymentProductSessionResponse;
 use OnlinePayments\Sdk\Domain\ProductDirectory;
 use OnlinePayments\Sdk\IdempotenceException;
 use OnlinePayments\Sdk\PlatformException;
@@ -92,4 +94,22 @@ interface ProductsClientInterface
      * @throws InvalidResponseException
      */
     function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null): ProductDirectory;
+
+    /**
+     * Resource /v2/{merchantId}/products/{paymentProductId}/sessions - Create a session for a payment product
+     *
+     * @param int $paymentProductId
+     * @param PaymentProductSessionRequest $body
+     * @param CallContext|null $callContext
+     * @return PaymentProductSessionResponse
+     *
+     * @throws IdempotenceException
+     * @throws ValidationException
+     * @throws AuthorizationException
+     * @throws ReferenceException
+     * @throws PlatformException
+     * @throws ApiException
+     * @throws InvalidResponseException
+     */
+    function createPaymentProductSession(int $paymentProductId, PaymentProductSessionRequest $body, ?CallContext $callContext = null): PaymentProductSessionResponse;
 }

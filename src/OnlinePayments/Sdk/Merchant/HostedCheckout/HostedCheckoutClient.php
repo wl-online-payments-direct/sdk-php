@@ -26,19 +26,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts - Create hosted checkout
-     *
-     * @param CreateHostedCheckoutRequest $body
-     * @param CallContext|null            $callContext
-     *
-     * @return CreateHostedCheckoutResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createHostedCheckout(CreateHostedCheckoutRequest $body, ?CallContext $callContext = null): CreateHostedCheckoutResponse
     {
@@ -65,19 +53,7 @@ class HostedCheckoutClient extends ApiResource implements HostedCheckoutClientIn
     }
 
     /**
-     * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId} - Get hosted checkout status
-     *
-     * @param string           $hostedCheckoutId
-     * @param CallContext|null $callContext
-     *
-     * @return GetHostedCheckoutResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getHostedCheckout(string $hostedCheckoutId, ?CallContext $callContext = null): GetHostedCheckoutResponse
     {

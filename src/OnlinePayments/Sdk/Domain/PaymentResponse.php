@@ -22,6 +22,11 @@ class PaymentResponse extends DataObject
     public ?string $id = null;
 
     /**
+     * @var OperationOutput|null
+     */
+    public ?OperationOutput $operationOutput = null;
+
+    /**
      * @var PaymentOutput|null
      */
     public ?PaymentOutput $paymentOutput = null;
@@ -71,6 +76,22 @@ class PaymentResponse extends DataObject
     public function setId(?string $value): void
     {
         $this->id = $value;
+    }
+
+    /**
+     * @return OperationOutput|null
+     */
+    public function getOperationOutput(): ?OperationOutput
+    {
+        return $this->operationOutput;
+    }
+
+    /**
+     * @param OperationOutput|null $value
+     */
+    public function setOperationOutput(?OperationOutput $value): void
+    {
+        $this->operationOutput = $value;
     }
 
     /**
@@ -149,6 +170,9 @@ class PaymentResponse extends DataObject
         if (!is_null($this->id)) {
             $object->id = $this->id;
         }
+        if (!is_null($this->operationOutput)) {
+            $object->operationOutput = $this->operationOutput->toObject();
+        }
         if (!is_null($this->paymentOutput)) {
             $object->paymentOutput = $this->paymentOutput->toObject();
         }
@@ -182,6 +206,13 @@ class PaymentResponse extends DataObject
         }
         if (property_exists($object, 'id')) {
             $this->id = $object->id;
+        }
+        if (property_exists($object, 'operationOutput')) {
+            if (!is_object($object->operationOutput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->operationOutput, true) . '\' is not an object');
+            }
+            $value = new OperationOutput();
+            $this->operationOutput = $value->fromObject($object->operationOutput);
         }
         if (property_exists($object, 'paymentOutput')) {
             if (!is_object($object->paymentOutput)) {

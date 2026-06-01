@@ -25,21 +25,7 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/payments/{paymentId}/complete - Complete payment
-     *
-     * @param string                 $paymentId
-     * @param CompletePaymentRequest $body
-     * @param CallContext|null       $callContext
-     *
-     * @return CompletePaymentResponse
-     * @throws DeclinedPaymentException
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse
     {

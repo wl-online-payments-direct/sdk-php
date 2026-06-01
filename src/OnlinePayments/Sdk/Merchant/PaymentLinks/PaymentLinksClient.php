@@ -25,19 +25,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/paymentlinks - Create payment link
-     *
-     * @param CreatePaymentLinkRequest $body
-     * @param CallContext|null         $callContext
-     *
-     * @return PaymentLinkResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null): PaymentLinkResponse
     {
@@ -64,19 +52,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     }
 
     /**
-     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId} - Get payment link by ID
-     *
-     * @param string           $paymentLinkId
-     * @param CallContext|null $callContext
-     *
-     * @return PaymentLinkResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): PaymentLinkResponse
     {
@@ -103,19 +79,7 @@ class PaymentLinksClient extends ApiResource implements PaymentLinksClientInterf
     }
 
     /**
-     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel - Cancel PaymentLink by ID
-     *
-     * @param string           $paymentLinkId
-     * @param CallContext|null $callContext
-     *
-     * @return void
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function cancelPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): void
     {

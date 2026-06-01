@@ -26,19 +26,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/webhooks/validateCredentials - Validate credentials
-     *
-     * @param ValidateCredentialsRequest $body
-     * @param CallContext|null           $callContext
-     *
-     * @return ValidateCredentialsResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null): ValidateCredentialsResponse
     {
@@ -65,19 +53,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/webhooks/sendtest - Send test
-     *
-     * @param SendTestRequest  $body
-     * @param CallContext|null $callContext
-     *
-     * @return void
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null): void
     {

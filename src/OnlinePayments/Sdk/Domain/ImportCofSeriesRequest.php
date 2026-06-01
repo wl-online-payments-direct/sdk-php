@@ -37,6 +37,11 @@ class ImportCofSeriesRequest extends DataObject
     public ?string $tokenId = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $transactionLinkIdentifier = null;
+
+    /**
      * @return CardDataWithoutCvv|null
      */
     public function getCard(): ?CardDataWithoutCvv
@@ -117,6 +122,22 @@ class ImportCofSeriesRequest extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getTransactionLinkIdentifier(): ?string
+    {
+        return $this->transactionLinkIdentifier;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setTransactionLinkIdentifier(?string $value): void
+    {
+        $this->transactionLinkIdentifier = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -136,6 +157,9 @@ class ImportCofSeriesRequest extends DataObject
         }
         if (!is_null($this->tokenId)) {
             $object->tokenId = $this->tokenId;
+        }
+        if (!is_null($this->transactionLinkIdentifier)) {
+            $object->transactionLinkIdentifier = $this->transactionLinkIdentifier;
         }
         return $object;
     }
@@ -167,6 +191,9 @@ class ImportCofSeriesRequest extends DataObject
         }
         if (property_exists($object, 'tokenId')) {
             $this->tokenId = $object->tokenId;
+        }
+        if (property_exists($object, 'transactionLinkIdentifier')) {
+            $this->transactionLinkIdentifier = $object->transactionLinkIdentifier;
         }
         return $this;
     }

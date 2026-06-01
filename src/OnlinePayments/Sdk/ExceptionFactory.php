@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\Domain\APIError;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\Domain\PayoutErrorResponse;
+use OnlinePayments\Sdk\Domain\ProblemDetailsResponse;
 use OnlinePayments\Sdk\Domain\RefundErrorResponse;
 
 /**
@@ -39,6 +40,9 @@ class ExceptionFactory
         }
         if ($errorObject instanceof RefundErrorResponse && !is_null($errorObject->refundResult)) {
             return new DeclinedRefundException($httpStatusCode, $errorObject);
+        }
+        if ($errorObject instanceof ProblemDetailsResponse) {
+            return new ProblemDetailsException($httpStatusCode, $errorObject);
         }
         if ($httpStatusCode === 400) {
             return new ValidationException($httpStatusCode, $errorObject);

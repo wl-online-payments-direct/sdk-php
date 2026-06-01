@@ -11,6 +11,8 @@ use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\GetPaymentProductsResponse;
 use OnlinePayments\Sdk\Domain\PaymentProduct;
 use OnlinePayments\Sdk\Domain\PaymentProductNetworksResponse;
+use OnlinePayments\Sdk\Domain\PaymentProductSessionRequest;
+use OnlinePayments\Sdk\Domain\PaymentProductSessionResponse;
 use OnlinePayments\Sdk\Domain\ProductDirectory;
 use OnlinePayments\Sdk\ExceptionFactory;
 
@@ -27,19 +29,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/products - Get payment products
-     *
-     * @param GetPaymentProductsParams $query
-     * @param CallContext|null         $callContext
-     *
-     * @return GetPaymentProductsResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null): GetPaymentProductsResponse
     {
@@ -65,20 +55,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId} - Get payment product
-     *
-     * @param int                     $paymentProductId
-     * @param GetPaymentProductParams $query
-     * @param CallContext|null        $callContext
-     *
-     * @return PaymentProduct
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null): PaymentProduct
     {
@@ -105,20 +82,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId}/networks - Get payment product networks
-     *
-     * @param int                             $paymentProductId
-     * @param GetPaymentProductNetworksParams $query
-     * @param CallContext|null                $callContext
-     *
-     * @return PaymentProductNetworksResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null): PaymentProductNetworksResponse
     {
@@ -145,20 +109,7 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
     }
 
     /**
-     * Resource /v2/{merchantId}/products/{paymentProductId}/directory - Get payment product directory
-     *
-     * @param int                       $paymentProductId
-     * @param GetProductDirectoryParams $query
-     * @param CallContext|null          $callContext
-     *
-     * @return ProductDirectory
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null): ProductDirectory
     {
@@ -173,6 +124,34 @@ class ProductsClient extends ApiResource implements ProductsClientInterface
                 $this->instantiateUri('/v2/{merchantId}/products/{paymentProductId}/directory'),
                 $this->getClientMetaInfo(),
                 $query,
+                $callContext
+            );
+        } catch (ErrorResponseException $e) {
+            throw $this->getResponseExceptionFactory()->createException(
+                $e->getHttpStatusCode(),
+                $e->getErrorResponse(),
+                $callContext
+            );
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function createPaymentProductSession(int $paymentProductId, PaymentProductSessionRequest $body, ?CallContext $callContext = null): PaymentProductSessionResponse
+    {
+        $this->context['paymentProductId'] = $paymentProductId;
+        $responseClassMap = new ResponseClassMap();
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentProductSessionResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        try {
+
+            return $this->getCommunicator()->post(
+                $responseClassMap,
+                $this->instantiateUri('/v2/{merchantId}/products/{paymentProductId}/sessions'),
+                $this->getClientMetaInfo(),
+                $body,
+                null,
                 $callContext
             );
         } catch (ErrorResponseException $e) {

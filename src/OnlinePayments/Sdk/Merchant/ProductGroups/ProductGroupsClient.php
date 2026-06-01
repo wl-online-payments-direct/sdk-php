@@ -25,19 +25,7 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/productgroups - Get product groups
-     *
-     * @param GetProductGroupsParams $query
-     * @param CallContext|null       $callContext
-     *
-     * @return GetPaymentProductGroupsResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getProductGroups(GetProductGroupsParams $query, ?CallContext $callContext = null): GetPaymentProductGroupsResponse
     {
@@ -63,20 +51,7 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     }
 
     /**
-     * Resource /v2/{merchantId}/productgroups/{paymentProductGroupId} - Get product group
-     *
-     * @param string                $paymentProductGroupId
-     * @param GetProductGroupParams $query
-     * @param CallContext|null      $callContext
-     *
-     * @return PaymentProductGroup
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getProductGroup(string $paymentProductGroupId, GetProductGroupParams $query, ?CallContext $callContext = null): PaymentProductGroup
     {

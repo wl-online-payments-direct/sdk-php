@@ -25,19 +25,7 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/sessions - Create session
-     *
-     * @param SessionRequest   $body
-     * @param CallContext|null $callContext
-     *
-     * @return SessionResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createSession(SessionRequest $body, ?CallContext $callContext = null): SessionResponse
     {

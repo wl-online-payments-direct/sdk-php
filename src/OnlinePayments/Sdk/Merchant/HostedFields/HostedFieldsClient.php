@@ -10,6 +10,7 @@ use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreateHostedFieldsSessionRequest;
 use OnlinePayments\Sdk\Domain\CreateHostedFieldsSessionResponse;
+use OnlinePayments\Sdk\Domain\GetHostedFieldsSessionResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -25,19 +26,7 @@ class HostedFieldsClient extends ApiResource implements HostedFieldsClientInterf
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/hostedfields/sessions - Create hosted fields session
-     *
-     * @param CreateHostedFieldsSessionRequest $body
-     * @param CallContext|null                 $callContext
-     *
-     * @return CreateHostedFieldsSessionResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function createHostedFieldsSession(CreateHostedFieldsSessionRequest $body, ?CallContext $callContext = null): CreateHostedFieldsSessionResponse
     {
@@ -51,6 +40,33 @@ class HostedFieldsClient extends ApiResource implements HostedFieldsClientInterf
                 $this->instantiateUri('/v2/{merchantId}/hostedfields/sessions'),
                 $this->getClientMetaInfo(),
                 $body,
+                null,
+                $callContext
+            );
+        } catch (ErrorResponseException $e) {
+            throw $this->getResponseExceptionFactory()->createException(
+                $e->getHttpStatusCode(),
+                $e->getErrorResponse(),
+                $callContext
+            );
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getHostedFieldsSession(string $sessionId, ?CallContext $callContext = null): GetHostedFieldsSessionResponse
+    {
+        $this->context['sessionId'] = $sessionId;
+        $responseClassMap = new ResponseClassMap();
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetHostedFieldsSessionResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ProblemDetailsResponse';
+        try {
+
+            return $this->getCommunicator()->get(
+                $responseClassMap,
+                $this->instantiateUri('/v2/{merchantId}/hostedfields/sessions/{sessionId}'),
+                $this->getClientMetaInfo(),
                 null,
                 $callContext
             );

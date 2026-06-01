@@ -24,19 +24,7 @@ class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyClientInte
     private ?ExceptionFactory $responseExceptionFactory = null;
 
     /**
-     * Resource /v2/{merchantId}/services/privacypolicy - Get Privacy Policy
-     *
-     * @param GetPrivacyPolicyParams $query
-     * @param CallContext|null       $callContext
-     *
-     * @return GetPrivacyPolicyResponse
-     * @throws IdempotenceException
-     * @throws ValidationException
-     * @throws AuthorizationException
-     * @throws ReferenceException
-     * @throws PlatformException
-     * @throws ApiException
-     * @throws InvalidResponseException
+     * @inheritdoc
      */
     public function getPrivacyPolicy(GetPrivacyPolicyParams $query, ?CallContext $callContext = null): GetPrivacyPolicyResponse
     {
