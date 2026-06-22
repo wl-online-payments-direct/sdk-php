@@ -39,6 +39,11 @@ class CreateHostedTokenizationResponse extends DataObject
     public ?string $partialRedirectUrl = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $sri = null;
+
+    /**
      * @return string[]|null
      */
     public function getExpiredCardTokens(): ?array
@@ -123,6 +128,22 @@ class CreateHostedTokenizationResponse extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getSri(): ?string
+    {
+        return $this->sri;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setSri(?string $value): void
+    {
+        $this->sri = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -152,6 +173,9 @@ class CreateHostedTokenizationResponse extends DataObject
         }
         if (!is_null($this->partialRedirectUrl)) {
             $object->partialRedirectUrl = $this->partialRedirectUrl;
+        }
+        if (!is_null($this->sri)) {
+            $object->sri = $this->sri;
         }
         return $object;
     }
@@ -191,6 +215,9 @@ class CreateHostedTokenizationResponse extends DataObject
         }
         if (property_exists($object, 'partialRedirectUrl')) {
             $this->partialRedirectUrl = $object->partialRedirectUrl;
+        }
+        if (property_exists($object, 'sri')) {
+            $this->sri = $object->sri;
         }
         return $this;
     }

@@ -17,6 +17,11 @@ class HostedCheckoutSpecificInput extends DataObject
     public ?int $allowedNumberOfPaymentAttempts = null;
 
     /**
+     * @var bool|null
+     */
+    public ?bool $autoRefundSplitPayments = null;
+
+    /**
      * @var CardPaymentMethodSpecificInputForHostedCheckout|null
      */
     public ?CardPaymentMethodSpecificInputForHostedCheckout $cardPaymentMethodSpecificInput = null;
@@ -85,6 +90,22 @@ class HostedCheckoutSpecificInput extends DataObject
     public function setAllowedNumberOfPaymentAttempts(?int $value): void
     {
         $this->allowedNumberOfPaymentAttempts = $value;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getAutoRefundSplitPayments(): ?bool
+    {
+        return $this->autoRefundSplitPayments;
+    }
+
+    /**
+     * @param bool|null $value
+     */
+    public function setAutoRefundSplitPayments(?bool $value): void
+    {
+        $this->autoRefundSplitPayments = $value;
     }
 
     /**
@@ -272,6 +293,9 @@ class HostedCheckoutSpecificInput extends DataObject
         if (!is_null($this->allowedNumberOfPaymentAttempts)) {
             $object->allowedNumberOfPaymentAttempts = $this->allowedNumberOfPaymentAttempts;
         }
+        if (!is_null($this->autoRefundSplitPayments)) {
+            $object->autoRefundSplitPayments = $this->autoRefundSplitPayments;
+        }
         if (!is_null($this->cardPaymentMethodSpecificInput)) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
@@ -319,6 +343,9 @@ class HostedCheckoutSpecificInput extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'allowedNumberOfPaymentAttempts')) {
             $this->allowedNumberOfPaymentAttempts = $object->allowedNumberOfPaymentAttempts;
+        }
+        if (property_exists($object, 'autoRefundSplitPayments')) {
+            $this->autoRefundSplitPayments = $object->autoRefundSplitPayments;
         }
         if (property_exists($object, 'cardPaymentMethodSpecificInput')) {
             if (!is_object($object->cardPaymentMethodSpecificInput)) {

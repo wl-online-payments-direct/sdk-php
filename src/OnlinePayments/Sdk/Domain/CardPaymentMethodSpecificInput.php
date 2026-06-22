@@ -129,6 +129,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     public ?bool $skipAuthentication = null;
 
     /**
+     * @var SubMerchant|null
+     */
+    public ?SubMerchant $subMerchant = null;
+
+    /**
      * @var ThreeDSecure|null
      */
     public ?ThreeDSecure $threeDSecure = null;
@@ -531,6 +536,22 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return SubMerchant|null
+     */
+    public function getSubMerchant(): ?SubMerchant
+    {
+        return $this->subMerchant;
+    }
+
+    /**
+     * @param SubMerchant|null $value
+     */
+    public function setSubMerchant(?SubMerchant $value): void
+    {
+        $this->subMerchant = $value;
+    }
+
+    /**
      * @return ThreeDSecure|null
      */
     public function getThreeDSecure(): ?ThreeDSecure
@@ -701,6 +722,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->skipAuthentication)) {
             $object->skipAuthentication = $this->skipAuthentication;
         }
+        if (!is_null($this->subMerchant)) {
+            $object->subMerchant = $this->subMerchant->toObject();
+        }
         if (!is_null($this->threeDSecure)) {
             $object->threeDSecure = $this->threeDSecure->toObject();
         }
@@ -847,6 +871,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'skipAuthentication')) {
             $this->skipAuthentication = $object->skipAuthentication;
+        }
+        if (property_exists($object, 'subMerchant')) {
+            if (!is_object($object->subMerchant)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->subMerchant, true) . '\' is not an object');
+            }
+            $value = new SubMerchant();
+            $this->subMerchant = $value->fromObject($object->subMerchant);
         }
         if (property_exists($object, 'threeDSecure')) {
             if (!is_object($object->threeDSecure)) {

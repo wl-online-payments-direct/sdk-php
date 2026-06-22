@@ -87,6 +87,11 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public ?CardRecurrenceDetails $recurring = null;
 
     /**
+     * @var SubMerchant|null
+     */
+    public ?SubMerchant $subMerchant = null;
+
+    /**
      * @var ThreeDSecureBase|null
      */
     public ?ThreeDSecureBase $threeDSecure = null;
@@ -357,6 +362,22 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     }
 
     /**
+     * @return SubMerchant|null
+     */
+    public function getSubMerchant(): ?SubMerchant
+    {
+        return $this->subMerchant;
+    }
+
+    /**
+     * @param SubMerchant|null $value
+     */
+    public function setSubMerchant(?SubMerchant $value): void
+    {
+        $this->subMerchant = $value;
+    }
+
+    /**
      * @return ThreeDSecureBase|null
      */
     public function getThreeDSecure(): ?ThreeDSecureBase
@@ -503,6 +524,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         if (!is_null($this->recurring)) {
             $object->recurring = $this->recurring->toObject();
         }
+        if (!is_null($this->subMerchant)) {
+            $object->subMerchant = $this->subMerchant->toObject();
+        }
         if (!is_null($this->threeDSecure)) {
             $object->threeDSecure = $this->threeDSecure->toObject();
         }
@@ -621,6 +645,13 @@ class CardPaymentMethodSpecificInputBase extends DataObject
             }
             $value = new CardRecurrenceDetails();
             $this->recurring = $value->fromObject($object->recurring);
+        }
+        if (property_exists($object, 'subMerchant')) {
+            if (!is_object($object->subMerchant)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->subMerchant, true) . '\' is not an object');
+            }
+            $value = new SubMerchant();
+            $this->subMerchant = $value->fromObject($object->subMerchant);
         }
         if (property_exists($object, 'threeDSecure')) {
             if (!is_object($object->threeDSecure)) {
