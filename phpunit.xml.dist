@@ -1,11 +1,10 @@
 <phpunit bootstrap="tests/bootstrap.php">
     <testsuites>
         <testsuite name="unit">
-            <directory>tests/OnlinePayments/Sdk</directory>
-            <exclude>tests/OnlinePayments/Sdk/It</exclude>
+            <directory>tests/OnlinePayments/Sdk/Unit</directory>
         </testsuite>
         <testsuite name="integration">
-            <directory>tests/OnlinePayments/Sdk/It</directory>
+            <directory>tests/OnlinePayments/Sdk/Integration</directory>
         </testsuite>
     </testsuites>
 </phpunit>
