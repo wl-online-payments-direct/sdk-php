@@ -9,6 +9,7 @@ use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\GetBatchStatusResponse;
+use OnlinePayments\Sdk\Domain\PaymentsReportResponse;
 use OnlinePayments\Sdk\Domain\SubmitBatchRequestBody;
 use OnlinePayments\Sdk\Domain\SubmitBatchResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
@@ -97,6 +98,33 @@ class MerchantBatchClient extends ApiResource implements MerchantBatchClientInte
                 $this->instantiateUri('/v2/{merchantId}/merchant-batches/{merchantBatchReference}'),
                 $this->getClientMetaInfo(),
                 null,
+                $callContext
+            );
+        } catch (ErrorResponseException $e) {
+            throw $this->getResponseExceptionFactory()->createException(
+                $e->getHttpStatusCode(),
+                $e->getErrorResponse(),
+                $callContext
+            );
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPaymentsReport(string $merchantBatchReference, GetPaymentsReportParams $query, ?CallContext $callContext = null): PaymentsReportResponse
+    {
+        $this->context['merchantBatchReference'] = $merchantBatchReference;
+        $responseClassMap = new ResponseClassMap();
+        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentsReportResponse';
+        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        try {
+
+            return $this->getCommunicator()->get(
+                $responseClassMap,
+                $this->instantiateUri('/v2/{merchantId}/merchant-batches/{merchantBatchReference}/reports/payments'),
+                $this->getClientMetaInfo(),
+                $query,
                 $callContext
             );
         } catch (ErrorResponseException $e) {

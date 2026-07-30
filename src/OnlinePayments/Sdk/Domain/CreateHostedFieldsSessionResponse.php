@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class CreateHostedFieldsSessionResponse extends DataObject
 {
     /**
+     * @var string|null
+     */
+    public ?string $hostedFieldsSessionId = null;
+
+    /**
      * @var string[]|null
      */
     public ?array $invalidTokens = null;
@@ -30,6 +35,22 @@ class CreateHostedFieldsSessionResponse extends DataObject
      * @var SessionData|null
      */
     public ?SessionData $sessionData = null;
+
+    /**
+     * @return string|null
+     */
+    public function getHostedFieldsSessionId(): ?string
+    {
+        return $this->hostedFieldsSessionId;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setHostedFieldsSessionId(?string $value): void
+    {
+        $this->hostedFieldsSessionId = $value;
+    }
 
     /**
      * @return string[]|null
@@ -101,6 +122,9 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->hostedFieldsSessionId)) {
+            $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
+        }
         if (!is_null($this->invalidTokens)) {
             $object->invalidTokens = [];
             foreach ($this->invalidTokens as $element) {
@@ -130,6 +154,9 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function fromObject(object $object): CreateHostedFieldsSessionResponse
     {
         parent::fromObject($object);
+        if (property_exists($object, 'hostedFieldsSessionId')) {
+            $this->hostedFieldsSessionId = $object->hostedFieldsSessionId;
+        }
         if (property_exists($object, 'invalidTokens')) {
             if (!is_array($object->invalidTokens) && !is_object($object->invalidTokens)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->invalidTokens, true) . '\' is not an array or object');

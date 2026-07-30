@@ -17,6 +17,11 @@ class CreateHostedFieldsSessionRequest extends DataObject
     public ?string $locale = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $origin = null;
+
+    /**
      * @var string[]|null
      */
     public ?array $tokens = null;
@@ -35,6 +40,22 @@ class CreateHostedFieldsSessionRequest extends DataObject
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getOrigin(): ?string
+    {
+        return $this->origin;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setOrigin(?string $value): void
+    {
+        $this->origin = $value;
     }
 
     /**
@@ -62,6 +83,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
         if (!is_null($this->locale)) {
             $object->locale = $this->locale;
         }
+        if (!is_null($this->origin)) {
+            $object->origin = $this->origin;
+        }
         if (!is_null($this->tokens)) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
@@ -84,6 +108,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;
+        }
+        if (property_exists($object, 'origin')) {
+            $this->origin = $object->origin;
         }
         if (property_exists($object, 'tokens')) {
             if (!is_array($object->tokens) && !is_object($object->tokens)) {
