@@ -3,7 +3,6 @@ namespace OnlinePayments\Sdk\Integration\Exceptions;
 
 use OnlinePayments\Sdk\AuthorizationException;
 use OnlinePayments\Sdk\DeclinedPaymentException;
-use OnlinePayments\Sdk\DeclinedPayoutException;
 use OnlinePayments\Sdk\DeclinedRefundException;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
@@ -150,7 +149,7 @@ class ExceptionsTest extends TestCase
         }
     }
 
-    public function testShouldThrowDeclinedPayoutExceptionForInvalidPayout(): void
+    public function testShouldThrowValidationExceptionForInvalidPayout(): void
     {
         $request = CreatePayoutRequestBuilder::create()
             ->withCardNumber('4321456998744563')
@@ -159,16 +158,13 @@ class ExceptionsTest extends TestCase
         try {
             $this->payoutsClient->createPayout($request);
 
-            $this->fail('Expected DeclinedPayoutException was not thrown');
-        } catch (DeclinedPayoutException $e) {
+            $this->fail('Expected ValidationException was not thrown');
+        } catch (ValidationException $e) {
             $this->assertNotNull($e);
             $this->assertGreaterThanOrEqual(400, $e->getHttpStatusCode());
             $this->assertNotNull($e->getResponse());
-            $payoutResult = $e->getPayoutResult();
-            $this->assertNotNull($payoutResult);
-            $this->assertNotNull($payoutResult->getId());
-            $this->assertNotNull($payoutResult->getStatus());
-            $this->assertSame('REJECTED_CREDIT', $payoutResult->getStatus());
+            $error = $e->getErrors()[0];
+            $this->assertSame('INVALID_CARD', $error->getId());
         }
     }
 

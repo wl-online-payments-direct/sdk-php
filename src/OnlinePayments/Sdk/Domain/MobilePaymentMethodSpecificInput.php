@@ -17,6 +17,11 @@ class MobilePaymentMethodSpecificInput extends DataObject
     public ?string $authorizationMode = null;
 
     /**
+     * @var AutoCapture|null
+     */
+    public ?AutoCapture $autoCapture = null;
+
+    /**
      * @var DecryptedPaymentData|null
      */
     public ?DecryptedPaymentData $decryptedPaymentData = null;
@@ -70,6 +75,22 @@ class MobilePaymentMethodSpecificInput extends DataObject
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
+    }
+
+    /**
+     * @return AutoCapture|null
+     */
+    public function getAutoCapture(): ?AutoCapture
+    {
+        return $this->autoCapture;
+    }
+
+    /**
+     * @param AutoCapture|null $value
+     */
+    public function setAutoCapture(?AutoCapture $value): void
+    {
+        $this->autoCapture = $value;
     }
 
     /**
@@ -209,6 +230,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
         if (!is_null($this->authorizationMode)) {
             $object->authorizationMode = $this->authorizationMode;
         }
+        if (!is_null($this->autoCapture)) {
+            $object->autoCapture = $this->autoCapture->toObject();
+        }
         if (!is_null($this->decryptedPaymentData)) {
             $object->decryptedPaymentData = $this->decryptedPaymentData->toObject();
         }
@@ -247,6 +271,13 @@ class MobilePaymentMethodSpecificInput extends DataObject
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {
             $this->authorizationMode = $object->authorizationMode;
+        }
+        if (property_exists($object, 'autoCapture')) {
+            if (!is_object($object->autoCapture)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->autoCapture, true) . '\' is not an object');
+            }
+            $value = new AutoCapture();
+            $this->autoCapture = $value->fromObject($object->autoCapture);
         }
         if (property_exists($object, 'decryptedPaymentData')) {
             if (!is_object($object->decryptedPaymentData)) {
