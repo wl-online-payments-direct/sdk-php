@@ -103,6 +103,19 @@ class SdkTestHelper
             ->build())->getMerchantBatchReference();
     }
 
+    public function submitAndProcessBatchAndGetReference(
+        array $createPaymentRequests,
+        string $operationType,
+        int $itemCount)
+    : ?string
+    {
+        $merchantBatchReference = $this->submitBatchAndGetReference($createPaymentRequests, $operationType, $itemCount);
+
+        $this->merchantClient->merchantBatch()->processBatch($merchantBatchReference);
+
+        return $merchantBatchReference;
+    }
+
     private function createPayment(
         CreatePaymentRequest $request)
     : CreatePaymentResponse

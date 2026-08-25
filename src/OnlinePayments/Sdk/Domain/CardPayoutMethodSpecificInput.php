@@ -17,6 +17,11 @@ class CardPayoutMethodSpecificInput extends DataObject
     public ?Card $card = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $hostedFieldsSessionId = null;
+
+    /**
      * @var int|null
      */
     public ?int $paymentProductId = null;
@@ -45,6 +50,22 @@ class CardPayoutMethodSpecificInput extends DataObject
     public function setCard(?Card $value): void
     {
         $this->card = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getHostedFieldsSessionId(): ?string
+    {
+        return $this->hostedFieldsSessionId;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setHostedFieldsSessionId(?string $value): void
+    {
+        $this->hostedFieldsSessionId = $value;
     }
 
     /**
@@ -104,6 +125,9 @@ class CardPayoutMethodSpecificInput extends DataObject
         if (!is_null($this->card)) {
             $object->card = $this->card->toObject();
         }
+        if (!is_null($this->hostedFieldsSessionId)) {
+            $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
+        }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -131,6 +155,9 @@ class CardPayoutMethodSpecificInput extends DataObject
             }
             $value = new Card();
             $this->card = $value->fromObject($object->card);
+        }
+        if (property_exists($object, 'hostedFieldsSessionId')) {
+            $this->hostedFieldsSessionId = $object->hostedFieldsSessionId;
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

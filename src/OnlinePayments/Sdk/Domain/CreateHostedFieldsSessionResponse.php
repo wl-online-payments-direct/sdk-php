@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class CreateHostedFieldsSessionResponse extends DataObject
 {
     /**
+     * @var CardToken[]|null
+     */
+    public ?array $cardTokens = null;
+
+    /**
      * @var string|null
      */
     public ?string $hostedFieldsSessionId = null;
@@ -35,6 +40,22 @@ class CreateHostedFieldsSessionResponse extends DataObject
      * @var SessionData|null
      */
     public ?SessionData $sessionData = null;
+
+    /**
+     * @return CardToken[]|null
+     */
+    public function getCardTokens(): ?array
+    {
+        return $this->cardTokens;
+    }
+
+    /**
+     * @param CardToken[]|null $value
+     */
+    public function setCardTokens(?array $value): void
+    {
+        $this->cardTokens = $value;
+    }
 
     /**
      * @return string|null
@@ -122,6 +143,14 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->cardTokens)) {
+            $object->cardTokens = [];
+            foreach ($this->cardTokens as $element) {
+                if (!is_null($element)) {
+                    $object->cardTokens[] = $element->toObject();
+                }
+            }
+        }
         if (!is_null($this->hostedFieldsSessionId)) {
             $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
         }
@@ -154,6 +183,16 @@ class CreateHostedFieldsSessionResponse extends DataObject
     public function fromObject(object $object): CreateHostedFieldsSessionResponse
     {
         parent::fromObject($object);
+        if (property_exists($object, 'cardTokens')) {
+            if (!is_array($object->cardTokens) && !is_object($object->cardTokens)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->cardTokens, true) . '\' is not an array or object');
+            }
+            $this->cardTokens = [];
+            foreach ($object->cardTokens as $element) {
+                $value = new CardToken();
+                $this->cardTokens[] = $value->fromObject($element);
+            }
+        }
         if (property_exists($object, 'hostedFieldsSessionId')) {
             $this->hostedFieldsSessionId = $object->hostedFieldsSessionId;
         }

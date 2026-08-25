@@ -12,6 +12,11 @@ use UnexpectedValueException;
 class ShowFormData extends DataObject
 {
     /**
+     * @var PaymentProduct11|null
+     */
+    public ?PaymentProduct11 $paymentProduct11 = null;
+
+    /**
      * @var PaymentProduct3012|null
      */
     public ?PaymentProduct3012 $paymentProduct3012 = null;
@@ -50,6 +55,22 @@ class ShowFormData extends DataObject
      * @var PendingAuthentication|null
      */
     public ?PendingAuthentication $pendingAuthentication = null;
+
+    /**
+     * @return PaymentProduct11|null
+     */
+    public function getPaymentProduct11(): ?PaymentProduct11
+    {
+        return $this->paymentProduct11;
+    }
+
+    /**
+     * @param PaymentProduct11|null $value
+     */
+    public function setPaymentProduct11(?PaymentProduct11 $value): void
+    {
+        $this->paymentProduct11 = $value;
+    }
 
     /**
      * @return PaymentProduct3012|null
@@ -185,6 +206,9 @@ class ShowFormData extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
+        if (!is_null($this->paymentProduct11)) {
+            $object->paymentProduct11 = $this->paymentProduct11->toObject();
+        }
         if (!is_null($this->paymentProduct3012)) {
             $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
         }
@@ -221,6 +245,13 @@ class ShowFormData extends DataObject
     public function fromObject(object $object): ShowFormData
     {
         parent::fromObject($object);
+        if (property_exists($object, 'paymentProduct11')) {
+            if (!is_object($object->paymentProduct11)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct11, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct11();
+            $this->paymentProduct11 = $value->fromObject($object->paymentProduct11);
+        }
         if (property_exists($object, 'paymentProduct3012')) {
             if (!is_object($object->paymentProduct3012)) {
                 throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct3012, true) . '\' is not an object');

@@ -4,7 +4,6 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
-use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -13,24 +12,24 @@ use UnexpectedValueException;
 class RedirectPaymentProduct11SpecificInput extends DataObject
 {
     /**
-     * @var DateTime|null
+     * @var bool|null
      */
-    public ?DateTime $firstInstallmentPaymentDate = null;
+    public ?bool $skipEmailValidation = null;
 
     /**
-     * @return DateTime|null
+     * @return bool|null
      */
-    public function getFirstInstallmentPaymentDate(): ?DateTime
+    public function getSkipEmailValidation(): ?bool
     {
-        return $this->firstInstallmentPaymentDate;
+        return $this->skipEmailValidation;
     }
 
     /**
-     * @param DateTime|null $value
+     * @param bool|null $value
      */
-    public function setFirstInstallmentPaymentDate(?DateTime $value): void
+    public function setSkipEmailValidation(?bool $value): void
     {
-        $this->firstInstallmentPaymentDate = $value;
+        $this->skipEmailValidation = $value;
     }
 
     /**
@@ -39,8 +38,8 @@ class RedirectPaymentProduct11SpecificInput extends DataObject
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->firstInstallmentPaymentDate)) {
-            $object->firstInstallmentPaymentDate = $this->firstInstallmentPaymentDate->format('Y-m-d');
+        if (!is_null($this->skipEmailValidation)) {
+            $object->skipEmailValidation = $this->skipEmailValidation;
         }
         return $object;
     }
@@ -54,8 +53,8 @@ class RedirectPaymentProduct11SpecificInput extends DataObject
     public function fromObject(object $object): RedirectPaymentProduct11SpecificInput
     {
         parent::fromObject($object);
-        if (property_exists($object, 'firstInstallmentPaymentDate')) {
-            $this->firstInstallmentPaymentDate = new DateTime($object->firstInstallmentPaymentDate);
+        if (property_exists($object, 'skipEmailValidation')) {
+            $this->skipEmailValidation = $object->skipEmailValidation;
         }
         return $this;
     }
