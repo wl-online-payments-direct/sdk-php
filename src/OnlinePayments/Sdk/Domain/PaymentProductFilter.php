@@ -93,7 +93,7 @@ class PaymentProductFilter extends DataObject
             }
             $this->groups = [];
             foreach ($object->groups as $element) {
-                $this->groups[] = $element;
+                    $this->groups[] = $element;
             }
         }
         if (property_exists($object, 'products')) {
@@ -102,7 +102,7 @@ class PaymentProductFilter extends DataObject
             }
             $this->products = [];
             foreach ($object->products as $element) {
-                $this->products[] = $element;
+                    $this->products[] = $element;
             }
         }
         return $this;

@@ -102,6 +102,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     public ?PaymentProduct3209SpecificInput $paymentProduct3209SpecificInput = null;
 
     /**
+     * @var PaymentProduct5002SpecificInput|null
+     */
+    public ?PaymentProduct5002SpecificInput $paymentProduct5002SpecificInput = null;
+
+    /**
      * @var int|null
      */
     public ?int $paymentProductId = null;
@@ -452,6 +457,22 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return PaymentProduct5002SpecificInput|null
+     */
+    public function getPaymentProduct5002SpecificInput(): ?PaymentProduct5002SpecificInput
+    {
+        return $this->paymentProduct5002SpecificInput;
+    }
+
+    /**
+     * @param PaymentProduct5002SpecificInput|null $value
+     */
+    public function setPaymentProduct5002SpecificInput(?PaymentProduct5002SpecificInput $value): void
+    {
+        $this->paymentProduct5002SpecificInput = $value;
+    }
+
+    /**
      * @return int|null
      */
     public function getPaymentProductId(): ?int
@@ -707,6 +728,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->paymentProduct3209SpecificInput)) {
             $object->paymentProduct3209SpecificInput = $this->paymentProduct3209SpecificInput->toObject();
         }
+        if (!is_null($this->paymentProduct5002SpecificInput)) {
+            $object->paymentProduct5002SpecificInput = $this->paymentProduct5002SpecificInput->toObject();
+        }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -852,6 +876,13 @@ class CardPaymentMethodSpecificInput extends DataObject
             }
             $value = new PaymentProduct3209SpecificInput();
             $this->paymentProduct3209SpecificInput = $value->fromObject($object->paymentProduct3209SpecificInput);
+        }
+        if (property_exists($object, 'paymentProduct5002SpecificInput')) {
+            if (!is_object($object->paymentProduct5002SpecificInput)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5002SpecificInput, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5002SpecificInput();
+            $this->paymentProduct5002SpecificInput = $value->fromObject($object->paymentProduct5002SpecificInput);
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;

@@ -97,7 +97,7 @@ class Feedbacks extends DataObject
             }
             $this->webhooksUrls = [];
             foreach ($object->webhooksUrls as $element) {
-                $this->webhooksUrls[] = $element;
+                    $this->webhooksUrls[] = $element;
             }
         }
         return $this;

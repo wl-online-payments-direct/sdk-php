@@ -195,7 +195,7 @@ class CreateHostedTokenizationResponse extends DataObject
             }
             $this->expiredCardTokens = [];
             foreach ($object->expiredCardTokens as $element) {
-                $this->expiredCardTokens[] = $element;
+                    $this->expiredCardTokens[] = $element;
             }
         }
         if (property_exists($object, 'hostedTokenizationId')) {
@@ -210,7 +210,7 @@ class CreateHostedTokenizationResponse extends DataObject
             }
             $this->invalidTokens = [];
             foreach ($object->invalidTokens as $element) {
-                $this->invalidTokens[] = $element;
+                    $this->invalidTokens[] = $element;
             }
         }
         if (property_exists($object, 'partialRedirectUrl')) {

@@ -95,7 +95,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
             }
             $this->paymentProductPreferredOrder = [];
             foreach ($object->paymentProductPreferredOrder as $element) {
-                $this->paymentProductPreferredOrder[] = $element;
+                    $this->paymentProductPreferredOrder[] = $element;
             }
         }
         return $this;

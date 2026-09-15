@@ -142,7 +142,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
             }
             $this->paymentProductPreferredOrder = [];
             foreach ($object->paymentProductPreferredOrder as $element) {
-                $this->paymentProductPreferredOrder[] = $element;
+                    $this->paymentProductPreferredOrder[] = $element;
             }
         }
         if (property_exists($object, 'tokenizationMode')) {

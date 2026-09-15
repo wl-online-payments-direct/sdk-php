@@ -23,6 +23,11 @@ class Acceptance extends DataObject
     public ?DateTime $authorizationDate = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $authorizationMessageReference = null;
+
+    /**
      * @return string|null
      */
     public function getAcceptanceSystemApplicationId(): ?string
@@ -55,6 +60,22 @@ class Acceptance extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getAuthorizationMessageReference(): ?string
+    {
+        return $this->authorizationMessageReference;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setAuthorizationMessageReference(?string $value): void
+    {
+        $this->authorizationMessageReference = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -65,6 +86,9 @@ class Acceptance extends DataObject
         }
         if (!is_null($this->authorizationDate)) {
             $object->authorizationDate = $this->authorizationDate->format('Y-m-d\\TH:i:s.vP');
+        }
+        if (!is_null($this->authorizationMessageReference)) {
+            $object->authorizationMessageReference = $this->authorizationMessageReference;
         }
         return $object;
     }
@@ -83,6 +107,9 @@ class Acceptance extends DataObject
         }
         if (property_exists($object, 'authorizationDate')) {
             $this->authorizationDate = new DateTime($object->authorizationDate);
+        }
+        if (property_exists($object, 'authorizationMessageReference')) {
+            $this->authorizationMessageReference = $object->authorizationMessageReference;
         }
         return $this;
     }

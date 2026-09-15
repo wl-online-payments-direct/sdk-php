@@ -64,7 +64,7 @@ class FixedListValidator extends DataObject
             }
             $this->allowedValues = [];
             foreach ($object->allowedValues as $element) {
-                $this->allowedValues[] = $element;
+                    $this->allowedValues[] = $element;
             }
         }
         return $this;

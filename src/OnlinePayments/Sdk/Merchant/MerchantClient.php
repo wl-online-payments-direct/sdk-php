@@ -27,6 +27,8 @@ use OnlinePayments\Sdk\Merchant\Payments\PaymentsClient;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClient;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
+use OnlinePayments\Sdk\Merchant\PreAuthorization\PreAuthorizationClient;
+use OnlinePayments\Sdk\Merchant\PreAuthorization\PreAuthorizationClientInterface;
 use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClient;
 use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClientInterface;
 use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClient;
@@ -133,6 +135,16 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function subsequent(): SubsequentClientInterface
     {
         return new SubsequentClient($this, $this->context);
+    }
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/increment-authorization
+     *
+     * @return PreAuthorizationClient
+     */
+    public function preAuthorization(): PreAuthorizationClientInterface
+    {
+        return new PreAuthorizationClient($this, $this->context);
     }
 
     /**

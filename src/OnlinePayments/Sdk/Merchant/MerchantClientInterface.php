@@ -15,6 +15,7 @@ use OnlinePayments\Sdk\Merchant\MerchantBatch\MerchantBatchClientInterface;
 use OnlinePayments\Sdk\Merchant\PaymentLinks\PaymentLinksClientInterface;
 use OnlinePayments\Sdk\Merchant\Payments\PaymentsClientInterface;
 use OnlinePayments\Sdk\Merchant\Payouts\PayoutsClientInterface;
+use OnlinePayments\Sdk\Merchant\PreAuthorization\PreAuthorizationClientInterface;
 use OnlinePayments\Sdk\Merchant\PrivacyPolicy\PrivacyPolicyClientInterface;
 use OnlinePayments\Sdk\Merchant\ProductGroups\ProductGroupsClientInterface;
 use OnlinePayments\Sdk\Merchant\Products\ProductsClientInterface;
@@ -86,6 +87,13 @@ interface MerchantClientInterface
      * @return SubsequentClientInterface
      */
     function subsequent(): SubsequentClientInterface;
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/increment-authorization
+     *
+     * @return PreAuthorizationClientInterface
+     */
+    function preAuthorization(): PreAuthorizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/productgroups

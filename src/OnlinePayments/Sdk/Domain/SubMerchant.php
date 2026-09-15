@@ -37,6 +37,11 @@ class SubMerchant extends DataObject
     public ?string $merchantId = null;
 
     /**
+     * @var string|null
+     */
+    public ?string $website = null;
+
+    /**
      * @return Address|null
      */
     public function getAddress(): ?Address
@@ -117,6 +122,22 @@ class SubMerchant extends DataObject
     }
 
     /**
+     * @return string|null
+     */
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param string|null $value
+     */
+    public function setWebsite(?string $value): void
+    {
+        $this->website = $value;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -136,6 +157,9 @@ class SubMerchant extends DataObject
         }
         if (!is_null($this->merchantId)) {
             $object->merchantId = $this->merchantId;
+        }
+        if (!is_null($this->website)) {
+            $object->website = $this->website;
         }
         return $object;
     }
@@ -167,6 +191,9 @@ class SubMerchant extends DataObject
         }
         if (property_exists($object, 'merchantId')) {
             $this->merchantId = $object->merchantId;
+        }
+        if (property_exists($object, 'website')) {
+            $this->website = $object->website;
         }
         return $this;
     }

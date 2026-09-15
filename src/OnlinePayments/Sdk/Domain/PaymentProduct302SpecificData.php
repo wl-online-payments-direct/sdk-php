@@ -64,7 +64,7 @@ class PaymentProduct302SpecificData extends DataObject
             }
             $this->networks = [];
             foreach ($object->networks as $element) {
-                $this->networks[] = $element;
+                    $this->networks[] = $element;
             }
         }
         return $this;

@@ -124,7 +124,7 @@ class FraudFields extends DataObject
             }
             $this->productCategories = [];
             foreach ($object->productCategories as $element) {
-                $this->productCategories[] = $element;
+                    $this->productCategories[] = $element;
             }
         }
         return $this;

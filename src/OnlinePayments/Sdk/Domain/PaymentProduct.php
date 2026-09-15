@@ -67,6 +67,11 @@ class PaymentProduct extends DataObject
     public ?PaymentProduct320SpecificData $paymentProduct320SpecificData = null;
 
     /**
+     * @var PaymentProduct5002SpecificData|null
+     */
+    public ?PaymentProduct5002SpecificData $paymentProduct5002SpecificData = null;
+
+    /**
      * @var string|null
      */
     public ?string $paymentProductGroup = null;
@@ -253,6 +258,22 @@ class PaymentProduct extends DataObject
     }
 
     /**
+     * @return PaymentProduct5002SpecificData|null
+     */
+    public function getPaymentProduct5002SpecificData(): ?PaymentProduct5002SpecificData
+    {
+        return $this->paymentProduct5002SpecificData;
+    }
+
+    /**
+     * @param PaymentProduct5002SpecificData|null $value
+     */
+    public function setPaymentProduct5002SpecificData(?PaymentProduct5002SpecificData $value): void
+    {
+        $this->paymentProduct5002SpecificData = $value;
+    }
+
+    /**
      * @return string|null
      */
     public function getPaymentProductGroup(): ?string
@@ -338,6 +359,9 @@ class PaymentProduct extends DataObject
         if (!is_null($this->paymentProduct320SpecificData)) {
             $object->paymentProduct320SpecificData = $this->paymentProduct320SpecificData->toObject();
         }
+        if (!is_null($this->paymentProduct5002SpecificData)) {
+            $object->paymentProduct5002SpecificData = $this->paymentProduct5002SpecificData->toObject();
+        }
         if (!is_null($this->paymentProductGroup)) {
             $object->paymentProductGroup = $this->paymentProductGroup;
         }
@@ -421,6 +445,13 @@ class PaymentProduct extends DataObject
             }
             $value = new PaymentProduct320SpecificData();
             $this->paymentProduct320SpecificData = $value->fromObject($object->paymentProduct320SpecificData);
+        }
+        if (property_exists($object, 'paymentProduct5002SpecificData')) {
+            if (!is_object($object->paymentProduct5002SpecificData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProduct5002SpecificData, true) . '\' is not an object');
+            }
+            $value = new PaymentProduct5002SpecificData();
+            $this->paymentProduct5002SpecificData = $value->fromObject($object->paymentProduct5002SpecificData);
         }
         if (property_exists($object, 'paymentProductGroup')) {
             $this->paymentProductGroup = $object->paymentProductGroup;

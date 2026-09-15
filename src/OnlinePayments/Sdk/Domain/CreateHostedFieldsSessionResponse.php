@@ -202,7 +202,7 @@ class CreateHostedFieldsSessionResponse extends DataObject
             }
             $this->invalidTokens = [];
             foreach ($object->invalidTokens as $element) {
-                $this->invalidTokens[] = $element;
+                    $this->invalidTokens[] = $element;
             }
         }
         if (property_exists($object, 'sdkSri')) {

@@ -64,7 +64,7 @@ class SplitPaymentProductFilter extends DataObject
             }
             $this->products = [];
             foreach ($object->products as $element) {
-                $this->products[] = $element;
+                    $this->products[] = $element;
             }
         }
         return $this;

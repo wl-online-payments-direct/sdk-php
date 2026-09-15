@@ -172,7 +172,7 @@ class SessionData extends DataObject
             }
             $this->tokens = [];
             foreach ($object->tokens as $element) {
-                $this->tokens[] = $element;
+                    $this->tokens[] = $element;
             }
         }
         return $this;
