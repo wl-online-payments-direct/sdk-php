@@ -54,7 +54,7 @@ class CarRentalData extends DataObject
     /**
      * @var CarRentalPickupReturnData|null
      */
-    public ?CarRentalPickupReturnData $pickup = null;
+    public ?CarRentalPickupReturnData $pickupDetails = null;
 
     /**
      * @var int|null
@@ -74,7 +74,7 @@ class CarRentalData extends DataObject
     /**
      * @var CarRentalPickupReturnData|null
      */
-    public ?CarRentalPickupReturnData $return = null;
+    public ?CarRentalPickupReturnData $returnDetails = null;
 
     /**
      * @var bool|null
@@ -222,17 +222,17 @@ class CarRentalData extends DataObject
     /**
      * @return CarRentalPickupReturnData|null
      */
-    public function getPickup(): ?CarRentalPickupReturnData
+    public function getPickupDetails(): ?CarRentalPickupReturnData
     {
-        return $this->pickup;
+        return $this->pickupDetails;
     }
 
     /**
      * @param CarRentalPickupReturnData|null $value
      */
-    public function setPickup(?CarRentalPickupReturnData $value): void
+    public function setPickupDetails(?CarRentalPickupReturnData $value): void
     {
-        $this->pickup = $value;
+        $this->pickupDetails = $value;
     }
 
     /**
@@ -286,17 +286,17 @@ class CarRentalData extends DataObject
     /**
      * @return CarRentalPickupReturnData|null
      */
-    public function getReturn(): ?CarRentalPickupReturnData
+    public function getReturnDetails(): ?CarRentalPickupReturnData
     {
-        return $this->return;
+        return $this->returnDetails;
     }
 
     /**
      * @param CarRentalPickupReturnData|null $value
      */
-    public function setReturn(?CarRentalPickupReturnData $value): void
+    public function setReturnDetails(?CarRentalPickupReturnData $value): void
     {
-        $this->return = $value;
+        $this->returnDetails = $value;
     }
 
     /**
@@ -377,8 +377,8 @@ class CarRentalData extends DataObject
         if (!is_null($this->driverTaxNumber)) {
             $object->driverTaxNumber = $this->driverTaxNumber;
         }
-        if (!is_null($this->pickup)) {
-            $object->pickup = $this->pickup->toObject();
+        if (!is_null($this->pickupDetails)) {
+            $object->pickupDetails = $this->pickupDetails->toObject();
         }
         if (!is_null($this->rentalRateAmount)) {
             $object->rentalRateAmount = $this->rentalRateAmount;
@@ -389,8 +389,8 @@ class CarRentalData extends DataObject
         if (!is_null($this->renterName)) {
             $object->renterName = $this->renterName;
         }
-        if (!is_null($this->return)) {
-            $object->return = $this->return->toObject();
+        if (!is_null($this->returnDetails)) {
+            $object->returnDetails = $this->returnDetails->toObject();
         }
         if (!is_null($this->taxExemptIndicator)) {
             $object->taxExemptIndicator = $this->taxExemptIndicator;
@@ -437,12 +437,12 @@ class CarRentalData extends DataObject
         if (property_exists($object, 'driverTaxNumber')) {
             $this->driverTaxNumber = $object->driverTaxNumber;
         }
-        if (property_exists($object, 'pickup')) {
-            if (!is_object($object->pickup)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->pickup, true) . '\' is not an object');
+        if (property_exists($object, 'pickupDetails')) {
+            if (!is_object($object->pickupDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->pickupDetails, true) . '\' is not an object');
             }
             $value = new CarRentalPickupReturnData();
-            $this->pickup = $value->fromObject($object->pickup);
+            $this->pickupDetails = $value->fromObject($object->pickupDetails);
         }
         if (property_exists($object, 'rentalRateAmount')) {
             $this->rentalRateAmount = $object->rentalRateAmount;
@@ -453,12 +453,12 @@ class CarRentalData extends DataObject
         if (property_exists($object, 'renterName')) {
             $this->renterName = $object->renterName;
         }
-        if (property_exists($object, 'return')) {
-            if (!is_object($object->return)) {
-                throw new UnexpectedValueException('value \'' . print_r($object->return, true) . '\' is not an object');
+        if (property_exists($object, 'returnDetails')) {
+            if (!is_object($object->returnDetails)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->returnDetails, true) . '\' is not an object');
             }
             $value = new CarRentalPickupReturnData();
-            $this->return = $value->fromObject($object->return);
+            $this->returnDetails = $value->fromObject($object->returnDetails);
         }
         if (property_exists($object, 'taxExemptIndicator')) {
             $this->taxExemptIndicator = $object->taxExemptIndicator;
