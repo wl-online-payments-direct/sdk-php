@@ -14,22 +14,22 @@ class Acceptance extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acceptanceSystemApplicationId = null;
 
     /**
      * @var DateTime|null
-     */
+    */
     public ?DateTime $authorizationDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $authorizationMessageReference = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcceptanceSystemApplicationId(): ?string
     {
         return $this->acceptanceSystemApplicationId;
@@ -37,15 +37,25 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcceptanceSystemApplicationId(?string $value): void
     {
         $this->acceptanceSystemApplicationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Acceptance
+    */
+    public function withAcceptanceSystemApplicationId(?string $value): Acceptance
+    {
+        $this->acceptanceSystemApplicationId = $value;
+        return $this;
+    }
+
+    /**
      * @return DateTime|null
-     */
+    */
     public function getAuthorizationDate(): ?DateTime
     {
         return $this->authorizationDate;
@@ -53,15 +63,25 @@ class Acceptance extends DataObject
 
     /**
      * @param DateTime|null $value
-     */
+    */
     public function setAuthorizationDate(?DateTime $value): void
     {
         $this->authorizationDate = $value;
     }
 
     /**
+     * @param DateTime|null $value
+     * @return Acceptance
+    */
+    public function withAuthorizationDate(?DateTime $value): Acceptance
+    {
+        $this->authorizationDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAuthorizationMessageReference(): ?string
     {
         return $this->authorizationMessageReference;
@@ -69,10 +89,20 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAuthorizationMessageReference(?string $value): void
     {
         $this->authorizationMessageReference = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Acceptance
+    */
+    public function withAuthorizationMessageReference(?string $value): Acceptance
+    {
+        $this->authorizationMessageReference = $value;
+        return $this;
     }
 
     /**

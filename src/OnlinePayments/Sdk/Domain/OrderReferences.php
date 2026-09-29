@@ -13,47 +13,47 @@ class OrderReferences extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $descriptor = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantComment = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantParameters = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantReconciliationReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $operationGroupReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $softDescriptor = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $structuredCreditorReference = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDescriptor(): ?string
     {
         return $this->descriptor;
@@ -61,15 +61,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDescriptor(?string $value): void
     {
         $this->descriptor = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withDescriptor(?string $value): OrderReferences
+    {
+        $this->descriptor = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantComment(): ?string
     {
         return $this->merchantComment;
@@ -77,15 +87,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantComment(?string $value): void
     {
         $this->merchantComment = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withMerchantComment(?string $value): OrderReferences
+    {
+        $this->merchantComment = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
@@ -93,15 +113,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withMerchantParameters(?string $value): OrderReferences
+    {
+        $this->merchantParameters = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantReconciliationReference(): ?string
     {
         return $this->merchantReconciliationReference;
@@ -109,15 +139,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantReconciliationReference(?string $value): void
     {
         $this->merchantReconciliationReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withMerchantReconciliationReference(?string $value): OrderReferences
+    {
+        $this->merchantReconciliationReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -125,15 +165,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withMerchantReference(?string $value): OrderReferences
+    {
+        $this->merchantReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getOperationGroupReference(): ?string
     {
         return $this->operationGroupReference;
@@ -141,15 +191,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperationGroupReference(?string $value): void
     {
         $this->operationGroupReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withOperationGroupReference(?string $value): OrderReferences
+    {
+        $this->operationGroupReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSoftDescriptor(): ?string
     {
         return $this->softDescriptor;
@@ -157,15 +217,25 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSoftDescriptor(?string $value): void
     {
         $this->softDescriptor = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withSoftDescriptor(?string $value): OrderReferences
+    {
+        $this->softDescriptor = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStructuredCreditorReference(): ?string
     {
         return $this->structuredCreditorReference;
@@ -173,10 +243,20 @@ class OrderReferences extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStructuredCreditorReference(?string $value): void
     {
         $this->structuredCreditorReference = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OrderReferences
+    */
+    public function withStructuredCreditorReference(?string $value): OrderReferences
+    {
+        $this->structuredCreditorReference = $value;
+        return $this;
     }
 
     /**

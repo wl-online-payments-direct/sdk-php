@@ -13,37 +13,37 @@ class PaymentDetailsResponse extends DataObject
 {
     /**
      * @var OperationOutput[]|null
-     */
+    */
     public ?array $Operations = null;
 
     /**
      * @var HostedCheckoutSpecificOutput|null
-     */
+    */
     public ?HostedCheckoutSpecificOutput $hostedCheckoutSpecificOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var PaymentOutput|null
-     */
+    */
     public ?PaymentOutput $paymentOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var PaymentStatusOutput|null
-     */
+    */
     public ?PaymentStatusOutput $statusOutput = null;
 
     /**
      * @return OperationOutput[]|null
-     */
+    */
     public function getOperations(): ?array
     {
         return $this->Operations;
@@ -51,15 +51,25 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param OperationOutput[]|null $value
-     */
+    */
     public function setOperations(?array $value): void
     {
         $this->Operations = $value;
     }
 
     /**
+     * @param OperationOutput[]|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withOperations(?array $value): PaymentDetailsResponse
+    {
+        $this->Operations = $value;
+        return $this;
+    }
+
+    /**
      * @return HostedCheckoutSpecificOutput|null
-     */
+    */
     public function getHostedCheckoutSpecificOutput(): ?HostedCheckoutSpecificOutput
     {
         return $this->hostedCheckoutSpecificOutput;
@@ -67,15 +77,25 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param HostedCheckoutSpecificOutput|null $value
-     */
+    */
     public function setHostedCheckoutSpecificOutput(?HostedCheckoutSpecificOutput $value): void
     {
         $this->hostedCheckoutSpecificOutput = $value;
     }
 
     /**
+     * @param HostedCheckoutSpecificOutput|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withHostedCheckoutSpecificOutput(?HostedCheckoutSpecificOutput $value): PaymentDetailsResponse
+    {
+        $this->hostedCheckoutSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -83,15 +103,25 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withId(?string $value): PaymentDetailsResponse
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentOutput|null
-     */
+    */
     public function getPaymentOutput(): ?PaymentOutput
     {
         return $this->paymentOutput;
@@ -99,15 +129,25 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param PaymentOutput|null $value
-     */
+    */
     public function setPaymentOutput(?PaymentOutput $value): void
     {
         $this->paymentOutput = $value;
     }
 
     /**
+     * @param PaymentOutput|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withPaymentOutput(?PaymentOutput $value): PaymentDetailsResponse
+    {
+        $this->paymentOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -115,15 +155,25 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withStatus(?string $value): PaymentDetailsResponse
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentStatusOutput|null
-     */
+    */
     public function getStatusOutput(): ?PaymentStatusOutput
     {
         return $this->statusOutput;
@@ -131,10 +181,20 @@ class PaymentDetailsResponse extends DataObject
 
     /**
      * @param PaymentStatusOutput|null $value
-     */
+    */
     public function setStatusOutput(?PaymentStatusOutput $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param PaymentStatusOutput|null $value
+     * @return PaymentDetailsResponse
+    */
+    public function withStatusOutput(?PaymentStatusOutput $value): PaymentDetailsResponse
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

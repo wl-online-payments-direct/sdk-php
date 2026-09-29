@@ -13,32 +13,32 @@ class PaymentProduct11 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentBIC = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentBeneficiary = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentIBAN = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPaymentBIC(): ?string
     {
         return $this->paymentBIC;
@@ -46,15 +46,25 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentBIC(?string $value): void
     {
         $this->paymentBIC = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct11
+    */
+    public function withPaymentBIC(?string $value): PaymentProduct11
+    {
+        $this->paymentBIC = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentBeneficiary(): ?string
     {
         return $this->paymentBeneficiary;
@@ -62,15 +72,25 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentBeneficiary(?string $value): void
     {
         $this->paymentBeneficiary = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct11
+    */
+    public function withPaymentBeneficiary(?string $value): PaymentProduct11
+    {
+        $this->paymentBeneficiary = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentIBAN(): ?string
     {
         return $this->paymentIBAN;
@@ -78,15 +98,25 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentIBAN(?string $value): void
     {
         $this->paymentIBAN = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct11
+    */
+    public function withPaymentIBAN(?string $value): PaymentProduct11
+    {
+        $this->paymentIBAN = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentReference(): ?string
     {
         return $this->paymentReference;
@@ -94,15 +124,25 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentReference(?string $value): void
     {
         $this->paymentReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct11
+    */
+    public function withPaymentReference(?string $value): PaymentProduct11
+    {
+        $this->paymentReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -110,10 +150,20 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct11
+    */
+    public function withQrCode(?string $value): PaymentProduct11
+    {
+        $this->qrCode = $value;
+        return $this;
     }
 
     /**

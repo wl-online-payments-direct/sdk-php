@@ -13,12 +13,12 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentMethodType = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPaymentMethodType(): ?string
     {
         return $this->paymentMethodType;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentMethodType(?string $value): void
     {
         $this->paymentMethodType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct5301SpecificInput
+    */
+    public function withPaymentMethodType(?string $value): RedirectPaymentProduct5301SpecificInput
+    {
+        $this->paymentMethodType = $value;
+        return $this;
     }
 
     /**

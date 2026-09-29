@@ -13,17 +13,17 @@ class CursorPaginationInfo extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $hasMore = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $nextCursor = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getHasMore(): ?bool
     {
         return $this->hasMore;
@@ -31,15 +31,25 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setHasMore(?bool $value): void
     {
         $this->hasMore = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CursorPaginationInfo
+    */
+    public function withHasMore(?bool $value): CursorPaginationInfo
+    {
+        $this->hasMore = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getNextCursor(): ?string
     {
         return $this->nextCursor;
@@ -47,10 +57,20 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setNextCursor(?string $value): void
     {
         $this->nextCursor = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CursorPaginationInfo
+    */
+    public function withNextCursor(?string $value): CursorPaginationInfo
+    {
+        $this->nextCursor = $value;
+        return $this;
     }
 
     /**

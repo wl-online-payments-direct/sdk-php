@@ -13,17 +13,17 @@ class CreateCertificateResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $certificateId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $signedCertificate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCertificateId(): ?string
     {
         return $this->certificateId;
@@ -31,15 +31,25 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCertificateId(?string $value): void
     {
         $this->certificateId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateCertificateResponse
+    */
+    public function withCertificateId(?string $value): CreateCertificateResponse
+    {
+        $this->certificateId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSignedCertificate(): ?string
     {
         return $this->signedCertificate;
@@ -47,10 +57,20 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSignedCertificate(?string $value): void
     {
         $this->signedCertificate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreateCertificateResponse
+    */
+    public function withSignedCertificate(?string $value): CreateCertificateResponse
+    {
+        $this->signedCertificate = $value;
+        return $this;
     }
 
     /**

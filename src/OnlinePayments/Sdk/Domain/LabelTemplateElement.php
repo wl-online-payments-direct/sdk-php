@@ -13,17 +13,17 @@ class LabelTemplateElement extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $attributeKey = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $mask = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAttributeKey(): ?string
     {
         return $this->attributeKey;
@@ -31,15 +31,25 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAttributeKey(?string $value): void
     {
         $this->attributeKey = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LabelTemplateElement
+    */
+    public function withAttributeKey(?string $value): LabelTemplateElement
+    {
+        $this->attributeKey = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMask(): ?string
     {
         return $this->mask;
@@ -47,10 +57,20 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMask(?string $value): void
     {
         $this->mask = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return LabelTemplateElement
+    */
+    public function withMask(?string $value): LabelTemplateElement
+    {
+        $this->mask = $value;
+        return $this;
     }
 
     /**

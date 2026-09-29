@@ -13,12 +13,12 @@ class RevokeMandateRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $revocationReason = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRevocationReason(): ?string
     {
         return $this->revocationReason;
@@ -26,10 +26,20 @@ class RevokeMandateRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRevocationReason(?string $value): void
     {
         $this->revocationReason = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RevokeMandateRequest
+    */
+    public function withRevocationReason(?string $value): RevokeMandateRequest
+    {
+        $this->revocationReason = $value;
+        return $this;
     }
 
     /**

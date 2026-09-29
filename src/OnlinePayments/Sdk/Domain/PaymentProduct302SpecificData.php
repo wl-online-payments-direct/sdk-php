@@ -13,12 +13,12 @@ class PaymentProduct302SpecificData extends DataObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $networks = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getNetworks(): ?array
     {
         return $this->networks;
@@ -26,10 +26,20 @@ class PaymentProduct302SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setNetworks(?array $value): void
     {
         $this->networks = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return PaymentProduct302SpecificData
+    */
+    public function withNetworks(?array $value): PaymentProduct302SpecificData
+    {
+        $this->networks = $value;
+        return $this;
     }
 
     /**

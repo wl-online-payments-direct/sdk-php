@@ -13,42 +13,42 @@ class OperationOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var OperationPaymentReferences|null
-     */
+    */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentMethod = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var PaymentStatusOutput|null
-     */
+    */
     public ?PaymentStatusOutput $statusOutput = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -56,15 +56,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return OperationOutput
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): OperationOutput
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -72,15 +82,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OperationOutput
+    */
+    public function withId(?string $value): OperationOutput
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
-     */
+    */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -88,15 +108,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     */
+    */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
+     * @param OperationPaymentReferences|null $value
+     * @return OperationOutput
+    */
+    public function withOperationReferences(?OperationPaymentReferences $value): OperationOutput
+    {
+        $this->operationReferences = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -104,15 +134,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OperationOutput
+    */
+    public function withPaymentMethod(?string $value): OperationOutput
+    {
+        $this->paymentMethod = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -120,15 +160,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
+     * @param PaymentReferences|null $value
+     * @return OperationOutput
+    */
+    public function withReferences(?PaymentReferences $value): OperationOutput
+    {
+        $this->references = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -136,15 +186,25 @@ class OperationOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OperationOutput
+    */
+    public function withStatus(?string $value): OperationOutput
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentStatusOutput|null
-     */
+    */
     public function getStatusOutput(): ?PaymentStatusOutput
     {
         return $this->statusOutput;
@@ -152,10 +212,20 @@ class OperationOutput extends DataObject
 
     /**
      * @param PaymentStatusOutput|null $value
-     */
+    */
     public function setStatusOutput(?PaymentStatusOutput $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param PaymentStatusOutput|null $value
+     * @return OperationOutput
+    */
+    public function withStatusOutput(?PaymentStatusOutput $value): OperationOutput
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

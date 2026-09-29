@@ -13,12 +13,12 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var RefundRedirectPaymentProduct900SpecificInput|null
-     */
+    */
     public ?RefundRedirectPaymentProduct900SpecificInput $refundRedirectPaymentProduct900SpecificInput = null;
 
     /**
      * @return RefundRedirectPaymentProduct900SpecificInput|null
-     */
+    */
     public function getRefundRedirectPaymentProduct900SpecificInput(): ?RefundRedirectPaymentProduct900SpecificInput
     {
         return $this->refundRedirectPaymentProduct900SpecificInput;
@@ -26,10 +26,20 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param RefundRedirectPaymentProduct900SpecificInput|null $value
-     */
+    */
     public function setRefundRedirectPaymentProduct900SpecificInput(?RefundRedirectPaymentProduct900SpecificInput $value): void
     {
         $this->refundRedirectPaymentProduct900SpecificInput = $value;
+    }
+
+    /**
+     * @param RefundRedirectPaymentProduct900SpecificInput|null $value
+     * @return RefundRedirectPaymentMethodSpecificInput
+    */
+    public function withRefundRedirectPaymentProduct900SpecificInput(?RefundRedirectPaymentProduct900SpecificInput $value): RefundRedirectPaymentMethodSpecificInput
+    {
+        $this->refundRedirectPaymentProduct900SpecificInput = $value;
+        return $this;
     }
 
     /**

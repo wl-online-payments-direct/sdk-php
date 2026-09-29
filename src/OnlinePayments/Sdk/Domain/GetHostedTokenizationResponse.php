@@ -13,17 +13,17 @@ class GetHostedTokenizationResponse extends DataObject
 {
     /**
      * @var TokenResponse|null
-     */
+    */
     public ?TokenResponse $token = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tokenStatus = null;
 
     /**
      * @return TokenResponse|null
-     */
+    */
     public function getToken(): ?TokenResponse
     {
         return $this->token;
@@ -31,15 +31,25 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param TokenResponse|null $value
-     */
+    */
     public function setToken(?TokenResponse $value): void
     {
         $this->token = $value;
     }
 
     /**
+     * @param TokenResponse|null $value
+     * @return GetHostedTokenizationResponse
+    */
+    public function withToken(?TokenResponse $value): GetHostedTokenizationResponse
+    {
+        $this->token = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTokenStatus(): ?string
     {
         return $this->tokenStatus;
@@ -47,10 +57,20 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTokenStatus(?string $value): void
     {
         $this->tokenStatus = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return GetHostedTokenizationResponse
+    */
+    public function withTokenStatus(?string $value): GetHostedTokenizationResponse
+    {
+        $this->tokenStatus = $value;
+        return $this;
     }
 
     /**

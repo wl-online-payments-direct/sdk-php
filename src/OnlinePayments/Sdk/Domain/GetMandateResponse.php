@@ -13,12 +13,12 @@ class GetMandateResponse extends DataObject
 {
     /**
      * @var MandateResponse|null
-     */
+    */
     public ?MandateResponse $mandate = null;
 
     /**
      * @return MandateResponse|null
-     */
+    */
     public function getMandate(): ?MandateResponse
     {
         return $this->mandate;
@@ -26,10 +26,20 @@ class GetMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-     */
+    */
     public function setMandate(?MandateResponse $value): void
     {
         $this->mandate = $value;
+    }
+
+    /**
+     * @param MandateResponse|null $value
+     * @return GetMandateResponse
+    */
+    public function withMandate(?MandateResponse $value): GetMandateResponse
+    {
+        $this->mandate = $value;
+        return $this;
     }
 
     /**

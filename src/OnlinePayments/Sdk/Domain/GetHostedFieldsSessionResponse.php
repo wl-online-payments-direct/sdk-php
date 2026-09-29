@@ -13,17 +13,17 @@ class GetHostedFieldsSessionResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $sessionId = null;
 
     /**
      * @var TokenInfo|null
-     */
+    */
     public ?TokenInfo $token = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getSessionId(): ?string
     {
         return $this->sessionId;
@@ -31,15 +31,25 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSessionId(?string $value): void
     {
         $this->sessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return GetHostedFieldsSessionResponse
+    */
+    public function withSessionId(?string $value): GetHostedFieldsSessionResponse
+    {
+        $this->sessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return TokenInfo|null
-     */
+    */
     public function getToken(): ?TokenInfo
     {
         return $this->token;
@@ -47,10 +57,20 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param TokenInfo|null $value
-     */
+    */
     public function setToken(?TokenInfo $value): void
     {
         $this->token = $value;
+    }
+
+    /**
+     * @param TokenInfo|null $value
+     * @return GetHostedFieldsSessionResponse
+    */
+    public function withToken(?TokenInfo $value): GetHostedFieldsSessionResponse
+    {
+        $this->token = $value;
+        return $this;
     }
 
     /**

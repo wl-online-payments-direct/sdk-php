@@ -13,12 +13,12 @@ class CurrencyConversionSpecificInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $dccEnabled = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getDccEnabled(): ?bool
     {
         return $this->dccEnabled;
@@ -26,10 +26,20 @@ class CurrencyConversionSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setDccEnabled(?bool $value): void
     {
         $this->dccEnabled = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return CurrencyConversionSpecificInput
+    */
+    public function withDccEnabled(?bool $value): CurrencyConversionSpecificInput
+    {
+        $this->dccEnabled = $value;
+        return $this;
     }
 
     /**

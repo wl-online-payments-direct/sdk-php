@@ -13,37 +13,37 @@ class CreatedTokenResponse extends DataObject
 {
     /**
      * @var CardWithoutCvv|null
-     */
+    */
     public ?CardWithoutCvv $card = null;
 
     /**
      * @var CrmToken|null
-     */
+    */
     public ?CrmToken $crmToken = null;
 
     /**
      * @var ExternalTokenLinked|null
-     */
+    */
     public ?ExternalTokenLinked $externalTokenLinked = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isNewToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tokenStatus = null;
 
     /**
      * @return CardWithoutCvv|null
-     */
+    */
     public function getCard(): ?CardWithoutCvv
     {
         return $this->card;
@@ -51,15 +51,25 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-     */
+    */
     public function setCard(?CardWithoutCvv $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param CardWithoutCvv|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withCard(?CardWithoutCvv $value): CreatedTokenResponse
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return CrmToken|null
-     */
+    */
     public function getCrmToken(): ?CrmToken
     {
         return $this->crmToken;
@@ -67,15 +77,25 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CrmToken|null $value
-     */
+    */
     public function setCrmToken(?CrmToken $value): void
     {
         $this->crmToken = $value;
     }
 
     /**
+     * @param CrmToken|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withCrmToken(?CrmToken $value): CreatedTokenResponse
+    {
+        $this->crmToken = $value;
+        return $this;
+    }
+
+    /**
      * @return ExternalTokenLinked|null
-     */
+    */
     public function getExternalTokenLinked(): ?ExternalTokenLinked
     {
         return $this->externalTokenLinked;
@@ -83,15 +103,25 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param ExternalTokenLinked|null $value
-     */
+    */
     public function setExternalTokenLinked(?ExternalTokenLinked $value): void
     {
         $this->externalTokenLinked = $value;
     }
 
     /**
+     * @param ExternalTokenLinked|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withExternalTokenLinked(?ExternalTokenLinked $value): CreatedTokenResponse
+    {
+        $this->externalTokenLinked = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsNewToken(): ?bool
     {
         return $this->isNewToken;
@@ -99,15 +129,25 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsNewToken(?bool $value): void
     {
         $this->isNewToken = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withIsNewToken(?bool $value): CreatedTokenResponse
+    {
+        $this->isNewToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -115,15 +155,25 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withToken(?string $value): CreatedTokenResponse
+    {
+        $this->token = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTokenStatus(): ?string
     {
         return $this->tokenStatus;
@@ -131,10 +181,20 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTokenStatus(?string $value): void
     {
         $this->tokenStatus = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreatedTokenResponse
+    */
+    public function withTokenStatus(?string $value): CreatedTokenResponse
+    {
+        $this->tokenStatus = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class ErrorResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-     */
+    */
     public ?array $errors = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -31,15 +31,25 @@ class ErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ErrorResponse
+    */
+    public function withErrorId(?string $value): ErrorResponse
+    {
+        $this->errorId = $value;
+        return $this;
+    }
+
+    /**
      * @return APIError[]|null
-     */
+    */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -47,10 +57,20 @@ class ErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     */
+    */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
+    }
+
+    /**
+     * @param APIError[]|null $value
+     * @return ErrorResponse
+    */
+    public function withErrors(?array $value): ErrorResponse
+    {
+        $this->errors = $value;
+        return $this;
     }
 
     /**

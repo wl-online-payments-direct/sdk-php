@@ -13,27 +13,27 @@ class PayoutCardPaymentMethodSpecificOutput extends DataObject
 {
     /**
      * @var Acceptance|null
-     */
+    */
     public ?Acceptance $acceptance = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $authorisationCode = null;
 
     /**
      * @var CardEssentials|null
-     */
+    */
     public ?CardEssentials $card = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return Acceptance|null
-     */
+    */
     public function getAcceptance(): ?Acceptance
     {
         return $this->acceptance;
@@ -41,15 +41,25 @@ class PayoutCardPaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param Acceptance|null $value
-     */
+    */
     public function setAcceptance(?Acceptance $value): void
     {
         $this->acceptance = $value;
     }
 
     /**
+     * @param Acceptance|null $value
+     * @return PayoutCardPaymentMethodSpecificOutput
+    */
+    public function withAcceptance(?Acceptance $value): PayoutCardPaymentMethodSpecificOutput
+    {
+        $this->acceptance = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
@@ -57,15 +67,25 @@ class PayoutCardPaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PayoutCardPaymentMethodSpecificOutput
+    */
+    public function withAuthorisationCode(?string $value): PayoutCardPaymentMethodSpecificOutput
+    {
+        $this->authorisationCode = $value;
+        return $this;
+    }
+
+    /**
      * @return CardEssentials|null
-     */
+    */
     public function getCard(): ?CardEssentials
     {
         return $this->card;
@@ -73,15 +93,25 @@ class PayoutCardPaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param CardEssentials|null $value
-     */
+    */
     public function setCard(?CardEssentials $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param CardEssentials|null $value
+     * @return PayoutCardPaymentMethodSpecificOutput
+    */
+    public function withCard(?CardEssentials $value): PayoutCardPaymentMethodSpecificOutput
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -89,10 +119,20 @@ class PayoutCardPaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return PayoutCardPaymentMethodSpecificOutput
+    */
+    public function withPaymentProductId(?int $value): PayoutCardPaymentMethodSpecificOutput
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

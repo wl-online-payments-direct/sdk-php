@@ -13,12 +13,12 @@ class RedirectPaymentProduct11SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $skipEmailValidation = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getSkipEmailValidation(): ?bool
     {
         return $this->skipEmailValidation;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct11SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setSkipEmailValidation(?bool $value): void
     {
         $this->skipEmailValidation = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return RedirectPaymentProduct11SpecificInput
+    */
+    public function withSkipEmailValidation(?bool $value): RedirectPaymentProduct11SpecificInput
+    {
+        $this->skipEmailValidation = $value;
+        return $this;
     }
 
     /**

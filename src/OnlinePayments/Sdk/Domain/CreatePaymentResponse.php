@@ -13,22 +13,22 @@ class CreatePaymentResponse extends DataObject
 {
     /**
      * @var PaymentCreationOutput|null
-     */
+    */
     public ?PaymentCreationOutput $creationOutput = null;
 
     /**
      * @var MerchantAction|null
-     */
+    */
     public ?MerchantAction $merchantAction = null;
 
     /**
      * @var PaymentResponse|null
-     */
+    */
     public ?PaymentResponse $payment = null;
 
     /**
      * @return PaymentCreationOutput|null
-     */
+    */
     public function getCreationOutput(): ?PaymentCreationOutput
     {
         return $this->creationOutput;
@@ -36,15 +36,25 @@ class CreatePaymentResponse extends DataObject
 
     /**
      * @param PaymentCreationOutput|null $value
-     */
+    */
     public function setCreationOutput(?PaymentCreationOutput $value): void
     {
         $this->creationOutput = $value;
     }
 
     /**
+     * @param PaymentCreationOutput|null $value
+     * @return CreatePaymentResponse
+    */
+    public function withCreationOutput(?PaymentCreationOutput $value): CreatePaymentResponse
+    {
+        $this->creationOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return MerchantAction|null
-     */
+    */
     public function getMerchantAction(): ?MerchantAction
     {
         return $this->merchantAction;
@@ -52,15 +62,25 @@ class CreatePaymentResponse extends DataObject
 
     /**
      * @param MerchantAction|null $value
-     */
+    */
     public function setMerchantAction(?MerchantAction $value): void
     {
         $this->merchantAction = $value;
     }
 
     /**
+     * @param MerchantAction|null $value
+     * @return CreatePaymentResponse
+    */
+    public function withMerchantAction(?MerchantAction $value): CreatePaymentResponse
+    {
+        $this->merchantAction = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentResponse|null
-     */
+    */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -68,10 +88,20 @@ class CreatePaymentResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     */
+    */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
+    }
+
+    /**
+     * @param PaymentResponse|null $value
+     * @return CreatePaymentResponse
+    */
+    public function withPayment(?PaymentResponse $value): CreatePaymentResponse
+    {
+        $this->payment = $value;
+        return $this;
     }
 
     /**

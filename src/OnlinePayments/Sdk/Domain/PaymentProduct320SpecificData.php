@@ -13,17 +13,17 @@ class PaymentProduct320SpecificData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $gateway = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $networks = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getGateway(): ?string
     {
         return $this->gateway;
@@ -31,15 +31,25 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setGateway(?string $value): void
     {
         $this->gateway = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct320SpecificData
+    */
+    public function withGateway(?string $value): PaymentProduct320SpecificData
+    {
+        $this->gateway = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getNetworks(): ?array
     {
         return $this->networks;
@@ -47,10 +57,20 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setNetworks(?array $value): void
     {
         $this->networks = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return PaymentProduct320SpecificData
+    */
+    public function withNetworks(?array $value): PaymentProduct320SpecificData
+    {
+        $this->networks = $value;
+        return $this;
     }
 
     /**

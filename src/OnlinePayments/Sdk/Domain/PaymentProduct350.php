@@ -13,17 +13,17 @@ class PaymentProduct350 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $appSwitchLink = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentRequestToken = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAppSwitchLink(): ?string
     {
         return $this->appSwitchLink;
@@ -31,15 +31,25 @@ class PaymentProduct350 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAppSwitchLink(?string $value): void
     {
         $this->appSwitchLink = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct350
+    */
+    public function withAppSwitchLink(?string $value): PaymentProduct350
+    {
+        $this->appSwitchLink = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentRequestToken(): ?string
     {
         return $this->paymentRequestToken;
@@ -47,10 +57,20 @@ class PaymentProduct350 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentRequestToken(?string $value): void
     {
         $this->paymentRequestToken = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct350
+    */
+    public function withPaymentRequestToken(?string $value): PaymentProduct350
+    {
+        $this->paymentRequestToken = $value;
+        return $this;
     }
 
     /**

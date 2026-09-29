@@ -13,17 +13,17 @@ class TokenData extends DataObject
 {
     /**
      * @var Card|null
-     */
+    */
     public ?Card $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cobrandSelectionIndicator = null;
 
     /**
      * @return Card|null
-     */
+    */
     public function getCard(): ?Card
     {
         return $this->card;
@@ -31,15 +31,25 @@ class TokenData extends DataObject
 
     /**
      * @param Card|null $value
-     */
+    */
     public function setCard(?Card $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param Card|null $value
+     * @return TokenData
+    */
+    public function withCard(?Card $value): TokenData
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCobrandSelectionIndicator(): ?string
     {
         return $this->cobrandSelectionIndicator;
@@ -47,10 +57,20 @@ class TokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCobrandSelectionIndicator(?string $value): void
     {
         $this->cobrandSelectionIndicator = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return TokenData
+    */
+    public function withCobrandSelectionIndicator(?string $value): TokenData
+    {
+        $this->cobrandSelectionIndicator = $value;
+        return $this;
     }
 
     /**

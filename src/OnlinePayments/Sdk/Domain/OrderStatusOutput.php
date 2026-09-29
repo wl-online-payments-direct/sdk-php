@@ -13,32 +13,32 @@ class OrderStatusOutput extends DataObject
 {
     /**
      * @var APIError[]|null
-     */
+    */
     public ?array $errors = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isCancellable = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $statusCategory = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $statusCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $statusCodeChangeDateTime = null;
 
     /**
      * @return APIError[]|null
-     */
+    */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -46,15 +46,25 @@ class OrderStatusOutput extends DataObject
 
     /**
      * @param APIError[]|null $value
-     */
+    */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
     }
 
     /**
+     * @param APIError[]|null $value
+     * @return OrderStatusOutput
+    */
+    public function withErrors(?array $value): OrderStatusOutput
+    {
+        $this->errors = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsCancellable(): ?bool
     {
         return $this->isCancellable;
@@ -62,15 +72,25 @@ class OrderStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsCancellable(?bool $value): void
     {
         $this->isCancellable = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return OrderStatusOutput
+    */
+    public function withIsCancellable(?bool $value): OrderStatusOutput
+    {
+        $this->isCancellable = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatusCategory(): ?string
     {
         return $this->statusCategory;
@@ -78,15 +98,25 @@ class OrderStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatusCategory(?string $value): void
     {
         $this->statusCategory = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderStatusOutput
+    */
+    public function withStatusCategory(?string $value): OrderStatusOutput
+    {
+        $this->statusCategory = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -94,15 +124,25 @@ class OrderStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return OrderStatusOutput
+    */
+    public function withStatusCode(?int $value): OrderStatusOutput
+    {
+        $this->statusCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatusCodeChangeDateTime(): ?string
     {
         return $this->statusCodeChangeDateTime;
@@ -110,10 +150,20 @@ class OrderStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatusCodeChangeDateTime(?string $value): void
     {
         $this->statusCodeChangeDateTime = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OrderStatusOutput
+    */
+    public function withStatusCodeChangeDateTime(?string $value): OrderStatusOutput
+    {
+        $this->statusCodeChangeDateTime = $value;
+        return $this;
     }
 
     /**

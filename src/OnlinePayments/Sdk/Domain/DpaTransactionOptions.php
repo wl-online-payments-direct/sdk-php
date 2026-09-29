@@ -13,12 +13,12 @@ class DpaTransactionOptions extends DataObject
 {
     /**
      * @var ThreeDsInputData|null
-     */
+    */
     public ?ThreeDsInputData $threeDsInputData = null;
 
     /**
      * @return ThreeDsInputData|null
-     */
+    */
     public function getThreeDsInputData(): ?ThreeDsInputData
     {
         return $this->threeDsInputData;
@@ -26,10 +26,20 @@ class DpaTransactionOptions extends DataObject
 
     /**
      * @param ThreeDsInputData|null $value
-     */
+    */
     public function setThreeDsInputData(?ThreeDsInputData $value): void
     {
         $this->threeDsInputData = $value;
+    }
+
+    /**
+     * @param ThreeDsInputData|null $value
+     * @return DpaTransactionOptions
+    */
+    public function withThreeDsInputData(?ThreeDsInputData $value): DpaTransactionOptions
+    {
+        $this->threeDsInputData = $value;
+        return $this;
     }
 
     /**

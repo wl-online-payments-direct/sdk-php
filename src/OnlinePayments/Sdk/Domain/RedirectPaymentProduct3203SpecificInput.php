@@ -13,12 +13,12 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $checkoutType = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCheckoutType(): ?string
     {
         return $this->checkoutType;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCheckoutType(?string $value): void
     {
         $this->checkoutType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3203SpecificInput
+    */
+    public function withCheckoutType(?string $value): RedirectPaymentProduct3203SpecificInput
+    {
+        $this->checkoutType = $value;
+        return $this;
     }
 
     /**

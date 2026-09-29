@@ -13,27 +13,27 @@ class CardSource extends DataObject
 {
     /**
      * @var SurchargeCalculationCard|null
-     */
+    */
     public ?SurchargeCalculationCard $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @return SurchargeCalculationCard|null
-     */
+    */
     public function getCard(): ?SurchargeCalculationCard
     {
         return $this->card;
@@ -41,15 +41,25 @@ class CardSource extends DataObject
 
     /**
      * @param SurchargeCalculationCard|null $value
-     */
+    */
     public function setCard(?SurchargeCalculationCard $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param SurchargeCalculationCard|null $value
+     * @return CardSource
+    */
+    public function withCard(?SurchargeCalculationCard $value): CardSource
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -57,15 +67,25 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardSource
+    */
+    public function withEncryptedCustomerInput(?string $value): CardSource
+    {
+        $this->encryptedCustomerInput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -73,15 +93,25 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardSource
+    */
+    public function withHostedTokenizationId(?string $value): CardSource
+    {
+        $this->hostedTokenizationId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -89,10 +119,20 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardSource
+    */
+    public function withToken(?string $value): CardSource
+    {
+        $this->token = $value;
+        return $this;
     }
 
     /**

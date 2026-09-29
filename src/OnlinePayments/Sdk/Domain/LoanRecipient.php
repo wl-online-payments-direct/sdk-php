@@ -13,32 +13,32 @@ class LoanRecipient extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $accountNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $dateOfBirth = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $partialPan = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $surname = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $zip = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAccountNumber(): ?string
     {
         return $this->accountNumber;
@@ -46,15 +46,25 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAccountNumber(?string $value): void
     {
         $this->accountNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LoanRecipient
+    */
+    public function withAccountNumber(?string $value): LoanRecipient
+    {
+        $this->accountNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
@@ -62,15 +72,25 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDateOfBirth(?string $value): void
     {
         $this->dateOfBirth = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LoanRecipient
+    */
+    public function withDateOfBirth(?string $value): LoanRecipient
+    {
+        $this->dateOfBirth = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPartialPan(): ?string
     {
         return $this->partialPan;
@@ -78,15 +98,25 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPartialPan(?string $value): void
     {
         $this->partialPan = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LoanRecipient
+    */
+    public function withPartialPan(?string $value): LoanRecipient
+    {
+        $this->partialPan = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -94,15 +124,25 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LoanRecipient
+    */
+    public function withSurname(?string $value): LoanRecipient
+    {
+        $this->surname = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getZip(): ?string
     {
         return $this->zip;
@@ -110,10 +150,20 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setZip(?string $value): void
     {
         $this->zip = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return LoanRecipient
+    */
+    public function withZip(?string $value): LoanRecipient
+    {
+        $this->zip = $value;
+        return $this;
     }
 
     /**

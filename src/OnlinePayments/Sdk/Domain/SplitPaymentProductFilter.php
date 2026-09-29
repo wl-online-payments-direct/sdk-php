@@ -13,12 +13,12 @@ class SplitPaymentProductFilter extends DataObject
 {
     /**
      * @var int[]|null
-     */
+    */
     public ?array $products = null;
 
     /**
      * @return int[]|null
-     */
+    */
     public function getProducts(): ?array
     {
         return $this->products;
@@ -26,10 +26,20 @@ class SplitPaymentProductFilter extends DataObject
 
     /**
      * @param int[]|null $value
-     */
+    */
     public function setProducts(?array $value): void
     {
         $this->products = $value;
+    }
+
+    /**
+     * @param int[]|null $value
+     * @return SplitPaymentProductFilter
+    */
+    public function withProducts(?array $value): SplitPaymentProductFilter
+    {
+        $this->products = $value;
+        return $this;
     }
 
     /**

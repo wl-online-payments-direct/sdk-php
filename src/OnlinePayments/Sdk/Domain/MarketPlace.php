@@ -13,17 +13,17 @@ class MarketPlace extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $retailerCountry = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $retailerName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRetailerCountry(): ?string
     {
         return $this->retailerCountry;
@@ -31,15 +31,25 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRetailerCountry(?string $value): void
     {
         $this->retailerCountry = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MarketPlace
+    */
+    public function withRetailerCountry(?string $value): MarketPlace
+    {
+        $this->retailerCountry = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRetailerName(): ?string
     {
         return $this->retailerName;
@@ -47,10 +57,20 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRetailerName(?string $value): void
     {
         $this->retailerName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return MarketPlace
+    */
+    public function withRetailerName(?string $value): MarketPlace
+    {
+        $this->retailerName = $value;
+        return $this;
     }
 
     /**

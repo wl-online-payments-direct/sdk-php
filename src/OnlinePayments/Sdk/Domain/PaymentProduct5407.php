@@ -13,17 +13,17 @@ class PaymentProduct5407 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $pairingToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPairingToken(): ?string
     {
         return $this->pairingToken;
@@ -31,15 +31,25 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPairingToken(?string $value): void
     {
         $this->pairingToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5407
+    */
+    public function withPairingToken(?string $value): PaymentProduct5407
+    {
+        $this->pairingToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -47,10 +57,20 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5407
+    */
+    public function withQrCode(?string $value): PaymentProduct5407
+    {
+        $this->qrCode = $value;
+        return $this;
     }
 
     /**

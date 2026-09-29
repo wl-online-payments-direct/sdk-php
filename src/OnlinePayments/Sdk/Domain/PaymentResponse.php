@@ -13,42 +13,42 @@ class PaymentResponse extends DataObject
 {
     /**
      * @var HostedCheckoutSpecificOutput|null
-     */
+    */
     public ?HostedCheckoutSpecificOutput $hostedCheckoutSpecificOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var OperationOutput|null
-     */
+    */
     public ?OperationOutput $operationOutput = null;
 
     /**
      * @var PaymentOutput|null
-     */
+    */
     public ?PaymentOutput $paymentOutput = null;
 
     /**
      * @var SessionDetails|null
-     */
+    */
     public ?SessionDetails $sessionDetails = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var PaymentStatusOutput|null
-     */
+    */
     public ?PaymentStatusOutput $statusOutput = null;
 
     /**
      * @return HostedCheckoutSpecificOutput|null
-     */
+    */
     public function getHostedCheckoutSpecificOutput(): ?HostedCheckoutSpecificOutput
     {
         return $this->hostedCheckoutSpecificOutput;
@@ -56,15 +56,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param HostedCheckoutSpecificOutput|null $value
-     */
+    */
     public function setHostedCheckoutSpecificOutput(?HostedCheckoutSpecificOutput $value): void
     {
         $this->hostedCheckoutSpecificOutput = $value;
     }
 
     /**
+     * @param HostedCheckoutSpecificOutput|null $value
+     * @return PaymentResponse
+    */
+    public function withHostedCheckoutSpecificOutput(?HostedCheckoutSpecificOutput $value): PaymentResponse
+    {
+        $this->hostedCheckoutSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -72,15 +82,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentResponse
+    */
+    public function withId(?string $value): PaymentResponse
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationOutput|null
-     */
+    */
     public function getOperationOutput(): ?OperationOutput
     {
         return $this->operationOutput;
@@ -88,15 +108,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param OperationOutput|null $value
-     */
+    */
     public function setOperationOutput(?OperationOutput $value): void
     {
         $this->operationOutput = $value;
     }
 
     /**
+     * @param OperationOutput|null $value
+     * @return PaymentResponse
+    */
+    public function withOperationOutput(?OperationOutput $value): PaymentResponse
+    {
+        $this->operationOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentOutput|null
-     */
+    */
     public function getPaymentOutput(): ?PaymentOutput
     {
         return $this->paymentOutput;
@@ -104,15 +134,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param PaymentOutput|null $value
-     */
+    */
     public function setPaymentOutput(?PaymentOutput $value): void
     {
         $this->paymentOutput = $value;
     }
 
     /**
+     * @param PaymentOutput|null $value
+     * @return PaymentResponse
+    */
+    public function withPaymentOutput(?PaymentOutput $value): PaymentResponse
+    {
+        $this->paymentOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return SessionDetails|null
-     */
+    */
     public function getSessionDetails(): ?SessionDetails
     {
         return $this->sessionDetails;
@@ -120,15 +160,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param SessionDetails|null $value
-     */
+    */
     public function setSessionDetails(?SessionDetails $value): void
     {
         $this->sessionDetails = $value;
     }
 
     /**
+     * @param SessionDetails|null $value
+     * @return PaymentResponse
+    */
+    public function withSessionDetails(?SessionDetails $value): PaymentResponse
+    {
+        $this->sessionDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -136,15 +186,25 @@ class PaymentResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentResponse
+    */
+    public function withStatus(?string $value): PaymentResponse
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentStatusOutput|null
-     */
+    */
     public function getStatusOutput(): ?PaymentStatusOutput
     {
         return $this->statusOutput;
@@ -152,10 +212,20 @@ class PaymentResponse extends DataObject
 
     /**
      * @param PaymentStatusOutput|null $value
-     */
+    */
     public function setStatusOutput(?PaymentStatusOutput $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param PaymentStatusOutput|null $value
+     * @return PaymentResponse
+    */
+    public function withStatusOutput(?PaymentStatusOutput $value): PaymentResponse
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

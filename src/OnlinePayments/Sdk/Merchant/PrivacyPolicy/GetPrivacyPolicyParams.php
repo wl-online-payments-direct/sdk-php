@@ -15,17 +15,17 @@ class GetPrivacyPolicyParams extends RequestObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $locale = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -33,15 +33,24 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
+     * @param string|null $value
+    */
+    public function withLocale(string $value): GetPrivacyPolicyParams
+    {
+        $this->locale = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -49,10 +58,19 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+    */
+    public function withPaymentProductId(int $value): GetPrivacyPolicyParams
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

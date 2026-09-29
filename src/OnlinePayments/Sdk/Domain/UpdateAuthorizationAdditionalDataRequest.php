@@ -13,12 +13,12 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
 {
     /**
      * @var CarRentalData|null
-     */
+    */
     public ?CarRentalData $carRentalData = null;
 
     /**
      * @return CarRentalData|null
-     */
+    */
     public function getCarRentalData(): ?CarRentalData
     {
         return $this->carRentalData;
@@ -26,10 +26,20 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
 
     /**
      * @param CarRentalData|null $value
-     */
+    */
     public function setCarRentalData(?CarRentalData $value): void
     {
         $this->carRentalData = $value;
+    }
+
+    /**
+     * @param CarRentalData|null $value
+     * @return UpdateAuthorizationAdditionalDataRequest
+    */
+    public function withCarRentalData(?CarRentalData $value): UpdateAuthorizationAdditionalDataRequest
+    {
+        $this->carRentalData = $value;
+        return $this;
     }
 
     /**

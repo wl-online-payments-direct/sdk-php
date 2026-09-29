@@ -13,22 +13,22 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $organizationEntityType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $organizationRegistrationId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $vatId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getOrganizationEntityType(): ?string
     {
         return $this->organizationEntityType;
@@ -36,15 +36,25 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOrganizationEntityType(?string $value): void
     {
         $this->organizationEntityType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3302SpecificInput
+    */
+    public function withOrganizationEntityType(?string $value): RedirectPaymentProduct3302SpecificInput
+    {
+        $this->organizationEntityType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getOrganizationRegistrationId(): ?string
     {
         return $this->organizationRegistrationId;
@@ -52,15 +62,25 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOrganizationRegistrationId(?string $value): void
     {
         $this->organizationRegistrationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3302SpecificInput
+    */
+    public function withOrganizationRegistrationId(?string $value): RedirectPaymentProduct3302SpecificInput
+    {
+        $this->organizationRegistrationId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getVatId(): ?string
     {
         return $this->vatId;
@@ -68,10 +88,20 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setVatId(?string $value): void
     {
         $this->vatId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3302SpecificInput
+    */
+    public function withVatId(?string $value): RedirectPaymentProduct3302SpecificInput
+    {
+        $this->vatId = $value;
+        return $this;
     }
 
     /**

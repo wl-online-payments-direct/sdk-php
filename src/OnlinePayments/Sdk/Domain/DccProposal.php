@@ -13,32 +13,32 @@ class DccProposal extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $baseAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $disclaimerDisplay = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $disclaimerReceipt = null;
 
     /**
      * @var RateDetails|null
-     */
+    */
     public ?RateDetails $rate = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $targetAmount = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getBaseAmount(): ?AmountOfMoney
     {
         return $this->baseAmount;
@@ -46,15 +46,25 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setBaseAmount(?AmountOfMoney $value): void
     {
         $this->baseAmount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return DccProposal
+    */
+    public function withBaseAmount(?AmountOfMoney $value): DccProposal
+    {
+        $this->baseAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDisclaimerDisplay(): ?string
     {
         return $this->disclaimerDisplay;
@@ -62,15 +72,25 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDisclaimerDisplay(?string $value): void
     {
         $this->disclaimerDisplay = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DccProposal
+    */
+    public function withDisclaimerDisplay(?string $value): DccProposal
+    {
+        $this->disclaimerDisplay = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDisclaimerReceipt(): ?string
     {
         return $this->disclaimerReceipt;
@@ -78,15 +98,25 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDisclaimerReceipt(?string $value): void
     {
         $this->disclaimerReceipt = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DccProposal
+    */
+    public function withDisclaimerReceipt(?string $value): DccProposal
+    {
+        $this->disclaimerReceipt = $value;
+        return $this;
+    }
+
+    /**
      * @return RateDetails|null
-     */
+    */
     public function getRate(): ?RateDetails
     {
         return $this->rate;
@@ -94,15 +124,25 @@ class DccProposal extends DataObject
 
     /**
      * @param RateDetails|null $value
-     */
+    */
     public function setRate(?RateDetails $value): void
     {
         $this->rate = $value;
     }
 
     /**
+     * @param RateDetails|null $value
+     * @return DccProposal
+    */
+    public function withRate(?RateDetails $value): DccProposal
+    {
+        $this->rate = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getTargetAmount(): ?AmountOfMoney
     {
         return $this->targetAmount;
@@ -110,10 +150,20 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setTargetAmount(?AmountOfMoney $value): void
     {
         $this->targetAmount = $value;
+    }
+
+    /**
+     * @param AmountOfMoney|null $value
+     * @return DccProposal
+    */
+    public function withTargetAmount(?AmountOfMoney $value): DccProposal
+    {
+        $this->targetAmount = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class CreditCardValidationRules extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $cvvMandatoryForExistingToken = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $cvvMandatoryForNewToken = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getCvvMandatoryForExistingToken(): ?bool
     {
         return $this->cvvMandatoryForExistingToken;
@@ -31,15 +31,25 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCvvMandatoryForExistingToken(?bool $value): void
     {
         $this->cvvMandatoryForExistingToken = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CreditCardValidationRules
+    */
+    public function withCvvMandatoryForExistingToken(?bool $value): CreditCardValidationRules
+    {
+        $this->cvvMandatoryForExistingToken = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getCvvMandatoryForNewToken(): ?bool
     {
         return $this->cvvMandatoryForNewToken;
@@ -47,10 +57,20 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCvvMandatoryForNewToken(?bool $value): void
     {
         $this->cvvMandatoryForNewToken = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return CreditCardValidationRules
+    */
+    public function withCvvMandatoryForNewToken(?bool $value): CreditCardValidationRules
+    {
+        $this->cvvMandatoryForNewToken = $value;
+        return $this;
     }
 
     /**

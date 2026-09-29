@@ -13,17 +13,17 @@ class CompletePaymentRequest extends DataObject
 {
     /**
      * @var CompletePaymentCardPaymentMethodSpecificInput|null
-     */
+    */
     public ?CompletePaymentCardPaymentMethodSpecificInput $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var Order|null
-     */
+    */
     public ?Order $order = null;
 
     /**
      * @return CompletePaymentCardPaymentMethodSpecificInput|null
-     */
+    */
     public function getCardPaymentMethodSpecificInput(): ?CompletePaymentCardPaymentMethodSpecificInput
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -31,15 +31,25 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param CompletePaymentCardPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param CompletePaymentCardPaymentMethodSpecificInput|null $value
+     * @return CompletePaymentRequest
+    */
+    public function withCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): CompletePaymentRequest
+    {
+        $this->cardPaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return Order|null
-     */
+    */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -47,10 +57,20 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-     */
+    */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
+    }
+
+    /**
+     * @param Order|null $value
+     * @return CompletePaymentRequest
+    */
+    public function withOrder(?Order $value): CompletePaymentRequest
+    {
+        $this->order = $value;
+        return $this;
     }
 
     /**

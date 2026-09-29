@@ -13,17 +13,17 @@ class CancelPaymentBatchRequest extends DataObject
 {
     /**
      * @var CancelPaymentRequest|null
-     */
+    */
     public ?CancelPaymentRequest $cancel = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @return CancelPaymentRequest|null
-     */
+    */
     public function getCancel(): ?CancelPaymentRequest
     {
         return $this->cancel;
@@ -31,15 +31,25 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param CancelPaymentRequest|null $value
-     */
+    */
     public function setCancel(?CancelPaymentRequest $value): void
     {
         $this->cancel = $value;
     }
 
     /**
+     * @param CancelPaymentRequest|null $value
+     * @return CancelPaymentBatchRequest
+    */
+    public function withCancel(?CancelPaymentRequest $value): CancelPaymentBatchRequest
+    {
+        $this->cancel = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -47,10 +57,20 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CancelPaymentBatchRequest
+    */
+    public function withPaymentId(?string $value): CancelPaymentBatchRequest
+    {
+        $this->paymentId = $value;
+        return $this;
     }
 
     /**

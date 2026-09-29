@@ -13,17 +13,17 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -31,15 +31,25 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RefundRedirectMethodSpecificOutput
+    */
+    public function withTotalAmountPaid(?int $value): RefundRedirectMethodSpecificOutput
+    {
+        $this->totalAmountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -47,10 +57,20 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return RefundRedirectMethodSpecificOutput
+    */
+    public function withTotalAmountRefunded(?int $value): RefundRedirectMethodSpecificOutput
+    {
+        $this->totalAmountRefunded = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class RefundPaymentBatchRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @var RefundRequest|null
-     */
+    */
     public ?RefundRequest $refund = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -31,15 +31,25 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundPaymentBatchRequest
+    */
+    public function withPaymentId(?string $value): RefundPaymentBatchRequest
+    {
+        $this->paymentId = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundRequest|null
-     */
+    */
     public function getRefund(): ?RefundRequest
     {
         return $this->refund;
@@ -47,10 +57,20 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param RefundRequest|null $value
-     */
+    */
     public function setRefund(?RefundRequest $value): void
     {
         $this->refund = $value;
+    }
+
+    /**
+     * @param RefundRequest|null $value
+     * @return RefundPaymentBatchRequest
+    */
+    public function withRefund(?RefundRequest $value): RefundPaymentBatchRequest
+    {
+        $this->refund = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class AccountOnFileDisplayHints extends DataObject
 {
     /**
      * @var LabelTemplateElement[]|null
-     */
+    */
     public ?array $labelTemplate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $logo = null;
 
     /**
      * @return LabelTemplateElement[]|null
-     */
+    */
     public function getLabelTemplate(): ?array
     {
         return $this->labelTemplate;
@@ -31,15 +31,25 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param LabelTemplateElement[]|null $value
-     */
+    */
     public function setLabelTemplate(?array $value): void
     {
         $this->labelTemplate = $value;
     }
 
     /**
+     * @param LabelTemplateElement[]|null $value
+     * @return AccountOnFileDisplayHints
+    */
+    public function withLabelTemplate(?array $value): AccountOnFileDisplayHints
+    {
+        $this->labelTemplate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLogo(): ?string
     {
         return $this->logo;
@@ -47,10 +57,20 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLogo(?string $value): void
     {
         $this->logo = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AccountOnFileDisplayHints
+    */
+    public function withLogo(?string $value): AccountOnFileDisplayHints
+    {
+        $this->logo = $value;
+        return $this;
     }
 
     /**

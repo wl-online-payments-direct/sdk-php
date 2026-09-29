@@ -13,12 +13,12 @@ class RefundPaymentProduct840SpecificOutput extends DataObject
 {
     /**
      * @var RefundPaymentProduct840CustomerAccount|null
-     */
+    */
     public ?RefundPaymentProduct840CustomerAccount $customerAccount = null;
 
     /**
      * @return RefundPaymentProduct840CustomerAccount|null
-     */
+    */
     public function getCustomerAccount(): ?RefundPaymentProduct840CustomerAccount
     {
         return $this->customerAccount;
@@ -26,10 +26,20 @@ class RefundPaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param RefundPaymentProduct840CustomerAccount|null $value
-     */
+    */
     public function setCustomerAccount(?RefundPaymentProduct840CustomerAccount $value): void
     {
         $this->customerAccount = $value;
+    }
+
+    /**
+     * @param RefundPaymentProduct840CustomerAccount|null $value
+     * @return RefundPaymentProduct840SpecificOutput
+    */
+    public function withCustomerAccount(?RefundPaymentProduct840CustomerAccount $value): RefundPaymentProduct840SpecificOutput
+    {
+        $this->customerAccount = $value;
+        return $this;
     }
 
     /**

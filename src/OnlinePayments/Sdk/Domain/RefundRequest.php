@@ -13,52 +13,52 @@ class RefundRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $captureId = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isFinal = null;
 
     /**
      * @var LineItemDetail[]|null
-     */
+    */
     public ?array $lineItemDetails = null;
 
     /**
      * @var OmnichannelRefundSpecificInput|null
-     */
+    */
     public ?OmnichannelRefundSpecificInput $omnichannelRefundSpecificInput = null;
 
     /**
      * @var OperationPaymentReferences|null
-     */
+    */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $reason = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @var RefundRedirectPaymentMethodSpecificInput|null
-     */
+    */
     public ?RefundRedirectPaymentMethodSpecificInput $refundRedirectPaymentMethodSpecificInput = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -66,15 +66,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return RefundRequest
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): RefundRequest
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCaptureId(): ?string
     {
         return $this->captureId;
@@ -82,15 +92,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCaptureId(?string $value): void
     {
         $this->captureId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundRequest
+    */
+    public function withCaptureId(?string $value): RefundRequest
+    {
+        $this->captureId = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsFinal(): ?bool
     {
         return $this->isFinal;
@@ -98,15 +118,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsFinal(?bool $value): void
     {
         $this->isFinal = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return RefundRequest
+    */
+    public function withIsFinal(?bool $value): RefundRequest
+    {
+        $this->isFinal = $value;
+        return $this;
+    }
+
+    /**
      * @return LineItemDetail[]|null
-     */
+    */
     public function getLineItemDetails(): ?array
     {
         return $this->lineItemDetails;
@@ -114,15 +144,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param LineItemDetail[]|null $value
-     */
+    */
     public function setLineItemDetails(?array $value): void
     {
         $this->lineItemDetails = $value;
     }
 
     /**
+     * @param LineItemDetail[]|null $value
+     * @return RefundRequest
+    */
+    public function withLineItemDetails(?array $value): RefundRequest
+    {
+        $this->lineItemDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return OmnichannelRefundSpecificInput|null
-     */
+    */
     public function getOmnichannelRefundSpecificInput(): ?OmnichannelRefundSpecificInput
     {
         return $this->omnichannelRefundSpecificInput;
@@ -130,15 +170,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param OmnichannelRefundSpecificInput|null $value
-     */
+    */
     public function setOmnichannelRefundSpecificInput(?OmnichannelRefundSpecificInput $value): void
     {
         $this->omnichannelRefundSpecificInput = $value;
     }
 
     /**
+     * @param OmnichannelRefundSpecificInput|null $value
+     * @return RefundRequest
+    */
+    public function withOmnichannelRefundSpecificInput(?OmnichannelRefundSpecificInput $value): RefundRequest
+    {
+        $this->omnichannelRefundSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
-     */
+    */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -146,15 +196,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     */
+    */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
+     * @param OperationPaymentReferences|null $value
+     * @return RefundRequest
+    */
+    public function withOperationReferences(?OperationPaymentReferences $value): RefundRequest
+    {
+        $this->operationReferences = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getReason(): ?string
     {
         return $this->reason;
@@ -162,15 +222,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setReason(?string $value): void
     {
         $this->reason = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundRequest
+    */
+    public function withReason(?string $value): RefundRequest
+    {
+        $this->reason = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -178,15 +248,25 @@ class RefundRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
+     * @param PaymentReferences|null $value
+     * @return RefundRequest
+    */
+    public function withReferences(?PaymentReferences $value): RefundRequest
+    {
+        $this->references = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundRedirectPaymentMethodSpecificInput|null
-     */
+    */
     public function getRefundRedirectPaymentMethodSpecificInput(): ?RefundRedirectPaymentMethodSpecificInput
     {
         return $this->refundRedirectPaymentMethodSpecificInput;
@@ -194,10 +274,20 @@ class RefundRequest extends DataObject
 
     /**
      * @param RefundRedirectPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setRefundRedirectPaymentMethodSpecificInput(?RefundRedirectPaymentMethodSpecificInput $value): void
     {
         $this->refundRedirectPaymentMethodSpecificInput = $value;
+    }
+
+    /**
+     * @param RefundRedirectPaymentMethodSpecificInput|null $value
+     * @return RefundRequest
+    */
+    public function withRefundRedirectPaymentMethodSpecificInput(?RefundRedirectPaymentMethodSpecificInput $value): RefundRequest
+    {
+        $this->refundRedirectPaymentMethodSpecificInput = $value;
+        return $this;
     }
 
     /**

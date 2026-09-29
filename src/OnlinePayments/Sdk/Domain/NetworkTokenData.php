@@ -13,37 +13,37 @@ class NetworkTokenData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cryptogram = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $eci = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $networkToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $schemeTokenRequestorId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tokenExpiryDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -51,15 +51,25 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenData
+    */
+    public function withCardholderName(?string $value): NetworkTokenData
+    {
+        $this->cardholderName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCryptogram(): ?string
     {
         return $this->cryptogram;
@@ -67,15 +77,25 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCryptogram(?string $value): void
     {
         $this->cryptogram = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenData
+    */
+    public function withCryptogram(?string $value): NetworkTokenData
+    {
+        $this->cryptogram = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getEci(): ?int
     {
         return $this->eci;
@@ -83,15 +103,25 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setEci(?int $value): void
     {
         $this->eci = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return NetworkTokenData
+    */
+    public function withEci(?int $value): NetworkTokenData
+    {
+        $this->eci = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getNetworkToken(): ?string
     {
         return $this->networkToken;
@@ -99,15 +129,25 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setNetworkToken(?string $value): void
     {
         $this->networkToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenData
+    */
+    public function withNetworkToken(?string $value): NetworkTokenData
+    {
+        $this->networkToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSchemeTokenRequestorId(): ?string
     {
         return $this->schemeTokenRequestorId;
@@ -115,15 +155,25 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSchemeTokenRequestorId(?string $value): void
     {
         $this->schemeTokenRequestorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenData
+    */
+    public function withSchemeTokenRequestorId(?string $value): NetworkTokenData
+    {
+        $this->schemeTokenRequestorId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTokenExpiryDate(): ?string
     {
         return $this->tokenExpiryDate;
@@ -131,10 +181,20 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTokenExpiryDate(?string $value): void
     {
         $this->tokenExpiryDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return NetworkTokenData
+    */
+    public function withTokenExpiryDate(?string $value): NetworkTokenData
+    {
+        $this->tokenExpiryDate = $value;
+        return $this;
     }
 
     /**

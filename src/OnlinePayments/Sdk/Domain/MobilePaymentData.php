@@ -13,17 +13,17 @@ class MobilePaymentData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $dpan = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDpan(): ?string
     {
         return $this->dpan;
@@ -31,15 +31,25 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDpan(?string $value): void
     {
         $this->dpan = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MobilePaymentData
+    */
+    public function withDpan(?string $value): MobilePaymentData
+    {
+        $this->dpan = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -47,10 +57,20 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return MobilePaymentData
+    */
+    public function withExpiryDate(?string $value): MobilePaymentData
+    {
+        $this->expiryDate = $value;
+        return $this;
     }
 
     /**

@@ -13,22 +13,22 @@ class CustomerAccountAuthentication extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $data = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $method = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $utcTimestamp = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getData(): ?string
     {
         return $this->data;
@@ -36,15 +36,25 @@ class CustomerAccountAuthentication extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setData(?string $value): void
     {
         $this->data = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerAccountAuthentication
+    */
+    public function withData(?string $value): CustomerAccountAuthentication
+    {
+        $this->data = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMethod(): ?string
     {
         return $this->method;
@@ -52,15 +62,25 @@ class CustomerAccountAuthentication extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMethod(?string $value): void
     {
         $this->method = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerAccountAuthentication
+    */
+    public function withMethod(?string $value): CustomerAccountAuthentication
+    {
+        $this->method = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUtcTimestamp(): ?string
     {
         return $this->utcTimestamp;
@@ -68,10 +88,20 @@ class CustomerAccountAuthentication extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUtcTimestamp(?string $value): void
     {
         $this->utcTimestamp = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CustomerAccountAuthentication
+    */
+    public function withUtcTimestamp(?string $value): CustomerAccountAuthentication
+    {
+        $this->utcTimestamp = $value;
+        return $this;
     }
 
     /**

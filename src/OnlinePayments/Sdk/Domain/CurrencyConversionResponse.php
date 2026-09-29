@@ -13,22 +13,22 @@ class CurrencyConversionResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $dccSessionId = null;
 
     /**
      * @var DccProposal|null
-     */
+    */
     public ?DccProposal $proposal = null;
 
     /**
      * @var CurrencyConversionResult|null
-     */
+    */
     public ?CurrencyConversionResult $result = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDccSessionId(): ?string
     {
         return $this->dccSessionId;
@@ -36,15 +36,25 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDccSessionId(?string $value): void
     {
         $this->dccSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CurrencyConversionResponse
+    */
+    public function withDccSessionId(?string $value): CurrencyConversionResponse
+    {
+        $this->dccSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return DccProposal|null
-     */
+    */
     public function getProposal(): ?DccProposal
     {
         return $this->proposal;
@@ -52,15 +62,25 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param DccProposal|null $value
-     */
+    */
     public function setProposal(?DccProposal $value): void
     {
         $this->proposal = $value;
     }
 
     /**
+     * @param DccProposal|null $value
+     * @return CurrencyConversionResponse
+    */
+    public function withProposal(?DccProposal $value): CurrencyConversionResponse
+    {
+        $this->proposal = $value;
+        return $this;
+    }
+
+    /**
      * @return CurrencyConversionResult|null
-     */
+    */
     public function getResult(): ?CurrencyConversionResult
     {
         return $this->result;
@@ -68,10 +88,20 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param CurrencyConversionResult|null $value
-     */
+    */
     public function setResult(?CurrencyConversionResult $value): void
     {
         $this->result = $value;
+    }
+
+    /**
+     * @param CurrencyConversionResult|null $value
+     * @return CurrencyConversionResponse
+    */
+    public function withResult(?CurrencyConversionResult $value): CurrencyConversionResponse
+    {
+        $this->result = $value;
+        return $this;
     }
 
     /**

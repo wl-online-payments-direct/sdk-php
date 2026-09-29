@@ -13,52 +13,52 @@ class AddressPersonal extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $additionalInfo = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $city = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $houseNumber = null;
 
     /**
      * @var PersonalName|null
-     */
+    */
     public ?PersonalName $name = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $state = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $street = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $zip = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAdditionalInfo(): ?string
     {
         return $this->additionalInfo;
@@ -66,15 +66,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAdditionalInfo(?string $value): void
     {
         $this->additionalInfo = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withAdditionalInfo(?string $value): AddressPersonal
+    {
+        $this->additionalInfo = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCity(): ?string
     {
         return $this->city;
@@ -82,15 +92,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCity(?string $value): void
     {
         $this->city = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withCity(?string $value): AddressPersonal
+    {
+        $this->city = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -98,15 +118,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withCompanyName(?string $value): AddressPersonal
+    {
+        $this->companyName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -114,15 +144,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withCountryCode(?string $value): AddressPersonal
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
@@ -130,15 +170,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHouseNumber(?string $value): void
     {
         $this->houseNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withHouseNumber(?string $value): AddressPersonal
+    {
+        $this->houseNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return PersonalName|null
-     */
+    */
     public function getName(): ?PersonalName
     {
         return $this->name;
@@ -146,15 +196,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param PersonalName|null $value
-     */
+    */
     public function setName(?PersonalName $value): void
     {
         $this->name = $value;
     }
 
     /**
+     * @param PersonalName|null $value
+     * @return AddressPersonal
+    */
+    public function withName(?PersonalName $value): AddressPersonal
+    {
+        $this->name = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getState(): ?string
     {
         return $this->state;
@@ -162,15 +222,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setState(?string $value): void
     {
         $this->state = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withState(?string $value): AddressPersonal
+    {
+        $this->state = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStreet(): ?string
     {
         return $this->street;
@@ -178,15 +248,25 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStreet(?string $value): void
     {
         $this->street = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withStreet(?string $value): AddressPersonal
+    {
+        $this->street = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getZip(): ?string
     {
         return $this->zip;
@@ -194,10 +274,20 @@ class AddressPersonal extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setZip(?string $value): void
     {
         $this->zip = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AddressPersonal
+    */
+    public function withZip(?string $value): AddressPersonal
+    {
+        $this->zip = $value;
+        return $this;
     }
 
     /**

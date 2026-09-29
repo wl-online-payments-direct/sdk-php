@@ -13,69 +13,69 @@ class CaptureOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $acquiredAmount = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-     */
+    */
     public ?int $amountPaid = null;
 
     /**
      * @var CardPaymentMethodSpecificOutput|null
-     */
+    */
     public ?CardPaymentMethodSpecificOutput $cardPaymentMethodSpecificOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantParameters = null;
 
     /**
      * @var MobilePaymentMethodSpecificOutput|null
-     */
+    */
     public ?MobilePaymentMethodSpecificOutput $mobilePaymentMethodSpecificOutput = null;
 
     /**
      * @var OperationPaymentReferences|null
-     */
+    */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentMethod = null;
 
     /**
      * @var RedirectPaymentMethodSpecificOutput|null
-     */
+    */
     public ?RedirectPaymentMethodSpecificOutput $redirectPaymentMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificOutput|null
-     */
+    */
     public ?SepaDirectDebitPaymentMethodSpecificOutput $sepaDirectDebitPaymentMethodSpecificOutput = null;
 
     /**
      * @var SurchargeSpecificOutput|null
-     */
+    */
     public ?SurchargeSpecificOutput $surchargeSpecificOutput = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAcquiredAmount(): ?AmountOfMoney
     {
         return $this->acquiredAmount;
@@ -83,15 +83,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAcquiredAmount(?AmountOfMoney $value): void
     {
         $this->acquiredAmount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return CaptureOutput
+    */
+    public function withAcquiredAmount(?AmountOfMoney $value): CaptureOutput
+    {
+        $this->acquiredAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -99,17 +109,27 @@ class CaptureOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return CaptureOutput
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): CaptureOutput
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-     */
+    */
     public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
@@ -119,15 +139,27 @@ class CaptureOutput extends DataObject
      * @param int|null $value
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-     */
+    */
     public function setAmountPaid(?int $value): void
     {
         $this->amountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CaptureOutput
+     *
+     * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
+    */
+    public function withAmountPaid(?int $value): CaptureOutput
+    {
+        $this->amountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return CardPaymentMethodSpecificOutput|null
-     */
+    */
     public function getCardPaymentMethodSpecificOutput(): ?CardPaymentMethodSpecificOutput
     {
         return $this->cardPaymentMethodSpecificOutput;
@@ -135,15 +167,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutput|null $value
-     */
+    */
     public function setCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): void
     {
         $this->cardPaymentMethodSpecificOutput = $value;
     }
 
     /**
+     * @param CardPaymentMethodSpecificOutput|null $value
+     * @return CaptureOutput
+    */
+    public function withCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): CaptureOutput
+    {
+        $this->cardPaymentMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
@@ -151,15 +193,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CaptureOutput
+    */
+    public function withMerchantParameters(?string $value): CaptureOutput
+    {
+        $this->merchantParameters = $value;
+        return $this;
+    }
+
+    /**
      * @return MobilePaymentMethodSpecificOutput|null
-     */
+    */
     public function getMobilePaymentMethodSpecificOutput(): ?MobilePaymentMethodSpecificOutput
     {
         return $this->mobilePaymentMethodSpecificOutput;
@@ -167,15 +219,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param MobilePaymentMethodSpecificOutput|null $value
-     */
+    */
     public function setMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): void
     {
         $this->mobilePaymentMethodSpecificOutput = $value;
     }
 
     /**
+     * @param MobilePaymentMethodSpecificOutput|null $value
+     * @return CaptureOutput
+    */
+    public function withMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): CaptureOutput
+    {
+        $this->mobilePaymentMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
-     */
+    */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -183,15 +245,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     */
+    */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
+     * @param OperationPaymentReferences|null $value
+     * @return CaptureOutput
+    */
+    public function withOperationReferences(?OperationPaymentReferences $value): CaptureOutput
+    {
+        $this->operationReferences = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -199,15 +271,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CaptureOutput
+    */
+    public function withPaymentMethod(?string $value): CaptureOutput
+    {
+        $this->paymentMethod = $value;
+        return $this;
+    }
+
+    /**
      * @return RedirectPaymentMethodSpecificOutput|null
-     */
+    */
     public function getRedirectPaymentMethodSpecificOutput(): ?RedirectPaymentMethodSpecificOutput
     {
         return $this->redirectPaymentMethodSpecificOutput;
@@ -215,15 +297,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificOutput|null $value
-     */
+    */
     public function setRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): void
     {
         $this->redirectPaymentMethodSpecificOutput = $value;
     }
 
     /**
+     * @param RedirectPaymentMethodSpecificOutput|null $value
+     * @return CaptureOutput
+    */
+    public function withRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): CaptureOutput
+    {
+        $this->redirectPaymentMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -231,15 +323,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
+     * @param PaymentReferences|null $value
+     * @return CaptureOutput
+    */
+    public function withReferences(?PaymentReferences $value): CaptureOutput
+    {
+        $this->references = $value;
+        return $this;
+    }
+
+    /**
      * @return SepaDirectDebitPaymentMethodSpecificOutput|null
-     */
+    */
     public function getSepaDirectDebitPaymentMethodSpecificOutput(): ?SepaDirectDebitPaymentMethodSpecificOutput
     {
         return $this->sepaDirectDebitPaymentMethodSpecificOutput;
@@ -247,15 +349,25 @@ class CaptureOutput extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificOutput|null $value
-     */
+    */
     public function setSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificOutput = $value;
     }
 
     /**
+     * @param SepaDirectDebitPaymentMethodSpecificOutput|null $value
+     * @return CaptureOutput
+    */
+    public function withSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): CaptureOutput
+    {
+        $this->sepaDirectDebitPaymentMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return SurchargeSpecificOutput|null
-     */
+    */
     public function getSurchargeSpecificOutput(): ?SurchargeSpecificOutput
     {
         return $this->surchargeSpecificOutput;
@@ -263,10 +375,20 @@ class CaptureOutput extends DataObject
 
     /**
      * @param SurchargeSpecificOutput|null $value
-     */
+    */
     public function setSurchargeSpecificOutput(?SurchargeSpecificOutput $value): void
     {
         $this->surchargeSpecificOutput = $value;
+    }
+
+    /**
+     * @param SurchargeSpecificOutput|null $value
+     * @return CaptureOutput
+    */
+    public function withSurchargeSpecificOutput(?SurchargeSpecificOutput $value): CaptureOutput
+    {
+        $this->surchargeSpecificOutput = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class PaymentAccountOnFile extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $createDate = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $numberOfCardOnFileCreationAttemptsLast24Hours = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCreateDate(): ?string
     {
         return $this->createDate;
@@ -31,15 +31,25 @@ class PaymentAccountOnFile extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCreateDate(?string $value): void
     {
         $this->createDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentAccountOnFile
+    */
+    public function withCreateDate(?string $value): PaymentAccountOnFile
+    {
+        $this->createDate = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getNumberOfCardOnFileCreationAttemptsLast24Hours(): ?int
     {
         return $this->numberOfCardOnFileCreationAttemptsLast24Hours;
@@ -47,10 +57,20 @@ class PaymentAccountOnFile extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setNumberOfCardOnFileCreationAttemptsLast24Hours(?int $value): void
     {
         $this->numberOfCardOnFileCreationAttemptsLast24Hours = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return PaymentAccountOnFile
+    */
+    public function withNumberOfCardOnFileCreationAttemptsLast24Hours(?int $value): PaymentAccountOnFile
+    {
+        $this->numberOfCardOnFileCreationAttemptsLast24Hours = $value;
+        return $this;
     }
 
     /**

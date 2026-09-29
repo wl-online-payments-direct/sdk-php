@@ -13,12 +13,12 @@ class TokenCardSpecificInput extends DataObject
 {
     /**
      * @var TokenData|null
-     */
+    */
     public ?TokenData $data = null;
 
     /**
      * @return TokenData|null
-     */
+    */
     public function getData(): ?TokenData
     {
         return $this->data;
@@ -26,10 +26,20 @@ class TokenCardSpecificInput extends DataObject
 
     /**
      * @param TokenData|null $value
-     */
+    */
     public function setData(?TokenData $value): void
     {
         $this->data = $value;
+    }
+
+    /**
+     * @param TokenData|null $value
+     * @return TokenCardSpecificInput
+    */
+    public function withData(?TokenData $value): TokenCardSpecificInput
+    {
+        $this->data = $value;
+        return $this;
     }
 
     /**

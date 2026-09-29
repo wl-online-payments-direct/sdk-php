@@ -13,12 +13,12 @@ class LodgingData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $checkInDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCheckInDate(): ?string
     {
         return $this->checkInDate;
@@ -26,10 +26,20 @@ class LodgingData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCheckInDate(?string $value): void
     {
         $this->checkInDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return LodgingData
+    */
+    public function withCheckInDate(?string $value): LodgingData
+    {
+        $this->checkInDate = $value;
+        return $this;
     }
 
     /**

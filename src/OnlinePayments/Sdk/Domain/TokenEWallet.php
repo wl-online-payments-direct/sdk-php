@@ -15,19 +15,19 @@ class TokenEWallet extends DataObject
      * @var string|null
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-     */
+    */
     public ?string $alias = null;
 
     /**
      * @var CustomerToken|null
-     */
+    */
     public ?CustomerToken $customer = null;
 
     /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-     */
+    */
     public function getAlias(): ?string
     {
         return $this->alias;
@@ -37,15 +37,27 @@ class TokenEWallet extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-     */
+    */
     public function setAlias(?string $value): void
     {
         $this->alias = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return TokenEWallet
+     *
+     * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
+    */
+    public function withAlias(?string $value): TokenEWallet
+    {
+        $this->alias = $value;
+        return $this;
+    }
+
+    /**
      * @return CustomerToken|null
-     */
+    */
     public function getCustomer(): ?CustomerToken
     {
         return $this->customer;
@@ -53,10 +65,20 @@ class TokenEWallet extends DataObject
 
     /**
      * @param CustomerToken|null $value
-     */
+    */
     public function setCustomer(?CustomerToken $value): void
     {
         $this->customer = $value;
+    }
+
+    /**
+     * @param CustomerToken|null $value
+     * @return TokenEWallet
+    */
+    public function withCustomer(?CustomerToken $value): TokenEWallet
+    {
+        $this->customer = $value;
+        return $this;
     }
 
     /**

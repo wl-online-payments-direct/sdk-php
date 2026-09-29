@@ -13,22 +13,22 @@ class PayoutErrorResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-     */
+    */
     public ?array $errors = null;
 
     /**
      * @var PayoutResult|null
-     */
+    */
     public ?PayoutResult $payoutResult = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -36,15 +36,25 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PayoutErrorResponse
+    */
+    public function withErrorId(?string $value): PayoutErrorResponse
+    {
+        $this->errorId = $value;
+        return $this;
+    }
+
+    /**
      * @return APIError[]|null
-     */
+    */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -52,15 +62,25 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     */
+    */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
     }
 
     /**
+     * @param APIError[]|null $value
+     * @return PayoutErrorResponse
+    */
+    public function withErrors(?array $value): PayoutErrorResponse
+    {
+        $this->errors = $value;
+        return $this;
+    }
+
+    /**
      * @return PayoutResult|null
-     */
+    */
     public function getPayoutResult(): ?PayoutResult
     {
         return $this->payoutResult;
@@ -68,10 +88,20 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param PayoutResult|null $value
-     */
+    */
     public function setPayoutResult(?PayoutResult $value): void
     {
         $this->payoutResult = $value;
+    }
+
+    /**
+     * @param PayoutResult|null $value
+     * @return PayoutErrorResponse
+    */
+    public function withPayoutResult(?PayoutResult $value): PayoutErrorResponse
+    {
+        $this->payoutResult = $value;
+        return $this;
     }
 
     /**

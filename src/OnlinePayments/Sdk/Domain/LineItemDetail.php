@@ -13,22 +13,22 @@ class LineItemDetail extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $discountAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $lineItemId = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $quantity = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getDiscountAmount(): ?int
     {
         return $this->discountAmount;
@@ -36,15 +36,25 @@ class LineItemDetail extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setDiscountAmount(?int $value): void
     {
         $this->discountAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return LineItemDetail
+    */
+    public function withDiscountAmount(?int $value): LineItemDetail
+    {
+        $this->discountAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLineItemId(): ?string
     {
         return $this->lineItemId;
@@ -52,15 +62,25 @@ class LineItemDetail extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLineItemId(?string $value): void
     {
         $this->lineItemId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return LineItemDetail
+    */
+    public function withLineItemId(?string $value): LineItemDetail
+    {
+        $this->lineItemId = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getQuantity(): ?int
     {
         return $this->quantity;
@@ -68,10 +88,20 @@ class LineItemDetail extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setQuantity(?int $value): void
     {
         $this->quantity = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return LineItemDetail
+    */
+    public function withQuantity(?int $value): LineItemDetail
+    {
+        $this->quantity = $value;
+        return $this;
     }
 
     /**

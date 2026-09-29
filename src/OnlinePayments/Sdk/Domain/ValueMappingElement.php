@@ -13,17 +13,17 @@ class ValueMappingElement extends DataObject
 {
     /**
      * @var PaymentProductFieldDisplayElement[]|null
-     */
+    */
     public ?array $displayElements = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $value = null;
 
     /**
      * @return PaymentProductFieldDisplayElement[]|null
-     */
+    */
     public function getDisplayElements(): ?array
     {
         return $this->displayElements;
@@ -31,15 +31,25 @@ class ValueMappingElement extends DataObject
 
     /**
      * @param PaymentProductFieldDisplayElement[]|null $value
-     */
+    */
     public function setDisplayElements(?array $value): void
     {
         $this->displayElements = $value;
     }
 
     /**
+     * @param PaymentProductFieldDisplayElement[]|null $value
+     * @return ValueMappingElement
+    */
+    public function withDisplayElements(?array $value): ValueMappingElement
+    {
+        $this->displayElements = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getValue(): ?string
     {
         return $this->value;
@@ -47,10 +57,20 @@ class ValueMappingElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setValue(?string $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ValueMappingElement
+    */
+    public function withValue(?string $value): ValueMappingElement
+    {
+        $this->value = $value;
+        return $this;
     }
 
     /**

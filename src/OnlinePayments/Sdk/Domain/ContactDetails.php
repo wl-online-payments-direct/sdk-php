@@ -13,32 +13,32 @@ class ContactDetails extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $emailAddress = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $faxNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $mobilePhoneNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $phoneNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $workPhoneNumber = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
@@ -46,15 +46,25 @@ class ContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ContactDetails
+    */
+    public function withEmailAddress(?string $value): ContactDetails
+    {
+        $this->emailAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFaxNumber(): ?string
     {
         return $this->faxNumber;
@@ -62,15 +72,25 @@ class ContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFaxNumber(?string $value): void
     {
         $this->faxNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ContactDetails
+    */
+    public function withFaxNumber(?string $value): ContactDetails
+    {
+        $this->faxNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMobilePhoneNumber(): ?string
     {
         return $this->mobilePhoneNumber;
@@ -78,15 +98,25 @@ class ContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMobilePhoneNumber(?string $value): void
     {
         $this->mobilePhoneNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ContactDetails
+    */
+    public function withMobilePhoneNumber(?string $value): ContactDetails
+    {
+        $this->mobilePhoneNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
@@ -94,15 +124,25 @@ class ContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPhoneNumber(?string $value): void
     {
         $this->phoneNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ContactDetails
+    */
+    public function withPhoneNumber(?string $value): ContactDetails
+    {
+        $this->phoneNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getWorkPhoneNumber(): ?string
     {
         return $this->workPhoneNumber;
@@ -110,10 +150,20 @@ class ContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setWorkPhoneNumber(?string $value): void
     {
         $this->workPhoneNumber = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ContactDetails
+    */
+    public function withWorkPhoneNumber(?string $value): ContactDetails
+    {
+        $this->workPhoneNumber = $value;
+        return $this;
     }
 
     /**

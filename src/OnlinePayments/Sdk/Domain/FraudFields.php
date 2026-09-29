@@ -13,24 +13,24 @@ class FraudFields extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $blackListData = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-     */
+    */
     public ?string $customerIpAddress = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $productCategories = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getBlackListData(): ?string
     {
         return $this->blackListData;
@@ -38,17 +38,27 @@ class FraudFields extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBlackListData(?string $value): void
     {
         $this->blackListData = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return FraudFields
+    */
+    public function withBlackListData(?string $value): FraudFields
+    {
+        $this->blackListData = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-     */
+    */
     public function getCustomerIpAddress(): ?string
     {
         return $this->customerIpAddress;
@@ -58,15 +68,27 @@ class FraudFields extends DataObject
      * @param string|null $value
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-     */
+    */
     public function setCustomerIpAddress(?string $value): void
     {
         $this->customerIpAddress = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return FraudFields
+     *
+     * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
+    */
+    public function withCustomerIpAddress(?string $value): FraudFields
+    {
+        $this->customerIpAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getProductCategories(): ?array
     {
         return $this->productCategories;
@@ -74,10 +96,20 @@ class FraudFields extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setProductCategories(?array $value): void
     {
         $this->productCategories = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return FraudFields
+    */
+    public function withProductCategories(?array $value): FraudFields
+    {
+        $this->productCategories = $value;
+        return $this;
     }
 
     /**

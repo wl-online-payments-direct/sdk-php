@@ -13,117 +13,117 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $allowDynamicLinking = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $authorizationMode = null;
 
     /**
      * @var AutoCapture|null
-     */
+    */
     public ?AutoCapture $autoCapture = null;
 
     /**
      * @var CurrencyConversionSpecificInput|null
-     */
+    */
     public ?CurrencyConversionSpecificInput $currencyConversionSpecificInput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $initialSchemeTransactionId = null;
 
     /**
      * @var MarketPlace|null
-     */
+    */
     public ?MarketPlace $marketPlace = null;
 
     /**
      * @var MultiplePaymentInformation|null
-     */
+    */
     public ?MultiplePaymentInformation $multiplePaymentInformation = null;
 
     /**
      * @var PaymentProduct130SpecificInput|null
-     */
+    */
     public ?PaymentProduct130SpecificInput $paymentProduct130SpecificInput = null;
 
     /**
      * @var PaymentProduct3012SpecificInput|null
-     */
+    */
     public ?PaymentProduct3012SpecificInput $paymentProduct3012SpecificInput = null;
 
     /**
      * @var PaymentProduct3013SpecificInput|null
-     */
+    */
     public ?PaymentProduct3013SpecificInput $paymentProduct3013SpecificInput = null;
 
     /**
      * @var PaymentProduct3208SpecificInput|null
-     */
+    */
     public ?PaymentProduct3208SpecificInput $paymentProduct3208SpecificInput = null;
 
     /**
      * @var PaymentProduct3209SpecificInput|null
-     */
+    */
     public ?PaymentProduct3209SpecificInput $paymentProduct3209SpecificInput = null;
 
     /**
      * @var PaymentProduct5100SpecificInput|null
-     */
+    */
     public ?PaymentProduct5100SpecificInput $paymentProduct5100SpecificInput = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @var CardRecurrenceDetails|null
-     */
+    */
     public ?CardRecurrenceDetails $recurring = null;
 
     /**
      * @var SubMerchant|null
-     */
+    */
     public ?SubMerchant $subMerchant = null;
 
     /**
      * @var ThreeDSecureBase|null
-     */
+    */
     public ?ThreeDSecureBase $threeDSecure = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $tokenize = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $transactionChannel = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $unscheduledCardOnFileRequestor = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $unscheduledCardOnFileSequenceIndicator = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getAllowDynamicLinking(): ?bool
     {
         return $this->allowDynamicLinking;
@@ -131,15 +131,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setAllowDynamicLinking(?bool $value): void
     {
         $this->allowDynamicLinking = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withAllowDynamicLinking(?bool $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->allowDynamicLinking = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAuthorizationMode(): ?string
     {
         return $this->authorizationMode;
@@ -147,15 +157,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withAuthorizationMode(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->authorizationMode = $value;
+        return $this;
+    }
+
+    /**
      * @return AutoCapture|null
-     */
+    */
     public function getAutoCapture(): ?AutoCapture
     {
         return $this->autoCapture;
@@ -163,15 +183,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param AutoCapture|null $value
-     */
+    */
     public function setAutoCapture(?AutoCapture $value): void
     {
         $this->autoCapture = $value;
     }
 
     /**
+     * @param AutoCapture|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withAutoCapture(?AutoCapture $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->autoCapture = $value;
+        return $this;
+    }
+
+    /**
      * @return CurrencyConversionSpecificInput|null
-     */
+    */
     public function getCurrencyConversionSpecificInput(): ?CurrencyConversionSpecificInput
     {
         return $this->currencyConversionSpecificInput;
@@ -179,15 +209,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param CurrencyConversionSpecificInput|null $value
-     */
+    */
     public function setCurrencyConversionSpecificInput(?CurrencyConversionSpecificInput $value): void
     {
         $this->currencyConversionSpecificInput = $value;
     }
 
     /**
+     * @param CurrencyConversionSpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withCurrencyConversionSpecificInput(?CurrencyConversionSpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->currencyConversionSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getInitialSchemeTransactionId(): ?string
     {
         return $this->initialSchemeTransactionId;
@@ -195,15 +235,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setInitialSchemeTransactionId(?string $value): void
     {
         $this->initialSchemeTransactionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withInitialSchemeTransactionId(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->initialSchemeTransactionId = $value;
+        return $this;
+    }
+
+    /**
      * @return MarketPlace|null
-     */
+    */
     public function getMarketPlace(): ?MarketPlace
     {
         return $this->marketPlace;
@@ -211,15 +261,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param MarketPlace|null $value
-     */
+    */
     public function setMarketPlace(?MarketPlace $value): void
     {
         $this->marketPlace = $value;
     }
 
     /**
+     * @param MarketPlace|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withMarketPlace(?MarketPlace $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->marketPlace = $value;
+        return $this;
+    }
+
+    /**
      * @return MultiplePaymentInformation|null
-     */
+    */
     public function getMultiplePaymentInformation(): ?MultiplePaymentInformation
     {
         return $this->multiplePaymentInformation;
@@ -227,15 +287,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param MultiplePaymentInformation|null $value
-     */
+    */
     public function setMultiplePaymentInformation(?MultiplePaymentInformation $value): void
     {
         $this->multiplePaymentInformation = $value;
     }
 
     /**
+     * @param MultiplePaymentInformation|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withMultiplePaymentInformation(?MultiplePaymentInformation $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->multiplePaymentInformation = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct130SpecificInput|null
-     */
+    */
     public function getPaymentProduct130SpecificInput(): ?PaymentProduct130SpecificInput
     {
         return $this->paymentProduct130SpecificInput;
@@ -243,15 +313,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct130SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct130SpecificInput(?PaymentProduct130SpecificInput $value): void
     {
         $this->paymentProduct130SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct130SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct130SpecificInput(?PaymentProduct130SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct130SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct3012SpecificInput|null
-     */
+    */
     public function getPaymentProduct3012SpecificInput(): ?PaymentProduct3012SpecificInput
     {
         return $this->paymentProduct3012SpecificInput;
@@ -259,15 +339,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct3012SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct3012SpecificInput(?PaymentProduct3012SpecificInput $value): void
     {
         $this->paymentProduct3012SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct3012SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct3012SpecificInput(?PaymentProduct3012SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct3012SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct3013SpecificInput|null
-     */
+    */
     public function getPaymentProduct3013SpecificInput(): ?PaymentProduct3013SpecificInput
     {
         return $this->paymentProduct3013SpecificInput;
@@ -275,15 +365,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct3013SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct3013SpecificInput(?PaymentProduct3013SpecificInput $value): void
     {
         $this->paymentProduct3013SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct3013SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct3013SpecificInput(?PaymentProduct3013SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct3013SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct3208SpecificInput|null
-     */
+    */
     public function getPaymentProduct3208SpecificInput(): ?PaymentProduct3208SpecificInput
     {
         return $this->paymentProduct3208SpecificInput;
@@ -291,15 +391,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct3208SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct3208SpecificInput(?PaymentProduct3208SpecificInput $value): void
     {
         $this->paymentProduct3208SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct3208SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct3208SpecificInput(?PaymentProduct3208SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct3208SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct3209SpecificInput|null
-     */
+    */
     public function getPaymentProduct3209SpecificInput(): ?PaymentProduct3209SpecificInput
     {
         return $this->paymentProduct3209SpecificInput;
@@ -307,15 +417,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct3209SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct3209SpecificInput(?PaymentProduct3209SpecificInput $value): void
     {
         $this->paymentProduct3209SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct3209SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct3209SpecificInput(?PaymentProduct3209SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct3209SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct5100SpecificInput|null
-     */
+    */
     public function getPaymentProduct5100SpecificInput(): ?PaymentProduct5100SpecificInput
     {
         return $this->paymentProduct5100SpecificInput;
@@ -323,15 +443,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param PaymentProduct5100SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct5100SpecificInput(?PaymentProduct5100SpecificInput $value): void
     {
         $this->paymentProduct5100SpecificInput = $value;
     }
 
     /**
+     * @param PaymentProduct5100SpecificInput|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct5100SpecificInput(?PaymentProduct5100SpecificInput $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct5100SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -339,15 +469,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProductId(?int $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->paymentProductId = $value;
+        return $this;
+    }
+
+    /**
      * @return CardRecurrenceDetails|null
-     */
+    */
     public function getRecurring(): ?CardRecurrenceDetails
     {
         return $this->recurring;
@@ -355,15 +495,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param CardRecurrenceDetails|null $value
-     */
+    */
     public function setRecurring(?CardRecurrenceDetails $value): void
     {
         $this->recurring = $value;
     }
 
     /**
+     * @param CardRecurrenceDetails|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withRecurring(?CardRecurrenceDetails $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->recurring = $value;
+        return $this;
+    }
+
+    /**
      * @return SubMerchant|null
-     */
+    */
     public function getSubMerchant(): ?SubMerchant
     {
         return $this->subMerchant;
@@ -371,15 +521,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param SubMerchant|null $value
-     */
+    */
     public function setSubMerchant(?SubMerchant $value): void
     {
         $this->subMerchant = $value;
     }
 
     /**
+     * @param SubMerchant|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withSubMerchant(?SubMerchant $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->subMerchant = $value;
+        return $this;
+    }
+
+    /**
      * @return ThreeDSecureBase|null
-     */
+    */
     public function getThreeDSecure(): ?ThreeDSecureBase
     {
         return $this->threeDSecure;
@@ -387,15 +547,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param ThreeDSecureBase|null $value
-     */
+    */
     public function setThreeDSecure(?ThreeDSecureBase $value): void
     {
         $this->threeDSecure = $value;
     }
 
     /**
+     * @param ThreeDSecureBase|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withThreeDSecure(?ThreeDSecureBase $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->threeDSecure = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -403,15 +573,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withToken(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->token = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getTokenize(): ?bool
     {
         return $this->tokenize;
@@ -419,15 +599,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setTokenize(?bool $value): void
     {
         $this->tokenize = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withTokenize(?bool $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->tokenize = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTransactionChannel(): ?string
     {
         return $this->transactionChannel;
@@ -435,15 +625,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTransactionChannel(?string $value): void
     {
         $this->transactionChannel = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withTransactionChannel(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->transactionChannel = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUnscheduledCardOnFileRequestor(): ?string
     {
         return $this->unscheduledCardOnFileRequestor;
@@ -451,15 +651,25 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUnscheduledCardOnFileRequestor(?string $value): void
     {
         $this->unscheduledCardOnFileRequestor = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withUnscheduledCardOnFileRequestor(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->unscheduledCardOnFileRequestor = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUnscheduledCardOnFileSequenceIndicator(): ?string
     {
         return $this->unscheduledCardOnFileSequenceIndicator;
@@ -467,10 +677,20 @@ class CardPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUnscheduledCardOnFileSequenceIndicator(?string $value): void
     {
         $this->unscheduledCardOnFileSequenceIndicator = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withUnscheduledCardOnFileSequenceIndicator(?string $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->unscheduledCardOnFileSequenceIndicator = $value;
+        return $this;
     }
 
     /**

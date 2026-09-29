@@ -13,17 +13,17 @@ class MultiplePaymentInformation extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentPattern = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalNumberOfPayments = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPaymentPattern(): ?string
     {
         return $this->paymentPattern;
@@ -31,15 +31,25 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentPattern(?string $value): void
     {
         $this->paymentPattern = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MultiplePaymentInformation
+    */
+    public function withPaymentPattern(?string $value): MultiplePaymentInformation
+    {
+        $this->paymentPattern = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalNumberOfPayments(): ?int
     {
         return $this->totalNumberOfPayments;
@@ -47,10 +57,20 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalNumberOfPayments(?int $value): void
     {
         $this->totalNumberOfPayments = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return MultiplePaymentInformation
+    */
+    public function withTotalNumberOfPayments(?int $value): MultiplePaymentInformation
+    {
+        $this->totalNumberOfPayments = $value;
+        return $this;
     }
 
     /**

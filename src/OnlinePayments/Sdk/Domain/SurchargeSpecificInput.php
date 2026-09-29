@@ -13,17 +13,17 @@ class SurchargeSpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $mode = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMode(): ?string
     {
         return $this->mode;
@@ -31,15 +31,25 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMode(?string $value): void
     {
         $this->mode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SurchargeSpecificInput
+    */
+    public function withMode(?string $value): SurchargeSpecificInput
+    {
+        $this->mode = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -47,10 +57,20 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
+    }
+
+    /**
+     * @param AmountOfMoney|null $value
+     * @return SurchargeSpecificInput
+    */
+    public function withSurchargeAmount(?AmountOfMoney $value): SurchargeSpecificInput
+    {
+        $this->surchargeAmount = $value;
+        return $this;
     }
 
     /**

@@ -13,22 +13,22 @@ class NetworkTokenLinked extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $expiryDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $maskedToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tokenState = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -36,15 +36,25 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenLinked
+    */
+    public function withExpiryDate(?string $value): NetworkTokenLinked
+    {
+        $this->expiryDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMaskedToken(): ?string
     {
         return $this->maskedToken;
@@ -52,15 +62,25 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMaskedToken(?string $value): void
     {
         $this->maskedToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return NetworkTokenLinked
+    */
+    public function withMaskedToken(?string $value): NetworkTokenLinked
+    {
+        $this->maskedToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTokenState(): ?string
     {
         return $this->tokenState;
@@ -68,10 +88,20 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTokenState(?string $value): void
     {
         $this->tokenState = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return NetworkTokenLinked
+    */
+    public function withTokenState(?string $value): NetworkTokenLinked
+    {
+        $this->tokenState = $value;
+        return $this;
     }
 
     /**

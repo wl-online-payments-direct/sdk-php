@@ -13,17 +13,17 @@ class CreatedPaymentOutput extends DataObject
 {
     /**
      * @var PaymentResponse|null
-     */
+    */
     public ?PaymentResponse $payment = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentStatusCategory = null;
 
     /**
      * @return PaymentResponse|null
-     */
+    */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -31,15 +31,25 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     */
+    */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
     }
 
     /**
+     * @param PaymentResponse|null $value
+     * @return CreatedPaymentOutput
+    */
+    public function withPayment(?PaymentResponse $value): CreatedPaymentOutput
+    {
+        $this->payment = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentStatusCategory(): ?string
     {
         return $this->paymentStatusCategory;
@@ -47,10 +57,20 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentStatusCategory(?string $value): void
     {
         $this->paymentStatusCategory = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreatedPaymentOutput
+    */
+    public function withPaymentStatusCategory(?string $value): CreatedPaymentOutput
+    {
+        $this->paymentStatusCategory = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class SendTestRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $url = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getUrl(): ?string
     {
         return $this->url;
@@ -26,10 +26,20 @@ class SendTestRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUrl(?string $value): void
     {
         $this->url = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return SendTestRequest
+    */
+    public function withUrl(?string $value): SendTestRequest
+    {
+        $this->url = $value;
+        return $this;
     }
 
     /**

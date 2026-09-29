@@ -15,12 +15,12 @@ class RedirectPaymentProduct809SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getIssuerId(): ?string
     {
         return $this->issuerId;
@@ -28,10 +28,20 @@ class RedirectPaymentProduct809SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerId(?string $value): void
     {
         $this->issuerId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct809SpecificInput
+    */
+    public function withIssuerId(?string $value): RedirectPaymentProduct809SpecificInput
+    {
+        $this->issuerId = $value;
+        return $this;
     }
 
     /**

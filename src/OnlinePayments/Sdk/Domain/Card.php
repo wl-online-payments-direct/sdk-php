@@ -13,27 +13,27 @@ class Card extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cvv = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -41,15 +41,25 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Card
+    */
+    public function withCardNumber(?string $value): Card
+    {
+        $this->cardNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -57,15 +67,25 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Card
+    */
+    public function withCardholderName(?string $value): Card
+    {
+        $this->cardholderName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCvv(): ?string
     {
         return $this->cvv;
@@ -73,15 +93,25 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCvv(?string $value): void
     {
         $this->cvv = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Card
+    */
+    public function withCvv(?string $value): Card
+    {
+        $this->cvv = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -89,10 +119,20 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Card
+    */
+    public function withExpiryDate(?string $value): Card
+    {
+        $this->expiryDate = $value;
+        return $this;
     }
 
     /**

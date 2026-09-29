@@ -13,12 +13,12 @@ class FixedListValidator extends DataObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $allowedValues = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getAllowedValues(): ?array
     {
         return $this->allowedValues;
@@ -26,10 +26,20 @@ class FixedListValidator extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setAllowedValues(?array $value): void
     {
         $this->allowedValues = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return FixedListValidator
+    */
+    public function withAllowedValues(?array $value): FixedListValidator
+    {
+        $this->allowedValues = $value;
+        return $this;
     }
 
     /**

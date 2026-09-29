@@ -13,12 +13,12 @@ class OmnichannelSubsequentSpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $operatorId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getOperatorId(): ?string
     {
         return $this->operatorId;
@@ -26,10 +26,20 @@ class OmnichannelSubsequentSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperatorId(?string $value): void
     {
         $this->operatorId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OmnichannelSubsequentSpecificInput
+    */
+    public function withOperatorId(?string $value): OmnichannelSubsequentSpecificInput
+    {
+        $this->operatorId = $value;
+        return $this;
     }
 
     /**

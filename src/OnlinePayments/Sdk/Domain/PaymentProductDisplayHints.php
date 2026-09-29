@@ -13,22 +13,22 @@ class PaymentProductDisplayHints extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $displayOrder = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $label = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $logo = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getDisplayOrder(): ?int
     {
         return $this->displayOrder;
@@ -36,15 +36,25 @@ class PaymentProductDisplayHints extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setDisplayOrder(?int $value): void
     {
         $this->displayOrder = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return PaymentProductDisplayHints
+    */
+    public function withDisplayOrder(?int $value): PaymentProductDisplayHints
+    {
+        $this->displayOrder = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -52,15 +62,25 @@ class PaymentProductDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductDisplayHints
+    */
+    public function withLabel(?string $value): PaymentProductDisplayHints
+    {
+        $this->label = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLogo(): ?string
     {
         return $this->logo;
@@ -68,10 +88,20 @@ class PaymentProductDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLogo(?string $value): void
     {
         $this->logo = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductDisplayHints
+    */
+    public function withLogo(?string $value): PaymentProductDisplayHints
+    {
+        $this->logo = $value;
+        return $this;
     }
 
     /**

@@ -13,52 +13,52 @@ class ThreeDSecureBase extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $authenticationAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $challengeCanvasSize = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $challengeIndicator = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $exemptionRequest = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $merchantFraudRate = null;
 
     /**
      * @var ThreeDSecureData|null
-     */
+    */
     public ?ThreeDSecureData $priorThreeDSecureData = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $secureCorporatePayment = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $skipAuthentication = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $skipSoftDecline = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getAuthenticationAmount(): ?int
     {
         return $this->authenticationAmount;
@@ -66,15 +66,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAuthenticationAmount(?int $value): void
     {
         $this->authenticationAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withAuthenticationAmount(?int $value): ThreeDSecureBase
+    {
+        $this->authenticationAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getChallengeCanvasSize(): ?string
     {
         return $this->challengeCanvasSize;
@@ -82,15 +92,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setChallengeCanvasSize(?string $value): void
     {
         $this->challengeCanvasSize = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withChallengeCanvasSize(?string $value): ThreeDSecureBase
+    {
+        $this->challengeCanvasSize = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getChallengeIndicator(): ?string
     {
         return $this->challengeIndicator;
@@ -98,15 +118,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setChallengeIndicator(?string $value): void
     {
         $this->challengeIndicator = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withChallengeIndicator(?string $value): ThreeDSecureBase
+    {
+        $this->challengeIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExemptionRequest(): ?string
     {
         return $this->exemptionRequest;
@@ -114,15 +144,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExemptionRequest(?string $value): void
     {
         $this->exemptionRequest = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withExemptionRequest(?string $value): ThreeDSecureBase
+    {
+        $this->exemptionRequest = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getMerchantFraudRate(): ?int
     {
         return $this->merchantFraudRate;
@@ -130,15 +170,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMerchantFraudRate(?int $value): void
     {
         $this->merchantFraudRate = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withMerchantFraudRate(?int $value): ThreeDSecureBase
+    {
+        $this->merchantFraudRate = $value;
+        return $this;
+    }
+
+    /**
      * @return ThreeDSecureData|null
-     */
+    */
     public function getPriorThreeDSecureData(): ?ThreeDSecureData
     {
         return $this->priorThreeDSecureData;
@@ -146,15 +196,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param ThreeDSecureData|null $value
-     */
+    */
     public function setPriorThreeDSecureData(?ThreeDSecureData $value): void
     {
         $this->priorThreeDSecureData = $value;
     }
 
     /**
+     * @param ThreeDSecureData|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withPriorThreeDSecureData(?ThreeDSecureData $value): ThreeDSecureBase
+    {
+        $this->priorThreeDSecureData = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getSecureCorporatePayment(): ?bool
     {
         return $this->secureCorporatePayment;
@@ -162,15 +222,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setSecureCorporatePayment(?bool $value): void
     {
         $this->secureCorporatePayment = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withSecureCorporatePayment(?bool $value): ThreeDSecureBase
+    {
+        $this->secureCorporatePayment = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getSkipAuthentication(): ?bool
     {
         return $this->skipAuthentication;
@@ -178,15 +248,25 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setSkipAuthentication(?bool $value): void
     {
         $this->skipAuthentication = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withSkipAuthentication(?bool $value): ThreeDSecureBase
+    {
+        $this->skipAuthentication = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getSkipSoftDecline(): ?bool
     {
         return $this->skipSoftDecline;
@@ -194,10 +274,20 @@ class ThreeDSecureBase extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setSkipSoftDecline(?bool $value): void
     {
         $this->skipSoftDecline = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return ThreeDSecureBase
+    */
+    public function withSkipSoftDecline(?bool $value): ThreeDSecureBase
+    {
+        $this->skipSoftDecline = $value;
+        return $this;
     }
 
     /**

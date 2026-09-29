@@ -13,17 +13,17 @@ class ReattemptInstructionsConditions extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $maxAttempts = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $maxDelay = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getMaxAttempts(): ?int
     {
         return $this->maxAttempts;
@@ -31,15 +31,25 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMaxAttempts(?int $value): void
     {
         $this->maxAttempts = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ReattemptInstructionsConditions
+    */
+    public function withMaxAttempts(?int $value): ReattemptInstructionsConditions
+    {
+        $this->maxAttempts = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getMaxDelay(): ?int
     {
         return $this->maxDelay;
@@ -47,10 +57,20 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMaxDelay(?int $value): void
     {
         $this->maxDelay = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return ReattemptInstructionsConditions
+    */
+    public function withMaxDelay(?int $value): ReattemptInstructionsConditions
+    {
+        $this->maxDelay = $value;
+        return $this;
     }
 
     /**

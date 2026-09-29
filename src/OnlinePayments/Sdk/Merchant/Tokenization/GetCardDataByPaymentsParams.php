@@ -15,12 +15,12 @@ class GetCardDataByPaymentsParams extends RequestObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $payments = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getPayments(): ?array
     {
         return $this->payments;
@@ -28,7 +28,7 @@ class GetCardDataByPaymentsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setPayments(?array $value): void
     {
         $this->payments = $value;
@@ -36,7 +36,16 @@ class GetCardDataByPaymentsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-     */
+    */
+    public function withPayments(array $value): GetCardDataByPaymentsParams
+    {
+        $this->payments = $value;
+        return $this;
+    }
+
+    /**
+     * @param string[]|null $value
+    */
     public function addPayments(array $value): void
     {
         if (is_null($this->payments)) {

@@ -13,12 +13,12 @@ class PaymentProductSessionResponse extends DataObject
 {
     /**
      * @var PaymentProductSession302SpecificOutput|null
-     */
+    */
     public ?PaymentProductSession302SpecificOutput $paymentProductSession302SpecificOutput = null;
 
     /**
      * @return PaymentProductSession302SpecificOutput|null
-     */
+    */
     public function getPaymentProductSession302SpecificOutput(): ?PaymentProductSession302SpecificOutput
     {
         return $this->paymentProductSession302SpecificOutput;
@@ -26,10 +26,20 @@ class PaymentProductSessionResponse extends DataObject
 
     /**
      * @param PaymentProductSession302SpecificOutput|null $value
-     */
+    */
     public function setPaymentProductSession302SpecificOutput(?PaymentProductSession302SpecificOutput $value): void
     {
         $this->paymentProductSession302SpecificOutput = $value;
+    }
+
+    /**
+     * @param PaymentProductSession302SpecificOutput|null $value
+     * @return PaymentProductSessionResponse
+    */
+    public function withPaymentProductSession302SpecificOutput(?PaymentProductSession302SpecificOutput $value): PaymentProductSessionResponse
+    {
+        $this->paymentProductSession302SpecificOutput = $value;
+        return $this;
     }
 
     /**

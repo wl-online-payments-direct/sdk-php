@@ -13,17 +13,17 @@ class MandateContactDetails extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $emailAddress = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $phoneNumber = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
@@ -31,15 +31,25 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateContactDetails
+    */
+    public function withEmailAddress(?string $value): MandateContactDetails
+    {
+        $this->emailAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
@@ -47,10 +57,20 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPhoneNumber(?string $value): void
     {
         $this->phoneNumber = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return MandateContactDetails
+    */
+    public function withPhoneNumber(?string $value): MandateContactDetails
+    {
+        $this->phoneNumber = $value;
+        return $this;
     }
 
     /**

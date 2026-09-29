@@ -13,22 +13,22 @@ class PaymentProduct3013SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $marketNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $purchasingBuyerReference1 = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $purchasingBuyerReference2 = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMarketNumber(): ?string
     {
         return $this->marketNumber;
@@ -36,15 +36,25 @@ class PaymentProduct3013SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMarketNumber(?string $value): void
     {
         $this->marketNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct3013SpecificInput
+    */
+    public function withMarketNumber(?string $value): PaymentProduct3013SpecificInput
+    {
+        $this->marketNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPurchasingBuyerReference1(): ?string
     {
         return $this->purchasingBuyerReference1;
@@ -52,15 +62,25 @@ class PaymentProduct3013SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPurchasingBuyerReference1(?string $value): void
     {
         $this->purchasingBuyerReference1 = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct3013SpecificInput
+    */
+    public function withPurchasingBuyerReference1(?string $value): PaymentProduct3013SpecificInput
+    {
+        $this->purchasingBuyerReference1 = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPurchasingBuyerReference2(): ?string
     {
         return $this->purchasingBuyerReference2;
@@ -68,10 +88,20 @@ class PaymentProduct3013SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPurchasingBuyerReference2(?string $value): void
     {
         $this->purchasingBuyerReference2 = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct3013SpecificInput
+    */
+    public function withPurchasingBuyerReference2(?string $value): PaymentProduct3013SpecificInput
+    {
+        $this->purchasingBuyerReference2 = $value;
+        return $this;
     }
 
     /**

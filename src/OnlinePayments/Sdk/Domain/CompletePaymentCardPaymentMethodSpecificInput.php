@@ -13,12 +13,12 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var CardWithoutCvv|null
-     */
+    */
     public ?CardWithoutCvv $card = null;
 
     /**
      * @return CardWithoutCvv|null
-     */
+    */
     public function getCard(): ?CardWithoutCvv
     {
         return $this->card;
@@ -26,10 +26,20 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-     */
+    */
     public function setCard(?CardWithoutCvv $value): void
     {
         $this->card = $value;
+    }
+
+    /**
+     * @param CardWithoutCvv|null $value
+     * @return CompletePaymentCardPaymentMethodSpecificInput
+    */
+    public function withCard(?CardWithoutCvv $value): CompletePaymentCardPaymentMethodSpecificInput
+    {
+        $this->card = $value;
+        return $this;
     }
 
     /**

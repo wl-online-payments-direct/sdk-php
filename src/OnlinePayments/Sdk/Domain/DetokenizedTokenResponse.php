@@ -13,42 +13,42 @@ class DetokenizedTokenResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardBrand = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardExpiryDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardHolderName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $encryptedCardNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $schemeReferenceData = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardBrand(): ?string
     {
         return $this->cardBrand;
@@ -56,15 +56,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardBrand(?string $value): void
     {
         $this->cardBrand = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withCardBrand(?string $value): DetokenizedTokenResponse
+    {
+        $this->cardBrand = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardExpiryDate(): ?string
     {
         return $this->cardExpiryDate;
@@ -72,15 +82,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardExpiryDate(?string $value): void
     {
         $this->cardExpiryDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withCardExpiryDate(?string $value): DetokenizedTokenResponse
+    {
+        $this->cardExpiryDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardHolderName(): ?string
     {
         return $this->cardHolderName;
@@ -88,15 +108,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardHolderName(?string $value): void
     {
         $this->cardHolderName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withCardHolderName(?string $value): DetokenizedTokenResponse
+    {
+        $this->cardHolderName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEncryptedCardNumber(): ?string
     {
         return $this->encryptedCardNumber;
@@ -104,15 +134,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEncryptedCardNumber(?string $value): void
     {
         $this->encryptedCardNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withEncryptedCardNumber(?string $value): DetokenizedTokenResponse
+    {
+        $this->encryptedCardNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -120,15 +160,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withPaymentId(?string $value): DetokenizedTokenResponse
+    {
+        $this->paymentId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
@@ -136,15 +186,25 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withSchemeReferenceData(?string $value): DetokenizedTokenResponse
+    {
+        $this->schemeReferenceData = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -152,10 +212,20 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return DetokenizedTokenResponse
+    */
+    public function withToken(?string $value): DetokenizedTokenResponse
+    {
+        $this->token = $value;
+        return $this;
     }
 
     /**

@@ -13,42 +13,42 @@ class PaymentStatusOutput extends DataObject
 {
     /**
      * @var APIError[]|null
-     */
+    */
     public ?array $errors = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isAuthorized = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isCancellable = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRefundable = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $statusCategory = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $statusCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $statusCodeChangeDateTime = null;
 
     /**
      * @return APIError[]|null
-     */
+    */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -56,15 +56,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param APIError[]|null $value
-     */
+    */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
     }
 
     /**
+     * @param APIError[]|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withErrors(?array $value): PaymentStatusOutput
+    {
+        $this->errors = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsAuthorized(): ?bool
     {
         return $this->isAuthorized;
@@ -72,15 +82,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsAuthorized(?bool $value): void
     {
         $this->isAuthorized = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withIsAuthorized(?bool $value): PaymentStatusOutput
+    {
+        $this->isAuthorized = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsCancellable(): ?bool
     {
         return $this->isCancellable;
@@ -88,15 +108,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsCancellable(?bool $value): void
     {
         $this->isCancellable = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withIsCancellable(?bool $value): PaymentStatusOutput
+    {
+        $this->isCancellable = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsRefundable(): ?bool
     {
         return $this->isRefundable;
@@ -104,15 +134,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRefundable(?bool $value): void
     {
         $this->isRefundable = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withIsRefundable(?bool $value): PaymentStatusOutput
+    {
+        $this->isRefundable = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatusCategory(): ?string
     {
         return $this->statusCategory;
@@ -120,15 +160,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatusCategory(?string $value): void
     {
         $this->statusCategory = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withStatusCategory(?string $value): PaymentStatusOutput
+    {
+        $this->statusCategory = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -136,15 +186,25 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withStatusCode(?int $value): PaymentStatusOutput
+    {
+        $this->statusCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatusCodeChangeDateTime(): ?string
     {
         return $this->statusCodeChangeDateTime;
@@ -152,10 +212,20 @@ class PaymentStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatusCodeChangeDateTime(?string $value): void
     {
         $this->statusCodeChangeDateTime = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentStatusOutput
+    */
+    public function withStatusCodeChangeDateTime(?string $value): PaymentStatusOutput
+    {
+        $this->statusCodeChangeDateTime = $value;
+        return $this;
     }
 
     /**

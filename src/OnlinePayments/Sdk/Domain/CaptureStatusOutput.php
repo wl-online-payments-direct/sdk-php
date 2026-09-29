@@ -13,12 +13,12 @@ class CaptureStatusOutput extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $statusCode = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -26,10 +26,20 @@ class CaptureStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return CaptureStatusOutput
+    */
+    public function withStatusCode(?int $value): CaptureStatusOutput
+    {
+        $this->statusCode = $value;
+        return $this;
     }
 
     /**

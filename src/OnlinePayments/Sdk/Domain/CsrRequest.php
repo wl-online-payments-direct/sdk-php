@@ -13,12 +13,12 @@ class CsrRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $csr = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCsr(): ?string
     {
         return $this->csr;
@@ -26,10 +26,20 @@ class CsrRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCsr(?string $value): void
     {
         $this->csr = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CsrRequest
+    */
+    public function withCsr(?string $value): CsrRequest
+    {
+        $this->csr = $value;
+        return $this;
     }
 
     /**

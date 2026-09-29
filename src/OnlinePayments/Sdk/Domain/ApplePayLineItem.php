@@ -13,42 +13,42 @@ class ApplePayLineItem extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $amount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $label = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentTiming = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $recurringPaymentEndDate = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $recurringPaymentIntervalCount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $recurringPaymentIntervalUnit = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $recurringPaymentStartDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAmount(): ?string
     {
         return $this->amount;
@@ -56,15 +56,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAmount(?string $value): void
     {
         $this->amount = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withAmount(?string $value): ApplePayLineItem
+    {
+        $this->amount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -72,15 +82,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withLabel(?string $value): ApplePayLineItem
+    {
+        $this->label = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentTiming(): ?string
     {
         return $this->paymentTiming;
@@ -88,15 +108,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentTiming(?string $value): void
     {
         $this->paymentTiming = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withPaymentTiming(?string $value): ApplePayLineItem
+    {
+        $this->paymentTiming = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRecurringPaymentEndDate(): ?string
     {
         return $this->recurringPaymentEndDate;
@@ -104,15 +134,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRecurringPaymentEndDate(?string $value): void
     {
         $this->recurringPaymentEndDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withRecurringPaymentEndDate(?string $value): ApplePayLineItem
+    {
+        $this->recurringPaymentEndDate = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getRecurringPaymentIntervalCount(): ?int
     {
         return $this->recurringPaymentIntervalCount;
@@ -120,15 +160,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setRecurringPaymentIntervalCount(?int $value): void
     {
         $this->recurringPaymentIntervalCount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ApplePayLineItem
+    */
+    public function withRecurringPaymentIntervalCount(?int $value): ApplePayLineItem
+    {
+        $this->recurringPaymentIntervalCount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRecurringPaymentIntervalUnit(): ?string
     {
         return $this->recurringPaymentIntervalUnit;
@@ -136,15 +186,25 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRecurringPaymentIntervalUnit(?string $value): void
     {
         $this->recurringPaymentIntervalUnit = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withRecurringPaymentIntervalUnit(?string $value): ApplePayLineItem
+    {
+        $this->recurringPaymentIntervalUnit = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRecurringPaymentStartDate(): ?string
     {
         return $this->recurringPaymentStartDate;
@@ -152,10 +212,20 @@ class ApplePayLineItem extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRecurringPaymentStartDate(?string $value): void
     {
         $this->recurringPaymentStartDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ApplePayLineItem
+    */
+    public function withRecurringPaymentStartDate(?string $value): ApplePayLineItem
+    {
+        $this->recurringPaymentStartDate = $value;
+        return $this;
     }
 
     /**

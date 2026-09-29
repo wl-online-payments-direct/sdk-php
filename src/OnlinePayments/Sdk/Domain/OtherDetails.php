@@ -13,17 +13,17 @@ class OtherDetails extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $metaData = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $travelData = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMetaData(): ?string
     {
         return $this->metaData;
@@ -31,15 +31,25 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMetaData(?string $value): void
     {
         $this->metaData = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OtherDetails
+    */
+    public function withMetaData(?string $value): OtherDetails
+    {
+        $this->metaData = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTravelData(): ?string
     {
         return $this->travelData;
@@ -47,10 +57,20 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTravelData(?string $value): void
     {
         $this->travelData = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OtherDetails
+    */
+    public function withTravelData(?string $value): OtherDetails
+    {
+        $this->travelData = $value;
+        return $this;
     }
 
     /**

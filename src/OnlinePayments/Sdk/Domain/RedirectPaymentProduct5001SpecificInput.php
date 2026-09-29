@@ -13,17 +13,17 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $exemptionRequest = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $subsequentType = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getExemptionRequest(): ?string
     {
         return $this->exemptionRequest;
@@ -31,15 +31,25 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExemptionRequest(?string $value): void
     {
         $this->exemptionRequest = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct5001SpecificInput
+    */
+    public function withExemptionRequest(?string $value): RedirectPaymentProduct5001SpecificInput
+    {
+        $this->exemptionRequest = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
@@ -47,10 +57,20 @@ class RedirectPaymentProduct5001SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct5001SpecificInput
+    */
+    public function withSubsequentType(?string $value): RedirectPaymentProduct5001SpecificInput
+    {
+        $this->subsequentType = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class GetHostedCheckoutResponse extends DataObject
 {
     /**
      * @var CreatedPaymentOutput|null
-     */
+    */
     public ?CreatedPaymentOutput $createdPaymentOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @return CreatedPaymentOutput|null
-     */
+    */
     public function getCreatedPaymentOutput(): ?CreatedPaymentOutput
     {
         return $this->createdPaymentOutput;
@@ -31,15 +31,25 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param CreatedPaymentOutput|null $value
-     */
+    */
     public function setCreatedPaymentOutput(?CreatedPaymentOutput $value): void
     {
         $this->createdPaymentOutput = $value;
     }
 
     /**
+     * @param CreatedPaymentOutput|null $value
+     * @return GetHostedCheckoutResponse
+    */
+    public function withCreatedPaymentOutput(?CreatedPaymentOutput $value): GetHostedCheckoutResponse
+    {
+        $this->createdPaymentOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -47,10 +57,20 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return GetHostedCheckoutResponse
+    */
+    public function withStatus(?string $value): GetHostedCheckoutResponse
+    {
+        $this->status = $value;
+        return $this;
     }
 
     /**

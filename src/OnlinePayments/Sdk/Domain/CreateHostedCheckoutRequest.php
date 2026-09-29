@@ -13,47 +13,47 @@ class CreateHostedCheckoutRequest extends DataObject
 {
     /**
      * @var CardPaymentMethodSpecificInputBase|null
-     */
+    */
     public ?CardPaymentMethodSpecificInputBase $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var Feedbacks|null
-     */
+    */
     public ?Feedbacks $feedbacks = null;
 
     /**
      * @var FraudFields|null
-     */
+    */
     public ?FraudFields $fraudFields = null;
 
     /**
      * @var HostedCheckoutSpecificInput|null
-     */
+    */
     public ?HostedCheckoutSpecificInput $hostedCheckoutSpecificInput = null;
 
     /**
      * @var MobilePaymentMethodHostedCheckoutSpecificInput|null
-     */
+    */
     public ?MobilePaymentMethodHostedCheckoutSpecificInput $mobilePaymentMethodSpecificInput = null;
 
     /**
      * @var Order|null
-     */
+    */
     public ?Order $order = null;
 
     /**
      * @var RedirectPaymentMethodSpecificInput|null
-     */
+    */
     public ?RedirectPaymentMethodSpecificInput $redirectPaymentMethodSpecificInput = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificInputBase|null
-     */
+    */
     public ?SepaDirectDebitPaymentMethodSpecificInputBase $sepaDirectDebitPaymentMethodSpecificInput = null;
 
     /**
      * @return CardPaymentMethodSpecificInputBase|null
-     */
+    */
     public function getCardPaymentMethodSpecificInput(): ?CardPaymentMethodSpecificInputBase
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -61,15 +61,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInputBase|null $value
-     */
+    */
     public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputBase $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param CardPaymentMethodSpecificInputBase|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputBase $value): CreateHostedCheckoutRequest
+    {
+        $this->cardPaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return Feedbacks|null
-     */
+    */
     public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
@@ -77,15 +87,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-     */
+    */
     public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
     }
 
     /**
+     * @param Feedbacks|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withFeedbacks(?Feedbacks $value): CreateHostedCheckoutRequest
+    {
+        $this->feedbacks = $value;
+        return $this;
+    }
+
+    /**
      * @return FraudFields|null
-     */
+    */
     public function getFraudFields(): ?FraudFields
     {
         return $this->fraudFields;
@@ -93,15 +113,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param FraudFields|null $value
-     */
+    */
     public function setFraudFields(?FraudFields $value): void
     {
         $this->fraudFields = $value;
     }
 
     /**
+     * @param FraudFields|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withFraudFields(?FraudFields $value): CreateHostedCheckoutRequest
+    {
+        $this->fraudFields = $value;
+        return $this;
+    }
+
+    /**
      * @return HostedCheckoutSpecificInput|null
-     */
+    */
     public function getHostedCheckoutSpecificInput(): ?HostedCheckoutSpecificInput
     {
         return $this->hostedCheckoutSpecificInput;
@@ -109,15 +139,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param HostedCheckoutSpecificInput|null $value
-     */
+    */
     public function setHostedCheckoutSpecificInput(?HostedCheckoutSpecificInput $value): void
     {
         $this->hostedCheckoutSpecificInput = $value;
     }
 
     /**
+     * @param HostedCheckoutSpecificInput|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withHostedCheckoutSpecificInput(?HostedCheckoutSpecificInput $value): CreateHostedCheckoutRequest
+    {
+        $this->hostedCheckoutSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return MobilePaymentMethodHostedCheckoutSpecificInput|null
-     */
+    */
     public function getMobilePaymentMethodSpecificInput(): ?MobilePaymentMethodHostedCheckoutSpecificInput
     {
         return $this->mobilePaymentMethodSpecificInput;
@@ -125,15 +165,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param MobilePaymentMethodHostedCheckoutSpecificInput|null $value
-     */
+    */
     public function setMobilePaymentMethodSpecificInput(?MobilePaymentMethodHostedCheckoutSpecificInput $value): void
     {
         $this->mobilePaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param MobilePaymentMethodHostedCheckoutSpecificInput|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withMobilePaymentMethodSpecificInput(?MobilePaymentMethodHostedCheckoutSpecificInput $value): CreateHostedCheckoutRequest
+    {
+        $this->mobilePaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return Order|null
-     */
+    */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -141,15 +191,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param Order|null $value
-     */
+    */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
     }
 
     /**
+     * @param Order|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withOrder(?Order $value): CreateHostedCheckoutRequest
+    {
+        $this->order = $value;
+        return $this;
+    }
+
+    /**
      * @return RedirectPaymentMethodSpecificInput|null
-     */
+    */
     public function getRedirectPaymentMethodSpecificInput(): ?RedirectPaymentMethodSpecificInput
     {
         return $this->redirectPaymentMethodSpecificInput;
@@ -157,15 +217,25 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): void
     {
         $this->redirectPaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param RedirectPaymentMethodSpecificInput|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): CreateHostedCheckoutRequest
+    {
+        $this->redirectPaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return SepaDirectDebitPaymentMethodSpecificInputBase|null
-     */
+    */
     public function getSepaDirectDebitPaymentMethodSpecificInput(): ?SepaDirectDebitPaymentMethodSpecificInputBase
     {
         return $this->sepaDirectDebitPaymentMethodSpecificInput;
@@ -173,10 +243,20 @@ class CreateHostedCheckoutRequest extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificInputBase|null $value
-     */
+    */
     public function setSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInputBase $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
+    }
+
+    /**
+     * @param SepaDirectDebitPaymentMethodSpecificInputBase|null $value
+     * @return CreateHostedCheckoutRequest
+    */
+    public function withSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInputBase $value): CreateHostedCheckoutRequest
+    {
+        $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
+        return $this;
     }
 
     /**

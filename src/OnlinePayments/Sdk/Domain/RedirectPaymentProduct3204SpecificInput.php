@@ -13,17 +13,17 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $aliasLabel = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $blikCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAliasLabel(): ?string
     {
         return $this->aliasLabel;
@@ -31,15 +31,25 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAliasLabel(?string $value): void
     {
         $this->aliasLabel = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3204SpecificInput
+    */
+    public function withAliasLabel(?string $value): RedirectPaymentProduct3204SpecificInput
+    {
+        $this->aliasLabel = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getBlikCode(): ?string
     {
         return $this->blikCode;
@@ -47,10 +57,20 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBlikCode(?string $value): void
     {
         $this->blikCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct3204SpecificInput
+    */
+    public function withBlikCode(?string $value): RedirectPaymentProduct3204SpecificInput
+    {
+        $this->blikCode = $value;
+        return $this;
     }
 
     /**

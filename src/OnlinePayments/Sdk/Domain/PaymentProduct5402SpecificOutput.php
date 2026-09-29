@@ -13,12 +13,12 @@ class PaymentProduct5402SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $brand = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getBrand(): ?string
     {
         return $this->brand;
@@ -26,10 +26,20 @@ class PaymentProduct5402SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBrand(?string $value): void
     {
         $this->brand = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5402SpecificOutput
+    */
+    public function withBrand(?string $value): PaymentProduct5402SpecificOutput
+    {
+        $this->brand = $value;
+        return $this;
     }
 
     /**

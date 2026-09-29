@@ -13,32 +13,32 @@ class ApplePayRecurringPaymentRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $billingAgreement = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $managementUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentDescription = null;
 
     /**
      * @var ApplePayLineItem|null
-     */
+    */
     public ?ApplePayLineItem $regularBilling = null;
 
     /**
      * @var ApplePayLineItem|null
-     */
+    */
     public ?ApplePayLineItem $trialBilling = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getBillingAgreement(): ?string
     {
         return $this->billingAgreement;
@@ -46,15 +46,25 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBillingAgreement(?string $value): void
     {
         $this->billingAgreement = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayRecurringPaymentRequest
+    */
+    public function withBillingAgreement(?string $value): ApplePayRecurringPaymentRequest
+    {
+        $this->billingAgreement = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getManagementUrl(): ?string
     {
         return $this->managementUrl;
@@ -62,15 +72,25 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setManagementUrl(?string $value): void
     {
         $this->managementUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayRecurringPaymentRequest
+    */
+    public function withManagementUrl(?string $value): ApplePayRecurringPaymentRequest
+    {
+        $this->managementUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentDescription(): ?string
     {
         return $this->paymentDescription;
@@ -78,15 +98,25 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentDescription(?string $value): void
     {
         $this->paymentDescription = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ApplePayRecurringPaymentRequest
+    */
+    public function withPaymentDescription(?string $value): ApplePayRecurringPaymentRequest
+    {
+        $this->paymentDescription = $value;
+        return $this;
+    }
+
+    /**
      * @return ApplePayLineItem|null
-     */
+    */
     public function getRegularBilling(): ?ApplePayLineItem
     {
         return $this->regularBilling;
@@ -94,15 +124,25 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-     */
+    */
     public function setRegularBilling(?ApplePayLineItem $value): void
     {
         $this->regularBilling = $value;
     }
 
     /**
+     * @param ApplePayLineItem|null $value
+     * @return ApplePayRecurringPaymentRequest
+    */
+    public function withRegularBilling(?ApplePayLineItem $value): ApplePayRecurringPaymentRequest
+    {
+        $this->regularBilling = $value;
+        return $this;
+    }
+
+    /**
      * @return ApplePayLineItem|null
-     */
+    */
     public function getTrialBilling(): ?ApplePayLineItem
     {
         return $this->trialBilling;
@@ -110,10 +150,20 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-     */
+    */
     public function setTrialBilling(?ApplePayLineItem $value): void
     {
         $this->trialBilling = $value;
+    }
+
+    /**
+     * @param ApplePayLineItem|null $value
+     * @return ApplePayRecurringPaymentRequest
+    */
+    public function withTrialBilling(?ApplePayLineItem $value): ApplePayRecurringPaymentRequest
+    {
+        $this->trialBilling = $value;
+        return $this;
     }
 
     /**

@@ -13,37 +13,37 @@ class CreateHostedCheckoutResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $RETURNMAC = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedCheckoutId = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $invalidTokens = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $partialRedirectUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $redirectUrl = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRETURNMAC(): ?string
     {
         return $this->RETURNMAC;
@@ -51,15 +51,25 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRETURNMAC(?string $value): void
     {
         $this->RETURNMAC = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withRETURNMAC(?string $value): CreateHostedCheckoutResponse
+    {
+        $this->RETURNMAC = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedCheckoutId(): ?string
     {
         return $this->hostedCheckoutId;
@@ -67,15 +77,25 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedCheckoutId(?string $value): void
     {
         $this->hostedCheckoutId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withHostedCheckoutId(?string $value): CreateHostedCheckoutResponse
+    {
+        $this->hostedCheckoutId = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getInvalidTokens(): ?array
     {
         return $this->invalidTokens;
@@ -83,15 +103,25 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setInvalidTokens(?array $value): void
     {
         $this->invalidTokens = $value;
     }
 
     /**
+     * @param string[]|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withInvalidTokens(?array $value): CreateHostedCheckoutResponse
+    {
+        $this->invalidTokens = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -99,15 +129,25 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withMerchantReference(?string $value): CreateHostedCheckoutResponse
+    {
+        $this->merchantReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPartialRedirectUrl(): ?string
     {
         return $this->partialRedirectUrl;
@@ -115,15 +155,25 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPartialRedirectUrl(?string $value): void
     {
         $this->partialRedirectUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withPartialRedirectUrl(?string $value): CreateHostedCheckoutResponse
+    {
+        $this->partialRedirectUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRedirectUrl(): ?string
     {
         return $this->redirectUrl;
@@ -131,10 +181,20 @@ class CreateHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRedirectUrl(?string $value): void
     {
         $this->redirectUrl = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreateHostedCheckoutResponse
+    */
+    public function withRedirectUrl(?string $value): CreateHostedCheckoutResponse
+    {
+        $this->redirectUrl = $value;
+        return $this;
     }
 
     /**

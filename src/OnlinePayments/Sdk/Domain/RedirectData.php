@@ -13,17 +13,17 @@ class RedirectData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $RETURNMAC = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $redirectURL = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRETURNMAC(): ?string
     {
         return $this->RETURNMAC;
@@ -31,15 +31,25 @@ class RedirectData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRETURNMAC(?string $value): void
     {
         $this->RETURNMAC = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RedirectData
+    */
+    public function withRETURNMAC(?string $value): RedirectData
+    {
+        $this->RETURNMAC = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRedirectURL(): ?string
     {
         return $this->redirectURL;
@@ -47,10 +57,20 @@ class RedirectData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRedirectURL(?string $value): void
     {
         $this->redirectURL = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectData
+    */
+    public function withRedirectURL(?string $value): RedirectData
+    {
+        $this->redirectURL = $value;
+        return $this;
     }
 
     /**

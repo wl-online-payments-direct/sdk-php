@@ -13,17 +13,17 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 {
     /**
      * @var PaymentProductFilter|null
-     */
+    */
     public ?PaymentProductFilter $exclude = null;
 
     /**
      * @var PaymentProductFilter|null
-     */
+    */
     public ?PaymentProductFilter $restrictTo = null;
 
     /**
      * @return PaymentProductFilter|null
-     */
+    */
     public function getExclude(): ?PaymentProductFilter
     {
         return $this->exclude;
@@ -31,15 +31,25 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-     */
+    */
     public function setExclude(?PaymentProductFilter $value): void
     {
         $this->exclude = $value;
     }
 
     /**
+     * @param PaymentProductFilter|null $value
+     * @return PaymentProductFiltersHostedCheckout
+    */
+    public function withExclude(?PaymentProductFilter $value): PaymentProductFiltersHostedCheckout
+    {
+        $this->exclude = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductFilter|null
-     */
+    */
     public function getRestrictTo(): ?PaymentProductFilter
     {
         return $this->restrictTo;
@@ -47,10 +57,20 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-     */
+    */
     public function setRestrictTo(?PaymentProductFilter $value): void
     {
         $this->restrictTo = $value;
+    }
+
+    /**
+     * @param PaymentProductFilter|null $value
+     * @return PaymentProductFiltersHostedCheckout
+    */
+    public function withRestrictTo(?PaymentProductFilter $value): PaymentProductFiltersHostedCheckout
+    {
+        $this->restrictTo = $value;
+        return $this;
     }
 
     /**

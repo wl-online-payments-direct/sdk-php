@@ -13,32 +13,32 @@ class MandateAddress extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $city = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $houseNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $street = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $zip = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCity(): ?string
     {
         return $this->city;
@@ -46,15 +46,25 @@ class MandateAddress extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCity(?string $value): void
     {
         $this->city = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateAddress
+    */
+    public function withCity(?string $value): MandateAddress
+    {
+        $this->city = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -62,15 +72,25 @@ class MandateAddress extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateAddress
+    */
+    public function withCountryCode(?string $value): MandateAddress
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
@@ -78,15 +98,25 @@ class MandateAddress extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHouseNumber(?string $value): void
     {
         $this->houseNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateAddress
+    */
+    public function withHouseNumber(?string $value): MandateAddress
+    {
+        $this->houseNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStreet(): ?string
     {
         return $this->street;
@@ -94,15 +124,25 @@ class MandateAddress extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStreet(?string $value): void
     {
         $this->street = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateAddress
+    */
+    public function withStreet(?string $value): MandateAddress
+    {
+        $this->street = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getZip(): ?string
     {
         return $this->zip;
@@ -110,10 +150,20 @@ class MandateAddress extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setZip(?string $value): void
     {
         $this->zip = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return MandateAddress
+    */
+    public function withZip(?string $value): MandateAddress
+    {
+        $this->zip = $value;
+        return $this;
     }
 
     /**

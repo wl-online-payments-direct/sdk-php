@@ -13,17 +13,17 @@ class SplitPaymentProductFiltersHostedCheckout extends DataObject
 {
     /**
      * @var SplitPaymentProductFilter|null
-     */
+    */
     public ?SplitPaymentProductFilter $exclude = null;
 
     /**
      * @var SplitPaymentProductFilter|null
-     */
+    */
     public ?SplitPaymentProductFilter $restrictTo = null;
 
     /**
      * @return SplitPaymentProductFilter|null
-     */
+    */
     public function getExclude(): ?SplitPaymentProductFilter
     {
         return $this->exclude;
@@ -31,15 +31,25 @@ class SplitPaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param SplitPaymentProductFilter|null $value
-     */
+    */
     public function setExclude(?SplitPaymentProductFilter $value): void
     {
         $this->exclude = $value;
     }
 
     /**
+     * @param SplitPaymentProductFilter|null $value
+     * @return SplitPaymentProductFiltersHostedCheckout
+    */
+    public function withExclude(?SplitPaymentProductFilter $value): SplitPaymentProductFiltersHostedCheckout
+    {
+        $this->exclude = $value;
+        return $this;
+    }
+
+    /**
      * @return SplitPaymentProductFilter|null
-     */
+    */
     public function getRestrictTo(): ?SplitPaymentProductFilter
     {
         return $this->restrictTo;
@@ -47,10 +57,20 @@ class SplitPaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param SplitPaymentProductFilter|null $value
-     */
+    */
     public function setRestrictTo(?SplitPaymentProductFilter $value): void
     {
         $this->restrictTo = $value;
+    }
+
+    /**
+     * @param SplitPaymentProductFilter|null $value
+     * @return SplitPaymentProductFiltersHostedCheckout
+    */
+    public function withRestrictTo(?SplitPaymentProductFilter $value): SplitPaymentProductFiltersHostedCheckout
+    {
+        $this->restrictTo = $value;
+        return $this;
     }
 
     /**

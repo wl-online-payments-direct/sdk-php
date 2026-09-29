@@ -13,27 +13,27 @@ class PaymentProduct5500SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $entityId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentEndDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentStartDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getEntityId(): ?string
     {
         return $this->entityId;
@@ -41,15 +41,25 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEntityId(?string $value): void
     {
         $this->entityId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5500SpecificOutput
+    */
+    public function withEntityId(?string $value): PaymentProduct5500SpecificOutput
+    {
+        $this->entityId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentEndDate(): ?string
     {
         return $this->paymentEndDate;
@@ -57,15 +67,25 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentEndDate(?string $value): void
     {
         $this->paymentEndDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5500SpecificOutput
+    */
+    public function withPaymentEndDate(?string $value): PaymentProduct5500SpecificOutput
+    {
+        $this->paymentEndDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentReference(): ?string
     {
         return $this->paymentReference;
@@ -73,15 +93,25 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentReference(?string $value): void
     {
         $this->paymentReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5500SpecificOutput
+    */
+    public function withPaymentReference(?string $value): PaymentProduct5500SpecificOutput
+    {
+        $this->paymentReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentStartDate(): ?string
     {
         return $this->paymentStartDate;
@@ -89,10 +119,20 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentStartDate(?string $value): void
     {
         $this->paymentStartDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5500SpecificOutput
+    */
+    public function withPaymentStartDate(?string $value): PaymentProduct5500SpecificOutput
+    {
+        $this->paymentStartDate = $value;
+        return $this;
     }
 
     /**

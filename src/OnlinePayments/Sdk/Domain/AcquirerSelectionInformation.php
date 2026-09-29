@@ -13,22 +13,22 @@ class AcquirerSelectionInformation extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $fallbackLevel = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $result = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $ruleName = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getFallbackLevel(): ?int
     {
         return $this->fallbackLevel;
@@ -36,15 +36,25 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setFallbackLevel(?int $value): void
     {
         $this->fallbackLevel = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AcquirerSelectionInformation
+    */
+    public function withFallbackLevel(?int $value): AcquirerSelectionInformation
+    {
+        $this->fallbackLevel = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getResult(): ?string
     {
         return $this->result;
@@ -52,15 +62,25 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResult(?string $value): void
     {
         $this->result = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AcquirerSelectionInformation
+    */
+    public function withResult(?string $value): AcquirerSelectionInformation
+    {
+        $this->result = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRuleName(): ?string
     {
         return $this->ruleName;
@@ -68,10 +88,20 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRuleName(?string $value): void
     {
         $this->ruleName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AcquirerSelectionInformation
+    */
+    public function withRuleName(?string $value): AcquirerSelectionInformation
+    {
+        $this->ruleName = $value;
+        return $this;
     }
 
     /**

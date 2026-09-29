@@ -13,150 +13,150 @@ class AirlineData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $agentNumericCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $code = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
-     */
+    */
     public ?string $flightDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $flightIndicator = null;
 
     /**
      * @var AirlineFlightLeg[]|null
-     */
+    */
     public ?array $flightLegs = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $invoiceNumber = null;
 
     /**
      * @var bool|null
      *
      * @deprecated Deprecated
-     */
+    */
     public ?bool $isETicket = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRestrictedTicket = null;
 
     /**
      * @var bool|null
      *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
-     */
+    */
     public ?bool $isThirdParty = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issueDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantCustomerId = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Name of the airline
-     */
+    */
     public ?string $name = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use passengers instead Name of passenger
-     */
+    */
     public ?string $passengerName = null;
 
     /**
      * @var AirlinePassenger[]|null
-     */
+    */
     public ?array $passengers = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
-     */
+    */
     public ?string $placeOfIssue = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use passengers instead.
-     */
+    */
     public ?string $pnr = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $pointOfSale = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product City code of the point of sale
-     */
+    */
     public ?string $posCityCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $ticketCurrency = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
-     */
+    */
     public ?string $ticketDeliveryMethod = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $ticketNumber = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalFare = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalFee = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalTaxes = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $travelAgencyName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAgentNumericCode(): ?string
     {
         return $this->agentNumericCode;
@@ -164,15 +164,25 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAgentNumericCode(?string $value): void
     {
         $this->agentNumericCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withAgentNumericCode(?string $value): AirlineData
+    {
+        $this->agentNumericCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCode(): ?string
     {
         return $this->code;
@@ -180,17 +190,27 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCode(?string $value): void
     {
         $this->code = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withCode(?string $value): AirlineData
+    {
+        $this->code = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
-     */
+    */
     public function getFlightDate(): ?string
     {
         return $this->flightDate;
@@ -200,15 +220,27 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
-     */
+    */
     public function setFlightDate(?string $value): void
     {
         $this->flightDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product Date of the Flight Format: YYYYMMDD
+    */
+    public function withFlightDate(?string $value): AirlineData
+    {
+        $this->flightDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFlightIndicator(): ?string
     {
         return $this->flightIndicator;
@@ -216,15 +248,25 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFlightIndicator(?string $value): void
     {
         $this->flightIndicator = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withFlightIndicator(?string $value): AirlineData
+    {
+        $this->flightIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return AirlineFlightLeg[]|null
-     */
+    */
     public function getFlightLegs(): ?array
     {
         return $this->flightLegs;
@@ -232,15 +274,25 @@ class AirlineData extends DataObject
 
     /**
      * @param AirlineFlightLeg[]|null $value
-     */
+    */
     public function setFlightLegs(?array $value): void
     {
         $this->flightLegs = $value;
     }
 
     /**
+     * @param AirlineFlightLeg[]|null $value
+     * @return AirlineData
+    */
+    public function withFlightLegs(?array $value): AirlineData
+    {
+        $this->flightLegs = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getInvoiceNumber(): ?string
     {
         return $this->invoiceNumber;
@@ -248,17 +300,27 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setInvoiceNumber(?string $value): void
     {
         $this->invoiceNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withInvoiceNumber(?string $value): AirlineData
+    {
+        $this->invoiceNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
      *
      * @deprecated Deprecated
-     */
+    */
     public function getIsETicket(): ?bool
     {
         return $this->isETicket;
@@ -268,15 +330,27 @@ class AirlineData extends DataObject
      * @param bool|null $value
      *
      * @deprecated Deprecated
-     */
+    */
     public function setIsETicket(?bool $value): void
     {
         $this->isETicket = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return AirlineData
+     *
+     * @deprecated Deprecated
+    */
+    public function withIsETicket(?bool $value): AirlineData
+    {
+        $this->isETicket = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsRestrictedTicket(): ?bool
     {
         return $this->isRestrictedTicket;
@@ -284,17 +358,27 @@ class AirlineData extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRestrictedTicket(?bool $value): void
     {
         $this->isRestrictedTicket = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return AirlineData
+    */
+    public function withIsRestrictedTicket(?bool $value): AirlineData
+    {
+        $this->isRestrictedTicket = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
      *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
-     */
+    */
     public function getIsThirdParty(): ?bool
     {
         return $this->isThirdParty;
@@ -304,15 +388,27 @@ class AirlineData extends DataObject
      * @param bool|null $value
      *
      * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
-     */
+    */
     public function setIsThirdParty(?bool $value): void
     {
         $this->isThirdParty = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product  * true - The payer is the ticket holder  * false - The payer is not the ticket holder
+    */
+    public function withIsThirdParty(?bool $value): AirlineData
+    {
+        $this->isThirdParty = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssueDate(): ?string
     {
         return $this->issueDate;
@@ -320,15 +416,25 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssueDate(?string $value): void
     {
         $this->issueDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withIssueDate(?string $value): AirlineData
+    {
+        $this->issueDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantCustomerId(): ?string
     {
         return $this->merchantCustomerId;
@@ -336,17 +442,27 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantCustomerId(?string $value): void
     {
         $this->merchantCustomerId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withMerchantCustomerId(?string $value): AirlineData
+    {
+        $this->merchantCustomerId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Name of the airline
-     */
+    */
     public function getName(): ?string
     {
         return $this->name;
@@ -356,17 +472,29 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Name of the airline
-     */
+    */
     public function setName(?string $value): void
     {
         $this->name = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product Name of the airline
+    */
+    public function withName(?string $value): AirlineData
+    {
+        $this->name = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Use passengers instead Name of passenger
-     */
+    */
     public function getPassengerName(): ?string
     {
         return $this->passengerName;
@@ -376,15 +504,27 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated Use passengers instead Name of passenger
-     */
+    */
     public function setPassengerName(?string $value): void
     {
         $this->passengerName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated Use passengers instead Name of passenger
+    */
+    public function withPassengerName(?string $value): AirlineData
+    {
+        $this->passengerName = $value;
+        return $this;
+    }
+
+    /**
      * @return AirlinePassenger[]|null
-     */
+    */
     public function getPassengers(): ?array
     {
         return $this->passengers;
@@ -392,17 +532,27 @@ class AirlineData extends DataObject
 
     /**
      * @param AirlinePassenger[]|null $value
-     */
+    */
     public function setPassengers(?array $value): void
     {
         $this->passengers = $value;
     }
 
     /**
+     * @param AirlinePassenger[]|null $value
+     * @return AirlineData
+    */
+    public function withPassengers(?array $value): AirlineData
+    {
+        $this->passengers = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
-     */
+    */
     public function getPlaceOfIssue(): ?string
     {
         return $this->placeOfIssue;
@@ -412,17 +562,29 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
-     */
+    */
     public function setPlaceOfIssue(?string $value): void
     {
         $this->placeOfIssue = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product Place of issue For sales in the US the last two characters (pos 14-15) must be the US state code.
+    */
+    public function withPlaceOfIssue(?string $value): AirlineData
+    {
+        $this->placeOfIssue = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Use passengers instead.
-     */
+    */
     public function getPnr(): ?string
     {
         return $this->pnr;
@@ -432,15 +594,27 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated Use passengers instead.
-     */
+    */
     public function setPnr(?string $value): void
     {
         $this->pnr = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated Use passengers instead.
+    */
+    public function withPnr(?string $value): AirlineData
+    {
+        $this->pnr = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPointOfSale(): ?string
     {
         return $this->pointOfSale;
@@ -448,17 +622,27 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPointOfSale(?string $value): void
     {
         $this->pointOfSale = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withPointOfSale(?string $value): AirlineData
+    {
+        $this->pointOfSale = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product City code of the point of sale
-     */
+    */
     public function getPosCityCode(): ?string
     {
         return $this->posCityCode;
@@ -468,15 +652,27 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product City code of the point of sale
-     */
+    */
     public function setPosCityCode(?string $value): void
     {
         $this->posCityCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product City code of the point of sale
+    */
+    public function withPosCityCode(?string $value): AirlineData
+    {
+        $this->posCityCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTicketCurrency(): ?string
     {
         return $this->ticketCurrency;
@@ -484,17 +680,27 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTicketCurrency(?string $value): void
     {
         $this->ticketCurrency = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withTicketCurrency(?string $value): AirlineData
+    {
+        $this->ticketCurrency = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
-     */
+    */
     public function getTicketDeliveryMethod(): ?string
     {
         return $this->ticketDeliveryMethod;
@@ -504,15 +710,27 @@ class AirlineData extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Delivery method of the ticket
-     */
+    */
     public function setTicketDeliveryMethod(?string $value): void
     {
         $this->ticketDeliveryMethod = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+     *
+     * @deprecated This field is not used by any payment product Delivery method of the ticket
+    */
+    public function withTicketDeliveryMethod(?string $value): AirlineData
+    {
+        $this->ticketDeliveryMethod = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTicketNumber(): ?string
     {
         return $this->ticketNumber;
@@ -520,15 +738,25 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTicketNumber(?string $value): void
     {
         $this->ticketNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withTicketNumber(?string $value): AirlineData
+    {
+        $this->ticketNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalFare(): ?int
     {
         return $this->totalFare;
@@ -536,15 +764,25 @@ class AirlineData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalFare(?int $value): void
     {
         $this->totalFare = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AirlineData
+    */
+    public function withTotalFare(?int $value): AirlineData
+    {
+        $this->totalFare = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalFee(): ?int
     {
         return $this->totalFee;
@@ -552,15 +790,25 @@ class AirlineData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalFee(?int $value): void
     {
         $this->totalFee = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AirlineData
+    */
+    public function withTotalFee(?int $value): AirlineData
+    {
+        $this->totalFee = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalTaxes(): ?int
     {
         return $this->totalTaxes;
@@ -568,15 +816,25 @@ class AirlineData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalTaxes(?int $value): void
     {
         $this->totalTaxes = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AirlineData
+    */
+    public function withTotalTaxes(?int $value): AirlineData
+    {
+        $this->totalTaxes = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTravelAgencyName(): ?string
     {
         return $this->travelAgencyName;
@@ -584,10 +842,20 @@ class AirlineData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTravelAgencyName(?string $value): void
     {
         $this->travelAgencyName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AirlineData
+    */
+    public function withTravelAgencyName(?string $value): AirlineData
+    {
+        $this->travelAgencyName = $value;
+        return $this;
     }
 
     /**

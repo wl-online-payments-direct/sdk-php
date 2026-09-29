@@ -13,17 +13,17 @@ class CurrencyConversionResult extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $result = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $resultReason = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getResult(): ?string
     {
         return $this->result;
@@ -31,15 +31,25 @@ class CurrencyConversionResult extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResult(?string $value): void
     {
         $this->result = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CurrencyConversionResult
+    */
+    public function withResult(?string $value): CurrencyConversionResult
+    {
+        $this->result = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getResultReason(): ?string
     {
         return $this->resultReason;
@@ -47,10 +57,20 @@ class CurrencyConversionResult extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResultReason(?string $value): void
     {
         $this->resultReason = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CurrencyConversionResult
+    */
+    public function withResultReason(?string $value): CurrencyConversionResult
+    {
+        $this->resultReason = $value;
+        return $this;
     }
 
     /**

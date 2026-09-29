@@ -13,42 +13,42 @@ class CustomerDevice extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acceptHeader = null;
 
     /**
      * @var BrowserData|null
-     */
+    */
     public ?BrowserData $browserData = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $deviceFingerprint = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $ipAddress = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $locale = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $timezoneOffsetUtcMinutes = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $userAgent = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcceptHeader(): ?string
     {
         return $this->acceptHeader;
@@ -56,15 +56,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcceptHeader(?string $value): void
     {
         $this->acceptHeader = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withAcceptHeader(?string $value): CustomerDevice
+    {
+        $this->acceptHeader = $value;
+        return $this;
+    }
+
+    /**
      * @return BrowserData|null
-     */
+    */
     public function getBrowserData(): ?BrowserData
     {
         return $this->browserData;
@@ -72,15 +82,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param BrowserData|null $value
-     */
+    */
     public function setBrowserData(?BrowserData $value): void
     {
         $this->browserData = $value;
     }
 
     /**
+     * @param BrowserData|null $value
+     * @return CustomerDevice
+    */
+    public function withBrowserData(?BrowserData $value): CustomerDevice
+    {
+        $this->browserData = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDeviceFingerprint(): ?string
     {
         return $this->deviceFingerprint;
@@ -88,15 +108,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDeviceFingerprint(?string $value): void
     {
         $this->deviceFingerprint = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withDeviceFingerprint(?string $value): CustomerDevice
+    {
+        $this->deviceFingerprint = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIpAddress(): ?string
     {
         return $this->ipAddress;
@@ -104,15 +134,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIpAddress(?string $value): void
     {
         $this->ipAddress = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withIpAddress(?string $value): CustomerDevice
+    {
+        $this->ipAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -120,15 +160,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withLocale(?string $value): CustomerDevice
+    {
+        $this->locale = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTimezoneOffsetUtcMinutes(): ?string
     {
         return $this->timezoneOffsetUtcMinutes;
@@ -136,15 +186,25 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTimezoneOffsetUtcMinutes(?string $value): void
     {
         $this->timezoneOffsetUtcMinutes = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withTimezoneOffsetUtcMinutes(?string $value): CustomerDevice
+    {
+        $this->timezoneOffsetUtcMinutes = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUserAgent(): ?string
     {
         return $this->userAgent;
@@ -152,10 +212,20 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUserAgent(?string $value): void
     {
         $this->userAgent = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CustomerDevice
+    */
+    public function withUserAgent(?string $value): CustomerDevice
+    {
+        $this->userAgent = $value;
+        return $this;
     }
 
     /**

@@ -13,27 +13,27 @@ class Capture extends DataObject
 {
     /**
      * @var CaptureOutput|null
-     */
+    */
     public ?CaptureOutput $captureOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var CaptureStatusOutput|null
-     */
+    */
     public ?CaptureStatusOutput $statusOutput = null;
 
     /**
      * @return CaptureOutput|null
-     */
+    */
     public function getCaptureOutput(): ?CaptureOutput
     {
         return $this->captureOutput;
@@ -41,15 +41,25 @@ class Capture extends DataObject
 
     /**
      * @param CaptureOutput|null $value
-     */
+    */
     public function setCaptureOutput(?CaptureOutput $value): void
     {
         $this->captureOutput = $value;
     }
 
     /**
+     * @param CaptureOutput|null $value
+     * @return Capture
+    */
+    public function withCaptureOutput(?CaptureOutput $value): Capture
+    {
+        $this->captureOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -57,15 +67,25 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Capture
+    */
+    public function withId(?string $value): Capture
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -73,15 +93,25 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Capture
+    */
+    public function withStatus(?string $value): Capture
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return CaptureStatusOutput|null
-     */
+    */
     public function getStatusOutput(): ?CaptureStatusOutput
     {
         return $this->statusOutput;
@@ -89,10 +119,20 @@ class Capture extends DataObject
 
     /**
      * @param CaptureStatusOutput|null $value
-     */
+    */
     public function setStatusOutput(?CaptureStatusOutput $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param CaptureStatusOutput|null $value
+     * @return Capture
+    */
+    public function withStatusOutput(?CaptureStatusOutput $value): Capture
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

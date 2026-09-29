@@ -13,47 +13,47 @@ class SubmitBatchRequestBody extends DataObject
 {
     /**
      * @var CancelPaymentBatchRequest[]|null
-     */
+    */
     public ?array $cancelPayments = null;
 
     /**
      * @var CapturePaymentBatchRequest[]|null
-     */
+    */
     public ?array $capturePayments = null;
 
     /**
      * @var CreatePaymentLinkRequest[]|null
-     */
+    */
     public ?array $createPaymentLinks = null;
 
     /**
      * @var CreatePaymentRequest[]|null
-     */
+    */
     public ?array $createPayments = null;
 
     /**
      * @var CreatePayoutRequest[]|null
-     */
+    */
     public ?array $createPayouts = null;
 
     /**
      * @var BatchMetadata|null
-     */
+    */
     public ?BatchMetadata $header = null;
 
     /**
      * @var RefundPaymentBatchRequest[]|null
-     */
+    */
     public ?array $refundPayments = null;
 
     /**
      * @var SubsequentPaymentBatchRequest[]|null
-     */
+    */
     public ?array $subsequentPayments = null;
 
     /**
      * @return CancelPaymentBatchRequest[]|null
-     */
+    */
     public function getCancelPayments(): ?array
     {
         return $this->cancelPayments;
@@ -61,15 +61,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param CancelPaymentBatchRequest[]|null $value
-     */
+    */
     public function setCancelPayments(?array $value): void
     {
         $this->cancelPayments = $value;
     }
 
     /**
+     * @param CancelPaymentBatchRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withCancelPayments(?array $value): SubmitBatchRequestBody
+    {
+        $this->cancelPayments = $value;
+        return $this;
+    }
+
+    /**
      * @return CapturePaymentBatchRequest[]|null
-     */
+    */
     public function getCapturePayments(): ?array
     {
         return $this->capturePayments;
@@ -77,15 +87,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param CapturePaymentBatchRequest[]|null $value
-     */
+    */
     public function setCapturePayments(?array $value): void
     {
         $this->capturePayments = $value;
     }
 
     /**
+     * @param CapturePaymentBatchRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withCapturePayments(?array $value): SubmitBatchRequestBody
+    {
+        $this->capturePayments = $value;
+        return $this;
+    }
+
+    /**
      * @return CreatePaymentLinkRequest[]|null
-     */
+    */
     public function getCreatePaymentLinks(): ?array
     {
         return $this->createPaymentLinks;
@@ -93,15 +113,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param CreatePaymentLinkRequest[]|null $value
-     */
+    */
     public function setCreatePaymentLinks(?array $value): void
     {
         $this->createPaymentLinks = $value;
     }
 
     /**
+     * @param CreatePaymentLinkRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withCreatePaymentLinks(?array $value): SubmitBatchRequestBody
+    {
+        $this->createPaymentLinks = $value;
+        return $this;
+    }
+
+    /**
      * @return CreatePaymentRequest[]|null
-     */
+    */
     public function getCreatePayments(): ?array
     {
         return $this->createPayments;
@@ -109,15 +139,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param CreatePaymentRequest[]|null $value
-     */
+    */
     public function setCreatePayments(?array $value): void
     {
         $this->createPayments = $value;
     }
 
     /**
+     * @param CreatePaymentRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withCreatePayments(?array $value): SubmitBatchRequestBody
+    {
+        $this->createPayments = $value;
+        return $this;
+    }
+
+    /**
      * @return CreatePayoutRequest[]|null
-     */
+    */
     public function getCreatePayouts(): ?array
     {
         return $this->createPayouts;
@@ -125,15 +165,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param CreatePayoutRequest[]|null $value
-     */
+    */
     public function setCreatePayouts(?array $value): void
     {
         $this->createPayouts = $value;
     }
 
     /**
+     * @param CreatePayoutRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withCreatePayouts(?array $value): SubmitBatchRequestBody
+    {
+        $this->createPayouts = $value;
+        return $this;
+    }
+
+    /**
      * @return BatchMetadata|null
-     */
+    */
     public function getHeader(): ?BatchMetadata
     {
         return $this->header;
@@ -141,15 +191,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param BatchMetadata|null $value
-     */
+    */
     public function setHeader(?BatchMetadata $value): void
     {
         $this->header = $value;
     }
 
     /**
+     * @param BatchMetadata|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withHeader(?BatchMetadata $value): SubmitBatchRequestBody
+    {
+        $this->header = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundPaymentBatchRequest[]|null
-     */
+    */
     public function getRefundPayments(): ?array
     {
         return $this->refundPayments;
@@ -157,15 +217,25 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param RefundPaymentBatchRequest[]|null $value
-     */
+    */
     public function setRefundPayments(?array $value): void
     {
         $this->refundPayments = $value;
     }
 
     /**
+     * @param RefundPaymentBatchRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withRefundPayments(?array $value): SubmitBatchRequestBody
+    {
+        $this->refundPayments = $value;
+        return $this;
+    }
+
+    /**
      * @return SubsequentPaymentBatchRequest[]|null
-     */
+    */
     public function getSubsequentPayments(): ?array
     {
         return $this->subsequentPayments;
@@ -173,10 +243,20 @@ class SubmitBatchRequestBody extends DataObject
 
     /**
      * @param SubsequentPaymentBatchRequest[]|null $value
-     */
+    */
     public function setSubsequentPayments(?array $value): void
     {
         $this->subsequentPayments = $value;
+    }
+
+    /**
+     * @param SubsequentPaymentBatchRequest[]|null $value
+     * @return SubmitBatchRequestBody
+    */
+    public function withSubsequentPayments(?array $value): SubmitBatchRequestBody
+    {
+        $this->subsequentPayments = $value;
+        return $this;
     }
 
     /**

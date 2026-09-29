@@ -13,22 +13,22 @@ class RefundErrorResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-     */
+    */
     public ?array $errors = null;
 
     /**
      * @var RefundResponse|null
-     */
+    */
     public ?RefundResponse $refundResult = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -36,15 +36,25 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundErrorResponse
+    */
+    public function withErrorId(?string $value): RefundErrorResponse
+    {
+        $this->errorId = $value;
+        return $this;
+    }
+
+    /**
      * @return APIError[]|null
-     */
+    */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -52,15 +62,25 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     */
+    */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
     }
 
     /**
+     * @param APIError[]|null $value
+     * @return RefundErrorResponse
+    */
+    public function withErrors(?array $value): RefundErrorResponse
+    {
+        $this->errors = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundResponse|null
-     */
+    */
     public function getRefundResult(): ?RefundResponse
     {
         return $this->refundResult;
@@ -68,10 +88,20 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param RefundResponse|null $value
-     */
+    */
     public function setRefundResult(?RefundResponse $value): void
     {
         $this->refundResult = $value;
+    }
+
+    /**
+     * @param RefundResponse|null $value
+     * @return RefundErrorResponse
+    */
+    public function withRefundResult(?RefundResponse $value): RefundErrorResponse
+    {
+        $this->refundResult = $value;
+        return $this;
     }
 
     /**

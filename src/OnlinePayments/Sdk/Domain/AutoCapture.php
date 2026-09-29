@@ -13,12 +13,12 @@ class AutoCapture extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $delayInMinutes = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getDelayInMinutes(): ?int
     {
         return $this->delayInMinutes;
@@ -26,10 +26,20 @@ class AutoCapture extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setDelayInMinutes(?int $value): void
     {
         $this->delayInMinutes = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return AutoCapture
+    */
+    public function withDelayInMinutes(?int $value): AutoCapture
+    {
+        $this->delayInMinutes = $value;
+        return $this;
     }
 
     /**

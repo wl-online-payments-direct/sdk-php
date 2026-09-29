@@ -13,12 +13,12 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
 {
     /**
      * @var CustomerBankAccount|null
-     */
+    */
     public ?CustomerBankAccount $customerBankAccount = null;
 
     /**
      * @return CustomerBankAccount|null
-     */
+    */
     public function getCustomerBankAccount(): ?CustomerBankAccount
     {
         return $this->customerBankAccount;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-     */
+    */
     public function setCustomerBankAccount(?CustomerBankAccount $value): void
     {
         $this->customerBankAccount = $value;
+    }
+
+    /**
+     * @param CustomerBankAccount|null $value
+     * @return RedirectPaymentProduct5406SpecificInput
+    */
+    public function withCustomerBankAccount(?CustomerBankAccount $value): RedirectPaymentProduct5406SpecificInput
+    {
+        $this->customerBankAccount = $value;
+        return $this;
     }
 
     /**

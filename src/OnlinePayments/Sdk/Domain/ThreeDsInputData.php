@@ -13,22 +13,22 @@ class ThreeDsInputData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerMid = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $requestorId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcquirerId(): ?string
     {
         return $this->acquirerId;
@@ -36,15 +36,25 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerId(?string $value): void
     {
         $this->acquirerId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDsInputData
+    */
+    public function withAcquirerId(?string $value): ThreeDsInputData
+    {
+        $this->acquirerId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAcquirerMid(): ?string
     {
         return $this->acquirerMid;
@@ -52,15 +62,25 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerMid(?string $value): void
     {
         $this->acquirerMid = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDsInputData
+    */
+    public function withAcquirerMid(?string $value): ThreeDsInputData
+    {
+        $this->acquirerMid = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRequestorId(): ?string
     {
         return $this->requestorId;
@@ -68,10 +88,20 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRequestorId(?string $value): void
     {
         $this->requestorId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ThreeDsInputData
+    */
+    public function withRequestorId(?string $value): ThreeDsInputData
+    {
+        $this->requestorId = $value;
+        return $this;
     }
 
     /**

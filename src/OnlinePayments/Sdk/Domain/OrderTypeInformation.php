@@ -13,17 +13,17 @@ class OrderTypeInformation extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $purchaseType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $transactionType = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPurchaseType(): ?string
     {
         return $this->purchaseType;
@@ -31,15 +31,25 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPurchaseType(?string $value): void
     {
         $this->purchaseType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderTypeInformation
+    */
+    public function withPurchaseType(?string $value): OrderTypeInformation
+    {
+        $this->purchaseType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTransactionType(): ?string
     {
         return $this->transactionType;
@@ -47,10 +57,20 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTransactionType(?string $value): void
     {
         $this->transactionType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OrderTypeInformation
+    */
+    public function withTransactionType(?string $value): OrderTypeInformation
+    {
+        $this->transactionType = $value;
+        return $this;
     }
 
     /**

@@ -13,72 +13,72 @@ class ThreeDSecureResults extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acsTransactionId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $appliedExemption = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $authenticationStatus = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cavv = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $challengeIndicator = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $dsTransactionId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $eci = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $exemptionEngineFlow = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $flow = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $liability = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $schemeEci = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $version = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $xid = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
@@ -86,15 +86,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withAcsTransactionId(?string $value): ThreeDSecureResults
+    {
+        $this->acsTransactionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAppliedExemption(): ?string
     {
         return $this->appliedExemption;
@@ -102,15 +112,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAppliedExemption(?string $value): void
     {
         $this->appliedExemption = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withAppliedExemption(?string $value): ThreeDSecureResults
+    {
+        $this->appliedExemption = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAuthenticationStatus(): ?string
     {
         return $this->authenticationStatus;
@@ -118,15 +138,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAuthenticationStatus(?string $value): void
     {
         $this->authenticationStatus = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withAuthenticationStatus(?string $value): ThreeDSecureResults
+    {
+        $this->authenticationStatus = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCavv(): ?string
     {
         return $this->cavv;
@@ -134,15 +164,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCavv(?string $value): void
     {
         $this->cavv = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withCavv(?string $value): ThreeDSecureResults
+    {
+        $this->cavv = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getChallengeIndicator(): ?string
     {
         return $this->challengeIndicator;
@@ -150,15 +190,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setChallengeIndicator(?string $value): void
     {
         $this->challengeIndicator = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withChallengeIndicator(?string $value): ThreeDSecureResults
+    {
+        $this->challengeIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDsTransactionId(): ?string
     {
         return $this->dsTransactionId;
@@ -166,15 +216,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDsTransactionId(?string $value): void
     {
         $this->dsTransactionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withDsTransactionId(?string $value): ThreeDSecureResults
+    {
+        $this->dsTransactionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEci(): ?string
     {
         return $this->eci;
@@ -182,15 +242,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEci(?string $value): void
     {
         $this->eci = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withEci(?string $value): ThreeDSecureResults
+    {
+        $this->eci = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExemptionEngineFlow(): ?string
     {
         return $this->exemptionEngineFlow;
@@ -198,15 +268,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExemptionEngineFlow(?string $value): void
     {
         $this->exemptionEngineFlow = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withExemptionEngineFlow(?string $value): ThreeDSecureResults
+    {
+        $this->exemptionEngineFlow = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFlow(): ?string
     {
         return $this->flow;
@@ -214,15 +294,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFlow(?string $value): void
     {
         $this->flow = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withFlow(?string $value): ThreeDSecureResults
+    {
+        $this->flow = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLiability(): ?string
     {
         return $this->liability;
@@ -230,15 +320,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLiability(?string $value): void
     {
         $this->liability = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withLiability(?string $value): ThreeDSecureResults
+    {
+        $this->liability = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSchemeEci(): ?string
     {
         return $this->schemeEci;
@@ -246,15 +346,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSchemeEci(?string $value): void
     {
         $this->schemeEci = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withSchemeEci(?string $value): ThreeDSecureResults
+    {
+        $this->schemeEci = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getVersion(): ?string
     {
         return $this->version;
@@ -262,15 +372,25 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setVersion(?string $value): void
     {
         $this->version = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withVersion(?string $value): ThreeDSecureResults
+    {
+        $this->version = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getXid(): ?string
     {
         return $this->xid;
@@ -278,10 +398,20 @@ class ThreeDSecureResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setXid(?string $value): void
     {
         $this->xid = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ThreeDSecureResults
+    */
+    public function withXid(?string $value): ThreeDSecureResults
+    {
+        $this->xid = $value;
+        return $this;
     }
 
     /**

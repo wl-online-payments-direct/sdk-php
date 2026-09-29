@@ -15,17 +15,17 @@ class PaymentProduct5001 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $message = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $pollingUrl = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMessage(): ?string
     {
         return $this->message;
@@ -33,15 +33,25 @@ class PaymentProduct5001 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMessage(?string $value): void
     {
         $this->message = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5001
+    */
+    public function withMessage(?string $value): PaymentProduct5001
+    {
+        $this->message = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPollingUrl(): ?string
     {
         return $this->pollingUrl;
@@ -49,10 +59,20 @@ class PaymentProduct5001 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPollingUrl(?string $value): void
     {
         $this->pollingUrl = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5001
+    */
+    public function withPollingUrl(?string $value): PaymentProduct5001
+    {
+        $this->pollingUrl = $value;
+        return $this;
     }
 
     /**

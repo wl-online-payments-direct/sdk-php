@@ -13,22 +13,22 @@ class PersonalName extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $surname = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $title = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -36,15 +36,25 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PersonalName
+    */
+    public function withFirstName(?string $value): PersonalName
+    {
+        $this->firstName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -52,15 +62,25 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PersonalName
+    */
+    public function withSurname(?string $value): PersonalName
+    {
+        $this->surname = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -68,10 +88,20 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PersonalName
+    */
+    public function withTitle(?string $value): PersonalName
+    {
+        $this->title = $value;
+        return $this;
     }
 
     /**

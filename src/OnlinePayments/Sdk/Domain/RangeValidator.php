@@ -13,17 +13,17 @@ class RangeValidator extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $maxValue = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $minValue = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getMaxValue(): ?int
     {
         return $this->maxValue;
@@ -31,15 +31,25 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMaxValue(?int $value): void
     {
         $this->maxValue = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RangeValidator
+    */
+    public function withMaxValue(?int $value): RangeValidator
+    {
+        $this->maxValue = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getMinValue(): ?int
     {
         return $this->minValue;
@@ -47,10 +57,20 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMinValue(?int $value): void
     {
         $this->minValue = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return RangeValidator
+    */
+    public function withMinValue(?int $value): RangeValidator
+    {
+        $this->minValue = $value;
+        return $this;
     }
 
     /**

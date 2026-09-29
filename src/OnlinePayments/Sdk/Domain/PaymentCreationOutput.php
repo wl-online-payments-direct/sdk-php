@@ -13,27 +13,27 @@ class PaymentCreationOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $externalReference = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isNewToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $tokenizationSucceeded = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getExternalReference(): ?string
     {
         return $this->externalReference;
@@ -41,15 +41,25 @@ class PaymentCreationOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExternalReference(?string $value): void
     {
         $this->externalReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentCreationOutput
+    */
+    public function withExternalReference(?string $value): PaymentCreationOutput
+    {
+        $this->externalReference = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsNewToken(): ?bool
     {
         return $this->isNewToken;
@@ -57,15 +67,25 @@ class PaymentCreationOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsNewToken(?bool $value): void
     {
         $this->isNewToken = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return PaymentCreationOutput
+    */
+    public function withIsNewToken(?bool $value): PaymentCreationOutput
+    {
+        $this->isNewToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -73,15 +93,25 @@ class PaymentCreationOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentCreationOutput
+    */
+    public function withToken(?string $value): PaymentCreationOutput
+    {
+        $this->token = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getTokenizationSucceeded(): ?bool
     {
         return $this->tokenizationSucceeded;
@@ -89,10 +119,20 @@ class PaymentCreationOutput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setTokenizationSucceeded(?bool $value): void
     {
         $this->tokenizationSucceeded = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return PaymentCreationOutput
+    */
+    public function withTokenizationSucceeded(?bool $value): PaymentCreationOutput
+    {
+        $this->tokenizationSucceeded = $value;
+        return $this;
     }
 
     /**

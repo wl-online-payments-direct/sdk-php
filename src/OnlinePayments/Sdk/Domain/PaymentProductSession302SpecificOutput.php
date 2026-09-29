@@ -13,12 +13,12 @@ class PaymentProductSession302SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $session = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getSession(): ?string
     {
         return $this->session;
@@ -26,10 +26,20 @@ class PaymentProductSession302SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSession(?string $value): void
     {
         $this->session = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductSession302SpecificOutput
+    */
+    public function withSession(?string $value): PaymentProductSession302SpecificOutput
+    {
+        $this->session = $value;
+        return $this;
     }
 
     /**

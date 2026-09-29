@@ -13,32 +13,32 @@ class SessionResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $assetUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $clientApiUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $clientSessionId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $customerId = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $invalidTokens = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAssetUrl(): ?string
     {
         return $this->assetUrl;
@@ -46,15 +46,25 @@ class SessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAssetUrl(?string $value): void
     {
         $this->assetUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionResponse
+    */
+    public function withAssetUrl(?string $value): SessionResponse
+    {
+        $this->assetUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getClientApiUrl(): ?string
     {
         return $this->clientApiUrl;
@@ -62,15 +72,25 @@ class SessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setClientApiUrl(?string $value): void
     {
         $this->clientApiUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionResponse
+    */
+    public function withClientApiUrl(?string $value): SessionResponse
+    {
+        $this->clientApiUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getClientSessionId(): ?string
     {
         return $this->clientSessionId;
@@ -78,15 +98,25 @@ class SessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setClientSessionId(?string $value): void
     {
         $this->clientSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionResponse
+    */
+    public function withClientSessionId(?string $value): SessionResponse
+    {
+        $this->clientSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCustomerId(): ?string
     {
         return $this->customerId;
@@ -94,15 +124,25 @@ class SessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCustomerId(?string $value): void
     {
         $this->customerId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionResponse
+    */
+    public function withCustomerId(?string $value): SessionResponse
+    {
+        $this->customerId = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getInvalidTokens(): ?array
     {
         return $this->invalidTokens;
@@ -110,10 +150,20 @@ class SessionResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setInvalidTokens(?array $value): void
     {
         $this->invalidTokens = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return SessionResponse
+    */
+    public function withInvalidTokens(?array $value): SessionResponse
+    {
+        $this->invalidTokens = $value;
+        return $this;
     }
 
     /**

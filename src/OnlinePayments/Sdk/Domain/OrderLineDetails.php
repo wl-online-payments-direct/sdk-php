@@ -13,57 +13,57 @@ class OrderLineDetails extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $discountAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $productBrand = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $productCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $productName = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $productPrice = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $productType = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $quantity = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $taxAmount = null;
 
     /**
      * @var float|null
-     */
+    */
     public ?float $taxPercentage = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $unit = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getDiscountAmount(): ?int
     {
         return $this->discountAmount;
@@ -71,15 +71,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setDiscountAmount(?int $value): void
     {
         $this->discountAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return OrderLineDetails
+    */
+    public function withDiscountAmount(?int $value): OrderLineDetails
+    {
+        $this->discountAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getProductBrand(): ?string
     {
         return $this->productBrand;
@@ -87,15 +97,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setProductBrand(?string $value): void
     {
         $this->productBrand = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderLineDetails
+    */
+    public function withProductBrand(?string $value): OrderLineDetails
+    {
+        $this->productBrand = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getProductCode(): ?string
     {
         return $this->productCode;
@@ -103,15 +123,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setProductCode(?string $value): void
     {
         $this->productCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderLineDetails
+    */
+    public function withProductCode(?string $value): OrderLineDetails
+    {
+        $this->productCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getProductName(): ?string
     {
         return $this->productName;
@@ -119,15 +149,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setProductName(?string $value): void
     {
         $this->productName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderLineDetails
+    */
+    public function withProductName(?string $value): OrderLineDetails
+    {
+        $this->productName = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getProductPrice(): ?int
     {
         return $this->productPrice;
@@ -135,15 +175,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setProductPrice(?int $value): void
     {
         $this->productPrice = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return OrderLineDetails
+    */
+    public function withProductPrice(?int $value): OrderLineDetails
+    {
+        $this->productPrice = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getProductType(): ?string
     {
         return $this->productType;
@@ -151,15 +201,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setProductType(?string $value): void
     {
         $this->productType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OrderLineDetails
+    */
+    public function withProductType(?string $value): OrderLineDetails
+    {
+        $this->productType = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getQuantity(): ?int
     {
         return $this->quantity;
@@ -167,15 +227,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setQuantity(?int $value): void
     {
         $this->quantity = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return OrderLineDetails
+    */
+    public function withQuantity(?int $value): OrderLineDetails
+    {
+        $this->quantity = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTaxAmount(): ?int
     {
         return $this->taxAmount;
@@ -183,15 +253,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTaxAmount(?int $value): void
     {
         $this->taxAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return OrderLineDetails
+    */
+    public function withTaxAmount(?int $value): OrderLineDetails
+    {
+        $this->taxAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return float|null
-     */
+    */
     public function getTaxPercentage(): ?float
     {
         return $this->taxPercentage;
@@ -199,15 +279,25 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param float|null $value
-     */
+    */
     public function setTaxPercentage(?float $value): void
     {
         $this->taxPercentage = $value;
     }
 
     /**
+     * @param float|null $value
+     * @return OrderLineDetails
+    */
+    public function withTaxPercentage(?float $value): OrderLineDetails
+    {
+        $this->taxPercentage = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUnit(): ?string
     {
         return $this->unit;
@@ -215,10 +305,20 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUnit(?string $value): void
     {
         $this->unit = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OrderLineDetails
+    */
+    public function withUnit(?string $value): OrderLineDetails
+    {
+        $this->unit = $value;
+        return $this;
     }
 
     /**

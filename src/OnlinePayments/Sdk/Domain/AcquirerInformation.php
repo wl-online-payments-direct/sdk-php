@@ -13,17 +13,17 @@ class AcquirerInformation extends DataObject
 {
     /**
      * @var AcquirerSelectionInformation|null
-     */
+    */
     public ?AcquirerSelectionInformation $acquirerSelectionInformation = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $name = null;
 
     /**
      * @return AcquirerSelectionInformation|null
-     */
+    */
     public function getAcquirerSelectionInformation(): ?AcquirerSelectionInformation
     {
         return $this->acquirerSelectionInformation;
@@ -31,15 +31,25 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param AcquirerSelectionInformation|null $value
-     */
+    */
     public function setAcquirerSelectionInformation(?AcquirerSelectionInformation $value): void
     {
         $this->acquirerSelectionInformation = $value;
     }
 
     /**
+     * @param AcquirerSelectionInformation|null $value
+     * @return AcquirerInformation
+    */
+    public function withAcquirerSelectionInformation(?AcquirerSelectionInformation $value): AcquirerInformation
+    {
+        $this->acquirerSelectionInformation = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getName(): ?string
     {
         return $this->name;
@@ -47,10 +57,20 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setName(?string $value): void
     {
         $this->name = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AcquirerInformation
+    */
+    public function withName(?string $value): AcquirerInformation
+    {
+        $this->name = $value;
+        return $this;
     }
 
     /**

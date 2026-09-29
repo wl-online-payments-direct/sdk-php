@@ -13,12 +13,12 @@ class GetPaymentProductsResponse extends DataObject
 {
     /**
      * @var PaymentProduct[]|null
-     */
+    */
     public ?array $paymentProducts = null;
 
     /**
      * @return PaymentProduct[]|null
-     */
+    */
     public function getPaymentProducts(): ?array
     {
         return $this->paymentProducts;
@@ -26,10 +26,20 @@ class GetPaymentProductsResponse extends DataObject
 
     /**
      * @param PaymentProduct[]|null $value
-     */
+    */
     public function setPaymentProducts(?array $value): void
     {
         $this->paymentProducts = $value;
+    }
+
+    /**
+     * @param PaymentProduct[]|null $value
+     * @return GetPaymentProductsResponse
+    */
+    public function withPaymentProducts(?array $value): GetPaymentProductsResponse
+    {
+        $this->paymentProducts = $value;
+        return $this;
     }
 
     /**

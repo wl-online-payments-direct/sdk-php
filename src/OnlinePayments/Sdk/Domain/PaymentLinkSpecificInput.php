@@ -14,22 +14,22 @@ class PaymentLinkSpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $description = null;
 
     /**
      * @var DateTime|null
-     */
+    */
     public ?DateTime $expirationDate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $recipientName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -37,15 +37,25 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDescription(?string $value): void
     {
         $this->description = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentLinkSpecificInput
+    */
+    public function withDescription(?string $value): PaymentLinkSpecificInput
+    {
+        $this->description = $value;
+        return $this;
+    }
+
+    /**
      * @return DateTime|null
-     */
+    */
     public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
@@ -53,15 +63,25 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-     */
+    */
     public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
     }
 
     /**
+     * @param DateTime|null $value
+     * @return PaymentLinkSpecificInput
+    */
+    public function withExpirationDate(?DateTime $value): PaymentLinkSpecificInput
+    {
+        $this->expirationDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRecipientName(): ?string
     {
         return $this->recipientName;
@@ -69,10 +89,20 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRecipientName(?string $value): void
     {
         $this->recipientName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentLinkSpecificInput
+    */
+    public function withRecipientName(?string $value): PaymentLinkSpecificInput
+    {
+        $this->recipientName = $value;
+        return $this;
     }
 
     /**

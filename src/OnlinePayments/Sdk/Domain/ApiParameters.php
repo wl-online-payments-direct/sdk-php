@@ -13,32 +13,32 @@ class ApiParameters extends DataObject
 {
     /**
      * @var Amex|null
-     */
+    */
     public ?Amex $amex = null;
 
     /**
      * @var PaymentProduct5002defaultBrandParameters|null
-     */
+    */
     public ?PaymentProduct5002defaultBrandParameters $cb = null;
 
     /**
      * @var PaymentProduct5002defaultBrandParameters|null
-     */
+    */
     public ?PaymentProduct5002defaultBrandParameters $eftpos = null;
 
     /**
      * @var Mastercard|null
-     */
+    */
     public ?Mastercard $mastercard = null;
 
     /**
      * @var Visa|null
-     */
+    */
     public ?Visa $visa = null;
 
     /**
      * @return Amex|null
-     */
+    */
     public function getAmex(): ?Amex
     {
         return $this->amex;
@@ -46,15 +46,25 @@ class ApiParameters extends DataObject
 
     /**
      * @param Amex|null $value
-     */
+    */
     public function setAmex(?Amex $value): void
     {
         $this->amex = $value;
     }
 
     /**
+     * @param Amex|null $value
+     * @return ApiParameters
+    */
+    public function withAmex(?Amex $value): ApiParameters
+    {
+        $this->amex = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct5002defaultBrandParameters|null
-     */
+    */
     public function getCb(): ?PaymentProduct5002defaultBrandParameters
     {
         return $this->cb;
@@ -62,15 +72,25 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-     */
+    */
     public function setCb(?PaymentProduct5002defaultBrandParameters $value): void
     {
         $this->cb = $value;
     }
 
     /**
+     * @param PaymentProduct5002defaultBrandParameters|null $value
+     * @return ApiParameters
+    */
+    public function withCb(?PaymentProduct5002defaultBrandParameters $value): ApiParameters
+    {
+        $this->cb = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct5002defaultBrandParameters|null
-     */
+    */
     public function getEftpos(): ?PaymentProduct5002defaultBrandParameters
     {
         return $this->eftpos;
@@ -78,15 +98,25 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-     */
+    */
     public function setEftpos(?PaymentProduct5002defaultBrandParameters $value): void
     {
         $this->eftpos = $value;
     }
 
     /**
+     * @param PaymentProduct5002defaultBrandParameters|null $value
+     * @return ApiParameters
+    */
+    public function withEftpos(?PaymentProduct5002defaultBrandParameters $value): ApiParameters
+    {
+        $this->eftpos = $value;
+        return $this;
+    }
+
+    /**
      * @return Mastercard|null
-     */
+    */
     public function getMastercard(): ?Mastercard
     {
         return $this->mastercard;
@@ -94,15 +124,25 @@ class ApiParameters extends DataObject
 
     /**
      * @param Mastercard|null $value
-     */
+    */
     public function setMastercard(?Mastercard $value): void
     {
         $this->mastercard = $value;
     }
 
     /**
+     * @param Mastercard|null $value
+     * @return ApiParameters
+    */
+    public function withMastercard(?Mastercard $value): ApiParameters
+    {
+        $this->mastercard = $value;
+        return $this;
+    }
+
+    /**
      * @return Visa|null
-     */
+    */
     public function getVisa(): ?Visa
     {
         return $this->visa;
@@ -110,10 +150,20 @@ class ApiParameters extends DataObject
 
     /**
      * @param Visa|null $value
-     */
+    */
     public function setVisa(?Visa $value): void
     {
         $this->visa = $value;
+    }
+
+    /**
+     * @param Visa|null $value
+     * @return ApiParameters
+    */
+    public function withVisa(?Visa $value): ApiParameters
+    {
+        $this->visa = $value;
+        return $this;
     }
 
     /**

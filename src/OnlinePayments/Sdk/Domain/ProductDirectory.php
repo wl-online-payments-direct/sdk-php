@@ -13,12 +13,12 @@ class ProductDirectory extends DataObject
 {
     /**
      * @var DirectoryEntry[]|null
-     */
+    */
     public ?array $entries = null;
 
     /**
      * @return DirectoryEntry[]|null
-     */
+    */
     public function getEntries(): ?array
     {
         return $this->entries;
@@ -26,10 +26,20 @@ class ProductDirectory extends DataObject
 
     /**
      * @param DirectoryEntry[]|null $value
-     */
+    */
     public function setEntries(?array $value): void
     {
         $this->entries = $value;
+    }
+
+    /**
+     * @param DirectoryEntry[]|null $value
+     * @return ProductDirectory
+    */
+    public function withEntries(?array $value): ProductDirectory
+    {
+        $this->entries = $value;
+        return $this;
     }
 
     /**

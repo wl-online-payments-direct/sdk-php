@@ -13,57 +13,57 @@ class Order extends DataObject
 {
     /**
      * @var AdditionalOrderInput|null
-     */
+    */
     public ?AdditionalOrderInput $additionalInput = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var Customer|null
-     */
+    */
     public ?Customer $customer = null;
 
     /**
      * @var Discount|null
-     */
+    */
     public ?Discount $discount = null;
 
     /**
      * @var OrderReferences|null
-     */
+    */
     public ?OrderReferences $references = null;
 
     /**
      * @var Shipping|null
-     */
+    */
     public ?Shipping $shipping = null;
 
     /**
      * @var ShoppingCart|null
-     */
+    */
     public ?ShoppingCart $shoppingCart = null;
 
     /**
      * @var SurchargeSpecificInput|null
-     */
+    */
     public ?SurchargeSpecificInput $surchargeSpecificInput = null;
 
     /**
      * @var float|null
-     */
+    */
     public ?float $taxPercentage = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalTaxAmount = null;
 
     /**
      * @return AdditionalOrderInput|null
-     */
+    */
     public function getAdditionalInput(): ?AdditionalOrderInput
     {
         return $this->additionalInput;
@@ -71,15 +71,25 @@ class Order extends DataObject
 
     /**
      * @param AdditionalOrderInput|null $value
-     */
+    */
     public function setAdditionalInput(?AdditionalOrderInput $value): void
     {
         $this->additionalInput = $value;
     }
 
     /**
+     * @param AdditionalOrderInput|null $value
+     * @return Order
+    */
+    public function withAdditionalInput(?AdditionalOrderInput $value): Order
+    {
+        $this->additionalInput = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -87,15 +97,25 @@ class Order extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return Order
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): Order
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return Customer|null
-     */
+    */
     public function getCustomer(): ?Customer
     {
         return $this->customer;
@@ -103,15 +123,25 @@ class Order extends DataObject
 
     /**
      * @param Customer|null $value
-     */
+    */
     public function setCustomer(?Customer $value): void
     {
         $this->customer = $value;
     }
 
     /**
+     * @param Customer|null $value
+     * @return Order
+    */
+    public function withCustomer(?Customer $value): Order
+    {
+        $this->customer = $value;
+        return $this;
+    }
+
+    /**
      * @return Discount|null
-     */
+    */
     public function getDiscount(): ?Discount
     {
         return $this->discount;
@@ -119,15 +149,25 @@ class Order extends DataObject
 
     /**
      * @param Discount|null $value
-     */
+    */
     public function setDiscount(?Discount $value): void
     {
         $this->discount = $value;
     }
 
     /**
+     * @param Discount|null $value
+     * @return Order
+    */
+    public function withDiscount(?Discount $value): Order
+    {
+        $this->discount = $value;
+        return $this;
+    }
+
+    /**
      * @return OrderReferences|null
-     */
+    */
     public function getReferences(): ?OrderReferences
     {
         return $this->references;
@@ -135,15 +175,25 @@ class Order extends DataObject
 
     /**
      * @param OrderReferences|null $value
-     */
+    */
     public function setReferences(?OrderReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
+     * @param OrderReferences|null $value
+     * @return Order
+    */
+    public function withReferences(?OrderReferences $value): Order
+    {
+        $this->references = $value;
+        return $this;
+    }
+
+    /**
      * @return Shipping|null
-     */
+    */
     public function getShipping(): ?Shipping
     {
         return $this->shipping;
@@ -151,15 +201,25 @@ class Order extends DataObject
 
     /**
      * @param Shipping|null $value
-     */
+    */
     public function setShipping(?Shipping $value): void
     {
         $this->shipping = $value;
     }
 
     /**
+     * @param Shipping|null $value
+     * @return Order
+    */
+    public function withShipping(?Shipping $value): Order
+    {
+        $this->shipping = $value;
+        return $this;
+    }
+
+    /**
      * @return ShoppingCart|null
-     */
+    */
     public function getShoppingCart(): ?ShoppingCart
     {
         return $this->shoppingCart;
@@ -167,15 +227,25 @@ class Order extends DataObject
 
     /**
      * @param ShoppingCart|null $value
-     */
+    */
     public function setShoppingCart(?ShoppingCart $value): void
     {
         $this->shoppingCart = $value;
     }
 
     /**
+     * @param ShoppingCart|null $value
+     * @return Order
+    */
+    public function withShoppingCart(?ShoppingCart $value): Order
+    {
+        $this->shoppingCart = $value;
+        return $this;
+    }
+
+    /**
      * @return SurchargeSpecificInput|null
-     */
+    */
     public function getSurchargeSpecificInput(): ?SurchargeSpecificInput
     {
         return $this->surchargeSpecificInput;
@@ -183,15 +253,25 @@ class Order extends DataObject
 
     /**
      * @param SurchargeSpecificInput|null $value
-     */
+    */
     public function setSurchargeSpecificInput(?SurchargeSpecificInput $value): void
     {
         $this->surchargeSpecificInput = $value;
     }
 
     /**
+     * @param SurchargeSpecificInput|null $value
+     * @return Order
+    */
+    public function withSurchargeSpecificInput(?SurchargeSpecificInput $value): Order
+    {
+        $this->surchargeSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return float|null
-     */
+    */
     public function getTaxPercentage(): ?float
     {
         return $this->taxPercentage;
@@ -199,15 +279,25 @@ class Order extends DataObject
 
     /**
      * @param float|null $value
-     */
+    */
     public function setTaxPercentage(?float $value): void
     {
         $this->taxPercentage = $value;
     }
 
     /**
+     * @param float|null $value
+     * @return Order
+    */
+    public function withTaxPercentage(?float $value): Order
+    {
+        $this->taxPercentage = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalTaxAmount(): ?int
     {
         return $this->totalTaxAmount;
@@ -215,10 +305,20 @@ class Order extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalTaxAmount(?int $value): void
     {
         $this->totalTaxAmount = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return Order
+    */
+    public function withTotalTaxAmount(?int $value): Order
+    {
+        $this->totalTaxAmount = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class CustomerOutput extends DataObject
 {
     /**
      * @var CustomerDeviceOutput|null
-     */
+    */
     public ?CustomerDeviceOutput $device = null;
 
     /**
      * @return CustomerDeviceOutput|null
-     */
+    */
     public function getDevice(): ?CustomerDeviceOutput
     {
         return $this->device;
@@ -26,10 +26,20 @@ class CustomerOutput extends DataObject
 
     /**
      * @param CustomerDeviceOutput|null $value
-     */
+    */
     public function setDevice(?CustomerDeviceOutput $value): void
     {
         $this->device = $value;
+    }
+
+    /**
+     * @param CustomerDeviceOutput|null $value
+     * @return CustomerOutput
+    */
+    public function withDevice(?CustomerDeviceOutput $value): CustomerOutput
+    {
+        $this->device = $value;
+        return $this;
     }
 
     /**

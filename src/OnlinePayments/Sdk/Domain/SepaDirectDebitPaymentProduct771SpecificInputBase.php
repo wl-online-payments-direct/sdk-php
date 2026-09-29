@@ -13,17 +13,17 @@ class SepaDirectDebitPaymentProduct771SpecificInputBase extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $existingUniqueMandateReference = null;
 
     /**
      * @var CreateMandateRequest|null
-     */
+    */
     public ?CreateMandateRequest $mandate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getExistingUniqueMandateReference(): ?string
     {
         return $this->existingUniqueMandateReference;
@@ -31,15 +31,25 @@ class SepaDirectDebitPaymentProduct771SpecificInputBase extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExistingUniqueMandateReference(?string $value): void
     {
         $this->existingUniqueMandateReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SepaDirectDebitPaymentProduct771SpecificInputBase
+    */
+    public function withExistingUniqueMandateReference(?string $value): SepaDirectDebitPaymentProduct771SpecificInputBase
+    {
+        $this->existingUniqueMandateReference = $value;
+        return $this;
+    }
+
+    /**
      * @return CreateMandateRequest|null
-     */
+    */
     public function getMandate(): ?CreateMandateRequest
     {
         return $this->mandate;
@@ -47,10 +57,20 @@ class SepaDirectDebitPaymentProduct771SpecificInputBase extends DataObject
 
     /**
      * @param CreateMandateRequest|null $value
-     */
+    */
     public function setMandate(?CreateMandateRequest $value): void
     {
         $this->mandate = $value;
+    }
+
+    /**
+     * @param CreateMandateRequest|null $value
+     * @return SepaDirectDebitPaymentProduct771SpecificInputBase
+    */
+    public function withMandate(?CreateMandateRequest $value): SepaDirectDebitPaymentProduct771SpecificInputBase
+    {
+        $this->mandate = $value;
+        return $this;
     }
 
     /**

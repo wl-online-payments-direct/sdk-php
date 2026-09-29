@@ -13,57 +13,57 @@ class RefundOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $amountPaid = null;
 
     /**
      * @var RefundCardMethodSpecificOutput|null
-     */
+    */
     public ?RefundCardMethodSpecificOutput $cardRefundMethodSpecificOutput = null;
 
     /**
      * @var RefundEWalletMethodSpecificOutput|null
-     */
+    */
     public ?RefundEWalletMethodSpecificOutput $eWalletRefundMethodSpecificOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantParameters = null;
 
     /**
      * @var RefundMobileMethodSpecificOutput|null
-     */
+    */
     public ?RefundMobileMethodSpecificOutput $mobileRefundMethodSpecificOutput = null;
 
     /**
      * @var OperationPaymentReferences|null
-     */
+    */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentMethod = null;
 
     /**
      * @var RefundRedirectMethodSpecificOutput|null
-     */
+    */
     public ?RefundRedirectMethodSpecificOutput $redirectRefundMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -71,15 +71,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return RefundOutput
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): RefundOutput
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
@@ -87,15 +97,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAmountPaid(?int $value): void
     {
         $this->amountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RefundOutput
+    */
+    public function withAmountPaid(?int $value): RefundOutput
+    {
+        $this->amountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundCardMethodSpecificOutput|null
-     */
+    */
     public function getCardRefundMethodSpecificOutput(): ?RefundCardMethodSpecificOutput
     {
         return $this->cardRefundMethodSpecificOutput;
@@ -103,15 +123,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundCardMethodSpecificOutput|null $value
-     */
+    */
     public function setCardRefundMethodSpecificOutput(?RefundCardMethodSpecificOutput $value): void
     {
         $this->cardRefundMethodSpecificOutput = $value;
     }
 
     /**
+     * @param RefundCardMethodSpecificOutput|null $value
+     * @return RefundOutput
+    */
+    public function withCardRefundMethodSpecificOutput(?RefundCardMethodSpecificOutput $value): RefundOutput
+    {
+        $this->cardRefundMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundEWalletMethodSpecificOutput|null
-     */
+    */
     public function getEWalletRefundMethodSpecificOutput(): ?RefundEWalletMethodSpecificOutput
     {
         return $this->eWalletRefundMethodSpecificOutput;
@@ -119,15 +149,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundEWalletMethodSpecificOutput|null $value
-     */
+    */
     public function setEWalletRefundMethodSpecificOutput(?RefundEWalletMethodSpecificOutput $value): void
     {
         $this->eWalletRefundMethodSpecificOutput = $value;
     }
 
     /**
+     * @param RefundEWalletMethodSpecificOutput|null $value
+     * @return RefundOutput
+    */
+    public function withEWalletRefundMethodSpecificOutput(?RefundEWalletMethodSpecificOutput $value): RefundOutput
+    {
+        $this->eWalletRefundMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
@@ -135,15 +175,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundOutput
+    */
+    public function withMerchantParameters(?string $value): RefundOutput
+    {
+        $this->merchantParameters = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundMobileMethodSpecificOutput|null
-     */
+    */
     public function getMobileRefundMethodSpecificOutput(): ?RefundMobileMethodSpecificOutput
     {
         return $this->mobileRefundMethodSpecificOutput;
@@ -151,15 +201,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundMobileMethodSpecificOutput|null $value
-     */
+    */
     public function setMobileRefundMethodSpecificOutput(?RefundMobileMethodSpecificOutput $value): void
     {
         $this->mobileRefundMethodSpecificOutput = $value;
     }
 
     /**
+     * @param RefundMobileMethodSpecificOutput|null $value
+     * @return RefundOutput
+    */
+    public function withMobileRefundMethodSpecificOutput(?RefundMobileMethodSpecificOutput $value): RefundOutput
+    {
+        $this->mobileRefundMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
-     */
+    */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -167,15 +227,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     */
+    */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
+     * @param OperationPaymentReferences|null $value
+     * @return RefundOutput
+    */
+    public function withOperationReferences(?OperationPaymentReferences $value): RefundOutput
+    {
+        $this->operationReferences = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -183,15 +253,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundOutput
+    */
+    public function withPaymentMethod(?string $value): RefundOutput
+    {
+        $this->paymentMethod = $value;
+        return $this;
+    }
+
+    /**
      * @return RefundRedirectMethodSpecificOutput|null
-     */
+    */
     public function getRedirectRefundMethodSpecificOutput(): ?RefundRedirectMethodSpecificOutput
     {
         return $this->redirectRefundMethodSpecificOutput;
@@ -199,15 +279,25 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundRedirectMethodSpecificOutput|null $value
-     */
+    */
     public function setRedirectRefundMethodSpecificOutput(?RefundRedirectMethodSpecificOutput $value): void
     {
         $this->redirectRefundMethodSpecificOutput = $value;
     }
 
     /**
+     * @param RefundRedirectMethodSpecificOutput|null $value
+     * @return RefundOutput
+    */
+    public function withRedirectRefundMethodSpecificOutput(?RefundRedirectMethodSpecificOutput $value): RefundOutput
+    {
+        $this->redirectRefundMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -215,10 +305,20 @@ class RefundOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
+    }
+
+    /**
+     * @param PaymentReferences|null $value
+     * @return RefundOutput
+    */
+    public function withReferences(?PaymentReferences $value): RefundOutput
+    {
+        $this->references = $value;
+        return $this;
     }
 
     /**

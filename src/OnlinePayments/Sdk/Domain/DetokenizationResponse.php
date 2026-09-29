@@ -13,12 +13,12 @@ class DetokenizationResponse extends DataObject
 {
     /**
      * @var DetokenizedTokenResponse[]|null
-     */
+    */
     public ?array $tokens = null;
 
     /**
      * @return DetokenizedTokenResponse[]|null
-     */
+    */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -26,10 +26,20 @@ class DetokenizationResponse extends DataObject
 
     /**
      * @param DetokenizedTokenResponse[]|null $value
-     */
+    */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
+    }
+
+    /**
+     * @param DetokenizedTokenResponse[]|null $value
+     * @return DetokenizationResponse
+    */
+    public function withTokens(?array $value): DetokenizationResponse
+    {
+        $this->tokens = $value;
+        return $this;
     }
 
     /**

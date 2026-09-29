@@ -13,12 +13,12 @@ class FraudResults extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $fraudServiceResult = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
@@ -26,10 +26,20 @@ class FraudResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return FraudResults
+    */
+    public function withFraudServiceResult(?string $value): FraudResults
+    {
+        $this->fraudServiceResult = $value;
+        return $this;
     }
 
     /**

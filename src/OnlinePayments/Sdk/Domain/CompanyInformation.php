@@ -13,12 +13,12 @@ class CompanyInformation extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $name = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getName(): ?string
     {
         return $this->name;
@@ -26,10 +26,20 @@ class CompanyInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setName(?string $value): void
     {
         $this->name = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CompanyInformation
+    */
+    public function withName(?string $value): CompanyInformation
+    {
+        $this->name = $value;
+        return $this;
     }
 
     /**

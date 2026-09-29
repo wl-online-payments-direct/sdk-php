@@ -13,17 +13,17 @@ class HostedCheckoutSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedCheckoutId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $variant = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getHostedCheckoutId(): ?string
     {
         return $this->hostedCheckoutId;
@@ -31,15 +31,25 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedCheckoutId(?string $value): void
     {
         $this->hostedCheckoutId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return HostedCheckoutSpecificOutput
+    */
+    public function withHostedCheckoutId(?string $value): HostedCheckoutSpecificOutput
+    {
+        $this->hostedCheckoutId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getVariant(): ?string
     {
         return $this->variant;
@@ -47,10 +57,20 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setVariant(?string $value): void
     {
         $this->variant = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return HostedCheckoutSpecificOutput
+    */
+    public function withVariant(?string $value): HostedCheckoutSpecificOutput
+    {
+        $this->variant = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class PersonalInformationToken extends DataObject
 {
     /**
      * @var PersonalNameToken|null
-     */
+    */
     public ?PersonalNameToken $name = null;
 
     /**
      * @return PersonalNameToken|null
-     */
+    */
     public function getName(): ?PersonalNameToken
     {
         return $this->name;
@@ -26,10 +26,20 @@ class PersonalInformationToken extends DataObject
 
     /**
      * @param PersonalNameToken|null $value
-     */
+    */
     public function setName(?PersonalNameToken $value): void
     {
         $this->name = $value;
+    }
+
+    /**
+     * @param PersonalNameToken|null $value
+     * @return PersonalInformationToken
+    */
+    public function withName(?PersonalNameToken $value): PersonalInformationToken
+    {
+        $this->name = $value;
+        return $this;
     }
 
     /**

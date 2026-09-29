@@ -13,17 +13,17 @@ class CurrencyConversionRequest extends DataObject
 {
     /**
      * @var DccCardSource|null
-     */
+    */
     public ?DccCardSource $cardSource = null;
 
     /**
      * @var Transaction|null
-     */
+    */
     public ?Transaction $transaction = null;
 
     /**
      * @return DccCardSource|null
-     */
+    */
     public function getCardSource(): ?DccCardSource
     {
         return $this->cardSource;
@@ -31,15 +31,25 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param DccCardSource|null $value
-     */
+    */
     public function setCardSource(?DccCardSource $value): void
     {
         $this->cardSource = $value;
     }
 
     /**
+     * @param DccCardSource|null $value
+     * @return CurrencyConversionRequest
+    */
+    public function withCardSource(?DccCardSource $value): CurrencyConversionRequest
+    {
+        $this->cardSource = $value;
+        return $this;
+    }
+
+    /**
      * @return Transaction|null
-     */
+    */
     public function getTransaction(): ?Transaction
     {
         return $this->transaction;
@@ -47,10 +57,20 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param Transaction|null $value
-     */
+    */
     public function setTransaction(?Transaction $value): void
     {
         $this->transaction = $value;
+    }
+
+    /**
+     * @param Transaction|null $value
+     * @return CurrencyConversionRequest
+    */
+    public function withTransaction(?Transaction $value): CurrencyConversionRequest
+    {
+        $this->transaction = $value;
+        return $this;
     }
 
     /**

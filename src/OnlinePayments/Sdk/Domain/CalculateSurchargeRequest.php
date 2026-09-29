@@ -13,17 +13,17 @@ class CalculateSurchargeRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var CardSource|null
-     */
+    */
     public ?CardSource $cardSource = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -31,15 +31,25 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return CalculateSurchargeRequest
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): CalculateSurchargeRequest
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return CardSource|null
-     */
+    */
     public function getCardSource(): ?CardSource
     {
         return $this->cardSource;
@@ -47,10 +57,20 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param CardSource|null $value
-     */
+    */
     public function setCardSource(?CardSource $value): void
     {
         $this->cardSource = $value;
+    }
+
+    /**
+     * @param CardSource|null $value
+     * @return CalculateSurchargeRequest
+    */
+    public function withCardSource(?CardSource $value): CalculateSurchargeRequest
+    {
+        $this->cardSource = $value;
+        return $this;
     }
 
     /**

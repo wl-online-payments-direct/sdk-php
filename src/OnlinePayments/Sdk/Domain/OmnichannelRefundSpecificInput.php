@@ -13,12 +13,12 @@ class OmnichannelRefundSpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $operatorId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getOperatorId(): ?string
     {
         return $this->operatorId;
@@ -26,10 +26,20 @@ class OmnichannelRefundSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperatorId(?string $value): void
     {
         $this->operatorId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OmnichannelRefundSpecificInput
+    */
+    public function withOperatorId(?string $value): OmnichannelRefundSpecificInput
+    {
+        $this->operatorId = $value;
+        return $this;
     }
 
     /**

@@ -13,32 +13,32 @@ class ProblemDetailsResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $detail = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $instance = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $status = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $title = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDetail(): ?string
     {
         return $this->detail;
@@ -46,15 +46,25 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDetail(?string $value): void
     {
         $this->detail = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ProblemDetailsResponse
+    */
+    public function withDetail(?string $value): ProblemDetailsResponse
+    {
+        $this->detail = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getInstance(): ?string
     {
         return $this->instance;
@@ -62,15 +72,25 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setInstance(?string $value): void
     {
         $this->instance = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ProblemDetailsResponse
+    */
+    public function withInstance(?string $value): ProblemDetailsResponse
+    {
+        $this->instance = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getStatus(): ?int
     {
         return $this->status;
@@ -78,15 +98,25 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setStatus(?int $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ProblemDetailsResponse
+    */
+    public function withStatus(?int $value): ProblemDetailsResponse
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -94,15 +124,25 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ProblemDetailsResponse
+    */
+    public function withTitle(?string $value): ProblemDetailsResponse
+    {
+        $this->title = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -110,10 +150,20 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ProblemDetailsResponse
+    */
+    public function withType(?string $value): ProblemDetailsResponse
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

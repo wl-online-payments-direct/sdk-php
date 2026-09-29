@@ -13,22 +13,22 @@ class RefundMobileMethodSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $network = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getNetwork(): ?string
     {
         return $this->network;
@@ -36,15 +36,25 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setNetwork(?string $value): void
     {
         $this->network = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RefundMobileMethodSpecificOutput
+    */
+    public function withNetwork(?string $value): RefundMobileMethodSpecificOutput
+    {
+        $this->network = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -52,15 +62,25 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RefundMobileMethodSpecificOutput
+    */
+    public function withTotalAmountPaid(?int $value): RefundMobileMethodSpecificOutput
+    {
+        $this->totalAmountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -68,10 +88,20 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return RefundMobileMethodSpecificOutput
+    */
+    public function withTotalAmountRefunded(?int $value): RefundMobileMethodSpecificOutput
+    {
+        $this->totalAmountRefunded = $value;
+        return $this;
     }
 
     /**

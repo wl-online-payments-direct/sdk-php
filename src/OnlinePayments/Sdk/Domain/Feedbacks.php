@@ -15,19 +15,19 @@ class Feedbacks extends DataObject
      * @var string|null
      *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
-     */
+    */
     public ?string $webhookUrl = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $webhooksUrls = null;
 
     /**
      * @return string|null
      *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
-     */
+    */
     public function getWebhookUrl(): ?string
     {
         return $this->webhookUrl;
@@ -37,15 +37,27 @@ class Feedbacks extends DataObject
      * @param string|null $value
      *
      * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
-     */
+    */
     public function setWebhookUrl(?string $value): void
     {
         $this->webhookUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Feedbacks
+     *
+     * @deprecated The URL where the webhook will be dispatched for all status change events related to this payment.
+    */
+    public function withWebhookUrl(?string $value): Feedbacks
+    {
+        $this->webhookUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getWebhooksUrls(): ?array
     {
         return $this->webhooksUrls;
@@ -53,10 +65,20 @@ class Feedbacks extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setWebhooksUrls(?array $value): void
     {
         $this->webhooksUrls = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return Feedbacks
+    */
+    public function withWebhooksUrls(?array $value): Feedbacks
+    {
+        $this->webhooksUrls = $value;
+        return $this;
     }
 
     /**

@@ -13,32 +13,32 @@ class DecryptedPaymentData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cryptogram = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $dpan = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $eci = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -46,15 +46,25 @@ class DecryptedPaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DecryptedPaymentData
+    */
+    public function withCardholderName(?string $value): DecryptedPaymentData
+    {
+        $this->cardholderName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCryptogram(): ?string
     {
         return $this->cryptogram;
@@ -62,15 +72,25 @@ class DecryptedPaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCryptogram(?string $value): void
     {
         $this->cryptogram = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DecryptedPaymentData
+    */
+    public function withCryptogram(?string $value): DecryptedPaymentData
+    {
+        $this->cryptogram = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDpan(): ?string
     {
         return $this->dpan;
@@ -78,15 +98,25 @@ class DecryptedPaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDpan(?string $value): void
     {
         $this->dpan = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DecryptedPaymentData
+    */
+    public function withDpan(?string $value): DecryptedPaymentData
+    {
+        $this->dpan = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getEci(): ?int
     {
         return $this->eci;
@@ -94,15 +124,25 @@ class DecryptedPaymentData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setEci(?int $value): void
     {
         $this->eci = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return DecryptedPaymentData
+    */
+    public function withEci(?int $value): DecryptedPaymentData
+    {
+        $this->eci = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -110,10 +150,20 @@ class DecryptedPaymentData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return DecryptedPaymentData
+    */
+    public function withExpiryDate(?string $value): DecryptedPaymentData
+    {
+        $this->expiryDate = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class Discount extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $amount = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -26,10 +26,20 @@ class Discount extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return Discount
+    */
+    public function withAmount(?int $value): Discount
+    {
+        $this->amount = $value;
+        return $this;
     }
 
     /**

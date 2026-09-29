@@ -13,27 +13,27 @@ class PaymentProductGroup extends DataObject
 {
     /**
      * @var AccountOnFile|null
-     */
+    */
     public ?AccountOnFile $accountOnFile = null;
 
     /**
      * @var PaymentProductDisplayHints|null
-     */
+    */
     public ?PaymentProductDisplayHints $displayHints = null;
 
     /**
      * @var PaymentProductDisplayHints[]|null
-     */
+    */
     public ?array $displayHintsList = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @return AccountOnFile|null
-     */
+    */
     public function getAccountOnFile(): ?AccountOnFile
     {
         return $this->accountOnFile;
@@ -41,15 +41,25 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param AccountOnFile|null $value
-     */
+    */
     public function setAccountOnFile(?AccountOnFile $value): void
     {
         $this->accountOnFile = $value;
     }
 
     /**
+     * @param AccountOnFile|null $value
+     * @return PaymentProductGroup
+    */
+    public function withAccountOnFile(?AccountOnFile $value): PaymentProductGroup
+    {
+        $this->accountOnFile = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductDisplayHints|null
-     */
+    */
     public function getDisplayHints(): ?PaymentProductDisplayHints
     {
         return $this->displayHints;
@@ -57,15 +67,25 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints|null $value
-     */
+    */
     public function setDisplayHints(?PaymentProductDisplayHints $value): void
     {
         $this->displayHints = $value;
     }
 
     /**
+     * @param PaymentProductDisplayHints|null $value
+     * @return PaymentProductGroup
+    */
+    public function withDisplayHints(?PaymentProductDisplayHints $value): PaymentProductGroup
+    {
+        $this->displayHints = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductDisplayHints[]|null
-     */
+    */
     public function getDisplayHintsList(): ?array
     {
         return $this->displayHintsList;
@@ -73,15 +93,25 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints[]|null $value
-     */
+    */
     public function setDisplayHintsList(?array $value): void
     {
         $this->displayHintsList = $value;
     }
 
     /**
+     * @param PaymentProductDisplayHints[]|null $value
+     * @return PaymentProductGroup
+    */
+    public function withDisplayHintsList(?array $value): PaymentProductGroup
+    {
+        $this->displayHintsList = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -89,10 +119,20 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductGroup
+    */
+    public function withId(?string $value): PaymentProductGroup
+    {
+        $this->id = $value;
+        return $this;
     }
 
     /**

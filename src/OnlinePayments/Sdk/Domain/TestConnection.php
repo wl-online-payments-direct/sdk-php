@@ -13,12 +13,12 @@ class TestConnection extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $result = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getResult(): ?string
     {
         return $this->result;
@@ -26,10 +26,20 @@ class TestConnection extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResult(?string $value): void
     {
         $this->result = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return TestConnection
+    */
+    public function withResult(?string $value): TestConnection
+    {
+        $this->result = $value;
+        return $this;
     }
 
     /**

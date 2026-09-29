@@ -13,12 +13,12 @@ class CustomerDeviceOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $ipAddressCountryCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getIpAddressCountryCode(): ?string
     {
         return $this->ipAddressCountryCode;
@@ -26,10 +26,20 @@ class CustomerDeviceOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIpAddressCountryCode(?string $value): void
     {
         $this->ipAddressCountryCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CustomerDeviceOutput
+    */
+    public function withIpAddressCountryCode(?string $value): CustomerDeviceOutput
+    {
+        $this->ipAddressCountryCode = $value;
+        return $this;
     }
 
     /**

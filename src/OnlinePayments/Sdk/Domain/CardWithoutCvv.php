@@ -13,22 +13,22 @@ class CardWithoutCvv extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -36,15 +36,25 @@ class CardWithoutCvv extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardWithoutCvv
+    */
+    public function withCardNumber(?string $value): CardWithoutCvv
+    {
+        $this->cardNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -52,15 +62,25 @@ class CardWithoutCvv extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardWithoutCvv
+    */
+    public function withCardholderName(?string $value): CardWithoutCvv
+    {
+        $this->cardholderName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -68,10 +88,20 @@ class CardWithoutCvv extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardWithoutCvv
+    */
+    public function withExpiryDate(?string $value): CardWithoutCvv
+    {
+        $this->expiryDate = $value;
+        return $this;
     }
 
     /**

@@ -15,39 +15,39 @@ class GetProductGroupsParams extends RequestObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $currencyCode = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field has no effect.
-     */
+    */
     public ?string $locale = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $amount = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRecurring = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $hide = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -55,15 +55,24 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+    */
+    public function withCountryCode(string $value): GetProductGroupsParams
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -71,17 +80,26 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
     }
 
     /**
+     * @param string|null $value
+    */
+    public function withCurrencyCode(string $value): GetProductGroupsParams
+    {
+        $this->currencyCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field has no effect.
-     */
+    */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -91,15 +109,26 @@ class GetProductGroupsParams extends RequestObject
      * @param string|null $value
      *
      * @deprecated This field has no effect.
-     */
+    */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
+     * @param string|null $value
+     *
+     * @deprecated This field has no effect.
+    */
+    public function withLocale(string $value): GetProductGroupsParams
+    {
+        $this->locale = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -107,15 +136,24 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
     }
 
     /**
+     * @param int|null $value
+    */
+    public function withAmount(int $value): GetProductGroupsParams
+    {
+        $this->amount = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -123,15 +161,24 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
     }
 
     /**
+     * @param bool|null $value
+    */
+    public function withIsRecurring(bool $value): GetProductGroupsParams
+    {
+        $this->isRecurring = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getHide(): ?array
     {
         return $this->hide;
@@ -139,7 +186,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setHide(?array $value): void
     {
         $this->hide = $value;
@@ -147,7 +194,16 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-     */
+    */
+    public function withHide(array $value): GetProductGroupsParams
+    {
+        $this->hide = $value;
+        return $this;
+    }
+
+    /**
+     * @param string[]|null $value
+    */
     public function addHide(array $value): void
     {
         if (is_null($this->hide)) {

@@ -13,12 +13,12 @@ class RedirectPaymentProduct5407SpecificInput extends DataObject
 {
     /**
      * @var PaymentProduct5704AutoCapture|null
-     */
+    */
     public ?PaymentProduct5704AutoCapture $paymentProduct5704AutoCapture = null;
 
     /**
      * @return PaymentProduct5704AutoCapture|null
-     */
+    */
     public function getPaymentProduct5704AutoCapture(): ?PaymentProduct5704AutoCapture
     {
         return $this->paymentProduct5704AutoCapture;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct5407SpecificInput extends DataObject
 
     /**
      * @param PaymentProduct5704AutoCapture|null $value
-     */
+    */
     public function setPaymentProduct5704AutoCapture(?PaymentProduct5704AutoCapture $value): void
     {
         $this->paymentProduct5704AutoCapture = $value;
+    }
+
+    /**
+     * @param PaymentProduct5704AutoCapture|null $value
+     * @return RedirectPaymentProduct5407SpecificInput
+    */
+    public function withPaymentProduct5704AutoCapture(?PaymentProduct5704AutoCapture $value): RedirectPaymentProduct5407SpecificInput
+    {
+        $this->paymentProduct5704AutoCapture = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class AmountOfMoney extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $amount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $currencyCode = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -31,15 +31,25 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AmountOfMoney
+    */
+    public function withAmount(?int $value): AmountOfMoney
+    {
+        $this->amount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -47,10 +57,20 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AmountOfMoney
+    */
+    public function withCurrencyCode(?string $value): AmountOfMoney
+    {
+        $this->currencyCode = $value;
+        return $this;
     }
 
     /**

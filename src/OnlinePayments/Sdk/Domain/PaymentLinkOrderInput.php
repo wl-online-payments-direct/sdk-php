@@ -15,22 +15,22 @@ class PaymentLinkOrderInput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantReference = null;
 
     /**
      * @var SurchargeForPaymentLink|null
-     */
+    */
     public ?SurchargeForPaymentLink $surchargeSpecificInput = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -38,15 +38,25 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return PaymentLinkOrderInput
+    */
+    public function withAmount(?AmountOfMoney $value): PaymentLinkOrderInput
+    {
+        $this->amount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -54,15 +64,25 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentLinkOrderInput
+    */
+    public function withMerchantReference(?string $value): PaymentLinkOrderInput
+    {
+        $this->merchantReference = $value;
+        return $this;
+    }
+
+    /**
      * @return SurchargeForPaymentLink|null
-     */
+    */
     public function getSurchargeSpecificInput(): ?SurchargeForPaymentLink
     {
         return $this->surchargeSpecificInput;
@@ -70,10 +90,20 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param SurchargeForPaymentLink|null $value
-     */
+    */
     public function setSurchargeSpecificInput(?SurchargeForPaymentLink $value): void
     {
         $this->surchargeSpecificInput = $value;
+    }
+
+    /**
+     * @param SurchargeForPaymentLink|null $value
+     * @return PaymentLinkOrderInput
+    */
+    public function withSurchargeSpecificInput(?SurchargeForPaymentLink $value): PaymentLinkOrderInput
+    {
+        $this->surchargeSpecificInput = $value;
+        return $this;
     }
 
     /**

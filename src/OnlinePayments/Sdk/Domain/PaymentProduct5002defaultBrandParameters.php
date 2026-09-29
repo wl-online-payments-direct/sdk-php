@@ -13,17 +13,17 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $srcDpaId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $srcInitiatorId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getSrcDpaId(): ?string
     {
         return $this->srcDpaId;
@@ -31,15 +31,25 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSrcDpaId(?string $value): void
     {
         $this->srcDpaId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5002defaultBrandParameters
+    */
+    public function withSrcDpaId(?string $value): PaymentProduct5002defaultBrandParameters
+    {
+        $this->srcDpaId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -47,10 +57,20 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5002defaultBrandParameters
+    */
+    public function withSrcInitiatorId(?string $value): PaymentProduct5002defaultBrandParameters
+    {
+        $this->srcInitiatorId = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class PaymentProduct130SpecificInput extends DataObject
 {
     /**
      * @var PaymentProduct130SpecificThreeDSecure|null
-     */
+    */
     public ?PaymentProduct130SpecificThreeDSecure $threeDSecure = null;
 
     /**
      * @return PaymentProduct130SpecificThreeDSecure|null
-     */
+    */
     public function getThreeDSecure(): ?PaymentProduct130SpecificThreeDSecure
     {
         return $this->threeDSecure;
@@ -26,10 +26,20 @@ class PaymentProduct130SpecificInput extends DataObject
 
     /**
      * @param PaymentProduct130SpecificThreeDSecure|null $value
-     */
+    */
     public function setThreeDSecure(?PaymentProduct130SpecificThreeDSecure $value): void
     {
         $this->threeDSecure = $value;
+    }
+
+    /**
+     * @param PaymentProduct130SpecificThreeDSecure|null $value
+     * @return PaymentProduct130SpecificInput
+    */
+    public function withThreeDSecure(?PaymentProduct130SpecificThreeDSecure $value): PaymentProduct130SpecificInput
+    {
+        $this->threeDSecure = $value;
+        return $this;
     }
 
     /**

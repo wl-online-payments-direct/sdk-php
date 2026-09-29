@@ -13,12 +13,12 @@ class IncrementAuthorizationRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -26,10 +26,20 @@ class IncrementAuthorizationRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
+    }
+
+    /**
+     * @param AmountOfMoney|null $value
+     * @return IncrementAuthorizationRequest
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): IncrementAuthorizationRequest
+    {
+        $this->amountOfMoney = $value;
+        return $this;
     }
 
     /**

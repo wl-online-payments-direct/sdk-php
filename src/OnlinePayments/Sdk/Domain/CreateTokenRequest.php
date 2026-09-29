@@ -13,22 +13,22 @@ class CreateTokenRequest extends DataObject
 {
     /**
      * @var TokenCardSpecificInput|null
-     */
+    */
     public ?TokenCardSpecificInput $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return TokenCardSpecificInput|null
-     */
+    */
     public function getCard(): ?TokenCardSpecificInput
     {
         return $this->card;
@@ -36,15 +36,25 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param TokenCardSpecificInput|null $value
-     */
+    */
     public function setCard(?TokenCardSpecificInput $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param TokenCardSpecificInput|null $value
+     * @return CreateTokenRequest
+    */
+    public function withCard(?TokenCardSpecificInput $value): CreateTokenRequest
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -52,15 +62,25 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateTokenRequest
+    */
+    public function withEncryptedCustomerInput(?string $value): CreateTokenRequest
+    {
+        $this->encryptedCustomerInput = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -68,10 +88,20 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return CreateTokenRequest
+    */
+    public function withPaymentProductId(?int $value): CreateTokenRequest
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

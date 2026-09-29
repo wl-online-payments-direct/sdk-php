@@ -13,17 +13,17 @@ class PaymentProduct5404 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $appSwitchLink = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $qrCodeUrl = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAppSwitchLink(): ?string
     {
         return $this->appSwitchLink;
@@ -31,15 +31,25 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAppSwitchLink(?string $value): void
     {
         $this->appSwitchLink = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5404
+    */
+    public function withAppSwitchLink(?string $value): PaymentProduct5404
+    {
+        $this->appSwitchLink = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getQrCodeUrl(): ?string
     {
         return $this->qrCodeUrl;
@@ -47,10 +57,20 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQrCodeUrl(?string $value): void
     {
         $this->qrCodeUrl = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5404
+    */
+    public function withQrCodeUrl(?string $value): PaymentProduct5404
+    {
+        $this->qrCodeUrl = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class ValidateCredentialsResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $result = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getResult(): ?string
     {
         return $this->result;
@@ -26,10 +26,20 @@ class ValidateCredentialsResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResult(?string $value): void
     {
         $this->result = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ValidateCredentialsResponse
+    */
+    public function withResult(?string $value): ValidateCredentialsResponse
+    {
+        $this->result = $value;
+        return $this;
     }
 
     /**

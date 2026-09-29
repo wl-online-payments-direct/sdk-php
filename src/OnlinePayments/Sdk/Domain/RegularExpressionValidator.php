@@ -13,12 +13,12 @@ class RegularExpressionValidator extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $regularExpression = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRegularExpression(): ?string
     {
         return $this->regularExpression;
@@ -26,10 +26,20 @@ class RegularExpressionValidator extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRegularExpression(?string $value): void
     {
         $this->regularExpression = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RegularExpressionValidator
+    */
+    public function withRegularExpression(?string $value): RegularExpressionValidator
+    {
+        $this->regularExpression = $value;
+        return $this;
     }
 
     /**

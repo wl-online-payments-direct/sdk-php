@@ -13,17 +13,17 @@ class SepaDirectDebitPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var SepaDirectDebitPaymentProduct771SpecificInput|null
-     */
+    */
     public ?SepaDirectDebitPaymentProduct771SpecificInput $paymentProduct771SpecificInput = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return SepaDirectDebitPaymentProduct771SpecificInput|null
-     */
+    */
     public function getPaymentProduct771SpecificInput(): ?SepaDirectDebitPaymentProduct771SpecificInput
     {
         return $this->paymentProduct771SpecificInput;
@@ -31,15 +31,25 @@ class SepaDirectDebitPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentProduct771SpecificInput|null $value
-     */
+    */
     public function setPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInput $value): void
     {
         $this->paymentProduct771SpecificInput = $value;
     }
 
     /**
+     * @param SepaDirectDebitPaymentProduct771SpecificInput|null $value
+     * @return SepaDirectDebitPaymentMethodSpecificInput
+    */
+    public function withPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInput $value): SepaDirectDebitPaymentMethodSpecificInput
+    {
+        $this->paymentProduct771SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -47,10 +57,20 @@ class SepaDirectDebitPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return SepaDirectDebitPaymentMethodSpecificInput
+    */
+    public function withPaymentProductId(?int $value): SepaDirectDebitPaymentMethodSpecificInput
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

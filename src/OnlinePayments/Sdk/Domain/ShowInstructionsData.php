@@ -13,12 +13,12 @@ class ShowInstructionsData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $showData = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getShowData(): ?string
     {
         return $this->showData;
@@ -26,10 +26,20 @@ class ShowInstructionsData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setShowData(?string $value): void
     {
         $this->showData = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ShowInstructionsData
+    */
+    public function withShowData(?string $value): ShowInstructionsData
+    {
+        $this->showData = $value;
+        return $this;
     }
 
     /**

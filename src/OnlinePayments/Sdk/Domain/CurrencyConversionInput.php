@@ -13,17 +13,17 @@ class CurrencyConversionInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $acceptedByUser = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $dccSessionId = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getAcceptedByUser(): ?bool
     {
         return $this->acceptedByUser;
@@ -31,15 +31,25 @@ class CurrencyConversionInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setAcceptedByUser(?bool $value): void
     {
         $this->acceptedByUser = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CurrencyConversionInput
+    */
+    public function withAcceptedByUser(?bool $value): CurrencyConversionInput
+    {
+        $this->acceptedByUser = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDccSessionId(): ?string
     {
         return $this->dccSessionId;
@@ -47,10 +57,20 @@ class CurrencyConversionInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDccSessionId(?string $value): void
     {
         $this->dccSessionId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CurrencyConversionInput
+    */
+    public function withDccSessionId(?string $value): CurrencyConversionInput
+    {
+        $this->dccSessionId = $value;
+        return $this;
     }
 
     /**

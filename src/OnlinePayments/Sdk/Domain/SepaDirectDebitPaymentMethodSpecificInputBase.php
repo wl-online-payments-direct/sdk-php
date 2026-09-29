@@ -13,17 +13,17 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 {
     /**
      * @var SepaDirectDebitPaymentProduct771SpecificInputBase|null
-     */
+    */
     public ?SepaDirectDebitPaymentProduct771SpecificInputBase $paymentProduct771SpecificInput = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return SepaDirectDebitPaymentProduct771SpecificInputBase|null
-     */
+    */
     public function getPaymentProduct771SpecificInput(): ?SepaDirectDebitPaymentProduct771SpecificInputBase
     {
         return $this->paymentProduct771SpecificInput;
@@ -31,15 +31,25 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentProduct771SpecificInputBase|null $value
-     */
+    */
     public function setPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): void
     {
         $this->paymentProduct771SpecificInput = $value;
     }
 
     /**
+     * @param SepaDirectDebitPaymentProduct771SpecificInputBase|null $value
+     * @return SepaDirectDebitPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): SepaDirectDebitPaymentMethodSpecificInputBase
+    {
+        $this->paymentProduct771SpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -47,10 +57,20 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return SepaDirectDebitPaymentMethodSpecificInputBase
+    */
+    public function withPaymentProductId(?int $value): SepaDirectDebitPaymentMethodSpecificInputBase
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

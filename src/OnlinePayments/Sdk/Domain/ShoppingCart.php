@@ -15,39 +15,39 @@ class ShoppingCart extends DataObject
      * @var AmountBreakdown[]|null
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-     */
+    */
     public ?array $amountBreakdown = null;
 
     /**
      * @var GiftCardPurchase|null
-     */
+    */
     public ?GiftCardPurchase $giftCardPurchase = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isPreOrder = null;
 
     /**
      * @var LineItem[]|null
-     */
+    */
     public ?array $items = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $preOrderItemAvailabilityDate = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $reOrderIndicator = null;
 
     /**
      * @return AmountBreakdown[]|null
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-     */
+    */
     public function getAmountBreakdown(): ?array
     {
         return $this->amountBreakdown;
@@ -57,15 +57,27 @@ class ShoppingCart extends DataObject
      * @param AmountBreakdown[]|null $value
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-     */
+    */
     public function setAmountBreakdown(?array $value): void
     {
         $this->amountBreakdown = $value;
     }
 
     /**
+     * @param AmountBreakdown[]|null $value
+     * @return ShoppingCart
+     *
+     * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
+    */
+    public function withAmountBreakdown(?array $value): ShoppingCart
+    {
+        $this->amountBreakdown = $value;
+        return $this;
+    }
+
+    /**
      * @return GiftCardPurchase|null
-     */
+    */
     public function getGiftCardPurchase(): ?GiftCardPurchase
     {
         return $this->giftCardPurchase;
@@ -73,15 +85,25 @@ class ShoppingCart extends DataObject
 
     /**
      * @param GiftCardPurchase|null $value
-     */
+    */
     public function setGiftCardPurchase(?GiftCardPurchase $value): void
     {
         $this->giftCardPurchase = $value;
     }
 
     /**
+     * @param GiftCardPurchase|null $value
+     * @return ShoppingCart
+    */
+    public function withGiftCardPurchase(?GiftCardPurchase $value): ShoppingCart
+    {
+        $this->giftCardPurchase = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsPreOrder(): ?bool
     {
         return $this->isPreOrder;
@@ -89,15 +111,25 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsPreOrder(?bool $value): void
     {
         $this->isPreOrder = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return ShoppingCart
+    */
+    public function withIsPreOrder(?bool $value): ShoppingCart
+    {
+        $this->isPreOrder = $value;
+        return $this;
+    }
+
+    /**
      * @return LineItem[]|null
-     */
+    */
     public function getItems(): ?array
     {
         return $this->items;
@@ -105,15 +137,25 @@ class ShoppingCart extends DataObject
 
     /**
      * @param LineItem[]|null $value
-     */
+    */
     public function setItems(?array $value): void
     {
         $this->items = $value;
     }
 
     /**
+     * @param LineItem[]|null $value
+     * @return ShoppingCart
+    */
+    public function withItems(?array $value): ShoppingCart
+    {
+        $this->items = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPreOrderItemAvailabilityDate(): ?string
     {
         return $this->preOrderItemAvailabilityDate;
@@ -121,15 +163,25 @@ class ShoppingCart extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPreOrderItemAvailabilityDate(?string $value): void
     {
         $this->preOrderItemAvailabilityDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ShoppingCart
+    */
+    public function withPreOrderItemAvailabilityDate(?string $value): ShoppingCart
+    {
+        $this->preOrderItemAvailabilityDate = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getReOrderIndicator(): ?bool
     {
         return $this->reOrderIndicator;
@@ -137,10 +189,20 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setReOrderIndicator(?bool $value): void
     {
         $this->reOrderIndicator = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return ShoppingCart
+    */
+    public function withReOrderIndicator(?bool $value): ShoppingCart
+    {
+        $this->reOrderIndicator = $value;
+        return $this;
     }
 
     /**

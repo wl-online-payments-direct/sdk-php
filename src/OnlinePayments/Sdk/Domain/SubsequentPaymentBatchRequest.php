@@ -13,17 +13,17 @@ class SubsequentPaymentBatchRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @var SubsequentPaymentRequest|null
-     */
+    */
     public ?SubsequentPaymentRequest $subsequent = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -31,15 +31,25 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubsequentPaymentBatchRequest
+    */
+    public function withPaymentId(?string $value): SubsequentPaymentBatchRequest
+    {
+        $this->paymentId = $value;
+        return $this;
+    }
+
+    /**
      * @return SubsequentPaymentRequest|null
-     */
+    */
     public function getSubsequent(): ?SubsequentPaymentRequest
     {
         return $this->subsequent;
@@ -47,10 +57,20 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param SubsequentPaymentRequest|null $value
-     */
+    */
     public function setSubsequent(?SubsequentPaymentRequest $value): void
     {
         $this->subsequent = $value;
+    }
+
+    /**
+     * @param SubsequentPaymentRequest|null $value
+     * @return SubsequentPaymentBatchRequest
+    */
+    public function withSubsequent(?SubsequentPaymentRequest $value): SubsequentPaymentBatchRequest
+    {
+        $this->subsequent = $value;
+        return $this;
     }
 
     /**

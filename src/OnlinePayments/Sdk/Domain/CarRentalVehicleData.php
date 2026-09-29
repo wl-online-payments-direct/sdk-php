@@ -13,17 +13,17 @@ class CarRentalVehicleData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $classId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $identificationNumber = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getClassId(): ?string
     {
         return $this->classId;
@@ -31,15 +31,25 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setClassId(?string $value): void
     {
         $this->classId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalVehicleData
+    */
+    public function withClassId(?string $value): CarRentalVehicleData
+    {
+        $this->classId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIdentificationNumber(): ?string
     {
         return $this->identificationNumber;
@@ -47,10 +57,20 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIdentificationNumber(?string $value): void
     {
         $this->identificationNumber = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CarRentalVehicleData
+    */
+    public function withIdentificationNumber(?string $value): CarRentalVehicleData
+    {
+        $this->identificationNumber = $value;
+        return $this;
     }
 
     /**

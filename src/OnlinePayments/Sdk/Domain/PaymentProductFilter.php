@@ -13,17 +13,17 @@ class PaymentProductFilter extends DataObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $groups = null;
 
     /**
      * @var int[]|null
-     */
+    */
     public ?array $products = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getGroups(): ?array
     {
         return $this->groups;
@@ -31,15 +31,25 @@ class PaymentProductFilter extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setGroups(?array $value): void
     {
         $this->groups = $value;
     }
 
     /**
+     * @param string[]|null $value
+     * @return PaymentProductFilter
+    */
+    public function withGroups(?array $value): PaymentProductFilter
+    {
+        $this->groups = $value;
+        return $this;
+    }
+
+    /**
      * @return int[]|null
-     */
+    */
     public function getProducts(): ?array
     {
         return $this->products;
@@ -47,10 +57,20 @@ class PaymentProductFilter extends DataObject
 
     /**
      * @param int[]|null $value
-     */
+    */
     public function setProducts(?array $value): void
     {
         $this->products = $value;
+    }
+
+    /**
+     * @param int[]|null $value
+     * @return PaymentProductFilter
+    */
+    public function withProducts(?array $value): PaymentProductFilter
+    {
+        $this->products = $value;
+        return $this;
     }
 
     /**

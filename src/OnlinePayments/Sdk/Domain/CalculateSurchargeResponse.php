@@ -13,12 +13,12 @@ class CalculateSurchargeResponse extends DataObject
 {
     /**
      * @var Surcharge[]|null
-     */
+    */
     public ?array $surcharges = null;
 
     /**
      * @return Surcharge[]|null
-     */
+    */
     public function getSurcharges(): ?array
     {
         return $this->surcharges;
@@ -26,10 +26,20 @@ class CalculateSurchargeResponse extends DataObject
 
     /**
      * @param Surcharge[]|null $value
-     */
+    */
     public function setSurcharges(?array $value): void
     {
         $this->surcharges = $value;
+    }
+
+    /**
+     * @param Surcharge[]|null $value
+     * @return CalculateSurchargeResponse
+    */
+    public function withSurcharges(?array $value): CalculateSurchargeResponse
+    {
+        $this->surcharges = $value;
+        return $this;
     }
 
     /**

@@ -13,32 +13,32 @@ class CardPayoutMethodSpecificInput extends DataObject
 {
     /**
      * @var Card|null
-     */
+    */
     public ?Card $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $payoutReason = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @return Card|null
-     */
+    */
     public function getCard(): ?Card
     {
         return $this->card;
@@ -46,15 +46,25 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param Card|null $value
-     */
+    */
     public function setCard(?Card $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param Card|null $value
+     * @return CardPayoutMethodSpecificInput
+    */
+    public function withCard(?Card $value): CardPayoutMethodSpecificInput
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -62,15 +72,25 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPayoutMethodSpecificInput
+    */
+    public function withHostedFieldsSessionId(?string $value): CardPayoutMethodSpecificInput
+    {
+        $this->hostedFieldsSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -78,15 +98,25 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CardPayoutMethodSpecificInput
+    */
+    public function withPaymentProductId(?int $value): CardPayoutMethodSpecificInput
+    {
+        $this->paymentProductId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPayoutReason(): ?string
     {
         return $this->payoutReason;
@@ -94,15 +124,25 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPayoutReason(?string $value): void
     {
         $this->payoutReason = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardPayoutMethodSpecificInput
+    */
+    public function withPayoutReason(?string $value): CardPayoutMethodSpecificInput
+    {
+        $this->payoutReason = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -110,10 +150,20 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardPayoutMethodSpecificInput
+    */
+    public function withToken(?string $value): CardPayoutMethodSpecificInput
+    {
+        $this->token = $value;
+        return $this;
     }
 
     /**

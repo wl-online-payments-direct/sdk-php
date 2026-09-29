@@ -13,17 +13,17 @@ class MandatePersonalInformation extends DataObject
 {
     /**
      * @var MandatePersonalName|null
-     */
+    */
     public ?MandatePersonalName $name = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $title = null;
 
     /**
      * @return MandatePersonalName|null
-     */
+    */
     public function getName(): ?MandatePersonalName
     {
         return $this->name;
@@ -31,15 +31,25 @@ class MandatePersonalInformation extends DataObject
 
     /**
      * @param MandatePersonalName|null $value
-     */
+    */
     public function setName(?MandatePersonalName $value): void
     {
         $this->name = $value;
     }
 
     /**
+     * @param MandatePersonalName|null $value
+     * @return MandatePersonalInformation
+    */
+    public function withName(?MandatePersonalName $value): MandatePersonalInformation
+    {
+        $this->name = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -47,10 +57,20 @@ class MandatePersonalInformation extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return MandatePersonalInformation
+    */
+    public function withTitle(?string $value): MandatePersonalInformation
+    {
+        $this->title = $value;
+        return $this;
     }
 
     /**

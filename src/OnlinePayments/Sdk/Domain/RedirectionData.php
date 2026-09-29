@@ -13,12 +13,12 @@ class RedirectionData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $returnUrl = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
@@ -26,10 +26,20 @@ class RedirectionData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setReturnUrl(?string $value): void
     {
         $this->returnUrl = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectionData
+    */
+    public function withReturnUrl(?string $value): RedirectionData
+    {
+        $this->returnUrl = $value;
+        return $this;
     }
 
     /**

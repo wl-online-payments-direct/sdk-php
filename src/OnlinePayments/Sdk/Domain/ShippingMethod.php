@@ -13,27 +13,27 @@ class ShippingMethod extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $details = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $name = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $speed = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDetails(): ?string
     {
         return $this->details;
@@ -41,15 +41,25 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDetails(?string $value): void
     {
         $this->details = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ShippingMethod
+    */
+    public function withDetails(?string $value): ShippingMethod
+    {
+        $this->details = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getName(): ?string
     {
         return $this->name;
@@ -57,15 +67,25 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setName(?string $value): void
     {
         $this->name = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ShippingMethod
+    */
+    public function withName(?string $value): ShippingMethod
+    {
+        $this->name = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getSpeed(): ?int
     {
         return $this->speed;
@@ -73,15 +93,25 @@ class ShippingMethod extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setSpeed(?int $value): void
     {
         $this->speed = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ShippingMethod
+    */
+    public function withSpeed(?int $value): ShippingMethod
+    {
+        $this->speed = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -89,10 +119,20 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ShippingMethod
+    */
+    public function withType(?string $value): ShippingMethod
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

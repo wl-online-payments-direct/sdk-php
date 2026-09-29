@@ -13,17 +13,17 @@ class LengthValidator extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $maxLength = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $minLength = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getMaxLength(): ?int
     {
         return $this->maxLength;
@@ -31,15 +31,25 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMaxLength(?int $value): void
     {
         $this->maxLength = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return LengthValidator
+    */
+    public function withMaxLength(?int $value): LengthValidator
+    {
+        $this->maxLength = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getMinLength(): ?int
     {
         return $this->minLength;
@@ -47,10 +57,20 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setMinLength(?int $value): void
     {
         $this->minLength = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return LengthValidator
+    */
+    public function withMinLength(?int $value): LengthValidator
+    {
+        $this->minLength = $value;
+        return $this;
     }
 
     /**

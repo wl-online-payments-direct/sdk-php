@@ -14,12 +14,12 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 {
     /**
      * @var DateTime|null
-     */
+    */
     public ?DateTime $secondInstallmentPaymentDate = null;
 
     /**
      * @return DateTime|null
-     */
+    */
     public function getSecondInstallmentPaymentDate(): ?DateTime
     {
         return $this->secondInstallmentPaymentDate;
@@ -27,10 +27,20 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-     */
+    */
     public function setSecondInstallmentPaymentDate(?DateTime $value): void
     {
         $this->secondInstallmentPaymentDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return RedirectPaymentProduct5410SpecificInput
+    */
+    public function withSecondInstallmentPaymentDate(?DateTime $value): RedirectPaymentProduct5410SpecificInput
+    {
+        $this->secondInstallmentPaymentDate = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class PaymentsReportResponse extends DataObject
 {
     /**
      * @var CursorPaginationInfo|null
-     */
+    */
     public ?CursorPaginationInfo $pagination = null;
 
     /**
      * @var PaymentSummary[]|null
-     */
+    */
     public ?array $payments = null;
 
     /**
      * @return CursorPaginationInfo|null
-     */
+    */
     public function getPagination(): ?CursorPaginationInfo
     {
         return $this->pagination;
@@ -31,15 +31,25 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param CursorPaginationInfo|null $value
-     */
+    */
     public function setPagination(?CursorPaginationInfo $value): void
     {
         $this->pagination = $value;
     }
 
     /**
+     * @param CursorPaginationInfo|null $value
+     * @return PaymentsReportResponse
+    */
+    public function withPagination(?CursorPaginationInfo $value): PaymentsReportResponse
+    {
+        $this->pagination = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentSummary[]|null
-     */
+    */
     public function getPayments(): ?array
     {
         return $this->payments;
@@ -47,10 +57,20 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param PaymentSummary[]|null $value
-     */
+    */
     public function setPayments(?array $value): void
     {
         $this->payments = $value;
+    }
+
+    /**
+     * @param PaymentSummary[]|null $value
+     * @return PaymentsReportResponse
+    */
+    public function withPayments(?array $value): PaymentsReportResponse
+    {
+        $this->payments = $value;
+        return $this;
     }
 
     /**

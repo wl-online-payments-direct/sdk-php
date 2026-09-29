@@ -13,27 +13,27 @@ class PaymentProductField extends DataObject
 {
     /**
      * @var PaymentProductFieldDataRestrictions|null
-     */
+    */
     public ?PaymentProductFieldDataRestrictions $dataRestrictions = null;
 
     /**
      * @var PaymentProductFieldDisplayHints|null
-     */
+    */
     public ?PaymentProductFieldDisplayHints $displayHints = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return PaymentProductFieldDataRestrictions|null
-     */
+    */
     public function getDataRestrictions(): ?PaymentProductFieldDataRestrictions
     {
         return $this->dataRestrictions;
@@ -41,15 +41,25 @@ class PaymentProductField extends DataObject
 
     /**
      * @param PaymentProductFieldDataRestrictions|null $value
-     */
+    */
     public function setDataRestrictions(?PaymentProductFieldDataRestrictions $value): void
     {
         $this->dataRestrictions = $value;
     }
 
     /**
+     * @param PaymentProductFieldDataRestrictions|null $value
+     * @return PaymentProductField
+    */
+    public function withDataRestrictions(?PaymentProductFieldDataRestrictions $value): PaymentProductField
+    {
+        $this->dataRestrictions = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductFieldDisplayHints|null
-     */
+    */
     public function getDisplayHints(): ?PaymentProductFieldDisplayHints
     {
         return $this->displayHints;
@@ -57,15 +67,25 @@ class PaymentProductField extends DataObject
 
     /**
      * @param PaymentProductFieldDisplayHints|null $value
-     */
+    */
     public function setDisplayHints(?PaymentProductFieldDisplayHints $value): void
     {
         $this->displayHints = $value;
     }
 
     /**
+     * @param PaymentProductFieldDisplayHints|null $value
+     * @return PaymentProductField
+    */
+    public function withDisplayHints(?PaymentProductFieldDisplayHints $value): PaymentProductField
+    {
+        $this->displayHints = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -73,15 +93,25 @@ class PaymentProductField extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductField
+    */
+    public function withId(?string $value): PaymentProductField
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -89,10 +119,20 @@ class PaymentProductField extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductField
+    */
+    public function withType(?string $value): PaymentProductField
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

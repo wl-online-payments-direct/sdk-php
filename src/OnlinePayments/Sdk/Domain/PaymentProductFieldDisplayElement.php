@@ -13,27 +13,27 @@ class PaymentProductFieldDisplayElement extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $label = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $value = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,15 +41,25 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductFieldDisplayElement
+    */
+    public function withId(?string $value): PaymentProductFieldDisplayElement
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -57,15 +67,25 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductFieldDisplayElement
+    */
+    public function withLabel(?string $value): PaymentProductFieldDisplayElement
+    {
+        $this->label = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -73,15 +93,25 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductFieldDisplayElement
+    */
+    public function withType(?string $value): PaymentProductFieldDisplayElement
+    {
+        $this->type = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getValue(): ?string
     {
         return $this->value;
@@ -89,10 +119,20 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setValue(?string $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductFieldDisplayElement
+    */
+    public function withValue(?string $value): PaymentProductFieldDisplayElement
+    {
+        $this->value = $value;
+        return $this;
     }
 
     /**

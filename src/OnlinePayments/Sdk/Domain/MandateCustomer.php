@@ -13,32 +13,32 @@ class MandateCustomer extends DataObject
 {
     /**
      * @var BankAccountIban|null
-     */
+    */
     public ?BankAccountIban $bankAccountIban = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyName = null;
 
     /**
      * @var MandateContactDetails|null
-     */
+    */
     public ?MandateContactDetails $contactDetails = null;
 
     /**
      * @var MandateAddress|null
-     */
+    */
     public ?MandateAddress $mandateAddress = null;
 
     /**
      * @var MandatePersonalInformation|null
-     */
+    */
     public ?MandatePersonalInformation $personalInformation = null;
 
     /**
      * @return BankAccountIban|null
-     */
+    */
     public function getBankAccountIban(): ?BankAccountIban
     {
         return $this->bankAccountIban;
@@ -46,15 +46,25 @@ class MandateCustomer extends DataObject
 
     /**
      * @param BankAccountIban|null $value
-     */
+    */
     public function setBankAccountIban(?BankAccountIban $value): void
     {
         $this->bankAccountIban = $value;
     }
 
     /**
+     * @param BankAccountIban|null $value
+     * @return MandateCustomer
+    */
+    public function withBankAccountIban(?BankAccountIban $value): MandateCustomer
+    {
+        $this->bankAccountIban = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -62,15 +72,25 @@ class MandateCustomer extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateCustomer
+    */
+    public function withCompanyName(?string $value): MandateCustomer
+    {
+        $this->companyName = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateContactDetails|null
-     */
+    */
     public function getContactDetails(): ?MandateContactDetails
     {
         return $this->contactDetails;
@@ -78,15 +98,25 @@ class MandateCustomer extends DataObject
 
     /**
      * @param MandateContactDetails|null $value
-     */
+    */
     public function setContactDetails(?MandateContactDetails $value): void
     {
         $this->contactDetails = $value;
     }
 
     /**
+     * @param MandateContactDetails|null $value
+     * @return MandateCustomer
+    */
+    public function withContactDetails(?MandateContactDetails $value): MandateCustomer
+    {
+        $this->contactDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateAddress|null
-     */
+    */
     public function getMandateAddress(): ?MandateAddress
     {
         return $this->mandateAddress;
@@ -94,15 +124,25 @@ class MandateCustomer extends DataObject
 
     /**
      * @param MandateAddress|null $value
-     */
+    */
     public function setMandateAddress(?MandateAddress $value): void
     {
         $this->mandateAddress = $value;
     }
 
     /**
+     * @param MandateAddress|null $value
+     * @return MandateCustomer
+    */
+    public function withMandateAddress(?MandateAddress $value): MandateCustomer
+    {
+        $this->mandateAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return MandatePersonalInformation|null
-     */
+    */
     public function getPersonalInformation(): ?MandatePersonalInformation
     {
         return $this->personalInformation;
@@ -110,10 +150,20 @@ class MandateCustomer extends DataObject
 
     /**
      * @param MandatePersonalInformation|null $value
-     */
+    */
     public function setPersonalInformation(?MandatePersonalInformation $value): void
     {
         $this->personalInformation = $value;
+    }
+
+    /**
+     * @param MandatePersonalInformation|null $value
+     * @return MandateCustomer
+    */
+    public function withPersonalInformation(?MandatePersonalInformation $value): MandateCustomer
+    {
+        $this->personalInformation = $value;
+        return $this;
     }
 
     /**

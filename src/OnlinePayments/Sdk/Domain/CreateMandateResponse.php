@@ -13,17 +13,17 @@ class CreateMandateResponse extends DataObject
 {
     /**
      * @var MandateResponse|null
-     */
+    */
     public ?MandateResponse $mandate = null;
 
     /**
      * @var MandateMerchantAction|null
-     */
+    */
     public ?MandateMerchantAction $merchantAction = null;
 
     /**
      * @return MandateResponse|null
-     */
+    */
     public function getMandate(): ?MandateResponse
     {
         return $this->mandate;
@@ -31,15 +31,25 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-     */
+    */
     public function setMandate(?MandateResponse $value): void
     {
         $this->mandate = $value;
     }
 
     /**
+     * @param MandateResponse|null $value
+     * @return CreateMandateResponse
+    */
+    public function withMandate(?MandateResponse $value): CreateMandateResponse
+    {
+        $this->mandate = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateMerchantAction|null
-     */
+    */
     public function getMerchantAction(): ?MandateMerchantAction
     {
         return $this->merchantAction;
@@ -47,10 +57,20 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateMerchantAction|null $value
-     */
+    */
     public function setMerchantAction(?MandateMerchantAction $value): void
     {
         $this->merchantAction = $value;
+    }
+
+    /**
+     * @param MandateMerchantAction|null $value
+     * @return CreateMandateResponse
+    */
+    public function withMerchantAction(?MandateMerchantAction $value): CreateMandateResponse
+    {
+        $this->merchantAction = $value;
+        return $this;
     }
 
     /**

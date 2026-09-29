@@ -13,17 +13,17 @@ class AmountBreakdown extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $amount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -31,15 +31,25 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return AmountBreakdown
+    */
+    public function withAmount(?int $value): AmountBreakdown
+    {
+        $this->amount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -47,10 +57,20 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AmountBreakdown
+    */
+    public function withType(?string $value): AmountBreakdown
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class PaymentProduct5002SpecificData extends DataObject
 {
     /**
      * @var ApiParameters|null
-     */
+    */
     public ?ApiParameters $apiParameters = null;
 
     /**
      * @return ApiParameters|null
-     */
+    */
     public function getApiParameters(): ?ApiParameters
     {
         return $this->apiParameters;
@@ -26,10 +26,20 @@ class PaymentProduct5002SpecificData extends DataObject
 
     /**
      * @param ApiParameters|null $value
-     */
+    */
     public function setApiParameters(?ApiParameters $value): void
     {
         $this->apiParameters = $value;
+    }
+
+    /**
+     * @param ApiParameters|null $value
+     * @return PaymentProduct5002SpecificData
+    */
+    public function withApiParameters(?ApiParameters $value): PaymentProduct5002SpecificData
+    {
+        $this->apiParameters = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class CapturePaymentBatchRequest extends DataObject
 {
     /**
      * @var CapturePaymentRequest|null
-     */
+    */
     public ?CapturePaymentRequest $capture = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @return CapturePaymentRequest|null
-     */
+    */
     public function getCapture(): ?CapturePaymentRequest
     {
         return $this->capture;
@@ -31,15 +31,25 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param CapturePaymentRequest|null $value
-     */
+    */
     public function setCapture(?CapturePaymentRequest $value): void
     {
         $this->capture = $value;
     }
 
     /**
+     * @param CapturePaymentRequest|null $value
+     * @return CapturePaymentBatchRequest
+    */
+    public function withCapture(?CapturePaymentRequest $value): CapturePaymentBatchRequest
+    {
+        $this->capture = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -47,10 +57,20 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CapturePaymentBatchRequest
+    */
+    public function withPaymentId(?string $value): CapturePaymentBatchRequest
+    {
+        $this->paymentId = $value;
+        return $this;
     }
 
     /**

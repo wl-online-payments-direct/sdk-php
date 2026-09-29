@@ -14,107 +14,107 @@ class CardBinDetails extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $cardCorporateIndicator = null;
 
     /**
      * @var DateTime|null
-     */
+    */
     public ?DateTime $cardEffectiveDate = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $cardEffectiveDateIndicator = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardPanType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardProductCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardProductName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardProductUsageLabel = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardScheme = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cardType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerPrincipalMemberCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerPrincipalMemberName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerRegionCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuingCountryCode = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $panLengthMax = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $panLengthMin = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $panLuhnCheck = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $virtualCardIndicator = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getCardCorporateIndicator(): ?bool
     {
         return $this->cardCorporateIndicator;
@@ -122,15 +122,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCardCorporateIndicator(?bool $value): void
     {
         $this->cardCorporateIndicator = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CardBinDetails
+    */
+    public function withCardCorporateIndicator(?bool $value): CardBinDetails
+    {
+        $this->cardCorporateIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return DateTime|null
-     */
+    */
     public function getCardEffectiveDate(): ?DateTime
     {
         return $this->cardEffectiveDate;
@@ -138,15 +148,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param DateTime|null $value
-     */
+    */
     public function setCardEffectiveDate(?DateTime $value): void
     {
         $this->cardEffectiveDate = $value;
     }
 
     /**
+     * @param DateTime|null $value
+     * @return CardBinDetails
+    */
+    public function withCardEffectiveDate(?DateTime $value): CardBinDetails
+    {
+        $this->cardEffectiveDate = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getCardEffectiveDateIndicator(): ?bool
     {
         return $this->cardEffectiveDateIndicator;
@@ -154,15 +174,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCardEffectiveDateIndicator(?bool $value): void
     {
         $this->cardEffectiveDateIndicator = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CardBinDetails
+    */
+    public function withCardEffectiveDateIndicator(?bool $value): CardBinDetails
+    {
+        $this->cardEffectiveDateIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardPanType(): ?string
     {
         return $this->cardPanType;
@@ -170,15 +200,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardPanType(?string $value): void
     {
         $this->cardPanType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardPanType(?string $value): CardBinDetails
+    {
+        $this->cardPanType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardProductCode(): ?string
     {
         return $this->cardProductCode;
@@ -186,15 +226,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardProductCode(?string $value): void
     {
         $this->cardProductCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardProductCode(?string $value): CardBinDetails
+    {
+        $this->cardProductCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardProductName(): ?string
     {
         return $this->cardProductName;
@@ -202,15 +252,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardProductName(?string $value): void
     {
         $this->cardProductName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardProductName(?string $value): CardBinDetails
+    {
+        $this->cardProductName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardProductUsageLabel(): ?string
     {
         return $this->cardProductUsageLabel;
@@ -218,15 +278,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardProductUsageLabel(?string $value): void
     {
         $this->cardProductUsageLabel = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardProductUsageLabel(?string $value): CardBinDetails
+    {
+        $this->cardProductUsageLabel = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardScheme(): ?string
     {
         return $this->cardScheme;
@@ -234,15 +304,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardScheme(?string $value): void
     {
         $this->cardScheme = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardScheme(?string $value): CardBinDetails
+    {
+        $this->cardScheme = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCardType(): ?string
     {
         return $this->cardType;
@@ -250,15 +330,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardType(?string $value): void
     {
         $this->cardType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCardType(?string $value): CardBinDetails
+    {
+        $this->cardType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -266,15 +356,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withCountryCode(?string $value): CardBinDetails
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerCode(): ?string
     {
         return $this->issuerCode;
@@ -282,15 +382,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerCode(?string $value): void
     {
         $this->issuerCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuerCode(?string $value): CardBinDetails
+    {
+        $this->issuerCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerName(): ?string
     {
         return $this->issuerName;
@@ -298,15 +408,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerName(?string $value): void
     {
         $this->issuerName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuerName(?string $value): CardBinDetails
+    {
+        $this->issuerName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerPrincipalMemberCode(): ?string
     {
         return $this->issuerPrincipalMemberCode;
@@ -314,15 +434,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerPrincipalMemberCode(?string $value): void
     {
         $this->issuerPrincipalMemberCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuerPrincipalMemberCode(?string $value): CardBinDetails
+    {
+        $this->issuerPrincipalMemberCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerPrincipalMemberName(): ?string
     {
         return $this->issuerPrincipalMemberName;
@@ -330,15 +460,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerPrincipalMemberName(?string $value): void
     {
         $this->issuerPrincipalMemberName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuerPrincipalMemberName(?string $value): CardBinDetails
+    {
+        $this->issuerPrincipalMemberName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerRegionCode(): ?string
     {
         return $this->issuerRegionCode;
@@ -346,15 +486,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerRegionCode(?string $value): void
     {
         $this->issuerRegionCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuerRegionCode(?string $value): CardBinDetails
+    {
+        $this->issuerRegionCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuingCountryCode(): ?string
     {
         return $this->issuingCountryCode;
@@ -362,15 +512,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuingCountryCode(?string $value): void
     {
         $this->issuingCountryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardBinDetails
+    */
+    public function withIssuingCountryCode(?string $value): CardBinDetails
+    {
+        $this->issuingCountryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPanLengthMax(): ?int
     {
         return $this->panLengthMax;
@@ -378,15 +538,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPanLengthMax(?int $value): void
     {
         $this->panLengthMax = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CardBinDetails
+    */
+    public function withPanLengthMax(?int $value): CardBinDetails
+    {
+        $this->panLengthMax = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPanLengthMin(): ?int
     {
         return $this->panLengthMin;
@@ -394,15 +564,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPanLengthMin(?int $value): void
     {
         $this->panLengthMin = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CardBinDetails
+    */
+    public function withPanLengthMin(?int $value): CardBinDetails
+    {
+        $this->panLengthMin = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getPanLuhnCheck(): ?bool
     {
         return $this->panLuhnCheck;
@@ -410,15 +590,25 @@ class CardBinDetails extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setPanLuhnCheck(?bool $value): void
     {
         $this->panLuhnCheck = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CardBinDetails
+    */
+    public function withPanLuhnCheck(?bool $value): CardBinDetails
+    {
+        $this->panLuhnCheck = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getVirtualCardIndicator(): ?bool
     {
         return $this->virtualCardIndicator;
@@ -426,10 +616,20 @@ class CardBinDetails extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setVirtualCardIndicator(?bool $value): void
     {
         $this->virtualCardIndicator = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return CardBinDetails
+    */
+    public function withVirtualCardIndicator(?bool $value): CardBinDetails
+    {
+        $this->virtualCardIndicator = $value;
+        return $this;
     }
 
     /**

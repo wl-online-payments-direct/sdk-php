@@ -13,22 +13,22 @@ class Amex extends DataObject
 {
     /**
      * @var DpaData|null
-     */
+    */
     public ?DpaData $dpaData = null;
 
     /**
      * @var DpaTransactionOptions|null
-     */
+    */
     public ?DpaTransactionOptions $dpaTransactionOptions = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $srcInitiatorId = null;
 
     /**
      * @return DpaData|null
-     */
+    */
     public function getDpaData(): ?DpaData
     {
         return $this->dpaData;
@@ -36,15 +36,25 @@ class Amex extends DataObject
 
     /**
      * @param DpaData|null $value
-     */
+    */
     public function setDpaData(?DpaData $value): void
     {
         $this->dpaData = $value;
     }
 
     /**
+     * @param DpaData|null $value
+     * @return Amex
+    */
+    public function withDpaData(?DpaData $value): Amex
+    {
+        $this->dpaData = $value;
+        return $this;
+    }
+
+    /**
      * @return DpaTransactionOptions|null
-     */
+    */
     public function getDpaTransactionOptions(): ?DpaTransactionOptions
     {
         return $this->dpaTransactionOptions;
@@ -52,15 +62,25 @@ class Amex extends DataObject
 
     /**
      * @param DpaTransactionOptions|null $value
-     */
+    */
     public function setDpaTransactionOptions(?DpaTransactionOptions $value): void
     {
         $this->dpaTransactionOptions = $value;
     }
 
     /**
+     * @param DpaTransactionOptions|null $value
+     * @return Amex
+    */
+    public function withDpaTransactionOptions(?DpaTransactionOptions $value): Amex
+    {
+        $this->dpaTransactionOptions = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -68,10 +88,20 @@ class Amex extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Amex
+    */
+    public function withSrcInitiatorId(?string $value): Amex
+    {
+        $this->srcInitiatorId = $value;
+        return $this;
     }
 
     /**

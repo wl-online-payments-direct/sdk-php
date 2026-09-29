@@ -13,37 +13,37 @@ class CreateHostedFieldsSessionResponse extends DataObject
 {
     /**
      * @var CardToken[]|null
-     */
+    */
     public ?array $cardTokens = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $invalidTokens = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $sdkSri = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $sdkUrl = null;
 
     /**
      * @var SessionData|null
-     */
+    */
     public ?SessionData $sessionData = null;
 
     /**
      * @return CardToken[]|null
-     */
+    */
     public function getCardTokens(): ?array
     {
         return $this->cardTokens;
@@ -51,15 +51,25 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param CardToken[]|null $value
-     */
+    */
     public function setCardTokens(?array $value): void
     {
         $this->cardTokens = $value;
     }
 
     /**
+     * @param CardToken[]|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withCardTokens(?array $value): CreateHostedFieldsSessionResponse
+    {
+        $this->cardTokens = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -67,15 +77,25 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withHostedFieldsSessionId(?string $value): CreateHostedFieldsSessionResponse
+    {
+        $this->hostedFieldsSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getInvalidTokens(): ?array
     {
         return $this->invalidTokens;
@@ -83,15 +103,25 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setInvalidTokens(?array $value): void
     {
         $this->invalidTokens = $value;
     }
 
     /**
+     * @param string[]|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withInvalidTokens(?array $value): CreateHostedFieldsSessionResponse
+    {
+        $this->invalidTokens = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSdkSri(): ?string
     {
         return $this->sdkSri;
@@ -99,15 +129,25 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSdkSri(?string $value): void
     {
         $this->sdkSri = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withSdkSri(?string $value): CreateHostedFieldsSessionResponse
+    {
+        $this->sdkSri = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSdkUrl(): ?string
     {
         return $this->sdkUrl;
@@ -115,15 +155,25 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSdkUrl(?string $value): void
     {
         $this->sdkUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withSdkUrl(?string $value): CreateHostedFieldsSessionResponse
+    {
+        $this->sdkUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return SessionData|null
-     */
+    */
     public function getSessionData(): ?SessionData
     {
         return $this->sessionData;
@@ -131,10 +181,20 @@ class CreateHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param SessionData|null $value
-     */
+    */
     public function setSessionData(?SessionData $value): void
     {
         $this->sessionData = $value;
+    }
+
+    /**
+     * @param SessionData|null $value
+     * @return CreateHostedFieldsSessionResponse
+    */
+    public function withSessionData(?SessionData $value): CreateHostedFieldsSessionResponse
+    {
+        $this->sessionData = $value;
+        return $this;
     }
 
     /**

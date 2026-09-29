@@ -13,17 +13,17 @@ class PaymentProduct3203SpecificOutput extends DataObject
 {
     /**
      * @var AddressPersonal|null
-     */
+    */
     public ?AddressPersonal $billingAddress = null;
 
     /**
      * @var AddressPersonal|null
-     */
+    */
     public ?AddressPersonal $shippingAddress = null;
 
     /**
      * @return AddressPersonal|null
-     */
+    */
     public function getBillingAddress(): ?AddressPersonal
     {
         return $this->billingAddress;
@@ -31,15 +31,25 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     */
+    */
     public function setBillingAddress(?AddressPersonal $value): void
     {
         $this->billingAddress = $value;
     }
 
     /**
+     * @param AddressPersonal|null $value
+     * @return PaymentProduct3203SpecificOutput
+    */
+    public function withBillingAddress(?AddressPersonal $value): PaymentProduct3203SpecificOutput
+    {
+        $this->billingAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return AddressPersonal|null
-     */
+    */
     public function getShippingAddress(): ?AddressPersonal
     {
         return $this->shippingAddress;
@@ -47,10 +57,20 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     */
+    */
     public function setShippingAddress(?AddressPersonal $value): void
     {
         $this->shippingAddress = $value;
+    }
+
+    /**
+     * @param AddressPersonal|null $value
+     * @return PaymentProduct3203SpecificOutput
+    */
+    public function withShippingAddress(?AddressPersonal $value): PaymentProduct3203SpecificOutput
+    {
+        $this->shippingAddress = $value;
+        return $this;
     }
 
     /**

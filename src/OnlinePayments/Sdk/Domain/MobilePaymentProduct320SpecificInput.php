@@ -13,27 +13,27 @@ class MobilePaymentProduct320SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRecurring = null;
 
     /**
      * @var Product320Recurring|null
-     */
+    */
     public ?Product320Recurring $recurring = null;
 
     /**
      * @var GPayThreeDSecure|null
-     */
+    */
     public ?GPayThreeDSecure $threeDSecure = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $tokenize = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -41,15 +41,25 @@ class MobilePaymentProduct320SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return MobilePaymentProduct320SpecificInput
+    */
+    public function withIsRecurring(?bool $value): MobilePaymentProduct320SpecificInput
+    {
+        $this->isRecurring = $value;
+        return $this;
+    }
+
+    /**
      * @return Product320Recurring|null
-     */
+    */
     public function getRecurring(): ?Product320Recurring
     {
         return $this->recurring;
@@ -57,15 +67,25 @@ class MobilePaymentProduct320SpecificInput extends DataObject
 
     /**
      * @param Product320Recurring|null $value
-     */
+    */
     public function setRecurring(?Product320Recurring $value): void
     {
         $this->recurring = $value;
     }
 
     /**
+     * @param Product320Recurring|null $value
+     * @return MobilePaymentProduct320SpecificInput
+    */
+    public function withRecurring(?Product320Recurring $value): MobilePaymentProduct320SpecificInput
+    {
+        $this->recurring = $value;
+        return $this;
+    }
+
+    /**
      * @return GPayThreeDSecure|null
-     */
+    */
     public function getThreeDSecure(): ?GPayThreeDSecure
     {
         return $this->threeDSecure;
@@ -73,15 +93,25 @@ class MobilePaymentProduct320SpecificInput extends DataObject
 
     /**
      * @param GPayThreeDSecure|null $value
-     */
+    */
     public function setThreeDSecure(?GPayThreeDSecure $value): void
     {
         $this->threeDSecure = $value;
     }
 
     /**
+     * @param GPayThreeDSecure|null $value
+     * @return MobilePaymentProduct320SpecificInput
+    */
+    public function withThreeDSecure(?GPayThreeDSecure $value): MobilePaymentProduct320SpecificInput
+    {
+        $this->threeDSecure = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getTokenize(): ?bool
     {
         return $this->tokenize;
@@ -89,10 +119,20 @@ class MobilePaymentProduct320SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setTokenize(?bool $value): void
     {
         $this->tokenize = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return MobilePaymentProduct320SpecificInput
+    */
+    public function withTokenize(?bool $value): MobilePaymentProduct320SpecificInput
+    {
+        $this->tokenize = $value;
+        return $this;
     }
 
     /**

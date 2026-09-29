@@ -13,12 +13,12 @@ class CapturesResponse extends DataObject
 {
     /**
      * @var Capture[]|null
-     */
+    */
     public ?array $captures = null;
 
     /**
      * @return Capture[]|null
-     */
+    */
     public function getCaptures(): ?array
     {
         return $this->captures;
@@ -26,10 +26,20 @@ class CapturesResponse extends DataObject
 
     /**
      * @param Capture[]|null $value
-     */
+    */
     public function setCaptures(?array $value): void
     {
         $this->captures = $value;
+    }
+
+    /**
+     * @param Capture[]|null $value
+     * @return CapturesResponse
+    */
+    public function withCaptures(?array $value): CapturesResponse
+    {
+        $this->captures = $value;
+        return $this;
     }
 
     /**

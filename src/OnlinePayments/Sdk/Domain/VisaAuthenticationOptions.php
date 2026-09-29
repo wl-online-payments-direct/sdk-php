@@ -13,22 +13,22 @@ class VisaAuthenticationOptions extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerBIN = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerMerchantId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcquirerBIN(): ?string
     {
         return $this->acquirerBIN;
@@ -36,15 +36,25 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerBIN(?string $value): void
     {
         $this->acquirerBIN = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return VisaAuthenticationOptions
+    */
+    public function withAcquirerBIN(?string $value): VisaAuthenticationOptions
+    {
+        $this->acquirerBIN = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAcquirerMerchantId(): ?string
     {
         return $this->acquirerMerchantId;
@@ -52,15 +62,25 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerMerchantId(?string $value): void
     {
         $this->acquirerMerchantId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return VisaAuthenticationOptions
+    */
+    public function withAcquirerMerchantId(?string $value): VisaAuthenticationOptions
+    {
+        $this->acquirerMerchantId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantName(): ?string
     {
         return $this->merchantName;
@@ -68,10 +88,20 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantName(?string $value): void
     {
         $this->merchantName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return VisaAuthenticationOptions
+    */
+    public function withMerchantName(?string $value): VisaAuthenticationOptions
+    {
+        $this->merchantName = $value;
+        return $this;
     }
 
     /**

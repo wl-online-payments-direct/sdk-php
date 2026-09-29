@@ -13,12 +13,12 @@ class LineItemInvoiceData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $description = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -26,10 +26,20 @@ class LineItemInvoiceData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDescription(?string $value): void
     {
         $this->description = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return LineItemInvoiceData
+    */
+    public function withDescription(?string $value): LineItemInvoiceData
+    {
+        $this->description = $value;
+        return $this;
     }
 
     /**

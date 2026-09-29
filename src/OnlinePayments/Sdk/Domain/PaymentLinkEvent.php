@@ -13,22 +13,22 @@ class PaymentLinkEvent extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $dateTime = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $details = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDateTime(): ?string
     {
         return $this->dateTime;
@@ -36,15 +36,25 @@ class PaymentLinkEvent extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDateTime(?string $value): void
     {
         $this->dateTime = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentLinkEvent
+    */
+    public function withDateTime(?string $value): PaymentLinkEvent
+    {
+        $this->dateTime = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDetails(): ?string
     {
         return $this->details;
@@ -52,15 +62,25 @@ class PaymentLinkEvent extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDetails(?string $value): void
     {
         $this->details = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentLinkEvent
+    */
+    public function withDetails(?string $value): PaymentLinkEvent
+    {
+        $this->details = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -68,10 +88,20 @@ class PaymentLinkEvent extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentLinkEvent
+    */
+    public function withType(?string $value): PaymentLinkEvent
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

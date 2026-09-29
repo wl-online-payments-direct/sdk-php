@@ -13,22 +13,22 @@ class RefundEWalletMethodSpecificOutput extends DataObject
 {
     /**
      * @var RefundPaymentProduct840SpecificOutput|null
-     */
+    */
     public ?RefundPaymentProduct840SpecificOutput $paymentProduct840SpecificOutput = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return RefundPaymentProduct840SpecificOutput|null
-     */
+    */
     public function getPaymentProduct840SpecificOutput(): ?RefundPaymentProduct840SpecificOutput
     {
         return $this->paymentProduct840SpecificOutput;
@@ -36,15 +36,25 @@ class RefundEWalletMethodSpecificOutput extends DataObject
 
     /**
      * @param RefundPaymentProduct840SpecificOutput|null $value
-     */
+    */
     public function setPaymentProduct840SpecificOutput(?RefundPaymentProduct840SpecificOutput $value): void
     {
         $this->paymentProduct840SpecificOutput = $value;
     }
 
     /**
+     * @param RefundPaymentProduct840SpecificOutput|null $value
+     * @return RefundEWalletMethodSpecificOutput
+    */
+    public function withPaymentProduct840SpecificOutput(?RefundPaymentProduct840SpecificOutput $value): RefundEWalletMethodSpecificOutput
+    {
+        $this->paymentProduct840SpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -52,15 +62,25 @@ class RefundEWalletMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RefundEWalletMethodSpecificOutput
+    */
+    public function withTotalAmountPaid(?int $value): RefundEWalletMethodSpecificOutput
+    {
+        $this->totalAmountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -68,10 +88,20 @@ class RefundEWalletMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return RefundEWalletMethodSpecificOutput
+    */
+    public function withTotalAmountRefunded(?int $value): RefundEWalletMethodSpecificOutput
+    {
+        $this->totalAmountRefunded = $value;
+        return $this;
     }
 
     /**

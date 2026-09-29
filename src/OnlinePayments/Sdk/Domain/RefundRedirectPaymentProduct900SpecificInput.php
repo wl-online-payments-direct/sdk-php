@@ -13,12 +13,12 @@ class RefundRedirectPaymentProduct900SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $refundReason = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRefundReason(): ?string
     {
         return $this->refundReason;
@@ -26,10 +26,20 @@ class RefundRedirectPaymentProduct900SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRefundReason(?string $value): void
     {
         $this->refundReason = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RefundRedirectPaymentProduct900SpecificInput
+    */
+    public function withRefundReason(?string $value): RefundRedirectPaymentProduct900SpecificInput
+    {
+        $this->refundReason = $value;
+        return $this;
     }
 
     /**

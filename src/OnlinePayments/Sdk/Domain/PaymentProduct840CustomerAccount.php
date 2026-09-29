@@ -13,47 +13,47 @@ class PaymentProduct840CustomerAccount extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $accountId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $customerAccountStatus = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $customerAddressStatus = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $payerId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $surname = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAccountId(): ?string
     {
         return $this->accountId;
@@ -61,15 +61,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAccountId(?string $value): void
     {
         $this->accountId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withAccountId(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->accountId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -77,15 +87,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withCompanyName(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->companyName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -93,15 +113,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withCountryCode(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCustomerAccountStatus(): ?string
     {
         return $this->customerAccountStatus;
@@ -109,15 +139,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCustomerAccountStatus(?string $value): void
     {
         $this->customerAccountStatus = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withCustomerAccountStatus(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->customerAccountStatus = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCustomerAddressStatus(): ?string
     {
         return $this->customerAddressStatus;
@@ -125,15 +165,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCustomerAddressStatus(?string $value): void
     {
         $this->customerAddressStatus = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withCustomerAddressStatus(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->customerAddressStatus = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -141,15 +191,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withFirstName(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->firstName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPayerId(): ?string
     {
         return $this->payerId;
@@ -157,15 +217,25 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPayerId(?string $value): void
     {
         $this->payerId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withPayerId(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->payerId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -173,10 +243,20 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct840CustomerAccount
+    */
+    public function withSurname(?string $value): PaymentProduct840CustomerAccount
+    {
+        $this->surname = $value;
+        return $this;
     }
 
     /**

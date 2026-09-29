@@ -13,17 +13,17 @@ class PaymentProduct5002SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $checkoutResponseSignature = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $creditCardBrand = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCheckoutResponseSignature(): ?string
     {
         return $this->checkoutResponseSignature;
@@ -31,15 +31,25 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCheckoutResponseSignature(?string $value): void
     {
         $this->checkoutResponseSignature = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5002SpecificInput
+    */
+    public function withCheckoutResponseSignature(?string $value): PaymentProduct5002SpecificInput
+    {
+        $this->checkoutResponseSignature = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCreditCardBrand(): ?string
     {
         return $this->creditCardBrand;
@@ -47,10 +57,20 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCreditCardBrand(?string $value): void
     {
         $this->creditCardBrand = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5002SpecificInput
+    */
+    public function withCreditCardBrand(?string $value): PaymentProduct5002SpecificInput
+    {
+        $this->creditCardBrand = $value;
+        return $this;
     }
 
     /**

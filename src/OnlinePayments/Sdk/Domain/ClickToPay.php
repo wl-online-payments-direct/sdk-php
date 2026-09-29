@@ -13,12 +13,12 @@ class ClickToPay extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $IsClickToPayPayment = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getIsClickToPayPayment(): ?bool
     {
         return $this->IsClickToPayPayment;
@@ -26,10 +26,20 @@ class ClickToPay extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsClickToPayPayment(?bool $value): void
     {
         $this->IsClickToPayPayment = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return ClickToPay
+    */
+    public function withIsClickToPayPayment(?bool $value): ClickToPay
+    {
+        $this->IsClickToPayPayment = $value;
+        return $this;
     }
 
     /**

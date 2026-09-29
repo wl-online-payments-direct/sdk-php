@@ -13,27 +13,27 @@ class AuthenticationOptions extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerBIN = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $acquirerMerchantId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantCategoryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantCountryCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAcquirerBIN(): ?string
     {
         return $this->acquirerBIN;
@@ -41,15 +41,25 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerBIN(?string $value): void
     {
         $this->acquirerBIN = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AuthenticationOptions
+    */
+    public function withAcquirerBIN(?string $value): AuthenticationOptions
+    {
+        $this->acquirerBIN = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAcquirerMerchantId(): ?string
     {
         return $this->acquirerMerchantId;
@@ -57,15 +67,25 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAcquirerMerchantId(?string $value): void
     {
         $this->acquirerMerchantId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AuthenticationOptions
+    */
+    public function withAcquirerMerchantId(?string $value): AuthenticationOptions
+    {
+        $this->acquirerMerchantId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantCategoryCode(): ?string
     {
         return $this->merchantCategoryCode;
@@ -73,15 +93,25 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantCategoryCode(?string $value): void
     {
         $this->merchantCategoryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AuthenticationOptions
+    */
+    public function withMerchantCategoryCode(?string $value): AuthenticationOptions
+    {
+        $this->merchantCategoryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantCountryCode(): ?string
     {
         return $this->merchantCountryCode;
@@ -89,10 +119,20 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantCountryCode(?string $value): void
     {
         $this->merchantCountryCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AuthenticationOptions
+    */
+    public function withMerchantCountryCode(?string $value): AuthenticationOptions
+    {
+        $this->merchantCountryCode = $value;
+        return $this;
     }
 
     /**

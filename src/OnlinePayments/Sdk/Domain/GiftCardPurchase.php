@@ -13,17 +13,17 @@ class GiftCardPurchase extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $numberOfGiftCards = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -31,15 +31,25 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return GiftCardPurchase
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): GiftCardPurchase
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getNumberOfGiftCards(): ?int
     {
         return $this->numberOfGiftCards;
@@ -47,10 +57,20 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setNumberOfGiftCards(?int $value): void
     {
         $this->numberOfGiftCards = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return GiftCardPurchase
+    */
+    public function withNumberOfGiftCards(?int $value): GiftCardPurchase
+    {
+        $this->numberOfGiftCards = $value;
+        return $this;
     }
 
     /**

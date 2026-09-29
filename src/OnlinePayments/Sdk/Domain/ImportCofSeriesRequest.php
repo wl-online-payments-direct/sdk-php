@@ -13,37 +13,37 @@ class ImportCofSeriesRequest extends DataObject
 {
     /**
      * @var CardDataWithoutCvv|null
-     */
+    */
     public ?CardDataWithoutCvv $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $currencyCode = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $schemeReferenceData = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tokenId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $transactionLinkIdentifier = null;
 
     /**
      * @return CardDataWithoutCvv|null
-     */
+    */
     public function getCard(): ?CardDataWithoutCvv
     {
         return $this->card;
@@ -51,15 +51,25 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param CardDataWithoutCvv|null $value
-     */
+    */
     public function setCard(?CardDataWithoutCvv $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param CardDataWithoutCvv|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withCard(?CardDataWithoutCvv $value): ImportCofSeriesRequest
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -67,15 +77,25 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withCurrencyCode(?string $value): ImportCofSeriesRequest
+    {
+        $this->currencyCode = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -83,15 +103,25 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withPaymentProductId(?int $value): ImportCofSeriesRequest
+    {
+        $this->paymentProductId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
@@ -99,15 +129,25 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withSchemeReferenceData(?string $value): ImportCofSeriesRequest
+    {
+        $this->schemeReferenceData = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTokenId(): ?string
     {
         return $this->tokenId;
@@ -115,15 +155,25 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTokenId(?string $value): void
     {
         $this->tokenId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withTokenId(?string $value): ImportCofSeriesRequest
+    {
+        $this->tokenId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTransactionLinkIdentifier(): ?string
     {
         return $this->transactionLinkIdentifier;
@@ -131,10 +181,20 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTransactionLinkIdentifier(?string $value): void
     {
         $this->transactionLinkIdentifier = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withTransactionLinkIdentifier(?string $value): ImportCofSeriesRequest
+    {
+        $this->transactionLinkIdentifier = $value;
+        return $this;
     }
 
     /**

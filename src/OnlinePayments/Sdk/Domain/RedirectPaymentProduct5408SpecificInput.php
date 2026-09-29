@@ -13,17 +13,17 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 {
     /**
      * @var CustomerBankAccount|null
-     */
+    */
     public ?CustomerBankAccount $customerBankAccount = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $instantPaymentOnly = null;
 
     /**
      * @return CustomerBankAccount|null
-     */
+    */
     public function getCustomerBankAccount(): ?CustomerBankAccount
     {
         return $this->customerBankAccount;
@@ -31,15 +31,25 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-     */
+    */
     public function setCustomerBankAccount(?CustomerBankAccount $value): void
     {
         $this->customerBankAccount = $value;
     }
 
     /**
+     * @param CustomerBankAccount|null $value
+     * @return RedirectPaymentProduct5408SpecificInput
+    */
+    public function withCustomerBankAccount(?CustomerBankAccount $value): RedirectPaymentProduct5408SpecificInput
+    {
+        $this->customerBankAccount = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getInstantPaymentOnly(): ?bool
     {
         return $this->instantPaymentOnly;
@@ -47,10 +57,20 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setInstantPaymentOnly(?bool $value): void
     {
         $this->instantPaymentOnly = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return RedirectPaymentProduct5408SpecificInput
+    */
+    public function withInstantPaymentOnly(?bool $value): RedirectPaymentProduct5408SpecificInput
+    {
+        $this->instantPaymentOnly = $value;
+        return $this;
     }
 
     /**

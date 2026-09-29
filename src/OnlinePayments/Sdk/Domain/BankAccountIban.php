@@ -13,12 +13,12 @@ class BankAccountIban extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $iban = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getIban(): ?string
     {
         return $this->iban;
@@ -26,10 +26,20 @@ class BankAccountIban extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIban(?string $value): void
     {
         $this->iban = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return BankAccountIban
+    */
+    public function withIban(?string $value): BankAccountIban
+    {
+        $this->iban = $value;
+        return $this;
     }
 
     /**

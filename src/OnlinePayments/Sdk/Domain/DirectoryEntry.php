@@ -13,22 +13,22 @@ class DirectoryEntry extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerList = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $issuerName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getIssuerId(): ?string
     {
         return $this->issuerId;
@@ -36,15 +36,25 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerId(?string $value): void
     {
         $this->issuerId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DirectoryEntry
+    */
+    public function withIssuerId(?string $value): DirectoryEntry
+    {
+        $this->issuerId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerList(): ?string
     {
         return $this->issuerList;
@@ -52,15 +62,25 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerList(?string $value): void
     {
         $this->issuerList = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DirectoryEntry
+    */
+    public function withIssuerList(?string $value): DirectoryEntry
+    {
+        $this->issuerList = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getIssuerName(): ?string
     {
         return $this->issuerName;
@@ -68,10 +88,20 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setIssuerName(?string $value): void
     {
         $this->issuerName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return DirectoryEntry
+    */
+    public function withIssuerName(?string $value): DirectoryEntry
+    {
+        $this->issuerName = $value;
+        return $this;
     }
 
     /**

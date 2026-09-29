@@ -13,22 +13,22 @@ class RefundCardMethodSpecificOutput extends DataObject
 {
     /**
      * @var CurrencyConversion|null
-     */
+    */
     public ?CurrencyConversion $currencyConversion = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return CurrencyConversion|null
-     */
+    */
     public function getCurrencyConversion(): ?CurrencyConversion
     {
         return $this->currencyConversion;
@@ -36,15 +36,25 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param CurrencyConversion|null $value
-     */
+    */
     public function setCurrencyConversion(?CurrencyConversion $value): void
     {
         $this->currencyConversion = $value;
     }
 
     /**
+     * @param CurrencyConversion|null $value
+     * @return RefundCardMethodSpecificOutput
+    */
+    public function withCurrencyConversion(?CurrencyConversion $value): RefundCardMethodSpecificOutput
+    {
+        $this->currencyConversion = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -52,15 +62,25 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return RefundCardMethodSpecificOutput
+    */
+    public function withTotalAmountPaid(?int $value): RefundCardMethodSpecificOutput
+    {
+        $this->totalAmountPaid = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -68,10 +88,20 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return RefundCardMethodSpecificOutput
+    */
+    public function withTotalAmountRefunded(?int $value): RefundCardMethodSpecificOutput
+    {
+        $this->totalAmountRefunded = $value;
+        return $this;
     }
 
     /**

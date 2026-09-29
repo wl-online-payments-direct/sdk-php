@@ -13,27 +13,27 @@ class PayoutResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var PayoutOutput|null
-     */
+    */
     public ?PayoutOutput $payoutOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var PayoutStatusOutput|null
-     */
+    */
     public ?PayoutStatusOutput $statusOutput = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,15 +41,25 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PayoutResponse
+    */
+    public function withId(?string $value): PayoutResponse
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return PayoutOutput|null
-     */
+    */
     public function getPayoutOutput(): ?PayoutOutput
     {
         return $this->payoutOutput;
@@ -57,15 +67,25 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutOutput|null $value
-     */
+    */
     public function setPayoutOutput(?PayoutOutput $value): void
     {
         $this->payoutOutput = $value;
     }
 
     /**
+     * @param PayoutOutput|null $value
+     * @return PayoutResponse
+    */
+    public function withPayoutOutput(?PayoutOutput $value): PayoutResponse
+    {
+        $this->payoutOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -73,15 +93,25 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PayoutResponse
+    */
+    public function withStatus(?string $value): PayoutResponse
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return PayoutStatusOutput|null
-     */
+    */
     public function getStatusOutput(): ?PayoutStatusOutput
     {
         return $this->statusOutput;
@@ -89,10 +119,20 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutStatusOutput|null $value
-     */
+    */
     public function setStatusOutput(?PayoutStatusOutput $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param PayoutStatusOutput|null $value
+     * @return PayoutResponse
+    */
+    public function withStatusOutput(?PayoutStatusOutput $value): PayoutResponse
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

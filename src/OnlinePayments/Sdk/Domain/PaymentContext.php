@@ -13,22 +13,22 @@ class PaymentContext extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRecurring = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -36,15 +36,25 @@ class PaymentContext extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return PaymentContext
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): PaymentContext
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -52,15 +62,25 @@ class PaymentContext extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentContext
+    */
+    public function withCountryCode(?string $value): PaymentContext
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -68,10 +88,20 @@ class PaymentContext extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return PaymentContext
+    */
+    public function withIsRecurring(?bool $value): PaymentContext
+    {
+        $this->isRecurring = $value;
+        return $this;
     }
 
     /**

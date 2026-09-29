@@ -13,32 +13,32 @@ class SessionData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $locale = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $platformUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $sessionToken = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $tokens = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -46,15 +46,25 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionData
+    */
+    public function withHostedFieldsSessionId(?string $value): SessionData
+    {
+        $this->hostedFieldsSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -62,15 +72,25 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionData
+    */
+    public function withLocale(?string $value): SessionData
+    {
+        $this->locale = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPlatformUrl(): ?string
     {
         return $this->platformUrl;
@@ -78,15 +98,25 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPlatformUrl(?string $value): void
     {
         $this->platformUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionData
+    */
+    public function withPlatformUrl(?string $value): SessionData
+    {
+        $this->platformUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSessionToken(): ?string
     {
         return $this->sessionToken;
@@ -94,15 +124,25 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSessionToken(?string $value): void
     {
         $this->sessionToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionData
+    */
+    public function withSessionToken(?string $value): SessionData
+    {
+        $this->sessionToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -110,10 +150,20 @@ class SessionData extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return SessionData
+    */
+    public function withTokens(?array $value): SessionData
+    {
+        $this->tokens = $value;
+        return $this;
     }
 
     /**

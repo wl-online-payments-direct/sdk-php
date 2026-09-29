@@ -13,17 +13,17 @@ class SubmitBatchResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $totalCount = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -31,15 +31,25 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubmitBatchResponse
+    */
+    public function withMerchantBatchReference(?string $value): SubmitBatchResponse
+    {
+        $this->merchantBatchReference = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getTotalCount(): ?int
     {
         return $this->totalCount;
@@ -47,10 +57,20 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setTotalCount(?int $value): void
     {
         $this->totalCount = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return SubmitBatchResponse
+    */
+    public function withTotalCount(?int $value): SubmitBatchResponse
+    {
+        $this->totalCount = $value;
+        return $this;
     }
 
     /**

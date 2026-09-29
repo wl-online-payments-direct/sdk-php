@@ -13,17 +13,17 @@ class CardInfo extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardNumber = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -31,15 +31,25 @@ class CardInfo extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardInfo
+    */
+    public function withCardNumber(?string $value): CardInfo
+    {
+        $this->cardNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -47,10 +57,20 @@ class CardInfo extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return CardInfo
+    */
+    public function withPaymentProductId(?int $value): CardInfo
+    {
+        $this->paymentProductId = $value;
+        return $this;
     }
 
     /**

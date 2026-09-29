@@ -13,17 +13,17 @@ class CrmToken extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $uniqueAccountIdentifier = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $uniqueCardIdentifier = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getUniqueAccountIdentifier(): ?string
     {
         return $this->uniqueAccountIdentifier;
@@ -31,15 +31,25 @@ class CrmToken extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUniqueAccountIdentifier(?string $value): void
     {
         $this->uniqueAccountIdentifier = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CrmToken
+    */
+    public function withUniqueAccountIdentifier(?string $value): CrmToken
+    {
+        $this->uniqueAccountIdentifier = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUniqueCardIdentifier(): ?string
     {
         return $this->uniqueCardIdentifier;
@@ -47,10 +57,20 @@ class CrmToken extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUniqueCardIdentifier(?string $value): void
     {
         $this->uniqueCardIdentifier = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CrmToken
+    */
+    public function withUniqueCardIdentifier(?string $value): CrmToken
+    {
+        $this->uniqueCardIdentifier = $value;
+        return $this;
     }
 
     /**

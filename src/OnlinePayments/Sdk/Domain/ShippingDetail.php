@@ -13,17 +13,17 @@ class ShippingDetail extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $shippingCost = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $shippingCostTax = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getShippingCost(): ?int
     {
         return $this->shippingCost;
@@ -31,15 +31,25 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setShippingCost(?int $value): void
     {
         $this->shippingCost = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return ShippingDetail
+    */
+    public function withShippingCost(?int $value): ShippingDetail
+    {
+        $this->shippingCost = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getShippingCostTax(): ?int
     {
         return $this->shippingCostTax;
@@ -47,10 +57,20 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setShippingCostTax(?int $value): void
     {
         $this->shippingCostTax = $value;
+    }
+
+    /**
+     * @param int|null $value
+     * @return ShippingDetail
+    */
+    public function withShippingCostTax(?int $value): ShippingDetail
+    {
+        $this->shippingCostTax = $value;
+        return $this;
     }
 
     /**

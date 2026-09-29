@@ -13,22 +13,22 @@ class BatchMetadata extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $itemCount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $operationType = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getItemCount(): ?int
     {
         return $this->itemCount;
@@ -36,15 +36,25 @@ class BatchMetadata extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setItemCount(?int $value): void
     {
         $this->itemCount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return BatchMetadata
+    */
+    public function withItemCount(?int $value): BatchMetadata
+    {
+        $this->itemCount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -52,15 +62,25 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return BatchMetadata
+    */
+    public function withMerchantBatchReference(?string $value): BatchMetadata
+    {
+        $this->merchantBatchReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getOperationType(): ?string
     {
         return $this->operationType;
@@ -68,10 +88,20 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperationType(?string $value): void
     {
         $this->operationType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return BatchMetadata
+    */
+    public function withOperationType(?string $value): BatchMetadata
+    {
+        $this->operationType = $value;
+        return $this;
     }
 
     /**

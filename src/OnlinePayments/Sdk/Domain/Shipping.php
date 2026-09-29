@@ -13,52 +13,52 @@ class Shipping extends DataObject
 {
     /**
      * @var AddressPersonal|null
-     */
+    */
     public ?AddressPersonal $address = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $addressIndicator = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $emailAddress = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $firstUsageDate = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isFirstUsage = null;
 
     /**
      * @var ShippingMethod|null
-     */
+    */
     public ?ShippingMethod $method = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $shippingCost = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $shippingCostTax = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return AddressPersonal|null
-     */
+    */
     public function getAddress(): ?AddressPersonal
     {
         return $this->address;
@@ -66,15 +66,25 @@ class Shipping extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     */
+    */
     public function setAddress(?AddressPersonal $value): void
     {
         $this->address = $value;
     }
 
     /**
+     * @param AddressPersonal|null $value
+     * @return Shipping
+    */
+    public function withAddress(?AddressPersonal $value): Shipping
+    {
+        $this->address = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getAddressIndicator(): ?string
     {
         return $this->addressIndicator;
@@ -82,15 +92,25 @@ class Shipping extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAddressIndicator(?string $value): void
     {
         $this->addressIndicator = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Shipping
+    */
+    public function withAddressIndicator(?string $value): Shipping
+    {
+        $this->addressIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
@@ -98,15 +118,25 @@ class Shipping extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Shipping
+    */
+    public function withEmailAddress(?string $value): Shipping
+    {
+        $this->emailAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFirstUsageDate(): ?string
     {
         return $this->firstUsageDate;
@@ -114,15 +144,25 @@ class Shipping extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFirstUsageDate(?string $value): void
     {
         $this->firstUsageDate = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Shipping
+    */
+    public function withFirstUsageDate(?string $value): Shipping
+    {
+        $this->firstUsageDate = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsFirstUsage(): ?bool
     {
         return $this->isFirstUsage;
@@ -130,15 +170,25 @@ class Shipping extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsFirstUsage(?bool $value): void
     {
         $this->isFirstUsage = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return Shipping
+    */
+    public function withIsFirstUsage(?bool $value): Shipping
+    {
+        $this->isFirstUsage = $value;
+        return $this;
+    }
+
+    /**
      * @return ShippingMethod|null
-     */
+    */
     public function getMethod(): ?ShippingMethod
     {
         return $this->method;
@@ -146,15 +196,25 @@ class Shipping extends DataObject
 
     /**
      * @param ShippingMethod|null $value
-     */
+    */
     public function setMethod(?ShippingMethod $value): void
     {
         $this->method = $value;
     }
 
     /**
+     * @param ShippingMethod|null $value
+     * @return Shipping
+    */
+    public function withMethod(?ShippingMethod $value): Shipping
+    {
+        $this->method = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getShippingCost(): ?int
     {
         return $this->shippingCost;
@@ -162,15 +222,25 @@ class Shipping extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setShippingCost(?int $value): void
     {
         $this->shippingCost = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return Shipping
+    */
+    public function withShippingCost(?int $value): Shipping
+    {
+        $this->shippingCost = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getShippingCostTax(): ?int
     {
         return $this->shippingCostTax;
@@ -178,15 +248,25 @@ class Shipping extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setShippingCostTax(?int $value): void
     {
         $this->shippingCostTax = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return Shipping
+    */
+    public function withShippingCostTax(?int $value): Shipping
+    {
+        $this->shippingCostTax = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -194,10 +274,20 @@ class Shipping extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Shipping
+    */
+    public function withType(?string $value): Shipping
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

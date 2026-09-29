@@ -13,22 +13,22 @@ class SurchargeSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $mode = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @var SurchargeRate|null
-     */
+    */
     public ?SurchargeRate $surchargeRate = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMode(): ?string
     {
         return $this->mode;
@@ -36,15 +36,25 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMode(?string $value): void
     {
         $this->mode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SurchargeSpecificOutput
+    */
+    public function withMode(?string $value): SurchargeSpecificOutput
+    {
+        $this->mode = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -52,15 +62,25 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return SurchargeSpecificOutput
+    */
+    public function withSurchargeAmount(?AmountOfMoney $value): SurchargeSpecificOutput
+    {
+        $this->surchargeAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return SurchargeRate|null
-     */
+    */
     public function getSurchargeRate(): ?SurchargeRate
     {
         return $this->surchargeRate;
@@ -68,10 +88,20 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-     */
+    */
     public function setSurchargeRate(?SurchargeRate $value): void
     {
         $this->surchargeRate = $value;
+    }
+
+    /**
+     * @param SurchargeRate|null $value
+     * @return SurchargeSpecificOutput
+    */
+    public function withSurchargeRate(?SurchargeRate $value): SurchargeSpecificOutput
+    {
+        $this->surchargeRate = $value;
+        return $this;
     }
 
     /**

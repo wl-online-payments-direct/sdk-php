@@ -13,32 +13,32 @@ class BrowserData extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $colorDepth = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $javaEnabled = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $javaScriptEnabled = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $screenHeight = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $screenWidth = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getColorDepth(): ?int
     {
         return $this->colorDepth;
@@ -46,15 +46,25 @@ class BrowserData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setColorDepth(?int $value): void
     {
         $this->colorDepth = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return BrowserData
+    */
+    public function withColorDepth(?int $value): BrowserData
+    {
+        $this->colorDepth = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getJavaEnabled(): ?bool
     {
         return $this->javaEnabled;
@@ -62,15 +72,25 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setJavaEnabled(?bool $value): void
     {
         $this->javaEnabled = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return BrowserData
+    */
+    public function withJavaEnabled(?bool $value): BrowserData
+    {
+        $this->javaEnabled = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getJavaScriptEnabled(): ?bool
     {
         return $this->javaScriptEnabled;
@@ -78,15 +98,25 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setJavaScriptEnabled(?bool $value): void
     {
         $this->javaScriptEnabled = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return BrowserData
+    */
+    public function withJavaScriptEnabled(?bool $value): BrowserData
+    {
+        $this->javaScriptEnabled = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getScreenHeight(): ?string
     {
         return $this->screenHeight;
@@ -94,15 +124,25 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setScreenHeight(?string $value): void
     {
         $this->screenHeight = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return BrowserData
+    */
+    public function withScreenHeight(?string $value): BrowserData
+    {
+        $this->screenHeight = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getScreenWidth(): ?string
     {
         return $this->screenWidth;
@@ -110,10 +150,20 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setScreenWidth(?string $value): void
     {
         $this->screenWidth = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return BrowserData
+    */
+    public function withScreenWidth(?string $value): BrowserData
+    {
+        $this->screenWidth = $value;
+        return $this;
     }
 
     /**

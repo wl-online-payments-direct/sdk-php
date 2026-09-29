@@ -13,12 +13,12 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $captureTrigger = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCaptureTrigger(): ?string
     {
         return $this->captureTrigger;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCaptureTrigger(?string $value): void
     {
         $this->captureTrigger = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct900SpecificInput
+    */
+    public function withCaptureTrigger(?string $value): RedirectPaymentProduct900SpecificInput
+    {
+        $this->captureTrigger = $value;
+        return $this;
     }
 
     /**

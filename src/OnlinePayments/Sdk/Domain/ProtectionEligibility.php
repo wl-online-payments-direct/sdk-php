@@ -13,17 +13,17 @@ class ProtectionEligibility extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $eligibility = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getEligibility(): ?string
     {
         return $this->eligibility;
@@ -31,15 +31,25 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEligibility(?string $value): void
     {
         $this->eligibility = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ProtectionEligibility
+    */
+    public function withEligibility(?string $value): ProtectionEligibility
+    {
+        $this->eligibility = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -47,10 +57,20 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ProtectionEligibility
+    */
+    public function withType(?string $value): ProtectionEligibility
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

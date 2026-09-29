@@ -13,17 +13,17 @@ class SessionDetails extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $type = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -31,15 +31,25 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SessionDetails
+    */
+    public function withId(?string $value): SessionDetails
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getType(): ?string
     {
         return $this->type;
@@ -47,10 +57,20 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setType(?string $value): void
     {
         $this->type = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return SessionDetails
+    */
+    public function withType(?string $value): SessionDetails
+    {
+        $this->type = $value;
+        return $this;
     }
 
     /**

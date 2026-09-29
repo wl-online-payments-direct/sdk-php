@@ -13,32 +13,32 @@ class MandateCustomerResponse extends DataObject
 {
     /**
      * @var BankAccountIban|null
-     */
+    */
     public ?BankAccountIban $bankAccountIban = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyName = null;
 
     /**
      * @var MandateContactDetails|null
-     */
+    */
     public ?MandateContactDetails $contactDetails = null;
 
     /**
      * @var MandateAddressResponse|null
-     */
+    */
     public ?MandateAddressResponse $mandateAddress = null;
 
     /**
      * @var MandatePersonalInformationResponse|null
-     */
+    */
     public ?MandatePersonalInformationResponse $personalInformation = null;
 
     /**
      * @return BankAccountIban|null
-     */
+    */
     public function getBankAccountIban(): ?BankAccountIban
     {
         return $this->bankAccountIban;
@@ -46,15 +46,25 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param BankAccountIban|null $value
-     */
+    */
     public function setBankAccountIban(?BankAccountIban $value): void
     {
         $this->bankAccountIban = $value;
     }
 
     /**
+     * @param BankAccountIban|null $value
+     * @return MandateCustomerResponse
+    */
+    public function withBankAccountIban(?BankAccountIban $value): MandateCustomerResponse
+    {
+        $this->bankAccountIban = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -62,15 +72,25 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateCustomerResponse
+    */
+    public function withCompanyName(?string $value): MandateCustomerResponse
+    {
+        $this->companyName = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateContactDetails|null
-     */
+    */
     public function getContactDetails(): ?MandateContactDetails
     {
         return $this->contactDetails;
@@ -78,15 +98,25 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateContactDetails|null $value
-     */
+    */
     public function setContactDetails(?MandateContactDetails $value): void
     {
         $this->contactDetails = $value;
     }
 
     /**
+     * @param MandateContactDetails|null $value
+     * @return MandateCustomerResponse
+    */
+    public function withContactDetails(?MandateContactDetails $value): MandateCustomerResponse
+    {
+        $this->contactDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateAddressResponse|null
-     */
+    */
     public function getMandateAddress(): ?MandateAddressResponse
     {
         return $this->mandateAddress;
@@ -94,15 +124,25 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateAddressResponse|null $value
-     */
+    */
     public function setMandateAddress(?MandateAddressResponse $value): void
     {
         $this->mandateAddress = $value;
     }
 
     /**
+     * @param MandateAddressResponse|null $value
+     * @return MandateCustomerResponse
+    */
+    public function withMandateAddress(?MandateAddressResponse $value): MandateCustomerResponse
+    {
+        $this->mandateAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return MandatePersonalInformationResponse|null
-     */
+    */
     public function getPersonalInformation(): ?MandatePersonalInformationResponse
     {
         return $this->personalInformation;
@@ -110,10 +150,20 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandatePersonalInformationResponse|null $value
-     */
+    */
     public function setPersonalInformation(?MandatePersonalInformationResponse $value): void
     {
         $this->personalInformation = $value;
+    }
+
+    /**
+     * @param MandatePersonalInformationResponse|null $value
+     * @return MandateCustomerResponse
+    */
+    public function withPersonalInformation(?MandatePersonalInformationResponse $value): MandateCustomerResponse
+    {
+        $this->personalInformation = $value;
+        return $this;
     }
 
     /**

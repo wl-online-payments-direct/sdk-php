@@ -13,12 +13,12 @@ class RefundsResponse extends DataObject
 {
     /**
      * @var RefundResponse[]|null
-     */
+    */
     public ?array $refunds = null;
 
     /**
      * @return RefundResponse[]|null
-     */
+    */
     public function getRefunds(): ?array
     {
         return $this->refunds;
@@ -26,10 +26,20 @@ class RefundsResponse extends DataObject
 
     /**
      * @param RefundResponse[]|null $value
-     */
+    */
     public function setRefunds(?array $value): void
     {
         $this->refunds = $value;
+    }
+
+    /**
+     * @param RefundResponse[]|null $value
+     * @return RefundsResponse
+    */
+    public function withRefunds(?array $value): RefundsResponse
+    {
+        $this->refunds = $value;
+        return $this;
     }
 
     /**

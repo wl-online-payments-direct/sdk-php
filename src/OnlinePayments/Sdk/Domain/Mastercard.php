@@ -13,22 +13,22 @@ class Mastercard extends DataObject
 {
     /**
      * @var AuthenticationOptions|null
-     */
+    */
     public ?AuthenticationOptions $authenticationOptions = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $srcInitiatorId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $srciDpaId = null;
 
     /**
      * @return AuthenticationOptions|null
-     */
+    */
     public function getAuthenticationOptions(): ?AuthenticationOptions
     {
         return $this->authenticationOptions;
@@ -36,15 +36,25 @@ class Mastercard extends DataObject
 
     /**
      * @param AuthenticationOptions|null $value
-     */
+    */
     public function setAuthenticationOptions(?AuthenticationOptions $value): void
     {
         $this->authenticationOptions = $value;
     }
 
     /**
+     * @param AuthenticationOptions|null $value
+     * @return Mastercard
+    */
+    public function withAuthenticationOptions(?AuthenticationOptions $value): Mastercard
+    {
+        $this->authenticationOptions = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -52,15 +62,25 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Mastercard
+    */
+    public function withSrcInitiatorId(?string $value): Mastercard
+    {
+        $this->srcInitiatorId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSrciDpaId(): ?string
     {
         return $this->srciDpaId;
@@ -68,10 +88,20 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSrciDpaId(?string $value): void
     {
         $this->srciDpaId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Mastercard
+    */
+    public function withSrciDpaId(?string $value): Mastercard
+    {
+        $this->srciDpaId = $value;
+        return $this;
     }
 
     /**

@@ -13,17 +13,17 @@ class GetIINDetailsRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $bin = null;
 
     /**
      * @var PaymentContext|null
-     */
+    */
     public ?PaymentContext $paymentContext = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getBin(): ?string
     {
         return $this->bin;
@@ -31,15 +31,25 @@ class GetIINDetailsRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBin(?string $value): void
     {
         $this->bin = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return GetIINDetailsRequest
+    */
+    public function withBin(?string $value): GetIINDetailsRequest
+    {
+        $this->bin = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentContext|null
-     */
+    */
     public function getPaymentContext(): ?PaymentContext
     {
         return $this->paymentContext;
@@ -47,10 +57,20 @@ class GetIINDetailsRequest extends DataObject
 
     /**
      * @param PaymentContext|null $value
-     */
+    */
     public function setPaymentContext(?PaymentContext $value): void
     {
         $this->paymentContext = $value;
+    }
+
+    /**
+     * @param PaymentContext|null $value
+     * @return GetIINDetailsRequest
+    */
+    public function withPaymentContext(?PaymentContext $value): GetIINDetailsRequest
+    {
+        $this->paymentContext = $value;
+        return $this;
     }
 
     /**

@@ -13,12 +13,12 @@ class CancelPaymentResponse extends DataObject
 {
     /**
      * @var PaymentResponse|null
-     */
+    */
     public ?PaymentResponse $payment = null;
 
     /**
      * @return PaymentResponse|null
-     */
+    */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -26,10 +26,20 @@ class CancelPaymentResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     */
+    */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
+    }
+
+    /**
+     * @param PaymentResponse|null $value
+     * @return CancelPaymentResponse
+    */
+    public function withPayment(?PaymentResponse $value): CancelPaymentResponse
+    {
+        $this->payment = $value;
+        return $this;
     }
 
     /**

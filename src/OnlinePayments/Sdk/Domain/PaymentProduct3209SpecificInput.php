@@ -13,12 +13,12 @@ class PaymentProduct3209SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantFinanceCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMerchantFinanceCode(): ?string
     {
         return $this->merchantFinanceCode;
@@ -26,10 +26,20 @@ class PaymentProduct3209SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantFinanceCode(?string $value): void
     {
         $this->merchantFinanceCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct3209SpecificInput
+    */
+    public function withMerchantFinanceCode(?string $value): PaymentProduct3209SpecificInput
+    {
+        $this->merchantFinanceCode = $value;
+        return $this;
     }
 
     /**

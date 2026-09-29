@@ -13,17 +13,17 @@ class PaymentProductFieldDataRestrictions extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isRequired = null;
 
     /**
      * @var PaymentProductFieldValidators|null
-     */
+    */
     public ?PaymentProductFieldValidators $validators = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getIsRequired(): ?bool
     {
         return $this->isRequired;
@@ -31,15 +31,25 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsRequired(?bool $value): void
     {
         $this->isRequired = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return PaymentProductFieldDataRestrictions
+    */
+    public function withIsRequired(?bool $value): PaymentProductFieldDataRestrictions
+    {
+        $this->isRequired = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductFieldValidators|null
-     */
+    */
     public function getValidators(): ?PaymentProductFieldValidators
     {
         return $this->validators;
@@ -47,10 +57,20 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param PaymentProductFieldValidators|null $value
-     */
+    */
     public function setValidators(?PaymentProductFieldValidators $value): void
     {
         $this->validators = $value;
+    }
+
+    /**
+     * @param PaymentProductFieldValidators|null $value
+     * @return PaymentProductFieldDataRestrictions
+    */
+    public function withValidators(?PaymentProductFieldValidators $value): PaymentProductFieldDataRestrictions
+    {
+        $this->validators = $value;
+        return $this;
     }
 
     /**

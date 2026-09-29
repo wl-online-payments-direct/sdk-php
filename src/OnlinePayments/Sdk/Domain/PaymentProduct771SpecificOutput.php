@@ -13,12 +13,12 @@ class PaymentProduct771SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $mandateReference = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getMandateReference(): ?string
     {
         return $this->mandateReference;
@@ -26,10 +26,20 @@ class PaymentProduct771SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMandateReference(?string $value): void
     {
         $this->mandateReference = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct771SpecificOutput
+    */
+    public function withMandateReference(?string $value): PaymentProduct771SpecificOutput
+    {
+        $this->mandateReference = $value;
+        return $this;
     }
 
     /**

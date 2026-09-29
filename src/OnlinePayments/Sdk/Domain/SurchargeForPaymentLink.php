@@ -13,12 +13,12 @@ class SurchargeForPaymentLink extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $surchargeMode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getSurchargeMode(): ?string
     {
         return $this->surchargeMode;
@@ -26,10 +26,20 @@ class SurchargeForPaymentLink extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurchargeMode(?string $value): void
     {
         $this->surchargeMode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return SurchargeForPaymentLink
+    */
+    public function withSurchargeMode(?string $value): SurchargeForPaymentLink
+    {
+        $this->surchargeMode = $value;
+        return $this;
     }
 
     /**

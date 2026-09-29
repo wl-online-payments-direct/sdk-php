@@ -13,39 +13,39 @@ class CreateHostedTokenizationResponse extends DataObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $expiredCardTokens = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedTokenizationUrl = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $invalidTokens = null;
 
     /**
      * @var string|null
      *
      * @deprecated Deprecated
-     */
+    */
     public ?string $partialRedirectUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $sri = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getExpiredCardTokens(): ?array
     {
         return $this->expiredCardTokens;
@@ -53,15 +53,25 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setExpiredCardTokens(?array $value): void
     {
         $this->expiredCardTokens = $value;
     }
 
     /**
+     * @param string[]|null $value
+     * @return CreateHostedTokenizationResponse
+    */
+    public function withExpiredCardTokens(?array $value): CreateHostedTokenizationResponse
+    {
+        $this->expiredCardTokens = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -69,15 +79,25 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedTokenizationResponse
+    */
+    public function withHostedTokenizationId(?string $value): CreateHostedTokenizationResponse
+    {
+        $this->hostedTokenizationId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedTokenizationUrl(): ?string
     {
         return $this->hostedTokenizationUrl;
@@ -85,15 +105,25 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedTokenizationUrl(?string $value): void
     {
         $this->hostedTokenizationUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedTokenizationResponse
+    */
+    public function withHostedTokenizationUrl(?string $value): CreateHostedTokenizationResponse
+    {
+        $this->hostedTokenizationUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getInvalidTokens(): ?array
     {
         return $this->invalidTokens;
@@ -101,17 +131,27 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setInvalidTokens(?array $value): void
     {
         $this->invalidTokens = $value;
     }
 
     /**
+     * @param string[]|null $value
+     * @return CreateHostedTokenizationResponse
+    */
+    public function withInvalidTokens(?array $value): CreateHostedTokenizationResponse
+    {
+        $this->invalidTokens = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Deprecated
-     */
+    */
     public function getPartialRedirectUrl(): ?string
     {
         return $this->partialRedirectUrl;
@@ -121,15 +161,27 @@ class CreateHostedTokenizationResponse extends DataObject
      * @param string|null $value
      *
      * @deprecated Deprecated
-     */
+    */
     public function setPartialRedirectUrl(?string $value): void
     {
         $this->partialRedirectUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedTokenizationResponse
+     *
+     * @deprecated Deprecated
+    */
+    public function withPartialRedirectUrl(?string $value): CreateHostedTokenizationResponse
+    {
+        $this->partialRedirectUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSri(): ?string
     {
         return $this->sri;
@@ -137,10 +189,20 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSri(?string $value): void
     {
         $this->sri = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreateHostedTokenizationResponse
+    */
+    public function withSri(?string $value): CreateHostedTokenizationResponse
+    {
+        $this->sri = $value;
+        return $this;
     }
 
     /**

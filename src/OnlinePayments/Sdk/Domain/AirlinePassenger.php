@@ -13,49 +13,49 @@ class AirlinePassenger extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $airlineLoyaltyStatus = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $dateOfBirth = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $passengerType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $surname = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $surnamePrefix = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
-     */
+    */
     public ?string $title = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAirlineLoyaltyStatus(): ?string
     {
         return $this->airlineLoyaltyStatus;
@@ -63,15 +63,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAirlineLoyaltyStatus(?string $value): void
     {
         $this->airlineLoyaltyStatus = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withAirlineLoyaltyStatus(?string $value): AirlinePassenger
+    {
+        $this->airlineLoyaltyStatus = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -79,15 +89,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withCountryCode(?string $value): AirlinePassenger
+    {
+        $this->countryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
@@ -95,15 +115,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDateOfBirth(?string $value): void
     {
         $this->dateOfBirth = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withDateOfBirth(?string $value): AirlinePassenger
+    {
+        $this->dateOfBirth = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -111,15 +141,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withFirstName(?string $value): AirlinePassenger
+    {
+        $this->firstName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPassengerType(): ?string
     {
         return $this->passengerType;
@@ -127,15 +167,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPassengerType(?string $value): void
     {
         $this->passengerType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withPassengerType(?string $value): AirlinePassenger
+    {
+        $this->passengerType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -143,15 +193,25 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withSurname(?string $value): AirlinePassenger
+    {
+        $this->surname = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSurnamePrefix(): ?string
     {
         return $this->surnamePrefix;
@@ -159,17 +219,27 @@ class AirlinePassenger extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSurnamePrefix(?string $value): void
     {
         $this->surnamePrefix = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return AirlinePassenger
+    */
+    public function withSurnamePrefix(?string $value): AirlinePassenger
+    {
+        $this->surnamePrefix = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
-     */
+    */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -179,10 +249,22 @@ class AirlinePassenger extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
-     */
+    */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return AirlinePassenger
+     *
+     * @deprecated This field is not used by any payment product Title of the passenger (this property is used for fraud screening on the payment platform)
+    */
+    public function withTitle(?string $value): AirlinePassenger
+    {
+        $this->title = $value;
+        return $this;
     }
 
     /**

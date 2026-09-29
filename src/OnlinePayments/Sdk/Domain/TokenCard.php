@@ -13,17 +13,17 @@ class TokenCard extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $alias = null;
 
     /**
      * @var TokenCardData|null
-     */
+    */
     public ?TokenCardData $data = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAlias(): ?string
     {
         return $this->alias;
@@ -31,15 +31,25 @@ class TokenCard extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAlias(?string $value): void
     {
         $this->alias = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return TokenCard
+    */
+    public function withAlias(?string $value): TokenCard
+    {
+        $this->alias = $value;
+        return $this;
+    }
+
+    /**
      * @return TokenCardData|null
-     */
+    */
     public function getData(): ?TokenCardData
     {
         return $this->data;
@@ -47,10 +57,20 @@ class TokenCard extends DataObject
 
     /**
      * @param TokenCardData|null $value
-     */
+    */
     public function setData(?TokenCardData $value): void
     {
         $this->data = $value;
+    }
+
+    /**
+     * @param TokenCardData|null $value
+     * @return TokenCard
+    */
+    public function withData(?TokenCardData $value): TokenCard
+    {
+        $this->data = $value;
+        return $this;
     }
 
     /**

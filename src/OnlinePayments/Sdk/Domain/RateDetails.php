@@ -13,32 +13,32 @@ class RateDetails extends DataObject
 {
     /**
      * @var float|null
-     */
+    */
     public ?float $exchangeRate = null;
 
     /**
      * @var float|null
-     */
+    */
     public ?float $invertedExchangeRate = null;
 
     /**
      * @var float|null
-     */
+    */
     public ?float $markUpRate = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $quotationDateTime = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $source = null;
 
     /**
      * @return float|null
-     */
+    */
     public function getExchangeRate(): ?float
     {
         return $this->exchangeRate;
@@ -46,15 +46,25 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     */
+    */
     public function setExchangeRate(?float $value): void
     {
         $this->exchangeRate = $value;
     }
 
     /**
+     * @param float|null $value
+     * @return RateDetails
+    */
+    public function withExchangeRate(?float $value): RateDetails
+    {
+        $this->exchangeRate = $value;
+        return $this;
+    }
+
+    /**
      * @return float|null
-     */
+    */
     public function getInvertedExchangeRate(): ?float
     {
         return $this->invertedExchangeRate;
@@ -62,15 +72,25 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     */
+    */
     public function setInvertedExchangeRate(?float $value): void
     {
         $this->invertedExchangeRate = $value;
     }
 
     /**
+     * @param float|null $value
+     * @return RateDetails
+    */
+    public function withInvertedExchangeRate(?float $value): RateDetails
+    {
+        $this->invertedExchangeRate = $value;
+        return $this;
+    }
+
+    /**
      * @return float|null
-     */
+    */
     public function getMarkUpRate(): ?float
     {
         return $this->markUpRate;
@@ -78,15 +98,25 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     */
+    */
     public function setMarkUpRate(?float $value): void
     {
         $this->markUpRate = $value;
     }
 
     /**
+     * @param float|null $value
+     * @return RateDetails
+    */
+    public function withMarkUpRate(?float $value): RateDetails
+    {
+        $this->markUpRate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getQuotationDateTime(): ?string
     {
         return $this->quotationDateTime;
@@ -94,15 +124,25 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQuotationDateTime(?string $value): void
     {
         $this->quotationDateTime = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return RateDetails
+    */
+    public function withQuotationDateTime(?string $value): RateDetails
+    {
+        $this->quotationDateTime = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSource(): ?string
     {
         return $this->source;
@@ -110,10 +150,20 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSource(?string $value): void
     {
         $this->source = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RateDetails
+    */
+    public function withSource(?string $value): RateDetails
+    {
+        $this->source = $value;
+        return $this;
     }
 
     /**

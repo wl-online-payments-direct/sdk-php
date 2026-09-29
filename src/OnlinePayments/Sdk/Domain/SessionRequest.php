@@ -13,12 +13,12 @@ class SessionRequest extends DataObject
 {
     /**
      * @var string[]|null
-     */
+    */
     public ?array $tokens = null;
 
     /**
      * @return string[]|null
-     */
+    */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -26,10 +26,20 @@ class SessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return SessionRequest
+    */
+    public function withTokens(?array $value): SessionRequest
+    {
+        $this->tokens = $value;
+        return $this;
     }
 
     /**

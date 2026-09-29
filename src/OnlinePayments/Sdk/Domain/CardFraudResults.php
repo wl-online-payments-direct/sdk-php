@@ -13,22 +13,22 @@ class CardFraudResults extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $avsResult = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $cvvResult = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $fraudServiceResult = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAvsResult(): ?string
     {
         return $this->avsResult;
@@ -36,15 +36,25 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAvsResult(?string $value): void
     {
         $this->avsResult = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardFraudResults
+    */
+    public function withAvsResult(?string $value): CardFraudResults
+    {
+        $this->avsResult = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCvvResult(): ?string
     {
         return $this->cvvResult;
@@ -52,15 +62,25 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCvvResult(?string $value): void
     {
         $this->cvvResult = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CardFraudResults
+    */
+    public function withCvvResult(?string $value): CardFraudResults
+    {
+        $this->cvvResult = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
@@ -68,10 +88,20 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardFraudResults
+    */
+    public function withFraudServiceResult(?string $value): CardFraudResults
+    {
+        $this->fraudServiceResult = $value;
+        return $this;
     }
 
     /**

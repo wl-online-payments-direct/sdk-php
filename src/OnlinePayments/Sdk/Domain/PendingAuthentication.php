@@ -13,12 +13,12 @@ class PendingAuthentication extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $pollingUrl = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getPollingUrl(): ?string
     {
         return $this->pollingUrl;
@@ -26,10 +26,20 @@ class PendingAuthentication extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPollingUrl(?string $value): void
     {
         $this->pollingUrl = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PendingAuthentication
+    */
+    public function withPollingUrl(?string $value): PendingAuthentication
+    {
+        $this->pollingUrl = $value;
+        return $this;
     }
 
     /**

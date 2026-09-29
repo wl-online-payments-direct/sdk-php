@@ -13,17 +13,17 @@ class ValidateCredentialsRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $key = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $secret = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getKey(): ?string
     {
         return $this->key;
@@ -31,15 +31,25 @@ class ValidateCredentialsRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setKey(?string $value): void
     {
         $this->key = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ValidateCredentialsRequest
+    */
+    public function withKey(?string $value): ValidateCredentialsRequest
+    {
+        $this->key = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getSecret(): ?string
     {
         return $this->secret;
@@ -47,10 +57,20 @@ class ValidateCredentialsRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSecret(?string $value): void
     {
         $this->secret = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ValidateCredentialsRequest
+    */
+    public function withSecret(?string $value): ValidateCredentialsRequest
+    {
+        $this->secret = $value;
+        return $this;
     }
 
     /**

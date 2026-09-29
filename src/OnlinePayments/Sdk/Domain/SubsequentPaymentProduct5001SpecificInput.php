@@ -13,12 +13,12 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $subsequentType = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
@@ -26,10 +26,20 @@ class SubsequentPaymentProduct5001SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return SubsequentPaymentProduct5001SpecificInput
+    */
+    public function withSubsequentType(?string $value): SubsequentPaymentProduct5001SpecificInput
+    {
+        $this->subsequentType = $value;
+        return $this;
     }
 
     /**

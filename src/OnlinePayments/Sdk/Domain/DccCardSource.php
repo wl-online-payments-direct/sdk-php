@@ -13,27 +13,27 @@ class DccCardSource extends DataObject
 {
     /**
      * @var CardInfo|null
-     */
+    */
     public ?CardInfo $card = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $token = null;
 
     /**
      * @return CardInfo|null
-     */
+    */
     public function getCard(): ?CardInfo
     {
         return $this->card;
@@ -41,15 +41,25 @@ class DccCardSource extends DataObject
 
     /**
      * @param CardInfo|null $value
-     */
+    */
     public function setCard(?CardInfo $value): void
     {
         $this->card = $value;
     }
 
     /**
+     * @param CardInfo|null $value
+     * @return DccCardSource
+    */
+    public function withCard(?CardInfo $value): DccCardSource
+    {
+        $this->card = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -57,15 +67,25 @@ class DccCardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DccCardSource
+    */
+    public function withEncryptedCustomerInput(?string $value): DccCardSource
+    {
+        $this->encryptedCustomerInput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -73,15 +93,25 @@ class DccCardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return DccCardSource
+    */
+    public function withHostedTokenizationId(?string $value): DccCardSource
+    {
+        $this->hostedTokenizationId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getToken(): ?string
     {
         return $this->token;
@@ -89,10 +119,20 @@ class DccCardSource extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setToken(?string $value): void
     {
         $this->token = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return DccCardSource
+    */
+    public function withToken(?string $value): DccCardSource
+    {
+        $this->token = $value;
+        return $this;
     }
 
     /**

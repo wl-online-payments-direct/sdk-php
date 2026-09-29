@@ -13,52 +13,52 @@ class PaymentProductFieldValidators extends DataObject
 {
     /**
      * @var EmptyValidator|null
-     */
+    */
     public ?EmptyValidator $emailAddress = null;
 
     /**
      * @var EmptyValidator|null
-     */
+    */
     public ?EmptyValidator $expirationDate = null;
 
     /**
      * @var FixedListValidator|null
-     */
+    */
     public ?FixedListValidator $fixedList = null;
 
     /**
      * @var EmptyValidator|null
-     */
+    */
     public ?EmptyValidator $iban = null;
 
     /**
      * @var LengthValidator|null
-     */
+    */
     public ?LengthValidator $length = null;
 
     /**
      * @var EmptyValidator|null
-     */
+    */
     public ?EmptyValidator $luhn = null;
 
     /**
      * @var RangeValidator|null
-     */
+    */
     public ?RangeValidator $range = null;
 
     /**
      * @var RegularExpressionValidator|null
-     */
+    */
     public ?RegularExpressionValidator $regularExpression = null;
 
     /**
      * @var EmptyValidator|null
-     */
+    */
     public ?EmptyValidator $termsAndConditions = null;
 
     /**
      * @return EmptyValidator|null
-     */
+    */
     public function getEmailAddress(): ?EmptyValidator
     {
         return $this->emailAddress;
@@ -66,15 +66,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     */
+    */
     public function setEmailAddress(?EmptyValidator $value): void
     {
         $this->emailAddress = $value;
     }
 
     /**
+     * @param EmptyValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withEmailAddress(?EmptyValidator $value): PaymentProductFieldValidators
+    {
+        $this->emailAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return EmptyValidator|null
-     */
+    */
     public function getExpirationDate(): ?EmptyValidator
     {
         return $this->expirationDate;
@@ -82,15 +92,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     */
+    */
     public function setExpirationDate(?EmptyValidator $value): void
     {
         $this->expirationDate = $value;
     }
 
     /**
+     * @param EmptyValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withExpirationDate(?EmptyValidator $value): PaymentProductFieldValidators
+    {
+        $this->expirationDate = $value;
+        return $this;
+    }
+
+    /**
      * @return FixedListValidator|null
-     */
+    */
     public function getFixedList(): ?FixedListValidator
     {
         return $this->fixedList;
@@ -98,15 +118,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param FixedListValidator|null $value
-     */
+    */
     public function setFixedList(?FixedListValidator $value): void
     {
         $this->fixedList = $value;
     }
 
     /**
+     * @param FixedListValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withFixedList(?FixedListValidator $value): PaymentProductFieldValidators
+    {
+        $this->fixedList = $value;
+        return $this;
+    }
+
+    /**
      * @return EmptyValidator|null
-     */
+    */
     public function getIban(): ?EmptyValidator
     {
         return $this->iban;
@@ -114,15 +144,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     */
+    */
     public function setIban(?EmptyValidator $value): void
     {
         $this->iban = $value;
     }
 
     /**
+     * @param EmptyValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withIban(?EmptyValidator $value): PaymentProductFieldValidators
+    {
+        $this->iban = $value;
+        return $this;
+    }
+
+    /**
      * @return LengthValidator|null
-     */
+    */
     public function getLength(): ?LengthValidator
     {
         return $this->length;
@@ -130,15 +170,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param LengthValidator|null $value
-     */
+    */
     public function setLength(?LengthValidator $value): void
     {
         $this->length = $value;
     }
 
     /**
+     * @param LengthValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withLength(?LengthValidator $value): PaymentProductFieldValidators
+    {
+        $this->length = $value;
+        return $this;
+    }
+
+    /**
      * @return EmptyValidator|null
-     */
+    */
     public function getLuhn(): ?EmptyValidator
     {
         return $this->luhn;
@@ -146,15 +196,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     */
+    */
     public function setLuhn(?EmptyValidator $value): void
     {
         $this->luhn = $value;
     }
 
     /**
+     * @param EmptyValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withLuhn(?EmptyValidator $value): PaymentProductFieldValidators
+    {
+        $this->luhn = $value;
+        return $this;
+    }
+
+    /**
      * @return RangeValidator|null
-     */
+    */
     public function getRange(): ?RangeValidator
     {
         return $this->range;
@@ -162,15 +222,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RangeValidator|null $value
-     */
+    */
     public function setRange(?RangeValidator $value): void
     {
         $this->range = $value;
     }
 
     /**
+     * @param RangeValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withRange(?RangeValidator $value): PaymentProductFieldValidators
+    {
+        $this->range = $value;
+        return $this;
+    }
+
+    /**
      * @return RegularExpressionValidator|null
-     */
+    */
     public function getRegularExpression(): ?RegularExpressionValidator
     {
         return $this->regularExpression;
@@ -178,15 +248,25 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RegularExpressionValidator|null $value
-     */
+    */
     public function setRegularExpression(?RegularExpressionValidator $value): void
     {
         $this->regularExpression = $value;
     }
 
     /**
+     * @param RegularExpressionValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withRegularExpression(?RegularExpressionValidator $value): PaymentProductFieldValidators
+    {
+        $this->regularExpression = $value;
+        return $this;
+    }
+
+    /**
      * @return EmptyValidator|null
-     */
+    */
     public function getTermsAndConditions(): ?EmptyValidator
     {
         return $this->termsAndConditions;
@@ -194,10 +274,20 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     */
+    */
     public function setTermsAndConditions(?EmptyValidator $value): void
     {
         $this->termsAndConditions = $value;
+    }
+
+    /**
+     * @param EmptyValidator|null $value
+     * @return PaymentProductFieldValidators
+    */
+    public function withTermsAndConditions(?EmptyValidator $value): PaymentProductFieldValidators
+    {
+        $this->termsAndConditions = $value;
+        return $this;
     }
 
     /**

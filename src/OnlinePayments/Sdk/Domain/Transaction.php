@@ -13,12 +13,12 @@ class Transaction extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -26,10 +26,20 @@ class Transaction extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
+    }
+
+    /**
+     * @param AmountOfMoney|null $value
+     * @return Transaction
+    */
+    public function withAmount(?AmountOfMoney $value): Transaction
+    {
+        $this->amount = $value;
+        return $this;
     }
 
     /**

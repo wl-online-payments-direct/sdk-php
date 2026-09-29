@@ -13,12 +13,12 @@ class PaymentProduct840 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $orderId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getOrderId(): ?string
     {
         return $this->orderId;
@@ -26,10 +26,20 @@ class PaymentProduct840 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOrderId(?string $value): void
     {
         $this->orderId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct840
+    */
+    public function withOrderId(?string $value): PaymentProduct840
+    {
+        $this->orderId = $value;
+        return $this;
     }
 
     /**

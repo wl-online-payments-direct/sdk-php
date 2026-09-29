@@ -13,12 +13,12 @@ class DpaData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $dpaName = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getDpaName(): ?string
     {
         return $this->dpaName;
@@ -26,10 +26,20 @@ class DpaData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDpaName(?string $value): void
     {
         $this->dpaName = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return DpaData
+    */
+    public function withDpaName(?string $value): DpaData
+    {
+        $this->dpaName = $value;
+        return $this;
     }
 
     /**

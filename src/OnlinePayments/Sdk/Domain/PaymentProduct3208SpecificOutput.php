@@ -13,12 +13,12 @@ class PaymentProduct3208SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $buyerCompliantBankMessage = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getBuyerCompliantBankMessage(): ?string
     {
         return $this->buyerCompliantBankMessage;
@@ -26,10 +26,20 @@ class PaymentProduct3208SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBuyerCompliantBankMessage(?string $value): void
     {
         $this->buyerCompliantBankMessage = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct3208SpecificOutput
+    */
+    public function withBuyerCompliantBankMessage(?string $value): PaymentProduct3208SpecificOutput
+    {
+        $this->buyerCompliantBankMessage = $value;
+        return $this;
     }
 
     /**

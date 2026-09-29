@@ -13,32 +13,32 @@ class MerchantAction extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $actionType = null;
 
     /**
      * @var MobileThreeDSecureChallengeParameters|null
-     */
+    */
     public ?MobileThreeDSecureChallengeParameters $mobileThreeDSecureChallengeParameters = null;
 
     /**
      * @var RedirectData|null
-     */
+    */
     public ?RedirectData $redirectData = null;
 
     /**
      * @var ShowFormData|null
-     */
+    */
     public ?ShowFormData $showFormData = null;
 
     /**
      * @var ShowInstructionsData|null
-     */
+    */
     public ?ShowInstructionsData $showInstructionsData = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getActionType(): ?string
     {
         return $this->actionType;
@@ -46,15 +46,25 @@ class MerchantAction extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setActionType(?string $value): void
     {
         $this->actionType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MerchantAction
+    */
+    public function withActionType(?string $value): MerchantAction
+    {
+        $this->actionType = $value;
+        return $this;
+    }
+
+    /**
      * @return MobileThreeDSecureChallengeParameters|null
-     */
+    */
     public function getMobileThreeDSecureChallengeParameters(): ?MobileThreeDSecureChallengeParameters
     {
         return $this->mobileThreeDSecureChallengeParameters;
@@ -62,15 +72,25 @@ class MerchantAction extends DataObject
 
     /**
      * @param MobileThreeDSecureChallengeParameters|null $value
-     */
+    */
     public function setMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): void
     {
         $this->mobileThreeDSecureChallengeParameters = $value;
     }
 
     /**
+     * @param MobileThreeDSecureChallengeParameters|null $value
+     * @return MerchantAction
+    */
+    public function withMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): MerchantAction
+    {
+        $this->mobileThreeDSecureChallengeParameters = $value;
+        return $this;
+    }
+
+    /**
      * @return RedirectData|null
-     */
+    */
     public function getRedirectData(): ?RedirectData
     {
         return $this->redirectData;
@@ -78,15 +98,25 @@ class MerchantAction extends DataObject
 
     /**
      * @param RedirectData|null $value
-     */
+    */
     public function setRedirectData(?RedirectData $value): void
     {
         $this->redirectData = $value;
     }
 
     /**
+     * @param RedirectData|null $value
+     * @return MerchantAction
+    */
+    public function withRedirectData(?RedirectData $value): MerchantAction
+    {
+        $this->redirectData = $value;
+        return $this;
+    }
+
+    /**
      * @return ShowFormData|null
-     */
+    */
     public function getShowFormData(): ?ShowFormData
     {
         return $this->showFormData;
@@ -94,15 +124,25 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowFormData|null $value
-     */
+    */
     public function setShowFormData(?ShowFormData $value): void
     {
         $this->showFormData = $value;
     }
 
     /**
+     * @param ShowFormData|null $value
+     * @return MerchantAction
+    */
+    public function withShowFormData(?ShowFormData $value): MerchantAction
+    {
+        $this->showFormData = $value;
+        return $this;
+    }
+
+    /**
      * @return ShowInstructionsData|null
-     */
+    */
     public function getShowInstructionsData(): ?ShowInstructionsData
     {
         return $this->showInstructionsData;
@@ -110,10 +150,20 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowInstructionsData|null $value
-     */
+    */
     public function setShowInstructionsData(?ShowInstructionsData $value): void
     {
         $this->showInstructionsData = $value;
+    }
+
+    /**
+     * @param ShowInstructionsData|null $value
+     * @return MerchantAction
+    */
+    public function withShowInstructionsData(?ShowInstructionsData $value): MerchantAction
+    {
+        $this->showInstructionsData = $value;
+        return $this;
     }
 
     /**

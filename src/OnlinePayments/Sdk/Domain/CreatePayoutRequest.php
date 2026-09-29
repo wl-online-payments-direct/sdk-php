@@ -13,37 +13,37 @@ class CreatePayoutRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var CardPayoutMethodSpecificInput|null
-     */
+    */
     public ?CardPayoutMethodSpecificInput $cardPayoutMethodSpecificInput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $descriptor = null;
 
     /**
      * @var Feedbacks|null
-     */
+    */
     public ?Feedbacks $feedbacks = null;
 
     /**
      * @var OmnichannelPayoutSpecificInput|null
-     */
+    */
     public ?OmnichannelPayoutSpecificInput $omnichannelPayoutSpecificInput = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -51,15 +51,25 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): CreatePayoutRequest
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return CardPayoutMethodSpecificInput|null
-     */
+    */
     public function getCardPayoutMethodSpecificInput(): ?CardPayoutMethodSpecificInput
     {
         return $this->cardPayoutMethodSpecificInput;
@@ -67,15 +77,25 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param CardPayoutMethodSpecificInput|null $value
-     */
+    */
     public function setCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): void
     {
         $this->cardPayoutMethodSpecificInput = $value;
     }
 
     /**
+     * @param CardPayoutMethodSpecificInput|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): CreatePayoutRequest
+    {
+        $this->cardPayoutMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDescriptor(): ?string
     {
         return $this->descriptor;
@@ -83,15 +103,25 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDescriptor(?string $value): void
     {
         $this->descriptor = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withDescriptor(?string $value): CreatePayoutRequest
+    {
+        $this->descriptor = $value;
+        return $this;
+    }
+
+    /**
      * @return Feedbacks|null
-     */
+    */
     public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
@@ -99,15 +129,25 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-     */
+    */
     public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
     }
 
     /**
+     * @param Feedbacks|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withFeedbacks(?Feedbacks $value): CreatePayoutRequest
+    {
+        $this->feedbacks = $value;
+        return $this;
+    }
+
+    /**
      * @return OmnichannelPayoutSpecificInput|null
-     */
+    */
     public function getOmnichannelPayoutSpecificInput(): ?OmnichannelPayoutSpecificInput
     {
         return $this->omnichannelPayoutSpecificInput;
@@ -115,15 +155,25 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param OmnichannelPayoutSpecificInput|null $value
-     */
+    */
     public function setOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): void
     {
         $this->omnichannelPayoutSpecificInput = $value;
     }
 
     /**
+     * @param OmnichannelPayoutSpecificInput|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): CreatePayoutRequest
+    {
+        $this->omnichannelPayoutSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -131,10 +181,20 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
+    }
+
+    /**
+     * @param PaymentReferences|null $value
+     * @return CreatePayoutRequest
+    */
+    public function withReferences(?PaymentReferences $value): CreatePayoutRequest
+    {
+        $this->references = $value;
+        return $this;
     }
 
     /**

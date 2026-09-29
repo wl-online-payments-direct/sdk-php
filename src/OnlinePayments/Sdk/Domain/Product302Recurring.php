@@ -13,12 +13,12 @@ class Product302Recurring extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $recurringPaymentSequenceIndicator = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getRecurringPaymentSequenceIndicator(): ?string
     {
         return $this->recurringPaymentSequenceIndicator;
@@ -26,10 +26,20 @@ class Product302Recurring extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRecurringPaymentSequenceIndicator(?string $value): void
     {
         $this->recurringPaymentSequenceIndicator = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return Product302Recurring
+    */
+    public function withRecurringPaymentSequenceIndicator(?string $value): Product302Recurring
+    {
+        $this->recurringPaymentSequenceIndicator = $value;
+        return $this;
     }
 
     /**

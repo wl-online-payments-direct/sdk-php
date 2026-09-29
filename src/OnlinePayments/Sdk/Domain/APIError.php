@@ -13,49 +13,49 @@ class APIError extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $category = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use errorCode instead. Error code
-     */
+    */
     public ?string $code = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $errorCode = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $httpStatusCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $message = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $propertyName = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $retriable = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCategory(): ?string
     {
         return $this->category;
@@ -63,17 +63,27 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCategory(?string $value): void
     {
         $this->category = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+    */
+    public function withCategory(?string $value): APIError
+    {
+        $this->category = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Use errorCode instead. Error code
-     */
+    */
     public function getCode(): ?string
     {
         return $this->code;
@@ -83,15 +93,27 @@ class APIError extends DataObject
      * @param string|null $value
      *
      * @deprecated Use errorCode instead. Error code
-     */
+    */
     public function setCode(?string $value): void
     {
         $this->code = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+     *
+     * @deprecated Use errorCode instead. Error code
+    */
+    public function withCode(?string $value): APIError
+    {
+        $this->code = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getErrorCode(): ?string
     {
         return $this->errorCode;
@@ -99,15 +121,25 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setErrorCode(?string $value): void
     {
         $this->errorCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+    */
+    public function withErrorCode(?string $value): APIError
+    {
+        $this->errorCode = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getHttpStatusCode(): ?int
     {
         return $this->httpStatusCode;
@@ -115,15 +147,25 @@ class APIError extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setHttpStatusCode(?int $value): void
     {
         $this->httpStatusCode = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return APIError
+    */
+    public function withHttpStatusCode(?int $value): APIError
+    {
+        $this->httpStatusCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -131,15 +173,25 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+    */
+    public function withId(?string $value): APIError
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMessage(): ?string
     {
         return $this->message;
@@ -147,15 +199,25 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMessage(?string $value): void
     {
         $this->message = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+    */
+    public function withMessage(?string $value): APIError
+    {
+        $this->message = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPropertyName(): ?string
     {
         return $this->propertyName;
@@ -163,15 +225,25 @@ class APIError extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPropertyName(?string $value): void
     {
         $this->propertyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return APIError
+    */
+    public function withPropertyName(?string $value): APIError
+    {
+        $this->propertyName = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getRetriable(): ?bool
     {
         return $this->retriable;
@@ -179,10 +251,20 @@ class APIError extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setRetriable(?bool $value): void
     {
         $this->retriable = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return APIError
+    */
+    public function withRetriable(?bool $value): APIError
+    {
+        $this->retriable = $value;
+        return $this;
     }
 
     /**

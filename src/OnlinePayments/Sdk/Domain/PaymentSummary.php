@@ -13,27 +13,27 @@ class PaymentSummary extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $id = null;
 
     /**
      * @var PaymentOutputSummary|null
-     */
+    */
     public ?PaymentOutputSummary $paymentOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @var PaymentStatusOutputSummary|null
-     */
+    */
     public ?PaymentStatusOutputSummary $statusOutput = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,15 +41,25 @@ class PaymentSummary extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setId(?string $value): void
     {
         $this->id = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentSummary
+    */
+    public function withId(?string $value): PaymentSummary
+    {
+        $this->id = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentOutputSummary|null
-     */
+    */
     public function getPaymentOutput(): ?PaymentOutputSummary
     {
         return $this->paymentOutput;
@@ -57,15 +67,25 @@ class PaymentSummary extends DataObject
 
     /**
      * @param PaymentOutputSummary|null $value
-     */
+    */
     public function setPaymentOutput(?PaymentOutputSummary $value): void
     {
         $this->paymentOutput = $value;
     }
 
     /**
+     * @param PaymentOutputSummary|null $value
+     * @return PaymentSummary
+    */
+    public function withPaymentOutput(?PaymentOutputSummary $value): PaymentSummary
+    {
+        $this->paymentOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -73,15 +93,25 @@ class PaymentSummary extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentSummary
+    */
+    public function withStatus(?string $value): PaymentSummary
+    {
+        $this->status = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentStatusOutputSummary|null
-     */
+    */
     public function getStatusOutput(): ?PaymentStatusOutputSummary
     {
         return $this->statusOutput;
@@ -89,10 +119,20 @@ class PaymentSummary extends DataObject
 
     /**
      * @param PaymentStatusOutputSummary|null $value
-     */
+    */
     public function setStatusOutput(?PaymentStatusOutputSummary $value): void
     {
         $this->statusOutput = $value;
+    }
+
+    /**
+     * @param PaymentStatusOutputSummary|null $value
+     * @return PaymentSummary
+    */
+    public function withStatusOutput(?PaymentStatusOutputSummary $value): PaymentSummary
+    {
+        $this->statusOutput = $value;
+        return $this;
     }
 
     /**

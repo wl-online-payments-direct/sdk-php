@@ -15,19 +15,19 @@ class PaymentProductFieldTooltip extends DataObject
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-     */
+    */
     public ?string $image = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $label = null;
 
     /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-     */
+    */
     public function getImage(): ?string
     {
         return $this->image;
@@ -37,15 +37,27 @@ class PaymentProductFieldTooltip extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-     */
+    */
     public function setImage(?string $value): void
     {
         $this->image = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProductFieldTooltip
+     *
+     * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
+    */
+    public function withImage(?string $value): PaymentProductFieldTooltip
+    {
+        $this->image = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -53,10 +65,20 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProductFieldTooltip
+    */
+    public function withLabel(?string $value): PaymentProductFieldTooltip
+    {
+        $this->label = $value;
+        return $this;
     }
 
     /**

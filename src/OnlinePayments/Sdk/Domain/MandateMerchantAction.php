@@ -13,17 +13,17 @@ class MandateMerchantAction extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $actionType = null;
 
     /**
      * @var MandateRedirectData|null
-     */
+    */
     public ?MandateRedirectData $redirectData = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getActionType(): ?string
     {
         return $this->actionType;
@@ -31,15 +31,25 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setActionType(?string $value): void
     {
         $this->actionType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return MandateMerchantAction
+    */
+    public function withActionType(?string $value): MandateMerchantAction
+    {
+        $this->actionType = $value;
+        return $this;
+    }
+
+    /**
      * @return MandateRedirectData|null
-     */
+    */
     public function getRedirectData(): ?MandateRedirectData
     {
         return $this->redirectData;
@@ -47,10 +57,20 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param MandateRedirectData|null $value
-     */
+    */
     public function setRedirectData(?MandateRedirectData $value): void
     {
         $this->redirectData = $value;
+    }
+
+    /**
+     * @param MandateRedirectData|null $value
+     * @return MandateMerchantAction
+    */
+    public function withRedirectData(?MandateRedirectData $value): MandateMerchantAction
+    {
+        $this->redirectData = $value;
+        return $this;
     }
 
     /**

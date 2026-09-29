@@ -13,12 +13,12 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $cardNumber = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -26,10 +26,20 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CardPaymentMethodSpecificOutputSummaryCard
+    */
+    public function withCardNumber(?string $value): CardPaymentMethodSpecificOutputSummaryCard
+    {
+        $this->cardNumber = $value;
+        return $this;
     }
 
     /**

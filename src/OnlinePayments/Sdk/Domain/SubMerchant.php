@@ -13,37 +13,37 @@ class SubMerchant extends DataObject
 {
     /**
      * @var Address|null
-     */
+    */
     public ?Address $address = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyIdentificationNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $companyName = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantCategoryCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $website = null;
 
     /**
      * @return Address|null
-     */
+    */
     public function getAddress(): ?Address
     {
         return $this->address;
@@ -51,15 +51,25 @@ class SubMerchant extends DataObject
 
     /**
      * @param Address|null $value
-     */
+    */
     public function setAddress(?Address $value): void
     {
         $this->address = $value;
     }
 
     /**
+     * @param Address|null $value
+     * @return SubMerchant
+    */
+    public function withAddress(?Address $value): SubMerchant
+    {
+        $this->address = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyIdentificationNumber(): ?string
     {
         return $this->companyIdentificationNumber;
@@ -67,15 +77,25 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyIdentificationNumber(?string $value): void
     {
         $this->companyIdentificationNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubMerchant
+    */
+    public function withCompanyIdentificationNumber(?string $value): SubMerchant
+    {
+        $this->companyIdentificationNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -83,15 +103,25 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubMerchant
+    */
+    public function withCompanyName(?string $value): SubMerchant
+    {
+        $this->companyName = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantCategoryCode(): ?string
     {
         return $this->merchantCategoryCode;
@@ -99,15 +129,25 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantCategoryCode(?string $value): void
     {
         $this->merchantCategoryCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubMerchant
+    */
+    public function withMerchantCategoryCode(?string $value): SubMerchant
+    {
+        $this->merchantCategoryCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantId(): ?string
     {
         return $this->merchantId;
@@ -115,15 +155,25 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantId(?string $value): void
     {
         $this->merchantId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return SubMerchant
+    */
+    public function withMerchantId(?string $value): SubMerchant
+    {
+        $this->merchantId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getWebsite(): ?string
     {
         return $this->website;
@@ -131,10 +181,20 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setWebsite(?string $value): void
     {
         $this->website = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return SubMerchant
+    */
+    public function withWebsite(?string $value): SubMerchant
+    {
+        $this->website = $value;
+        return $this;
     }
 
     /**

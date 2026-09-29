@@ -13,62 +13,62 @@ class CreatePaymentRequest extends DataObject
 {
     /**
      * @var CardPaymentMethodSpecificInput|null
-     */
+    */
     public ?CardPaymentMethodSpecificInput $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var Feedbacks|null
-     */
+    */
     public ?Feedbacks $feedbacks = null;
 
     /**
      * @var FraudFields|null
-     */
+    */
     public ?FraudFields $fraudFields = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var MobilePaymentMethodSpecificInput|null
-     */
+    */
     public ?MobilePaymentMethodSpecificInput $mobilePaymentMethodSpecificInput = null;
 
     /**
      * @var OmnichannelPaymentSpecificInput|null
-     */
+    */
     public ?OmnichannelPaymentSpecificInput $omnichannelPaymentSpecificInput = null;
 
     /**
      * @var Order|null
-     */
+    */
     public ?Order $order = null;
 
     /**
      * @var RedirectPaymentMethodSpecificInput|null
-     */
+    */
     public ?RedirectPaymentMethodSpecificInput $redirectPaymentMethodSpecificInput = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificInput|null
-     */
+    */
     public ?SepaDirectDebitPaymentMethodSpecificInput $sepaDirectDebitPaymentMethodSpecificInput = null;
 
     /**
      * @return CardPaymentMethodSpecificInput|null
-     */
+    */
     public function getCardPaymentMethodSpecificInput(): ?CardPaymentMethodSpecificInput
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -76,15 +76,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInput $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param CardPaymentMethodSpecificInput|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInput $value): CreatePaymentRequest
+    {
+        $this->cardPaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -92,15 +102,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withEncryptedCustomerInput(?string $value): CreatePaymentRequest
+    {
+        $this->encryptedCustomerInput = $value;
+        return $this;
+    }
+
+    /**
      * @return Feedbacks|null
-     */
+    */
     public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
@@ -108,15 +128,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-     */
+    */
     public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
     }
 
     /**
+     * @param Feedbacks|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withFeedbacks(?Feedbacks $value): CreatePaymentRequest
+    {
+        $this->feedbacks = $value;
+        return $this;
+    }
+
+    /**
      * @return FraudFields|null
-     */
+    */
     public function getFraudFields(): ?FraudFields
     {
         return $this->fraudFields;
@@ -124,15 +154,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param FraudFields|null $value
-     */
+    */
     public function setFraudFields(?FraudFields $value): void
     {
         $this->fraudFields = $value;
     }
 
     /**
+     * @param FraudFields|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withFraudFields(?FraudFields $value): CreatePaymentRequest
+    {
+        $this->fraudFields = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -140,15 +180,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withHostedFieldsSessionId(?string $value): CreatePaymentRequest
+    {
+        $this->hostedFieldsSessionId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -156,15 +206,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withHostedTokenizationId(?string $value): CreatePaymentRequest
+    {
+        $this->hostedTokenizationId = $value;
+        return $this;
+    }
+
+    /**
      * @return MobilePaymentMethodSpecificInput|null
-     */
+    */
     public function getMobilePaymentMethodSpecificInput(): ?MobilePaymentMethodSpecificInput
     {
         return $this->mobilePaymentMethodSpecificInput;
@@ -172,15 +232,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param MobilePaymentMethodSpecificInput|null $value
-     */
+    */
     public function setMobilePaymentMethodSpecificInput(?MobilePaymentMethodSpecificInput $value): void
     {
         $this->mobilePaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param MobilePaymentMethodSpecificInput|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withMobilePaymentMethodSpecificInput(?MobilePaymentMethodSpecificInput $value): CreatePaymentRequest
+    {
+        $this->mobilePaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return OmnichannelPaymentSpecificInput|null
-     */
+    */
     public function getOmnichannelPaymentSpecificInput(): ?OmnichannelPaymentSpecificInput
     {
         return $this->omnichannelPaymentSpecificInput;
@@ -188,15 +258,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param OmnichannelPaymentSpecificInput|null $value
-     */
+    */
     public function setOmnichannelPaymentSpecificInput(?OmnichannelPaymentSpecificInput $value): void
     {
         $this->omnichannelPaymentSpecificInput = $value;
     }
 
     /**
+     * @param OmnichannelPaymentSpecificInput|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withOmnichannelPaymentSpecificInput(?OmnichannelPaymentSpecificInput $value): CreatePaymentRequest
+    {
+        $this->omnichannelPaymentSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return Order|null
-     */
+    */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -204,15 +284,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-     */
+    */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
     }
 
     /**
+     * @param Order|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withOrder(?Order $value): CreatePaymentRequest
+    {
+        $this->order = $value;
+        return $this;
+    }
+
+    /**
      * @return RedirectPaymentMethodSpecificInput|null
-     */
+    */
     public function getRedirectPaymentMethodSpecificInput(): ?RedirectPaymentMethodSpecificInput
     {
         return $this->redirectPaymentMethodSpecificInput;
@@ -220,15 +310,25 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): void
     {
         $this->redirectPaymentMethodSpecificInput = $value;
     }
 
     /**
+     * @param RedirectPaymentMethodSpecificInput|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): CreatePaymentRequest
+    {
+        $this->redirectPaymentMethodSpecificInput = $value;
+        return $this;
+    }
+
+    /**
      * @return SepaDirectDebitPaymentMethodSpecificInput|null
-     */
+    */
     public function getSepaDirectDebitPaymentMethodSpecificInput(): ?SepaDirectDebitPaymentMethodSpecificInput
     {
         return $this->sepaDirectDebitPaymentMethodSpecificInput;
@@ -236,10 +336,20 @@ class CreatePaymentRequest extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificInput|null $value
-     */
+    */
     public function setSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInput $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
+    }
+
+    /**
+     * @param SepaDirectDebitPaymentMethodSpecificInput|null $value
+     * @return CreatePaymentRequest
+    */
+    public function withSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInput $value): CreatePaymentRequest
+    {
+        $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
+        return $this;
     }
 
     /**

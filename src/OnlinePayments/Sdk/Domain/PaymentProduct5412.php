@@ -13,22 +13,22 @@ class PaymentProduct5412 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $appUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $pollingUrl = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAppUrl(): ?string
     {
         return $this->appUrl;
@@ -36,15 +36,25 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAppUrl(?string $value): void
     {
         $this->appUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5412
+    */
+    public function withAppUrl(?string $value): PaymentProduct5412
+    {
+        $this->appUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPollingUrl(): ?string
     {
         return $this->pollingUrl;
@@ -52,15 +62,25 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPollingUrl(?string $value): void
     {
         $this->pollingUrl = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct5412
+    */
+    public function withPollingUrl(?string $value): PaymentProduct5412
+    {
+        $this->pollingUrl = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -68,10 +88,20 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct5412
+    */
+    public function withQrCode(?string $value): PaymentProduct5412
+    {
+        $this->qrCode = $value;
+        return $this;
     }
 
     /**

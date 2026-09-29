@@ -13,22 +13,22 @@ class CustomerToken extends DataObject
 {
     /**
      * @var Address|null
-     */
+    */
     public ?Address $billingAddress = null;
 
     /**
      * @var CompanyInformation|null
-     */
+    */
     public ?CompanyInformation $companyInformation = null;
 
     /**
      * @var PersonalInformationToken|null
-     */
+    */
     public ?PersonalInformationToken $personalInformation = null;
 
     /**
      * @return Address|null
-     */
+    */
     public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
@@ -36,15 +36,25 @@ class CustomerToken extends DataObject
 
     /**
      * @param Address|null $value
-     */
+    */
     public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
     }
 
     /**
+     * @param Address|null $value
+     * @return CustomerToken
+    */
+    public function withBillingAddress(?Address $value): CustomerToken
+    {
+        $this->billingAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return CompanyInformation|null
-     */
+    */
     public function getCompanyInformation(): ?CompanyInformation
     {
         return $this->companyInformation;
@@ -52,15 +62,25 @@ class CustomerToken extends DataObject
 
     /**
      * @param CompanyInformation|null $value
-     */
+    */
     public function setCompanyInformation(?CompanyInformation $value): void
     {
         $this->companyInformation = $value;
     }
 
     /**
+     * @param CompanyInformation|null $value
+     * @return CustomerToken
+    */
+    public function withCompanyInformation(?CompanyInformation $value): CustomerToken
+    {
+        $this->companyInformation = $value;
+        return $this;
+    }
+
+    /**
      * @return PersonalInformationToken|null
-     */
+    */
     public function getPersonalInformation(): ?PersonalInformationToken
     {
         return $this->personalInformation;
@@ -68,10 +88,20 @@ class CustomerToken extends DataObject
 
     /**
      * @param PersonalInformationToken|null $value
-     */
+    */
     public function setPersonalInformation(?PersonalInformationToken $value): void
     {
         $this->personalInformation = $value;
+    }
+
+    /**
+     * @param PersonalInformationToken|null $value
+     * @return CustomerToken
+    */
+    public function withPersonalInformation(?PersonalInformationToken $value): CustomerToken
+    {
+        $this->personalInformation = $value;
+        return $this;
     }
 
     /**

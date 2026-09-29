@@ -13,22 +13,22 @@ class CreateHostedFieldsSessionRequest extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $locale = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $origin = null;
 
     /**
      * @var string[]|null
-     */
+    */
     public ?array $tokens = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -36,15 +36,25 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedFieldsSessionRequest
+    */
+    public function withLocale(?string $value): CreateHostedFieldsSessionRequest
+    {
+        $this->locale = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getOrigin(): ?string
     {
         return $this->origin;
@@ -52,15 +62,25 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOrigin(?string $value): void
     {
         $this->origin = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CreateHostedFieldsSessionRequest
+    */
+    public function withOrigin(?string $value): CreateHostedFieldsSessionRequest
+    {
+        $this->origin = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
-     */
+    */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -68,10 +88,20 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-     */
+    */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
+    }
+
+    /**
+     * @param string[]|null $value
+     * @return CreateHostedFieldsSessionRequest
+    */
+    public function withTokens(?array $value): CreateHostedFieldsSessionRequest
+    {
+        $this->tokens = $value;
+        return $this;
     }
 
     /**

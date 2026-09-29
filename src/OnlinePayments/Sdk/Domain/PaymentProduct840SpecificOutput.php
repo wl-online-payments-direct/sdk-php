@@ -13,42 +13,42 @@ class PaymentProduct840SpecificOutput extends DataObject
 {
     /**
      * @var Address|null
-     */
+    */
     public ?Address $billingAddress = null;
 
     /**
      * @var AddressPersonal|null
-     */
+    */
     public ?AddressPersonal $billingPersonalAddress = null;
 
     /**
      * @var PaymentProduct840CustomerAccount|null
-     */
+    */
     public ?PaymentProduct840CustomerAccount $customerAccount = null;
 
     /**
      * @var Address|null
-     */
+    */
     public ?Address $customerAddress = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $payPalTransactionId = null;
 
     /**
      * @var ProtectionEligibility|null
-     */
+    */
     public ?ProtectionEligibility $protectionEligibility = null;
 
     /**
      * @var AddressPersonal|null
-     */
+    */
     public ?AddressPersonal $shippingAddress = null;
 
     /**
      * @return Address|null
-     */
+    */
     public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
@@ -56,15 +56,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-     */
+    */
     public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
     }
 
     /**
+     * @param Address|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withBillingAddress(?Address $value): PaymentProduct840SpecificOutput
+    {
+        $this->billingAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return AddressPersonal|null
-     */
+    */
     public function getBillingPersonalAddress(): ?AddressPersonal
     {
         return $this->billingPersonalAddress;
@@ -72,15 +82,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     */
+    */
     public function setBillingPersonalAddress(?AddressPersonal $value): void
     {
         $this->billingPersonalAddress = $value;
     }
 
     /**
+     * @param AddressPersonal|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withBillingPersonalAddress(?AddressPersonal $value): PaymentProduct840SpecificOutput
+    {
+        $this->billingPersonalAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProduct840CustomerAccount|null
-     */
+    */
     public function getCustomerAccount(): ?PaymentProduct840CustomerAccount
     {
         return $this->customerAccount;
@@ -88,15 +108,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param PaymentProduct840CustomerAccount|null $value
-     */
+    */
     public function setCustomerAccount(?PaymentProduct840CustomerAccount $value): void
     {
         $this->customerAccount = $value;
     }
 
     /**
+     * @param PaymentProduct840CustomerAccount|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withCustomerAccount(?PaymentProduct840CustomerAccount $value): PaymentProduct840SpecificOutput
+    {
+        $this->customerAccount = $value;
+        return $this;
+    }
+
+    /**
      * @return Address|null
-     */
+    */
     public function getCustomerAddress(): ?Address
     {
         return $this->customerAddress;
@@ -104,15 +134,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-     */
+    */
     public function setCustomerAddress(?Address $value): void
     {
         $this->customerAddress = $value;
     }
 
     /**
+     * @param Address|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withCustomerAddress(?Address $value): PaymentProduct840SpecificOutput
+    {
+        $this->customerAddress = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPayPalTransactionId(): ?string
     {
         return $this->payPalTransactionId;
@@ -120,15 +160,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPayPalTransactionId(?string $value): void
     {
         $this->payPalTransactionId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withPayPalTransactionId(?string $value): PaymentProduct840SpecificOutput
+    {
+        $this->payPalTransactionId = $value;
+        return $this;
+    }
+
+    /**
      * @return ProtectionEligibility|null
-     */
+    */
     public function getProtectionEligibility(): ?ProtectionEligibility
     {
         return $this->protectionEligibility;
@@ -136,15 +186,25 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param ProtectionEligibility|null $value
-     */
+    */
     public function setProtectionEligibility(?ProtectionEligibility $value): void
     {
         $this->protectionEligibility = $value;
     }
 
     /**
+     * @param ProtectionEligibility|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withProtectionEligibility(?ProtectionEligibility $value): PaymentProduct840SpecificOutput
+    {
+        $this->protectionEligibility = $value;
+        return $this;
+    }
+
+    /**
      * @return AddressPersonal|null
-     */
+    */
     public function getShippingAddress(): ?AddressPersonal
     {
         return $this->shippingAddress;
@@ -152,10 +212,20 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     */
+    */
     public function setShippingAddress(?AddressPersonal $value): void
     {
         $this->shippingAddress = $value;
+    }
+
+    /**
+     * @param AddressPersonal|null $value
+     * @return PaymentProduct840SpecificOutput
+    */
+    public function withShippingAddress(?AddressPersonal $value): PaymentProduct840SpecificOutput
+    {
+        $this->shippingAddress = $value;
+        return $this;
     }
 
     /**

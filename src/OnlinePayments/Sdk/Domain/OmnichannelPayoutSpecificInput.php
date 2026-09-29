@@ -13,17 +13,17 @@ class OmnichannelPayoutSpecificInput extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $operatorId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $paymentId = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getOperatorId(): ?string
     {
         return $this->operatorId;
@@ -31,15 +31,25 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperatorId(?string $value): void
     {
         $this->operatorId = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return OmnichannelPayoutSpecificInput
+    */
+    public function withOperatorId(?string $value): OmnichannelPayoutSpecificInput
+    {
+        $this->operatorId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -47,10 +57,20 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return OmnichannelPayoutSpecificInput
+    */
+    public function withPaymentId(?string $value): OmnichannelPayoutSpecificInput
+    {
+        $this->paymentId = $value;
+        return $this;
     }
 
     /**

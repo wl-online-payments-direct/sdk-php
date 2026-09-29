@@ -13,17 +13,17 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $adjustableAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $beneficiaryId = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getAdjustableAmount(): ?bool
     {
         return $this->adjustableAmount;
@@ -31,15 +31,25 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setAdjustableAmount(?bool $value): void
     {
         $this->adjustableAmount = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return RedirectPaymentProduct5412SpecificInput
+    */
+    public function withAdjustableAmount(?bool $value): RedirectPaymentProduct5412SpecificInput
+    {
+        $this->adjustableAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getBeneficiaryId(): ?string
     {
         return $this->beneficiaryId;
@@ -47,10 +57,20 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setBeneficiaryId(?string $value): void
     {
         $this->beneficiaryId = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return RedirectPaymentProduct5412SpecificInput
+    */
+    public function withBeneficiaryId(?string $value): RedirectPaymentProduct5412SpecificInput
+    {
+        $this->beneficiaryId = $value;
+        return $this;
     }
 
     /**

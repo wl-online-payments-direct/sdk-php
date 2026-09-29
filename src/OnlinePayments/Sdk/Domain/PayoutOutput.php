@@ -14,32 +14,32 @@ class PayoutOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var PayoutCardPaymentMethodSpecificOutput|null
-     */
+    */
     public ?PayoutCardPaymentMethodSpecificOutput $payoutCardPaymentMethodSpecificOutput = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $payoutReason = null;
 
     /**
      * @var PaymentReferences|null
-     */
+    */
     public ?PaymentReferences $references = null;
 
     /**
      * @var DateTime|null
-     */
+    */
     public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -47,15 +47,25 @@ class PayoutOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return PayoutOutput
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): PayoutOutput
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return PayoutCardPaymentMethodSpecificOutput|null
-     */
+    */
     public function getPayoutCardPaymentMethodSpecificOutput(): ?PayoutCardPaymentMethodSpecificOutput
     {
         return $this->payoutCardPaymentMethodSpecificOutput;
@@ -63,15 +73,25 @@ class PayoutOutput extends DataObject
 
     /**
      * @param PayoutCardPaymentMethodSpecificOutput|null $value
-     */
+    */
     public function setPayoutCardPaymentMethodSpecificOutput(?PayoutCardPaymentMethodSpecificOutput $value): void
     {
         $this->payoutCardPaymentMethodSpecificOutput = $value;
     }
 
     /**
+     * @param PayoutCardPaymentMethodSpecificOutput|null $value
+     * @return PayoutOutput
+    */
+    public function withPayoutCardPaymentMethodSpecificOutput(?PayoutCardPaymentMethodSpecificOutput $value): PayoutOutput
+    {
+        $this->payoutCardPaymentMethodSpecificOutput = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getPayoutReason(): ?string
     {
         return $this->payoutReason;
@@ -79,15 +99,25 @@ class PayoutOutput extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setPayoutReason(?string $value): void
     {
         $this->payoutReason = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PayoutOutput
+    */
+    public function withPayoutReason(?string $value): PayoutOutput
+    {
+        $this->payoutReason = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentReferences|null
-     */
+    */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -95,15 +125,25 @@ class PayoutOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     */
+    */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
     }
 
     /**
+     * @param PaymentReferences|null $value
+     * @return PayoutOutput
+    */
+    public function withReferences(?PaymentReferences $value): PayoutOutput
+    {
+        $this->references = $value;
+        return $this;
+    }
+
+    /**
      * @return DateTime|null
-     */
+    */
     public function getTransactionDate(): ?DateTime
     {
         return $this->transactionDate;
@@ -111,10 +151,20 @@ class PayoutOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-     */
+    */
     public function setTransactionDate(?DateTime $value): void
     {
         $this->transactionDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return PayoutOutput
+    */
+    public function withTransactionDate(?DateTime $value): PayoutOutput
+    {
+        $this->transactionDate = $value;
+        return $this;
     }
 
     /**

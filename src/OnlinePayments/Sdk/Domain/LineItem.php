@@ -13,27 +13,27 @@ class LineItem extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var LineItemInvoiceData|null
-     */
+    */
     public ?LineItemInvoiceData $invoiceData = null;
 
     /**
      * @var OrderLineDetails|null
-     */
+    */
     public ?OrderLineDetails $orderLineDetails = null;
 
     /**
      * @var OtherDetails|null
-     */
+    */
     public ?OtherDetails $otherDetails = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -41,15 +41,25 @@ class LineItem extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return LineItem
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): LineItem
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return LineItemInvoiceData|null
-     */
+    */
     public function getInvoiceData(): ?LineItemInvoiceData
     {
         return $this->invoiceData;
@@ -57,15 +67,25 @@ class LineItem extends DataObject
 
     /**
      * @param LineItemInvoiceData|null $value
-     */
+    */
     public function setInvoiceData(?LineItemInvoiceData $value): void
     {
         $this->invoiceData = $value;
     }
 
     /**
+     * @param LineItemInvoiceData|null $value
+     * @return LineItem
+    */
+    public function withInvoiceData(?LineItemInvoiceData $value): LineItem
+    {
+        $this->invoiceData = $value;
+        return $this;
+    }
+
+    /**
      * @return OrderLineDetails|null
-     */
+    */
     public function getOrderLineDetails(): ?OrderLineDetails
     {
         return $this->orderLineDetails;
@@ -73,15 +93,25 @@ class LineItem extends DataObject
 
     /**
      * @param OrderLineDetails|null $value
-     */
+    */
     public function setOrderLineDetails(?OrderLineDetails $value): void
     {
         $this->orderLineDetails = $value;
     }
 
     /**
+     * @param OrderLineDetails|null $value
+     * @return LineItem
+    */
+    public function withOrderLineDetails(?OrderLineDetails $value): LineItem
+    {
+        $this->orderLineDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return OtherDetails|null
-     */
+    */
     public function getOtherDetails(): ?OtherDetails
     {
         return $this->otherDetails;
@@ -89,10 +119,20 @@ class LineItem extends DataObject
 
     /**
      * @param OtherDetails|null $value
-     */
+    */
     public function setOtherDetails(?OtherDetails $value): void
     {
         $this->otherDetails = $value;
+    }
+
+    /**
+     * @param OtherDetails|null $value
+     * @return LineItem
+    */
+    public function withOtherDetails(?OtherDetails $value): LineItem
+    {
+        $this->otherDetails = $value;
+        return $this;
     }
 
     /**

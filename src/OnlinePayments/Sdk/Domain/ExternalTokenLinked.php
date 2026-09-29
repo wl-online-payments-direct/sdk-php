@@ -13,24 +13,24 @@ class ExternalTokenLinked extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $ComputedToken = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use the field ComputedToken instead.
-     */
+    */
     public ?string $GTSComputedToken = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $GeneratedToken = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getComputedToken(): ?string
     {
         return $this->ComputedToken;
@@ -38,17 +38,27 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setComputedToken(?string $value): void
     {
         $this->ComputedToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ExternalTokenLinked
+    */
+    public function withComputedToken(?string $value): ExternalTokenLinked
+    {
+        $this->ComputedToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
      *
      * @deprecated Use the field ComputedToken instead.
-     */
+    */
     public function getGTSComputedToken(): ?string
     {
         return $this->GTSComputedToken;
@@ -58,15 +68,27 @@ class ExternalTokenLinked extends DataObject
      * @param string|null $value
      *
      * @deprecated Use the field ComputedToken instead.
-     */
+    */
     public function setGTSComputedToken(?string $value): void
     {
         $this->GTSComputedToken = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return ExternalTokenLinked
+     *
+     * @deprecated Use the field ComputedToken instead.
+    */
+    public function withGTSComputedToken(?string $value): ExternalTokenLinked
+    {
+        $this->GTSComputedToken = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getGeneratedToken(): ?string
     {
         return $this->GeneratedToken;
@@ -74,10 +96,20 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setGeneratedToken(?string $value): void
     {
         $this->GeneratedToken = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return ExternalTokenLinked
+    */
+    public function withGeneratedToken(?string $value): ExternalTokenLinked
+    {
+        $this->GeneratedToken = $value;
+        return $this;
     }
 
     /**

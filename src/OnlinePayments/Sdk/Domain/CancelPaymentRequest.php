@@ -13,32 +13,32 @@ class CancelPaymentRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $isFinal = null;
 
     /**
      * @var LineItemDetail[]|null
-     */
+    */
     public ?array $lineItemDetails = null;
 
     /**
      * @var OperationPaymentReferences|null
-     */
+    */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var ShippingDetail|null
-     */
+    */
     public ?ShippingDetail $shipping = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -46,15 +46,25 @@ class CancelPaymentRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return CancelPaymentRequest
+    */
+    public function withAmountOfMoney(?AmountOfMoney $value): CancelPaymentRequest
+    {
+        $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getIsFinal(): ?bool
     {
         return $this->isFinal;
@@ -62,15 +72,25 @@ class CancelPaymentRequest extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setIsFinal(?bool $value): void
     {
         $this->isFinal = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CancelPaymentRequest
+    */
+    public function withIsFinal(?bool $value): CancelPaymentRequest
+    {
+        $this->isFinal = $value;
+        return $this;
+    }
+
+    /**
      * @return LineItemDetail[]|null
-     */
+    */
     public function getLineItemDetails(): ?array
     {
         return $this->lineItemDetails;
@@ -78,15 +98,25 @@ class CancelPaymentRequest extends DataObject
 
     /**
      * @param LineItemDetail[]|null $value
-     */
+    */
     public function setLineItemDetails(?array $value): void
     {
         $this->lineItemDetails = $value;
     }
 
     /**
+     * @param LineItemDetail[]|null $value
+     * @return CancelPaymentRequest
+    */
+    public function withLineItemDetails(?array $value): CancelPaymentRequest
+    {
+        $this->lineItemDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return OperationPaymentReferences|null
-     */
+    */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -94,15 +124,25 @@ class CancelPaymentRequest extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     */
+    */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
     }
 
     /**
+     * @param OperationPaymentReferences|null $value
+     * @return CancelPaymentRequest
+    */
+    public function withOperationReferences(?OperationPaymentReferences $value): CancelPaymentRequest
+    {
+        $this->operationReferences = $value;
+        return $this;
+    }
+
+    /**
      * @return ShippingDetail|null
-     */
+    */
     public function getShipping(): ?ShippingDetail
     {
         return $this->shipping;
@@ -110,10 +150,20 @@ class CancelPaymentRequest extends DataObject
 
     /**
      * @param ShippingDetail|null $value
-     */
+    */
     public function setShipping(?ShippingDetail $value): void
     {
         $this->shipping = $value;
+    }
+
+    /**
+     * @param ShippingDetail|null $value
+     * @return CancelPaymentRequest
+    */
+    public function withShipping(?ShippingDetail $value): CancelPaymentRequest
+    {
+        $this->shipping = $value;
+        return $this;
     }
 
     /**

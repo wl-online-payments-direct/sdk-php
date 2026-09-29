@@ -13,27 +13,27 @@ class GetBatchStatusResponse extends DataObject
 {
     /**
      * @var int|null
-     */
+    */
     public ?int $itemCount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $operationType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $status = null;
 
     /**
      * @return int|null
-     */
+    */
     public function getItemCount(): ?int
     {
         return $this->itemCount;
@@ -41,15 +41,25 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setItemCount(?int $value): void
     {
         $this->itemCount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return GetBatchStatusResponse
+    */
+    public function withItemCount(?int $value): GetBatchStatusResponse
+    {
+        $this->itemCount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -57,15 +67,25 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return GetBatchStatusResponse
+    */
+    public function withMerchantBatchReference(?string $value): GetBatchStatusResponse
+    {
+        $this->merchantBatchReference = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getOperationType(): ?string
     {
         return $this->operationType;
@@ -73,15 +93,25 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setOperationType(?string $value): void
     {
         $this->operationType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return GetBatchStatusResponse
+    */
+    public function withOperationType(?string $value): GetBatchStatusResponse
+    {
+        $this->operationType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -89,10 +119,20 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return GetBatchStatusResponse
+    */
+    public function withStatus(?string $value): GetBatchStatusResponse
+    {
+        $this->status = $value;
+        return $this;
     }
 
     /**

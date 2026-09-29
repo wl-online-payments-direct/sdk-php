@@ -13,37 +13,37 @@ class Surcharge extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $netAmount = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $result = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @var SurchargeRate|null
-     */
+    */
     public ?SurchargeRate $surchargeRate = null;
 
     /**
      * @var AmountOfMoney|null
-     */
+    */
     public ?AmountOfMoney $totalAmount = null;
 
     /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getNetAmount(): ?AmountOfMoney
     {
         return $this->netAmount;
@@ -51,15 +51,25 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setNetAmount(?AmountOfMoney $value): void
     {
         $this->netAmount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return Surcharge
+    */
+    public function withNetAmount(?AmountOfMoney $value): Surcharge
+    {
+        $this->netAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -67,15 +77,25 @@ class Surcharge extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return Surcharge
+    */
+    public function withPaymentProductId(?int $value): Surcharge
+    {
+        $this->paymentProductId = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getResult(): ?string
     {
         return $this->result;
@@ -83,15 +103,25 @@ class Surcharge extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setResult(?string $value): void
     {
         $this->result = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return Surcharge
+    */
+    public function withResult(?string $value): Surcharge
+    {
+        $this->result = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -99,15 +129,25 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
     }
 
     /**
+     * @param AmountOfMoney|null $value
+     * @return Surcharge
+    */
+    public function withSurchargeAmount(?AmountOfMoney $value): Surcharge
+    {
+        $this->surchargeAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return SurchargeRate|null
-     */
+    */
     public function getSurchargeRate(): ?SurchargeRate
     {
         return $this->surchargeRate;
@@ -115,15 +155,25 @@ class Surcharge extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-     */
+    */
     public function setSurchargeRate(?SurchargeRate $value): void
     {
         $this->surchargeRate = $value;
     }
 
     /**
+     * @param SurchargeRate|null $value
+     * @return Surcharge
+    */
+    public function withSurchargeRate(?SurchargeRate $value): Surcharge
+    {
+        $this->surchargeRate = $value;
+        return $this;
+    }
+
+    /**
      * @return AmountOfMoney|null
-     */
+    */
     public function getTotalAmount(): ?AmountOfMoney
     {
         return $this->totalAmount;
@@ -131,10 +181,20 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     */
+    */
     public function setTotalAmount(?AmountOfMoney $value): void
     {
         $this->totalAmount = $value;
+    }
+
+    /**
+     * @param AmountOfMoney|null $value
+     * @return Surcharge
+    */
+    public function withTotalAmount(?AmountOfMoney $value): Surcharge
+    {
+        $this->totalAmount = $value;
+        return $this;
     }
 
     /**

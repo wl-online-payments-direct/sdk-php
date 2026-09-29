@@ -13,12 +13,12 @@ class GetPrivacyPolicyResponse extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $htmlContent = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getHtmlContent(): ?string
     {
         return $this->htmlContent;
@@ -26,10 +26,20 @@ class GetPrivacyPolicyResponse extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setHtmlContent(?string $value): void
     {
         $this->htmlContent = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return GetPrivacyPolicyResponse
+    */
+    public function withHtmlContent(?string $value): GetPrivacyPolicyResponse
+    {
+        $this->htmlContent = $value;
+        return $this;
     }
 
     /**

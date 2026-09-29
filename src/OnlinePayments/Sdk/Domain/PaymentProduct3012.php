@@ -13,17 +13,17 @@ class PaymentProduct3012 extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $qrCode = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $urlIntent = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -31,15 +31,25 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return PaymentProduct3012
+    */
+    public function withQrCode(?string $value): PaymentProduct3012
+    {
+        $this->qrCode = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getUrlIntent(): ?string
     {
         return $this->urlIntent;
@@ -47,10 +57,20 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setUrlIntent(?string $value): void
     {
         $this->urlIntent = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return PaymentProduct3012
+    */
+    public function withUrlIntent(?string $value): PaymentProduct3012
+    {
+        $this->urlIntent = $value;
+        return $this;
     }
 
     /**

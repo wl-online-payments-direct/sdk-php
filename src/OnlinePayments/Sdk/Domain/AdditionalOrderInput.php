@@ -13,27 +13,27 @@ class AdditionalOrderInput extends DataObject
 {
     /**
      * @var AirlineData|null
-     */
+    */
     public ?AirlineData $airlineData = null;
 
     /**
      * @var LoanRecipient|null
-     */
+    */
     public ?LoanRecipient $loanRecipient = null;
 
     /**
      * @var LodgingData|null
-     */
+    */
     public ?LodgingData $lodgingData = null;
 
     /**
      * @var OrderTypeInformation|null
-     */
+    */
     public ?OrderTypeInformation $typeInformation = null;
 
     /**
      * @return AirlineData|null
-     */
+    */
     public function getAirlineData(): ?AirlineData
     {
         return $this->airlineData;
@@ -41,15 +41,25 @@ class AdditionalOrderInput extends DataObject
 
     /**
      * @param AirlineData|null $value
-     */
+    */
     public function setAirlineData(?AirlineData $value): void
     {
         $this->airlineData = $value;
     }
 
     /**
+     * @param AirlineData|null $value
+     * @return AdditionalOrderInput
+    */
+    public function withAirlineData(?AirlineData $value): AdditionalOrderInput
+    {
+        $this->airlineData = $value;
+        return $this;
+    }
+
+    /**
      * @return LoanRecipient|null
-     */
+    */
     public function getLoanRecipient(): ?LoanRecipient
     {
         return $this->loanRecipient;
@@ -57,15 +67,25 @@ class AdditionalOrderInput extends DataObject
 
     /**
      * @param LoanRecipient|null $value
-     */
+    */
     public function setLoanRecipient(?LoanRecipient $value): void
     {
         $this->loanRecipient = $value;
     }
 
     /**
+     * @param LoanRecipient|null $value
+     * @return AdditionalOrderInput
+    */
+    public function withLoanRecipient(?LoanRecipient $value): AdditionalOrderInput
+    {
+        $this->loanRecipient = $value;
+        return $this;
+    }
+
+    /**
      * @return LodgingData|null
-     */
+    */
     public function getLodgingData(): ?LodgingData
     {
         return $this->lodgingData;
@@ -73,15 +93,25 @@ class AdditionalOrderInput extends DataObject
 
     /**
      * @param LodgingData|null $value
-     */
+    */
     public function setLodgingData(?LodgingData $value): void
     {
         $this->lodgingData = $value;
     }
 
     /**
+     * @param LodgingData|null $value
+     * @return AdditionalOrderInput
+    */
+    public function withLodgingData(?LodgingData $value): AdditionalOrderInput
+    {
+        $this->lodgingData = $value;
+        return $this;
+    }
+
+    /**
      * @return OrderTypeInformation|null
-     */
+    */
     public function getTypeInformation(): ?OrderTypeInformation
     {
         return $this->typeInformation;
@@ -89,10 +119,20 @@ class AdditionalOrderInput extends DataObject
 
     /**
      * @param OrderTypeInformation|null $value
-     */
+    */
     public function setTypeInformation(?OrderTypeInformation $value): void
     {
         $this->typeInformation = $value;
+    }
+
+    /**
+     * @param OrderTypeInformation|null $value
+     * @return AdditionalOrderInput
+    */
+    public function withTypeInformation(?OrderTypeInformation $value): AdditionalOrderInput
+    {
+        $this->typeInformation = $value;
+        return $this;
     }
 
     /**

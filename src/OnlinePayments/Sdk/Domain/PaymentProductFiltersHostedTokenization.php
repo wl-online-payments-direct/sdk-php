@@ -13,17 +13,17 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 {
     /**
      * @var PaymentProductFilterHostedTokenization|null
-     */
+    */
     public ?PaymentProductFilterHostedTokenization $exclude = null;
 
     /**
      * @var PaymentProductFilterHostedTokenization|null
-     */
+    */
     public ?PaymentProductFilterHostedTokenization $restrictTo = null;
 
     /**
      * @return PaymentProductFilterHostedTokenization|null
-     */
+    */
     public function getExclude(): ?PaymentProductFilterHostedTokenization
     {
         return $this->exclude;
@@ -31,15 +31,25 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-     */
+    */
     public function setExclude(?PaymentProductFilterHostedTokenization $value): void
     {
         $this->exclude = $value;
     }
 
     /**
+     * @param PaymentProductFilterHostedTokenization|null $value
+     * @return PaymentProductFiltersHostedTokenization
+    */
+    public function withExclude(?PaymentProductFilterHostedTokenization $value): PaymentProductFiltersHostedTokenization
+    {
+        $this->exclude = $value;
+        return $this;
+    }
+
+    /**
      * @return PaymentProductFilterHostedTokenization|null
-     */
+    */
     public function getRestrictTo(): ?PaymentProductFilterHostedTokenization
     {
         return $this->restrictTo;
@@ -47,10 +57,20 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-     */
+    */
     public function setRestrictTo(?PaymentProductFilterHostedTokenization $value): void
     {
         $this->restrictTo = $value;
+    }
+
+    /**
+     * @param PaymentProductFilterHostedTokenization|null $value
+     * @return PaymentProductFiltersHostedTokenization
+    */
+    public function withRestrictTo(?PaymentProductFilterHostedTokenization $value): PaymentProductFiltersHostedTokenization
+    {
+        $this->restrictTo = $value;
+        return $this;
     }
 
     /**

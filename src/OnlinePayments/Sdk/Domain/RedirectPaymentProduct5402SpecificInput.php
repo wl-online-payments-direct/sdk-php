@@ -13,12 +13,12 @@ class RedirectPaymentProduct5402SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-     */
+    */
     public ?bool $completeRemainingPaymentAmount = null;
 
     /**
      * @return bool|null
-     */
+    */
     public function getCompleteRemainingPaymentAmount(): ?bool
     {
         return $this->completeRemainingPaymentAmount;
@@ -26,10 +26,20 @@ class RedirectPaymentProduct5402SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCompleteRemainingPaymentAmount(?bool $value): void
     {
         $this->completeRemainingPaymentAmount = $value;
+    }
+
+    /**
+     * @param bool|null $value
+     * @return RedirectPaymentProduct5402SpecificInput
+    */
+    public function withCompleteRemainingPaymentAmount(?bool $value): RedirectPaymentProduct5402SpecificInput
+    {
+        $this->completeRemainingPaymentAmount = $value;
+        return $this;
     }
 
     /**

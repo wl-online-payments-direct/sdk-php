@@ -13,87 +13,87 @@ class CarRentalData extends DataObject
 {
     /**
      * @var string|null
-     */
+    */
     public ?string $agreementNumber = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $cardholderNotified = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $chargesAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $chargesCategory = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $distanceMeasure = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $distanceUnit = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $driverIdentificationNumber = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $driverTaxNumber = null;
 
     /**
      * @var CarRentalPickupReturnData|null
-     */
+    */
     public ?CarRentalPickupReturnData $pickupDetails = null;
 
     /**
      * @var int|null
-     */
+    */
     public ?int $rentalRateAmount = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $rentalRateType = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $renterName = null;
 
     /**
      * @var CarRentalPickupReturnData|null
-     */
+    */
     public ?CarRentalPickupReturnData $returnDetails = null;
 
     /**
      * @var bool|null
-     */
+    */
     public ?bool $taxExemptIndicator = null;
 
     /**
      * @var string|null
-     */
+    */
     public ?string $tollFreeNumber = null;
 
     /**
      * @var CarRentalVehicleData|null
-     */
+    */
     public ?CarRentalVehicleData $vehicle = null;
 
     /**
      * @return string|null
-     */
+    */
     public function getAgreementNumber(): ?string
     {
         return $this->agreementNumber;
@@ -101,15 +101,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setAgreementNumber(?string $value): void
     {
         $this->agreementNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withAgreementNumber(?string $value): CarRentalData
+    {
+        $this->agreementNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getCardholderNotified(): ?bool
     {
         return $this->cardholderNotified;
@@ -117,15 +127,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setCardholderNotified(?bool $value): void
     {
         $this->cardholderNotified = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CarRentalData
+    */
+    public function withCardholderNotified(?bool $value): CarRentalData
+    {
+        $this->cardholderNotified = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getChargesAmount(): ?int
     {
         return $this->chargesAmount;
@@ -133,15 +153,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setChargesAmount(?int $value): void
     {
         $this->chargesAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CarRentalData
+    */
+    public function withChargesAmount(?int $value): CarRentalData
+    {
+        $this->chargesAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getChargesCategory(): ?string
     {
         return $this->chargesCategory;
@@ -149,15 +179,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setChargesCategory(?string $value): void
     {
         $this->chargesCategory = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withChargesCategory(?string $value): CarRentalData
+    {
+        $this->chargesCategory = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getDistanceMeasure(): ?int
     {
         return $this->distanceMeasure;
@@ -165,15 +205,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setDistanceMeasure(?int $value): void
     {
         $this->distanceMeasure = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CarRentalData
+    */
+    public function withDistanceMeasure(?int $value): CarRentalData
+    {
+        $this->distanceMeasure = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDistanceUnit(): ?string
     {
         return $this->distanceUnit;
@@ -181,15 +231,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDistanceUnit(?string $value): void
     {
         $this->distanceUnit = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withDistanceUnit(?string $value): CarRentalData
+    {
+        $this->distanceUnit = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDriverIdentificationNumber(): ?string
     {
         return $this->driverIdentificationNumber;
@@ -197,15 +257,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDriverIdentificationNumber(?string $value): void
     {
         $this->driverIdentificationNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withDriverIdentificationNumber(?string $value): CarRentalData
+    {
+        $this->driverIdentificationNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getDriverTaxNumber(): ?string
     {
         return $this->driverTaxNumber;
@@ -213,15 +283,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setDriverTaxNumber(?string $value): void
     {
         $this->driverTaxNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withDriverTaxNumber(?string $value): CarRentalData
+    {
+        $this->driverTaxNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return CarRentalPickupReturnData|null
-     */
+    */
     public function getPickupDetails(): ?CarRentalPickupReturnData
     {
         return $this->pickupDetails;
@@ -229,15 +309,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param CarRentalPickupReturnData|null $value
-     */
+    */
     public function setPickupDetails(?CarRentalPickupReturnData $value): void
     {
         $this->pickupDetails = $value;
     }
 
     /**
+     * @param CarRentalPickupReturnData|null $value
+     * @return CarRentalData
+    */
+    public function withPickupDetails(?CarRentalPickupReturnData $value): CarRentalData
+    {
+        $this->pickupDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return int|null
-     */
+    */
     public function getRentalRateAmount(): ?int
     {
         return $this->rentalRateAmount;
@@ -245,15 +335,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param int|null $value
-     */
+    */
     public function setRentalRateAmount(?int $value): void
     {
         $this->rentalRateAmount = $value;
     }
 
     /**
+     * @param int|null $value
+     * @return CarRentalData
+    */
+    public function withRentalRateAmount(?int $value): CarRentalData
+    {
+        $this->rentalRateAmount = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRentalRateType(): ?string
     {
         return $this->rentalRateType;
@@ -261,15 +361,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRentalRateType(?string $value): void
     {
         $this->rentalRateType = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withRentalRateType(?string $value): CarRentalData
+    {
+        $this->rentalRateType = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getRenterName(): ?string
     {
         return $this->renterName;
@@ -277,15 +387,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setRenterName(?string $value): void
     {
         $this->renterName = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withRenterName(?string $value): CarRentalData
+    {
+        $this->renterName = $value;
+        return $this;
+    }
+
+    /**
      * @return CarRentalPickupReturnData|null
-     */
+    */
     public function getReturnDetails(): ?CarRentalPickupReturnData
     {
         return $this->returnDetails;
@@ -293,15 +413,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param CarRentalPickupReturnData|null $value
-     */
+    */
     public function setReturnDetails(?CarRentalPickupReturnData $value): void
     {
         $this->returnDetails = $value;
     }
 
     /**
+     * @param CarRentalPickupReturnData|null $value
+     * @return CarRentalData
+    */
+    public function withReturnDetails(?CarRentalPickupReturnData $value): CarRentalData
+    {
+        $this->returnDetails = $value;
+        return $this;
+    }
+
+    /**
      * @return bool|null
-     */
+    */
     public function getTaxExemptIndicator(): ?bool
     {
         return $this->taxExemptIndicator;
@@ -309,15 +439,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param bool|null $value
-     */
+    */
     public function setTaxExemptIndicator(?bool $value): void
     {
         $this->taxExemptIndicator = $value;
     }
 
     /**
+     * @param bool|null $value
+     * @return CarRentalData
+    */
+    public function withTaxExemptIndicator(?bool $value): CarRentalData
+    {
+        $this->taxExemptIndicator = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
-     */
+    */
     public function getTollFreeNumber(): ?string
     {
         return $this->tollFreeNumber;
@@ -325,15 +465,25 @@ class CarRentalData extends DataObject
 
     /**
      * @param string|null $value
-     */
+    */
     public function setTollFreeNumber(?string $value): void
     {
         $this->tollFreeNumber = $value;
     }
 
     /**
+     * @param string|null $value
+     * @return CarRentalData
+    */
+    public function withTollFreeNumber(?string $value): CarRentalData
+    {
+        $this->tollFreeNumber = $value;
+        return $this;
+    }
+
+    /**
      * @return CarRentalVehicleData|null
-     */
+    */
     public function getVehicle(): ?CarRentalVehicleData
     {
         return $this->vehicle;
@@ -341,10 +491,20 @@ class CarRentalData extends DataObject
 
     /**
      * @param CarRentalVehicleData|null $value
-     */
+    */
     public function setVehicle(?CarRentalVehicleData $value): void
     {
         $this->vehicle = $value;
+    }
+
+    /**
+     * @param CarRentalVehicleData|null $value
+     * @return CarRentalData
+    */
+    public function withVehicle(?CarRentalVehicleData $value): CarRentalData
+    {
+        $this->vehicle = $value;
+        return $this;
     }
 
     /**
