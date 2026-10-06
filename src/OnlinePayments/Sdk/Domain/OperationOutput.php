@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -45,6 +46,11 @@ class OperationOutput extends DataObject
      * @var PaymentStatusOutput|null
     */
     public ?PaymentStatusOutput $statusOutput = null;
+
+    /**
+     * @var DateTime|null
+    */
+    public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
@@ -229,6 +235,32 @@ class OperationOutput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+    */
+    public function getTransactionDate(): ?DateTime
+    {
+        return $this->transactionDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+    */
+    public function setTransactionDate(?DateTime $value): void
+    {
+        $this->transactionDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return OperationOutput
+    */
+    public function withTransactionDate(?DateTime $value): OperationOutput
+    {
+        $this->transactionDate = $value;
+        return $this;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -254,6 +286,9 @@ class OperationOutput extends DataObject
         }
         if (!is_null($this->statusOutput)) {
             $object->statusOutput = $this->statusOutput->toObject();
+        }
+        if (!is_null($this->transactionDate)) {
+            $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
     }
@@ -303,6 +338,9 @@ class OperationOutput extends DataObject
             }
             $value = new PaymentStatusOutput();
             $this->statusOutput = $value->fromObject($object->statusOutput);
+        }
+        if (property_exists($object, 'transactionDate')) {
+            $this->transactionDate = new DateTime($object->transactionDate);
         }
         return $this;
     }

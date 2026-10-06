@@ -18,6 +18,11 @@ class PayoutOutput extends DataObject
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
+     * @var DateTime|null
+    */
+    public ?DateTime $paymentCreationDate = null;
+
+    /**
      * @var PayoutCardPaymentMethodSpecificOutput|null
     */
     public ?PayoutCardPaymentMethodSpecificOutput $payoutCardPaymentMethodSpecificOutput = null;
@@ -60,6 +65,32 @@ class PayoutOutput extends DataObject
     public function withAmountOfMoney(?AmountOfMoney $value): PayoutOutput
     {
         $this->amountOfMoney = $value;
+        return $this;
+    }
+
+    /**
+     * @return DateTime|null
+    */
+    public function getPaymentCreationDate(): ?DateTime
+    {
+        return $this->paymentCreationDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+    */
+    public function setPaymentCreationDate(?DateTime $value): void
+    {
+        $this->paymentCreationDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return PayoutOutput
+    */
+    public function withPaymentCreationDate(?DateTime $value): PayoutOutput
+    {
+        $this->paymentCreationDate = $value;
         return $this;
     }
 
@@ -176,6 +207,9 @@ class PayoutOutput extends DataObject
         if (!is_null($this->amountOfMoney)) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
+        if (!is_null($this->paymentCreationDate)) {
+            $object->paymentCreationDate = $this->paymentCreationDate->format('Y-m-d\\TH:i:s.vP');
+        }
         if (!is_null($this->payoutCardPaymentMethodSpecificOutput)) {
             $object->payoutCardPaymentMethodSpecificOutput = $this->payoutCardPaymentMethodSpecificOutput->toObject();
         }
@@ -206,6 +240,9 @@ class PayoutOutput extends DataObject
             }
             $value = new AmountOfMoney();
             $this->amountOfMoney = $value->fromObject($object->amountOfMoney);
+        }
+        if (property_exists($object, 'paymentCreationDate')) {
+            $this->paymentCreationDate = new DateTime($object->paymentCreationDate);
         }
         if (property_exists($object, 'payoutCardPaymentMethodSpecificOutput')) {
             if (!is_object($object->payoutCardPaymentMethodSpecificOutput)) {

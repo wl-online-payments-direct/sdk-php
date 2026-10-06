@@ -61,6 +61,13 @@ interface MerchantClientInterface
     function payments(): PaymentsClientInterface;
 
     /**
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share
+     *
+     * @return PaymentLinksClientInterface
+     */
+    function paymentLinks(): PaymentLinksClientInterface;
+
+    /**
      * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
      * @return CapturesClientInterface
@@ -171,13 +178,6 @@ interface MerchantClientInterface
      * @return PrivacyPolicyClientInterface
      */
     function privacyPolicy(): PrivacyPolicyClientInterface;
-
-    /**
-     * Resource /v2/{merchantId}/paymentlinks
-     *
-     * @return PaymentLinksClientInterface
-     */
-    function paymentLinks(): PaymentLinksClientInterface;
 
     /**
      * Resource /v2/{merchantId}/merchant-batches

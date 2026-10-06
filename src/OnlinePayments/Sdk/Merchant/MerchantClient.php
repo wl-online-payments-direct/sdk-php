@@ -98,6 +98,16 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     }
 
     /**
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share
+     *
+     * @return PaymentLinksClient
+     */
+    public function paymentLinks(): PaymentLinksClientInterface
+    {
+        return new PaymentLinksClient($this, $this->context);
+    }
+
+    /**
      * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
      * @return CapturesClient
@@ -255,16 +265,6 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
     public function privacyPolicy(): PrivacyPolicyClientInterface
     {
         return new PrivacyPolicyClient($this, $this->context);
-    }
-
-    /**
-     * Resource /v2/{merchantId}/paymentlinks
-     *
-     * @return PaymentLinksClient
-     */
-    public function paymentLinks(): PaymentLinksClientInterface
-    {
-        return new PaymentLinksClient($this, $this->context);
     }
 
     /**

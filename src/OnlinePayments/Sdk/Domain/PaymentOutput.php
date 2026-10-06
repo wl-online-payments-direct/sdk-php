@@ -55,6 +55,11 @@ class PaymentOutput extends DataObject
     public ?MobilePaymentMethodSpecificOutput $mobilePaymentMethodSpecificOutput = null;
 
     /**
+     * @var DateTime|null
+    */
+    public ?DateTime $paymentCreationDate = null;
+
+    /**
      * @var string|null
     */
     public ?string $paymentMethod = null;
@@ -299,6 +304,32 @@ class PaymentOutput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+    */
+    public function getPaymentCreationDate(): ?DateTime
+    {
+        return $this->paymentCreationDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+    */
+    public function setPaymentCreationDate(?DateTime $value): void
+    {
+        $this->paymentCreationDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return PaymentOutput
+    */
+    public function withPaymentCreationDate(?DateTime $value): PaymentOutput
+    {
+        $this->paymentCreationDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
     */
     public function getPaymentMethod(): ?string
@@ -484,6 +515,9 @@ class PaymentOutput extends DataObject
         if (!is_null($this->mobilePaymentMethodSpecificOutput)) {
             $object->mobilePaymentMethodSpecificOutput = $this->mobilePaymentMethodSpecificOutput->toObject();
         }
+        if (!is_null($this->paymentCreationDate)) {
+            $object->paymentCreationDate = $this->paymentCreationDate->format('Y-m-d\\TH:i:s.vP');
+        }
         if (!is_null($this->paymentMethod)) {
             $object->paymentMethod = $this->paymentMethod;
         }
@@ -561,6 +595,9 @@ class PaymentOutput extends DataObject
             }
             $value = new MobilePaymentMethodSpecificOutput();
             $this->mobilePaymentMethodSpecificOutput = $value->fromObject($object->mobilePaymentMethodSpecificOutput);
+        }
+        if (property_exists($object, 'paymentCreationDate')) {
+            $this->paymentCreationDate = new DateTime($object->paymentCreationDate);
         }
         if (property_exists($object, 'paymentMethod')) {
             $this->paymentMethod = $object->paymentMethod;

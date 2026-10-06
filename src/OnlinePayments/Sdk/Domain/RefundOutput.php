@@ -4,6 +4,7 @@
  */
 namespace OnlinePayments\Sdk\Domain;
 
+use DateTime;
 use UnexpectedValueException;
 
 /**
@@ -47,6 +48,11 @@ class RefundOutput extends DataObject
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
+     * @var DateTime|null
+    */
+    public ?DateTime $paymentCreationDate = null;
+
+    /**
      * @var string|null
     */
     public ?string $paymentMethod = null;
@@ -60,6 +66,11 @@ class RefundOutput extends DataObject
      * @var PaymentReferences|null
     */
     public ?PaymentReferences $references = null;
+
+    /**
+     * @var DateTime|null
+    */
+    public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
@@ -244,6 +255,32 @@ class RefundOutput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+    */
+    public function getPaymentCreationDate(): ?DateTime
+    {
+        return $this->paymentCreationDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+    */
+    public function setPaymentCreationDate(?DateTime $value): void
+    {
+        $this->paymentCreationDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return RefundOutput
+    */
+    public function withPaymentCreationDate(?DateTime $value): RefundOutput
+    {
+        $this->paymentCreationDate = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
     */
     public function getPaymentMethod(): ?string
@@ -322,6 +359,32 @@ class RefundOutput extends DataObject
     }
 
     /**
+     * @return DateTime|null
+    */
+    public function getTransactionDate(): ?DateTime
+    {
+        return $this->transactionDate;
+    }
+
+    /**
+     * @param DateTime|null $value
+    */
+    public function setTransactionDate(?DateTime $value): void
+    {
+        $this->transactionDate = $value;
+    }
+
+    /**
+     * @param DateTime|null $value
+     * @return RefundOutput
+    */
+    public function withTransactionDate(?DateTime $value): RefundOutput
+    {
+        $this->transactionDate = $value;
+        return $this;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -348,6 +411,9 @@ class RefundOutput extends DataObject
         if (!is_null($this->operationReferences)) {
             $object->operationReferences = $this->operationReferences->toObject();
         }
+        if (!is_null($this->paymentCreationDate)) {
+            $object->paymentCreationDate = $this->paymentCreationDate->format('Y-m-d\\TH:i:s.vP');
+        }
         if (!is_null($this->paymentMethod)) {
             $object->paymentMethod = $this->paymentMethod;
         }
@@ -356,6 +422,9 @@ class RefundOutput extends DataObject
         }
         if (!is_null($this->references)) {
             $object->references = $this->references->toObject();
+        }
+        if (!is_null($this->transactionDate)) {
+            $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
     }
@@ -410,6 +479,9 @@ class RefundOutput extends DataObject
             $value = new OperationPaymentReferences();
             $this->operationReferences = $value->fromObject($object->operationReferences);
         }
+        if (property_exists($object, 'paymentCreationDate')) {
+            $this->paymentCreationDate = new DateTime($object->paymentCreationDate);
+        }
         if (property_exists($object, 'paymentMethod')) {
             $this->paymentMethod = $object->paymentMethod;
         }
@@ -426,6 +498,9 @@ class RefundOutput extends DataObject
             }
             $value = new PaymentReferences();
             $this->references = $value->fromObject($object->references);
+        }
+        if (property_exists($object, 'transactionDate')) {
+            $this->transactionDate = new DateTime($object->transactionDate);
         }
         return $this;
     }

@@ -22,6 +22,11 @@ class CreateHostedFieldsSessionRequest extends DataObject
     public ?string $origin = null;
 
     /**
+     * @var PaymentProductFiltersHostedFields|null
+    */
+    public ?PaymentProductFiltersHostedFields $paymentProductFilters = null;
+
+    /**
      * @var string[]|null
     */
     public ?array $tokens = null;
@@ -79,6 +84,32 @@ class CreateHostedFieldsSessionRequest extends DataObject
     }
 
     /**
+     * @return PaymentProductFiltersHostedFields|null
+    */
+    public function getPaymentProductFilters(): ?PaymentProductFiltersHostedFields
+    {
+        return $this->paymentProductFilters;
+    }
+
+    /**
+     * @param PaymentProductFiltersHostedFields|null $value
+    */
+    public function setPaymentProductFilters(?PaymentProductFiltersHostedFields $value): void
+    {
+        $this->paymentProductFilters = $value;
+    }
+
+    /**
+     * @param PaymentProductFiltersHostedFields|null $value
+     * @return CreateHostedFieldsSessionRequest
+    */
+    public function withPaymentProductFilters(?PaymentProductFiltersHostedFields $value): CreateHostedFieldsSessionRequest
+    {
+        $this->paymentProductFilters = $value;
+        return $this;
+    }
+
+    /**
      * @return string[]|null
     */
     public function getTokens(): ?array
@@ -116,6 +147,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
         if (!is_null($this->origin)) {
             $object->origin = $this->origin;
         }
+        if (!is_null($this->paymentProductFilters)) {
+            $object->paymentProductFilters = $this->paymentProductFilters->toObject();
+        }
         if (!is_null($this->tokens)) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
@@ -141,6 +175,13 @@ class CreateHostedFieldsSessionRequest extends DataObject
         }
         if (property_exists($object, 'origin')) {
             $this->origin = $object->origin;
+        }
+        if (property_exists($object, 'paymentProductFilters')) {
+            if (!is_object($object->paymentProductFilters)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->paymentProductFilters, true) . '\' is not an object');
+            }
+            $value = new PaymentProductFiltersHostedFields();
+            $this->paymentProductFilters = $value->fromObject($object->paymentProductFilters);
         }
         if (property_exists($object, 'tokens')) {
             if (!is_array($object->tokens) && !is_object($object->tokens)) {

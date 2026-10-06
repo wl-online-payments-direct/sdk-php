@@ -22,6 +22,11 @@ class ImportCofSeriesRequest extends DataObject
     public ?string $currencyCode = null;
 
     /**
+     * @var NetworkTokenData|null
+    */
+    public ?NetworkTokenData $networkTokenData = null;
+
+    /**
      * @var int|null
     */
     public ?int $paymentProductId = null;
@@ -90,6 +95,32 @@ class ImportCofSeriesRequest extends DataObject
     public function withCurrencyCode(?string $value): ImportCofSeriesRequest
     {
         $this->currencyCode = $value;
+        return $this;
+    }
+
+    /**
+     * @return NetworkTokenData|null
+    */
+    public function getNetworkTokenData(): ?NetworkTokenData
+    {
+        return $this->networkTokenData;
+    }
+
+    /**
+     * @param NetworkTokenData|null $value
+    */
+    public function setNetworkTokenData(?NetworkTokenData $value): void
+    {
+        $this->networkTokenData = $value;
+    }
+
+    /**
+     * @param NetworkTokenData|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withNetworkTokenData(?NetworkTokenData $value): ImportCofSeriesRequest
+    {
+        $this->networkTokenData = $value;
         return $this;
     }
 
@@ -209,6 +240,9 @@ class ImportCofSeriesRequest extends DataObject
         if (!is_null($this->currencyCode)) {
             $object->currencyCode = $this->currencyCode;
         }
+        if (!is_null($this->networkTokenData)) {
+            $object->networkTokenData = $this->networkTokenData->toObject();
+        }
         if (!is_null($this->paymentProductId)) {
             $object->paymentProductId = $this->paymentProductId;
         }
@@ -242,6 +276,13 @@ class ImportCofSeriesRequest extends DataObject
         }
         if (property_exists($object, 'currencyCode')) {
             $this->currencyCode = $object->currencyCode;
+        }
+        if (property_exists($object, 'networkTokenData')) {
+            if (!is_object($object->networkTokenData)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->networkTokenData, true) . '\' is not an object');
+            }
+            $value = new NetworkTokenData();
+            $this->networkTokenData = $value->fromObject($object->networkTokenData);
         }
         if (property_exists($object, 'paymentProductId')) {
             $this->paymentProductId = $object->paymentProductId;
