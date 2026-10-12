@@ -18,7 +18,7 @@ use OnlinePayments\Sdk\Domain\RefundErrorResponse;
  */
 class ExceptionFactory
 {
-    const IDEMPOTENCE_ERROR_CODE = '1409';
+    const IDEMPOTENCE_ERROR_CODE = '30001002';
 
     /**
      * @param int              $httpStatusCode
