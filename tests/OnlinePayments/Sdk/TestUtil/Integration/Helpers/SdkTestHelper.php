@@ -48,6 +48,42 @@ class SdkTestHelper
         return $this->createPayment($builder->build())->getPayment()->getId();
     }
 
+    public function createPreAuthorizedPaymentAndGetId(int $amount, string $currency): string
+    {
+        $request = CreatePaymentRequestBuilder::create()
+            ->withAuthorizationMode('PRE_AUTHORIZATION')
+            ->withAmount($amount)
+            ->withCurrency($currency)
+            ->build();
+
+        return $this->createPayment($request)->getPayment()->getId();
+    }
+
+    public function createMastercardPaymentAndGetId(int $amount, string $currency): string
+    {
+        $request = CreatePaymentRequestBuilder::create()
+            ->withCardNumber('5137009801943438')
+            ->withPaymentProductId(3)
+            ->withAmount($amount)
+            ->withCurrency($currency)
+            ->build();
+
+        return $this->createPayment($request)->getPayment()->getId();
+    }
+
+    public function createPreAuthorizedMastercardPaymentAndGetId(int $amount, string $currency): string
+    {
+        $request = CreatePaymentRequestBuilder::create()
+            ->withAuthorizationMode('PRE_AUTHORIZATION')
+            ->withCardNumber('5137009801943438')
+            ->withPaymentProductId(3)
+            ->withAmount($amount)
+            ->withCurrency($currency)
+            ->build();
+
+        return $this->createPayment($request)->getPayment()->getId();
+    }
+
     public function createPayPalPaymentAndGetId(): ?string
     {
         $request = CreatePaymentRequestBuilder::create()

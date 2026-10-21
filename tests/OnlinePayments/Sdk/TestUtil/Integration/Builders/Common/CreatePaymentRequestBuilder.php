@@ -45,6 +45,8 @@ class CreatePaymentRequestBuilder
     private ?string $token = null;
 
     private bool $autoCapture = false;
+    private string $authorizationMode = 'FINAL_AUTHORIZATION';
+    private int $paymentProductId = 1;
 
     public static function create(): self
     {
@@ -126,6 +128,18 @@ class CreatePaymentRequestBuilder
         return $this;
     }
 
+    public function withAuthorizationMode(string $authorizationMode): self
+    {
+        $this->authorizationMode = $authorizationMode;
+        return $this;
+    }
+
+    public function withPaymentProductId(int $paymentProductId): self
+    {
+        $this->paymentProductId = $paymentProductId;
+        return $this;
+    }
+
     public function build(): CreatePaymentRequest
     {
         $request = new CreatePaymentRequest();
@@ -152,10 +166,10 @@ class CreatePaymentRequestBuilder
             $cardInput->setCard($this->buildCard());
         }
 
-        $cardInput->setAuthorizationMode('FINAL_AUTHORIZATION');
+        $cardInput->setAuthorizationMode($this->authorizationMode);
         $cardInput->setTransactionChannel('ECOMMERCE');
         $cardInput->setReturnUrl('https://example.com/return');
-        $cardInput->setPaymentProductId(1);
+        $cardInput->setPaymentProductId($this->paymentProductId);
 
         if ($this->autoCapture) {
             $autoCapture = new AutoCapture();
