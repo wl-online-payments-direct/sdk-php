@@ -9,12 +9,12 @@ use OnlinePayments\Sdk\Domain\PayoutResponse;
 use OnlinePayments\Sdk\Domain\RefundResponse;
 use OnlinePayments\Sdk\Domain\TokenResponse;
 use OnlinePayments\Sdk\Domain\WebhooksEvent;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use UnexpectedValueException;
 
-/**
- * @group webhooks
- */
+#[Group('webhooks')]
 class WebhooksEventTest extends TestCase
 {
     public function testGettersAndSetters_ReturnSameValues(): void
@@ -110,9 +110,7 @@ class WebhooksEventTest extends TestCase
         $this->assertIsObject($event->token);
     }
 
-    /**
-     * @dataProvider invalidNestedValueProvider
-     */
+    #[DataProvider('invalidNestedValueProvider')]
     public function testFromObject_WithInvalidNestedValue_ThrowsException(string $propertyName): void
     {
         $event = new WebhooksEvent();
@@ -161,7 +159,7 @@ class WebhooksEventTest extends TestCase
         $this->assertFalse(property_exists($result, 'payment'));
     }
 
-    public function invalidNestedValueProvider(): array
+    public static function invalidNestedValueProvider(): array
     {
         return [
             ['directBatch'],

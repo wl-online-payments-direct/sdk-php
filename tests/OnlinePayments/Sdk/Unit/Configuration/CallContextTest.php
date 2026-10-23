@@ -4,11 +4,10 @@ namespace OnlinePayments\Sdk\Unit\Configuration;
 
 use DateTime;
 use OnlinePayments\Sdk\CallContext;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group configuration
- */
+#[Group('configuration')]
 class CallContextTest extends TestCase
 {
     public function testCallContext_IdempotenceKey_SetAndGet_ReturnsSameValue()

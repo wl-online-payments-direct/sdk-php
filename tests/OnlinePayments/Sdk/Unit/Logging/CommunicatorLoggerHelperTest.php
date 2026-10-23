@@ -3,19 +3,19 @@
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Communication\CommunicatorLoggerHelper;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class CommunicatorLoggerHelperTest extends TestCase
 {
     /**
-     * @dataProvider communicatorLoggerHelperUriProvider
      * @param string $requestUri
      * @param string $endpoint
      * @param string $relativeUriPathWithRequestParameters
      */
+    #[DataProvider('communicatorLoggerHelperUriProvider')]
     public function testCommunicatorLoggerHelper_UriSplitting_ReturnsCorrectEndpointAndRelativeUri(
         string $requestUri,
         string $endpoint,
@@ -42,7 +42,7 @@ class CommunicatorLoggerHelperTest extends TestCase
     /**
      * @return array
      */
-    public function communicatorLoggerHelperUriProvider(): array
+    public static function communicatorLoggerHelperUriProvider(): array
     {
         return [
             [

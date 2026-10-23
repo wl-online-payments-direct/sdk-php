@@ -4,13 +4,12 @@ namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
 use OnlinePayments\Sdk\Domain\UploadableFile;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use UnexpectedValueException;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class MultipartFormDataObjectTest extends TestCase
 {
     public function testConstructor_InitializesEmptyState(): void

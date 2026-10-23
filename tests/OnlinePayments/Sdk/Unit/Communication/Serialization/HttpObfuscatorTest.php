@@ -5,22 +5,22 @@ namespace OnlinePayments\Sdk\Unit\Communication\Serialization;
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
 use OnlinePayments\Sdk\Communication\ConnectionResponseInterface;
 use OnlinePayments\Sdk\Communication\HttpObfuscator;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group serialization
- */
+#[Group('communication')]
+#[Group('serialization')]
 class HttpObfuscatorTest extends TestCase
 {
     /**
-     * @dataProvider rawObfuscatedRequestProvider
      * @param $requestMethod
      * @param $relativeRequestUri
      * @param array $requestHeaders
      * @param string $requestBody
      * @param string $expectedRawObfuscatedRequest
      */
+    #[DataProvider('rawObfuscatedRequestProvider')]
     public function testHttpObfuscator_GetRawObfuscatedRequest_ObfuscatesRequestCorrectly(
         $requestMethod,
         $relativeRequestUri,
@@ -37,10 +37,10 @@ class HttpObfuscatorTest extends TestCase
     }
 
     /**
-     * @dataProvider rawObfuscatedResponseProvider
      * @param ConnectionResponseInterface $response
      * @param string $expectedRawObfuscatedResponse
      */
+    #[DataProvider('rawObfuscatedResponseProvider')]
     public function testHttpObfuscator_GetRawObfuscatedResponse_ObfuscatesResponseCorrectly(ConnectionResponseInterface $response, string $expectedRawObfuscatedResponse)
     {
         $httpObfuscator = new HttpObfuscator();
@@ -53,7 +53,7 @@ class HttpObfuscatorTest extends TestCase
     /**
      * @return array
      */
-    public function rawObfuscatedRequestProvider(): array
+    public static function rawObfuscatedRequestProvider(): array
     {
         return array(
             array(
@@ -100,7 +100,7 @@ class HttpObfuscatorTest extends TestCase
     /**
      * @return array
      */
-    public function rawObfuscatedResponseProvider(): array
+    public static function rawObfuscatedResponseProvider(): array
     {
         return array(
             array(

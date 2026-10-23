@@ -3,12 +3,11 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use OnlinePayments\Sdk\Communication\ResponseHeaderBuilder;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class ResponseHeaderBuilderTest extends TestCase
 {
     public function testResponseHeaderBuilder_AppendSingleHeader_GetHeadersReturnsParsedHeader(): void

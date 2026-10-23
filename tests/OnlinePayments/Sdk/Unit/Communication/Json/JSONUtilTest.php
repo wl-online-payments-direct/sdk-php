@@ -3,14 +3,13 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Json;
 
 use OnlinePayments\Sdk\JSON\JSONUtil;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use UnexpectedValueException;
 
-/**
- * @group communication
- * @group json
- */
+#[Group('communication')]
+#[Group('json')]
 class JSONUtilTest extends TestCase
 {
     public function testJSONUtil_Decode_ValidJson_ReturnsStdClass()

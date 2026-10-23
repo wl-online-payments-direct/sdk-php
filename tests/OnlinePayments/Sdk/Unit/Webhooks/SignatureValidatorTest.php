@@ -6,11 +6,10 @@ use OnlinePayments\Sdk\Webhooks\InMemorySecretKeyStore;
 use OnlinePayments\Sdk\Webhooks\SecretKeyNotAvailableException;
 use OnlinePayments\Sdk\Webhooks\SignatureValidationException;
 use OnlinePayments\Sdk\Webhooks\SignatureValidator;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group webhooks
- */
+#[Group('webhooks')]
 class SignatureValidatorTest extends TestCase
 {
     private const KEY_ID = 'dummy-key-id';

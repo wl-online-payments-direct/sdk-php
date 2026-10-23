@@ -2,14 +2,13 @@
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\SplFileObjectLogger;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use SplTempFileObject;
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
 use OnlinePayments\Sdk\Communication\InvalidResponseException;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class SplFileObjectLoggerTest extends TestCase
 {
     public function testSpFileObjectLogger_LogMessage_WritesMessageToResource()

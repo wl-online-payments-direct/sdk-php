@@ -5,12 +5,11 @@ namespace OnlinePayments\Sdk\Unit\Communication\Serialization;
 use OnlinePayments\Sdk\Communication\MetadataProvider;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group serialization
- */
+#[Group('communication')]
+#[Group('serialization')]
 class MetadataProviderTest extends TestCase
 {
     public function testMetadataProvider_GetServerMetaInfoValue_NoShoppingCartExtension_ReturnsBase64EncodedJson(): void

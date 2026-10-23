@@ -4,12 +4,11 @@ namespace OnlinePayments\Sdk\Unit\Webhooks;
 
 use OnlinePayments\Sdk\Webhooks\InMemorySecretKeyStore;
 use OnlinePayments\Sdk\Webhooks\SecretKeyNotAvailableException;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use UnexpectedValueException;
 
-/**
- * @group webhooks
- */
+#[Group('webhooks')]
 class InMemorySecretKeyStoreTest extends TestCase
 {
     public function testConstructor_AndGetSecretKey_ReturnsStoredValue(): void

@@ -3,11 +3,10 @@
 namespace OnlinePayments\Sdk\Unit\Communication;
 
 use OnlinePayments\Sdk\Communication\UuidGenerator;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- */
+#[Group('communication')]
 class UuidGeneratorTest extends TestCase
 {
     public function testUuidGenerator_GeneratedUuid_ReturnsValidUuidV4()

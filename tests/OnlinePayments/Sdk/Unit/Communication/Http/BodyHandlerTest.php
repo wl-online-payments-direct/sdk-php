@@ -3,12 +3,11 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use OnlinePayments\Sdk\BodyHandler;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class BodyHandlerTest extends TestCase
 {
     public function testBodyHandler_HandleBodyPart_FirstCall_InitializesOnceAndProcessesAllParts()

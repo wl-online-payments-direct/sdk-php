@@ -3,13 +3,12 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Exception;
 
 use OnlinePayments\Sdk\Webhooks\SignatureValidationException;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
-/**
- * @group communication
- * @group exception
- */
+#[Group('communication')]
+#[Group('exception')]
 class SignatureValidationExceptionTest extends TestCase
 {
     public function testConstruct_WithMessage_StoresMessage(): void

@@ -8,12 +8,11 @@ use OnlinePayments\Sdk\Communication\ResponseBuilder;
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
 use OnlinePayments\Sdk\Logging\HeaderObfuscator;
 use OnlinePayments\Sdk\TestUtil\Unit\MockUtil;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group gzip
- */
+#[Group('communication')]
+#[Group('gzip')]
 class DefaultGzipRequestTest extends TestCase
 {
     private MockUtil $mockUtil;

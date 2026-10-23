@@ -12,12 +12,11 @@ use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingConnection;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class IdempotenceTest extends TestCase
 {
     /**

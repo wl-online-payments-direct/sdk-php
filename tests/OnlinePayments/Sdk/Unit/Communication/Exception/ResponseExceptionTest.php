@@ -22,12 +22,11 @@ use OnlinePayments\Sdk\PlatformException;
 use OnlinePayments\Sdk\ReferenceException;
 use OnlinePayments\Sdk\ResponseException;
 use OnlinePayments\Sdk\ValidationException;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group exception
- */
+#[Group('communication')]
+#[Group('exception')]
 class ResponseExceptionTest extends TestCase
 {
     public function testResponseException_GetErrorId_WithErrorIdInResponse_ReturnsErrorId(): void

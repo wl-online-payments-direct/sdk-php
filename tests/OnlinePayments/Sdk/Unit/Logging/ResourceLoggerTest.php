@@ -2,13 +2,12 @@
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\ResourceLogger;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
 use OnlinePayments\Sdk\Communication\InvalidResponseException;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class ResourceLoggerTest extends TestCase
 {
     public function testResourceLogger_LogMessage_WritesMessageToResource()

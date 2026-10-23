@@ -6,11 +6,10 @@ use OnlinePayments\Sdk\Client;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\CommunicatorInterface;
 use OnlinePayments\Sdk\Domain\TestConnection;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group client
- */
+#[Group('client')]
 class ClientTest extends TestCase
 {
     public function testMerchant_ReturnsMerchantClient(): void

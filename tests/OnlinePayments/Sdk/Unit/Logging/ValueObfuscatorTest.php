@@ -2,15 +2,14 @@
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\ValueObfuscator;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class ValueObfuscatorTest extends TestCase
 {
     /**
-     * @dataProvider valueObfuscatorProvider
      * @param $value
      * @param $obfuscationLength
      * @param $valueStartObfuscated
@@ -18,6 +17,7 @@ class ValueObfuscatorTest extends TestCase
      * @param $valueAllObfuscated
      * @param $obfuscatedFixedLength
      */
+    #[DataProvider('valueObfuscatorProvider')]
     public function testValueObfuscator_ObfuscatesAllVariants_CorrectlyBasedOnInputAndLength(
         $value,
         $obfuscationLength,
@@ -33,7 +33,7 @@ class ValueObfuscatorTest extends TestCase
         $this->assertEquals($obfuscatedFixedLength, $valueObfuscator->obfuscateFixedLength($obfuscationLength));
     }
 
-    public function valueObfuscatorProvider(): array
+    public static function valueObfuscatorProvider(): array
     {
         return array(
             array('', 0, '', '', '', ''),

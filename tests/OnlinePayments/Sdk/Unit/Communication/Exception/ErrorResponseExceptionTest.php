@@ -4,12 +4,11 @@ namespace OnlinePayments\Sdk\Unit\Communication\Exception;
 
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Domain\DataObject;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group exception
- */
+#[Group('communication')]
+#[Group('exception')]
 class ErrorResponseExceptionTest extends TestCase
 {
     public function testErrorResponseException_Construct_WithCustomMessage_SetsHttpStatusAndMessageAndErrorResponse(): void

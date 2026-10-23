@@ -4,11 +4,11 @@ namespace OnlinePayments\Sdk\Unit\Configuration;
 
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\ProxyConfiguration;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group configuration
- */
+#[Group('configuration')]
 class CommunicatorConfigurationTest extends TestCase
 {
     public function testCommunicatorConfiguration_ConstructWithoutProxy_SetsPropertiesCorrectly()
@@ -158,9 +158,7 @@ class CommunicatorConfigurationTest extends TestCase
         $this->assertNull($configuration->getShoppingCartExtension());
     }
 
-    /**
-     * @dataProvider invalidApiEndpointProvider
-     */
+    #[DataProvider('invalidApiEndpointProvider')]
     public function testCommunicatorConfiguration_ConstructWithInvalidApiEndpoint_ThrowsUnexpectedValueException(string $apiEndpoint, string $message): void
     {
         $this->expectException(\UnexpectedValueException::class);
@@ -174,9 +172,7 @@ class CommunicatorConfigurationTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider invalidIntegratorProvider
-     */
+    #[DataProvider('invalidIntegratorProvider')]
     public function testCommunicatorConfiguration_ConstructWithInvalidIntegrator_ThrowsUnexpectedValueException($integrator, string $message): void
     {
         $this->expectException(\UnexpectedValueException::class);
@@ -190,9 +186,7 @@ class CommunicatorConfigurationTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider invalidEndpointForSetterProvider
-     */
+    #[DataProvider('invalidEndpointForSetterProvider')]
     public function testCommunicatorConfiguration_SetApiEndpoint_WithInvalidValue_ThrowsUnexpectedValueException(string $apiEndpoint, string $message): void
     {
         $configuration = new CommunicatorConfiguration(
@@ -208,9 +202,7 @@ class CommunicatorConfigurationTest extends TestCase
         $configuration->setApiEndpoint($apiEndpoint);
     }
 
-    /**
-     * @dataProvider invalidIntegratorSetterProvider
-     */
+    #[DataProvider('invalidIntegratorSetterProvider')]
     public function testCommunicatorConfiguration_SetIntegrator_WithInvalidValue_ThrowsUnexpectedValueException($integrator, string $message): void
     {
         $configuration = new CommunicatorConfiguration(
@@ -226,7 +218,7 @@ class CommunicatorConfigurationTest extends TestCase
         $configuration->setIntegrator($integrator);
     }
 
-    public function invalidApiEndpointProvider(): array
+    public static function invalidApiEndpointProvider(): array
     {
         return [
             ['not-a-url', 'apiEndpoint should not contain a path'],
@@ -237,7 +229,7 @@ class CommunicatorConfigurationTest extends TestCase
         ];
     }
 
-    public function invalidIntegratorProvider(): array
+    public static function invalidIntegratorProvider(): array
     {
         return [
             [null, 'integrator is required'],
@@ -246,7 +238,7 @@ class CommunicatorConfigurationTest extends TestCase
         ];
     }
 
-    public function invalidEndpointForSetterProvider(): array
+    public static function invalidEndpointForSetterProvider(): array
     {
         return [
             ['not-a-url', 'apiEndpoint should not contain a path'],
@@ -257,7 +249,7 @@ class CommunicatorConfigurationTest extends TestCase
         ];
     }
 
-    public function invalidIntegratorSetterProvider(): array
+    public static function invalidIntegratorSetterProvider(): array
     {
         return [
             [null, 'integrator is required'],

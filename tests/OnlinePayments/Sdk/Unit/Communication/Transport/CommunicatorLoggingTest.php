@@ -14,13 +14,12 @@ use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\TestUtil\Unit\TestErrorResponse;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingConnection;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-/**
- * @group communication
- * @group transport
- */
+#[Group('communication')]
+#[Group('transport')]
 class CommunicatorLoggingTest extends TestCase
 {
     /**
@@ -43,15 +42,13 @@ class CommunicatorLoggingTest extends TestCase
         );
 
         $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')->getMock();
-        $logger->expects($this->exactly(2))->method('log')->will(
-            $this->returnCallback(function ($message) {
-                $messageParts = explode("\n", $message);
-                $this->assertGreaterThanOrEqual(2, count($messageParts));
-                if (strpos($messageParts[0], 'Outgoing request') === 0) {
-                    $this->assertStringContainsString('/bar', $messageParts[1]);
-                }
-            })
-        );
+        $logger->expects($this->exactly(2))->method('log')->willReturnCallback(function ($message) {
+            $messageParts = explode("\n", $message);
+            $this->assertGreaterThanOrEqual(2, count($messageParts));
+            if (strpos($messageParts[0], 'Outgoing request') === 0) {
+                $this->assertStringContainsString('/bar', $messageParts[1]);
+            }
+        });
 
         $logger->expects($this->never())->method('logException');
 
@@ -212,7 +209,7 @@ class CommunicatorLoggingTest extends TestCase
 
         $logger->expects($this->exactly(2))
             ->method('log')
-            ->will($this->returnCallback(function ($message) use ($rawObfuscatedResponse) {
+            ->willReturnCallback(function ($message) use ($rawObfuscatedResponse) {
                 $messageHeader = strstr($message, "\n", true);
 
                 if (strpos($messageHeader, 'Outgoing request') === 0) {
@@ -232,7 +229,7 @@ class CommunicatorLoggingTest extends TestCase
                 }
 
                 $this->fail('Unexpected log message type: ' . $messageHeader);
-            }));
+            });
 
         $logger->expects($this->never())
             ->method('logException');
@@ -282,7 +279,7 @@ class CommunicatorLoggingTest extends TestCase
 
         $logger->expects($this->exactly(2))
             ->method('log')
-            ->will($this->returnCallback(function ($message) use ($rawObfuscatedResponse) {
+            ->willReturnCallback(function ($message) use ($rawObfuscatedResponse) {
                 $messageHeader = strstr($message, "\n", true);
 
                 if (strpos($messageHeader, 'Incoming response') === 0) {
@@ -291,7 +288,7 @@ class CommunicatorLoggingTest extends TestCase
                         $rawObfuscatedResponse
                     );
                 }
-            }));
+            });
 
         $logger->expects($this->never())
             ->method('logException');
@@ -346,21 +343,21 @@ class CommunicatorLoggingTest extends TestCase
 
         $logger->expects($this->once())
             ->method('log')
-            ->will($this->returnCallback(function ($message) {
+            ->willReturnCallback(function ($message) {
                 $messageHeader = strstr($message, "\n", true);
 
                 $this->assertStringContainsString(
                     'Outgoing request',
                     $messageHeader
                 );
-            }));
+            });
 
         $logger->expects($this->once())
             ->method('logException')
-            ->will($this->returnCallback(function ($message, $exception) use ($errorException) {
+            ->willReturnCallback(function ($message, $exception) use ($errorException) {
                 $this->assertStringNotContainsString("\n", $message);
                 $this->assertEquals($errorException, $exception);
-            }));
+            });
 
         $communicator->enableLogging($logger);
 

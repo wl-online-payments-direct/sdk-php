@@ -3,12 +3,11 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use OnlinePayments\Sdk\Communication\ResponseBuilder;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class ResponseBuilderTest extends TestCase
 {
     public function testResponseBuilder_SetHttpStatusCode_ValidCode_ResponseContainsSameStatusCode(): void

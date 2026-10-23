@@ -8,12 +8,11 @@ use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Communication\ResponseFactory;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\TestUtil\Unit\SimpleHttpBinResponse;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class ResponseFactoryTest extends TestCase
 {
     private ResponseFactory $factory;
@@ -105,9 +104,7 @@ class ResponseFactoryTest extends TestCase
 
     private function createMockConnectionResponse(int $status): ConnectionResponseInterface
     {
-        $mock = $this->getMockBuilder(ConnectionResponseInterface::class)
-            ->onlyMethods(['getHttpStatusCode', 'getHeaderValue', 'getBody'])
-            ->getMockForAbstractClass();
+        $mock = $this->createMock(ConnectionResponseInterface::class);
 
         $mock->method('getHttpStatusCode')->willReturn($status);
         $mock->method('getHeaderValue')->with('Content-Type')->willReturn('application/json');

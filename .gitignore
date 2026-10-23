@@ -7,5 +7,6 @@ docs
 /composer.lock
 /phpunit.xml
 /.phpunit.result.cache
+/.phpunit.cache
 /tests/config.json
 /vendor/

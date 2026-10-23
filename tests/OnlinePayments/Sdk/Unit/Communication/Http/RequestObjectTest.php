@@ -4,12 +4,11 @@ namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use Exception;
 use OnlinePayments\Sdk\Communication\RequestObject;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group http
- */
+#[Group('communication')]
+#[Group('http')]
 class RequestObjectTest extends TestCase
 {
     public function testRequestObject_SetUndefinedProperty_ThrowsExceptionWhenAddingNewProperty(): void

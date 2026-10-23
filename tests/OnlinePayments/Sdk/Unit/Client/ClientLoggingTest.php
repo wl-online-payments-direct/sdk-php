@@ -5,11 +5,10 @@ namespace OnlinePayments\Sdk\Unit\Client;
 use OnlinePayments\Sdk\Client;
 use OnlinePayments\Sdk\CommunicatorInterface;
 use OnlinePayments\Sdk\Logging\CommunicatorLogger;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group client
- */
+#[Group('client')]
 class ClientLoggingTest extends TestCase
 {
     public function testEnableLogging_CascadesToCommunicator()

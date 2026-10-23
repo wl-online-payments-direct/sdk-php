@@ -20,18 +20,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * @var string
      */
-    private string $configFilePath;
+    private string $configFilePath = __DIR__ . '/../../../config.json';
 
     /**
      * @var JsonValuesStore|null
      */
     private ?JsonValuesStore $jsonValuesStore = null;
-
-    public function __construct($name = null, array $data = array(), $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        $this->configFilePath = dirname(__FILE__) . '/../../../config.json';
-    }
 
     /**
      * @throws Exception

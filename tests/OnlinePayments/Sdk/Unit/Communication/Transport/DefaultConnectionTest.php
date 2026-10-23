@@ -11,12 +11,12 @@ use OnlinePayments\Sdk\Logging\BodyObfuscator;
 use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\Logging\HeaderObfuscator;
 use OnlinePayments\Sdk\ProxyConfiguration;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group transport
- */
+#[Group('communication')]
+#[Group('transport')]
 class DefaultConnectionTest extends TestCase
 {
     protected DefaultConnection $connection;
@@ -389,7 +389,6 @@ class DefaultConnectionTest extends TestCase
 
         $ref = new \ReflectionClass($connection);
         $method = $ref->getMethod('executeRequest');
-        $method->setAccessible(true);
 
         $method->invoke(
             $connection,
@@ -493,23 +492,18 @@ class DefaultConnectionTest extends TestCase
 
         $ref = new \ReflectionClass($connection);
         $method = $ref->getMethod('setCurlOptions');
-        $method->setAccessible(true);
 
         $handle = curl_init();
         $this->assertNotFalse($handle);
 
-        try {
-            $method->invoke(
-                $connection,
-                $handle,
-                'POST',
-                'https://example.com/foo',
-                [],
-                new \stdClass()
-            );
-        } finally {
-            curl_close($handle);
-        }
+        $method->invoke(
+            $connection,
+            $handle,
+            'POST',
+            'https://example.com/foo',
+            [],
+            new \stdClass()
+        );
     }
 
     public function testConnectionResponse_Getters_ReturnExpectedValues(): void
@@ -531,9 +525,7 @@ class DefaultConnectionTest extends TestCase
         $this->assertSame('', $connectionResponse->getHeaderValue('baz'));
     }
 
-    /**
-     * @dataProvider dispositionFilenameProvider
-     */
+    #[DataProvider('dispositionFilenameProvider')]
     public function testConnectionResponse_GetDispositionFilename_ParsesFilenameCorrectly($headerValue, $expected): void
     {
         $headers = ['Content-Disposition' => $headerValue];
@@ -617,7 +609,7 @@ class DefaultConnectionTest extends TestCase
         };
     }
 
-    public function dispositionFilenameProvider(): array
+    public static function dispositionFilenameProvider(): array
     {
         return [
             ['attachment; filename=testfile', 'testfile'],

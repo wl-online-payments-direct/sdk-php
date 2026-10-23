@@ -21,12 +21,12 @@ use OnlinePayments\Sdk\IdempotenceException;
 use OnlinePayments\Sdk\PlatformException;
 use OnlinePayments\Sdk\ReferenceException;
 use OnlinePayments\Sdk\ValidationException;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group exception
- */
+#[Group('communication')]
+#[Group('exception')]
 class ExceptionFactoryTest extends TestCase
 {
     private ExceptionFactory $factory;
@@ -128,9 +128,7 @@ class ExceptionFactoryTest extends TestCase
         $this->assertInstanceOf(ReferenceException::class, $exception);
     }
 
-    /**
-     * @dataProvider platformStatusProvider
-     */
+    #[DataProvider('platformStatusProvider')]
     public function testExceptionFactory_CreateException_WithPlatformErrorStatus_ReturnsPlatformException(int $httpStatusCode): void
     {
         $exception = $this->factory->createException($httpStatusCode, new ErrorResponse());
@@ -138,7 +136,7 @@ class ExceptionFactoryTest extends TestCase
         $this->assertInstanceOf(PlatformException::class, $exception);
     }
 
-    public function platformStatusProvider(): array
+    public static function platformStatusProvider(): array
     {
         return [
             [500],

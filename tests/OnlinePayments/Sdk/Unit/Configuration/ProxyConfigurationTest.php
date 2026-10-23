@@ -3,11 +3,10 @@
 namespace OnlinePayments\Sdk\Unit\Configuration;
 
 use OnlinePayments\Sdk\ProxyConfiguration;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group configuration
- */
+#[Group('configuration')]
 class ProxyConfigurationTest extends TestCase
 {
     public function testGetCurlProxy_WithHostAndPort_ReturnsHostColonPort(): void

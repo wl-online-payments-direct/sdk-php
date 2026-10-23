@@ -3,11 +3,10 @@ namespace OnlinePayments\Sdk\Unit\Authentication;
 
 use OnlinePayments\Sdk\Authentication\V1HmacAuthenticator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group authentication
- */
+#[Group('authentication')]
 class V1HmacAuthenticatorTest extends TestCase
 {
     /**

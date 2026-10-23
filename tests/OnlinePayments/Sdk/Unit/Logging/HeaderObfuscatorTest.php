@@ -3,18 +3,18 @@
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\HeaderObfuscator;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class HeaderObfuscatorTest extends TestCase
 {
     /**
-     * @dataProvider headerObfuscatorProvider
      * @param string[] $headers
      * @param string[] $obfuscatedHeaders
      */
+    #[DataProvider('headerObfuscatorProvider')]
     public function testHeaderObfuscator_ObfuscateStandardHeaders_ReturnsObfuscatedAuthorization(
         array $headers,
         array $obfuscatedHeaders
@@ -24,10 +24,10 @@ class HeaderObfuscatorTest extends TestCase
     }
 
     /**
-     * @dataProvider customHeaderObfuscatorProvider
      * @param string[] $headers
      * @param string[] $obfuscatedHeaders
      */
+    #[DataProvider('customHeaderObfuscatorProvider')]
     public function testHeaderObfuscator_ObfuscateCustomHeaders_AppliesCustomRules(
         array $headers,
         array $obfuscatedHeaders
@@ -98,7 +98,7 @@ class HeaderObfuscatorTest extends TestCase
         $this->assertSame(['Authorization' => '********'], $obfuscated);
     }
 
-    public function headerObfuscatorProvider(): array
+    public static function headerObfuscatorProvider(): array
     {
         return array(
             array(
@@ -131,7 +131,7 @@ class HeaderObfuscatorTest extends TestCase
         );
     }
 
-    public function customHeaderObfuscatorProvider(): array
+    public static function customHeaderObfuscatorProvider(): array
     {
         return array(
             array(

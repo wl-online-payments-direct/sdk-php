@@ -9,11 +9,10 @@ use OnlinePayments\Sdk\Webhooks\SecretKeyNotAvailableException;
 use OnlinePayments\Sdk\Webhooks\SecretKeyStore;
 use OnlinePayments\Sdk\Webhooks\SignatureValidationException;
 use OnlinePayments\Sdk\Webhooks\WebhooksHelper;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group webhooks
- */
+#[Group('webhooks')]
 class WebhooksHelperTest extends TestCase
 {
     const SIGNATURE_HEADER = 'X-GCS-Signature';
@@ -92,9 +91,9 @@ EOD;
     private $validBody;
     private $invalidBody;
 
-    public function __construct()
+    protected function setUp(): void
     {
-        parent::__construct();
+        parent::setUp();
         $this->validBody = preg_replace("/\r\n/", "\n", self::VALID_BODY_WITHOUT_LINEBREAK_FIX);
         $this->invalidBody = preg_replace("/\r\n/", "\n", self::INVALID_BODY_WITHOUT_LINEBREAK_FIX);
     }

@@ -3,12 +3,11 @@
 namespace OnlinePayments\Sdk\Unit\Communication\Serialization;
 
 use OnlinePayments\Sdk\Communication\HttpHeaderHelper;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group serialization
- */
+#[Group('communication')]
+#[Group('serialization')]
 class HttpHeaderHelperTest extends TestCase
 {
     public function testHttpHeaderHelper_GenerateStatusLine_ReturnsCorrectRawHeaders()

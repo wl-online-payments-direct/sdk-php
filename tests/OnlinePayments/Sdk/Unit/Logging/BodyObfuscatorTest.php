@@ -4,11 +4,11 @@ namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
 use OnlinePayments\Sdk\Logging\ValueObfuscator;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group logging
- */
+#[Group('logging')]
 class BodyObfuscatorTest extends TestCase
 {
     public function testBodyObfuscator_ObfuscateBodyWithNullBody_ReturnsNullString()
@@ -153,9 +153,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertEquals('***', $result->fields[1]->value);
     }
 
-    /**
-     * @dataProvider jsonObfuscationProvider
-     */
+    #[DataProvider('jsonObfuscationProvider')]
     public function testBodyObfuscator_ObfuscateBodyWithJsonProvider_ObfuscatesCorrectly($jsonBody, $obfuscatedJsonBody)
     {
         $bodyObfuscator = new BodyObfuscator();
@@ -166,9 +164,7 @@ class BodyObfuscatorTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider jsonObfuscationProvider
-     */
+    #[DataProvider('jsonObfuscationProvider')]
     public function testBodyObfuscator_ObfuscateBodyWithJsonProviderUtf8_ObfuscatesCorrectly($jsonBody, $obfuscatedJsonBody)
     {
         $bodyObfuscator = new BodyObfuscator();
@@ -179,9 +175,7 @@ class BodyObfuscatorTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider skipObfuscationProvider
-     */
+    #[DataProvider('skipObfuscationProvider')]
     public function testBodyObfuscator_SkipObfuscationForSkippedContentTypes_ReturnsOriginalValue($contentType, $value)
     {
         $bodyObfuscator = new BodyObfuscator();
@@ -201,9 +195,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertEquals('1234', $valueObfuscator->obfuscateAllKeepStart('1234', 6));
     }
 
-    /**
-     * @dataProvider jsonCustomObfuscationProvider
-     */
+    #[DataProvider('jsonCustomObfuscationProvider')]
     public function testBodyObfuscator_ObfuscateBodyWithCustomRules_ObfuscatesAccordingToCustomRules($jsonBody, $obfuscatedJsonBody)
     {
         $bodyObfuscator = new BodyObfuscator();
@@ -246,9 +238,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertSame('****************', $result->emailAddress);
     }
 
-    /**
-     * @dataProvider additionalObfuscationFieldsProvider
-     */
+    #[DataProvider('additionalObfuscationFieldsProvider')]
     public function testBodyObfuscator_ObfuscateBodyWithAdditionalSensitiveFields_ObfuscatesAccordingToRules(
         string $fieldName,
         string $value,
@@ -270,7 +260,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertSame($expected, $result->{$fieldName});
     }
 
-    public function jsonObfuscationProvider(): array
+    public static function jsonObfuscationProvider(): array
     {
         $testObjects = array(
             array(null, null),
@@ -303,7 +293,7 @@ class BodyObfuscatorTest extends TestCase
         }, $testObjects);
     }
 
-    public function skipObfuscationProvider(): array
+    public static function skipObfuscationProvider(): array
     {
         return array(
             array(BodyObfuscator::MIME_APPLICATION_JSON, 'foo'),
@@ -316,7 +306,7 @@ class BodyObfuscatorTest extends TestCase
         );
     }
 
-    public function jsonCustomObfuscationProvider(): array
+    public static function jsonCustomObfuscationProvider(): array
     {
         $testObjects = array(
             array(null, null),
@@ -349,7 +339,7 @@ class BodyObfuscatorTest extends TestCase
         }, $testObjects);
     }
 
-    public function additionalObfuscationFieldsProvider(): array
+    public static function additionalObfuscationFieldsProvider(): array
     {
         return [
             ['additionalInfo', 'secret', '******'],

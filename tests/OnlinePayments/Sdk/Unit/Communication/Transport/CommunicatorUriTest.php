@@ -8,12 +8,11 @@ use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- * @group transport
- */
+#[Group('communication')]
+#[Group('transport')]
 class CommunicatorUriTest extends TestCase
 {
     /**

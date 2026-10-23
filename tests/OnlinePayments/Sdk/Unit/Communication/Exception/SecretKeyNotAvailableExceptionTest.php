@@ -4,13 +4,12 @@ namespace OnlinePayments\Sdk\Unit\Communication\Exception;
 
 use OnlinePayments\Sdk\Webhooks\SecretKeyNotAvailableException;
 use OnlinePayments\Sdk\Webhooks\SignatureValidationException;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
-/**
- * @group communication
- * @group exception
- */
+#[Group('communication')]
+#[Group('exception')]
 class SecretKeyNotAvailableExceptionTest extends TestCase
 {
     public function testConstruct_WithKeyIdAndMessage_StoresBoth(): void

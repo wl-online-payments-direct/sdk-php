@@ -5,12 +5,10 @@ namespace OnlinePayments\Sdk\Unit\Communication\Http;
 use Exception;
 use OnlinePayments\Sdk\Communication\MultipartDataObject;
 use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
- */
-
+#[Group('communication')]
 class MultipartDataObjectTest extends TestCase
 {
     public function testMultipartDataObject_SetUnknownProperty_ThrowsExceptionWhenAddingNewProperty(): void

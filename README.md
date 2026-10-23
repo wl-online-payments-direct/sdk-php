@@ -21,7 +21,7 @@ This repository consists out of the following components:
 
 ## Requirements
 
-PHP 7.4 or above is required. In addition, to support streaming uploads, package [robtimus/multipart](https://packagist.org/packages/robtimus/multipart) is required.
+PHP 8.3 or above is required. In addition, to support streaming uploads, package [robtimus/multipart](https://packagist.org/packages/robtimus/multipart) is required.
 
 ## Installation via Composer
 

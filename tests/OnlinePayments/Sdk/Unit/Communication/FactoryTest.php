@@ -7,11 +7,10 @@ use OnlinePayments\Sdk\Communication\MetadataProvider;
 use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group communication
-*/
+#[Group('communication')]
 class FactoryTest extends TestCase
 {
     public function testFactory_CreateConfiguration_ReturnsValidCommunicatorConfiguration()
