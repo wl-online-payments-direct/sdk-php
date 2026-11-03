@@ -37,6 +37,11 @@ class ImportCofSeriesRequest extends DataObject
     public ?string $schemeReferenceData = null;
 
     /**
+     * @var SubMerchant|null
+    */
+    public ?SubMerchant $subMerchant = null;
+
+    /**
      * @var string|null
     */
     public ?string $tokenId = null;
@@ -177,6 +182,32 @@ class ImportCofSeriesRequest extends DataObject
     }
 
     /**
+     * @return SubMerchant|null
+    */
+    public function getSubMerchant(): ?SubMerchant
+    {
+        return $this->subMerchant;
+    }
+
+    /**
+     * @param SubMerchant|null $value
+    */
+    public function setSubMerchant(?SubMerchant $value): void
+    {
+        $this->subMerchant = $value;
+    }
+
+    /**
+     * @param SubMerchant|null $value
+     * @return ImportCofSeriesRequest
+    */
+    public function withSubMerchant(?SubMerchant $value): ImportCofSeriesRequest
+    {
+        $this->subMerchant = $value;
+        return $this;
+    }
+
+    /**
      * @return string|null
     */
     public function getTokenId(): ?string
@@ -249,6 +280,9 @@ class ImportCofSeriesRequest extends DataObject
         if (!is_null($this->schemeReferenceData)) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
+        if (!is_null($this->subMerchant)) {
+            $object->subMerchant = $this->subMerchant->toObject();
+        }
         if (!is_null($this->tokenId)) {
             $object->tokenId = $this->tokenId;
         }
@@ -289,6 +323,13 @@ class ImportCofSeriesRequest extends DataObject
         }
         if (property_exists($object, 'schemeReferenceData')) {
             $this->schemeReferenceData = $object->schemeReferenceData;
+        }
+        if (property_exists($object, 'subMerchant')) {
+            if (!is_object($object->subMerchant)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->subMerchant, true) . '\' is not an object');
+            }
+            $value = new SubMerchant();
+            $this->subMerchant = $value->fromObject($object->subMerchant);
         }
         if (property_exists($object, 'tokenId')) {
             $this->tokenId = $object->tokenId;
