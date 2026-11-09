@@ -27,6 +27,11 @@ class CreateHostedTokenizationRequest extends DataObject
     public ?string $locale = null;
 
     /**
+     * @var string|null
+    */
+    public ?string $origin = null;
+
+    /**
      * @var PaymentProductFiltersHostedTokenization|null
     */
     public ?PaymentProductFiltersHostedTokenization $paymentProductFilters = null;
@@ -116,6 +121,32 @@ class CreateHostedTokenizationRequest extends DataObject
     public function withLocale(?string $value): CreateHostedTokenizationRequest
     {
         $this->locale = $value;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+    */
+    public function getOrigin(): ?string
+    {
+        return $this->origin;
+    }
+
+    /**
+     * @param string|null $value
+    */
+    public function setOrigin(?string $value): void
+    {
+        $this->origin = $value;
+    }
+
+    /**
+     * @param string|null $value
+     * @return CreateHostedTokenizationRequest
+    */
+    public function withOrigin(?string $value): CreateHostedTokenizationRequest
+    {
+        $this->origin = $value;
         return $this;
     }
 
@@ -212,6 +243,9 @@ class CreateHostedTokenizationRequest extends DataObject
         if (!is_null($this->locale)) {
             $object->locale = $this->locale;
         }
+        if (!is_null($this->origin)) {
+            $object->origin = $this->origin;
+        }
         if (!is_null($this->paymentProductFilters)) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
@@ -245,6 +279,9 @@ class CreateHostedTokenizationRequest extends DataObject
         }
         if (property_exists($object, 'locale')) {
             $this->locale = $object->locale;
+        }
+        if (property_exists($object, 'origin')) {
+            $this->origin = $object->origin;
         }
         if (property_exists($object, 'paymentProductFilters')) {
             if (!is_object($object->paymentProductFilters)) {

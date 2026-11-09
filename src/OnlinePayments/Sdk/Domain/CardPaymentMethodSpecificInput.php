@@ -57,6 +57,11 @@ class CardPaymentMethodSpecificInput extends DataObject
     public ?string $initialSchemeTransactionId = null;
 
     /**
+     * @var CardInstallmentDetails|null
+    */
+    public ?CardInstallmentDetails $installment = null;
+
+    /**
      * @var bool|null
     */
     public ?bool $isRecurring = null;
@@ -167,6 +172,11 @@ class CardPaymentMethodSpecificInput extends DataObject
      * @var string|null
     */
     public ?string $unscheduledCardOnFileSequenceIndicator = null;
+
+    /**
+     * @var CreditCardValidationRules|null
+    */
+    public ?CreditCardValidationRules $validationRules = null;
 
     /**
      * @return bool|null
@@ -399,6 +409,32 @@ class CardPaymentMethodSpecificInput extends DataObject
     public function withInitialSchemeTransactionId(?string $value): CardPaymentMethodSpecificInput
     {
         $this->initialSchemeTransactionId = $value;
+        return $this;
+    }
+
+    /**
+     * @return CardInstallmentDetails|null
+    */
+    public function getInstallment(): ?CardInstallmentDetails
+    {
+        return $this->installment;
+    }
+
+    /**
+     * @param CardInstallmentDetails|null $value
+    */
+    public function setInstallment(?CardInstallmentDetails $value): void
+    {
+        $this->installment = $value;
+    }
+
+    /**
+     * @param CardInstallmentDetails|null $value
+     * @return CardPaymentMethodSpecificInput
+    */
+    public function withInstallment(?CardInstallmentDetails $value): CardPaymentMethodSpecificInput
+    {
+        $this->installment = $value;
         return $this;
     }
 
@@ -981,6 +1017,32 @@ class CardPaymentMethodSpecificInput extends DataObject
     }
 
     /**
+     * @return CreditCardValidationRules|null
+    */
+    public function getValidationRules(): ?CreditCardValidationRules
+    {
+        return $this->validationRules;
+    }
+
+    /**
+     * @param CreditCardValidationRules|null $value
+    */
+    public function setValidationRules(?CreditCardValidationRules $value): void
+    {
+        $this->validationRules = $value;
+    }
+
+    /**
+     * @param CreditCardValidationRules|null $value
+     * @return CardPaymentMethodSpecificInput
+    */
+    public function withValidationRules(?CreditCardValidationRules $value): CardPaymentMethodSpecificInput
+    {
+        $this->validationRules = $value;
+        return $this;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -1012,6 +1074,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (!is_null($this->initialSchemeTransactionId)) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
+        }
+        if (!is_null($this->installment)) {
+            $object->installment = $this->installment->toObject();
         }
         if (!is_null($this->isRecurring)) {
             $object->isRecurring = $this->isRecurring;
@@ -1079,6 +1144,9 @@ class CardPaymentMethodSpecificInput extends DataObject
         if (!is_null($this->unscheduledCardOnFileSequenceIndicator)) {
             $object->unscheduledCardOnFileSequenceIndicator = $this->unscheduledCardOnFileSequenceIndicator;
         }
+        if (!is_null($this->validationRules)) {
+            $object->validationRules = $this->validationRules->toObject();
+        }
         return $object;
     }
 
@@ -1129,6 +1197,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'installment')) {
+            if (!is_object($object->installment)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->installment, true) . '\' is not an object');
+            }
+            $value = new CardInstallmentDetails();
+            $this->installment = $value->fromObject($object->installment);
         }
         if (property_exists($object, 'isRecurring')) {
             $this->isRecurring = $object->isRecurring;
@@ -1243,6 +1318,13 @@ class CardPaymentMethodSpecificInput extends DataObject
         }
         if (property_exists($object, 'unscheduledCardOnFileSequenceIndicator')) {
             $this->unscheduledCardOnFileSequenceIndicator = $object->unscheduledCardOnFileSequenceIndicator;
+        }
+        if (property_exists($object, 'validationRules')) {
+            if (!is_object($object->validationRules)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->validationRules, true) . '\' is not an object');
+            }
+            $value = new CreditCardValidationRules();
+            $this->validationRules = $value->fromObject($object->validationRules);
         }
         return $this;
     }

@@ -37,6 +37,11 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public ?string $initialSchemeTransactionId = null;
 
     /**
+     * @var CardInstallmentDetails|null
+    */
+    public ?CardInstallmentDetails $installment = null;
+
+    /**
      * @var MarketPlace|null
     */
     public ?MarketPlace $marketPlace = null;
@@ -120,6 +125,11 @@ class CardPaymentMethodSpecificInputBase extends DataObject
      * @var string|null
     */
     public ?string $unscheduledCardOnFileSequenceIndicator = null;
+
+    /**
+     * @var CreditCardValidationRules|null
+    */
+    public ?CreditCardValidationRules $validationRules = null;
 
     /**
      * @return bool|null
@@ -248,6 +258,32 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     public function withInitialSchemeTransactionId(?string $value): CardPaymentMethodSpecificInputBase
     {
         $this->initialSchemeTransactionId = $value;
+        return $this;
+    }
+
+    /**
+     * @return CardInstallmentDetails|null
+    */
+    public function getInstallment(): ?CardInstallmentDetails
+    {
+        return $this->installment;
+    }
+
+    /**
+     * @param CardInstallmentDetails|null $value
+    */
+    public function setInstallment(?CardInstallmentDetails $value): void
+    {
+        $this->installment = $value;
+    }
+
+    /**
+     * @param CardInstallmentDetails|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withInstallment(?CardInstallmentDetails $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->installment = $value;
         return $this;
     }
 
@@ -694,6 +730,32 @@ class CardPaymentMethodSpecificInputBase extends DataObject
     }
 
     /**
+     * @return CreditCardValidationRules|null
+    */
+    public function getValidationRules(): ?CreditCardValidationRules
+    {
+        return $this->validationRules;
+    }
+
+    /**
+     * @param CreditCardValidationRules|null $value
+    */
+    public function setValidationRules(?CreditCardValidationRules $value): void
+    {
+        $this->validationRules = $value;
+    }
+
+    /**
+     * @param CreditCardValidationRules|null $value
+     * @return CardPaymentMethodSpecificInputBase
+    */
+    public function withValidationRules(?CreditCardValidationRules $value): CardPaymentMethodSpecificInputBase
+    {
+        $this->validationRules = $value;
+        return $this;
+    }
+
+    /**
      * @return object
      */
     public function toObject(): object
@@ -713,6 +775,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         }
         if (!is_null($this->initialSchemeTransactionId)) {
             $object->initialSchemeTransactionId = $this->initialSchemeTransactionId;
+        }
+        if (!is_null($this->installment)) {
+            $object->installment = $this->installment->toObject();
         }
         if (!is_null($this->marketPlace)) {
             $object->marketPlace = $this->marketPlace->toObject();
@@ -765,6 +830,9 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         if (!is_null($this->unscheduledCardOnFileSequenceIndicator)) {
             $object->unscheduledCardOnFileSequenceIndicator = $this->unscheduledCardOnFileSequenceIndicator;
         }
+        if (!is_null($this->validationRules)) {
+            $object->validationRules = $this->validationRules->toObject();
+        }
         return $object;
     }
 
@@ -799,6 +867,13 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         }
         if (property_exists($object, 'initialSchemeTransactionId')) {
             $this->initialSchemeTransactionId = $object->initialSchemeTransactionId;
+        }
+        if (property_exists($object, 'installment')) {
+            if (!is_object($object->installment)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->installment, true) . '\' is not an object');
+            }
+            $value = new CardInstallmentDetails();
+            $this->installment = $value->fromObject($object->installment);
         }
         if (property_exists($object, 'marketPlace')) {
             if (!is_object($object->marketPlace)) {
@@ -894,6 +969,13 @@ class CardPaymentMethodSpecificInputBase extends DataObject
         }
         if (property_exists($object, 'unscheduledCardOnFileSequenceIndicator')) {
             $this->unscheduledCardOnFileSequenceIndicator = $object->unscheduledCardOnFileSequenceIndicator;
+        }
+        if (property_exists($object, 'validationRules')) {
+            if (!is_object($object->validationRules)) {
+                throw new UnexpectedValueException('value \'' . print_r($object->validationRules, true) . '\' is not an object');
+            }
+            $value = new CreditCardValidationRules();
+            $this->validationRules = $value->fromObject($object->validationRules);
         }
         return $this;
     }
