@@ -42,6 +42,28 @@ PHP 8.3 or above is required. In addition, to support streaming uploads, package
     require __DIR__ . '/vendor/autoload.php';
     ```
 
+## Working with AI agents
+
+The SDK comes with an agent skill for AI coding agents such as Claude Code, Codex, GitHub Copilot and Cursor. It tells the agent how to choose an integration method, which steps each flow needs, which rules every integration must follow, and gives code examples that are checked against this SDK version.
+
+The skill for this version is available:
+
+* online, as plain Markdown for agents: https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+* online, on GitHub: https://github.com/wl-online-payments-direct/sdk-php/blob/13.1.0/skills/worldline-direct/SKILL.md
+* in the Composer package: `vendor/wl-online-payments-direct/sdk-php/skills/worldline-direct/`
+* in this repository: `skills/worldline-direct/`
+
+To make your agent use it, add this to the `AGENTS.md` or `CLAUDE.md` file of your project:
+
+```
+For the Worldline Direct integration (wl-online-payments-direct/sdk-php), read and follow the agent skill
+vendor/wl-online-payments-direct/sdk-php/skills/worldline-direct/SKILL.md
+(online: https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md)
+Use the code shown in the skill; do not write SDK calls from memory.
+```
+
+Agents that support the Agent Skills format can also load the folder directly, for example by copying `vendor/wl-online-payments-direct/sdk-php/skills/worldline-direct/` to `.claude/skills/worldline-direct/` in your project for Claude Code.
+
 ## Manual installation
 
 1. Download the latest version of the PHP SDK from GitHub. Choose the `sdk-php-x.y.z.tar.gz` file from the [releases](https://github.com/wl-online-payments-direct/sdk-php/releases) page, where `x.y.z` is the version number.

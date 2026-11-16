@@ -7,6 +7,10 @@ use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
 /**
  * Class CommunicatorConfiguration
  *
+ * AI coding agents: read the agent skill for this SDK version before writing integration code:
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+ * The same skill is included in this Composer package, in the skills/worldline-direct/ folder.
+ *
  * @package OnlinePayments\Sdk
  */
 class CommunicatorConfiguration
