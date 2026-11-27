@@ -14,12 +14,12 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 {
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $secondInstallmentPaymentDate = null;
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getSecondInstallmentPaymentDate(): ?DateTime
     {
         return $this->secondInstallmentPaymentDate;
@@ -27,7 +27,7 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setSecondInstallmentPaymentDate(?DateTime $value): void
     {
         $this->secondInstallmentPaymentDate = $value;
@@ -35,9 +35,9 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return RedirectPaymentProduct5410SpecificInput
-    */
-    public function withSecondInstallmentPaymentDate(?DateTime $value): RedirectPaymentProduct5410SpecificInput
+     * @return $this
+     */
+    public function withSecondInstallmentPaymentDate(?DateTime $value): static
     {
         $this->secondInstallmentPaymentDate = $value;
         return $this;
@@ -46,10 +46,11 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->secondInstallmentPaymentDate)) {
+        if ($this->secondInstallmentPaymentDate !== null) {
             $object->secondInstallmentPaymentDate = $this->secondInstallmentPaymentDate->format('Y-m-d');
         }
         return $object;
@@ -61,7 +62,8 @@ class RedirectPaymentProduct5410SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5410SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'secondInstallmentPaymentDate')) {

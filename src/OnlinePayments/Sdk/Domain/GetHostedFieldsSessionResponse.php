@@ -13,17 +13,17 @@ class GetHostedFieldsSessionResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $sessionId = null;
 
     /**
      * @var TokenInfo|null
-    */
+     */
     public ?TokenInfo $token = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getSessionId(): ?string
     {
         return $this->sessionId;
@@ -31,7 +31,7 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSessionId(?string $value): void
     {
         $this->sessionId = $value;
@@ -39,9 +39,9 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetHostedFieldsSessionResponse
-    */
-    public function withSessionId(?string $value): GetHostedFieldsSessionResponse
+     * @return $this
+     */
+    public function withSessionId(?string $value): static
     {
         $this->sessionId = $value;
         return $this;
@@ -49,7 +49,7 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @return TokenInfo|null
-    */
+     */
     public function getToken(): ?TokenInfo
     {
         return $this->token;
@@ -57,7 +57,7 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param TokenInfo|null $value
-    */
+     */
     public function setToken(?TokenInfo $value): void
     {
         $this->token = $value;
@@ -65,9 +65,9 @@ class GetHostedFieldsSessionResponse extends DataObject
 
     /**
      * @param TokenInfo|null $value
-     * @return GetHostedFieldsSessionResponse
-    */
-    public function withToken(?TokenInfo $value): GetHostedFieldsSessionResponse
+     * @return $this
+     */
+    public function withToken(?TokenInfo $value): static
     {
         $this->token = $value;
         return $this;
@@ -76,13 +76,14 @@ class GetHostedFieldsSessionResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->sessionId)) {
+        if ($this->sessionId !== null) {
             $object->sessionId = $this->sessionId;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class GetHostedFieldsSessionResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetHostedFieldsSessionResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'sessionId')) {

@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Domain;
 
 use UnexpectedValueException;
@@ -11,16 +12,16 @@ use UnexpectedValueException;
 class UploadableFile
 {
     /** @var string */
-    private string $fileName;
+    private readonly string $fileName;
 
     /** @var resource|string|callable */
-    private $content;
+    private readonly mixed $content;
 
     /** @var string */
-    private string $contentType;
+    private readonly string $contentType;
 
     /** @var int */
-    private int $contentLength;
+    private readonly int $contentLength;
 
     /**
      * @param string $fileName
@@ -29,24 +30,25 @@ class UploadableFile
      * @param string $contentType
      * @param int $contentLength
      */
-    public function __construct(string $fileName, $content, string $contentType, int $contentLength = -1)
+    public function __construct(string $fileName, mixed $content, string $contentType, int $contentLength = -1)
     {
-        if (strlen(trim($fileName)) == 0) {
-            throw new UnexpectedValueException("fileName is required");
+        if (trim($fileName) === '') {
+            throw new UnexpectedValueException('fileName is required');
         }
         if (!is_resource($content) && !is_string($content) && !is_callable($content)) {
             throw new UnexpectedValueException('content is required as resource, string or callable');
         }
-        if (strlen(trim($contentType)) == 0) {
-            throw new UnexpectedValueException("contentType is required");
+        if (trim($contentType) === '') {
+            throw new UnexpectedValueException('contentType is required');
         }
         $this->fileName = $fileName;
         $this->content = $content;
         $this->contentType = $contentType;
-        $this->contentLength = max($contentLength, -1);
-        if ($this->contentLength == -1 && is_string($content)) {
-            $this->contentLength = strlen($content);
+        $contentLength = max($contentLength, -1);
+        if ($contentLength === -1 && is_string($content)) {
+            $contentLength = strlen($content);
         }
+        $this->contentLength = $contentLength;
     }
 
     /**
@@ -61,7 +63,7 @@ class UploadableFile
      * @return resource|string|callable A resource, string or callable with the file's content.
      *         If it's a callable it should take a length argument and return a string that is not larger than the input.
      */
-    public function getContent()
+    public function getContent(): mixed
     {
         return $this->content;
     }

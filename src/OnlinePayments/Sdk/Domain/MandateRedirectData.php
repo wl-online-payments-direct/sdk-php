@@ -13,17 +13,17 @@ class MandateRedirectData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $RETURNMAC = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $redirectURL = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getRETURNMAC(): ?string
     {
         return $this->RETURNMAC;
@@ -31,7 +31,7 @@ class MandateRedirectData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRETURNMAC(?string $value): void
     {
         $this->RETURNMAC = $value;
@@ -39,9 +39,9 @@ class MandateRedirectData extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateRedirectData
-    */
-    public function withRETURNMAC(?string $value): MandateRedirectData
+     * @return $this
+     */
+    public function withRETURNMAC(?string $value): static
     {
         $this->RETURNMAC = $value;
         return $this;
@@ -49,7 +49,7 @@ class MandateRedirectData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRedirectURL(): ?string
     {
         return $this->redirectURL;
@@ -57,7 +57,7 @@ class MandateRedirectData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRedirectURL(?string $value): void
     {
         $this->redirectURL = $value;
@@ -65,9 +65,9 @@ class MandateRedirectData extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateRedirectData
-    */
-    public function withRedirectURL(?string $value): MandateRedirectData
+     * @return $this
+     */
+    public function withRedirectURL(?string $value): static
     {
         $this->redirectURL = $value;
         return $this;
@@ -76,13 +76,14 @@ class MandateRedirectData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->RETURNMAC)) {
+        if ($this->RETURNMAC !== null) {
             $object->RETURNMAC = $this->RETURNMAC;
         }
-        if (!is_null($this->redirectURL)) {
+        if ($this->redirectURL !== null) {
             $object->redirectURL = $this->redirectURL;
         }
         return $object;
@@ -94,7 +95,8 @@ class MandateRedirectData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MandateRedirectData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'RETURNMAC')) {

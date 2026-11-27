@@ -13,32 +13,32 @@ class ApiParameters extends DataObject
 {
     /**
      * @var Amex|null
-    */
+     */
     public ?Amex $amex = null;
 
     /**
      * @var PaymentProduct5002defaultBrandParameters|null
-    */
+     */
     public ?PaymentProduct5002defaultBrandParameters $cb = null;
 
     /**
      * @var PaymentProduct5002defaultBrandParameters|null
-    */
+     */
     public ?PaymentProduct5002defaultBrandParameters $eftpos = null;
 
     /**
      * @var Mastercard|null
-    */
+     */
     public ?Mastercard $mastercard = null;
 
     /**
      * @var Visa|null
-    */
+     */
     public ?Visa $visa = null;
 
     /**
      * @return Amex|null
-    */
+     */
     public function getAmex(): ?Amex
     {
         return $this->amex;
@@ -46,7 +46,7 @@ class ApiParameters extends DataObject
 
     /**
      * @param Amex|null $value
-    */
+     */
     public function setAmex(?Amex $value): void
     {
         $this->amex = $value;
@@ -54,9 +54,9 @@ class ApiParameters extends DataObject
 
     /**
      * @param Amex|null $value
-     * @return ApiParameters
-    */
-    public function withAmex(?Amex $value): ApiParameters
+     * @return $this
+     */
+    public function withAmex(?Amex $value): static
     {
         $this->amex = $value;
         return $this;
@@ -64,7 +64,7 @@ class ApiParameters extends DataObject
 
     /**
      * @return PaymentProduct5002defaultBrandParameters|null
-    */
+     */
     public function getCb(): ?PaymentProduct5002defaultBrandParameters
     {
         return $this->cb;
@@ -72,7 +72,7 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-    */
+     */
     public function setCb(?PaymentProduct5002defaultBrandParameters $value): void
     {
         $this->cb = $value;
@@ -80,9 +80,9 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-     * @return ApiParameters
-    */
-    public function withCb(?PaymentProduct5002defaultBrandParameters $value): ApiParameters
+     * @return $this
+     */
+    public function withCb(?PaymentProduct5002defaultBrandParameters $value): static
     {
         $this->cb = $value;
         return $this;
@@ -90,7 +90,7 @@ class ApiParameters extends DataObject
 
     /**
      * @return PaymentProduct5002defaultBrandParameters|null
-    */
+     */
     public function getEftpos(): ?PaymentProduct5002defaultBrandParameters
     {
         return $this->eftpos;
@@ -98,7 +98,7 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-    */
+     */
     public function setEftpos(?PaymentProduct5002defaultBrandParameters $value): void
     {
         $this->eftpos = $value;
@@ -106,9 +106,9 @@ class ApiParameters extends DataObject
 
     /**
      * @param PaymentProduct5002defaultBrandParameters|null $value
-     * @return ApiParameters
-    */
-    public function withEftpos(?PaymentProduct5002defaultBrandParameters $value): ApiParameters
+     * @return $this
+     */
+    public function withEftpos(?PaymentProduct5002defaultBrandParameters $value): static
     {
         $this->eftpos = $value;
         return $this;
@@ -116,7 +116,7 @@ class ApiParameters extends DataObject
 
     /**
      * @return Mastercard|null
-    */
+     */
     public function getMastercard(): ?Mastercard
     {
         return $this->mastercard;
@@ -124,7 +124,7 @@ class ApiParameters extends DataObject
 
     /**
      * @param Mastercard|null $value
-    */
+     */
     public function setMastercard(?Mastercard $value): void
     {
         $this->mastercard = $value;
@@ -132,9 +132,9 @@ class ApiParameters extends DataObject
 
     /**
      * @param Mastercard|null $value
-     * @return ApiParameters
-    */
-    public function withMastercard(?Mastercard $value): ApiParameters
+     * @return $this
+     */
+    public function withMastercard(?Mastercard $value): static
     {
         $this->mastercard = $value;
         return $this;
@@ -142,7 +142,7 @@ class ApiParameters extends DataObject
 
     /**
      * @return Visa|null
-    */
+     */
     public function getVisa(): ?Visa
     {
         return $this->visa;
@@ -150,7 +150,7 @@ class ApiParameters extends DataObject
 
     /**
      * @param Visa|null $value
-    */
+     */
     public function setVisa(?Visa $value): void
     {
         $this->visa = $value;
@@ -158,9 +158,9 @@ class ApiParameters extends DataObject
 
     /**
      * @param Visa|null $value
-     * @return ApiParameters
-    */
-    public function withVisa(?Visa $value): ApiParameters
+     * @return $this
+     */
+    public function withVisa(?Visa $value): static
     {
         $this->visa = $value;
         return $this;
@@ -169,22 +169,23 @@ class ApiParameters extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amex)) {
+        if ($this->amex !== null) {
             $object->amex = $this->amex->toObject();
         }
-        if (!is_null($this->cb)) {
+        if ($this->cb !== null) {
             $object->cb = $this->cb->toObject();
         }
-        if (!is_null($this->eftpos)) {
+        if ($this->eftpos !== null) {
             $object->eftpos = $this->eftpos->toObject();
         }
-        if (!is_null($this->mastercard)) {
+        if ($this->mastercard !== null) {
             $object->mastercard = $this->mastercard->toObject();
         }
-        if (!is_null($this->visa)) {
+        if ($this->visa !== null) {
             $object->visa = $this->visa->toObject();
         }
         return $object;
@@ -196,7 +197,8 @@ class ApiParameters extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ApiParameters
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amex')) {

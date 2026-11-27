@@ -13,12 +13,12 @@ class PaymentProduct3209SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $buyerCompliantBankMessage = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBuyerCompliantBankMessage(): ?string
     {
         return $this->buyerCompliantBankMessage;
@@ -26,7 +26,7 @@ class PaymentProduct3209SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBuyerCompliantBankMessage(?string $value): void
     {
         $this->buyerCompliantBankMessage = $value;
@@ -34,9 +34,9 @@ class PaymentProduct3209SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct3209SpecificOutput
-    */
-    public function withBuyerCompliantBankMessage(?string $value): PaymentProduct3209SpecificOutput
+     * @return $this
+     */
+    public function withBuyerCompliantBankMessage(?string $value): static
     {
         $this->buyerCompliantBankMessage = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProduct3209SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->buyerCompliantBankMessage)) {
+        if ($this->buyerCompliantBankMessage !== null) {
             $object->buyerCompliantBankMessage = $this->buyerCompliantBankMessage;
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProduct3209SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct3209SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'buyerCompliantBankMessage')) {

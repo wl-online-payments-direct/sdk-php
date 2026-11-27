@@ -80,5 +80,4 @@ class SubsequentPaymentTest extends TestCase
             $this->assertSame(404, $e->getHttpStatusCode());
         }
     }
-
 }

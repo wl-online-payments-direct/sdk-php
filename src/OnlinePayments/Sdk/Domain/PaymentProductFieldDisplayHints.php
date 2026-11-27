@@ -13,59 +13,59 @@ class PaymentProductFieldDisplayHints extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $alwaysShow = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $displayOrder = null;
 
     /**
      * @var PaymentProductFieldFormElement|null
-    */
+     */
     public ?PaymentProductFieldFormElement $formElement = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $label = null;
 
     /**
      * @var string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public ?string $link = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $mask = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $obfuscate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $placeholderLabel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $preferredInputType = null;
 
     /**
      * @var PaymentProductFieldTooltip|null
-    */
+     */
     public ?PaymentProductFieldTooltip $tooltip = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getAlwaysShow(): ?bool
     {
         return $this->alwaysShow;
@@ -73,7 +73,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAlwaysShow(?bool $value): void
     {
         $this->alwaysShow = $value;
@@ -81,9 +81,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withAlwaysShow(?bool $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withAlwaysShow(?bool $value): static
     {
         $this->alwaysShow = $value;
         return $this;
@@ -91,7 +91,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getDisplayOrder(): ?int
     {
         return $this->displayOrder;
@@ -99,7 +99,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setDisplayOrder(?int $value): void
     {
         $this->displayOrder = $value;
@@ -107,9 +107,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withDisplayOrder(?int $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withDisplayOrder(?int $value): static
     {
         $this->displayOrder = $value;
         return $this;
@@ -117,7 +117,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return PaymentProductFieldFormElement|null
-    */
+     */
     public function getFormElement(): ?PaymentProductFieldFormElement
     {
         return $this->formElement;
@@ -125,7 +125,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param PaymentProductFieldFormElement|null $value
-    */
+     */
     public function setFormElement(?PaymentProductFieldFormElement $value): void
     {
         $this->formElement = $value;
@@ -133,9 +133,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param PaymentProductFieldFormElement|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withFormElement(?PaymentProductFieldFormElement $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withFormElement(?PaymentProductFieldFormElement $value): static
     {
         $this->formElement = $value;
         return $this;
@@ -143,7 +143,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -151,7 +151,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
@@ -159,9 +159,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withLabel(?string $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withLabel(?string $value): static
     {
         $this->label = $value;
         return $this;
@@ -171,7 +171,7 @@ class PaymentProductFieldDisplayHints extends DataObject
      * @return string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public function getLink(): ?string
     {
         return $this->link;
@@ -181,7 +181,7 @@ class PaymentProductFieldDisplayHints extends DataObject
      * @param string|null $value
      *
      * @deprecated Deprecated
-    */
+     */
     public function setLink(?string $value): void
     {
         $this->link = $value;
@@ -189,11 +189,11 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayHints
+     * @return $this
      *
      * @deprecated Deprecated
-    */
-    public function withLink(?string $value): PaymentProductFieldDisplayHints
+     */
+    public function withLink(?string $value): static
     {
         $this->link = $value;
         return $this;
@@ -201,7 +201,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMask(): ?string
     {
         return $this->mask;
@@ -209,7 +209,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMask(?string $value): void
     {
         $this->mask = $value;
@@ -217,9 +217,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withMask(?string $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withMask(?string $value): static
     {
         $this->mask = $value;
         return $this;
@@ -227,7 +227,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getObfuscate(): ?bool
     {
         return $this->obfuscate;
@@ -235,7 +235,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setObfuscate(?bool $value): void
     {
         $this->obfuscate = $value;
@@ -243,9 +243,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withObfuscate(?bool $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withObfuscate(?bool $value): static
     {
         $this->obfuscate = $value;
         return $this;
@@ -253,7 +253,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPlaceholderLabel(): ?string
     {
         return $this->placeholderLabel;
@@ -261,7 +261,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPlaceholderLabel(?string $value): void
     {
         $this->placeholderLabel = $value;
@@ -269,9 +269,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withPlaceholderLabel(?string $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withPlaceholderLabel(?string $value): static
     {
         $this->placeholderLabel = $value;
         return $this;
@@ -279,7 +279,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPreferredInputType(): ?string
     {
         return $this->preferredInputType;
@@ -287,7 +287,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPreferredInputType(?string $value): void
     {
         $this->preferredInputType = $value;
@@ -295,9 +295,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withPreferredInputType(?string $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withPreferredInputType(?string $value): static
     {
         $this->preferredInputType = $value;
         return $this;
@@ -305,7 +305,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @return PaymentProductFieldTooltip|null
-    */
+     */
     public function getTooltip(): ?PaymentProductFieldTooltip
     {
         return $this->tooltip;
@@ -313,7 +313,7 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param PaymentProductFieldTooltip|null $value
-    */
+     */
     public function setTooltip(?PaymentProductFieldTooltip $value): void
     {
         $this->tooltip = $value;
@@ -321,9 +321,9 @@ class PaymentProductFieldDisplayHints extends DataObject
 
     /**
      * @param PaymentProductFieldTooltip|null $value
-     * @return PaymentProductFieldDisplayHints
-    */
-    public function withTooltip(?PaymentProductFieldTooltip $value): PaymentProductFieldDisplayHints
+     * @return $this
+     */
+    public function withTooltip(?PaymentProductFieldTooltip $value): static
     {
         $this->tooltip = $value;
         return $this;
@@ -332,37 +332,38 @@ class PaymentProductFieldDisplayHints extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->alwaysShow)) {
+        if ($this->alwaysShow !== null) {
             $object->alwaysShow = $this->alwaysShow;
         }
-        if (!is_null($this->displayOrder)) {
+        if ($this->displayOrder !== null) {
             $object->displayOrder = $this->displayOrder;
         }
-        if (!is_null($this->formElement)) {
+        if ($this->formElement !== null) {
             $object->formElement = $this->formElement->toObject();
         }
-        if (!is_null($this->label)) {
+        if ($this->label !== null) {
             $object->label = $this->label;
         }
-        if (!is_null($this->link)) {
+        if ($this->link !== null) {
             $object->link = $this->link;
         }
-        if (!is_null($this->mask)) {
+        if ($this->mask !== null) {
             $object->mask = $this->mask;
         }
-        if (!is_null($this->obfuscate)) {
+        if ($this->obfuscate !== null) {
             $object->obfuscate = $this->obfuscate;
         }
-        if (!is_null($this->placeholderLabel)) {
+        if ($this->placeholderLabel !== null) {
             $object->placeholderLabel = $this->placeholderLabel;
         }
-        if (!is_null($this->preferredInputType)) {
+        if ($this->preferredInputType !== null) {
             $object->preferredInputType = $this->preferredInputType;
         }
-        if (!is_null($this->tooltip)) {
+        if ($this->tooltip !== null) {
             $object->tooltip = $this->tooltip->toObject();
         }
         return $object;
@@ -374,7 +375,8 @@ class PaymentProductFieldDisplayHints extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldDisplayHints
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'alwaysShow')) {

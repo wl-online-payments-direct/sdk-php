@@ -56,13 +56,14 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cvvMandatoryForExistingToken)) {
+        if ($this->cvvMandatoryForExistingToken !== null) {
             $object->cvvMandatoryForExistingToken = $this->cvvMandatoryForExistingToken;
         }
-        if (!is_null($this->cvvMandatoryForNewToken)) {
+        if ($this->cvvMandatoryForNewToken !== null) {
             $object->cvvMandatoryForNewToken = $this->cvvMandatoryForNewToken;
         }
         return $object;
@@ -73,7 +74,8 @@ class CreditCardValidationRulesHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreditCardValidationRulesHostedTokenization
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cvvMandatoryForExistingToken')) {

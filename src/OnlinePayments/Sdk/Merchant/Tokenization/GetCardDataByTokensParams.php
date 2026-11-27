@@ -15,12 +15,12 @@ class GetCardDataByTokensParams extends RequestObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $tokens = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -28,7 +28,7 @@ class GetCardDataByTokensParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
@@ -36,34 +36,35 @@ class GetCardDataByTokensParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
-    public function withTokens(array $value): GetCardDataByTokensParams
+     * @return $this
+     */
+    public function withTokens(?array $value): static
     {
         $this->tokens = $value;
         return $this;
     }
 
     /**
-     * @param string[]|null $value
-    */
-    public function addTokens(array $value): void
+     * @param string $value
+     */
+    public function addTokens(string $value): void
     {
-        if (is_null($this->tokens)) {
+        if ($this->tokens === null) {
             $this->tokens = [];
         }
         $this->tokens[] = $value;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->tokens != null) {
+        if ($this->tokens !== null) {
             $array['tokens'] = [];
             foreach ($this->tokens as $element) {
-                if ($element != null) {
+                if ($element !== null) {
                     $array['tokens'][] = $element;
                 }
             }

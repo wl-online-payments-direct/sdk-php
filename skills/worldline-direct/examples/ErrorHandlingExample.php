@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Examples;
 
-use ErrorException;
 use OnlinePayments\Sdk\ApiException;
 use OnlinePayments\Sdk\CallContext;
+use OnlinePayments\Sdk\Communication\CommunicationException;
 use OnlinePayments\Sdk\DeclinedPaymentException;
 use OnlinePayments\Sdk\Domain\APIError;
 use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
@@ -71,7 +71,7 @@ final class ErrorHandlingExample
                 $context = new CallContext();
                 $context->setIdempotenceKey(PaymentAttempt::start($orderId, $this->orders));
                 sleep(2 * $attempt);
-            } catch (ErrorException $e) {
+            } catch (CommunicationException $e) {
                 // Timeout or connection error (cURL): the payment may or may not exist. Retry with the same key;
                 // the platform returns the original result instead of creating a second payment.
                 if ($attempt >= 3) {

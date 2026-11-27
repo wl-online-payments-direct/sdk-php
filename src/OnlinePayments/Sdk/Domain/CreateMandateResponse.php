@@ -13,17 +13,17 @@ class CreateMandateResponse extends DataObject
 {
     /**
      * @var MandateResponse|null
-    */
+     */
     public ?MandateResponse $mandate = null;
 
     /**
      * @var MandateMerchantAction|null
-    */
+     */
     public ?MandateMerchantAction $merchantAction = null;
 
     /**
      * @return MandateResponse|null
-    */
+     */
     public function getMandate(): ?MandateResponse
     {
         return $this->mandate;
@@ -31,7 +31,7 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-    */
+     */
     public function setMandate(?MandateResponse $value): void
     {
         $this->mandate = $value;
@@ -39,9 +39,9 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-     * @return CreateMandateResponse
-    */
-    public function withMandate(?MandateResponse $value): CreateMandateResponse
+     * @return $this
+     */
+    public function withMandate(?MandateResponse $value): static
     {
         $this->mandate = $value;
         return $this;
@@ -49,7 +49,7 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @return MandateMerchantAction|null
-    */
+     */
     public function getMerchantAction(): ?MandateMerchantAction
     {
         return $this->merchantAction;
@@ -57,7 +57,7 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateMerchantAction|null $value
-    */
+     */
     public function setMerchantAction(?MandateMerchantAction $value): void
     {
         $this->merchantAction = $value;
@@ -65,9 +65,9 @@ class CreateMandateResponse extends DataObject
 
     /**
      * @param MandateMerchantAction|null $value
-     * @return CreateMandateResponse
-    */
-    public function withMerchantAction(?MandateMerchantAction $value): CreateMandateResponse
+     * @return $this
+     */
+    public function withMerchantAction(?MandateMerchantAction $value): static
     {
         $this->merchantAction = $value;
         return $this;
@@ -76,13 +76,14 @@ class CreateMandateResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->mandate)) {
+        if ($this->mandate !== null) {
             $object->mandate = $this->mandate->toObject();
         }
-        if (!is_null($this->merchantAction)) {
+        if ($this->merchantAction !== null) {
             $object->merchantAction = $this->merchantAction->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class CreateMandateResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateMandateResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'mandate')) {

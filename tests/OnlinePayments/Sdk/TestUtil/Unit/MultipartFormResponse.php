@@ -6,8 +6,8 @@ use OnlinePayments\Sdk\Domain\DataObject;
 
 class MultipartFormResponse extends DataObject
 {
-    private $form;
-    private $files;
+    private mixed $form = null;
+    private mixed $files = null;
 
     /**
      * @return mixed
@@ -39,7 +39,7 @@ class MultipartFormResponse extends DataObject
         return $object;
     }
 
-    public function fromObject(object $object): DataObject
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'form')) {

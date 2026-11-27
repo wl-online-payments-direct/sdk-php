@@ -13,37 +13,37 @@ class OperationPaymentReferences extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantComment = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantReconciliationReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $operationGroupReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $softDescriptor = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $structuredCreditorReference = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantComment(): ?string
     {
         return $this->merchantComment;
@@ -51,7 +51,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantComment(?string $value): void
     {
         $this->merchantComment = $value;
@@ -59,9 +59,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withMerchantComment(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withMerchantComment(?string $value): static
     {
         $this->merchantComment = $value;
         return $this;
@@ -69,7 +69,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantReconciliationReference(): ?string
     {
         return $this->merchantReconciliationReference;
@@ -77,7 +77,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantReconciliationReference(?string $value): void
     {
         $this->merchantReconciliationReference = $value;
@@ -85,9 +85,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withMerchantReconciliationReference(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withMerchantReconciliationReference(?string $value): static
     {
         $this->merchantReconciliationReference = $value;
         return $this;
@@ -95,7 +95,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -103,7 +103,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
@@ -111,9 +111,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withMerchantReference(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withMerchantReference(?string $value): static
     {
         $this->merchantReference = $value;
         return $this;
@@ -121,7 +121,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOperationGroupReference(): ?string
     {
         return $this->operationGroupReference;
@@ -129,7 +129,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperationGroupReference(?string $value): void
     {
         $this->operationGroupReference = $value;
@@ -137,9 +137,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withOperationGroupReference(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withOperationGroupReference(?string $value): static
     {
         $this->operationGroupReference = $value;
         return $this;
@@ -147,7 +147,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSoftDescriptor(): ?string
     {
         return $this->softDescriptor;
@@ -155,7 +155,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSoftDescriptor(?string $value): void
     {
         $this->softDescriptor = $value;
@@ -163,9 +163,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withSoftDescriptor(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withSoftDescriptor(?string $value): static
     {
         $this->softDescriptor = $value;
         return $this;
@@ -173,7 +173,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStructuredCreditorReference(): ?string
     {
         return $this->structuredCreditorReference;
@@ -181,7 +181,7 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStructuredCreditorReference(?string $value): void
     {
         $this->structuredCreditorReference = $value;
@@ -189,9 +189,9 @@ class OperationPaymentReferences extends DataObject
 
     /**
      * @param string|null $value
-     * @return OperationPaymentReferences
-    */
-    public function withStructuredCreditorReference(?string $value): OperationPaymentReferences
+     * @return $this
+     */
+    public function withStructuredCreditorReference(?string $value): static
     {
         $this->structuredCreditorReference = $value;
         return $this;
@@ -200,25 +200,26 @@ class OperationPaymentReferences extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->merchantComment)) {
+        if ($this->merchantComment !== null) {
             $object->merchantComment = $this->merchantComment;
         }
-        if (!is_null($this->merchantReconciliationReference)) {
+        if ($this->merchantReconciliationReference !== null) {
             $object->merchantReconciliationReference = $this->merchantReconciliationReference;
         }
-        if (!is_null($this->merchantReference)) {
+        if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
-        if (!is_null($this->operationGroupReference)) {
+        if ($this->operationGroupReference !== null) {
             $object->operationGroupReference = $this->operationGroupReference;
         }
-        if (!is_null($this->softDescriptor)) {
+        if ($this->softDescriptor !== null) {
             $object->softDescriptor = $this->softDescriptor;
         }
-        if (!is_null($this->structuredCreditorReference)) {
+        if ($this->structuredCreditorReference !== null) {
             $object->structuredCreditorReference = $this->structuredCreditorReference;
         }
         return $object;
@@ -230,7 +231,8 @@ class OperationPaymentReferences extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OperationPaymentReferences
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'merchantComment')) {

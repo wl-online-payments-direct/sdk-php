@@ -13,22 +13,22 @@ class PaymentContext extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -36,7 +36,7 @@ class PaymentContext extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -44,9 +44,9 @@ class PaymentContext extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentContext
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): PaymentContext
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -54,7 +54,7 @@ class PaymentContext extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -62,7 +62,7 @@ class PaymentContext extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -70,9 +70,9 @@ class PaymentContext extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentContext
-    */
-    public function withCountryCode(?string $value): PaymentContext
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -80,7 +80,7 @@ class PaymentContext extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -88,7 +88,7 @@ class PaymentContext extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -96,9 +96,9 @@ class PaymentContext extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentContext
-    */
-    public function withIsRecurring(?bool $value): PaymentContext
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
@@ -107,16 +107,17 @@ class PaymentContext extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->countryCode)) {
+        if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if (!is_null($this->isRecurring)) {
+        if ($this->isRecurring !== null) {
             $object->isRecurring = $this->isRecurring;
         }
         return $object;
@@ -128,7 +129,8 @@ class PaymentContext extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentContext
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

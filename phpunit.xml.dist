@@ -10,4 +10,10 @@
             <directory>tests/OnlinePayments/Sdk/Integration</directory>
         </testsuite>
     </testsuites>
+    <source>
+        <include>
+            <directory>lib</directory>
+            <directory>src</directory>
+        </include>
+    </source>
 </phpunit>

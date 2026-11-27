@@ -13,116 +13,116 @@ class AirlineFlightLeg extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $airlineClass = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $arrivalAirport = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $arrivalTime = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $carrierCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $conjunctionTicket = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $couponNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $date = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $departureTime = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $endorsementOrRestriction = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $exchangeTicket = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use legFare instead. Fare of this leg
-    */
+     */
     public ?string $fare = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $fareBasis = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $fee = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $flightCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $flightNumber = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $legFare = null;
 
     /**
      * @var int|null
      *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
-    */
+     */
     public ?int $number = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $originAirport = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $passengerClass = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $stopoverCode = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $taxes = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAirlineClass(): ?string
     {
         return $this->airlineClass;
@@ -130,7 +130,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAirlineClass(?string $value): void
     {
         $this->airlineClass = $value;
@@ -138,9 +138,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withAirlineClass(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withAirlineClass(?string $value): static
     {
         $this->airlineClass = $value;
         return $this;
@@ -148,7 +148,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getArrivalAirport(): ?string
     {
         return $this->arrivalAirport;
@@ -156,7 +156,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setArrivalAirport(?string $value): void
     {
         $this->arrivalAirport = $value;
@@ -164,9 +164,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withArrivalAirport(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withArrivalAirport(?string $value): static
     {
         $this->arrivalAirport = $value;
         return $this;
@@ -174,7 +174,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getArrivalTime(): ?string
     {
         return $this->arrivalTime;
@@ -182,7 +182,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setArrivalTime(?string $value): void
     {
         $this->arrivalTime = $value;
@@ -190,9 +190,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withArrivalTime(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withArrivalTime(?string $value): static
     {
         $this->arrivalTime = $value;
         return $this;
@@ -200,7 +200,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCarrierCode(): ?string
     {
         return $this->carrierCode;
@@ -208,7 +208,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCarrierCode(?string $value): void
     {
         $this->carrierCode = $value;
@@ -216,9 +216,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withCarrierCode(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withCarrierCode(?string $value): static
     {
         $this->carrierCode = $value;
         return $this;
@@ -226,7 +226,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getConjunctionTicket(): ?string
     {
         return $this->conjunctionTicket;
@@ -234,7 +234,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setConjunctionTicket(?string $value): void
     {
         $this->conjunctionTicket = $value;
@@ -242,9 +242,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withConjunctionTicket(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withConjunctionTicket(?string $value): static
     {
         $this->conjunctionTicket = $value;
         return $this;
@@ -252,7 +252,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCouponNumber(): ?string
     {
         return $this->couponNumber;
@@ -260,7 +260,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCouponNumber(?string $value): void
     {
         $this->couponNumber = $value;
@@ -268,9 +268,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withCouponNumber(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withCouponNumber(?string $value): static
     {
         $this->couponNumber = $value;
         return $this;
@@ -278,7 +278,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDate(): ?string
     {
         return $this->date;
@@ -286,7 +286,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDate(?string $value): void
     {
         $this->date = $value;
@@ -294,9 +294,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withDate(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withDate(?string $value): static
     {
         $this->date = $value;
         return $this;
@@ -304,7 +304,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDepartureTime(): ?string
     {
         return $this->departureTime;
@@ -312,7 +312,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDepartureTime(?string $value): void
     {
         $this->departureTime = $value;
@@ -320,9 +320,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withDepartureTime(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withDepartureTime(?string $value): static
     {
         $this->departureTime = $value;
         return $this;
@@ -330,7 +330,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEndorsementOrRestriction(): ?string
     {
         return $this->endorsementOrRestriction;
@@ -338,7 +338,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEndorsementOrRestriction(?string $value): void
     {
         $this->endorsementOrRestriction = $value;
@@ -346,9 +346,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withEndorsementOrRestriction(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withEndorsementOrRestriction(?string $value): static
     {
         $this->endorsementOrRestriction = $value;
         return $this;
@@ -356,7 +356,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getExchangeTicket(): ?string
     {
         return $this->exchangeTicket;
@@ -364,7 +364,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExchangeTicket(?string $value): void
     {
         $this->exchangeTicket = $value;
@@ -372,9 +372,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withExchangeTicket(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withExchangeTicket(?string $value): static
     {
         $this->exchangeTicket = $value;
         return $this;
@@ -384,7 +384,7 @@ class AirlineFlightLeg extends DataObject
      * @return string|null
      *
      * @deprecated Use legFare instead. Fare of this leg
-    */
+     */
     public function getFare(): ?string
     {
         return $this->fare;
@@ -394,7 +394,7 @@ class AirlineFlightLeg extends DataObject
      * @param string|null $value
      *
      * @deprecated Use legFare instead. Fare of this leg
-    */
+     */
     public function setFare(?string $value): void
     {
         $this->fare = $value;
@@ -402,11 +402,11 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
+     * @return $this
      *
      * @deprecated Use legFare instead. Fare of this leg
-    */
-    public function withFare(?string $value): AirlineFlightLeg
+     */
+    public function withFare(?string $value): static
     {
         $this->fare = $value;
         return $this;
@@ -414,7 +414,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFareBasis(): ?string
     {
         return $this->fareBasis;
@@ -422,7 +422,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFareBasis(?string $value): void
     {
         $this->fareBasis = $value;
@@ -430,9 +430,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withFareBasis(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withFareBasis(?string $value): static
     {
         $this->fareBasis = $value;
         return $this;
@@ -440,7 +440,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getFee(): ?int
     {
         return $this->fee;
@@ -448,7 +448,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setFee(?int $value): void
     {
         $this->fee = $value;
@@ -456,9 +456,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withFee(?int $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withFee(?int $value): static
     {
         $this->fee = $value;
         return $this;
@@ -466,7 +466,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFlightCode(): ?string
     {
         return $this->flightCode;
@@ -474,7 +474,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFlightCode(?string $value): void
     {
         $this->flightCode = $value;
@@ -482,9 +482,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withFlightCode(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withFlightCode(?string $value): static
     {
         $this->flightCode = $value;
         return $this;
@@ -492,7 +492,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFlightNumber(): ?string
     {
         return $this->flightNumber;
@@ -500,7 +500,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFlightNumber(?string $value): void
     {
         $this->flightNumber = $value;
@@ -508,9 +508,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withFlightNumber(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withFlightNumber(?string $value): static
     {
         $this->flightNumber = $value;
         return $this;
@@ -518,7 +518,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getLegFare(): ?int
     {
         return $this->legFare;
@@ -526,7 +526,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setLegFare(?int $value): void
     {
         $this->legFare = $value;
@@ -534,9 +534,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withLegFare(?int $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withLegFare(?int $value): static
     {
         $this->legFare = $value;
         return $this;
@@ -546,7 +546,7 @@ class AirlineFlightLeg extends DataObject
      * @return int|null
      *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
-    */
+     */
     public function getNumber(): ?int
     {
         return $this->number;
@@ -556,7 +556,7 @@ class AirlineFlightLeg extends DataObject
      * @param int|null $value
      *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
-    */
+     */
     public function setNumber(?int $value): void
     {
         $this->number = $value;
@@ -564,11 +564,11 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-     * @return AirlineFlightLeg
+     * @return $this
      *
      * @deprecated This field is not used by any payment product Sequence number of the flight leg
-    */
-    public function withNumber(?int $value): AirlineFlightLeg
+     */
+    public function withNumber(?int $value): static
     {
         $this->number = $value;
         return $this;
@@ -576,7 +576,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOriginAirport(): ?string
     {
         return $this->originAirport;
@@ -584,7 +584,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOriginAirport(?string $value): void
     {
         $this->originAirport = $value;
@@ -592,9 +592,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withOriginAirport(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withOriginAirport(?string $value): static
     {
         $this->originAirport = $value;
         return $this;
@@ -602,7 +602,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPassengerClass(): ?string
     {
         return $this->passengerClass;
@@ -610,7 +610,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPassengerClass(?string $value): void
     {
         $this->passengerClass = $value;
@@ -618,9 +618,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withPassengerClass(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withPassengerClass(?string $value): static
     {
         $this->passengerClass = $value;
         return $this;
@@ -628,7 +628,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStopoverCode(): ?string
     {
         return $this->stopoverCode;
@@ -636,7 +636,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStopoverCode(?string $value): void
     {
         $this->stopoverCode = $value;
@@ -644,9 +644,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param string|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withStopoverCode(?string $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withStopoverCode(?string $value): static
     {
         $this->stopoverCode = $value;
         return $this;
@@ -654,7 +654,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTaxes(): ?int
     {
         return $this->taxes;
@@ -662,7 +662,7 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTaxes(?int $value): void
     {
         $this->taxes = $value;
@@ -670,9 +670,9 @@ class AirlineFlightLeg extends DataObject
 
     /**
      * @param int|null $value
-     * @return AirlineFlightLeg
-    */
-    public function withTaxes(?int $value): AirlineFlightLeg
+     * @return $this
+     */
+    public function withTaxes(?int $value): static
     {
         $this->taxes = $value;
         return $this;
@@ -681,70 +681,71 @@ class AirlineFlightLeg extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->airlineClass)) {
+        if ($this->airlineClass !== null) {
             $object->airlineClass = $this->airlineClass;
         }
-        if (!is_null($this->arrivalAirport)) {
+        if ($this->arrivalAirport !== null) {
             $object->arrivalAirport = $this->arrivalAirport;
         }
-        if (!is_null($this->arrivalTime)) {
+        if ($this->arrivalTime !== null) {
             $object->arrivalTime = $this->arrivalTime;
         }
-        if (!is_null($this->carrierCode)) {
+        if ($this->carrierCode !== null) {
             $object->carrierCode = $this->carrierCode;
         }
-        if (!is_null($this->conjunctionTicket)) {
+        if ($this->conjunctionTicket !== null) {
             $object->conjunctionTicket = $this->conjunctionTicket;
         }
-        if (!is_null($this->couponNumber)) {
+        if ($this->couponNumber !== null) {
             $object->couponNumber = $this->couponNumber;
         }
-        if (!is_null($this->date)) {
+        if ($this->date !== null) {
             $object->date = $this->date;
         }
-        if (!is_null($this->departureTime)) {
+        if ($this->departureTime !== null) {
             $object->departureTime = $this->departureTime;
         }
-        if (!is_null($this->endorsementOrRestriction)) {
+        if ($this->endorsementOrRestriction !== null) {
             $object->endorsementOrRestriction = $this->endorsementOrRestriction;
         }
-        if (!is_null($this->exchangeTicket)) {
+        if ($this->exchangeTicket !== null) {
             $object->exchangeTicket = $this->exchangeTicket;
         }
-        if (!is_null($this->fare)) {
+        if ($this->fare !== null) {
             $object->fare = $this->fare;
         }
-        if (!is_null($this->fareBasis)) {
+        if ($this->fareBasis !== null) {
             $object->fareBasis = $this->fareBasis;
         }
-        if (!is_null($this->fee)) {
+        if ($this->fee !== null) {
             $object->fee = $this->fee;
         }
-        if (!is_null($this->flightCode)) {
+        if ($this->flightCode !== null) {
             $object->flightCode = $this->flightCode;
         }
-        if (!is_null($this->flightNumber)) {
+        if ($this->flightNumber !== null) {
             $object->flightNumber = $this->flightNumber;
         }
-        if (!is_null($this->legFare)) {
+        if ($this->legFare !== null) {
             $object->legFare = $this->legFare;
         }
-        if (!is_null($this->number)) {
+        if ($this->number !== null) {
             $object->number = $this->number;
         }
-        if (!is_null($this->originAirport)) {
+        if ($this->originAirport !== null) {
             $object->originAirport = $this->originAirport;
         }
-        if (!is_null($this->passengerClass)) {
+        if ($this->passengerClass !== null) {
             $object->passengerClass = $this->passengerClass;
         }
-        if (!is_null($this->stopoverCode)) {
+        if ($this->stopoverCode !== null) {
             $object->stopoverCode = $this->stopoverCode;
         }
-        if (!is_null($this->taxes)) {
+        if ($this->taxes !== null) {
             $object->taxes = $this->taxes;
         }
         return $object;
@@ -756,7 +757,8 @@ class AirlineFlightLeg extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AirlineFlightLeg
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'airlineClass')) {

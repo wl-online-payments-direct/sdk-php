@@ -12,6 +12,7 @@ use OnlinePayments\Sdk\Domain\CalculateSurchargeRequest;
 use OnlinePayments\Sdk\Domain\CalculateSurchargeResponse;
 use OnlinePayments\Sdk\Domain\CurrencyConversionRequest;
 use OnlinePayments\Sdk\Domain\CurrencyConversionResponse;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\GetIINDetailsRequest;
 use OnlinePayments\Sdk\Domain\GetIINDetailsResponse;
 use OnlinePayments\Sdk\Domain\TestConnection;
@@ -32,25 +33,28 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function testConnection(?CallContext $callContext = null): TestConnection
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\TestConnection';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = TestConnection::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->get(
+            /** @var TestConnection $response */
+            $response = $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/services/testconnection'),
                 $this->getClientMetaInfo(),
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -58,14 +62,15 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getIINDetails(GetIINDetailsRequest $body, ?CallContext $callContext = null): GetIINDetailsResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetIINDetailsResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = GetIINDetailsResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var GetIINDetailsResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/services/getIINdetails'),
                 $this->getClientMetaInfo(),
@@ -73,11 +78,13 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -85,14 +92,15 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getDccRateInquiry(CurrencyConversionRequest $body, ?CallContext $callContext = null): CurrencyConversionResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CurrencyConversionResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = CurrencyConversionResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var CurrencyConversionResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/services/dccrate'),
                 $this->getClientMetaInfo(),
@@ -100,11 +108,13 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -112,14 +122,15 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function surchargeCalculation(CalculateSurchargeRequest $body, ?CallContext $callContext = null): CalculateSurchargeResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CalculateSurchargeResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = CalculateSurchargeResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var CalculateSurchargeResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/services/surchargecalculation'),
                 $this->getClientMetaInfo(),
@@ -127,11 +138,13 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -141,7 +154,7 @@ class ServicesClient extends ApiResource implements ServicesClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

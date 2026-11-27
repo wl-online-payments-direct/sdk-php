@@ -13,17 +13,17 @@ class GetHostedCheckoutResponse extends DataObject
 {
     /**
      * @var CreatedPaymentOutput|null
-    */
+     */
     public ?CreatedPaymentOutput $createdPaymentOutput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @return CreatedPaymentOutput|null
-    */
+     */
     public function getCreatedPaymentOutput(): ?CreatedPaymentOutput
     {
         return $this->createdPaymentOutput;
@@ -31,7 +31,7 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param CreatedPaymentOutput|null $value
-    */
+     */
     public function setCreatedPaymentOutput(?CreatedPaymentOutput $value): void
     {
         $this->createdPaymentOutput = $value;
@@ -39,9 +39,9 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param CreatedPaymentOutput|null $value
-     * @return GetHostedCheckoutResponse
-    */
-    public function withCreatedPaymentOutput(?CreatedPaymentOutput $value): GetHostedCheckoutResponse
+     * @return $this
+     */
+    public function withCreatedPaymentOutput(?CreatedPaymentOutput $value): static
     {
         $this->createdPaymentOutput = $value;
         return $this;
@@ -49,7 +49,7 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -57,7 +57,7 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -65,9 +65,9 @@ class GetHostedCheckoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetHostedCheckoutResponse
-    */
-    public function withStatus(?string $value): GetHostedCheckoutResponse
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -76,13 +76,14 @@ class GetHostedCheckoutResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->createdPaymentOutput)) {
+        if ($this->createdPaymentOutput !== null) {
             $object->createdPaymentOutput = $this->createdPaymentOutput->toObject();
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
         return $object;
@@ -94,7 +95,8 @@ class GetHostedCheckoutResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetHostedCheckoutResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'createdPaymentOutput')) {

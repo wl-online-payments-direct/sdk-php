@@ -13,77 +13,77 @@ class PaymentProduct extends DataObject
 {
     /**
      * @var AccountOnFile[]|null
-    */
+     */
     public ?array $accountsOnFile = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $allowsAuthentication = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $allowsRecurring = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $allowsTokenization = null;
 
     /**
      * @var PaymentProductDisplayHints|null
-    */
+     */
     public ?PaymentProductDisplayHints $displayHints = null;
 
     /**
      * @var PaymentProductDisplayHints[]|null
-    */
+     */
     public ?array $displayHintsList = null;
 
     /**
      * @var PaymentProductField[]|null
-    */
+     */
     public ?array $fields = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $id = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentMethod = null;
 
     /**
      * @var PaymentProduct302SpecificData|null
-    */
+     */
     public ?PaymentProduct302SpecificData $paymentProduct302SpecificData = null;
 
     /**
      * @var PaymentProduct320SpecificData|null
-    */
+     */
     public ?PaymentProduct320SpecificData $paymentProduct320SpecificData = null;
 
     /**
      * @var PaymentProduct5002SpecificData|null
-    */
+     */
     public ?PaymentProduct5002SpecificData $paymentProduct5002SpecificData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentProductGroup = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $usesRedirectionTo3rdParty = null;
 
     /**
      * @return AccountOnFile[]|null
-    */
+     */
     public function getAccountsOnFile(): ?array
     {
         return $this->accountsOnFile;
@@ -91,7 +91,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param AccountOnFile[]|null $value
-    */
+     */
     public function setAccountsOnFile(?array $value): void
     {
         $this->accountsOnFile = $value;
@@ -99,9 +99,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param AccountOnFile[]|null $value
-     * @return PaymentProduct
-    */
-    public function withAccountsOnFile(?array $value): PaymentProduct
+     * @return $this
+     */
+    public function withAccountsOnFile(?array $value): static
     {
         $this->accountsOnFile = $value;
         return $this;
@@ -109,7 +109,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getAllowsAuthentication(): ?bool
     {
         return $this->allowsAuthentication;
@@ -117,7 +117,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAllowsAuthentication(?bool $value): void
     {
         $this->allowsAuthentication = $value;
@@ -125,9 +125,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProduct
-    */
-    public function withAllowsAuthentication(?bool $value): PaymentProduct
+     * @return $this
+     */
+    public function withAllowsAuthentication(?bool $value): static
     {
         $this->allowsAuthentication = $value;
         return $this;
@@ -135,7 +135,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getAllowsRecurring(): ?bool
     {
         return $this->allowsRecurring;
@@ -143,7 +143,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAllowsRecurring(?bool $value): void
     {
         $this->allowsRecurring = $value;
@@ -151,9 +151,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProduct
-    */
-    public function withAllowsRecurring(?bool $value): PaymentProduct
+     * @return $this
+     */
+    public function withAllowsRecurring(?bool $value): static
     {
         $this->allowsRecurring = $value;
         return $this;
@@ -161,7 +161,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getAllowsTokenization(): ?bool
     {
         return $this->allowsTokenization;
@@ -169,7 +169,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAllowsTokenization(?bool $value): void
     {
         $this->allowsTokenization = $value;
@@ -177,9 +177,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProduct
-    */
-    public function withAllowsTokenization(?bool $value): PaymentProduct
+     * @return $this
+     */
+    public function withAllowsTokenization(?bool $value): static
     {
         $this->allowsTokenization = $value;
         return $this;
@@ -187,7 +187,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProductDisplayHints|null
-    */
+     */
     public function getDisplayHints(): ?PaymentProductDisplayHints
     {
         return $this->displayHints;
@@ -195,7 +195,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductDisplayHints|null $value
-    */
+     */
     public function setDisplayHints(?PaymentProductDisplayHints $value): void
     {
         $this->displayHints = $value;
@@ -203,9 +203,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductDisplayHints|null $value
-     * @return PaymentProduct
-    */
-    public function withDisplayHints(?PaymentProductDisplayHints $value): PaymentProduct
+     * @return $this
+     */
+    public function withDisplayHints(?PaymentProductDisplayHints $value): static
     {
         $this->displayHints = $value;
         return $this;
@@ -213,7 +213,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProductDisplayHints[]|null
-    */
+     */
     public function getDisplayHintsList(): ?array
     {
         return $this->displayHintsList;
@@ -221,7 +221,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductDisplayHints[]|null $value
-    */
+     */
     public function setDisplayHintsList(?array $value): void
     {
         $this->displayHintsList = $value;
@@ -229,9 +229,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductDisplayHints[]|null $value
-     * @return PaymentProduct
-    */
-    public function withDisplayHintsList(?array $value): PaymentProduct
+     * @return $this
+     */
+    public function withDisplayHintsList(?array $value): static
     {
         $this->displayHintsList = $value;
         return $this;
@@ -239,7 +239,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProductField[]|null
-    */
+     */
     public function getFields(): ?array
     {
         return $this->fields;
@@ -247,7 +247,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductField[]|null $value
-    */
+     */
     public function setFields(?array $value): void
     {
         $this->fields = $value;
@@ -255,9 +255,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProductField[]|null $value
-     * @return PaymentProduct
-    */
-    public function withFields(?array $value): PaymentProduct
+     * @return $this
+     */
+    public function withFields(?array $value): static
     {
         $this->fields = $value;
         return $this;
@@ -265,7 +265,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -273,7 +273,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setId(?int $value): void
     {
         $this->id = $value;
@@ -281,9 +281,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentProduct
-    */
-    public function withId(?int $value): PaymentProduct
+     * @return $this
+     */
+    public function withId(?int $value): static
     {
         $this->id = $value;
         return $this;
@@ -291,7 +291,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -299,7 +299,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
@@ -307,9 +307,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct
-    */
-    public function withPaymentMethod(?string $value): PaymentProduct
+     * @return $this
+     */
+    public function withPaymentMethod(?string $value): static
     {
         $this->paymentMethod = $value;
         return $this;
@@ -317,7 +317,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProduct302SpecificData|null
-    */
+     */
     public function getPaymentProduct302SpecificData(): ?PaymentProduct302SpecificData
     {
         return $this->paymentProduct302SpecificData;
@@ -325,7 +325,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct302SpecificData|null $value
-    */
+     */
     public function setPaymentProduct302SpecificData(?PaymentProduct302SpecificData $value): void
     {
         $this->paymentProduct302SpecificData = $value;
@@ -333,9 +333,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct302SpecificData|null $value
-     * @return PaymentProduct
-    */
-    public function withPaymentProduct302SpecificData(?PaymentProduct302SpecificData $value): PaymentProduct
+     * @return $this
+     */
+    public function withPaymentProduct302SpecificData(?PaymentProduct302SpecificData $value): static
     {
         $this->paymentProduct302SpecificData = $value;
         return $this;
@@ -343,7 +343,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProduct320SpecificData|null
-    */
+     */
     public function getPaymentProduct320SpecificData(): ?PaymentProduct320SpecificData
     {
         return $this->paymentProduct320SpecificData;
@@ -351,7 +351,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct320SpecificData|null $value
-    */
+     */
     public function setPaymentProduct320SpecificData(?PaymentProduct320SpecificData $value): void
     {
         $this->paymentProduct320SpecificData = $value;
@@ -359,9 +359,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct320SpecificData|null $value
-     * @return PaymentProduct
-    */
-    public function withPaymentProduct320SpecificData(?PaymentProduct320SpecificData $value): PaymentProduct
+     * @return $this
+     */
+    public function withPaymentProduct320SpecificData(?PaymentProduct320SpecificData $value): static
     {
         $this->paymentProduct320SpecificData = $value;
         return $this;
@@ -369,7 +369,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return PaymentProduct5002SpecificData|null
-    */
+     */
     public function getPaymentProduct5002SpecificData(): ?PaymentProduct5002SpecificData
     {
         return $this->paymentProduct5002SpecificData;
@@ -377,7 +377,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct5002SpecificData|null $value
-    */
+     */
     public function setPaymentProduct5002SpecificData(?PaymentProduct5002SpecificData $value): void
     {
         $this->paymentProduct5002SpecificData = $value;
@@ -385,9 +385,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param PaymentProduct5002SpecificData|null $value
-     * @return PaymentProduct
-    */
-    public function withPaymentProduct5002SpecificData(?PaymentProduct5002SpecificData $value): PaymentProduct
+     * @return $this
+     */
+    public function withPaymentProduct5002SpecificData(?PaymentProduct5002SpecificData $value): static
     {
         $this->paymentProduct5002SpecificData = $value;
         return $this;
@@ -395,7 +395,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentProductGroup(): ?string
     {
         return $this->paymentProductGroup;
@@ -403,7 +403,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentProductGroup(?string $value): void
     {
         $this->paymentProductGroup = $value;
@@ -411,9 +411,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct
-    */
-    public function withPaymentProductGroup(?string $value): PaymentProduct
+     * @return $this
+     */
+    public function withPaymentProductGroup(?string $value): static
     {
         $this->paymentProductGroup = $value;
         return $this;
@@ -421,7 +421,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getUsesRedirectionTo3rdParty(): ?bool
     {
         return $this->usesRedirectionTo3rdParty;
@@ -429,7 +429,7 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setUsesRedirectionTo3rdParty(?bool $value): void
     {
         $this->usesRedirectionTo3rdParty = $value;
@@ -437,9 +437,9 @@ class PaymentProduct extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProduct
-    */
-    public function withUsesRedirectionTo3rdParty(?bool $value): PaymentProduct
+     * @return $this
+     */
+    public function withUsesRedirectionTo3rdParty(?bool $value): static
     {
         $this->usesRedirectionTo3rdParty = $value;
         return $this;
@@ -448,64 +448,65 @@ class PaymentProduct extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountsOnFile)) {
+        if ($this->accountsOnFile !== null) {
             $object->accountsOnFile = [];
             foreach ($this->accountsOnFile as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->accountsOnFile[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->allowsAuthentication)) {
+        if ($this->allowsAuthentication !== null) {
             $object->allowsAuthentication = $this->allowsAuthentication;
         }
-        if (!is_null($this->allowsRecurring)) {
+        if ($this->allowsRecurring !== null) {
             $object->allowsRecurring = $this->allowsRecurring;
         }
-        if (!is_null($this->allowsTokenization)) {
+        if ($this->allowsTokenization !== null) {
             $object->allowsTokenization = $this->allowsTokenization;
         }
-        if (!is_null($this->displayHints)) {
+        if ($this->displayHints !== null) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if (!is_null($this->displayHintsList)) {
+        if ($this->displayHintsList !== null) {
             $object->displayHintsList = [];
             foreach ($this->displayHintsList as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->displayHintsList[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->fields)) {
+        if ($this->fields !== null) {
             $object->fields = [];
             foreach ($this->fields as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->fields[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->paymentMethod)) {
+        if ($this->paymentMethod !== null) {
             $object->paymentMethod = $this->paymentMethod;
         }
-        if (!is_null($this->paymentProduct302SpecificData)) {
+        if ($this->paymentProduct302SpecificData !== null) {
             $object->paymentProduct302SpecificData = $this->paymentProduct302SpecificData->toObject();
         }
-        if (!is_null($this->paymentProduct320SpecificData)) {
+        if ($this->paymentProduct320SpecificData !== null) {
             $object->paymentProduct320SpecificData = $this->paymentProduct320SpecificData->toObject();
         }
-        if (!is_null($this->paymentProduct5002SpecificData)) {
+        if ($this->paymentProduct5002SpecificData !== null) {
             $object->paymentProduct5002SpecificData = $this->paymentProduct5002SpecificData->toObject();
         }
-        if (!is_null($this->paymentProductGroup)) {
+        if ($this->paymentProductGroup !== null) {
             $object->paymentProductGroup = $this->paymentProductGroup;
         }
-        if (!is_null($this->usesRedirectionTo3rdParty)) {
+        if ($this->usesRedirectionTo3rdParty !== null) {
             $object->usesRedirectionTo3rdParty = $this->usesRedirectionTo3rdParty;
         }
         return $object;
@@ -517,7 +518,8 @@ class PaymentProduct extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountsOnFile')) {

@@ -13,17 +13,17 @@ class RefundPaymentBatchRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @var RefundRequest|null
-    */
+     */
     public ?RefundRequest $refund = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -31,7 +31,7 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -39,9 +39,9 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundPaymentBatchRequest
-    */
-    public function withPaymentId(?string $value): RefundPaymentBatchRequest
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -49,7 +49,7 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @return RefundRequest|null
-    */
+     */
     public function getRefund(): ?RefundRequest
     {
         return $this->refund;
@@ -57,7 +57,7 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param RefundRequest|null $value
-    */
+     */
     public function setRefund(?RefundRequest $value): void
     {
         $this->refund = $value;
@@ -65,9 +65,9 @@ class RefundPaymentBatchRequest extends DataObject
 
     /**
      * @param RefundRequest|null $value
-     * @return RefundPaymentBatchRequest
-    */
-    public function withRefund(?RefundRequest $value): RefundPaymentBatchRequest
+     * @return $this
+     */
+    public function withRefund(?RefundRequest $value): static
     {
         $this->refund = $value;
         return $this;
@@ -76,13 +76,14 @@ class RefundPaymentBatchRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
-        if (!is_null($this->refund)) {
+        if ($this->refund !== null) {
             $object->refund = $this->refund->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class RefundPaymentBatchRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundPaymentBatchRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentId')) {

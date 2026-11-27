@@ -13,27 +13,27 @@ class GetBatchStatusResponse extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $itemCount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $operationType = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getItemCount(): ?int
     {
         return $this->itemCount;
@@ -41,7 +41,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setItemCount(?int $value): void
     {
         $this->itemCount = $value;
@@ -49,9 +49,9 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return GetBatchStatusResponse
-    */
-    public function withItemCount(?int $value): GetBatchStatusResponse
+     * @return $this
+     */
+    public function withItemCount(?int $value): static
     {
         $this->itemCount = $value;
         return $this;
@@ -59,7 +59,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -67,7 +67,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
@@ -75,9 +75,9 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetBatchStatusResponse
-    */
-    public function withMerchantBatchReference(?string $value): GetBatchStatusResponse
+     * @return $this
+     */
+    public function withMerchantBatchReference(?string $value): static
     {
         $this->merchantBatchReference = $value;
         return $this;
@@ -85,7 +85,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOperationType(): ?string
     {
         return $this->operationType;
@@ -93,7 +93,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperationType(?string $value): void
     {
         $this->operationType = $value;
@@ -101,9 +101,9 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetBatchStatusResponse
-    */
-    public function withOperationType(?string $value): GetBatchStatusResponse
+     * @return $this
+     */
+    public function withOperationType(?string $value): static
     {
         $this->operationType = $value;
         return $this;
@@ -111,7 +111,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -119,7 +119,7 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -127,9 +127,9 @@ class GetBatchStatusResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetBatchStatusResponse
-    */
-    public function withStatus(?string $value): GetBatchStatusResponse
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -138,19 +138,20 @@ class GetBatchStatusResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->itemCount)) {
+        if ($this->itemCount !== null) {
             $object->itemCount = $this->itemCount;
         }
-        if (!is_null($this->merchantBatchReference)) {
+        if ($this->merchantBatchReference !== null) {
             $object->merchantBatchReference = $this->merchantBatchReference;
         }
-        if (!is_null($this->operationType)) {
+        if ($this->operationType !== null) {
             $object->operationType = $this->operationType;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
         return $object;
@@ -162,7 +163,8 @@ class GetBatchStatusResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetBatchStatusResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'itemCount')) {

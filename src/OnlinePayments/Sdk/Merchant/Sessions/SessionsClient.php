@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\SessionRequest;
 use OnlinePayments\Sdk\Domain\SessionResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
@@ -27,14 +28,15 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function createSession(SessionRequest $body, ?CallContext $callContext = null): SessionResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SessionResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = SessionResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var SessionResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/sessions'),
                 $this->getClientMetaInfo(),
@@ -42,11 +44,13 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -56,7 +60,7 @@ class SessionsClient extends ApiResource implements SessionsClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

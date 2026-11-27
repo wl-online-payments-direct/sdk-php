@@ -13,12 +13,12 @@ class Discount extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -26,7 +26,7 @@ class Discount extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -34,9 +34,9 @@ class Discount extends DataObject
 
     /**
      * @param int|null $value
-     * @return Discount
-    */
-    public function withAmount(?int $value): Discount
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -45,10 +45,11 @@ class Discount extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount;
         }
         return $object;
@@ -60,7 +61,8 @@ class Discount extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Discount
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

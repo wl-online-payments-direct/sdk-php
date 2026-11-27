@@ -9,45 +9,39 @@ namespace OnlinePayments\Sdk\Communication;
  */
 class ConnectionResponse implements ConnectionResponseInterface
 {
-    /** @var int */
-    private int $httpStatusCode;
-
-    /** @var array */
-    private array $headers;
-
-    /** @var array */
-    private array $lowerCasedHeaderKeyMap;
-
-    /** @var string */
-    private string $body;
+    /** @var array<string, int|string> */
+    private readonly array $lowerCasedHeaderKeyMap;
 
     /**
      * @param int $httpStatusCode
-     * @param array $headers
+     * @param array<int|string, string|string[]> $headers
      * @param string $body
      */
-    public function __construct(int $httpStatusCode, array $headers, string $body)
-    {
-        $this->httpStatusCode = $httpStatusCode;
-        $this->headers = $headers;
-        $this->lowerCasedHeaderKeyMap = array();
+    public function __construct(
+        private readonly int $httpStatusCode,
+        private readonly array $headers,
+        private readonly string $body,
+    ) {
+        $lowerCasedHeaderKeyMap = [];
         foreach (array_keys($headers) as $headerKey) {
-            $this->lowerCasedHeaderKeyMap[strtolower($headerKey)] = $headerKey;
+            $lowerCasedHeaderKeyMap[strtolower($headerKey)] = $headerKey;
         }
-        $this->body = $body;
+        $this->lowerCasedHeaderKeyMap = $lowerCasedHeaderKeyMap;
     }
 
     /**
      * @return int
      */
+    #[\Override]
     public function getHttpStatusCode(): int
     {
         return $this->httpStatusCode;
     }
 
     /**
-     * @return array
+     * @return array<int|string, string|string[]>
      */
+    #[\Override]
     public function getHeaders(): array
     {
         return $this->headers;
@@ -55,35 +49,41 @@ class ConnectionResponse implements ConnectionResponseInterface
 
     /**
      * @param string $name
-     * @return string|array
+     * @return string The value of the header with the given name (case-insensitive); the first value if the header
+     *                occurs more than once, or an empty string if there is no such header.
      */
-    public function getHeaderValue(string $name)
+    #[\Override]
+    public function getHeaderValue(string $name): string
     {
         $lowerCasedName = strtolower($name);
-        if (array_key_exists($lowerCasedName, $this->lowerCasedHeaderKeyMap)) {
-            return $this->headers[$this->lowerCasedHeaderKeyMap[$lowerCasedName]];
+        if (!array_key_exists($lowerCasedName, $this->lowerCasedHeaderKeyMap)) {
+            return '';
         }
-        return '';
+        $value = $this->headers[$this->lowerCasedHeaderKeyMap[$lowerCasedName]];
+        if (is_array($value)) {
+            return $value === [] ? '' : (string) reset($value);
+        }
+        return $value;
     }
 
     /**
      * @return string
      */
+    #[\Override]
     public function getBody(): string
     {
         return $this->body;
     }
 
     /**
-     * @param array $headers
+     * @param array<int|string, string|string[]> $headers
      * @return string|null The value of the filename parameter of the Content-Disposition header from the given headers,
      *                     or null if there was no such header or parameter.
      */
     public static function getDispositionFilename(array $headers): ?string
     {
         $headerValue = null;
-        foreach ($headers as $key => $value)
-        {
+        foreach ($headers as $key => $value) {
             if (strtolower($key) === 'content-disposition') {
                 $headerValue = $value;
                 break;
@@ -99,14 +99,20 @@ class ConnectionResponse implements ConnectionResponseInterface
         return null;
     }
 
+    /**
+     * @param string $filename
+     * @return string
+     */
     private static function trimQuotes(string $filename): string
     {
         $len = strlen($filename);
         if ($len < 2) {
             return $filename;
         }
-        if ((strrpos($filename, '"', -$len) === 0 && strpos($filename, '"', $len - 1) === $len - 1)
-            || (strrpos($filename, "'", -$len) === 0 && strpos($filename, "'", $len - 1) === $len - 1)) {
+        if (
+            (str_starts_with($filename, '"') && str_ends_with($filename, '"'))
+            || (str_starts_with($filename, "'") && str_ends_with($filename, "'"))
+        ) {
             return substr($filename, 1, $len - 2);
         }
         return $filename;

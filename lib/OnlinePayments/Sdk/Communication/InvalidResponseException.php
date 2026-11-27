@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use RuntimeException;
@@ -10,10 +11,8 @@ use RuntimeException;
  */
 class InvalidResponseException extends RuntimeException
 {
-    /**
-     * @var ConnectionResponseInterface
-     */
-    private ConnectionResponse $response;
+    /** @var ConnectionResponseInterface */
+    private ConnectionResponseInterface $response;
 
     /**
      * @param ConnectionResponseInterface $response
@@ -21,17 +20,14 @@ class InvalidResponseException extends RuntimeException
      */
     public function __construct(ConnectionResponseInterface $response, ?string $message = null)
     {
-        if (is_null($message)) {
-            $message = 'The server returned an invalid response.';
-        }
-        parent::__construct($message);
+        parent::__construct($message ?? 'The server returned an invalid response.');
         $this->response = $response;
     }
 
     /**
      * @return ConnectionResponseInterface
      */
-    public function getResponse(): ConnectionResponse
+    public function getResponse(): ConnectionResponseInterface
     {
         return $this->response;
     }

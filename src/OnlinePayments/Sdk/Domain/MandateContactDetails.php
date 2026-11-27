@@ -13,17 +13,17 @@ class MandateContactDetails extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $emailAddress = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $phoneNumber = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getEmailAddress(): ?string
     {
         return $this->emailAddress;
@@ -31,7 +31,7 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEmailAddress(?string $value): void
     {
         $this->emailAddress = $value;
@@ -39,9 +39,9 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateContactDetails
-    */
-    public function withEmailAddress(?string $value): MandateContactDetails
+     * @return $this
+     */
+    public function withEmailAddress(?string $value): static
     {
         $this->emailAddress = $value;
         return $this;
@@ -49,7 +49,7 @@ class MandateContactDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
@@ -57,7 +57,7 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPhoneNumber(?string $value): void
     {
         $this->phoneNumber = $value;
@@ -65,9 +65,9 @@ class MandateContactDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateContactDetails
-    */
-    public function withPhoneNumber(?string $value): MandateContactDetails
+     * @return $this
+     */
+    public function withPhoneNumber(?string $value): static
     {
         $this->phoneNumber = $value;
         return $this;
@@ -76,13 +76,14 @@ class MandateContactDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->emailAddress)) {
+        if ($this->emailAddress !== null) {
             $object->emailAddress = $this->emailAddress;
         }
-        if (!is_null($this->phoneNumber)) {
+        if ($this->phoneNumber !== null) {
             $object->phoneNumber = $this->phoneNumber;
         }
         return $object;
@@ -94,7 +95,8 @@ class MandateContactDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MandateContactDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'emailAddress')) {

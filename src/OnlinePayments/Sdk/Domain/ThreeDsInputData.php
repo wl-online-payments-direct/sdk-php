@@ -13,22 +13,22 @@ class ThreeDsInputData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerMid = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $requestorId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerId(): ?string
     {
         return $this->acquirerId;
@@ -36,7 +36,7 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerId(?string $value): void
     {
         $this->acquirerId = $value;
@@ -44,9 +44,9 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDsInputData
-    */
-    public function withAcquirerId(?string $value): ThreeDsInputData
+     * @return $this
+     */
+    public function withAcquirerId(?string $value): static
     {
         $this->acquirerId = $value;
         return $this;
@@ -54,7 +54,7 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerMid(): ?string
     {
         return $this->acquirerMid;
@@ -62,7 +62,7 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerMid(?string $value): void
     {
         $this->acquirerMid = $value;
@@ -70,9 +70,9 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDsInputData
-    */
-    public function withAcquirerMid(?string $value): ThreeDsInputData
+     * @return $this
+     */
+    public function withAcquirerMid(?string $value): static
     {
         $this->acquirerMid = $value;
         return $this;
@@ -80,7 +80,7 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRequestorId(): ?string
     {
         return $this->requestorId;
@@ -88,7 +88,7 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRequestorId(?string $value): void
     {
         $this->requestorId = $value;
@@ -96,9 +96,9 @@ class ThreeDsInputData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDsInputData
-    */
-    public function withRequestorId(?string $value): ThreeDsInputData
+     * @return $this
+     */
+    public function withRequestorId(?string $value): static
     {
         $this->requestorId = $value;
         return $this;
@@ -107,16 +107,17 @@ class ThreeDsInputData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquirerId)) {
+        if ($this->acquirerId !== null) {
             $object->acquirerId = $this->acquirerId;
         }
-        if (!is_null($this->acquirerMid)) {
+        if ($this->acquirerMid !== null) {
             $object->acquirerMid = $this->acquirerMid;
         }
-        if (!is_null($this->requestorId)) {
+        if ($this->requestorId !== null) {
             $object->requestorId = $this->requestorId;
         }
         return $object;
@@ -128,7 +129,8 @@ class ThreeDsInputData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ThreeDsInputData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerId')) {

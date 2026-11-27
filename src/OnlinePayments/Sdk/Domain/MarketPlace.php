@@ -13,17 +13,17 @@ class MarketPlace extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $retailerCountry = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $retailerName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getRetailerCountry(): ?string
     {
         return $this->retailerCountry;
@@ -31,7 +31,7 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRetailerCountry(?string $value): void
     {
         $this->retailerCountry = $value;
@@ -39,9 +39,9 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-     * @return MarketPlace
-    */
-    public function withRetailerCountry(?string $value): MarketPlace
+     * @return $this
+     */
+    public function withRetailerCountry(?string $value): static
     {
         $this->retailerCountry = $value;
         return $this;
@@ -49,7 +49,7 @@ class MarketPlace extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRetailerName(): ?string
     {
         return $this->retailerName;
@@ -57,7 +57,7 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRetailerName(?string $value): void
     {
         $this->retailerName = $value;
@@ -65,9 +65,9 @@ class MarketPlace extends DataObject
 
     /**
      * @param string|null $value
-     * @return MarketPlace
-    */
-    public function withRetailerName(?string $value): MarketPlace
+     * @return $this
+     */
+    public function withRetailerName(?string $value): static
     {
         $this->retailerName = $value;
         return $this;
@@ -76,13 +76,14 @@ class MarketPlace extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->retailerCountry)) {
+        if ($this->retailerCountry !== null) {
             $object->retailerCountry = $this->retailerCountry;
         }
-        if (!is_null($this->retailerName)) {
+        if ($this->retailerName !== null) {
             $object->retailerName = $this->retailerName;
         }
         return $object;
@@ -94,7 +95,8 @@ class MarketPlace extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MarketPlace
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'retailerCountry')) {

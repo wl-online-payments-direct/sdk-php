@@ -14,88 +14,88 @@ class CreatePaymentLinkRequest extends DataObject
 {
     /**
      * @var CardPaymentMethodSpecificInputBase|null
-    */
+     */
     public ?CardPaymentMethodSpecificInputBase $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var string|null
      *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
-    */
+     */
     public ?string $description = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $displayQRCode = null;
 
     /**
      * @var DateTime|null
      *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
-    */
+     */
     public ?DateTime $expirationDate = null;
 
     /**
      * @var Feedbacks|null
-    */
+     */
     public ?Feedbacks $feedbacks = null;
 
     /**
      * @var FraudFields|null
-    */
+     */
     public ?FraudFields $fraudFields = null;
 
     /**
      * @var HostedCheckoutSpecificInput|null
-    */
+     */
     public ?HostedCheckoutSpecificInput $hostedCheckoutSpecificInput = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isReusableLink = null;
 
     /**
      * @var MobilePaymentMethodHostedCheckoutSpecificInput|null
-    */
+     */
     public ?MobilePaymentMethodHostedCheckoutSpecificInput $mobilePaymentMethodSpecificInput = null;
 
     /**
      * @var Order|null
-    */
+     */
     public ?Order $order = null;
 
     /**
      * @var PaymentLinkOrderInput|null
-    */
+     */
     public ?PaymentLinkOrderInput $paymentLinkOrder = null;
 
     /**
      * @var PaymentLinkSpecificInput|null
-    */
+     */
     public ?PaymentLinkSpecificInput $paymentLinkSpecificInput = null;
 
     /**
      * @var string|null
      *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
-    */
+     */
     public ?string $recipientName = null;
 
     /**
      * @var RedirectPaymentMethodSpecificInput|null
-    */
+     */
     public ?RedirectPaymentMethodSpecificInput $redirectPaymentMethodSpecificInput = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificInputBase|null
-    */
+     */
     public ?SepaDirectDebitPaymentMethodSpecificInputBase $sepaDirectDebitPaymentMethodSpecificInput = null;
 
     /**
      * @return CardPaymentMethodSpecificInputBase|null
-    */
+     */
     public function getCardPaymentMethodSpecificInput(): ?CardPaymentMethodSpecificInputBase
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -103,7 +103,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInputBase|null $value
-    */
+     */
     public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputBase $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
@@ -111,9 +111,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInputBase|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputBase $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputBase $value): static
     {
         $this->cardPaymentMethodSpecificInput = $value;
         return $this;
@@ -123,7 +123,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @return string|null
      *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
-    */
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -133,7 +133,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @param string|null $value
      *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
-    */
+     */
     public function setDescription(?string $value): void
     {
         $this->description = $value;
@@ -141,11 +141,11 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatePaymentLinkRequest
+     * @return $this
      *
      * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
-    */
-    public function withDescription(?string $value): CreatePaymentLinkRequest
+     */
+    public function withDescription(?string $value): static
     {
         $this->description = $value;
         return $this;
@@ -153,7 +153,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getDisplayQRCode(): ?bool
     {
         return $this->displayQRCode;
@@ -161,7 +161,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setDisplayQRCode(?bool $value): void
     {
         $this->displayQRCode = $value;
@@ -169,9 +169,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withDisplayQRCode(?bool $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withDisplayQRCode(?bool $value): static
     {
         $this->displayQRCode = $value;
         return $this;
@@ -181,7 +181,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @return DateTime|null
      *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
-    */
+     */
     public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
@@ -191,7 +191,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @param DateTime|null $value
      *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
-    */
+     */
     public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
@@ -199,11 +199,11 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return CreatePaymentLinkRequest
+     * @return $this
      *
      * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
-    */
-    public function withExpirationDate(?DateTime $value): CreatePaymentLinkRequest
+     */
+    public function withExpirationDate(?DateTime $value): static
     {
         $this->expirationDate = $value;
         return $this;
@@ -211,7 +211,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return Feedbacks|null
-    */
+     */
     public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
@@ -219,7 +219,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-    */
+     */
     public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
@@ -227,9 +227,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withFeedbacks(?Feedbacks $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withFeedbacks(?Feedbacks $value): static
     {
         $this->feedbacks = $value;
         return $this;
@@ -237,7 +237,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return FraudFields|null
-    */
+     */
     public function getFraudFields(): ?FraudFields
     {
         return $this->fraudFields;
@@ -245,7 +245,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param FraudFields|null $value
-    */
+     */
     public function setFraudFields(?FraudFields $value): void
     {
         $this->fraudFields = $value;
@@ -253,9 +253,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param FraudFields|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withFraudFields(?FraudFields $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withFraudFields(?FraudFields $value): static
     {
         $this->fraudFields = $value;
         return $this;
@@ -263,7 +263,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return HostedCheckoutSpecificInput|null
-    */
+     */
     public function getHostedCheckoutSpecificInput(): ?HostedCheckoutSpecificInput
     {
         return $this->hostedCheckoutSpecificInput;
@@ -271,7 +271,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param HostedCheckoutSpecificInput|null $value
-    */
+     */
     public function setHostedCheckoutSpecificInput(?HostedCheckoutSpecificInput $value): void
     {
         $this->hostedCheckoutSpecificInput = $value;
@@ -279,9 +279,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param HostedCheckoutSpecificInput|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withHostedCheckoutSpecificInput(?HostedCheckoutSpecificInput $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withHostedCheckoutSpecificInput(?HostedCheckoutSpecificInput $value): static
     {
         $this->hostedCheckoutSpecificInput = $value;
         return $this;
@@ -289,7 +289,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsReusableLink(): ?bool
     {
         return $this->isReusableLink;
@@ -297,7 +297,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsReusableLink(?bool $value): void
     {
         $this->isReusableLink = $value;
@@ -305,9 +305,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withIsReusableLink(?bool $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withIsReusableLink(?bool $value): static
     {
         $this->isReusableLink = $value;
         return $this;
@@ -315,7 +315,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return MobilePaymentMethodHostedCheckoutSpecificInput|null
-    */
+     */
     public function getMobilePaymentMethodSpecificInput(): ?MobilePaymentMethodHostedCheckoutSpecificInput
     {
         return $this->mobilePaymentMethodSpecificInput;
@@ -323,7 +323,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param MobilePaymentMethodHostedCheckoutSpecificInput|null $value
-    */
+     */
     public function setMobilePaymentMethodSpecificInput(?MobilePaymentMethodHostedCheckoutSpecificInput $value): void
     {
         $this->mobilePaymentMethodSpecificInput = $value;
@@ -331,9 +331,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param MobilePaymentMethodHostedCheckoutSpecificInput|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withMobilePaymentMethodSpecificInput(?MobilePaymentMethodHostedCheckoutSpecificInput $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withMobilePaymentMethodSpecificInput(?MobilePaymentMethodHostedCheckoutSpecificInput $value): static
     {
         $this->mobilePaymentMethodSpecificInput = $value;
         return $this;
@@ -341,7 +341,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return Order|null
-    */
+     */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -349,7 +349,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param Order|null $value
-    */
+     */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
@@ -357,9 +357,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param Order|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withOrder(?Order $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withOrder(?Order $value): static
     {
         $this->order = $value;
         return $this;
@@ -367,7 +367,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return PaymentLinkOrderInput|null
-    */
+     */
     public function getPaymentLinkOrder(): ?PaymentLinkOrderInput
     {
         return $this->paymentLinkOrder;
@@ -375,7 +375,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param PaymentLinkOrderInput|null $value
-    */
+     */
     public function setPaymentLinkOrder(?PaymentLinkOrderInput $value): void
     {
         $this->paymentLinkOrder = $value;
@@ -383,9 +383,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param PaymentLinkOrderInput|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withPaymentLinkOrder(?PaymentLinkOrderInput $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withPaymentLinkOrder(?PaymentLinkOrderInput $value): static
     {
         $this->paymentLinkOrder = $value;
         return $this;
@@ -393,7 +393,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return PaymentLinkSpecificInput|null
-    */
+     */
     public function getPaymentLinkSpecificInput(): ?PaymentLinkSpecificInput
     {
         return $this->paymentLinkSpecificInput;
@@ -401,7 +401,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param PaymentLinkSpecificInput|null $value
-    */
+     */
     public function setPaymentLinkSpecificInput(?PaymentLinkSpecificInput $value): void
     {
         $this->paymentLinkSpecificInput = $value;
@@ -409,9 +409,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param PaymentLinkSpecificInput|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withPaymentLinkSpecificInput(?PaymentLinkSpecificInput $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withPaymentLinkSpecificInput(?PaymentLinkSpecificInput $value): static
     {
         $this->paymentLinkSpecificInput = $value;
         return $this;
@@ -421,7 +421,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @return string|null
      *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
-    */
+     */
     public function getRecipientName(): ?string
     {
         return $this->recipientName;
@@ -431,7 +431,7 @@ class CreatePaymentLinkRequest extends DataObject
      * @param string|null $value
      *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
-    */
+     */
     public function setRecipientName(?string $value): void
     {
         $this->recipientName = $value;
@@ -439,11 +439,11 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatePaymentLinkRequest
+     * @return $this
      *
      * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
-    */
-    public function withRecipientName(?string $value): CreatePaymentLinkRequest
+     */
+    public function withRecipientName(?string $value): static
     {
         $this->recipientName = $value;
         return $this;
@@ -451,7 +451,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return RedirectPaymentMethodSpecificInput|null
-    */
+     */
     public function getRedirectPaymentMethodSpecificInput(): ?RedirectPaymentMethodSpecificInput
     {
         return $this->redirectPaymentMethodSpecificInput;
@@ -459,7 +459,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificInput|null $value
-    */
+     */
     public function setRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): void
     {
         $this->redirectPaymentMethodSpecificInput = $value;
@@ -467,9 +467,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificInput|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withRedirectPaymentMethodSpecificInput(?RedirectPaymentMethodSpecificInput $value): static
     {
         $this->redirectPaymentMethodSpecificInput = $value;
         return $this;
@@ -477,7 +477,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @return SepaDirectDebitPaymentMethodSpecificInputBase|null
-    */
+     */
     public function getSepaDirectDebitPaymentMethodSpecificInput(): ?SepaDirectDebitPaymentMethodSpecificInputBase
     {
         return $this->sepaDirectDebitPaymentMethodSpecificInput;
@@ -485,7 +485,7 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificInputBase|null $value
-    */
+     */
     public function setSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInputBase $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
@@ -493,9 +493,9 @@ class CreatePaymentLinkRequest extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificInputBase|null $value
-     * @return CreatePaymentLinkRequest
-    */
-    public function withSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInputBase $value): CreatePaymentLinkRequest
+     * @return $this
+     */
+    public function withSepaDirectDebitPaymentMethodSpecificInput(?SepaDirectDebitPaymentMethodSpecificInputBase $value): static
     {
         $this->sepaDirectDebitPaymentMethodSpecificInput = $value;
         return $this;
@@ -504,52 +504,53 @@ class CreatePaymentLinkRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardPaymentMethodSpecificInput)) {
+        if ($this->cardPaymentMethodSpecificInput !== null) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
-        if (!is_null($this->description)) {
+        if ($this->description !== null) {
             $object->description = $this->description;
         }
-        if (!is_null($this->displayQRCode)) {
+        if ($this->displayQRCode !== null) {
             $object->displayQRCode = $this->displayQRCode;
         }
-        if (!is_null($this->expirationDate)) {
+        if ($this->expirationDate !== null) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->feedbacks)) {
+        if ($this->feedbacks !== null) {
             $object->feedbacks = $this->feedbacks->toObject();
         }
-        if (!is_null($this->fraudFields)) {
+        if ($this->fraudFields !== null) {
             $object->fraudFields = $this->fraudFields->toObject();
         }
-        if (!is_null($this->hostedCheckoutSpecificInput)) {
+        if ($this->hostedCheckoutSpecificInput !== null) {
             $object->hostedCheckoutSpecificInput = $this->hostedCheckoutSpecificInput->toObject();
         }
-        if (!is_null($this->isReusableLink)) {
+        if ($this->isReusableLink !== null) {
             $object->isReusableLink = $this->isReusableLink;
         }
-        if (!is_null($this->mobilePaymentMethodSpecificInput)) {
+        if ($this->mobilePaymentMethodSpecificInput !== null) {
             $object->mobilePaymentMethodSpecificInput = $this->mobilePaymentMethodSpecificInput->toObject();
         }
-        if (!is_null($this->order)) {
+        if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
-        if (!is_null($this->paymentLinkOrder)) {
+        if ($this->paymentLinkOrder !== null) {
             $object->paymentLinkOrder = $this->paymentLinkOrder->toObject();
         }
-        if (!is_null($this->paymentLinkSpecificInput)) {
+        if ($this->paymentLinkSpecificInput !== null) {
             $object->paymentLinkSpecificInput = $this->paymentLinkSpecificInput->toObject();
         }
-        if (!is_null($this->recipientName)) {
+        if ($this->recipientName !== null) {
             $object->recipientName = $this->recipientName;
         }
-        if (!is_null($this->redirectPaymentMethodSpecificInput)) {
+        if ($this->redirectPaymentMethodSpecificInput !== null) {
             $object->redirectPaymentMethodSpecificInput = $this->redirectPaymentMethodSpecificInput->toObject();
         }
-        if (!is_null($this->sepaDirectDebitPaymentMethodSpecificInput)) {
+        if ($this->sepaDirectDebitPaymentMethodSpecificInput !== null) {
             $object->sepaDirectDebitPaymentMethodSpecificInput = $this->sepaDirectDebitPaymentMethodSpecificInput->toObject();
         }
         return $object;
@@ -561,7 +562,8 @@ class CreatePaymentLinkRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreatePaymentLinkRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardPaymentMethodSpecificInput')) {

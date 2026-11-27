@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\GetPaymentProductGroupsResponse;
 use OnlinePayments\Sdk\Domain\PaymentProductGroup;
 use OnlinePayments\Sdk\ExceptionFactory;
@@ -27,25 +28,28 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getProductGroups(GetProductGroupsParams $query, ?CallContext $callContext = null): GetPaymentProductGroupsResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\GetPaymentProductGroupsResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = GetPaymentProductGroupsResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->get(
+            /** @var GetPaymentProductGroupsResponse $response */
+            $response = $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/productgroups'),
                 $this->getClientMetaInfo(),
                 $query,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -53,26 +57,29 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getProductGroup(string $paymentProductGroupId, GetProductGroupParams $query, ?CallContext $callContext = null): PaymentProductGroup
     {
         $this->context['paymentProductGroupId'] = $paymentProductGroupId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentProductGroup';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = PaymentProductGroup::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->get(
+            /** @var PaymentProductGroup $response */
+            $response = $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/productgroups/{paymentProductGroupId}'),
                 $this->getClientMetaInfo(),
                 $query,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -82,7 +89,7 @@ class ProductGroupsClient extends ApiResource implements ProductGroupsClientInte
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

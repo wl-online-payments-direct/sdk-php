@@ -13,12 +13,12 @@ class PaymentProduct302SpecificData extends DataObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $networks = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getNetworks(): ?array
     {
         return $this->networks;
@@ -26,7 +26,7 @@ class PaymentProduct302SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setNetworks(?array $value): void
     {
         $this->networks = $value;
@@ -34,9 +34,9 @@ class PaymentProduct302SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return PaymentProduct302SpecificData
-    */
-    public function withNetworks(?array $value): PaymentProduct302SpecificData
+     * @return $this
+     */
+    public function withNetworks(?array $value): static
     {
         $this->networks = $value;
         return $this;
@@ -45,13 +45,14 @@ class PaymentProduct302SpecificData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->networks)) {
+        if ($this->networks !== null) {
             $object->networks = [];
             foreach ($this->networks as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->networks[] = $element;
                 }
             }
@@ -65,7 +66,8 @@ class PaymentProduct302SpecificData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct302SpecificData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'networks')) {

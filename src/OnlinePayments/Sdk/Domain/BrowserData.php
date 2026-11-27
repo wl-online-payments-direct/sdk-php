@@ -13,32 +13,32 @@ class BrowserData extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $colorDepth = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $javaEnabled = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $javaScriptEnabled = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $screenHeight = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $screenWidth = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getColorDepth(): ?int
     {
         return $this->colorDepth;
@@ -46,7 +46,7 @@ class BrowserData extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setColorDepth(?int $value): void
     {
         $this->colorDepth = $value;
@@ -54,9 +54,9 @@ class BrowserData extends DataObject
 
     /**
      * @param int|null $value
-     * @return BrowserData
-    */
-    public function withColorDepth(?int $value): BrowserData
+     * @return $this
+     */
+    public function withColorDepth(?int $value): static
     {
         $this->colorDepth = $value;
         return $this;
@@ -64,7 +64,7 @@ class BrowserData extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getJavaEnabled(): ?bool
     {
         return $this->javaEnabled;
@@ -72,7 +72,7 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setJavaEnabled(?bool $value): void
     {
         $this->javaEnabled = $value;
@@ -80,9 +80,9 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-     * @return BrowserData
-    */
-    public function withJavaEnabled(?bool $value): BrowserData
+     * @return $this
+     */
+    public function withJavaEnabled(?bool $value): static
     {
         $this->javaEnabled = $value;
         return $this;
@@ -90,7 +90,7 @@ class BrowserData extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getJavaScriptEnabled(): ?bool
     {
         return $this->javaScriptEnabled;
@@ -98,7 +98,7 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setJavaScriptEnabled(?bool $value): void
     {
         $this->javaScriptEnabled = $value;
@@ -106,9 +106,9 @@ class BrowserData extends DataObject
 
     /**
      * @param bool|null $value
-     * @return BrowserData
-    */
-    public function withJavaScriptEnabled(?bool $value): BrowserData
+     * @return $this
+     */
+    public function withJavaScriptEnabled(?bool $value): static
     {
         $this->javaScriptEnabled = $value;
         return $this;
@@ -116,7 +116,7 @@ class BrowserData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getScreenHeight(): ?string
     {
         return $this->screenHeight;
@@ -124,7 +124,7 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setScreenHeight(?string $value): void
     {
         $this->screenHeight = $value;
@@ -132,9 +132,9 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-     * @return BrowserData
-    */
-    public function withScreenHeight(?string $value): BrowserData
+     * @return $this
+     */
+    public function withScreenHeight(?string $value): static
     {
         $this->screenHeight = $value;
         return $this;
@@ -142,7 +142,7 @@ class BrowserData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getScreenWidth(): ?string
     {
         return $this->screenWidth;
@@ -150,7 +150,7 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setScreenWidth(?string $value): void
     {
         $this->screenWidth = $value;
@@ -158,9 +158,9 @@ class BrowserData extends DataObject
 
     /**
      * @param string|null $value
-     * @return BrowserData
-    */
-    public function withScreenWidth(?string $value): BrowserData
+     * @return $this
+     */
+    public function withScreenWidth(?string $value): static
     {
         $this->screenWidth = $value;
         return $this;
@@ -169,22 +169,23 @@ class BrowserData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->colorDepth)) {
+        if ($this->colorDepth !== null) {
             $object->colorDepth = $this->colorDepth;
         }
-        if (!is_null($this->javaEnabled)) {
+        if ($this->javaEnabled !== null) {
             $object->javaEnabled = $this->javaEnabled;
         }
-        if (!is_null($this->javaScriptEnabled)) {
+        if ($this->javaScriptEnabled !== null) {
             $object->javaScriptEnabled = $this->javaScriptEnabled;
         }
-        if (!is_null($this->screenHeight)) {
+        if ($this->screenHeight !== null) {
             $object->screenHeight = $this->screenHeight;
         }
-        if (!is_null($this->screenWidth)) {
+        if ($this->screenWidth !== null) {
             $object->screenWidth = $this->screenWidth;
         }
         return $object;
@@ -196,7 +197,8 @@ class BrowserData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): BrowserData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'colorDepth')) {

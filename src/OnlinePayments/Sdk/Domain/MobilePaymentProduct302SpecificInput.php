@@ -13,27 +13,27 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 {
     /**
      * @var ApplePayRecurringPaymentRequest|null
-    */
+     */
     public ?ApplePayRecurringPaymentRequest $applePayRecurringPaymentRequest = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @var Product302Recurring|null
-    */
+     */
     public ?Product302Recurring $recurring = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $tokenize = null;
 
     /**
      * @return ApplePayRecurringPaymentRequest|null
-    */
+     */
     public function getApplePayRecurringPaymentRequest(): ?ApplePayRecurringPaymentRequest
     {
         return $this->applePayRecurringPaymentRequest;
@@ -41,7 +41,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param ApplePayRecurringPaymentRequest|null $value
-    */
+     */
     public function setApplePayRecurringPaymentRequest(?ApplePayRecurringPaymentRequest $value): void
     {
         $this->applePayRecurringPaymentRequest = $value;
@@ -49,9 +49,9 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param ApplePayRecurringPaymentRequest|null $value
-     * @return MobilePaymentProduct302SpecificInput
-    */
-    public function withApplePayRecurringPaymentRequest(?ApplePayRecurringPaymentRequest $value): MobilePaymentProduct302SpecificInput
+     * @return $this
+     */
+    public function withApplePayRecurringPaymentRequest(?ApplePayRecurringPaymentRequest $value): static
     {
         $this->applePayRecurringPaymentRequest = $value;
         return $this;
@@ -59,7 +59,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -67,7 +67,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -75,9 +75,9 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return MobilePaymentProduct302SpecificInput
-    */
-    public function withIsRecurring(?bool $value): MobilePaymentProduct302SpecificInput
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
@@ -85,7 +85,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @return Product302Recurring|null
-    */
+     */
     public function getRecurring(): ?Product302Recurring
     {
         return $this->recurring;
@@ -93,7 +93,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param Product302Recurring|null $value
-    */
+     */
     public function setRecurring(?Product302Recurring $value): void
     {
         $this->recurring = $value;
@@ -101,9 +101,9 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param Product302Recurring|null $value
-     * @return MobilePaymentProduct302SpecificInput
-    */
-    public function withRecurring(?Product302Recurring $value): MobilePaymentProduct302SpecificInput
+     * @return $this
+     */
+    public function withRecurring(?Product302Recurring $value): static
     {
         $this->recurring = $value;
         return $this;
@@ -111,7 +111,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getTokenize(): ?bool
     {
         return $this->tokenize;
@@ -119,7 +119,7 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setTokenize(?bool $value): void
     {
         $this->tokenize = $value;
@@ -127,9 +127,9 @@ class MobilePaymentProduct302SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return MobilePaymentProduct302SpecificInput
-    */
-    public function withTokenize(?bool $value): MobilePaymentProduct302SpecificInput
+     * @return $this
+     */
+    public function withTokenize(?bool $value): static
     {
         $this->tokenize = $value;
         return $this;
@@ -138,19 +138,20 @@ class MobilePaymentProduct302SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->applePayRecurringPaymentRequest)) {
+        if ($this->applePayRecurringPaymentRequest !== null) {
             $object->applePayRecurringPaymentRequest = $this->applePayRecurringPaymentRequest->toObject();
         }
-        if (!is_null($this->isRecurring)) {
+        if ($this->isRecurring !== null) {
             $object->isRecurring = $this->isRecurring;
         }
-        if (!is_null($this->recurring)) {
+        if ($this->recurring !== null) {
             $object->recurring = $this->recurring->toObject();
         }
-        if (!is_null($this->tokenize)) {
+        if ($this->tokenize !== null) {
             $object->tokenize = $this->tokenize;
         }
         return $object;
@@ -162,7 +163,8 @@ class MobilePaymentProduct302SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MobilePaymentProduct302SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'applePayRecurringPaymentRequest')) {

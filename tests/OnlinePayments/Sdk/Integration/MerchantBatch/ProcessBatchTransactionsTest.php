@@ -24,14 +24,14 @@ class ProcessBatchTransactionsTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testProcessBatch_ExistingMerchantBatchReference_ReturnsAccepted()
+    public function testProcessBatch_ExistingMerchantBatchReference_ReturnsAccepted(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $this->merchantBatchClient->processBatch($reference);
@@ -41,7 +41,7 @@ class ProcessBatchTransactionsTest extends TestCase
         $this->assertNotEmpty($statusResponse->getStatus());
     }
 
-    public function testProcessBatch_NonExistingMerchantBatchReference_ReturnsReferenceException()
+    public function testProcessBatch_NonExistingMerchantBatchReference_ReturnsReferenceException(): void
     {
         try {
             $this->merchantBatchClient->processBatch(self::NON_EXISTING_MERCHANT_BATCH_REFERENCE);

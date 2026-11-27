@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 /**
@@ -14,8 +15,8 @@ class ResponseClassMap
     /** @var string */
     public string $defaultErrorResponseClassName = '';
 
-    /** @var string[]  */
-    private array $responseClassNamesByHttpStatusCode = array();
+    /** @var array<int, string> */
+    private array $responseClassNamesByHttpStatusCode = [];
 
     /**
      * @param int $httpStatusCode

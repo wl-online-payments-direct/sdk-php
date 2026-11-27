@@ -13,12 +13,12 @@ class GetPaymentProductGroupsResponse extends DataObject
 {
     /**
      * @var PaymentProductGroup[]|null
-    */
+     */
     public ?array $paymentProductGroups = null;
 
     /**
      * @return PaymentProductGroup[]|null
-    */
+     */
     public function getPaymentProductGroups(): ?array
     {
         return $this->paymentProductGroups;
@@ -26,7 +26,7 @@ class GetPaymentProductGroupsResponse extends DataObject
 
     /**
      * @param PaymentProductGroup[]|null $value
-    */
+     */
     public function setPaymentProductGroups(?array $value): void
     {
         $this->paymentProductGroups = $value;
@@ -34,9 +34,9 @@ class GetPaymentProductGroupsResponse extends DataObject
 
     /**
      * @param PaymentProductGroup[]|null $value
-     * @return GetPaymentProductGroupsResponse
-    */
-    public function withPaymentProductGroups(?array $value): GetPaymentProductGroupsResponse
+     * @return $this
+     */
+    public function withPaymentProductGroups(?array $value): static
     {
         $this->paymentProductGroups = $value;
         return $this;
@@ -45,13 +45,14 @@ class GetPaymentProductGroupsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentProductGroups)) {
+        if ($this->paymentProductGroups !== null) {
             $object->paymentProductGroups = [];
             foreach ($this->paymentProductGroups as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentProductGroups[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class GetPaymentProductGroupsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetPaymentProductGroupsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProductGroups')) {

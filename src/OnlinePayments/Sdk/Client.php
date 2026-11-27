@@ -29,12 +29,13 @@ class Client extends ApiResource implements ClientInterface
         parent::__construct();
         $this->communicator = $communicator;
         $this->setClientMetaInfo($clientMetaInfo);
-        $this->context = array();
+        $this->context = [];
     }
 
     /**
      * @return CommunicatorInterface
      */
+    #[\Override]
     protected function getCommunicator(): CommunicatorInterface
     {
         return $this->communicator;
@@ -43,6 +44,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function enableLogging(CommunicatorLogger $communicatorLogger): void
     {
         $this->getCommunicator()->enableLogging($communicatorLogger);
@@ -51,6 +53,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function disableLogging(): void
     {
         $this->getCommunicator()->disableLogging();
@@ -59,6 +62,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function setClientMetaInfo(string $clientMetaInfo): ClientInterface
     {
         $this->clientMetaInfo = $clientMetaInfo ? base64_encode($clientMetaInfo) : '';
@@ -68,6 +72,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @return string
      */
+    #[\Override]
     protected function getClientMetaInfo(): string
     {
         return $this->clientMetaInfo;
@@ -76,6 +81,7 @@ class Client extends ApiResource implements ClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function merchant(string $merchantId): MerchantClient
     {
         $newContext = $this->context;

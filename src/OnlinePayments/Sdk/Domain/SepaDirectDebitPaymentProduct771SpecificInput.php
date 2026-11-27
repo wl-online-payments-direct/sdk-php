@@ -13,17 +13,17 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $existingUniqueMandateReference = null;
 
     /**
      * @var CreateMandateWithReturnUrl|null
-    */
+     */
     public ?CreateMandateWithReturnUrl $mandate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getExistingUniqueMandateReference(): ?string
     {
         return $this->existingUniqueMandateReference;
@@ -31,7 +31,7 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExistingUniqueMandateReference(?string $value): void
     {
         $this->existingUniqueMandateReference = $value;
@@ -39,9 +39,9 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SepaDirectDebitPaymentProduct771SpecificInput
-    */
-    public function withExistingUniqueMandateReference(?string $value): SepaDirectDebitPaymentProduct771SpecificInput
+     * @return $this
+     */
+    public function withExistingUniqueMandateReference(?string $value): static
     {
         $this->existingUniqueMandateReference = $value;
         return $this;
@@ -49,7 +49,7 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 
     /**
      * @return CreateMandateWithReturnUrl|null
-    */
+     */
     public function getMandate(): ?CreateMandateWithReturnUrl
     {
         return $this->mandate;
@@ -57,7 +57,7 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 
     /**
      * @param CreateMandateWithReturnUrl|null $value
-    */
+     */
     public function setMandate(?CreateMandateWithReturnUrl $value): void
     {
         $this->mandate = $value;
@@ -65,9 +65,9 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
 
     /**
      * @param CreateMandateWithReturnUrl|null $value
-     * @return SepaDirectDebitPaymentProduct771SpecificInput
-    */
-    public function withMandate(?CreateMandateWithReturnUrl $value): SepaDirectDebitPaymentProduct771SpecificInput
+     * @return $this
+     */
+    public function withMandate(?CreateMandateWithReturnUrl $value): static
     {
         $this->mandate = $value;
         return $this;
@@ -76,13 +76,14 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->existingUniqueMandateReference)) {
+        if ($this->existingUniqueMandateReference !== null) {
             $object->existingUniqueMandateReference = $this->existingUniqueMandateReference;
         }
-        if (!is_null($this->mandate)) {
+        if ($this->mandate !== null) {
             $object->mandate = $this->mandate->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class SepaDirectDebitPaymentProduct771SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SepaDirectDebitPaymentProduct771SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'existingUniqueMandateReference')) {

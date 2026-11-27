@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\SendTestRequest;
 use OnlinePayments\Sdk\Domain\ValidateCredentialsRequest;
 use OnlinePayments\Sdk\Domain\ValidateCredentialsResponse;
@@ -28,14 +29,15 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function validateWebhookCredentials(ValidateCredentialsRequest $body, ?CallContext $callContext = null): ValidateCredentialsResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\ValidateCredentialsResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = ValidateCredentialsResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var ValidateCredentialsResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/webhooks/validateCredentials'),
                 $this->getClientMetaInfo(),
@@ -43,11 +45,13 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -55,12 +59,12 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function sendTestWebhook(SendTestRequest $body, ?CallContext $callContext = null): void
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
             $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/webhooks/sendtest'),
@@ -73,7 +77,8 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -83,7 +88,7 @@ class WebhooksClient extends ApiResource implements WebhooksClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

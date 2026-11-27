@@ -24,10 +24,10 @@ class GetSensitiveCardDetailsByCardPaymentIdentifiersTest extends TestCase
         $this->paymentsClient = $this->client->merchant($this->getMerchantId())->payments();
         $this->tokenizationClient = $this->client->merchant($this->getMerchantId())->tokenization();
 
-        $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
+        $this->sdkTestHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetCardDataByPayments_ValidPaymentsInput_ReturnsCardDataList()
+    public function testGetCardDataByPayments_ValidPaymentsInput_ReturnsCardDataList(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -49,7 +49,7 @@ class GetSensitiveCardDetailsByCardPaymentIdentifiersTest extends TestCase
         $this->assertNotEmpty($response->getTokens());
     }
 
-    public function testGetCardDataByPayments_NonExistentPaymentsInput_ReturnsReferenceException()
+    public function testGetCardDataByPayments_NonExistentPaymentsInput_ReturnsReferenceException(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -64,7 +64,7 @@ class GetSensitiveCardDetailsByCardPaymentIdentifiersTest extends TestCase
         }
     }
 
-    public function testGetCardDataByPayments_InvalidPaymentsInput_ReturnsValidationException()
+    public function testGetCardDataByPayments_InvalidPaymentsInput_ReturnsValidationException(): void
     {
         $params = GetCardDataByPaymentsParamsBuilder::create()->withPayments(null)->build();
 

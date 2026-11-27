@@ -13,24 +13,24 @@ class FraudFields extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $blackListData = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-    */
+     */
     public ?string $customerIpAddress = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $productCategories = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBlackListData(): ?string
     {
         return $this->blackListData;
@@ -38,7 +38,7 @@ class FraudFields extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBlackListData(?string $value): void
     {
         $this->blackListData = $value;
@@ -46,9 +46,9 @@ class FraudFields extends DataObject
 
     /**
      * @param string|null $value
-     * @return FraudFields
-    */
-    public function withBlackListData(?string $value): FraudFields
+     * @return $this
+     */
+    public function withBlackListData(?string $value): static
     {
         $this->blackListData = $value;
         return $this;
@@ -58,7 +58,7 @@ class FraudFields extends DataObject
      * @return string|null
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-    */
+     */
     public function getCustomerIpAddress(): ?string
     {
         return $this->customerIpAddress;
@@ -68,7 +68,7 @@ class FraudFields extends DataObject
      * @param string|null $value
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-    */
+     */
     public function setCustomerIpAddress(?string $value): void
     {
         $this->customerIpAddress = $value;
@@ -76,11 +76,11 @@ class FraudFields extends DataObject
 
     /**
      * @param string|null $value
-     * @return FraudFields
+     * @return $this
      *
      * @deprecated Use order.customer.device.ipAddress instead.  The IP Address of the customer that is making the payment
-    */
-    public function withCustomerIpAddress(?string $value): FraudFields
+     */
+    public function withCustomerIpAddress(?string $value): static
     {
         $this->customerIpAddress = $value;
         return $this;
@@ -88,7 +88,7 @@ class FraudFields extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getProductCategories(): ?array
     {
         return $this->productCategories;
@@ -96,7 +96,7 @@ class FraudFields extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setProductCategories(?array $value): void
     {
         $this->productCategories = $value;
@@ -104,9 +104,9 @@ class FraudFields extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return FraudFields
-    */
-    public function withProductCategories(?array $value): FraudFields
+     * @return $this
+     */
+    public function withProductCategories(?array $value): static
     {
         $this->productCategories = $value;
         return $this;
@@ -115,19 +115,20 @@ class FraudFields extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->blackListData)) {
+        if ($this->blackListData !== null) {
             $object->blackListData = $this->blackListData;
         }
-        if (!is_null($this->customerIpAddress)) {
+        if ($this->customerIpAddress !== null) {
             $object->customerIpAddress = $this->customerIpAddress;
         }
-        if (!is_null($this->productCategories)) {
+        if ($this->productCategories !== null) {
             $object->productCategories = [];
             foreach ($this->productCategories as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->productCategories[] = $element;
                 }
             }
@@ -141,7 +142,8 @@ class FraudFields extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): FraudFields
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'blackListData')) {

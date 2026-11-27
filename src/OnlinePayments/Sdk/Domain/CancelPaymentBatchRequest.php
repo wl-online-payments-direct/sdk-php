@@ -13,17 +13,17 @@ class CancelPaymentBatchRequest extends DataObject
 {
     /**
      * @var CancelPaymentRequest|null
-    */
+     */
     public ?CancelPaymentRequest $cancel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @return CancelPaymentRequest|null
-    */
+     */
     public function getCancel(): ?CancelPaymentRequest
     {
         return $this->cancel;
@@ -31,7 +31,7 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param CancelPaymentRequest|null $value
-    */
+     */
     public function setCancel(?CancelPaymentRequest $value): void
     {
         $this->cancel = $value;
@@ -39,9 +39,9 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param CancelPaymentRequest|null $value
-     * @return CancelPaymentBatchRequest
-    */
-    public function withCancel(?CancelPaymentRequest $value): CancelPaymentBatchRequest
+     * @return $this
+     */
+    public function withCancel(?CancelPaymentRequest $value): static
     {
         $this->cancel = $value;
         return $this;
@@ -49,7 +49,7 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -57,7 +57,7 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -65,9 +65,9 @@ class CancelPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CancelPaymentBatchRequest
-    */
-    public function withPaymentId(?string $value): CancelPaymentBatchRequest
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -76,13 +76,14 @@ class CancelPaymentBatchRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cancel)) {
+        if ($this->cancel !== null) {
             $object->cancel = $this->cancel->toObject();
         }
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
         return $object;
@@ -94,7 +95,8 @@ class CancelPaymentBatchRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CancelPaymentBatchRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cancel')) {

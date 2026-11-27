@@ -13,57 +13,57 @@ class Customer extends DataObject
 {
     /**
      * @var CustomerAccount|null
-    */
+     */
     public ?CustomerAccount $account = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $accountType = null;
 
     /**
      * @var Address|null
-    */
+     */
     public ?Address $billingAddress = null;
 
     /**
      * @var CompanyInformation|null
-    */
+     */
     public ?CompanyInformation $companyInformation = null;
 
     /**
      * @var ContactDetails|null
-    */
+     */
     public ?ContactDetails $contactDetails = null;
 
     /**
      * @var CustomerDevice|null
-    */
+     */
     public ?CustomerDevice $device = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $fiscalNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantCustomerId = null;
 
     /**
      * @var PersonalInformation|null
-    */
+     */
     public ?PersonalInformation $personalInformation = null;
 
     /**
      * @return CustomerAccount|null
-    */
+     */
     public function getAccount(): ?CustomerAccount
     {
         return $this->account;
@@ -71,7 +71,7 @@ class Customer extends DataObject
 
     /**
      * @param CustomerAccount|null $value
-    */
+     */
     public function setAccount(?CustomerAccount $value): void
     {
         $this->account = $value;
@@ -79,9 +79,9 @@ class Customer extends DataObject
 
     /**
      * @param CustomerAccount|null $value
-     * @return Customer
-    */
-    public function withAccount(?CustomerAccount $value): Customer
+     * @return $this
+     */
+    public function withAccount(?CustomerAccount $value): static
     {
         $this->account = $value;
         return $this;
@@ -89,7 +89,7 @@ class Customer extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAccountType(): ?string
     {
         return $this->accountType;
@@ -97,7 +97,7 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAccountType(?string $value): void
     {
         $this->accountType = $value;
@@ -105,9 +105,9 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-     * @return Customer
-    */
-    public function withAccountType(?string $value): Customer
+     * @return $this
+     */
+    public function withAccountType(?string $value): static
     {
         $this->accountType = $value;
         return $this;
@@ -115,7 +115,7 @@ class Customer extends DataObject
 
     /**
      * @return Address|null
-    */
+     */
     public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
@@ -123,7 +123,7 @@ class Customer extends DataObject
 
     /**
      * @param Address|null $value
-    */
+     */
     public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
@@ -131,9 +131,9 @@ class Customer extends DataObject
 
     /**
      * @param Address|null $value
-     * @return Customer
-    */
-    public function withBillingAddress(?Address $value): Customer
+     * @return $this
+     */
+    public function withBillingAddress(?Address $value): static
     {
         $this->billingAddress = $value;
         return $this;
@@ -141,7 +141,7 @@ class Customer extends DataObject
 
     /**
      * @return CompanyInformation|null
-    */
+     */
     public function getCompanyInformation(): ?CompanyInformation
     {
         return $this->companyInformation;
@@ -149,7 +149,7 @@ class Customer extends DataObject
 
     /**
      * @param CompanyInformation|null $value
-    */
+     */
     public function setCompanyInformation(?CompanyInformation $value): void
     {
         $this->companyInformation = $value;
@@ -157,9 +157,9 @@ class Customer extends DataObject
 
     /**
      * @param CompanyInformation|null $value
-     * @return Customer
-    */
-    public function withCompanyInformation(?CompanyInformation $value): Customer
+     * @return $this
+     */
+    public function withCompanyInformation(?CompanyInformation $value): static
     {
         $this->companyInformation = $value;
         return $this;
@@ -167,7 +167,7 @@ class Customer extends DataObject
 
     /**
      * @return ContactDetails|null
-    */
+     */
     public function getContactDetails(): ?ContactDetails
     {
         return $this->contactDetails;
@@ -175,7 +175,7 @@ class Customer extends DataObject
 
     /**
      * @param ContactDetails|null $value
-    */
+     */
     public function setContactDetails(?ContactDetails $value): void
     {
         $this->contactDetails = $value;
@@ -183,9 +183,9 @@ class Customer extends DataObject
 
     /**
      * @param ContactDetails|null $value
-     * @return Customer
-    */
-    public function withContactDetails(?ContactDetails $value): Customer
+     * @return $this
+     */
+    public function withContactDetails(?ContactDetails $value): static
     {
         $this->contactDetails = $value;
         return $this;
@@ -193,7 +193,7 @@ class Customer extends DataObject
 
     /**
      * @return CustomerDevice|null
-    */
+     */
     public function getDevice(): ?CustomerDevice
     {
         return $this->device;
@@ -201,7 +201,7 @@ class Customer extends DataObject
 
     /**
      * @param CustomerDevice|null $value
-    */
+     */
     public function setDevice(?CustomerDevice $value): void
     {
         $this->device = $value;
@@ -209,9 +209,9 @@ class Customer extends DataObject
 
     /**
      * @param CustomerDevice|null $value
-     * @return Customer
-    */
-    public function withDevice(?CustomerDevice $value): Customer
+     * @return $this
+     */
+    public function withDevice(?CustomerDevice $value): static
     {
         $this->device = $value;
         return $this;
@@ -219,7 +219,7 @@ class Customer extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFiscalNumber(): ?string
     {
         return $this->fiscalNumber;
@@ -227,7 +227,7 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFiscalNumber(?string $value): void
     {
         $this->fiscalNumber = $value;
@@ -235,9 +235,9 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-     * @return Customer
-    */
-    public function withFiscalNumber(?string $value): Customer
+     * @return $this
+     */
+    public function withFiscalNumber(?string $value): static
     {
         $this->fiscalNumber = $value;
         return $this;
@@ -245,7 +245,7 @@ class Customer extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -253,7 +253,7 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -261,9 +261,9 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-     * @return Customer
-    */
-    public function withLocale(?string $value): Customer
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -271,7 +271,7 @@ class Customer extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantCustomerId(): ?string
     {
         return $this->merchantCustomerId;
@@ -279,7 +279,7 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantCustomerId(?string $value): void
     {
         $this->merchantCustomerId = $value;
@@ -287,9 +287,9 @@ class Customer extends DataObject
 
     /**
      * @param string|null $value
-     * @return Customer
-    */
-    public function withMerchantCustomerId(?string $value): Customer
+     * @return $this
+     */
+    public function withMerchantCustomerId(?string $value): static
     {
         $this->merchantCustomerId = $value;
         return $this;
@@ -297,7 +297,7 @@ class Customer extends DataObject
 
     /**
      * @return PersonalInformation|null
-    */
+     */
     public function getPersonalInformation(): ?PersonalInformation
     {
         return $this->personalInformation;
@@ -305,7 +305,7 @@ class Customer extends DataObject
 
     /**
      * @param PersonalInformation|null $value
-    */
+     */
     public function setPersonalInformation(?PersonalInformation $value): void
     {
         $this->personalInformation = $value;
@@ -313,9 +313,9 @@ class Customer extends DataObject
 
     /**
      * @param PersonalInformation|null $value
-     * @return Customer
-    */
-    public function withPersonalInformation(?PersonalInformation $value): Customer
+     * @return $this
+     */
+    public function withPersonalInformation(?PersonalInformation $value): static
     {
         $this->personalInformation = $value;
         return $this;
@@ -324,37 +324,38 @@ class Customer extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->account)) {
+        if ($this->account !== null) {
             $object->account = $this->account->toObject();
         }
-        if (!is_null($this->accountType)) {
+        if ($this->accountType !== null) {
             $object->accountType = $this->accountType;
         }
-        if (!is_null($this->billingAddress)) {
+        if ($this->billingAddress !== null) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if (!is_null($this->companyInformation)) {
+        if ($this->companyInformation !== null) {
             $object->companyInformation = $this->companyInformation->toObject();
         }
-        if (!is_null($this->contactDetails)) {
+        if ($this->contactDetails !== null) {
             $object->contactDetails = $this->contactDetails->toObject();
         }
-        if (!is_null($this->device)) {
+        if ($this->device !== null) {
             $object->device = $this->device->toObject();
         }
-        if (!is_null($this->fiscalNumber)) {
+        if ($this->fiscalNumber !== null) {
             $object->fiscalNumber = $this->fiscalNumber;
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->merchantCustomerId)) {
+        if ($this->merchantCustomerId !== null) {
             $object->merchantCustomerId = $this->merchantCustomerId;
         }
-        if (!is_null($this->personalInformation)) {
+        if ($this->personalInformation !== null) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;
@@ -366,7 +367,8 @@ class Customer extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Customer
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'account')) {

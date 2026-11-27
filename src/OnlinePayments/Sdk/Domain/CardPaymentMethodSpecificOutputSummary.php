@@ -13,17 +13,17 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 {
     /**
      * @var CardPaymentMethodSpecificOutputSummaryCard|null
-    */
+     */
     public ?CardPaymentMethodSpecificOutputSummaryCard $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $token = null;
 
     /**
      * @return CardPaymentMethodSpecificOutputSummaryCard|null
-    */
+     */
     public function getCard(): ?CardPaymentMethodSpecificOutputSummaryCard
     {
         return $this->card;
@@ -31,7 +31,7 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutputSummaryCard|null $value
-    */
+     */
     public function setCard(?CardPaymentMethodSpecificOutputSummaryCard $value): void
     {
         $this->card = $value;
@@ -39,9 +39,9 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutputSummaryCard|null $value
-     * @return CardPaymentMethodSpecificOutputSummary
-    */
-    public function withCard(?CardPaymentMethodSpecificOutputSummaryCard $value): CardPaymentMethodSpecificOutputSummary
+     * @return $this
+     */
+    public function withCard(?CardPaymentMethodSpecificOutputSummaryCard $value): static
     {
         $this->card = $value;
         return $this;
@@ -49,7 +49,7 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -57,7 +57,7 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -65,9 +65,9 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPaymentMethodSpecificOutputSummary
-    */
-    public function withToken(?string $value): CardPaymentMethodSpecificOutputSummary
+     * @return $this
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -76,13 +76,14 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
         return $object;
@@ -94,7 +95,8 @@ class CardPaymentMethodSpecificOutputSummary extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardPaymentMethodSpecificOutputSummary
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

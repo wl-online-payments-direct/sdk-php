@@ -16,7 +16,7 @@ Requires PHP 8.3 or later with the `curl`, `json`, `mbstring` and `zlib` extensi
 
 | Namespace | Contains |
 |---|---|
-| `OnlinePayments\Sdk` | `Client`, `Communicator`, `CommunicatorConfiguration`, `CallContext`, the exceptions |
+| `OnlinePayments\Sdk` | `Client`, `Factory`, `CommunicatorConfiguration`, `CallContext`, the exceptions |
 | `OnlinePayments\Sdk\Merchant` | `MerchantClientInterface` and its sub-clients |
 | `OnlinePayments\Sdk\Domain` | All request and response classes (`CreatePaymentRequest`, `Order`, `AmountOfMoney`, ...) and `WebhooksEvent` |
 | `OnlinePayments\Sdk\Authentication` | `V1HmacAuthenticator` |
@@ -56,22 +56,15 @@ public static function publicBaseUrl(): string
 // for every call, e.g. register it as a shared service in your dependency injection container.
 public static function createClient(): Client
 {
-    $configuration = new CommunicatorConfiguration(
-        self::requireEnv('ONLINEPAYMENTS_API_KEY_ID'),
-        self::requireEnv('ONLINEPAYMENTS_API_SECRET'),
-        // Test or live endpoint, e.g. https://payment.direct.ecom.preprod.worldline-solutions.com
-        self::requireEnv('ONLINEPAYMENTS_API_ENDPOINT'),
+    return Factory::createClient(
+        apiEndpoint: self::requireEnv('ONLINEPAYMENTS_API_ENDPOINT'),
+        apiKeyId: self::requireEnv('ONLINEPAYMENTS_API_KEY_ID'),
+        apiSecret: self::requireEnv('ONLINEPAYMENTS_API_SECRET'),
         // Your company or application name; it identifies your requests in the platform logs.
-        // It is mandatory: the SDK throws UnexpectedValueException when it is empty.
-        self::requireEnv('ONLINEPAYMENTS_INTEGRATOR'),
-        null,
-        // Timeouts in seconds; the default (-1) means no timeout.
+        integrator: self::requireEnv('ONLINEPAYMENTS_INTEGRATOR'),
         connectTimeout: 5,
         readTimeout: 300,
     );
-
-    $communicator = new Communicator($configuration, new V1HmacAuthenticator($configuration));
-    return new Client($communicator);
 }
 
 // The merchant ID is your PSPID. Every API call goes through the merchant client.
@@ -81,12 +74,13 @@ public static function createMerchantClient(Client $client): MerchantClientInter
 }
 ```
 
-- The fourth constructor argument (integrator) is mandatory: `CommunicatorConfiguration` throws
-  `UnexpectedValueException` when it is null or blank. Read it from configuration like the other settings.
+- `Factory::createClient()` validates that the API key ID, secret and integrator are not blank. The integrator is
+  mandatory.
 - Read settings with a function that throws when a value is missing or blank (`requireEnv()` above); `(string) getenv()`
   turns a missing setting into an empty string.
-- The API endpoint must not contain a path.
-- Timeouts are in seconds. The default (-1) means no timeout; set both.
+- The API endpoint must be an absolute HTTP(S) URL with a host, and must not contain a path, user info, query or fragment.
+- `Factory::createClient()` requires positive connect and read timeouts, in seconds. The read timeout is the total request
+  timeout. `CommunicatorConfiguration` defaults both values to `-1`; the default connection uses 60 seconds for each.
 - In Symfony or Laravel, register the `Client` (or the merchant client) as a shared service.
 - The client keeps no connection pool: every request opens its own cURL handle, and there is nothing to close. Create the
   `Client` once and reuse it.
@@ -101,6 +95,8 @@ public static function createMerchantClient(Client $client): MerchantClientInter
 - Every call takes an optional `CallContext` as last argument. Set the idempotence key with
   `$context = new CallContext(); $context->setIdempotenceKey($key);`, for example `bin2hex(random_bytes(16))`.
   `createHostedCheckout` and `createPaymentLink` ignore the key, so send none.
+- Path IDs (payment ID, hosted checkout ID, ...) are URL-encoded by the SDK. An empty ID, `.` or `..` throws
+  `InvalidArgumentException` before any request is sent.
 - Members marked `@deprecated` are deprecated in the API. Use the replacement named in the PHPDoc.
 
 ## API operations used in this skill
@@ -141,31 +137,36 @@ only `PlatformException` extends `ApiException`. Catch the specific ones first.
 | `PlatformException` | `ApiException` | 500, 502, 503. Retry only if an error has `getRetriable() === true`, with a new idempotence key. |
 | `ApiException` | `ResponseException` | Any other error status, including 401 and 402 without a payment result. Other `ApiException` subclasses, `ProblemDetailsException` and `DeclinedPayoutException`, are raised by operations this skill does not use. |
 | `ResponseException` | `RuntimeException` | Base class. Has `getHttpStatusCode()`, `getErrorId()`, `getErrors()`, `getResponse()`. |
-| `\ErrorException` (PHP) | | No valid response: cURL timeout or connection error. Not a `ResponseException`. |
+| `OnlinePayments\Sdk\Communication\CommunicationException` | `\ErrorException` | No valid response: cURL timeout or connection error. Not a `ResponseException`; `getPrevious()` contains the underlying cURL cause when available. |
 | `OnlinePayments\Sdk\Webhooks\SignatureValidationException` | `RuntimeException` | `unmarshal`: missing header, wrong signature or unknown key ID (`SecretKeyNotAvailableException` extends it). |
 | `OnlinePayments\Sdk\Webhooks\ApiVersionMismatchException` | `RuntimeException` | `unmarshal`: valid signature, event API version is not `v1`. Not a `SignatureValidationException`. |
-| `OnlinePayments\Sdk\Communication\InvalidResponseException` | `RuntimeException` | `unmarshal`: valid signature, body is not valid JSON or does not fit the event. Valid JSON that is not an object (`[]`, `null`, `"x"`) leaks as `TypeError`. An API call raises it too, for any status, when the response is not valid JSON or has no content type (except 202 and 204). |
+| `OnlinePayments\Sdk\Communication\InvalidResponseException` | `RuntimeException` | `unmarshal`: valid signature, body is not valid JSON, is not an object, or does not fit the event. An API call raises it too, for any status, when the response is not valid JSON or has no content type (except 202 and 204). |
 
 `getErrors()` returns `APIError` objects with `getErrorCode()`, `getPropertyName()`, `getMessage()` and
 `getRetriable()`. The response of a declined payment also carries the payment; do not log it.
 
 `getMessage()` of a `ResponseException` is fixed text ("the payment platform returned an error response"; for the
-declined exceptions it holds the payment or refund ID and status) and does not hold the response body. Its `__toString()` (so `echo $e`, string casts and some loggers) includes the response as
-pretty-printed JSON. Log `getHttpStatusCode()`, `getErrorId()` and the error codes instead, and echo the exception
-only for Hosted Checkout calls, whose error body is a plain error response. To catch every error response, including after a specific one, catch
-`ResponseException`; `ApiException` does not cover validation, authorization or reference errors.
+declined exceptions it holds the payment or refund ID and status) and does not hold the response body. Its `__toString()`
+(so `echo $e`, string casts and some loggers) names the actual exception class and includes the response as JSON with
+sensitive values masked by the SDK's logging rules; `getResponse()` still returns the original, unmasked response. Masking
+does not make it safe to log the response of a declined payment: log `getHttpStatusCode()`, `getErrorId()` and the error
+codes instead, and log the exception itself only for Hosted Checkout calls, whose error body is a plain error response.
+To catch every error response, including after a specific one, catch `ResponseException`; `ApiException` does not cover
+validation, authorization or reference errors.
+
+The previous exception (`getPrevious()`) of every error response is an
+`OnlinePayments\Sdk\Communication\ErrorResponseException`. Its `getHeaders()` returns the response headers; use it to read
+diagnostic headers such as the request ID when you contact support.
 
 ## Webhooks
 
 `new WebhooksHelper($secretKeyStore)` and `$helper->unmarshal($body, $headers)`, where `$body` is the raw body string
-and `$headers` is an array of header name => one string value (names are matched case-insensitively). It returns a
+and `$headers` is an array of header name => string or list of strings (names are matched case-insensitively). It returns a
 `WebhooksEvent` with `getPayment()`, `getRefund()`, `getPaymentLink()`, `getPayout()` and `getToken()`; the event ID
 and type are in its `id` and `type` properties. See `webhooks.md` for the full handler.
 
-The helper cannot receive repeated headers: it takes the first match for a name and does not reject duplicates, and a
-list value is a `TypeError`. The handler therefore joins repeated values with `,`; a merged `X-GCS-Signature` or
-`X-GCS-KeyId` then fails verification (`SignatureValidationException`) instead of being used. Never pass only the first
-value.
+Pass the original headers without joining or dropping values. The helper rejects multiple occurrences of
+`X-GCS-Signature` or `X-GCS-KeyId` with `SignatureValidationException`.
 
 ## Payment status category
 

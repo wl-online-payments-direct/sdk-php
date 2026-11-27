@@ -15,12 +15,12 @@ class GetCardDataByPaymentsParams extends RequestObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $payments = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getPayments(): ?array
     {
         return $this->payments;
@@ -28,7 +28,7 @@ class GetCardDataByPaymentsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setPayments(?array $value): void
     {
         $this->payments = $value;
@@ -36,34 +36,35 @@ class GetCardDataByPaymentsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
-    public function withPayments(array $value): GetCardDataByPaymentsParams
+     * @return $this
+     */
+    public function withPayments(?array $value): static
     {
         $this->payments = $value;
         return $this;
     }
 
     /**
-     * @param string[]|null $value
-    */
-    public function addPayments(array $value): void
+     * @param string $value
+     */
+    public function addPayments(string $value): void
     {
-        if (is_null($this->payments)) {
+        if ($this->payments === null) {
             $this->payments = [];
         }
         $this->payments[] = $value;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->payments != null) {
+        if ($this->payments !== null) {
             $array['payments'] = [];
             foreach ($this->payments as $element) {
-                if ($element != null) {
+                if ($element !== null) {
                     $array['payments'][] = $element;
                 }
             }

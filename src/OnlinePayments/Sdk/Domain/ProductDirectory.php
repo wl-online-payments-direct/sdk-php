@@ -13,12 +13,12 @@ class ProductDirectory extends DataObject
 {
     /**
      * @var DirectoryEntry[]|null
-    */
+     */
     public ?array $entries = null;
 
     /**
      * @return DirectoryEntry[]|null
-    */
+     */
     public function getEntries(): ?array
     {
         return $this->entries;
@@ -26,7 +26,7 @@ class ProductDirectory extends DataObject
 
     /**
      * @param DirectoryEntry[]|null $value
-    */
+     */
     public function setEntries(?array $value): void
     {
         $this->entries = $value;
@@ -34,9 +34,9 @@ class ProductDirectory extends DataObject
 
     /**
      * @param DirectoryEntry[]|null $value
-     * @return ProductDirectory
-    */
-    public function withEntries(?array $value): ProductDirectory
+     * @return $this
+     */
+    public function withEntries(?array $value): static
     {
         $this->entries = $value;
         return $this;
@@ -45,13 +45,14 @@ class ProductDirectory extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->entries)) {
+        if ($this->entries !== null) {
             $object->entries = [];
             foreach ($this->entries as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->entries[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class ProductDirectory extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ProductDirectory
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'entries')) {

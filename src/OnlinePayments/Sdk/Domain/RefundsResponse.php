@@ -13,12 +13,12 @@ class RefundsResponse extends DataObject
 {
     /**
      * @var RefundResponse[]|null
-    */
+     */
     public ?array $refunds = null;
 
     /**
      * @return RefundResponse[]|null
-    */
+     */
     public function getRefunds(): ?array
     {
         return $this->refunds;
@@ -26,7 +26,7 @@ class RefundsResponse extends DataObject
 
     /**
      * @param RefundResponse[]|null $value
-    */
+     */
     public function setRefunds(?array $value): void
     {
         $this->refunds = $value;
@@ -34,9 +34,9 @@ class RefundsResponse extends DataObject
 
     /**
      * @param RefundResponse[]|null $value
-     * @return RefundsResponse
-    */
-    public function withRefunds(?array $value): RefundsResponse
+     * @return $this
+     */
+    public function withRefunds(?array $value): static
     {
         $this->refunds = $value;
         return $this;
@@ -45,13 +45,14 @@ class RefundsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->refunds)) {
+        if ($this->refunds !== null) {
             $object->refunds = [];
             foreach ($this->refunds as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->refunds[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class RefundsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'refunds')) {

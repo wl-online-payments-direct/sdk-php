@@ -20,7 +20,7 @@ class GetHostedCheckoutStatusTest extends TestCase
         $this->hostedCheckoutClient = $this->client->merchant($this->getMerchantId())->hostedCheckout();
     }
 
-    public function testGetHostedCheckout_ValidHostedCheckoutId_ReturnsCheckoutStatus()
+    public function testGetHostedCheckout_ValidHostedCheckoutId_ReturnsCheckoutStatus(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withFirstName('Status')
@@ -36,7 +36,7 @@ class GetHostedCheckoutStatusTest extends TestCase
         $this->assertNotNull($getResponse->getStatus());
     }
 
-    public function testGetHostedCheckout_ValidHostedCheckoutId_ReturnsCreatedPaymentOutput()
+    public function testGetHostedCheckout_ValidHostedCheckoutId_ReturnsCreatedPaymentOutput(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withAmount(7500)
@@ -56,7 +56,7 @@ class GetHostedCheckoutStatusTest extends TestCase
         $this->assertNotNull($getResponse->getCreatedPaymentOutput());
     }
 
-    public function testGetHostedCheckout_InvalidHostedCheckoutId_ReturnsReferenceExceptionNotFound()
+    public function testGetHostedCheckout_InvalidHostedCheckoutId_ReturnsReferenceExceptionNotFound(): void
     {
         try {
             $this->hostedCheckoutClient->getHostedCheckout(self::INVALID_HOSTED_CHECKOUT_ID);

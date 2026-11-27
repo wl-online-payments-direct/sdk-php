@@ -13,17 +13,17 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 {
     /**
      * @var CreditCardValidationRules|null
-    */
+     */
     public ?CreditCardValidationRules $ValidationRules = null;
 
     /**
      * @var int[]|null
-    */
+     */
     public ?array $paymentProductPreferredOrder = null;
 
     /**
      * @return CreditCardValidationRules|null
-    */
+     */
     public function getValidationRules(): ?CreditCardValidationRules
     {
         return $this->ValidationRules;
@@ -31,7 +31,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 
     /**
      * @param CreditCardValidationRules|null $value
-    */
+     */
     public function setValidationRules(?CreditCardValidationRules $value): void
     {
         $this->ValidationRules = $value;
@@ -39,9 +39,9 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 
     /**
      * @param CreditCardValidationRules|null $value
-     * @return CreditCardSpecificInputHostedTokenization
-    */
-    public function withValidationRules(?CreditCardValidationRules $value): CreditCardSpecificInputHostedTokenization
+     * @return $this
+     */
+    public function withValidationRules(?CreditCardValidationRules $value): static
     {
         $this->ValidationRules = $value;
         return $this;
@@ -49,7 +49,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 
     /**
      * @return int[]|null
-    */
+     */
     public function getPaymentProductPreferredOrder(): ?array
     {
         return $this->paymentProductPreferredOrder;
@@ -57,7 +57,7 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 
     /**
      * @param int[]|null $value
-    */
+     */
     public function setPaymentProductPreferredOrder(?array $value): void
     {
         $this->paymentProductPreferredOrder = $value;
@@ -65,9 +65,9 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
 
     /**
      * @param int[]|null $value
-     * @return CreditCardSpecificInputHostedTokenization
-    */
-    public function withPaymentProductPreferredOrder(?array $value): CreditCardSpecificInputHostedTokenization
+     * @return $this
+     */
+    public function withPaymentProductPreferredOrder(?array $value): static
     {
         $this->paymentProductPreferredOrder = $value;
         return $this;
@@ -76,16 +76,17 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->ValidationRules)) {
+        if ($this->ValidationRules !== null) {
             $object->ValidationRules = $this->ValidationRules->toObject();
         }
-        if (!is_null($this->paymentProductPreferredOrder)) {
+        if ($this->paymentProductPreferredOrder !== null) {
             $object->paymentProductPreferredOrder = [];
             foreach ($this->paymentProductPreferredOrder as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentProductPreferredOrder[] = $element;
                 }
             }
@@ -99,7 +100,8 @@ class CreditCardSpecificInputHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreditCardSpecificInputHostedTokenization
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'ValidationRules')) {

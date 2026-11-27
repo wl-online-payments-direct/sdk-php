@@ -13,17 +13,17 @@ class MandateMerchantAction extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $actionType = null;
 
     /**
      * @var MandateRedirectData|null
-    */
+     */
     public ?MandateRedirectData $redirectData = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getActionType(): ?string
     {
         return $this->actionType;
@@ -31,7 +31,7 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setActionType(?string $value): void
     {
         $this->actionType = $value;
@@ -39,9 +39,9 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateMerchantAction
-    */
-    public function withActionType(?string $value): MandateMerchantAction
+     * @return $this
+     */
+    public function withActionType(?string $value): static
     {
         $this->actionType = $value;
         return $this;
@@ -49,7 +49,7 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @return MandateRedirectData|null
-    */
+     */
     public function getRedirectData(): ?MandateRedirectData
     {
         return $this->redirectData;
@@ -57,7 +57,7 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param MandateRedirectData|null $value
-    */
+     */
     public function setRedirectData(?MandateRedirectData $value): void
     {
         $this->redirectData = $value;
@@ -65,9 +65,9 @@ class MandateMerchantAction extends DataObject
 
     /**
      * @param MandateRedirectData|null $value
-     * @return MandateMerchantAction
-    */
-    public function withRedirectData(?MandateRedirectData $value): MandateMerchantAction
+     * @return $this
+     */
+    public function withRedirectData(?MandateRedirectData $value): static
     {
         $this->redirectData = $value;
         return $this;
@@ -76,13 +76,14 @@ class MandateMerchantAction extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->actionType)) {
+        if ($this->actionType !== null) {
             $object->actionType = $this->actionType;
         }
-        if (!is_null($this->redirectData)) {
+        if ($this->redirectData !== null) {
             $object->redirectData = $this->redirectData->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class MandateMerchantAction extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MandateMerchantAction
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'actionType')) {

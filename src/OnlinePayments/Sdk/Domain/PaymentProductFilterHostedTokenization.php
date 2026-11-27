@@ -13,12 +13,12 @@ class PaymentProductFilterHostedTokenization extends DataObject
 {
     /**
      * @var int[]|null
-    */
+     */
     public ?array $products = null;
 
     /**
      * @return int[]|null
-    */
+     */
     public function getProducts(): ?array
     {
         return $this->products;
@@ -26,7 +26,7 @@ class PaymentProductFilterHostedTokenization extends DataObject
 
     /**
      * @param int[]|null $value
-    */
+     */
     public function setProducts(?array $value): void
     {
         $this->products = $value;
@@ -34,9 +34,9 @@ class PaymentProductFilterHostedTokenization extends DataObject
 
     /**
      * @param int[]|null $value
-     * @return PaymentProductFilterHostedTokenization
-    */
-    public function withProducts(?array $value): PaymentProductFilterHostedTokenization
+     * @return $this
+     */
+    public function withProducts(?array $value): static
     {
         $this->products = $value;
         return $this;
@@ -45,13 +45,14 @@ class PaymentProductFilterHostedTokenization extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->products)) {
+        if ($this->products !== null) {
             $object->products = [];
             foreach ($this->products as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->products[] = $element;
                 }
             }
@@ -65,7 +66,8 @@ class PaymentProductFilterHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFilterHostedTokenization
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'products')) {

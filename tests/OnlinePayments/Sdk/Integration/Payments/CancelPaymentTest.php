@@ -28,7 +28,7 @@ class CancelPaymentTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testCancelPayment_ValidPayment_ReturnsCancelledStatusAndPaymentId()
+    public function testCancelPayment_ValidPayment_ReturnsCancelledStatusAndPaymentId(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(1000, 'EUR');
 
@@ -45,7 +45,7 @@ class CancelPaymentTest extends TestCase
         $this->assertSame('CANCELLED', $response->getPayment()->getStatus());
     }
 
-    public function testCancelPayment_WithOnePartialAmount_ReturnsCancelledStatus()
+    public function testCancelPayment_WithOnePartialAmount_ReturnsCancelledStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -60,14 +60,14 @@ class CancelPaymentTest extends TestCase
         $this->assertNotEmpty($response->getPayment()->getId());
         $this->assertSame(
             explode('_', $paymentId)[0],
-            explode('_', $response->getPayment()->getId())[0]
+            explode('_', $response->getPayment()->getId())[0],
         );
 
         $this->assertNotNull($response->getPayment()->getStatus());
         $this->assertSame('CANCELLED', $response->getPayment()->getStatus());
     }
 
-    public function testCancelPayment_WithTwoPartialAmounts_ReturnsCancelledStatusForBothParts()
+    public function testCancelPayment_WithTwoPartialAmounts_ReturnsCancelledStatusForBothParts(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -82,7 +82,7 @@ class CancelPaymentTest extends TestCase
         $this->assertNotEmpty($firstResponse->getPayment()->getId());
         $this->assertSame(
             explode('_', $paymentId)[0],
-            explode('_', $firstResponse->getPayment()->getId())[0]
+            explode('_', $firstResponse->getPayment()->getId())[0],
         );
 
         $this->assertNotNull($firstResponse->getPayment()->getStatus());
@@ -99,14 +99,14 @@ class CancelPaymentTest extends TestCase
         $this->assertNotEmpty($secondResponse->getPayment()->getId());
         $this->assertSame(
             explode('_', $paymentId)[0],
-            explode('_', $secondResponse->getPayment()->getId())[0]
+            explode('_', $secondResponse->getPayment()->getId())[0],
         );
 
         $this->assertNotNull($secondResponse->getPayment()->getStatus());
         $this->assertSame('CANCELLED', $secondResponse->getPayment()->getStatus());
     }
 
-    public function testCancelPayment_AfterPartialCapture_ReturnsValidationException()
+    public function testCancelPayment_AfterPartialCapture_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -132,7 +132,7 @@ class CancelPaymentTest extends TestCase
         }
     }
 
-    public function testCancelPayment_AfterPartialCancel_ReturnsValidationException()
+    public function testCancelPayment_AfterPartialCancel_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -158,7 +158,7 @@ class CancelPaymentTest extends TestCase
         }
     }
 
-    public function testCancelPayment_WhenPaymentIsCaptured_ReturnsValidationException()
+    public function testCancelPayment_WhenPaymentIsCaptured_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -184,7 +184,7 @@ class CancelPaymentTest extends TestCase
         }
     }
 
-    public function testCancelPayment_WhenPaymentIsAlreadyCanceled_ReturnsValidationException()
+    public function testCancelPayment_WhenPaymentIsAlreadyCanceled_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -204,7 +204,7 @@ class CancelPaymentTest extends TestCase
         }
     }
 
-    public function testCancelPayment_WhenPaymentIsRefunded_ReturnsValidationException()
+    public function testCancelPayment_WhenPaymentIsRefunded_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -237,7 +237,7 @@ class CancelPaymentTest extends TestCase
         }
     }
 
-    public function testCancelPayment_WithInvalidPaymentId_ReturnsReferenceExceptionNotFound()
+    public function testCancelPayment_WithInvalidPaymentId_ReturnsReferenceExceptionNotFound(): void
     {
         try {
             $cancelRequest = CancelPaymentRequestBuilder::create()

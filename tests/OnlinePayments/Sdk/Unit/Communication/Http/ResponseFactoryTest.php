@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Unit\Communication\Http;
 
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
@@ -27,7 +28,7 @@ class ResponseFactoryTest extends TestCase
         $this->classMap->defaultErrorResponseClassName = SimpleHttpBinResponse::class;
     }
 
-    public function testCreateResponse_WithValidJson_ReturnsDataObject()
+    public function testCreateResponse_WithValidJson_ReturnsDataObject(): void
     {
         $response = $this->createMockConnectionResponse(200);
 
@@ -36,7 +37,7 @@ class ResponseFactoryTest extends TestCase
         $this->assertInstanceOf(DataObject::class, $result);
     }
 
-    public function testCreateResponse_WithNoContent_ReturnsDataObject()
+    public function testCreateResponse_WithNoContent_ReturnsDataObject(): void
     {
         $response = $this->createMockConnectionResponse(204);
 
@@ -45,32 +46,47 @@ class ResponseFactoryTest extends TestCase
         $this->assertInstanceOf(DataObject::class, $result);
     }
 
-    public function testCreateResponse_WithInvalidJson_ThrowsInvalidResponseException()
+    public function testCreateResponse_WithInvalidJson_ThrowsInvalidResponseException(): void
     {
         $this->expectException(InvalidResponseException::class);
 
         $response = new ConnectionResponse(
             200,
             ['Content-Type' => 'application/json'],
-            '{invalid json}'
+            '{invalid json}',
         );
 
         $this->factory->createResponse($response, $this->classMap);
     }
-    public function testCreateResponse_WithMissingContentType_ThrowsInvalidResponseException()
+
+    public function testCreateResponse_WithNonObjectJson_ThrowsInvalidResponseException(): void
+    {
+        $this->expectException(InvalidResponseException::class);
+        $this->expectExceptionMessage('expected a JSON object');
+
+        $response = new ConnectionResponse(
+            200,
+            ['Content-Type' => 'application/json'],
+            '[]',
+        );
+
+        $this->factory->createResponse($response, $this->classMap);
+    }
+
+    public function testCreateResponse_WithMissingContentType_ThrowsInvalidResponseException(): void
     {
         $this->expectException(InvalidResponseException::class);
 
         $response = new ConnectionResponse(
             200,
             [],
-            '{}'
+            '{}',
         );
 
         $this->factory->createResponse($response, $this->classMap);
     }
 
-    public function testCreateResponse_WithUnknownClassName_ThrowsInvalidResponseException()
+    public function testCreateResponse_WithUnknownClassName_ThrowsInvalidResponseException(): void
     {
         $this->expectException(InvalidResponseException::class);
 
@@ -80,7 +96,7 @@ class ResponseFactoryTest extends TestCase
         $response = new ConnectionResponse(
             200,
             ['Content-Type' => 'application/json'],
-            '{}'
+            '{}',
         );
 
         $this->factory->createResponse($response, $classMap);
@@ -94,7 +110,7 @@ class ResponseFactoryTest extends TestCase
         $response = new ConnectionResponse(
             200,
             ['Content-Type' => 'application/json'],
-            '{}'
+            '{}',
         );
 
         $this->expectException(InvalidResponseException::class);

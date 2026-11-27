@@ -21,9 +21,9 @@ class JsonValuesStore
     private ?StdClass $valuesObject = null;
 
     /**
-     * @param $valuesFilePath
+     * @param string|null $valuesFilePath
      */
-    public function __construct($valuesFilePath)
+    public function __construct(?string $valuesFilePath)
     {
         $this->valuesFilePath = $valuesFilePath;
     }
@@ -68,7 +68,7 @@ class JsonValuesStore
             $valuesObject = json_decode(file_get_contents($this->valuesFilePath));
             if (!$valuesObject) {
                 throw new Exception(
-                    'could not read JSON values file ' . $this->valuesFilePath . ' (file does not contain valid json)'
+                    'could not read JSON values file ' . $this->valuesFilePath . ' (file does not contain valid json)',
                 );
             }
 

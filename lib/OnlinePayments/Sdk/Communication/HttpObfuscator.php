@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
@@ -11,7 +12,7 @@ use OnlinePayments\Sdk\Logging\HeaderObfuscator;
  */
 class HttpObfuscator
 {
-    const HTTP_VERSION = 'HTTP/1.1';
+    public const HTTP_VERSION = 'HTTP/1.1';
 
     /** @var HeaderObfuscator */
     protected HeaderObfuscator $headerObfuscator;
@@ -44,26 +45,26 @@ class HttpObfuscator
     /**
      * @param string $requestMethod
      * @param string $relativeRequestUri
-     * @param array $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param string $requestBody
      * @return string
      */
     public function getRawObfuscatedRequest(
         string $requestMethod,
         string $relativeRequestUri,
-        array  $requestHeaders,
-        string $requestBody = ''
-    ) {
+        array $requestHeaders,
+        string $requestBody = '',
+    ): string {
         $rawObfuscatedRequest = $requestMethod . ' ' . $relativeRequestUri . ' ' . static::HTTP_VERSION;
         if ($requestHeaders) {
             $rawObfuscatedRequest .= PHP_EOL . implode(PHP_EOL, HttpHeaderHelper::generateRawHeaders(
-                $this->headerObfuscator->obfuscateHeaders($requestHeaders)
+                $this->headerObfuscator->obfuscateHeaders($requestHeaders),
             ));
         }
         if (strlen($requestBody) > 0) {
             $rawObfuscatedRequest .= PHP_EOL . PHP_EOL . $this->bodyObfuscator->obfuscateBody(
                 array_key_exists('Content-Type', $requestHeaders) ? $requestHeaders['Content-Type'] : '',
-                $requestBody
+                $requestBody,
             );
         }
         return $rawObfuscatedRequest;
@@ -73,20 +74,20 @@ class HttpObfuscator
      * @param ConnectionResponseInterface $response
      * @return string
      */
-    public function getRawObfuscatedResponse(ConnectionResponseInterface $response)
+    public function getRawObfuscatedResponse(ConnectionResponseInterface $response): string
     {
         $rawObfuscatedResponse = '';
         $responseHeaders = $response->getHeaders();
         if ($responseHeaders) {
             $rawObfuscatedResponse .= implode(PHP_EOL, HttpHeaderHelper::generateRawHeaders(
-                $this->headerObfuscator->obfuscateHeaders($responseHeaders)
+                $this->headerObfuscator->obfuscateHeaders($responseHeaders),
             ));
         }
         $responseBody = $response->getBody();
         if (strlen($responseBody) > 0) {
             $rawObfuscatedResponse .= PHP_EOL . PHP_EOL . $this->bodyObfuscator->obfuscateBody(
                 $response->getHeaderValue('Content-Type'),
-                $responseBody
+                $responseBody,
             );
         }
         return $rawObfuscatedResponse;

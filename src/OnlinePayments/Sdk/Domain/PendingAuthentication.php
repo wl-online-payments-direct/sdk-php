@@ -13,12 +13,12 @@ class PendingAuthentication extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $pollingUrl = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPollingUrl(): ?string
     {
         return $this->pollingUrl;
@@ -26,7 +26,7 @@ class PendingAuthentication extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPollingUrl(?string $value): void
     {
         $this->pollingUrl = $value;
@@ -34,9 +34,9 @@ class PendingAuthentication extends DataObject
 
     /**
      * @param string|null $value
-     * @return PendingAuthentication
-    */
-    public function withPollingUrl(?string $value): PendingAuthentication
+     * @return $this
+     */
+    public function withPollingUrl(?string $value): static
     {
         $this->pollingUrl = $value;
         return $this;
@@ -45,10 +45,11 @@ class PendingAuthentication extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->pollingUrl)) {
+        if ($this->pollingUrl !== null) {
             $object->pollingUrl = $this->pollingUrl;
         }
         return $object;
@@ -60,7 +61,8 @@ class PendingAuthentication extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PendingAuthentication
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'pollingUrl')) {

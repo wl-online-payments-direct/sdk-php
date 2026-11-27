@@ -24,14 +24,14 @@ class GetBatchStatusTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetBatchStatus_ExistingMerchantBatchReference_ReturnsBatchStatus()
+    public function testGetBatchStatus_ExistingMerchantBatchReference_ReturnsBatchStatus(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $response = $this->merchantBatchClient->getBatchStatus($reference);
@@ -46,7 +46,7 @@ class GetBatchStatusTest extends TestCase
         $this->assertNotEmpty($response->getStatus());
     }
 
-    public function testGetBatchStatus_NonExistingMerchantBatchReference_ReturnsReferenceException()
+    public function testGetBatchStatus_NonExistingMerchantBatchReference_ReturnsReferenceException(): void
     {
         try {
             $this->merchantBatchClient->getBatchStatus(self::NON_EXISTING_MERCHANT_BATCH_REFERENCE);

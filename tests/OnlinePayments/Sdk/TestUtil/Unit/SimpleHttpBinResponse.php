@@ -6,7 +6,7 @@ use OnlinePayments\Sdk\Domain\DataObject;
 
 class SimpleHttpBinResponse extends DataObject
 {
-    public $url;
+    public mixed $url = null;
 
     public function toObject(): object
     {
@@ -18,7 +18,7 @@ class SimpleHttpBinResponse extends DataObject
         return $object;
     }
 
-    public function fromObject(object $object): DataObject
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'url')) {

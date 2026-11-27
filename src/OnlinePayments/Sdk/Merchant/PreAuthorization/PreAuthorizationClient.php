@@ -11,6 +11,7 @@ use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\AddAuthorizationDetailsResponse;
 use OnlinePayments\Sdk\Domain\IncrementAuthorizationRequest;
 use OnlinePayments\Sdk\Domain\IncrementAuthorizationResponse;
+use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\Domain\UpdateAuthorizationAdditionalDataRequest;
 use OnlinePayments\Sdk\ExceptionFactory;
 
@@ -29,15 +30,16 @@ class PreAuthorizationClient extends ApiResource implements PreAuthorizationClie
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function incrementAuthorization(string $paymentId, IncrementAuthorizationRequest $body, ?CallContext $callContext = null): IncrementAuthorizationResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\IncrementAuthorizationResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = IncrementAuthorizationResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = PaymentErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var IncrementAuthorizationResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/increment-authorization'),
                 $this->getClientMetaInfo(),
@@ -45,11 +47,13 @@ class PreAuthorizationClient extends ApiResource implements PreAuthorizationClie
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -57,15 +61,16 @@ class PreAuthorizationClient extends ApiResource implements PreAuthorizationClie
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function addAuthorizationDetails(string $paymentId, UpdateAuthorizationAdditionalDataRequest $body, ?CallContext $callContext = null): AddAuthorizationDetailsResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\AddAuthorizationDetailsResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = AddAuthorizationDetailsResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = PaymentErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var AddAuthorizationDetailsResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/authorization-additional-data'),
                 $this->getClientMetaInfo(),
@@ -73,11 +78,13 @@ class PreAuthorizationClient extends ApiResource implements PreAuthorizationClie
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -87,7 +94,7 @@ class PreAuthorizationClient extends ApiResource implements PreAuthorizationClie
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

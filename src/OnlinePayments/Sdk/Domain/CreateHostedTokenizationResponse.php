@@ -13,39 +13,39 @@ class CreateHostedTokenizationResponse extends DataObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $expiredCardTokens = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedTokenizationUrl = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $invalidTokens = null;
 
     /**
      * @var string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public ?string $partialRedirectUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $sri = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getExpiredCardTokens(): ?array
     {
         return $this->expiredCardTokens;
@@ -53,7 +53,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setExpiredCardTokens(?array $value): void
     {
         $this->expiredCardTokens = $value;
@@ -61,9 +61,9 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return CreateHostedTokenizationResponse
-    */
-    public function withExpiredCardTokens(?array $value): CreateHostedTokenizationResponse
+     * @return $this
+     */
+    public function withExpiredCardTokens(?array $value): static
     {
         $this->expiredCardTokens = $value;
         return $this;
@@ -71,7 +71,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -79,7 +79,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
@@ -87,9 +87,9 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationResponse
-    */
-    public function withHostedTokenizationId(?string $value): CreateHostedTokenizationResponse
+     * @return $this
+     */
+    public function withHostedTokenizationId(?string $value): static
     {
         $this->hostedTokenizationId = $value;
         return $this;
@@ -97,7 +97,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedTokenizationUrl(): ?string
     {
         return $this->hostedTokenizationUrl;
@@ -105,7 +105,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedTokenizationUrl(?string $value): void
     {
         $this->hostedTokenizationUrl = $value;
@@ -113,9 +113,9 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationResponse
-    */
-    public function withHostedTokenizationUrl(?string $value): CreateHostedTokenizationResponse
+     * @return $this
+     */
+    public function withHostedTokenizationUrl(?string $value): static
     {
         $this->hostedTokenizationUrl = $value;
         return $this;
@@ -123,7 +123,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getInvalidTokens(): ?array
     {
         return $this->invalidTokens;
@@ -131,7 +131,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setInvalidTokens(?array $value): void
     {
         $this->invalidTokens = $value;
@@ -139,9 +139,9 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return CreateHostedTokenizationResponse
-    */
-    public function withInvalidTokens(?array $value): CreateHostedTokenizationResponse
+     * @return $this
+     */
+    public function withInvalidTokens(?array $value): static
     {
         $this->invalidTokens = $value;
         return $this;
@@ -151,7 +151,7 @@ class CreateHostedTokenizationResponse extends DataObject
      * @return string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public function getPartialRedirectUrl(): ?string
     {
         return $this->partialRedirectUrl;
@@ -161,7 +161,7 @@ class CreateHostedTokenizationResponse extends DataObject
      * @param string|null $value
      *
      * @deprecated Deprecated
-    */
+     */
     public function setPartialRedirectUrl(?string $value): void
     {
         $this->partialRedirectUrl = $value;
@@ -169,11 +169,11 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationResponse
+     * @return $this
      *
      * @deprecated Deprecated
-    */
-    public function withPartialRedirectUrl(?string $value): CreateHostedTokenizationResponse
+     */
+    public function withPartialRedirectUrl(?string $value): static
     {
         $this->partialRedirectUrl = $value;
         return $this;
@@ -181,7 +181,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSri(): ?string
     {
         return $this->sri;
@@ -189,7 +189,7 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSri(?string $value): void
     {
         $this->sri = $value;
@@ -197,9 +197,9 @@ class CreateHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationResponse
-    */
-    public function withSri(?string $value): CreateHostedTokenizationResponse
+     * @return $this
+     */
+    public function withSri(?string $value): static
     {
         $this->sri = $value;
         return $this;
@@ -208,35 +208,36 @@ class CreateHostedTokenizationResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->expiredCardTokens)) {
+        if ($this->expiredCardTokens !== null) {
             $object->expiredCardTokens = [];
             foreach ($this->expiredCardTokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->expiredCardTokens[] = $element;
                 }
             }
         }
-        if (!is_null($this->hostedTokenizationId)) {
+        if ($this->hostedTokenizationId !== null) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
-        if (!is_null($this->hostedTokenizationUrl)) {
+        if ($this->hostedTokenizationUrl !== null) {
             $object->hostedTokenizationUrl = $this->hostedTokenizationUrl;
         }
-        if (!is_null($this->invalidTokens)) {
+        if ($this->invalidTokens !== null) {
             $object->invalidTokens = [];
             foreach ($this->invalidTokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->invalidTokens[] = $element;
                 }
             }
         }
-        if (!is_null($this->partialRedirectUrl)) {
+        if ($this->partialRedirectUrl !== null) {
             $object->partialRedirectUrl = $this->partialRedirectUrl;
         }
-        if (!is_null($this->sri)) {
+        if ($this->sri !== null) {
             $object->sri = $this->sri;
         }
         return $object;
@@ -248,7 +249,8 @@ class CreateHostedTokenizationResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateHostedTokenizationResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'expiredCardTokens')) {

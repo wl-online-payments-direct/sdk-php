@@ -18,7 +18,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->hostedCheckoutClient = $this->client->merchant($this->getMerchantId())->hostedCheckout();
     }
 
-    public function testCreateHostedCheckout_WithCardPayment_ReturnHostedCheckoutId()
+    public function testCreateHostedCheckout_WithCardPayment_ReturnHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withFirstName('John')
@@ -32,7 +32,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithCustomerDetails_ReturnHostedCheckoutId()
+    public function testCreateHostedCheckout_WithCustomerDetails_ReturnHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withAmount(5000)
@@ -52,7 +52,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithFilters_ReturnHostedCheckoutId()
+    public function testCreateHostedCheckout_WithFilters_ReturnHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withAmount(2500)
@@ -70,7 +70,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithSessionTimeout_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithSessionTimeout_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withSessionTimeout(300)
@@ -85,7 +85,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithDifferentLocales_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithDifferentLocales_ReturnsHostedCheckoutId(): void
     {
         $locales = ['en_US', 'de_DE', 'fr_FR', 'es_ES', 'it_IT', 'nl_NL'];
 
@@ -104,7 +104,7 @@ class CreateHostedCheckoutTest extends TestCase
         }
     }
 
-    public function testCreateHostedCheckout_WithCustomAmount_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithCustomAmount_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withAmount(9999)
@@ -120,7 +120,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithBillingAddress_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithBillingAddress_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withFirstName('John')
@@ -140,7 +140,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithClickToPay_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithClickToPay_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withCardClickToPay(true)
@@ -155,7 +155,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithGroupCards_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithGroupCards_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withCardGroupCards(true)
@@ -170,7 +170,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithCallContext_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithCallContext_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withFirstName('CallContext')
@@ -186,7 +186,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithShowResultPageHidden_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithShowResultPageHidden_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withShowResultPage(false)
@@ -201,7 +201,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithShowResultPageShown_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithShowResultPageShown_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withShowResultPage(true)
@@ -216,7 +216,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithRecurringPayment_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithRecurringPayment_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withIsRecurring(true)
@@ -231,7 +231,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithOneOffPayment_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithOneOffPayment_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withIsRecurring(false)
@@ -246,7 +246,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithNewUnscheduledCardOnFile_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithNewUnscheduledCardOnFile_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withIsNewUnscheduledCardOnFileSeries(true)
@@ -261,7 +261,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithoutTokenization_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithoutTokenization_ReturnsHostedCheckoutId(): void
     {
         $request = CreateHostedCheckoutRequestBuilder::create()
             ->withIsNewUnscheduledCardOnFileSeries(false)
@@ -276,7 +276,7 @@ class CreateHostedCheckoutTest extends TestCase
         $this->assertNotEmpty($response->getRedirectUrl());
     }
 
-    public function testCreateHostedCheckout_WithMultipleHostedCheckouts_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithMultipleHostedCheckouts_ReturnsHostedCheckoutId(): void
     {
         for ($i = 0; $i < 3; $i++) {
             $request = CreateHostedCheckoutRequestBuilder::create()
@@ -292,7 +292,7 @@ class CreateHostedCheckoutTest extends TestCase
         }
     }
 
-    public function testCreateHostedCheckout_WithDifferentAmounts_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithDifferentAmounts_ReturnsHostedCheckoutId(): void
     {
         $amounts = [1000, 2500, 5000, 10000];
 
@@ -309,7 +309,7 @@ class CreateHostedCheckoutTest extends TestCase
         }
     }
 
-    public function testCreateHostedCheckout_WithDifferentCurrencies_ReturnsHostedCheckoutId()
+    public function testCreateHostedCheckout_WithDifferentCurrencies_ReturnsHostedCheckoutId(): void
     {
         $currencies = ['EUR', 'GBP', 'USD', 'CHF', 'SEK'];
 

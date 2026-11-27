@@ -13,12 +13,12 @@ class ShowInstructionsData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $showData = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getShowData(): ?string
     {
         return $this->showData;
@@ -26,7 +26,7 @@ class ShowInstructionsData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setShowData(?string $value): void
     {
         $this->showData = $value;
@@ -34,9 +34,9 @@ class ShowInstructionsData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ShowInstructionsData
-    */
-    public function withShowData(?string $value): ShowInstructionsData
+     * @return $this
+     */
+    public function withShowData(?string $value): static
     {
         $this->showData = $value;
         return $this;
@@ -45,10 +45,11 @@ class ShowInstructionsData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->showData)) {
+        if ($this->showData !== null) {
             $object->showData = $this->showData;
         }
         return $object;
@@ -60,7 +61,8 @@ class ShowInstructionsData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShowInstructionsData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'showData')) {

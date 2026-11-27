@@ -13,12 +13,12 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
 {
     /**
      * @var CustomerBankAccount|null
-    */
+     */
     public ?CustomerBankAccount $customerBankAccount = null;
 
     /**
      * @return CustomerBankAccount|null
-    */
+     */
     public function getCustomerBankAccount(): ?CustomerBankAccount
     {
         return $this->customerBankAccount;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-    */
+     */
     public function setCustomerBankAccount(?CustomerBankAccount $value): void
     {
         $this->customerBankAccount = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-     * @return RedirectPaymentProduct5406SpecificInput
-    */
-    public function withCustomerBankAccount(?CustomerBankAccount $value): RedirectPaymentProduct5406SpecificInput
+     * @return $this
+     */
+    public function withCustomerBankAccount(?CustomerBankAccount $value): static
     {
         $this->customerBankAccount = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->customerBankAccount)) {
+        if ($this->customerBankAccount !== null) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct5406SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5406SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'customerBankAccount')) {

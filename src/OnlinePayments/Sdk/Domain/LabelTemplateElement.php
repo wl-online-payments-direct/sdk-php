@@ -13,17 +13,17 @@ class LabelTemplateElement extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $attributeKey = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $mask = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAttributeKey(): ?string
     {
         return $this->attributeKey;
@@ -31,7 +31,7 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAttributeKey(?string $value): void
     {
         $this->attributeKey = $value;
@@ -39,9 +39,9 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return LabelTemplateElement
-    */
-    public function withAttributeKey(?string $value): LabelTemplateElement
+     * @return $this
+     */
+    public function withAttributeKey(?string $value): static
     {
         $this->attributeKey = $value;
         return $this;
@@ -49,7 +49,7 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMask(): ?string
     {
         return $this->mask;
@@ -57,7 +57,7 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMask(?string $value): void
     {
         $this->mask = $value;
@@ -65,9 +65,9 @@ class LabelTemplateElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return LabelTemplateElement
-    */
-    public function withMask(?string $value): LabelTemplateElement
+     * @return $this
+     */
+    public function withMask(?string $value): static
     {
         $this->mask = $value;
         return $this;
@@ -76,13 +76,14 @@ class LabelTemplateElement extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->attributeKey)) {
+        if ($this->attributeKey !== null) {
             $object->attributeKey = $this->attributeKey;
         }
-        if (!is_null($this->mask)) {
+        if ($this->mask !== null) {
             $object->mask = $this->mask;
         }
         return $object;
@@ -94,7 +95,8 @@ class LabelTemplateElement extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): LabelTemplateElement
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'attributeKey')) {

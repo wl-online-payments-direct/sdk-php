@@ -13,17 +13,17 @@ class PaymentProductFieldDataRestrictions extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRequired = null;
 
     /**
      * @var PaymentProductFieldValidators|null
-    */
+     */
     public ?PaymentProductFieldValidators $validators = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRequired(): ?bool
     {
         return $this->isRequired;
@@ -31,7 +31,7 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRequired(?bool $value): void
     {
         $this->isRequired = $value;
@@ -39,9 +39,9 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProductFieldDataRestrictions
-    */
-    public function withIsRequired(?bool $value): PaymentProductFieldDataRestrictions
+     * @return $this
+     */
+    public function withIsRequired(?bool $value): static
     {
         $this->isRequired = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @return PaymentProductFieldValidators|null
-    */
+     */
     public function getValidators(): ?PaymentProductFieldValidators
     {
         return $this->validators;
@@ -57,7 +57,7 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param PaymentProductFieldValidators|null $value
-    */
+     */
     public function setValidators(?PaymentProductFieldValidators $value): void
     {
         $this->validators = $value;
@@ -65,9 +65,9 @@ class PaymentProductFieldDataRestrictions extends DataObject
 
     /**
      * @param PaymentProductFieldValidators|null $value
-     * @return PaymentProductFieldDataRestrictions
-    */
-    public function withValidators(?PaymentProductFieldValidators $value): PaymentProductFieldDataRestrictions
+     * @return $this
+     */
+    public function withValidators(?PaymentProductFieldValidators $value): static
     {
         $this->validators = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProductFieldDataRestrictions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->isRequired)) {
+        if ($this->isRequired !== null) {
             $object->isRequired = $this->isRequired;
         }
-        if (!is_null($this->validators)) {
+        if ($this->validators !== null) {
             $object->validators = $this->validators->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProductFieldDataRestrictions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldDataRestrictions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'isRequired')) {

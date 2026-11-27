@@ -13,37 +13,37 @@ class CreatedTokenResponse extends DataObject
 {
     /**
      * @var CardWithoutCvv|null
-    */
+     */
     public ?CardWithoutCvv $card = null;
 
     /**
      * @var CrmToken|null
-    */
+     */
     public ?CrmToken $crmToken = null;
 
     /**
      * @var ExternalTokenLinked|null
-    */
+     */
     public ?ExternalTokenLinked $externalTokenLinked = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isNewToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $token = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenStatus = null;
 
     /**
      * @return CardWithoutCvv|null
-    */
+     */
     public function getCard(): ?CardWithoutCvv
     {
         return $this->card;
@@ -51,7 +51,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-    */
+     */
     public function setCard(?CardWithoutCvv $value): void
     {
         $this->card = $value;
@@ -59,9 +59,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withCard(?CardWithoutCvv $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withCard(?CardWithoutCvv $value): static
     {
         $this->card = $value;
         return $this;
@@ -69,7 +69,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @return CrmToken|null
-    */
+     */
     public function getCrmToken(): ?CrmToken
     {
         return $this->crmToken;
@@ -77,7 +77,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CrmToken|null $value
-    */
+     */
     public function setCrmToken(?CrmToken $value): void
     {
         $this->crmToken = $value;
@@ -85,9 +85,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param CrmToken|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withCrmToken(?CrmToken $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withCrmToken(?CrmToken $value): static
     {
         $this->crmToken = $value;
         return $this;
@@ -95,7 +95,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @return ExternalTokenLinked|null
-    */
+     */
     public function getExternalTokenLinked(): ?ExternalTokenLinked
     {
         return $this->externalTokenLinked;
@@ -103,7 +103,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param ExternalTokenLinked|null $value
-    */
+     */
     public function setExternalTokenLinked(?ExternalTokenLinked $value): void
     {
         $this->externalTokenLinked = $value;
@@ -111,9 +111,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param ExternalTokenLinked|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withExternalTokenLinked(?ExternalTokenLinked $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withExternalTokenLinked(?ExternalTokenLinked $value): static
     {
         $this->externalTokenLinked = $value;
         return $this;
@@ -121,7 +121,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsNewToken(): ?bool
     {
         return $this->isNewToken;
@@ -129,7 +129,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsNewToken(?bool $value): void
     {
         $this->isNewToken = $value;
@@ -137,9 +137,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withIsNewToken(?bool $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withIsNewToken(?bool $value): static
     {
         $this->isNewToken = $value;
         return $this;
@@ -147,7 +147,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -155,7 +155,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -163,9 +163,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withToken(?string $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -173,7 +173,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenStatus(): ?string
     {
         return $this->tokenStatus;
@@ -181,7 +181,7 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenStatus(?string $value): void
     {
         $this->tokenStatus = $value;
@@ -189,9 +189,9 @@ class CreatedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatedTokenResponse
-    */
-    public function withTokenStatus(?string $value): CreatedTokenResponse
+     * @return $this
+     */
+    public function withTokenStatus(?string $value): static
     {
         $this->tokenStatus = $value;
         return $this;
@@ -200,25 +200,26 @@ class CreatedTokenResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->crmToken)) {
+        if ($this->crmToken !== null) {
             $object->crmToken = $this->crmToken->toObject();
         }
-        if (!is_null($this->externalTokenLinked)) {
+        if ($this->externalTokenLinked !== null) {
             $object->externalTokenLinked = $this->externalTokenLinked->toObject();
         }
-        if (!is_null($this->isNewToken)) {
+        if ($this->isNewToken !== null) {
             $object->isNewToken = $this->isNewToken;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
-        if (!is_null($this->tokenStatus)) {
+        if ($this->tokenStatus !== null) {
             $object->tokenStatus = $this->tokenStatus;
         }
         return $object;
@@ -230,7 +231,8 @@ class CreatedTokenResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreatedTokenResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

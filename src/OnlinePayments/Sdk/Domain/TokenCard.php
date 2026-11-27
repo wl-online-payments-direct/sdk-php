@@ -13,17 +13,17 @@ class TokenCard extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $alias = null;
 
     /**
      * @var TokenCardData|null
-    */
+     */
     public ?TokenCardData $data = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAlias(): ?string
     {
         return $this->alias;
@@ -31,7 +31,7 @@ class TokenCard extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAlias(?string $value): void
     {
         $this->alias = $value;
@@ -39,9 +39,9 @@ class TokenCard extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenCard
-    */
-    public function withAlias(?string $value): TokenCard
+     * @return $this
+     */
+    public function withAlias(?string $value): static
     {
         $this->alias = $value;
         return $this;
@@ -49,7 +49,7 @@ class TokenCard extends DataObject
 
     /**
      * @return TokenCardData|null
-    */
+     */
     public function getData(): ?TokenCardData
     {
         return $this->data;
@@ -57,7 +57,7 @@ class TokenCard extends DataObject
 
     /**
      * @param TokenCardData|null $value
-    */
+     */
     public function setData(?TokenCardData $value): void
     {
         $this->data = $value;
@@ -65,9 +65,9 @@ class TokenCard extends DataObject
 
     /**
      * @param TokenCardData|null $value
-     * @return TokenCard
-    */
-    public function withData(?TokenCardData $value): TokenCard
+     * @return $this
+     */
+    public function withData(?TokenCardData $value): static
     {
         $this->data = $value;
         return $this;
@@ -76,13 +76,14 @@ class TokenCard extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->alias)) {
+        if ($this->alias !== null) {
             $object->alias = $this->alias;
         }
-        if (!is_null($this->data)) {
+        if ($this->data !== null) {
             $object->data = $this->data->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class TokenCard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): TokenCard
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'alias')) {

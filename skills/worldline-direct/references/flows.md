@@ -110,7 +110,7 @@ public function createHostedCheckoutWithRetry(CreateHostedCheckoutRequest $reque
                 throw $e;
             }
             sleep(2 * $attempt);
-        } catch (ErrorException $e) {
+        } catch (CommunicationException $e) {
             // Timeout or connection error (cURL): the session may or may not exist. Send it again.
             if ($attempt >= 3) {
                 throw $e;

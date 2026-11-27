@@ -14,27 +14,27 @@ class PaymentOutputSummary extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var CardPaymentMethodSpecificOutputSummary|null
-    */
+     */
     public ?CardPaymentMethodSpecificOutputSummary $cardPaymentMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences|null
-    */
+     */
     public ?PaymentReferences $references = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -42,7 +42,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -50,9 +50,9 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentOutputSummary
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): PaymentOutputSummary
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -60,7 +60,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @return CardPaymentMethodSpecificOutputSummary|null
-    */
+     */
     public function getCardPaymentMethodSpecificOutput(): ?CardPaymentMethodSpecificOutputSummary
     {
         return $this->cardPaymentMethodSpecificOutput;
@@ -68,7 +68,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutputSummary|null $value
-    */
+     */
     public function setCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutputSummary $value): void
     {
         $this->cardPaymentMethodSpecificOutput = $value;
@@ -76,9 +76,9 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutputSummary|null $value
-     * @return PaymentOutputSummary
-    */
-    public function withCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutputSummary $value): PaymentOutputSummary
+     * @return $this
+     */
+    public function withCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutputSummary $value): static
     {
         $this->cardPaymentMethodSpecificOutput = $value;
         return $this;
@@ -86,7 +86,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @return PaymentReferences|null
-    */
+     */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -94,7 +94,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-    */
+     */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
@@ -102,9 +102,9 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     * @return PaymentOutputSummary
-    */
-    public function withReferences(?PaymentReferences $value): PaymentOutputSummary
+     * @return $this
+     */
+    public function withReferences(?PaymentReferences $value): static
     {
         $this->references = $value;
         return $this;
@@ -112,7 +112,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getTransactionDate(): ?DateTime
     {
         return $this->transactionDate;
@@ -120,7 +120,7 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setTransactionDate(?DateTime $value): void
     {
         $this->transactionDate = $value;
@@ -128,9 +128,9 @@ class PaymentOutputSummary extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentOutputSummary
-    */
-    public function withTransactionDate(?DateTime $value): PaymentOutputSummary
+     * @return $this
+     */
+    public function withTransactionDate(?DateTime $value): static
     {
         $this->transactionDate = $value;
         return $this;
@@ -139,19 +139,20 @@ class PaymentOutputSummary extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->cardPaymentMethodSpecificOutput)) {
+        if ($this->cardPaymentMethodSpecificOutput !== null) {
             $object->cardPaymentMethodSpecificOutput = $this->cardPaymentMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->references)) {
+        if ($this->references !== null) {
             $object->references = $this->references->toObject();
         }
-        if (!is_null($this->transactionDate)) {
+        if ($this->transactionDate !== null) {
             $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
@@ -163,7 +164,8 @@ class PaymentOutputSummary extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentOutputSummary
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

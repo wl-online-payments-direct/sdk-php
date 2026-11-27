@@ -13,17 +13,17 @@ class PaymentProduct5002SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $checkoutResponseSignature = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $creditCardBrand = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCheckoutResponseSignature(): ?string
     {
         return $this->checkoutResponseSignature;
@@ -31,7 +31,7 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCheckoutResponseSignature(?string $value): void
     {
         $this->checkoutResponseSignature = $value;
@@ -39,9 +39,9 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5002SpecificInput
-    */
-    public function withCheckoutResponseSignature(?string $value): PaymentProduct5002SpecificInput
+     * @return $this
+     */
+    public function withCheckoutResponseSignature(?string $value): static
     {
         $this->checkoutResponseSignature = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCreditCardBrand(): ?string
     {
         return $this->creditCardBrand;
@@ -57,7 +57,7 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCreditCardBrand(?string $value): void
     {
         $this->creditCardBrand = $value;
@@ -65,9 +65,9 @@ class PaymentProduct5002SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5002SpecificInput
-    */
-    public function withCreditCardBrand(?string $value): PaymentProduct5002SpecificInput
+     * @return $this
+     */
+    public function withCreditCardBrand(?string $value): static
     {
         $this->creditCardBrand = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct5002SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->checkoutResponseSignature)) {
+        if ($this->checkoutResponseSignature !== null) {
             $object->checkoutResponseSignature = $this->checkoutResponseSignature;
         }
-        if (!is_null($this->creditCardBrand)) {
+        if ($this->creditCardBrand !== null) {
             $object->creditCardBrand = $this->creditCardBrand;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct5002SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5002SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'checkoutResponseSignature')) {

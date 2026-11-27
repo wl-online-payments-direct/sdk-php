@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 #[Group('logging')]
 class BodyObfuscatorTest extends TestCase
 {
-    public function testBodyObfuscator_ObfuscateBodyWithNullBody_ReturnsNullString()
+    public function testBodyObfuscator_ObfuscateBodyWithNullBody_ReturnsNullString(): void
     {
         $bodyObfuscator = new BodyObfuscator();
         $mimeType = BodyObfuscator::MIME_APPLICATION_JSON;
@@ -22,7 +22,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertEquals('null', $result);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithEmptyBody_ReturnsEmptyString()
+    public function testBodyObfuscator_ObfuscateBodyWithEmptyBody_ReturnsEmptyString(): void
     {
         $bodyObfuscator = new BodyObfuscator();
         $mimeType = BodyObfuscator::MIME_APPLICATION_JSON;
@@ -33,21 +33,21 @@ class BodyObfuscatorTest extends TestCase
         $this->assertEquals('', $result);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithCard_ObfuscatesSensitiveCardFields()
+    public function testBodyObfuscator_ObfuscateBodyWithCard_ObfuscatesSensitiveCardFields(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $body = json_encode([
             'cardNumber' => '1234567890123456',
             'expiryDate' => '1225',
-            'cvv' => '123'
+            'cvv' => '123',
         ], JSON_PRETTY_PRINT);
 
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertEquals('************3456', $result->cardNumber);
@@ -55,7 +55,7 @@ class BodyObfuscatorTest extends TestCase
         $this->assertEquals('***', $result->cvv);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithCustomCardRule_AppliesCustomMasking()
+    public function testBodyObfuscator_ObfuscateBodyWithCustomCardRule_AppliesCustomMasking(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
@@ -66,87 +66,87 @@ class BodyObfuscatorTest extends TestCase
         });
 
         $body = json_encode([
-            'cardNumber' => '1234567890123456'
+            'cardNumber' => '1234567890123456',
         ], JSON_PRETTY_PRINT);
 
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertEquals('123456******3456', $result->cardNumber);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithIban_ObfuscatesIban()
+    public function testBodyObfuscator_ObfuscateBodyWithIban_ObfuscatesIban(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $body = json_encode([
-            'iban' => 'NL12ABCD1234567890'
+            'iban' => 'NL12ABCD1234567890',
         ], JSON_PRETTY_PRINT);
 
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertEquals('**************7890', $result->iban);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithBin_ObfuscatesBin()
+    public function testBodyObfuscator_ObfuscateBodyWithBin_ObfuscatesBin(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $body = json_encode([
-            'bin' => '1234567890'
+            'bin' => '1234567890',
         ], JSON_PRETTY_PRINT);
 
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertEquals('123456****', $result->bin);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithNoMatches_ReturnsOriginalBody()
+    public function testBodyObfuscator_ObfuscateBodyWithNoMatches_ReturnsOriginalBody(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $body = json_encode([
-            'name' => 'foo'
+            'name' => 'foo',
         ], JSON_PRETTY_PRINT);
 
         $result = $bodyObfuscator->obfuscateBody(
             BodyObfuscator::MIME_APPLICATION_JSON,
-            $body
+            $body,
         );
 
         $this->assertEquals($body, $result);
     }
 
-    public function testBodyObfuscator_ObfuscateBodyWithObject_ObfuscatesNestedValues()
+    public function testBodyObfuscator_ObfuscateBodyWithObject_ObfuscatesNestedValues(): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $body = json_encode([
             'fields' => [
                 ['name' => 'foo'],
-                ['value' => 'foo']
-            ]
+                ['value' => 'foo'],
+            ],
         ], JSON_PRETTY_PRINT);
 
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertEquals('foo', $result->fields[0]->name);
@@ -154,36 +154,36 @@ class BodyObfuscatorTest extends TestCase
     }
 
     #[DataProvider('jsonObfuscationProvider')]
-    public function testBodyObfuscator_ObfuscateBodyWithJsonProvider_ObfuscatesCorrectly($jsonBody, $obfuscatedJsonBody)
+    public function testBodyObfuscator_ObfuscateBodyWithJsonProvider_ObfuscatesCorrectly(string $jsonBody, string $obfuscatedJsonBody): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $this->assertEquals(
             $obfuscatedJsonBody,
-            $bodyObfuscator->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON, $jsonBody)
+            $bodyObfuscator->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON, $jsonBody),
         );
     }
 
     #[DataProvider('jsonObfuscationProvider')]
-    public function testBodyObfuscator_ObfuscateBodyWithJsonProviderUtf8_ObfuscatesCorrectly($jsonBody, $obfuscatedJsonBody)
+    public function testBodyObfuscator_ObfuscateBodyWithJsonProviderUtf8_ObfuscatesCorrectly(string $jsonBody, string $obfuscatedJsonBody): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $this->assertEquals(
             $obfuscatedJsonBody,
-            $bodyObfuscator->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON . ';charset=UTF-8', $jsonBody)
+            $bodyObfuscator->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON . ';charset=UTF-8', $jsonBody),
         );
     }
 
     #[DataProvider('skipObfuscationProvider')]
-    public function testBodyObfuscator_SkipObfuscationForSkippedContentTypes_ReturnsOriginalValue($contentType, $value)
+    public function testBodyObfuscator_SkipObfuscationForSkippedContentTypes_ReturnsOriginalValue(string $contentType, string $value): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
         $this->assertEquals($value, $bodyObfuscator->obfuscateBody($contentType, $value));
     }
 
-    public function testBodyObfuscator_ValueObfuscators_WorkAsExpected()
+    public function testBodyObfuscator_ValueObfuscators_WorkAsExpected(): void
     {
         $valueObfuscator = new ValueObfuscator();
         $this->assertEquals('***', $valueObfuscator->obfuscateAll('foo'));
@@ -196,7 +196,7 @@ class BodyObfuscatorTest extends TestCase
     }
 
     #[DataProvider('jsonCustomObfuscationProvider')]
-    public function testBodyObfuscator_ObfuscateBodyWithCustomRules_ObfuscatesAccordingToCustomRules($jsonBody, $obfuscatedJsonBody)
+    public function testBodyObfuscator_ObfuscateBodyWithCustomRules_ObfuscatesAccordingToCustomRules(string $jsonBody, string $obfuscatedJsonBody): void
     {
         $bodyObfuscator = new BodyObfuscator();
 
@@ -212,7 +212,7 @@ class BodyObfuscatorTest extends TestCase
 
         $result = $bodyObfuscator->obfuscateBody(
             BodyObfuscator::MIME_APPLICATION_JSON,
-            $jsonBody
+            $jsonBody,
         );
 
         $this->assertEquals($obfuscatedJsonBody, $result);
@@ -230,8 +230,8 @@ class BodyObfuscatorTest extends TestCase
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_PROBLEM_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertSame('************3456', $result->cardNumber);
@@ -242,7 +242,7 @@ class BodyObfuscatorTest extends TestCase
     public function testBodyObfuscator_ObfuscateBodyWithAdditionalSensitiveFields_ObfuscatesAccordingToRules(
         string $fieldName,
         string $value,
-        string $expected
+        string $expected,
     ): void {
         $bodyObfuscator = new BodyObfuscator();
 
@@ -253,38 +253,41 @@ class BodyObfuscatorTest extends TestCase
         $result = json_decode(
             $bodyObfuscator->obfuscateBody(
                 BodyObfuscator::MIME_APPLICATION_JSON,
-                $body
-            )
+                $body,
+            ),
         );
 
         $this->assertSame($expected, $result->{$fieldName});
     }
 
+    /**
+     * @return array<int, array<int, string|false>>
+     */
     public static function jsonObfuscationProvider(): array
     {
-        $testObjects = array(
-            array(null, null),
-            array(true, true),
-            array(false, false),
-            array(123.45, 123.45),
-            array('foo', 'foo'),
-            array('secretkey', 'secretkey'),
-            array(array(), array()),
-            array(array('foo'), array('foo')),
-            array((object) array(), (object) array()),
-            array((object) array('foo'), (object) array('foo')),
-            array(array('name' => 'foo'), array('name' => 'foo')),
-            array(array('secretKey' => 'foo'), array('secretKey' => '********')),
-            array(array('value' => 'foo'), array('value' => '***')),
-            array(array('bin' => '1234567890'), array('bin' => '123456****')),
-            array(array('iban' => 'NL12ABCD1234567890'), array('iban' => '**************7890')),
-            array(array('cardNumber' => '1234567890123456'), array('cardNumber' => '************3456')),
-            array(array('expiryDate' => '1234'), array('expiryDate' => '**34')),
-            array(
-                array('fields' => array(array('name' => 'foo'), array('value' => 'foo'))),
-                array('fields' => array(array('name' => 'foo'), array('value' => '***')))
-            )
-        );
+        $testObjects = [
+            [null, null],
+            [true, true],
+            [false, false],
+            [123.45, 123.45],
+            ['foo', 'foo'],
+            ['secretkey', 'secretkey'],
+            [[], []],
+            [['foo'], ['foo']],
+            [(object) [], (object) []],
+            [(object) ['foo'], (object) ['foo']],
+            [['name' => 'foo'], ['name' => 'foo']],
+            [['secretKey' => 'foo'], ['secretKey' => '********']],
+            [['value' => 'foo'], ['value' => '***']],
+            [['bin' => '1234567890'], ['bin' => '123456****']],
+            [['iban' => 'NL12ABCD1234567890'], ['iban' => '**************7890']],
+            [['cardNumber' => '1234567890123456'], ['cardNumber' => '************3456']],
+            [['expiryDate' => '1234'], ['expiryDate' => '**34']],
+            [
+                ['fields' => [['name' => 'foo'], ['value' => 'foo']]],
+                ['fields' => [['name' => 'foo'], ['value' => '***']]],
+            ],
+        ];
 
         return array_map(function (array $testObjectValues) {
             return array_map(function ($testObjectValue) {
@@ -293,44 +296,50 @@ class BodyObfuscatorTest extends TestCase
         }, $testObjects);
     }
 
+    /**
+     * @return array<int, array{0: string, 1: string}>
+     */
     public static function skipObfuscationProvider(): array
     {
-        return array(
-            array(BodyObfuscator::MIME_APPLICATION_JSON, 'foo'),
-            array(BodyObfuscator::MIME_APPLICATION_JSON, '{'),
-            array('text/html', ''),
-            array('text/html', 'foo'),
-            array('text/html', '{'),
-            array('text/html', '{"foo": "bar"'),
-            array('', '')
-        );
+        return [
+            [BodyObfuscator::MIME_APPLICATION_JSON, 'foo'],
+            [BodyObfuscator::MIME_APPLICATION_JSON, '{'],
+            ['text/html', ''],
+            ['text/html', 'foo'],
+            ['text/html', '{'],
+            ['text/html', '{"foo": "bar"'],
+            ['', ''],
+        ];
     }
 
+    /**
+     * @return array<int, array<int, string|false>>
+     */
     public static function jsonCustomObfuscationProvider(): array
     {
-        $testObjects = array(
-            array(null, null),
-            array(true, true),
-            array(false, false),
-            array(123.45, 123.45),
-            array('foo', 'foo'),
-            array('secretkey', 'secretkey'),
-            array(array(), array()),
-            array(array('foo'), array('foo')),
-            array((object) array(), (object) array()),
-            array((object) array('foo'), (object) array('foo')),
-            array(array('name' => 'foo'), array('name' => 'foo')),
-            array(array('secretKey' => 'foo'), array('secretKey' => '********')),
-            array(array('value' => 'foo'), array('value' => '***')),
-            array(array('bin' => '1234567890'), array('bin' => '123456****')),
-            array(array('iban' => 'NL12ABCD1234567890'), array('iban' => '******************')),
-            array(array('cardNumber' => '1234567890123456'), array('cardNumber' => '123456******3456')),
-            array(array('expiryDate' => '1234'), array('expiryDate' => '**34')),
-            array(
-                array('fields' => array(array('name' => 'foo'), array('value' => 'foo'))),
-                array('fields' => array(array('name' => 'foo'), array('value' => '***')))
-            )
-        );
+        $testObjects = [
+            [null, null],
+            [true, true],
+            [false, false],
+            [123.45, 123.45],
+            ['foo', 'foo'],
+            ['secretkey', 'secretkey'],
+            [[], []],
+            [['foo'], ['foo']],
+            [(object) [], (object) []],
+            [(object) ['foo'], (object) ['foo']],
+            [['name' => 'foo'], ['name' => 'foo']],
+            [['secretKey' => 'foo'], ['secretKey' => '********']],
+            [['value' => 'foo'], ['value' => '***']],
+            [['bin' => '1234567890'], ['bin' => '123456****']],
+            [['iban' => 'NL12ABCD1234567890'], ['iban' => '******************']],
+            [['cardNumber' => '1234567890123456'], ['cardNumber' => '123456******3456']],
+            [['expiryDate' => '1234'], ['expiryDate' => '**34']],
+            [
+                ['fields' => [['name' => 'foo'], ['value' => 'foo']]],
+                ['fields' => [['name' => 'foo'], ['value' => '***']]],
+            ],
+        ];
 
         return array_map(function (array $testObjectValues) {
             return array_map(function ($testObjectValue) {
@@ -339,6 +348,9 @@ class BodyObfuscatorTest extends TestCase
         }, $testObjects);
     }
 
+    /**
+     * @return array<int, array{0: string, 1: string, 2: string}>
+     */
     public static function additionalObfuscationFieldsProvider(): array
     {
         return [

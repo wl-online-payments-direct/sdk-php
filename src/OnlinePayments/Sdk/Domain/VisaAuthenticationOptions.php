@@ -13,22 +13,22 @@ class VisaAuthenticationOptions extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerBIN = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerMerchantId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerBIN(): ?string
     {
         return $this->acquirerBIN;
@@ -36,7 +36,7 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerBIN(?string $value): void
     {
         $this->acquirerBIN = $value;
@@ -44,9 +44,9 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return VisaAuthenticationOptions
-    */
-    public function withAcquirerBIN(?string $value): VisaAuthenticationOptions
+     * @return $this
+     */
+    public function withAcquirerBIN(?string $value): static
     {
         $this->acquirerBIN = $value;
         return $this;
@@ -54,7 +54,7 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerMerchantId(): ?string
     {
         return $this->acquirerMerchantId;
@@ -62,7 +62,7 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerMerchantId(?string $value): void
     {
         $this->acquirerMerchantId = $value;
@@ -70,9 +70,9 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return VisaAuthenticationOptions
-    */
-    public function withAcquirerMerchantId(?string $value): VisaAuthenticationOptions
+     * @return $this
+     */
+    public function withAcquirerMerchantId(?string $value): static
     {
         $this->acquirerMerchantId = $value;
         return $this;
@@ -80,7 +80,7 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantName(): ?string
     {
         return $this->merchantName;
@@ -88,7 +88,7 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantName(?string $value): void
     {
         $this->merchantName = $value;
@@ -96,9 +96,9 @@ class VisaAuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return VisaAuthenticationOptions
-    */
-    public function withMerchantName(?string $value): VisaAuthenticationOptions
+     * @return $this
+     */
+    public function withMerchantName(?string $value): static
     {
         $this->merchantName = $value;
         return $this;
@@ -107,16 +107,17 @@ class VisaAuthenticationOptions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquirerBIN)) {
+        if ($this->acquirerBIN !== null) {
             $object->acquirerBIN = $this->acquirerBIN;
         }
-        if (!is_null($this->acquirerMerchantId)) {
+        if ($this->acquirerMerchantId !== null) {
             $object->acquirerMerchantId = $this->acquirerMerchantId;
         }
-        if (!is_null($this->merchantName)) {
+        if ($this->merchantName !== null) {
             $object->merchantName = $this->merchantName;
         }
         return $object;
@@ -128,7 +129,8 @@ class VisaAuthenticationOptions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): VisaAuthenticationOptions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerBIN')) {

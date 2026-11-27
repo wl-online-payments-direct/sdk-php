@@ -5,6 +5,7 @@
 namespace OnlinePayments\Sdk;
 
 use OnlinePayments\Sdk\Domain\DataObject;
+use Throwable;
 
 /**
  * Class AuthorizationException
@@ -14,15 +15,20 @@ use OnlinePayments\Sdk\Domain\DataObject;
 class AuthorizationException extends ResponseException
 {
     /**
-     * @param int         $httpStatusCode
-     * @param DataObject  $response
-     * @param string|null $message
+     * @param int            $httpStatusCode
+     * @param DataObject     $response
+     * @param string|null    $message
+     * @param Throwable|null $previous
      */
-    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
-    {
-        if (is_null($message)) {
+    public function __construct(
+        int        $httpStatusCode,
+        DataObject $response,
+        ?string    $message = null,
+        ?Throwable $previous = null
+    ) {
+        if ($message === null) {
             $message = 'the payment platform returned an authorization error response';
         }
-        parent::__construct($httpStatusCode, $response, $message);
+        parent::__construct($httpStatusCode, $response, $message, $previous);
     }
 }

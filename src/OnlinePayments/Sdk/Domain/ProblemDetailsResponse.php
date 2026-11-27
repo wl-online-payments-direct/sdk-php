@@ -13,32 +13,32 @@ class ProblemDetailsResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $detail = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $instance = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $status = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $title = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDetail(): ?string
     {
         return $this->detail;
@@ -46,7 +46,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDetail(?string $value): void
     {
         $this->detail = $value;
@@ -54,9 +54,9 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProblemDetailsResponse
-    */
-    public function withDetail(?string $value): ProblemDetailsResponse
+     * @return $this
+     */
+    public function withDetail(?string $value): static
     {
         $this->detail = $value;
         return $this;
@@ -64,7 +64,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getInstance(): ?string
     {
         return $this->instance;
@@ -72,7 +72,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setInstance(?string $value): void
     {
         $this->instance = $value;
@@ -80,9 +80,9 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProblemDetailsResponse
-    */
-    public function withInstance(?string $value): ProblemDetailsResponse
+     * @return $this
+     */
+    public function withInstance(?string $value): static
     {
         $this->instance = $value;
         return $this;
@@ -90,7 +90,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getStatus(): ?int
     {
         return $this->status;
@@ -98,7 +98,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setStatus(?int $value): void
     {
         $this->status = $value;
@@ -106,9 +106,9 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return ProblemDetailsResponse
-    */
-    public function withStatus(?int $value): ProblemDetailsResponse
+     * @return $this
+     */
+    public function withStatus(?int $value): static
     {
         $this->status = $value;
         return $this;
@@ -116,7 +116,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -124,7 +124,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
@@ -132,9 +132,9 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProblemDetailsResponse
-    */
-    public function withTitle(?string $value): ProblemDetailsResponse
+     * @return $this
+     */
+    public function withTitle(?string $value): static
     {
         $this->title = $value;
         return $this;
@@ -142,7 +142,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -150,7 +150,7 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -158,9 +158,9 @@ class ProblemDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProblemDetailsResponse
-    */
-    public function withType(?string $value): ProblemDetailsResponse
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -169,22 +169,23 @@ class ProblemDetailsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->detail)) {
+        if ($this->detail !== null) {
             $object->detail = $this->detail;
         }
-        if (!is_null($this->instance)) {
+        if ($this->instance !== null) {
             $object->instance = $this->instance;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
-        if (!is_null($this->title)) {
+        if ($this->title !== null) {
             $object->title = $this->title;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
         return $object;
@@ -196,7 +197,8 @@ class ProblemDetailsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ProblemDetailsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'detail')) {

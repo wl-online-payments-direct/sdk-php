@@ -13,17 +13,17 @@ class GiftCardPurchase extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $numberOfGiftCards = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -31,7 +31,7 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -39,9 +39,9 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return GiftCardPurchase
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): GiftCardPurchase
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -49,7 +49,7 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getNumberOfGiftCards(): ?int
     {
         return $this->numberOfGiftCards;
@@ -57,7 +57,7 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setNumberOfGiftCards(?int $value): void
     {
         $this->numberOfGiftCards = $value;
@@ -65,9 +65,9 @@ class GiftCardPurchase extends DataObject
 
     /**
      * @param int|null $value
-     * @return GiftCardPurchase
-    */
-    public function withNumberOfGiftCards(?int $value): GiftCardPurchase
+     * @return $this
+     */
+    public function withNumberOfGiftCards(?int $value): static
     {
         $this->numberOfGiftCards = $value;
         return $this;
@@ -76,13 +76,14 @@ class GiftCardPurchase extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->numberOfGiftCards)) {
+        if ($this->numberOfGiftCards !== null) {
             $object->numberOfGiftCards = $this->numberOfGiftCards;
         }
         return $object;
@@ -94,7 +95,8 @@ class GiftCardPurchase extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GiftCardPurchase
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

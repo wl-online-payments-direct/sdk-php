@@ -25,7 +25,7 @@ class GetPaymentLinkByIdTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetPaymentLinkById_ValidPaymentLinkId_ReturnsPaymentLink()
+    public function testGetPaymentLinkById_ValidPaymentLinkId_ReturnsPaymentLink(): void
     {
         $paymentLinkId = $this->sdkHelper->createPaymentLinkAndGetId();
 
@@ -36,7 +36,7 @@ class GetPaymentLinkByIdTest extends TestCase
         $this->assertNotNull($response->getRedirectionUrl());
     }
 
-    public function testGetPaymentLinkById_NonExistentPaymentLinkId_ReturnsReferenceException()
+    public function testGetPaymentLinkById_NonExistentPaymentLinkId_ReturnsReferenceException(): void
     {
         try {
             $this->paymentLinksClient->getPaymentLinkById(self::UNKNOWN_PAYMENT_LINK_ID);
@@ -47,7 +47,7 @@ class GetPaymentLinkByIdTest extends TestCase
         }
     }
 
-    public function testGetPaymentLinkById_InvalidPaymentLinkIdFormat_ReturnsValidationException()
+    public function testGetPaymentLinkById_InvalidPaymentLinkIdFormat_ReturnsValidationException(): void
     {
         try {
             $this->paymentLinksClient->getPaymentLinkById(self::INVALID_PAYMENT_LINK_ID);

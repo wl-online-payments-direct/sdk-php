@@ -13,12 +13,12 @@ class CalculateSurchargeResponse extends DataObject
 {
     /**
      * @var Surcharge[]|null
-    */
+     */
     public ?array $surcharges = null;
 
     /**
      * @return Surcharge[]|null
-    */
+     */
     public function getSurcharges(): ?array
     {
         return $this->surcharges;
@@ -26,7 +26,7 @@ class CalculateSurchargeResponse extends DataObject
 
     /**
      * @param Surcharge[]|null $value
-    */
+     */
     public function setSurcharges(?array $value): void
     {
         $this->surcharges = $value;
@@ -34,9 +34,9 @@ class CalculateSurchargeResponse extends DataObject
 
     /**
      * @param Surcharge[]|null $value
-     * @return CalculateSurchargeResponse
-    */
-    public function withSurcharges(?array $value): CalculateSurchargeResponse
+     * @return $this
+     */
+    public function withSurcharges(?array $value): static
     {
         $this->surcharges = $value;
         return $this;
@@ -45,13 +45,14 @@ class CalculateSurchargeResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->surcharges)) {
+        if ($this->surcharges !== null) {
             $object->surcharges = [];
             foreach ($this->surcharges as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->surcharges[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class CalculateSurchargeResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CalculateSurchargeResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'surcharges')) {

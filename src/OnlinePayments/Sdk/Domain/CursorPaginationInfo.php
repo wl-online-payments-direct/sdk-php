@@ -13,17 +13,17 @@ class CursorPaginationInfo extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $hasMore = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $nextCursor = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getHasMore(): ?bool
     {
         return $this->hasMore;
@@ -31,7 +31,7 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setHasMore(?bool $value): void
     {
         $this->hasMore = $value;
@@ -39,9 +39,9 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CursorPaginationInfo
-    */
-    public function withHasMore(?bool $value): CursorPaginationInfo
+     * @return $this
+     */
+    public function withHasMore(?bool $value): static
     {
         $this->hasMore = $value;
         return $this;
@@ -49,7 +49,7 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getNextCursor(): ?string
     {
         return $this->nextCursor;
@@ -57,7 +57,7 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNextCursor(?string $value): void
     {
         $this->nextCursor = $value;
@@ -65,9 +65,9 @@ class CursorPaginationInfo extends DataObject
 
     /**
      * @param string|null $value
-     * @return CursorPaginationInfo
-    */
-    public function withNextCursor(?string $value): CursorPaginationInfo
+     * @return $this
+     */
+    public function withNextCursor(?string $value): static
     {
         $this->nextCursor = $value;
         return $this;
@@ -76,13 +76,14 @@ class CursorPaginationInfo extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->hasMore)) {
+        if ($this->hasMore !== null) {
             $object->hasMore = $this->hasMore;
         }
-        if (!is_null($this->nextCursor)) {
+        if ($this->nextCursor !== null) {
             $object->nextCursor = $this->nextCursor;
         }
         return $object;
@@ -94,7 +95,8 @@ class CursorPaginationInfo extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CursorPaginationInfo
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'hasMore')) {

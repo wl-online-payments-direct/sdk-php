@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\SplFileObjectLogger;
@@ -11,7 +12,7 @@ use OnlinePayments\Sdk\Communication\InvalidResponseException;
 #[Group('logging')]
 class SplFileObjectLoggerTest extends TestCase
 {
-    public function testSpFileObjectLogger_LogMessage_WritesMessageToResource()
+    public function testSpFileObjectLogger_LogMessage_WritesMessageToResource(): void
     {
         $tempFileResource = new SplTempFileObject();
         $logger = new SplFileObjectLogger($tempFileResource);
@@ -29,13 +30,13 @@ class SplFileObjectLoggerTest extends TestCase
         $this->assertEquals($message . PHP_EOL, $content);
     }
 
-    public function testSpFileObjectLogger_LogException_WritesMessageAndExceptionToResource()
+    public function testSpFileObjectLogger_LogException_WritesMessageAndExceptionToResource(): void
     {
         $tempFileResource = new SplTempFileObject();
         $logger = new SplFileObjectLogger($tempFileResource);
 
         $message = "test log";
-        $exception = new InvalidResponseException(new ConnectionResponse(500, array(), ''));
+        $exception = new InvalidResponseException(new ConnectionResponse(500, [], ''));
         $logger->logException($message, $exception);
 
         $tempFileResource->fseek(26);
@@ -48,7 +49,7 @@ class SplFileObjectLoggerTest extends TestCase
         $this->assertEquals($message . PHP_EOL . $exception . PHP_EOL, $content);
     }
 
-    public function testSpFileObjectLogger_LogUnicodeMessage_WritesUnicodeCorrectly()
+    public function testSpFileObjectLogger_LogUnicodeMessage_WritesUnicodeCorrectly(): void
     {
         $tempFileResource = new SplTempFileObject();
         $logger = new SplFileObjectLogger($tempFileResource);

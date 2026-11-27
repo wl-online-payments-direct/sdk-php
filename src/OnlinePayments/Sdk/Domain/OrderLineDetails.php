@@ -13,57 +13,57 @@ class OrderLineDetails extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $discountAmount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $productBrand = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $productCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $productName = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $productPrice = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $productType = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $quantity = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $taxAmount = null;
 
     /**
      * @var float|null
-    */
+     */
     public ?float $taxPercentage = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $unit = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getDiscountAmount(): ?int
     {
         return $this->discountAmount;
@@ -71,7 +71,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setDiscountAmount(?int $value): void
     {
         $this->discountAmount = $value;
@@ -79,9 +79,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     * @return OrderLineDetails
-    */
-    public function withDiscountAmount(?int $value): OrderLineDetails
+     * @return $this
+     */
+    public function withDiscountAmount(?int $value): static
     {
         $this->discountAmount = $value;
         return $this;
@@ -89,7 +89,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getProductBrand(): ?string
     {
         return $this->productBrand;
@@ -97,7 +97,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setProductBrand(?string $value): void
     {
         $this->productBrand = $value;
@@ -105,9 +105,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderLineDetails
-    */
-    public function withProductBrand(?string $value): OrderLineDetails
+     * @return $this
+     */
+    public function withProductBrand(?string $value): static
     {
         $this->productBrand = $value;
         return $this;
@@ -115,7 +115,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getProductCode(): ?string
     {
         return $this->productCode;
@@ -123,7 +123,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setProductCode(?string $value): void
     {
         $this->productCode = $value;
@@ -131,9 +131,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderLineDetails
-    */
-    public function withProductCode(?string $value): OrderLineDetails
+     * @return $this
+     */
+    public function withProductCode(?string $value): static
     {
         $this->productCode = $value;
         return $this;
@@ -141,7 +141,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getProductName(): ?string
     {
         return $this->productName;
@@ -149,7 +149,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setProductName(?string $value): void
     {
         $this->productName = $value;
@@ -157,9 +157,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderLineDetails
-    */
-    public function withProductName(?string $value): OrderLineDetails
+     * @return $this
+     */
+    public function withProductName(?string $value): static
     {
         $this->productName = $value;
         return $this;
@@ -167,7 +167,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getProductPrice(): ?int
     {
         return $this->productPrice;
@@ -175,7 +175,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setProductPrice(?int $value): void
     {
         $this->productPrice = $value;
@@ -183,9 +183,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     * @return OrderLineDetails
-    */
-    public function withProductPrice(?int $value): OrderLineDetails
+     * @return $this
+     */
+    public function withProductPrice(?int $value): static
     {
         $this->productPrice = $value;
         return $this;
@@ -193,7 +193,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getProductType(): ?string
     {
         return $this->productType;
@@ -201,7 +201,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setProductType(?string $value): void
     {
         $this->productType = $value;
@@ -209,9 +209,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderLineDetails
-    */
-    public function withProductType(?string $value): OrderLineDetails
+     * @return $this
+     */
+    public function withProductType(?string $value): static
     {
         $this->productType = $value;
         return $this;
@@ -219,7 +219,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
@@ -227,7 +227,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setQuantity(?int $value): void
     {
         $this->quantity = $value;
@@ -235,9 +235,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     * @return OrderLineDetails
-    */
-    public function withQuantity(?int $value): OrderLineDetails
+     * @return $this
+     */
+    public function withQuantity(?int $value): static
     {
         $this->quantity = $value;
         return $this;
@@ -245,7 +245,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTaxAmount(): ?int
     {
         return $this->taxAmount;
@@ -253,7 +253,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTaxAmount(?int $value): void
     {
         $this->taxAmount = $value;
@@ -261,9 +261,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param int|null $value
-     * @return OrderLineDetails
-    */
-    public function withTaxAmount(?int $value): OrderLineDetails
+     * @return $this
+     */
+    public function withTaxAmount(?int $value): static
     {
         $this->taxAmount = $value;
         return $this;
@@ -271,7 +271,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return float|null
-    */
+     */
     public function getTaxPercentage(): ?float
     {
         return $this->taxPercentage;
@@ -279,7 +279,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param float|null $value
-    */
+     */
     public function setTaxPercentage(?float $value): void
     {
         $this->taxPercentage = $value;
@@ -287,9 +287,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param float|null $value
-     * @return OrderLineDetails
-    */
-    public function withTaxPercentage(?float $value): OrderLineDetails
+     * @return $this
+     */
+    public function withTaxPercentage(?float $value): static
     {
         $this->taxPercentage = $value;
         return $this;
@@ -297,7 +297,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getUnit(): ?string
     {
         return $this->unit;
@@ -305,7 +305,7 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUnit(?string $value): void
     {
         $this->unit = $value;
@@ -313,9 +313,9 @@ class OrderLineDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderLineDetails
-    */
-    public function withUnit(?string $value): OrderLineDetails
+     * @return $this
+     */
+    public function withUnit(?string $value): static
     {
         $this->unit = $value;
         return $this;
@@ -324,37 +324,38 @@ class OrderLineDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->discountAmount)) {
+        if ($this->discountAmount !== null) {
             $object->discountAmount = $this->discountAmount;
         }
-        if (!is_null($this->productBrand)) {
+        if ($this->productBrand !== null) {
             $object->productBrand = $this->productBrand;
         }
-        if (!is_null($this->productCode)) {
+        if ($this->productCode !== null) {
             $object->productCode = $this->productCode;
         }
-        if (!is_null($this->productName)) {
+        if ($this->productName !== null) {
             $object->productName = $this->productName;
         }
-        if (!is_null($this->productPrice)) {
+        if ($this->productPrice !== null) {
             $object->productPrice = $this->productPrice;
         }
-        if (!is_null($this->productType)) {
+        if ($this->productType !== null) {
             $object->productType = $this->productType;
         }
-        if (!is_null($this->quantity)) {
+        if ($this->quantity !== null) {
             $object->quantity = $this->quantity;
         }
-        if (!is_null($this->taxAmount)) {
+        if ($this->taxAmount !== null) {
             $object->taxAmount = $this->taxAmount;
         }
-        if (!is_null($this->taxPercentage)) {
+        if ($this->taxPercentage !== null) {
             $object->taxPercentage = $this->taxPercentage;
         }
-        if (!is_null($this->unit)) {
+        if ($this->unit !== null) {
             $object->unit = $this->unit;
         }
         return $object;
@@ -366,7 +367,8 @@ class OrderLineDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OrderLineDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'discountAmount')) {

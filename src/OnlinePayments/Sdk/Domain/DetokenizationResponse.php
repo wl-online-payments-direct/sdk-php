@@ -13,12 +13,12 @@ class DetokenizationResponse extends DataObject
 {
     /**
      * @var DetokenizedTokenResponse[]|null
-    */
+     */
     public ?array $tokens = null;
 
     /**
      * @return DetokenizedTokenResponse[]|null
-    */
+     */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -26,7 +26,7 @@ class DetokenizationResponse extends DataObject
 
     /**
      * @param DetokenizedTokenResponse[]|null $value
-    */
+     */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
@@ -34,9 +34,9 @@ class DetokenizationResponse extends DataObject
 
     /**
      * @param DetokenizedTokenResponse[]|null $value
-     * @return DetokenizationResponse
-    */
-    public function withTokens(?array $value): DetokenizationResponse
+     * @return $this
+     */
+    public function withTokens(?array $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -45,13 +45,14 @@ class DetokenizationResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->tokens[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class DetokenizationResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DetokenizationResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'tokens')) {

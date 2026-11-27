@@ -13,24 +13,24 @@ class ExternalTokenLinked extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $ComputedToken = null;
 
     /**
      * @var string|null
      *
      * @deprecated Use the field ComputedToken instead.
-    */
+     */
     public ?string $GTSComputedToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $GeneratedToken = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getComputedToken(): ?string
     {
         return $this->ComputedToken;
@@ -38,7 +38,7 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setComputedToken(?string $value): void
     {
         $this->ComputedToken = $value;
@@ -46,9 +46,9 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return ExternalTokenLinked
-    */
-    public function withComputedToken(?string $value): ExternalTokenLinked
+     * @return $this
+     */
+    public function withComputedToken(?string $value): static
     {
         $this->ComputedToken = $value;
         return $this;
@@ -58,7 +58,7 @@ class ExternalTokenLinked extends DataObject
      * @return string|null
      *
      * @deprecated Use the field ComputedToken instead.
-    */
+     */
     public function getGTSComputedToken(): ?string
     {
         return $this->GTSComputedToken;
@@ -68,7 +68,7 @@ class ExternalTokenLinked extends DataObject
      * @param string|null $value
      *
      * @deprecated Use the field ComputedToken instead.
-    */
+     */
     public function setGTSComputedToken(?string $value): void
     {
         $this->GTSComputedToken = $value;
@@ -76,11 +76,11 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return ExternalTokenLinked
+     * @return $this
      *
      * @deprecated Use the field ComputedToken instead.
-    */
-    public function withGTSComputedToken(?string $value): ExternalTokenLinked
+     */
+    public function withGTSComputedToken(?string $value): static
     {
         $this->GTSComputedToken = $value;
         return $this;
@@ -88,7 +88,7 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getGeneratedToken(): ?string
     {
         return $this->GeneratedToken;
@@ -96,7 +96,7 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setGeneratedToken(?string $value): void
     {
         $this->GeneratedToken = $value;
@@ -104,9 +104,9 @@ class ExternalTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return ExternalTokenLinked
-    */
-    public function withGeneratedToken(?string $value): ExternalTokenLinked
+     * @return $this
+     */
+    public function withGeneratedToken(?string $value): static
     {
         $this->GeneratedToken = $value;
         return $this;
@@ -115,16 +115,17 @@ class ExternalTokenLinked extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->ComputedToken)) {
+        if ($this->ComputedToken !== null) {
             $object->ComputedToken = $this->ComputedToken;
         }
-        if (!is_null($this->GTSComputedToken)) {
+        if ($this->GTSComputedToken !== null) {
             $object->GTSComputedToken = $this->GTSComputedToken;
         }
-        if (!is_null($this->GeneratedToken)) {
+        if ($this->GeneratedToken !== null) {
             $object->GeneratedToken = $this->GeneratedToken;
         }
         return $object;
@@ -136,7 +137,8 @@ class ExternalTokenLinked extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ExternalTokenLinked
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'ComputedToken')) {

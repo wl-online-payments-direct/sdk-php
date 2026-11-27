@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 /**
@@ -11,8 +12,8 @@ class ResponseBuilder
     /** @var int */
     private int $httpStatusCode = 0;
 
-    /** @var array */
-    private array $headers = array();
+    /** @var array<int|string, string|string[]> */
+    private array $headers = [];
 
     /** @var string */
     private string $body = '';
@@ -26,7 +27,7 @@ class ResponseBuilder
     }
 
     /**
-     * @param array $headers
+     * @param array<int|string, string|string[]> $headers
      */
     public function setHeaders(array $headers): void
     {
@@ -50,7 +51,7 @@ class ResponseBuilder
     }
 
     /**
-     * @return ConnectionResponseInterface
+     * @return ConnectionResponse
      */
     public function getResponse(): ConnectionResponse
     {

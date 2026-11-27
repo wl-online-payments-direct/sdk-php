@@ -1,8 +1,9 @@
 <?php
+
 namespace OnlinePayments\Sdk\Webhooks;
 
-use Exception;
 use RuntimeException;
+use Throwable;
 
 /**
  * Class SignatureValidationException
@@ -13,10 +14,10 @@ class SignatureValidationException extends RuntimeException
 {
     /**
      * @param string|null $message
-     * @param Exception|null $previous
+     * @param Throwable|null $previous
      */
-    public function __construct($message = null, $previous = null)
+    public function __construct(?string $message = null, ?Throwable $previous = null)
     {
-        parent::__construct($message, 0, $previous);
+        parent::__construct($message ?? '', 0, $previous);
     }
 }

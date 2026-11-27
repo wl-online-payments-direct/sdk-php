@@ -15,17 +15,17 @@ class GetPrivacyPolicyParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -33,7 +33,7 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -41,8 +41,9 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withLocale(string $value): GetPrivacyPolicyParams
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -50,7 +51,7 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -58,7 +59,7 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -66,23 +67,24 @@ class GetPrivacyPolicyParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
-    public function withPaymentProductId(int $value): GetPrivacyPolicyParams
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->locale != null) {
+        if ($this->locale !== null) {
             $array['locale'] = $this->locale;
         }
-        if ($this->paymentProductId != null) {
+        if ($this->paymentProductId !== null) {
             $array['paymentProductId'] = $this->paymentProductId;
         }
         return $array;

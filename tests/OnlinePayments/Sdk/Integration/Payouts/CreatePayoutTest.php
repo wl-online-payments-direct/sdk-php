@@ -19,7 +19,7 @@ class CreatePayoutTest extends TestCase
         $this->payoutsClient = $this->client->merchant($this->getMerchantId())->payouts();
     }
 
-    public function testCreatePayout_ValidCardInput_ReturnsSuccessfullyCreatedPayout()
+    public function testCreatePayout_ValidCardInput_ReturnsSuccessfullyCreatedPayout(): void
     {
         $request = CreatePayoutRequestBuilder::create()->build();
 
@@ -31,16 +31,16 @@ class CreatePayoutTest extends TestCase
         $this->assertNotNull($response->getPayoutOutput()->getAmountOfMoney());
         $this->assertSame(
             $request->getAmountOfMoney()->getAmount(),
-            $response->getPayoutOutput()->getAmountOfMoney()->getAmount()
+            $response->getPayoutOutput()->getAmountOfMoney()->getAmount(),
         );
 
         $this->assertSame(
             $request->getAmountOfMoney()->getCurrencyCode(),
-            $response->getPayoutOutput()->getAmountOfMoney()->getCurrencyCode()
+            $response->getPayoutOutput()->getAmountOfMoney()->getCurrencyCode(),
         );
     }
 
-    public function testCreatePayout_ValidCardInputWithCallContext_ReturnsSuccessfullyCreatedPayout()
+    public function testCreatePayout_ValidCardInputWithCallContext_ReturnsSuccessfullyCreatedPayout(): void
     {
         $request = CreatePayoutRequestBuilder::create()->build();
 
@@ -54,16 +54,16 @@ class CreatePayoutTest extends TestCase
         $this->assertNotNull($response->getPayoutOutput()->getAmountOfMoney());
         $this->assertSame(
             $request->getAmountOfMoney()->getAmount(),
-            $response->getPayoutOutput()->getAmountOfMoney()->getAmount()
+            $response->getPayoutOutput()->getAmountOfMoney()->getAmount(),
         );
 
         $this->assertSame(
             $request->getAmountOfMoney()->getCurrencyCode(),
-            $response->getPayoutOutput()->getAmountOfMoney()->getCurrencyCode()
+            $response->getPayoutOutput()->getAmountOfMoney()->getCurrencyCode(),
         );
     }
 
-    public function testCreatePayout_InvalidAmount_ReturnsValidationException()
+    public function testCreatePayout_InvalidAmount_ReturnsValidationException(): void
     {
         $request = CreatePayoutRequestBuilder::create()
             ->withAmount(-1000)
@@ -81,7 +81,7 @@ class CreatePayoutTest extends TestCase
         }
     }
 
-    public function testCreatePayout_InvalidCurrencyCode_ReturnsValidationException()
+    public function testCreatePayout_InvalidCurrencyCode_ReturnsValidationException(): void
     {
         $request = CreatePayoutRequestBuilder::create()
             ->withAmount(1000)
@@ -99,7 +99,7 @@ class CreatePayoutTest extends TestCase
         }
     }
 
-    public function testCreatePayout_InvalidCardNumber_ReturnsValidationException()
+    public function testCreatePayout_InvalidCardNumber_ReturnsValidationException(): void
     {
         $request = CreatePayoutRequestBuilder::create()
             ->withCardNumber('123')

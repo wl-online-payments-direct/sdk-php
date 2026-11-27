@@ -13,22 +13,22 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 {
     /**
      * @var PaymentLinkOverviewFiltering|null
-    */
+     */
     public ?PaymentLinkOverviewFiltering $filtering = null;
 
     /**
      * @var Pagination|null
-    */
+     */
     public ?Pagination $pagination = null;
 
     /**
      * @var PaymentLinkOverviewSorting|null
-    */
+     */
     public ?PaymentLinkOverviewSorting $sorting = null;
 
     /**
      * @return PaymentLinkOverviewFiltering|null
-    */
+     */
     public function getFiltering(): ?PaymentLinkOverviewFiltering
     {
         return $this->filtering;
@@ -36,7 +36,7 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param PaymentLinkOverviewFiltering|null $value
-    */
+     */
     public function setFiltering(?PaymentLinkOverviewFiltering $value): void
     {
         $this->filtering = $value;
@@ -44,9 +44,9 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param PaymentLinkOverviewFiltering|null $value
-     * @return GetPaymentLinksByMerchantGroupRequest
-    */
-    public function withFiltering(?PaymentLinkOverviewFiltering $value): GetPaymentLinksByMerchantGroupRequest
+     * @return $this
+     */
+    public function withFiltering(?PaymentLinkOverviewFiltering $value): static
     {
         $this->filtering = $value;
         return $this;
@@ -54,7 +54,7 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @return Pagination|null
-    */
+     */
     public function getPagination(): ?Pagination
     {
         return $this->pagination;
@@ -62,7 +62,7 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param Pagination|null $value
-    */
+     */
     public function setPagination(?Pagination $value): void
     {
         $this->pagination = $value;
@@ -70,9 +70,9 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param Pagination|null $value
-     * @return GetPaymentLinksByMerchantGroupRequest
-    */
-    public function withPagination(?Pagination $value): GetPaymentLinksByMerchantGroupRequest
+     * @return $this
+     */
+    public function withPagination(?Pagination $value): static
     {
         $this->pagination = $value;
         return $this;
@@ -80,7 +80,7 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @return PaymentLinkOverviewSorting|null
-    */
+     */
     public function getSorting(): ?PaymentLinkOverviewSorting
     {
         return $this->sorting;
@@ -88,7 +88,7 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param PaymentLinkOverviewSorting|null $value
-    */
+     */
     public function setSorting(?PaymentLinkOverviewSorting $value): void
     {
         $this->sorting = $value;
@@ -96,9 +96,9 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
 
     /**
      * @param PaymentLinkOverviewSorting|null $value
-     * @return GetPaymentLinksByMerchantGroupRequest
-    */
-    public function withSorting(?PaymentLinkOverviewSorting $value): GetPaymentLinksByMerchantGroupRequest
+     * @return $this
+     */
+    public function withSorting(?PaymentLinkOverviewSorting $value): static
     {
         $this->sorting = $value;
         return $this;
@@ -107,16 +107,17 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->filtering)) {
+        if ($this->filtering !== null) {
             $object->filtering = $this->filtering->toObject();
         }
-        if (!is_null($this->pagination)) {
+        if ($this->pagination !== null) {
             $object->pagination = $this->pagination->toObject();
         }
-        if (!is_null($this->sorting)) {
+        if ($this->sorting !== null) {
             $object->sorting = $this->sorting->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class GetPaymentLinksByMerchantGroupRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetPaymentLinksByMerchantGroupRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'filtering')) {

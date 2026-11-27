@@ -1,6 +1,8 @@
 <?php
+
 namespace OnlinePayments\Sdk\Logging;
 
+use JsonException;
 use UnexpectedValueException;
 
 /**
@@ -10,14 +12,14 @@ use UnexpectedValueException;
  */
 class BodyObfuscator
 {
-    const MIME_APPLICATION_JSON = 'application/json';
-    const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
+    public const MIME_APPLICATION_JSON = 'application/json';
+    public const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
 
-    /** @var  ValueObfuscator */
+    /** @var ValueObfuscator */
     protected ValueObfuscator $valueObfuscator;
 
     /** @var array<string, callable> */
-    private array $customRules = array();
+    private array $customRules = [];
 
     public function __construct()
     {
@@ -34,26 +36,36 @@ class BodyObfuscator
         if (!$this->isJsonContentType($contentType)) {
             return $body;
         }
-        $decodedJsonBody = json_decode($body);
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        try {
+            $decodedJsonBody = json_decode($body, false, 512, JSON_BIGINT_AS_STRING | JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
             return $body;
         }
-        return json_encode($this->obfuscateDecodedJsonPart($decodedJsonBody), JSON_PRETTY_PRINT);
+        try {
+            return json_encode(
+                $this->obfuscateDecodedJsonPart($decodedJsonBody),
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR,
+            );
+        } catch (JsonException $e) {
+            return '<the body could not be obfuscated: ' . $e->getMessage() . '>';
+        }
     }
 
+    /**
+     * @param string $contentType
+     * @return bool
+     */
     private function isJsonContentType(string $contentType): bool
     {
-        return $contentType === static::MIME_APPLICATION_JSON
-            || $contentType === static::MIME_APPLICATION_PROBLEM_JSON
-            || substr($contentType, 0, strlen(static::MIME_APPLICATION_JSON)) === static::MIME_APPLICATION_JSON
-            || substr($contentType, 0, strlen(static::MIME_APPLICATION_PROBLEM_JSON)) === static::MIME_APPLICATION_PROBLEM_JSON;
+        return str_starts_with($contentType, static::MIME_APPLICATION_JSON)
+            || str_starts_with($contentType, static::MIME_APPLICATION_PROBLEM_JSON);
     }
 
     /**
      * @param mixed $value
      * @return mixed
      */
-    protected function obfuscateDecodedJsonPart($value)
+    protected function obfuscateDecodedJsonPart(mixed $value): mixed
     {
         if (is_object($value)) {
             foreach ($value as $propertyName => $propertyValue) {
@@ -72,81 +84,63 @@ class BodyObfuscator
                     $elementValue = $this->obfuscateDecodedJsonPart($elementValue);
                 }
             }
-
         }
         return $value;
     }
 
     /**
+     * Returns the obfuscated value if the key has an obfuscation rule, or the value unchanged otherwise.
+     *
      * @param string $key
      * @param scalar $value
-     * @return string
+     * @return string|int|float|bool
      */
-    protected function obfuscateScalarValue(string $key, $value): string
+    protected function obfuscateScalarValue(string $key, mixed $value): mixed
     {
         if (!is_scalar($value)) {
             throw new UnexpectedValueException('scalar value expected');
         }
         $lowerKey = mb_strtolower($key, 'UTF-8');
         if (isset($this->customRules[$lowerKey])) {
-            return call_user_func($this->customRules[$lowerKey], $value, $this->valueObfuscator);
+            return ($this->customRules[$lowerKey])($value, $this->valueObfuscator);
         }
 
-        switch ($lowerKey) {
-            case 'additionalinfo':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'cardholdername':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'dateofbirth':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'emailaddress':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'faxnumber':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'firstname':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'housenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'mobilephonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'passengername':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'phonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'street':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'workphonenumber':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'zip':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'keyid':
-            case 'secretkey':
-            case 'publickey':
-            case 'userauthenticationtoken':
-            case 'encryptedpayload':
-            case 'decryptedpayload':
-            case 'encryptedcustomerinput':
-                return $this->valueObfuscator->obfuscateFixedLength(8);
-            case 'cvv':
-            case 'value':
-                return $this->valueObfuscator->obfuscateAll($value);
-            case 'bin':
-                return $this->valueObfuscator->obfuscateAllKeepStart($value, 6);
-            case 'accountnumber':
-            case 'cardnumber':
-            case 'iban':
-            case 'reformattedaccountnumber':
-                return $this->valueObfuscator->obfuscateAllKeepEnd($value, 4);
-            case 'expirydate':
-                return $this->valueObfuscator->obfuscateAllKeepEnd($value, 2);
-            default:
-                return $value;
-        }
+        return match ($lowerKey) {
+            'additionalinfo',
+            'cardholdername',
+            'dateofbirth',
+            'emailaddress',
+            'faxnumber',
+            'firstname',
+            'housenumber',
+            'mobilephonenumber',
+            'passengername',
+            'phonenumber',
+            'street',
+            'workphonenumber',
+            'zip',
+            'cvv',
+            'value' => $this->valueObfuscator->obfuscateAll($value),
+            'keyid',
+            'secretkey',
+            'publickey',
+            'userauthenticationtoken',
+            'encryptedpayload',
+            'decryptedpayload',
+            'encryptedcustomerinput' => $this->valueObfuscator->obfuscateFixedLength(8),
+            'bin' => $this->valueObfuscator->obfuscateAllKeepStart($value, 6),
+            'accountnumber',
+            'cardnumber',
+            'iban',
+            'reformattedaccountnumber' => $this->valueObfuscator->obfuscateAllKeepEnd($value, 4),
+            'expirydate' => $this->valueObfuscator->obfuscateAllKeepEnd($value, 2),
+            default => $value,
+        };
     }
 
     /**
      * @param string $propertyName
-     * @param callable $customRule
+     * @param callable $customRule Callable accepting the value and a ValueObfuscator, returning the obfuscated value
      */
     public function setCustomRule(string $propertyName, callable $customRule): void
     {

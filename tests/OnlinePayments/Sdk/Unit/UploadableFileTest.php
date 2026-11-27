@@ -13,7 +13,7 @@ class UploadableFileTest extends TestCase
         $file = new UploadableFile(
             'file.txt',
             'hello world',
-            'text/plain'
+            'text/plain',
         );
 
         $this->assertSame('file.txt', $file->getFileName());
@@ -28,7 +28,7 @@ class UploadableFileTest extends TestCase
             'file.txt',
             'hello world',
             'text/plain',
-            5
+            5,
         );
 
         $this->assertSame(5, $file->getContentLength());
@@ -42,7 +42,7 @@ class UploadableFileTest extends TestCase
         $file = new UploadableFile(
             'file.txt',
             $stream,
-            'text/plain'
+            'text/plain',
         );
 
         $this->assertIsResource($file->getContent());
@@ -62,7 +62,7 @@ class UploadableFileTest extends TestCase
         $file = new UploadableFile(
             'file.txt',
             $callable,
-            'text/plain'
+            'text/plain',
         );
 
         $this->assertIsCallable($file->getContent());
@@ -76,7 +76,7 @@ class UploadableFileTest extends TestCase
         new UploadableFile(
             '',
             'data',
-            'text/plain'
+            'text/plain',
         );
     }
 
@@ -88,7 +88,7 @@ class UploadableFileTest extends TestCase
         new UploadableFile(
             'file.txt',
             'data',
-            ''
+            '',
         );
     }
 
@@ -100,7 +100,7 @@ class UploadableFileTest extends TestCase
         new UploadableFile(
             'file.txt',
             'data',
-            '   '
+            '   ',
         );
     }
 
@@ -113,7 +113,7 @@ class UploadableFileTest extends TestCase
         new UploadableFile(
             'file.txt',
             $invalidContent,
-            'text/plain'
+            'text/plain',
         );
     }
 
@@ -125,7 +125,7 @@ class UploadableFileTest extends TestCase
         new UploadableFile(
             '   ',
             'data',
-            'text/plain'
+            'text/plain',
         );
     }
 }

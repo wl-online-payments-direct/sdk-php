@@ -13,22 +13,22 @@ class CurrencyConversionResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $dccSessionId = null;
 
     /**
      * @var DccProposal|null
-    */
+     */
     public ?DccProposal $proposal = null;
 
     /**
      * @var CurrencyConversionResult|null
-    */
+     */
     public ?CurrencyConversionResult $result = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDccSessionId(): ?string
     {
         return $this->dccSessionId;
@@ -36,7 +36,7 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDccSessionId(?string $value): void
     {
         $this->dccSessionId = $value;
@@ -44,9 +44,9 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CurrencyConversionResponse
-    */
-    public function withDccSessionId(?string $value): CurrencyConversionResponse
+     * @return $this
+     */
+    public function withDccSessionId(?string $value): static
     {
         $this->dccSessionId = $value;
         return $this;
@@ -54,7 +54,7 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @return DccProposal|null
-    */
+     */
     public function getProposal(): ?DccProposal
     {
         return $this->proposal;
@@ -62,7 +62,7 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param DccProposal|null $value
-    */
+     */
     public function setProposal(?DccProposal $value): void
     {
         $this->proposal = $value;
@@ -70,9 +70,9 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param DccProposal|null $value
-     * @return CurrencyConversionResponse
-    */
-    public function withProposal(?DccProposal $value): CurrencyConversionResponse
+     * @return $this
+     */
+    public function withProposal(?DccProposal $value): static
     {
         $this->proposal = $value;
         return $this;
@@ -80,7 +80,7 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @return CurrencyConversionResult|null
-    */
+     */
     public function getResult(): ?CurrencyConversionResult
     {
         return $this->result;
@@ -88,7 +88,7 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param CurrencyConversionResult|null $value
-    */
+     */
     public function setResult(?CurrencyConversionResult $value): void
     {
         $this->result = $value;
@@ -96,9 +96,9 @@ class CurrencyConversionResponse extends DataObject
 
     /**
      * @param CurrencyConversionResult|null $value
-     * @return CurrencyConversionResponse
-    */
-    public function withResult(?CurrencyConversionResult $value): CurrencyConversionResponse
+     * @return $this
+     */
+    public function withResult(?CurrencyConversionResult $value): static
     {
         $this->result = $value;
         return $this;
@@ -107,16 +107,17 @@ class CurrencyConversionResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->dccSessionId)) {
+        if ($this->dccSessionId !== null) {
             $object->dccSessionId = $this->dccSessionId;
         }
-        if (!is_null($this->proposal)) {
+        if ($this->proposal !== null) {
             $object->proposal = $this->proposal->toObject();
         }
-        if (!is_null($this->result)) {
+        if ($this->result !== null) {
             $object->result = $this->result->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class CurrencyConversionResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CurrencyConversionResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'dccSessionId')) {

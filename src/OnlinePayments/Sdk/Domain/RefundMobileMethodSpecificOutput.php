@@ -13,22 +13,22 @@ class RefundMobileMethodSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $network = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getNetwork(): ?string
     {
         return $this->network;
@@ -36,7 +36,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNetwork(?string $value): void
     {
         $this->network = $value;
@@ -44,9 +44,9 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundMobileMethodSpecificOutput
-    */
-    public function withNetwork(?string $value): RefundMobileMethodSpecificOutput
+     * @return $this
+     */
+    public function withNetwork(?string $value): static
     {
         $this->network = $value;
         return $this;
@@ -54,7 +54,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -62,7 +62,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
@@ -70,9 +70,9 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundMobileMethodSpecificOutput
-    */
-    public function withTotalAmountPaid(?int $value): RefundMobileMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountPaid(?int $value): static
     {
         $this->totalAmountPaid = $value;
         return $this;
@@ -80,7 +80,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -88,7 +88,7 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
@@ -96,9 +96,9 @@ class RefundMobileMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundMobileMethodSpecificOutput
-    */
-    public function withTotalAmountRefunded(?int $value): RefundMobileMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountRefunded(?int $value): static
     {
         $this->totalAmountRefunded = $value;
         return $this;
@@ -107,16 +107,17 @@ class RefundMobileMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->network)) {
+        if ($this->network !== null) {
             $object->network = $this->network;
         }
-        if (!is_null($this->totalAmountPaid)) {
+        if ($this->totalAmountPaid !== null) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if (!is_null($this->totalAmountRefunded)) {
+        if ($this->totalAmountRefunded !== null) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;
@@ -128,7 +129,8 @@ class RefundMobileMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundMobileMethodSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'network')) {

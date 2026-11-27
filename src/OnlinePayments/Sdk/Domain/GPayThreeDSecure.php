@@ -13,37 +13,37 @@ class GPayThreeDSecure extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $challengeCanvasSize = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $challengeIndicator = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $exemptionRequest = null;
 
     /**
      * @var RedirectionData|null
-    */
+     */
     public ?RedirectionData $redirectionData = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $skipAuthentication = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $skipSoftDecline = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getChallengeCanvasSize(): ?string
     {
         return $this->challengeCanvasSize;
@@ -51,7 +51,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setChallengeCanvasSize(?string $value): void
     {
         $this->challengeCanvasSize = $value;
@@ -59,9 +59,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withChallengeCanvasSize(?string $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withChallengeCanvasSize(?string $value): static
     {
         $this->challengeCanvasSize = $value;
         return $this;
@@ -69,7 +69,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getChallengeIndicator(): ?string
     {
         return $this->challengeIndicator;
@@ -77,7 +77,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setChallengeIndicator(?string $value): void
     {
         $this->challengeIndicator = $value;
@@ -85,9 +85,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withChallengeIndicator(?string $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withChallengeIndicator(?string $value): static
     {
         $this->challengeIndicator = $value;
         return $this;
@@ -95,7 +95,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getExemptionRequest(): ?string
     {
         return $this->exemptionRequest;
@@ -103,7 +103,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExemptionRequest(?string $value): void
     {
         $this->exemptionRequest = $value;
@@ -111,9 +111,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withExemptionRequest(?string $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withExemptionRequest(?string $value): static
     {
         $this->exemptionRequest = $value;
         return $this;
@@ -121,7 +121,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @return RedirectionData|null
-    */
+     */
     public function getRedirectionData(): ?RedirectionData
     {
         return $this->redirectionData;
@@ -129,7 +129,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param RedirectionData|null $value
-    */
+     */
     public function setRedirectionData(?RedirectionData $value): void
     {
         $this->redirectionData = $value;
@@ -137,9 +137,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param RedirectionData|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withRedirectionData(?RedirectionData $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withRedirectionData(?RedirectionData $value): static
     {
         $this->redirectionData = $value;
         return $this;
@@ -147,7 +147,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getSkipAuthentication(): ?bool
     {
         return $this->skipAuthentication;
@@ -155,7 +155,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setSkipAuthentication(?bool $value): void
     {
         $this->skipAuthentication = $value;
@@ -163,9 +163,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withSkipAuthentication(?bool $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withSkipAuthentication(?bool $value): static
     {
         $this->skipAuthentication = $value;
         return $this;
@@ -173,7 +173,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getSkipSoftDecline(): ?bool
     {
         return $this->skipSoftDecline;
@@ -181,7 +181,7 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setSkipSoftDecline(?bool $value): void
     {
         $this->skipSoftDecline = $value;
@@ -189,9 +189,9 @@ class GPayThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GPayThreeDSecure
-    */
-    public function withSkipSoftDecline(?bool $value): GPayThreeDSecure
+     * @return $this
+     */
+    public function withSkipSoftDecline(?bool $value): static
     {
         $this->skipSoftDecline = $value;
         return $this;
@@ -200,25 +200,26 @@ class GPayThreeDSecure extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->challengeCanvasSize)) {
+        if ($this->challengeCanvasSize !== null) {
             $object->challengeCanvasSize = $this->challengeCanvasSize;
         }
-        if (!is_null($this->challengeIndicator)) {
+        if ($this->challengeIndicator !== null) {
             $object->challengeIndicator = $this->challengeIndicator;
         }
-        if (!is_null($this->exemptionRequest)) {
+        if ($this->exemptionRequest !== null) {
             $object->exemptionRequest = $this->exemptionRequest;
         }
-        if (!is_null($this->redirectionData)) {
+        if ($this->redirectionData !== null) {
             $object->redirectionData = $this->redirectionData->toObject();
         }
-        if (!is_null($this->skipAuthentication)) {
+        if ($this->skipAuthentication !== null) {
             $object->skipAuthentication = $this->skipAuthentication;
         }
-        if (!is_null($this->skipSoftDecline)) {
+        if ($this->skipSoftDecline !== null) {
             $object->skipSoftDecline = $this->skipSoftDecline;
         }
         return $object;
@@ -230,7 +231,8 @@ class GPayThreeDSecure extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GPayThreeDSecure
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'challengeCanvasSize')) {

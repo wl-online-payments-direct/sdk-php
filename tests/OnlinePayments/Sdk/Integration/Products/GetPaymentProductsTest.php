@@ -112,9 +112,7 @@ class GetPaymentProductsTest extends TestCase
 
         $this->assertNotEmpty($response->getPaymentProducts());
         $this->assertNotNull($params->getHide());
-        $this->assertCount(1, $params->getHide());
-        $this->assertEquals('fields', $params->getHide()[0][0]);
-        $this->assertEquals('accountsOnFile', $params->getHide()[0][1]);
+        $this->assertSame(['fields', 'accountsOnFile'], $params->getHide());
     }
 
     public function testGetPaymentProducts_WithHideList_ReturnsProductList(): void

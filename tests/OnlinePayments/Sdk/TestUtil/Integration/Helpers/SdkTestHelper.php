@@ -36,9 +36,8 @@ class SdkTestHelper
 
     public function createPaymentAndGetId(
         ?int $amount = null,
-        ?string $currency = null)
-    : string
-    {
+        ?string $currency = null,
+    ): string {
         $builder = CreatePaymentRequestBuilder::create();
 
         if ($amount !== null && $currency !== null) {
@@ -93,20 +92,17 @@ class SdkTestHelper
         return $this->createPayment($request)->getPayment()->getId();
     }
 
-    public function createTokenAndGetId()
-    : ?string
+    public function createTokenAndGetId(): ?string
     {
         return $this->createToken(CreateTokenRequestBuilder::create()->build())->getToken();
     }
 
-    public function createHostedTokenizationAndGetId()
-    : ?string
+    public function createHostedTokenizationAndGetId(): ?string
     {
         return $this->createHostedTokenization(CreateHostedTokenizationRequestBuilder::create()->build())->getHostedTokenizationId();
     }
 
-    public function createPaymentLinkAndGetId()
-    : ?string
+    public function createPaymentLinkAndGetId(): ?string
     {
         return $this->createPaymentLink(CreatePaymentLinkRequestBuilder::create()->build())->getPaymentLinkId();
     }
@@ -116,22 +112,24 @@ class SdkTestHelper
         return $this->createPayout(CreatePayoutRequestBuilder::create()->build())->getId();
     }
 
-    public function createMandateAndGetMandateReference()
-    : ?string
+    public function createMandateAndGetMandateReference(): ?string
     {
         return $this->createMandate(
-                CreateMandateRequestBuilder::create()
+            CreateMandateRequestBuilder::create()
                 ->withUniqueMandateReference("exampleMandateReference" . str_replace('.', '', substr(microtime(), 0, 10)))
-                ->build())
+                ->build(),
+        )
             ->getMandate()->getUniqueMandateReference();
     }
 
+    /**
+     * @param CreatePaymentRequest[] $createPaymentRequests
+     */
     public function submitBatchAndGetReference(
         array $createPaymentRequests,
         string $operationType,
-        int $itemCount)
-    : ?string
-    {
+        int $itemCount,
+    ): ?string {
         return $this->submitBatch(SubmitBatchRequestBodyBuilder::create()
             ->withCreatePaymentRequests($createPaymentRequests)
             ->withOperationType($operationType)
@@ -139,12 +137,14 @@ class SdkTestHelper
             ->build())->getMerchantBatchReference();
     }
 
+    /**
+     * @param CreatePaymentRequest[] $createPaymentRequests
+     */
     public function submitAndProcessBatchAndGetReference(
         array $createPaymentRequests,
         string $operationType,
-        int $itemCount)
-    : ?string
-    {
+        int $itemCount,
+    ): ?string {
         $merchantBatchReference = $this->submitBatchAndGetReference($createPaymentRequests, $operationType, $itemCount);
 
         $this->merchantClient->merchantBatch()->processBatch($merchantBatchReference);
@@ -153,49 +153,44 @@ class SdkTestHelper
     }
 
     private function createPayment(
-        CreatePaymentRequest $request)
-    : CreatePaymentResponse
-    {
+        CreatePaymentRequest $request,
+    ): CreatePaymentResponse {
         return $this->merchantClient->payments()->createPayment($request);
     }
 
     private function createToken(
-        CreateTokenRequest $request)
-    : CreatedTokenResponse
-    {
+        CreateTokenRequest $request,
+    ): CreatedTokenResponse {
         return $this->merchantClient->tokens()->createToken($request);
     }
 
     private function createHostedTokenization(
-        CreateHostedTokenizationRequest $request
+        CreateHostedTokenizationRequest $request,
     ): CreateHostedTokenizationResponse {
         return $this->merchantClient->hostedTokenization()->createHostedTokenization($request);
     }
 
     private function createPaymentLink(
-        CreatePaymentLinkRequest $request
+        CreatePaymentLinkRequest $request,
     ): PaymentLinkResponse {
         return $this->merchantClient->paymentLinks()->createPaymentLink($request);
     }
 
     private function createPayout(
-        CreatePayoutRequest $request)
-    : PayoutResponse
-    {
+        CreatePayoutRequest $request,
+    ): PayoutResponse {
         return $this->merchantClient->payouts()->createPayout($request);
     }
 
     private function createMandate(
-        CreateMandateRequest $request)
-    : CreateMandateResponse
-    {
+        CreateMandateRequest $request,
+    ): CreateMandateResponse {
         return $this->merchantClient->mandates()->createMandate($request);
     }
 
     private function submitBatch(
-        SubmitBatchRequestBody $requestBody)
-    : SubmitBatchResponse
-    {
+        SubmitBatchRequestBody $requestBody,
+    ): SubmitBatchResponse {
         return $this->merchantClient->merchantBatch()->submitBatch($requestBody);
     }
 }

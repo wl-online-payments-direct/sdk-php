@@ -1,7 +1,8 @@
 <?php
+
 namespace OnlinePayments\Sdk\Webhooks;
 
-use Exception;
+use Throwable;
 
 /**
  * Class SecretKeyNotAvailableException
@@ -10,24 +11,23 @@ use Exception;
  */
 class SecretKeyNotAvailableException extends SignatureValidationException
 {
-    /** @var string */
-    private $keyId;
-
     /**
-     * @param string $keyId
+     * @param string|null $keyId
      * @param string|null $message
-     * @param Exception|null $previous
+     * @param Throwable|null $previous
      */
-    public function __construct($keyId, $message = null, $previous = null)
-    {
+    public function __construct(
+        private readonly ?string $keyId,
+        ?string $message = null,
+        ?Throwable $previous = null,
+    ) {
         parent::__construct($message, $previous);
-        $this->keyId = $keyId;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getKeyId()
+    public function getKeyId(): ?string
     {
         return $this->keyId;
     }

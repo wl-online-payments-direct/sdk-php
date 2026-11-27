@@ -14,6 +14,7 @@ class EmptyValidator extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
@@ -26,7 +27,8 @@ class EmptyValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): EmptyValidator
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         return $this;

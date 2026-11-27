@@ -23,7 +23,7 @@ class GetMandateTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetMandate_ValidMandateReference_ReturnsMandateDetails()
+    public function testGetMandate_ValidMandateReference_ReturnsMandateDetails(): void
     {
         $mandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -33,7 +33,7 @@ class GetMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testGetMandate_InvalidMandateReference_ReturnsReferenceException()
+    public function testGetMandate_InvalidMandateReference_ReturnsReferenceException(): void
     {
         try {
             $this->mandatesClient->getMandate(self::INVALID_MANDATE_REFERENCE);

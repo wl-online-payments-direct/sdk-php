@@ -13,22 +13,22 @@ class PayoutErrorResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-    */
+     */
     public ?array $errors = null;
 
     /**
      * @var PayoutResult|null
-    */
+     */
     public ?PayoutResult $payoutResult = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -36,7 +36,7 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
@@ -44,9 +44,9 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PayoutErrorResponse
-    */
-    public function withErrorId(?string $value): PayoutErrorResponse
+     * @return $this
+     */
+    public function withErrorId(?string $value): static
     {
         $this->errorId = $value;
         return $this;
@@ -54,7 +54,7 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @return APIError[]|null
-    */
+     */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -62,7 +62,7 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-    */
+     */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
@@ -70,9 +70,9 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     * @return PayoutErrorResponse
-    */
-    public function withErrors(?array $value): PayoutErrorResponse
+     * @return $this
+     */
+    public function withErrors(?array $value): static
     {
         $this->errors = $value;
         return $this;
@@ -80,7 +80,7 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @return PayoutResult|null
-    */
+     */
     public function getPayoutResult(): ?PayoutResult
     {
         return $this->payoutResult;
@@ -88,7 +88,7 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param PayoutResult|null $value
-    */
+     */
     public function setPayoutResult(?PayoutResult $value): void
     {
         $this->payoutResult = $value;
@@ -96,9 +96,9 @@ class PayoutErrorResponse extends DataObject
 
     /**
      * @param PayoutResult|null $value
-     * @return PayoutErrorResponse
-    */
-    public function withPayoutResult(?PayoutResult $value): PayoutErrorResponse
+     * @return $this
+     */
+    public function withPayoutResult(?PayoutResult $value): static
     {
         $this->payoutResult = $value;
         return $this;
@@ -107,21 +107,22 @@ class PayoutErrorResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->errorId)) {
+        if ($this->errorId !== null) {
             $object->errorId = $this->errorId;
         }
-        if (!is_null($this->errors)) {
+        if ($this->errors !== null) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->payoutResult)) {
+        if ($this->payoutResult !== null) {
             $object->payoutResult = $this->payoutResult->toObject();
         }
         return $object;
@@ -133,7 +134,8 @@ class PayoutErrorResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PayoutErrorResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'errorId')) {

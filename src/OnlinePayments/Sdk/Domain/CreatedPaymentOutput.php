@@ -13,17 +13,17 @@ class CreatedPaymentOutput extends DataObject
 {
     /**
      * @var PaymentResponse|null
-    */
+     */
     public ?PaymentResponse $payment = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentStatusCategory = null;
 
     /**
      * @return PaymentResponse|null
-    */
+     */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -31,7 +31,7 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-    */
+     */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
@@ -39,9 +39,9 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     * @return CreatedPaymentOutput
-    */
-    public function withPayment(?PaymentResponse $value): CreatedPaymentOutput
+     * @return $this
+     */
+    public function withPayment(?PaymentResponse $value): static
     {
         $this->payment = $value;
         return $this;
@@ -49,7 +49,7 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentStatusCategory(): ?string
     {
         return $this->paymentStatusCategory;
@@ -57,7 +57,7 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentStatusCategory(?string $value): void
     {
         $this->paymentStatusCategory = $value;
@@ -65,9 +65,9 @@ class CreatedPaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatedPaymentOutput
-    */
-    public function withPaymentStatusCategory(?string $value): CreatedPaymentOutput
+     * @return $this
+     */
+    public function withPaymentStatusCategory(?string $value): static
     {
         $this->paymentStatusCategory = $value;
         return $this;
@@ -76,13 +76,14 @@ class CreatedPaymentOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->payment)) {
+        if ($this->payment !== null) {
             $object->payment = $this->payment->toObject();
         }
-        if (!is_null($this->paymentStatusCategory)) {
+        if ($this->paymentStatusCategory !== null) {
             $object->paymentStatusCategory = $this->paymentStatusCategory;
         }
         return $object;
@@ -94,7 +95,8 @@ class CreatedPaymentOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreatedPaymentOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'payment')) {

@@ -13,17 +13,17 @@ class OrderTypeInformation extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $purchaseType = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $transactionType = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPurchaseType(): ?string
     {
         return $this->purchaseType;
@@ -31,7 +31,7 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPurchaseType(?string $value): void
     {
         $this->purchaseType = $value;
@@ -39,9 +39,9 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderTypeInformation
-    */
-    public function withPurchaseType(?string $value): OrderTypeInformation
+     * @return $this
+     */
+    public function withPurchaseType(?string $value): static
     {
         $this->purchaseType = $value;
         return $this;
@@ -49,7 +49,7 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTransactionType(): ?string
     {
         return $this->transactionType;
@@ -57,7 +57,7 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTransactionType(?string $value): void
     {
         $this->transactionType = $value;
@@ -65,9 +65,9 @@ class OrderTypeInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return OrderTypeInformation
-    */
-    public function withTransactionType(?string $value): OrderTypeInformation
+     * @return $this
+     */
+    public function withTransactionType(?string $value): static
     {
         $this->transactionType = $value;
         return $this;
@@ -76,13 +76,14 @@ class OrderTypeInformation extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->purchaseType)) {
+        if ($this->purchaseType !== null) {
             $object->purchaseType = $this->purchaseType;
         }
-        if (!is_null($this->transactionType)) {
+        if ($this->transactionType !== null) {
             $object->transactionType = $this->transactionType;
         }
         return $object;
@@ -94,7 +95,8 @@ class OrderTypeInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OrderTypeInformation
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'purchaseType')) {

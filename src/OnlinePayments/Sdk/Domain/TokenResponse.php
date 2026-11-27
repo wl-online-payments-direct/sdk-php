@@ -13,47 +13,47 @@ class TokenResponse extends DataObject
 {
     /**
      * @var TokenCard|null
-    */
+     */
     public ?TokenCard $card = null;
 
     /**
      * @var CrmToken|null
-    */
+     */
     public ?CrmToken $crmToken = null;
 
     /**
      * @var TokenEWallet|null
-    */
+     */
     public ?TokenEWallet $eWallet = null;
 
     /**
      * @var ExternalTokenLinked|null
-    */
+     */
     public ?ExternalTokenLinked $externalTokenLinked = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isTemporary = null;
 
     /**
      * @var NetworkTokenLinked|null
-    */
+     */
     public ?NetworkTokenLinked $networkTokenLinked = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return TokenCard|null
-    */
+     */
     public function getCard(): ?TokenCard
     {
         return $this->card;
@@ -61,7 +61,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param TokenCard|null $value
-    */
+     */
     public function setCard(?TokenCard $value): void
     {
         $this->card = $value;
@@ -69,9 +69,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param TokenCard|null $value
-     * @return TokenResponse
-    */
-    public function withCard(?TokenCard $value): TokenResponse
+     * @return $this
+     */
+    public function withCard(?TokenCard $value): static
     {
         $this->card = $value;
         return $this;
@@ -79,7 +79,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return CrmToken|null
-    */
+     */
     public function getCrmToken(): ?CrmToken
     {
         return $this->crmToken;
@@ -87,7 +87,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param CrmToken|null $value
-    */
+     */
     public function setCrmToken(?CrmToken $value): void
     {
         $this->crmToken = $value;
@@ -95,9 +95,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param CrmToken|null $value
-     * @return TokenResponse
-    */
-    public function withCrmToken(?CrmToken $value): TokenResponse
+     * @return $this
+     */
+    public function withCrmToken(?CrmToken $value): static
     {
         $this->crmToken = $value;
         return $this;
@@ -105,7 +105,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return TokenEWallet|null
-    */
+     */
     public function getEWallet(): ?TokenEWallet
     {
         return $this->eWallet;
@@ -113,7 +113,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param TokenEWallet|null $value
-    */
+     */
     public function setEWallet(?TokenEWallet $value): void
     {
         $this->eWallet = $value;
@@ -121,9 +121,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param TokenEWallet|null $value
-     * @return TokenResponse
-    */
-    public function withEWallet(?TokenEWallet $value): TokenResponse
+     * @return $this
+     */
+    public function withEWallet(?TokenEWallet $value): static
     {
         $this->eWallet = $value;
         return $this;
@@ -131,7 +131,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return ExternalTokenLinked|null
-    */
+     */
     public function getExternalTokenLinked(): ?ExternalTokenLinked
     {
         return $this->externalTokenLinked;
@@ -139,7 +139,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param ExternalTokenLinked|null $value
-    */
+     */
     public function setExternalTokenLinked(?ExternalTokenLinked $value): void
     {
         $this->externalTokenLinked = $value;
@@ -147,9 +147,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param ExternalTokenLinked|null $value
-     * @return TokenResponse
-    */
-    public function withExternalTokenLinked(?ExternalTokenLinked $value): TokenResponse
+     * @return $this
+     */
+    public function withExternalTokenLinked(?ExternalTokenLinked $value): static
     {
         $this->externalTokenLinked = $value;
         return $this;
@@ -157,7 +157,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -165,7 +165,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -173,9 +173,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenResponse
-    */
-    public function withId(?string $value): TokenResponse
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -183,7 +183,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsTemporary(): ?bool
     {
         return $this->isTemporary;
@@ -191,7 +191,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsTemporary(?bool $value): void
     {
         $this->isTemporary = $value;
@@ -199,9 +199,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return TokenResponse
-    */
-    public function withIsTemporary(?bool $value): TokenResponse
+     * @return $this
+     */
+    public function withIsTemporary(?bool $value): static
     {
         $this->isTemporary = $value;
         return $this;
@@ -209,7 +209,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return NetworkTokenLinked|null
-    */
+     */
     public function getNetworkTokenLinked(): ?NetworkTokenLinked
     {
         return $this->networkTokenLinked;
@@ -217,7 +217,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param NetworkTokenLinked|null $value
-    */
+     */
     public function setNetworkTokenLinked(?NetworkTokenLinked $value): void
     {
         $this->networkTokenLinked = $value;
@@ -225,9 +225,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param NetworkTokenLinked|null $value
-     * @return TokenResponse
-    */
-    public function withNetworkTokenLinked(?NetworkTokenLinked $value): TokenResponse
+     * @return $this
+     */
+    public function withNetworkTokenLinked(?NetworkTokenLinked $value): static
     {
         $this->networkTokenLinked = $value;
         return $this;
@@ -235,7 +235,7 @@ class TokenResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -243,7 +243,7 @@ class TokenResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -251,9 +251,9 @@ class TokenResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return TokenResponse
-    */
-    public function withPaymentProductId(?int $value): TokenResponse
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -262,31 +262,32 @@ class TokenResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->crmToken)) {
+        if ($this->crmToken !== null) {
             $object->crmToken = $this->crmToken->toObject();
         }
-        if (!is_null($this->eWallet)) {
+        if ($this->eWallet !== null) {
             $object->eWallet = $this->eWallet->toObject();
         }
-        if (!is_null($this->externalTokenLinked)) {
+        if ($this->externalTokenLinked !== null) {
             $object->externalTokenLinked = $this->externalTokenLinked->toObject();
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->isTemporary)) {
+        if ($this->isTemporary !== null) {
             $object->isTemporary = $this->isTemporary;
         }
-        if (!is_null($this->networkTokenLinked)) {
+        if ($this->networkTokenLinked !== null) {
             $object->networkTokenLinked = $this->networkTokenLinked->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;
@@ -298,7 +299,8 @@ class TokenResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): TokenResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

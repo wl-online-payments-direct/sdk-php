@@ -25,7 +25,7 @@ class CreateHostedFieldsSessionTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testCreateHostedFieldsSession_ValidInput_ReturnsHostedFieldsSessionId()
+    public function testCreateHostedFieldsSession_ValidInput_ReturnsHostedFieldsSessionId(): void
     {
         $request = CreateHostedFieldsSessionRequestBuilder::create()->build();
 
@@ -37,7 +37,7 @@ class CreateHostedFieldsSessionTest extends TestCase
         $this->assertNotEmpty($response->getSdkUrl());
     }
 
-    public function testCreateHostedFieldsSession_ValidInput_WithCallContext_ReturnsHostedFieldsSessionId()
+    public function testCreateHostedFieldsSession_ValidInput_WithCallContext_ReturnsHostedFieldsSessionId(): void
     {
         $request = CreateHostedFieldsSessionRequestBuilder::create()->build();
         $callContext = new CallContext();
@@ -65,7 +65,7 @@ class CreateHostedFieldsSessionTest extends TestCase
         $this->assertNotEmpty($response->getSessionData()->getHostedFieldsSessionId());
     }
 
-    public function testCreateHostedFieldsSession_MissingLocaleInput_ReturnsValidationException()
+    public function testCreateHostedFieldsSession_MissingLocaleInput_ReturnsValidationException(): void
     {
         $request = CreateHostedFieldsSessionRequestBuilder::create()->withLocale(null)->build();
 
@@ -79,7 +79,7 @@ class CreateHostedFieldsSessionTest extends TestCase
         }
     }
 
-    public function testCreateHostedFieldsSession_EmptyLocaleInput_ReturnsValidationException()
+    public function testCreateHostedFieldsSession_EmptyLocaleInput_ReturnsValidationException(): void
     {
         $request = CreateHostedFieldsSessionRequestBuilder::create()->withLocale('')->build();
 
@@ -93,7 +93,7 @@ class CreateHostedFieldsSessionTest extends TestCase
         }
     }
 
-    public function testCreateHostedFieldsSession_InvalidLocaleFormat_ReturnsUnprocessableEntityException()
+    public function testCreateHostedFieldsSession_InvalidLocaleFormat_ReturnsUnprocessableEntityException(): void
     {
         $request = CreateHostedFieldsSessionRequestBuilder::create()->withLocale(self::INVALID_LOCALE)->build();
 

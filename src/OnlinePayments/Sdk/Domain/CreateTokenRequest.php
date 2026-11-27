@@ -13,22 +13,22 @@ class CreateTokenRequest extends DataObject
 {
     /**
      * @var TokenCardSpecificInput|null
-    */
+     */
     public ?TokenCardSpecificInput $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return TokenCardSpecificInput|null
-    */
+     */
     public function getCard(): ?TokenCardSpecificInput
     {
         return $this->card;
@@ -36,7 +36,7 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param TokenCardSpecificInput|null $value
-    */
+     */
     public function setCard(?TokenCardSpecificInput $value): void
     {
         $this->card = $value;
@@ -44,9 +44,9 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param TokenCardSpecificInput|null $value
-     * @return CreateTokenRequest
-    */
-    public function withCard(?TokenCardSpecificInput $value): CreateTokenRequest
+     * @return $this
+     */
+    public function withCard(?TokenCardSpecificInput $value): static
     {
         $this->card = $value;
         return $this;
@@ -54,7 +54,7 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -62,7 +62,7 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
@@ -70,9 +70,9 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateTokenRequest
-    */
-    public function withEncryptedCustomerInput(?string $value): CreateTokenRequest
+     * @return $this
+     */
+    public function withEncryptedCustomerInput(?string $value): static
     {
         $this->encryptedCustomerInput = $value;
         return $this;
@@ -80,7 +80,7 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -88,7 +88,7 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -96,9 +96,9 @@ class CreateTokenRequest extends DataObject
 
     /**
      * @param int|null $value
-     * @return CreateTokenRequest
-    */
-    public function withPaymentProductId(?int $value): CreateTokenRequest
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -107,16 +107,17 @@ class CreateTokenRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->encryptedCustomerInput)) {
+        if ($this->encryptedCustomerInput !== null) {
             $object->encryptedCustomerInput = $this->encryptedCustomerInput;
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;
@@ -128,7 +129,8 @@ class CreateTokenRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateTokenRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

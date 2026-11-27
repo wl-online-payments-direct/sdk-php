@@ -13,12 +13,12 @@ class SendTestRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $url = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getUrl(): ?string
     {
         return $this->url;
@@ -26,7 +26,7 @@ class SendTestRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUrl(?string $value): void
     {
         $this->url = $value;
@@ -34,9 +34,9 @@ class SendTestRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return SendTestRequest
-    */
-    public function withUrl(?string $value): SendTestRequest
+     * @return $this
+     */
+    public function withUrl(?string $value): static
     {
         $this->url = $value;
         return $this;
@@ -45,10 +45,11 @@ class SendTestRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->url)) {
+        if ($this->url !== null) {
             $object->url = $this->url;
         }
         return $object;
@@ -60,7 +61,8 @@ class SendTestRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SendTestRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'url')) {

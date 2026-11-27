@@ -2,11 +2,24 @@
 
 namespace OnlinePayments\Sdk\Unit;
 
+use OnlinePayments\Sdk\Domain\Card;
 use OnlinePayments\Sdk\Domain\DataObject;
 use PHPUnit\Framework\TestCase;
 
 class DataObjectTest extends TestCase
 {
+    public function testDataObject_PrintR_MasksSensitiveValues(): void
+    {
+        $card = (new Card())->withCardNumber('4567350000427977')->withCvv('123');
+
+        $output = print_r($card, true);
+
+        $this->assertStringNotContainsString('4567350000427977', $output);
+        $this->assertStringContainsString('************7977', $output);
+        $this->assertStringNotContainsString('123', $output);
+        $this->assertSame('4567350000427977', $card->getCardNumber());
+    }
+
     public function testDataObject_ToJson_ReturnsEmptyObject(): void
     {
         $object = new class extends DataObject {};

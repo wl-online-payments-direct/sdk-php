@@ -13,42 +13,42 @@ class CarRentalPickupReturnData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $address = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $city = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $country = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $date = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $location = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $postcode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $state = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAddress(): ?string
     {
         return $this->address;
@@ -56,7 +56,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAddress(?string $value): void
     {
         $this->address = $value;
@@ -64,9 +64,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withAddress(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withAddress(?string $value): static
     {
         $this->address = $value;
         return $this;
@@ -74,7 +74,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCity(): ?string
     {
         return $this->city;
@@ -82,7 +82,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCity(?string $value): void
     {
         $this->city = $value;
@@ -90,9 +90,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withCity(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withCity(?string $value): static
     {
         $this->city = $value;
         return $this;
@@ -100,7 +100,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getCountry(): ?int
     {
         return $this->country;
@@ -108,7 +108,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setCountry(?int $value): void
     {
         $this->country = $value;
@@ -116,9 +116,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param int|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withCountry(?int $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withCountry(?int $value): static
     {
         $this->country = $value;
         return $this;
@@ -126,7 +126,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDate(): ?string
     {
         return $this->date;
@@ -134,7 +134,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDate(?string $value): void
     {
         $this->date = $value;
@@ -142,9 +142,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withDate(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withDate(?string $value): static
     {
         $this->date = $value;
         return $this;
@@ -152,7 +152,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocation(): ?string
     {
         return $this->location;
@@ -160,7 +160,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocation(?string $value): void
     {
         $this->location = $value;
@@ -168,9 +168,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withLocation(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withLocation(?string $value): static
     {
         $this->location = $value;
         return $this;
@@ -178,7 +178,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPostcode(): ?string
     {
         return $this->postcode;
@@ -186,7 +186,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPostcode(?string $value): void
     {
         $this->postcode = $value;
@@ -194,9 +194,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withPostcode(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withPostcode(?string $value): static
     {
         $this->postcode = $value;
         return $this;
@@ -204,7 +204,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getState(): ?string
     {
         return $this->state;
@@ -212,7 +212,7 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setState(?string $value): void
     {
         $this->state = $value;
@@ -220,9 +220,9 @@ class CarRentalPickupReturnData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalPickupReturnData
-    */
-    public function withState(?string $value): CarRentalPickupReturnData
+     * @return $this
+     */
+    public function withState(?string $value): static
     {
         $this->state = $value;
         return $this;
@@ -231,28 +231,29 @@ class CarRentalPickupReturnData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->address)) {
+        if ($this->address !== null) {
             $object->address = $this->address;
         }
-        if (!is_null($this->city)) {
+        if ($this->city !== null) {
             $object->city = $this->city;
         }
-        if (!is_null($this->country)) {
+        if ($this->country !== null) {
             $object->country = $this->country;
         }
-        if (!is_null($this->date)) {
+        if ($this->date !== null) {
             $object->date = $this->date;
         }
-        if (!is_null($this->location)) {
+        if ($this->location !== null) {
             $object->location = $this->location;
         }
-        if (!is_null($this->postcode)) {
+        if ($this->postcode !== null) {
             $object->postcode = $this->postcode;
         }
-        if (!is_null($this->state)) {
+        if ($this->state !== null) {
             $object->state = $this->state;
         }
         return $object;
@@ -264,7 +265,8 @@ class CarRentalPickupReturnData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CarRentalPickupReturnData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'address')) {

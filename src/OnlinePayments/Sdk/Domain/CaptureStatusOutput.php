@@ -13,12 +13,12 @@ class CaptureStatusOutput extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $statusCode = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -26,7 +26,7 @@ class CaptureStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
@@ -34,9 +34,9 @@ class CaptureStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return CaptureStatusOutput
-    */
-    public function withStatusCode(?int $value): CaptureStatusOutput
+     * @return $this
+     */
+    public function withStatusCode(?int $value): static
     {
         $this->statusCode = $value;
         return $this;
@@ -45,10 +45,11 @@ class CaptureStatusOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->statusCode)) {
+        if ($this->statusCode !== null) {
             $object->statusCode = $this->statusCode;
         }
         return $object;
@@ -60,7 +61,8 @@ class CaptureStatusOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CaptureStatusOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'statusCode')) {

@@ -39,7 +39,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null): GetPaymentProductsResponse;
+    public function getPaymentProducts(GetPaymentProductsParams $query, ?CallContext $callContext = null): GetPaymentProductsResponse;
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId} - Get payment product
@@ -57,7 +57,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null): PaymentProduct;
+    public function getPaymentProduct(int $paymentProductId, GetPaymentProductParams $query, ?CallContext $callContext = null): PaymentProduct;
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId}/networks - Get payment product networks
@@ -75,7 +75,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null): PaymentProductNetworksResponse;
+    public function getPaymentProductNetworks(int $paymentProductId, GetPaymentProductNetworksParams $query, ?CallContext $callContext = null): PaymentProductNetworksResponse;
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId}/directory - Get payment product directory
@@ -93,7 +93,7 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null): ProductDirectory;
+    public function getProductDirectory(int $paymentProductId, GetProductDirectoryParams $query, ?CallContext $callContext = null): ProductDirectory;
 
     /**
      * Resource /v2/{merchantId}/products/{paymentProductId}/sessions - Create a session for a payment product
@@ -111,5 +111,5 @@ interface ProductsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createPaymentProductSession(int $paymentProductId, PaymentProductSessionRequest $body, ?CallContext $callContext = null): PaymentProductSessionResponse;
+    public function createPaymentProductSession(int $paymentProductId, PaymentProductSessionRequest $body, ?CallContext $callContext = null): PaymentProductSessionResponse;
 }

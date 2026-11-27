@@ -13,32 +13,32 @@ class MerchantAction extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $actionType = null;
 
     /**
      * @var MobileThreeDSecureChallengeParameters|null
-    */
+     */
     public ?MobileThreeDSecureChallengeParameters $mobileThreeDSecureChallengeParameters = null;
 
     /**
      * @var RedirectData|null
-    */
+     */
     public ?RedirectData $redirectData = null;
 
     /**
      * @var ShowFormData|null
-    */
+     */
     public ?ShowFormData $showFormData = null;
 
     /**
      * @var ShowInstructionsData|null
-    */
+     */
     public ?ShowInstructionsData $showInstructionsData = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getActionType(): ?string
     {
         return $this->actionType;
@@ -46,7 +46,7 @@ class MerchantAction extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setActionType(?string $value): void
     {
         $this->actionType = $value;
@@ -54,9 +54,9 @@ class MerchantAction extends DataObject
 
     /**
      * @param string|null $value
-     * @return MerchantAction
-    */
-    public function withActionType(?string $value): MerchantAction
+     * @return $this
+     */
+    public function withActionType(?string $value): static
     {
         $this->actionType = $value;
         return $this;
@@ -64,7 +64,7 @@ class MerchantAction extends DataObject
 
     /**
      * @return MobileThreeDSecureChallengeParameters|null
-    */
+     */
     public function getMobileThreeDSecureChallengeParameters(): ?MobileThreeDSecureChallengeParameters
     {
         return $this->mobileThreeDSecureChallengeParameters;
@@ -72,7 +72,7 @@ class MerchantAction extends DataObject
 
     /**
      * @param MobileThreeDSecureChallengeParameters|null $value
-    */
+     */
     public function setMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): void
     {
         $this->mobileThreeDSecureChallengeParameters = $value;
@@ -80,9 +80,9 @@ class MerchantAction extends DataObject
 
     /**
      * @param MobileThreeDSecureChallengeParameters|null $value
-     * @return MerchantAction
-    */
-    public function withMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): MerchantAction
+     * @return $this
+     */
+    public function withMobileThreeDSecureChallengeParameters(?MobileThreeDSecureChallengeParameters $value): static
     {
         $this->mobileThreeDSecureChallengeParameters = $value;
         return $this;
@@ -90,7 +90,7 @@ class MerchantAction extends DataObject
 
     /**
      * @return RedirectData|null
-    */
+     */
     public function getRedirectData(): ?RedirectData
     {
         return $this->redirectData;
@@ -98,7 +98,7 @@ class MerchantAction extends DataObject
 
     /**
      * @param RedirectData|null $value
-    */
+     */
     public function setRedirectData(?RedirectData $value): void
     {
         $this->redirectData = $value;
@@ -106,9 +106,9 @@ class MerchantAction extends DataObject
 
     /**
      * @param RedirectData|null $value
-     * @return MerchantAction
-    */
-    public function withRedirectData(?RedirectData $value): MerchantAction
+     * @return $this
+     */
+    public function withRedirectData(?RedirectData $value): static
     {
         $this->redirectData = $value;
         return $this;
@@ -116,7 +116,7 @@ class MerchantAction extends DataObject
 
     /**
      * @return ShowFormData|null
-    */
+     */
     public function getShowFormData(): ?ShowFormData
     {
         return $this->showFormData;
@@ -124,7 +124,7 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowFormData|null $value
-    */
+     */
     public function setShowFormData(?ShowFormData $value): void
     {
         $this->showFormData = $value;
@@ -132,9 +132,9 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowFormData|null $value
-     * @return MerchantAction
-    */
-    public function withShowFormData(?ShowFormData $value): MerchantAction
+     * @return $this
+     */
+    public function withShowFormData(?ShowFormData $value): static
     {
         $this->showFormData = $value;
         return $this;
@@ -142,7 +142,7 @@ class MerchantAction extends DataObject
 
     /**
      * @return ShowInstructionsData|null
-    */
+     */
     public function getShowInstructionsData(): ?ShowInstructionsData
     {
         return $this->showInstructionsData;
@@ -150,7 +150,7 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowInstructionsData|null $value
-    */
+     */
     public function setShowInstructionsData(?ShowInstructionsData $value): void
     {
         $this->showInstructionsData = $value;
@@ -158,9 +158,9 @@ class MerchantAction extends DataObject
 
     /**
      * @param ShowInstructionsData|null $value
-     * @return MerchantAction
-    */
-    public function withShowInstructionsData(?ShowInstructionsData $value): MerchantAction
+     * @return $this
+     */
+    public function withShowInstructionsData(?ShowInstructionsData $value): static
     {
         $this->showInstructionsData = $value;
         return $this;
@@ -169,22 +169,23 @@ class MerchantAction extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->actionType)) {
+        if ($this->actionType !== null) {
             $object->actionType = $this->actionType;
         }
-        if (!is_null($this->mobileThreeDSecureChallengeParameters)) {
+        if ($this->mobileThreeDSecureChallengeParameters !== null) {
             $object->mobileThreeDSecureChallengeParameters = $this->mobileThreeDSecureChallengeParameters->toObject();
         }
-        if (!is_null($this->redirectData)) {
+        if ($this->redirectData !== null) {
             $object->redirectData = $this->redirectData->toObject();
         }
-        if (!is_null($this->showFormData)) {
+        if ($this->showFormData !== null) {
             $object->showFormData = $this->showFormData->toObject();
         }
-        if (!is_null($this->showInstructionsData)) {
+        if ($this->showInstructionsData !== null) {
             $object->showInstructionsData = $this->showInstructionsData->toObject();
         }
         return $object;
@@ -196,7 +197,8 @@ class MerchantAction extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MerchantAction
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'actionType')) {

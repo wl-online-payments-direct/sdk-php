@@ -7,6 +7,8 @@ namespace OnlinePayments\Sdk;
 use RuntimeException;
 use OnlinePayments\Sdk\Domain\APIError;
 use OnlinePayments\Sdk\Domain\DataObject;
+use OnlinePayments\Sdk\Logging\BodyObfuscator;
+use Throwable;
 
 /**
  * Class ResponseException
@@ -26,32 +28,56 @@ class ResponseException extends RuntimeException
     private DataObject $response;
 
     /**
-     * @param int         $httpStatusCode
-     * @param DataObject  $response
-     * @param string|null $message
+     * @param int            $httpStatusCode
+     * @param DataObject     $response
+     * @param string|null    $message
+     * @param Throwable|null $previous
      */
-    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
-    {
-        if (is_null($message)) {
+    public function __construct(
+        int        $httpStatusCode,
+        DataObject $response,
+        ?string    $message = null,
+        ?Throwable $previous = null
+    ) {
+        if ($message === null) {
             $message = 'the payment platform returned an error response';
         }
-        parent::__construct($message);
+        parent::__construct($message, 0, $previous);
         $this->httpStatusCode = $httpStatusCode;
         $this->response = $response;
     }
 
+    /**
+     * @return string
+     */
+    #[\Override]
     public function __toString(): string
     {
         return sprintf(
-            "exception '%s' with message '%s'. in %s:%d\nHTTP status code: %s\nResponse:\n%s\nStack trace:\n%s",
-            __CLASS__,
+            "%s: %s in %s:%d\nHTTP status code: %s\nResponse:\n%s\nStack trace:\n%s",
+            static::class,
             $this->getMessage(),
             $this->getFile(),
             $this->getLine(),
             $this->getHttpStatusCode(),
-            json_encode($this->getResponse(), JSON_PRETTY_PRINT),
+            $this->getObfuscatedResponse(),
             $this->getTraceAsString()
         );
+    }
+
+    /**
+     * Returns the response as JSON, with sensitive values masked.
+     *
+     * @return string
+     */
+    private function getObfuscatedResponse(): string
+    {
+        try {
+            $json = $this->getResponse()->toJson();
+        } catch (Throwable $e) {
+            return '<the response could not be obfuscated: ' . $e->getMessage() . '>';
+        }
+        return (new BodyObfuscator())->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON, $json);
     }
 
     /**
@@ -89,15 +115,15 @@ class ResponseException extends RuntimeException
     {
         $responseVariables = get_object_vars($this->getResponse());
         if (!array_key_exists('errors', $responseVariables)) {
-            return array();
+            return [];
         }
         $errors = $responseVariables['errors'];
         if (!is_array($errors)) {
-            return array();
+            return [];
         }
         foreach ($errors as $e) {
             if (!($e instanceof APIError)) {
-                return array();
+                return [];
             }
         }
         return $errors;

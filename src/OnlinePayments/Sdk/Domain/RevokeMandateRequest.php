@@ -13,12 +13,12 @@ class RevokeMandateRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $revocationReason = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getRevocationReason(): ?string
     {
         return $this->revocationReason;
@@ -26,7 +26,7 @@ class RevokeMandateRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRevocationReason(?string $value): void
     {
         $this->revocationReason = $value;
@@ -34,9 +34,9 @@ class RevokeMandateRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return RevokeMandateRequest
-    */
-    public function withRevocationReason(?string $value): RevokeMandateRequest
+     * @return $this
+     */
+    public function withRevocationReason(?string $value): static
     {
         $this->revocationReason = $value;
         return $this;
@@ -45,10 +45,11 @@ class RevokeMandateRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->revocationReason)) {
+        if ($this->revocationReason !== null) {
             $object->revocationReason = $this->revocationReason;
         }
         return $object;
@@ -60,7 +61,8 @@ class RevokeMandateRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RevokeMandateRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'revocationReason')) {

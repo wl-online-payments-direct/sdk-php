@@ -5,6 +5,7 @@
 namespace OnlinePayments\Sdk;
 
 use OnlinePayments\Sdk\Domain\DataObject;
+use Throwable;
 
 /**
  * Class IdempotenceException
@@ -24,23 +25,25 @@ class IdempotenceException extends ResponseException
     private string $idempotenceRequestTimestamp;
 
     /**
-     * @param int         $httpStatusCode
-     * @param DataObject  $response
-     * @param string|null $message
-     * @param string      $idempotenceKey
-     * @param string      $idempotenceRequestTimestamp
+     * @param int            $httpStatusCode
+     * @param DataObject     $response
+     * @param string|null    $message
+     * @param string         $idempotenceKey
+     * @param string         $idempotenceRequestTimestamp
+     * @param Throwable|null $previous
      */
     public function __construct(
         int        $httpStatusCode,
         DataObject $response,
         ?string    $message = null,
         string     $idempotenceKey = '',
-        string     $idempotenceRequestTimestamp = ''
+        string     $idempotenceRequestTimestamp = '',
+        ?Throwable $previous = null
     ) {
-        if ($message == null) {
+        if ($message === null) {
             $message = 'the payment platform returned a duplicate request error response';
         }
-        parent::__construct($httpStatusCode, $response, $message);
+        parent::__construct($httpStatusCode, $response, $message, $previous);
         $this->idempotenceKey = $idempotenceKey;
         $this->idempotenceRequestTimestamp = $idempotenceRequestTimestamp;
     }

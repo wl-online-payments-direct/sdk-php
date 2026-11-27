@@ -8,6 +8,7 @@ class CreateHostedTokenizationRequestBuilder
 {
     private bool $askConsumerConsent = true;
     private string $locale = 'en_US';
+    /** @var string[] */
     private array $tokens = [];
 
     public static function create(): self

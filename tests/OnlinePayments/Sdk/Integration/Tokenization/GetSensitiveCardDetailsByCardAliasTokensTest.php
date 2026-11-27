@@ -23,7 +23,7 @@ class GetSensitiveCardDetailsByCardAliasTokensTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetCardDataByTokens_ValidTokensInput_ReturnsCardDataList()
+    public function testGetCardDataByTokens_ValidTokensInput_ReturnsCardDataList(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -39,7 +39,7 @@ class GetSensitiveCardDetailsByCardAliasTokensTest extends TestCase
         $this->assertNotEmpty($response->getTokens());
     }
 
-    public function testGetCardDataByTokens_NonExistentTokensInput_ReturnsReferenceException()
+    public function testGetCardDataByTokens_NonExistentTokensInput_ReturnsReferenceException(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -56,7 +56,7 @@ class GetSensitiveCardDetailsByCardAliasTokensTest extends TestCase
         }
     }
 
-    public function testGetCardDataByTokens_InvalidTokensInput_ReturnsValidationException()
+    public function testGetCardDataByTokens_InvalidTokensInput_ReturnsValidationException(): void
     {
         $params = GetCardDataByTokensParamsBuilder::create()
             ->withTokens(null)

@@ -6,6 +6,7 @@ use OnlinePayments\Sdk\Merchant\Tokenization\GetCardDataByTokensParams;
 
 class GetCardDataByTokensParamsBuilder
 {
+    /** @var string[]|null */
     private ?array $tokens = [];
 
     public static function create(): self
@@ -13,6 +14,9 @@ class GetCardDataByTokensParamsBuilder
         return new self();
     }
 
+    /**
+     * @param string[]|null $tokens
+     */
     public function withTokens(?array $tokens): self
     {
         $this->tokens = $tokens;

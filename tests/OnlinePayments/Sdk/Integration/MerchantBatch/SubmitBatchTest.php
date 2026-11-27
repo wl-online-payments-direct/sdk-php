@@ -22,7 +22,7 @@ class SubmitBatchTest extends TestCase
         $this->merchantBatchClient = $this->client->merchant($this->getMerchantId())->merchantBatch();
     }
 
-    public function testSubmitBatch_ValidInput_ReturnsBatchReferenceAndTotalCount()
+    public function testSubmitBatch_ValidInput_ReturnsBatchReferenceAndTotalCount(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
@@ -42,7 +42,7 @@ class SubmitBatchTest extends TestCase
         $this->assertSame(1, $response->getTotalCount());
     }
 
-    public function testSubmitBatch_ValidInputWithCallContext_ReturnsBatchReferenceAndTotalCount()
+    public function testSubmitBatch_ValidInputWithCallContext_ReturnsBatchReferenceAndTotalCount(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
@@ -65,7 +65,7 @@ class SubmitBatchTest extends TestCase
         $this->assertSame(1, $response->getTotalCount());
     }
 
-    public function testSubmitBatch_InvalidMerchantBatchReference_ReturnsValidationException()
+    public function testSubmitBatch_InvalidMerchantBatchReference_ReturnsValidationException(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 

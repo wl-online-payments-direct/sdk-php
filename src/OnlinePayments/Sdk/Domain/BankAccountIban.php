@@ -13,12 +13,12 @@ class BankAccountIban extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $iban = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getIban(): ?string
     {
         return $this->iban;
@@ -26,7 +26,7 @@ class BankAccountIban extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIban(?string $value): void
     {
         $this->iban = $value;
@@ -34,9 +34,9 @@ class BankAccountIban extends DataObject
 
     /**
      * @param string|null $value
-     * @return BankAccountIban
-    */
-    public function withIban(?string $value): BankAccountIban
+     * @return $this
+     */
+    public function withIban(?string $value): static
     {
         $this->iban = $value;
         return $this;
@@ -45,10 +45,11 @@ class BankAccountIban extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->iban)) {
+        if ($this->iban !== null) {
             $object->iban = $this->iban;
         }
         return $object;
@@ -60,7 +61,8 @@ class BankAccountIban extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): BankAccountIban
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'iban')) {

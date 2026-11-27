@@ -35,13 +35,14 @@ class ShoppingCartOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->lineItemDetails)) {
+        if ($this->lineItemDetails !== null) {
             $object->lineItemDetails = [];
             foreach ($this->lineItemDetails as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->lineItemDetails[] = $element->toObject();
                 }
             }
@@ -54,7 +55,8 @@ class ShoppingCartOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShoppingCartOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'lineItemDetails')) {

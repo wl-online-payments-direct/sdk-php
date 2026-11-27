@@ -13,12 +13,12 @@ class LineItemInvoiceData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $description = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -26,7 +26,7 @@ class LineItemInvoiceData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDescription(?string $value): void
     {
         $this->description = $value;
@@ -34,9 +34,9 @@ class LineItemInvoiceData extends DataObject
 
     /**
      * @param string|null $value
-     * @return LineItemInvoiceData
-    */
-    public function withDescription(?string $value): LineItemInvoiceData
+     * @return $this
+     */
+    public function withDescription(?string $value): static
     {
         $this->description = $value;
         return $this;
@@ -45,10 +45,11 @@ class LineItemInvoiceData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->description)) {
+        if ($this->description !== null) {
             $object->description = $this->description;
         }
         return $object;
@@ -60,7 +61,8 @@ class LineItemInvoiceData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): LineItemInvoiceData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'description')) {

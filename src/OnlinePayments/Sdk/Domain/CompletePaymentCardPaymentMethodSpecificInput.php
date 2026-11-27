@@ -13,12 +13,12 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var CardWithoutCvv|null
-    */
+     */
     public ?CardWithoutCvv $card = null;
 
     /**
      * @return CardWithoutCvv|null
-    */
+     */
     public function getCard(): ?CardWithoutCvv
     {
         return $this->card;
@@ -26,7 +26,7 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-    */
+     */
     public function setCard(?CardWithoutCvv $value): void
     {
         $this->card = $value;
@@ -34,9 +34,9 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param CardWithoutCvv|null $value
-     * @return CompletePaymentCardPaymentMethodSpecificInput
-    */
-    public function withCard(?CardWithoutCvv $value): CompletePaymentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withCard(?CardWithoutCvv $value): static
     {
         $this->card = $value;
         return $this;
@@ -45,10 +45,11 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class CompletePaymentCardPaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CompletePaymentCardPaymentMethodSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

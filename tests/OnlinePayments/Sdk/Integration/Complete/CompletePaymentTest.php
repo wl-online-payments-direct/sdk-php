@@ -36,8 +36,7 @@ class CompletePaymentTest extends TestCase
             $this->completeClient->completePayment($paymentId, $request);
 
             $this->fail('Expected PlatformException was not thrown');
-        }
-        catch (PlatformException $e) {
+        } catch (PlatformException $e) {
             $this->assertNotNull($e->getErrors());
             $this->assertNotNull($e->getErrors()[0]->getHttpStatusCode());
             $this->assertSame(500, $e->getErrors()[0]->getHttpStatusCode());
@@ -58,8 +57,7 @@ class CompletePaymentTest extends TestCase
             $this->completeClient->completePayment($paymentId, $request);
 
             $this->fail('Expected PlatformException was not thrown');
-        }
-        catch (PlatformException $e) {
+        } catch (PlatformException $e) {
             $this->assertNotNull($e->getErrors());
             $this->assertNotNull($e->getErrors()[0]->getHttpStatusCode());
             $this->assertSame(500, $e->getErrors()[0]->getHttpStatusCode());

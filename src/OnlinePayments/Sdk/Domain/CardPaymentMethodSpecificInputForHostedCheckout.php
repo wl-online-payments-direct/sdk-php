@@ -13,27 +13,27 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $clickToPay = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $groupCards = null;
 
     /**
      * @var int[]|null
-    */
+     */
     public ?array $paymentProductPreferredOrder = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenizationMode = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getClickToPay(): ?bool
     {
         return $this->clickToPay;
@@ -41,7 +41,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setClickToPay(?bool $value): void
     {
         $this->clickToPay = $value;
@@ -49,9 +49,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
-    */
-    public function withClickToPay(?bool $value): CardPaymentMethodSpecificInputForHostedCheckout
+     * @return $this
+     */
+    public function withClickToPay(?bool $value): static
     {
         $this->clickToPay = $value;
         return $this;
@@ -59,7 +59,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getGroupCards(): ?bool
     {
         return $this->groupCards;
@@ -67,7 +67,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setGroupCards(?bool $value): void
     {
         $this->groupCards = $value;
@@ -75,9 +75,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
-    */
-    public function withGroupCards(?bool $value): CardPaymentMethodSpecificInputForHostedCheckout
+     * @return $this
+     */
+    public function withGroupCards(?bool $value): static
     {
         $this->groupCards = $value;
         return $this;
@@ -85,7 +85,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @return int[]|null
-    */
+     */
     public function getPaymentProductPreferredOrder(): ?array
     {
         return $this->paymentProductPreferredOrder;
@@ -93,7 +93,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param int[]|null $value
-    */
+     */
     public function setPaymentProductPreferredOrder(?array $value): void
     {
         $this->paymentProductPreferredOrder = $value;
@@ -101,9 +101,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param int[]|null $value
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
-    */
-    public function withPaymentProductPreferredOrder(?array $value): CardPaymentMethodSpecificInputForHostedCheckout
+     * @return $this
+     */
+    public function withPaymentProductPreferredOrder(?array $value): static
     {
         $this->paymentProductPreferredOrder = $value;
         return $this;
@@ -111,7 +111,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenizationMode(): ?string
     {
         return $this->tokenizationMode;
@@ -119,7 +119,7 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenizationMode(?string $value): void
     {
         $this->tokenizationMode = $value;
@@ -127,9 +127,9 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPaymentMethodSpecificInputForHostedCheckout
-    */
-    public function withTokenizationMode(?string $value): CardPaymentMethodSpecificInputForHostedCheckout
+     * @return $this
+     */
+    public function withTokenizationMode(?string $value): static
     {
         $this->tokenizationMode = $value;
         return $this;
@@ -138,24 +138,25 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->clickToPay)) {
+        if ($this->clickToPay !== null) {
             $object->clickToPay = $this->clickToPay;
         }
-        if (!is_null($this->groupCards)) {
+        if ($this->groupCards !== null) {
             $object->groupCards = $this->groupCards;
         }
-        if (!is_null($this->paymentProductPreferredOrder)) {
+        if ($this->paymentProductPreferredOrder !== null) {
             $object->paymentProductPreferredOrder = [];
             foreach ($this->paymentProductPreferredOrder as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentProductPreferredOrder[] = $element;
                 }
             }
         }
-        if (!is_null($this->tokenizationMode)) {
+        if ($this->tokenizationMode !== null) {
             $object->tokenizationMode = $this->tokenizationMode;
         }
         return $object;
@@ -167,7 +168,8 @@ class CardPaymentMethodSpecificInputForHostedCheckout extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardPaymentMethodSpecificInputForHostedCheckout
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'clickToPay')) {

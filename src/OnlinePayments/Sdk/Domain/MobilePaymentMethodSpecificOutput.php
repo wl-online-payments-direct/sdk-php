@@ -13,37 +13,37 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $authorisationCode = null;
 
     /**
      * @var CardFraudResults|null
-    */
+     */
     public ?CardFraudResults $fraudResults = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $network = null;
 
     /**
      * @var MobilePaymentData|null
-    */
+     */
     public ?MobilePaymentData $paymentData = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var ThreeDSecureResults|null
-    */
+     */
     public ?ThreeDSecureResults $threeDSecureResults = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
@@ -51,7 +51,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
@@ -59,9 +59,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withAuthorisationCode(?string $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withAuthorisationCode(?string $value): static
     {
         $this->authorisationCode = $value;
         return $this;
@@ -69,7 +69,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @return CardFraudResults|null
-    */
+     */
     public function getFraudResults(): ?CardFraudResults
     {
         return $this->fraudResults;
@@ -77,7 +77,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param CardFraudResults|null $value
-    */
+     */
     public function setFraudResults(?CardFraudResults $value): void
     {
         $this->fraudResults = $value;
@@ -85,9 +85,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param CardFraudResults|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withFraudResults(?CardFraudResults $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withFraudResults(?CardFraudResults $value): static
     {
         $this->fraudResults = $value;
         return $this;
@@ -95,7 +95,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getNetwork(): ?string
     {
         return $this->network;
@@ -103,7 +103,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNetwork(?string $value): void
     {
         $this->network = $value;
@@ -111,9 +111,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withNetwork(?string $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withNetwork(?string $value): static
     {
         $this->network = $value;
         return $this;
@@ -121,7 +121,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @return MobilePaymentData|null
-    */
+     */
     public function getPaymentData(): ?MobilePaymentData
     {
         return $this->paymentData;
@@ -129,7 +129,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param MobilePaymentData|null $value
-    */
+     */
     public function setPaymentData(?MobilePaymentData $value): void
     {
         $this->paymentData = $value;
@@ -137,9 +137,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param MobilePaymentData|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withPaymentData(?MobilePaymentData $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withPaymentData(?MobilePaymentData $value): static
     {
         $this->paymentData = $value;
         return $this;
@@ -147,7 +147,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -155,7 +155,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -163,9 +163,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withPaymentProductId(?int $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -173,7 +173,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @return ThreeDSecureResults|null
-    */
+     */
     public function getThreeDSecureResults(): ?ThreeDSecureResults
     {
         return $this->threeDSecureResults;
@@ -181,7 +181,7 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param ThreeDSecureResults|null $value
-    */
+     */
     public function setThreeDSecureResults(?ThreeDSecureResults $value): void
     {
         $this->threeDSecureResults = $value;
@@ -189,9 +189,9 @@ class MobilePaymentMethodSpecificOutput extends DataObject
 
     /**
      * @param ThreeDSecureResults|null $value
-     * @return MobilePaymentMethodSpecificOutput
-    */
-    public function withThreeDSecureResults(?ThreeDSecureResults $value): MobilePaymentMethodSpecificOutput
+     * @return $this
+     */
+    public function withThreeDSecureResults(?ThreeDSecureResults $value): static
     {
         $this->threeDSecureResults = $value;
         return $this;
@@ -200,25 +200,26 @@ class MobilePaymentMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->authorisationCode)) {
+        if ($this->authorisationCode !== null) {
             $object->authorisationCode = $this->authorisationCode;
         }
-        if (!is_null($this->fraudResults)) {
+        if ($this->fraudResults !== null) {
             $object->fraudResults = $this->fraudResults->toObject();
         }
-        if (!is_null($this->network)) {
+        if ($this->network !== null) {
             $object->network = $this->network;
         }
-        if (!is_null($this->paymentData)) {
+        if ($this->paymentData !== null) {
             $object->paymentData = $this->paymentData->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->threeDSecureResults)) {
+        if ($this->threeDSecureResults !== null) {
             $object->threeDSecureResults = $this->threeDSecureResults->toObject();
         }
         return $object;
@@ -230,7 +231,8 @@ class MobilePaymentMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MobilePaymentMethodSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'authorisationCode')) {

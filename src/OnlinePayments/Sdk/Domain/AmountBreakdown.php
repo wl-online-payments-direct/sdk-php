@@ -13,17 +13,17 @@ class AmountBreakdown extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -31,7 +31,7 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -39,9 +39,9 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param int|null $value
-     * @return AmountBreakdown
-    */
-    public function withAmount(?int $value): AmountBreakdown
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -49,7 +49,7 @@ class AmountBreakdown extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -57,7 +57,7 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -65,9 +65,9 @@ class AmountBreakdown extends DataObject
 
     /**
      * @param string|null $value
-     * @return AmountBreakdown
-    */
-    public function withType(?string $value): AmountBreakdown
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -76,13 +76,14 @@ class AmountBreakdown extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
         return $object;
@@ -94,7 +95,8 @@ class AmountBreakdown extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AmountBreakdown
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

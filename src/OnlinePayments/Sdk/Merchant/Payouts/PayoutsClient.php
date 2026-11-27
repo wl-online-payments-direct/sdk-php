@@ -9,6 +9,8 @@ use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreatePayoutRequest;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
+use OnlinePayments\Sdk\Domain\PayoutErrorResponse;
 use OnlinePayments\Sdk\Domain\PayoutResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
@@ -27,14 +29,15 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function createPayout(CreatePayoutRequest $body, ?CallContext $callContext = null): PayoutResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = PayoutResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = PayoutErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var PayoutResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payouts'),
                 $this->getClientMetaInfo(),
@@ -42,11 +45,13 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -54,26 +59,29 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getPayout(string $payoutId, ?CallContext $callContext = null): PayoutResponse
     {
         $this->context['payoutId'] = $payoutId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\PayoutResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = PayoutResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->get(
+            /** @var PayoutResponse $response */
+            $response = $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payouts/{payoutId}'),
                 $this->getClientMetaInfo(),
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -83,7 +91,7 @@ class PayoutsClient extends ApiResource implements PayoutsClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

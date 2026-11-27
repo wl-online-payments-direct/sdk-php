@@ -7,9 +7,9 @@ for this SDK version first and use the code it shows. Do not write SDK calls fro
 
 - In this package: `skills/worldline-direct/SKILL.md`
   (package folder: `vendor/wl-online-payments-direct/sdk-php/`, or `composer show -P wl-online-payments-direct/sdk-php`)
-- Online: https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+- Online: https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/14.0.0/skills/worldline-direct/SKILL.md
 
-The skill matches SDK version 13.1.0. If your installed version is different, use the skill
+The skill matches SDK version 14.0.0. If your installed version is different, use the skill
 from your installed package.
 
 ## Working on this SDK

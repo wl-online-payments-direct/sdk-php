@@ -13,27 +13,27 @@ class CreateHostedFieldsSessionRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $origin = null;
 
     /**
      * @var PaymentProductFiltersHostedFields|null
-    */
+     */
     public ?PaymentProductFiltersHostedFields $paymentProductFilters = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $tokens = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -41,7 +41,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -49,9 +49,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedFieldsSessionRequest
-    */
-    public function withLocale(?string $value): CreateHostedFieldsSessionRequest
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -59,7 +59,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOrigin(): ?string
     {
         return $this->origin;
@@ -67,7 +67,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOrigin(?string $value): void
     {
         $this->origin = $value;
@@ -75,9 +75,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedFieldsSessionRequest
-    */
-    public function withOrigin(?string $value): CreateHostedFieldsSessionRequest
+     * @return $this
+     */
+    public function withOrigin(?string $value): static
     {
         $this->origin = $value;
         return $this;
@@ -85,7 +85,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @return PaymentProductFiltersHostedFields|null
-    */
+     */
     public function getPaymentProductFilters(): ?PaymentProductFiltersHostedFields
     {
         return $this->paymentProductFilters;
@@ -93,7 +93,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedFields|null $value
-    */
+     */
     public function setPaymentProductFilters(?PaymentProductFiltersHostedFields $value): void
     {
         $this->paymentProductFilters = $value;
@@ -101,9 +101,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedFields|null $value
-     * @return CreateHostedFieldsSessionRequest
-    */
-    public function withPaymentProductFilters(?PaymentProductFiltersHostedFields $value): CreateHostedFieldsSessionRequest
+     * @return $this
+     */
+    public function withPaymentProductFilters(?PaymentProductFiltersHostedFields $value): static
     {
         $this->paymentProductFilters = $value;
         return $this;
@@ -111,7 +111,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -119,7 +119,7 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
@@ -127,9 +127,9 @@ class CreateHostedFieldsSessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return CreateHostedFieldsSessionRequest
-    */
-    public function withTokens(?array $value): CreateHostedFieldsSessionRequest
+     * @return $this
+     */
+    public function withTokens(?array $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -138,22 +138,23 @@ class CreateHostedFieldsSessionRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->origin)) {
+        if ($this->origin !== null) {
             $object->origin = $this->origin;
         }
-        if (!is_null($this->paymentProductFilters)) {
+        if ($this->paymentProductFilters !== null) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->tokens[] = $element;
                 }
             }
@@ -167,7 +168,8 @@ class CreateHostedFieldsSessionRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateHostedFieldsSessionRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'locale')) {

@@ -65,7 +65,7 @@ class CreateSessionTest extends TestCase
         $request = SessionRequestBuilder::create()
             ->withTokens([
                 'firstToken', 'secondToken', 'thirdToken', 'fourthToken', 'fifthToken',
-                'sixthToken', 'seventhToken', 'eighthToken', 'ninthToken', 'tenthToken', 'eleventhToken'
+                'sixthToken', 'seventhToken', 'eighthToken', 'ninthToken', 'tenthToken', 'eleventhToken',
             ])
             ->build();
 

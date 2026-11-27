@@ -13,17 +13,17 @@ class ReattemptInstructionsConditions extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $maxAttempts = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $maxDelay = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getMaxAttempts(): ?int
     {
         return $this->maxAttempts;
@@ -31,7 +31,7 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMaxAttempts(?int $value): void
     {
         $this->maxAttempts = $value;
@@ -39,9 +39,9 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-     * @return ReattemptInstructionsConditions
-    */
-    public function withMaxAttempts(?int $value): ReattemptInstructionsConditions
+     * @return $this
+     */
+    public function withMaxAttempts(?int $value): static
     {
         $this->maxAttempts = $value;
         return $this;
@@ -49,7 +49,7 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getMaxDelay(): ?int
     {
         return $this->maxDelay;
@@ -57,7 +57,7 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMaxDelay(?int $value): void
     {
         $this->maxDelay = $value;
@@ -65,9 +65,9 @@ class ReattemptInstructionsConditions extends DataObject
 
     /**
      * @param int|null $value
-     * @return ReattemptInstructionsConditions
-    */
-    public function withMaxDelay(?int $value): ReattemptInstructionsConditions
+     * @return $this
+     */
+    public function withMaxDelay(?int $value): static
     {
         $this->maxDelay = $value;
         return $this;
@@ -76,13 +76,14 @@ class ReattemptInstructionsConditions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->maxAttempts)) {
+        if ($this->maxAttempts !== null) {
             $object->maxAttempts = $this->maxAttempts;
         }
-        if (!is_null($this->maxDelay)) {
+        if ($this->maxDelay !== null) {
             $object->maxDelay = $this->maxDelay;
         }
         return $object;
@@ -94,7 +95,8 @@ class ReattemptInstructionsConditions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ReattemptInstructionsConditions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxAttempts')) {

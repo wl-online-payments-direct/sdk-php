@@ -13,27 +13,27 @@ class Capture extends DataObject
 {
     /**
      * @var CaptureOutput|null
-    */
+     */
     public ?CaptureOutput $captureOutput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @var CaptureStatusOutput|null
-    */
+     */
     public ?CaptureStatusOutput $statusOutput = null;
 
     /**
      * @return CaptureOutput|null
-    */
+     */
     public function getCaptureOutput(): ?CaptureOutput
     {
         return $this->captureOutput;
@@ -41,7 +41,7 @@ class Capture extends DataObject
 
     /**
      * @param CaptureOutput|null $value
-    */
+     */
     public function setCaptureOutput(?CaptureOutput $value): void
     {
         $this->captureOutput = $value;
@@ -49,9 +49,9 @@ class Capture extends DataObject
 
     /**
      * @param CaptureOutput|null $value
-     * @return Capture
-    */
-    public function withCaptureOutput(?CaptureOutput $value): Capture
+     * @return $this
+     */
+    public function withCaptureOutput(?CaptureOutput $value): static
     {
         $this->captureOutput = $value;
         return $this;
@@ -59,7 +59,7 @@ class Capture extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -67,7 +67,7 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -75,9 +75,9 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-     * @return Capture
-    */
-    public function withId(?string $value): Capture
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -85,7 +85,7 @@ class Capture extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -93,7 +93,7 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -101,9 +101,9 @@ class Capture extends DataObject
 
     /**
      * @param string|null $value
-     * @return Capture
-    */
-    public function withStatus(?string $value): Capture
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -111,7 +111,7 @@ class Capture extends DataObject
 
     /**
      * @return CaptureStatusOutput|null
-    */
+     */
     public function getStatusOutput(): ?CaptureStatusOutput
     {
         return $this->statusOutput;
@@ -119,7 +119,7 @@ class Capture extends DataObject
 
     /**
      * @param CaptureStatusOutput|null $value
-    */
+     */
     public function setStatusOutput(?CaptureStatusOutput $value): void
     {
         $this->statusOutput = $value;
@@ -127,9 +127,9 @@ class Capture extends DataObject
 
     /**
      * @param CaptureStatusOutput|null $value
-     * @return Capture
-    */
-    public function withStatusOutput(?CaptureStatusOutput $value): Capture
+     * @return $this
+     */
+    public function withStatusOutput(?CaptureStatusOutput $value): static
     {
         $this->statusOutput = $value;
         return $this;
@@ -138,19 +138,20 @@ class Capture extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->captureOutput)) {
+        if ($this->captureOutput !== null) {
             $object->captureOutput = $this->captureOutput->toObject();
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
-        if (!is_null($this->statusOutput)) {
+        if ($this->statusOutput !== null) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;
@@ -162,7 +163,8 @@ class Capture extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Capture
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'captureOutput')) {

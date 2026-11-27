@@ -14,52 +14,52 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $birthCity = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $birthCountry = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $birthZipCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $channel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $loyaltyCardNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $secondInstallmentPaymentDate = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $sessionDuration = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $title = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $transactionExpirationDateTime = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBirthCity(): ?string
     {
         return $this->birthCity;
@@ -67,7 +67,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBirthCity(?string $value): void
     {
         $this->birthCity = $value;
@@ -75,9 +75,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withBirthCity(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withBirthCity(?string $value): static
     {
         $this->birthCity = $value;
         return $this;
@@ -85,7 +85,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getBirthCountry(): ?string
     {
         return $this->birthCountry;
@@ -93,7 +93,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBirthCountry(?string $value): void
     {
         $this->birthCountry = $value;
@@ -101,9 +101,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withBirthCountry(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withBirthCountry(?string $value): static
     {
         $this->birthCountry = $value;
         return $this;
@@ -111,7 +111,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getBirthZipCode(): ?string
     {
         return $this->birthZipCode;
@@ -119,7 +119,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBirthZipCode(?string $value): void
     {
         $this->birthZipCode = $value;
@@ -127,9 +127,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withBirthZipCode(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withBirthZipCode(?string $value): static
     {
         $this->birthZipCode = $value;
         return $this;
@@ -137,7 +137,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getChannel(): ?string
     {
         return $this->channel;
@@ -145,7 +145,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setChannel(?string $value): void
     {
         $this->channel = $value;
@@ -153,9 +153,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withChannel(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withChannel(?string $value): static
     {
         $this->channel = $value;
         return $this;
@@ -163,7 +163,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLoyaltyCardNumber(): ?string
     {
         return $this->loyaltyCardNumber;
@@ -171,7 +171,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLoyaltyCardNumber(?string $value): void
     {
         $this->loyaltyCardNumber = $value;
@@ -179,9 +179,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withLoyaltyCardNumber(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withLoyaltyCardNumber(?string $value): static
     {
         $this->loyaltyCardNumber = $value;
         return $this;
@@ -189,7 +189,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSecondInstallmentPaymentDate(): ?string
     {
         return $this->secondInstallmentPaymentDate;
@@ -197,7 +197,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSecondInstallmentPaymentDate(?string $value): void
     {
         $this->secondInstallmentPaymentDate = $value;
@@ -205,9 +205,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withSecondInstallmentPaymentDate(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withSecondInstallmentPaymentDate(?string $value): static
     {
         $this->secondInstallmentPaymentDate = $value;
         return $this;
@@ -215,7 +215,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getSessionDuration(): ?int
     {
         return $this->sessionDuration;
@@ -223,7 +223,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setSessionDuration(?int $value): void
     {
         $this->sessionDuration = $value;
@@ -231,9 +231,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withSessionDuration(?int $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withSessionDuration(?int $value): static
     {
         $this->sessionDuration = $value;
         return $this;
@@ -241,7 +241,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -249,7 +249,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
@@ -257,9 +257,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withTitle(?string $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withTitle(?string $value): static
     {
         $this->title = $value;
         return $this;
@@ -267,7 +267,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getTransactionExpirationDateTime(): ?DateTime
     {
         return $this->transactionExpirationDateTime;
@@ -275,7 +275,7 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setTransactionExpirationDateTime(?DateTime $value): void
     {
         $this->transactionExpirationDateTime = $value;
@@ -283,9 +283,9 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return RedirectPaymentProduct5300SpecificInput
-    */
-    public function withTransactionExpirationDateTime(?DateTime $value): RedirectPaymentProduct5300SpecificInput
+     * @return $this
+     */
+    public function withTransactionExpirationDateTime(?DateTime $value): static
     {
         $this->transactionExpirationDateTime = $value;
         return $this;
@@ -294,34 +294,35 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->birthCity)) {
+        if ($this->birthCity !== null) {
             $object->birthCity = $this->birthCity;
         }
-        if (!is_null($this->birthCountry)) {
+        if ($this->birthCountry !== null) {
             $object->birthCountry = $this->birthCountry;
         }
-        if (!is_null($this->birthZipCode)) {
+        if ($this->birthZipCode !== null) {
             $object->birthZipCode = $this->birthZipCode;
         }
-        if (!is_null($this->channel)) {
+        if ($this->channel !== null) {
             $object->channel = $this->channel;
         }
-        if (!is_null($this->loyaltyCardNumber)) {
+        if ($this->loyaltyCardNumber !== null) {
             $object->loyaltyCardNumber = $this->loyaltyCardNumber;
         }
-        if (!is_null($this->secondInstallmentPaymentDate)) {
+        if ($this->secondInstallmentPaymentDate !== null) {
             $object->secondInstallmentPaymentDate = $this->secondInstallmentPaymentDate;
         }
-        if (!is_null($this->sessionDuration)) {
+        if ($this->sessionDuration !== null) {
             $object->sessionDuration = $this->sessionDuration;
         }
-        if (!is_null($this->title)) {
+        if ($this->title !== null) {
             $object->title = $this->title;
         }
-        if (!is_null($this->transactionExpirationDateTime)) {
+        if ($this->transactionExpirationDateTime !== null) {
             $object->transactionExpirationDateTime = $this->transactionExpirationDateTime->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
@@ -333,7 +334,8 @@ class RedirectPaymentProduct5300SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5300SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'birthCity')) {

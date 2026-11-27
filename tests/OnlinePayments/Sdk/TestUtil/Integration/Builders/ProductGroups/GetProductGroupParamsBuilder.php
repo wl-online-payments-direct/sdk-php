@@ -10,7 +10,9 @@ class GetProductGroupParamsBuilder
     private ?string $currencyCode = null;
     private ?int $amount = null;
     private ?bool $isRecurring = null;
+    /** @var array<int, string|null>|null */
     private ?array $addHideList = null;
+    /** @var string[]|null */
     private ?array $hideList = null;
 
     public static function create(): self
@@ -42,12 +44,18 @@ class GetProductGroupParamsBuilder
         return $this;
     }
 
+    /**
+     * @param array<int, string|null>|null $addHideList
+     */
     public function withAddHideList(?array $addHideList): self
     {
         $this->addHideList = $addHideList;
         return $this;
     }
 
+    /**
+     * @param string[]|null $hideList
+     */
     public function withHideList(?array $hideList): self
     {
         $this->hideList = $hideList;
@@ -75,7 +83,11 @@ class GetProductGroupParamsBuilder
         }
 
         if ($this->addHideList !== null && count($this->addHideList) > 0) {
-            $params->addHide($this->addHideList);
+            foreach ($this->addHideList as $hide) {
+                if ($hide !== null) {
+                    $params->addHide($hide);
+                }
+            }
         }
 
         if ($this->hideList !== null && count($this->hideList) > 0) {

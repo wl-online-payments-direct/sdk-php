@@ -13,17 +13,17 @@ class RangeValidator extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $maxValue = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $minValue = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getMaxValue(): ?int
     {
         return $this->maxValue;
@@ -31,7 +31,7 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMaxValue(?int $value): void
     {
         $this->maxValue = $value;
@@ -39,9 +39,9 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-     * @return RangeValidator
-    */
-    public function withMaxValue(?int $value): RangeValidator
+     * @return $this
+     */
+    public function withMaxValue(?int $value): static
     {
         $this->maxValue = $value;
         return $this;
@@ -49,7 +49,7 @@ class RangeValidator extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getMinValue(): ?int
     {
         return $this->minValue;
@@ -57,7 +57,7 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMinValue(?int $value): void
     {
         $this->minValue = $value;
@@ -65,9 +65,9 @@ class RangeValidator extends DataObject
 
     /**
      * @param int|null $value
-     * @return RangeValidator
-    */
-    public function withMinValue(?int $value): RangeValidator
+     * @return $this
+     */
+    public function withMinValue(?int $value): static
     {
         $this->minValue = $value;
         return $this;
@@ -76,13 +76,14 @@ class RangeValidator extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->maxValue)) {
+        if ($this->maxValue !== null) {
             $object->maxValue = $this->maxValue;
         }
-        if (!is_null($this->minValue)) {
+        if ($this->minValue !== null) {
             $object->minValue = $this->minValue;
         }
         return $object;
@@ -94,7 +95,8 @@ class RangeValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RangeValidator
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxValue')) {

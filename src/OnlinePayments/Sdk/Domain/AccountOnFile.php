@@ -13,27 +13,27 @@ class AccountOnFile extends DataObject
 {
     /**
      * @var AccountOnFileAttribute[]|null
-    */
+     */
     public ?array $attributes = null;
 
     /**
      * @var AccountOnFileDisplayHints|null
-    */
+     */
     public ?AccountOnFileDisplayHints $displayHints = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return AccountOnFileAttribute[]|null
-    */
+     */
     public function getAttributes(): ?array
     {
         return $this->attributes;
@@ -41,7 +41,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @param AccountOnFileAttribute[]|null $value
-    */
+     */
     public function setAttributes(?array $value): void
     {
         $this->attributes = $value;
@@ -49,9 +49,9 @@ class AccountOnFile extends DataObject
 
     /**
      * @param AccountOnFileAttribute[]|null $value
-     * @return AccountOnFile
-    */
-    public function withAttributes(?array $value): AccountOnFile
+     * @return $this
+     */
+    public function withAttributes(?array $value): static
     {
         $this->attributes = $value;
         return $this;
@@ -59,7 +59,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @return AccountOnFileDisplayHints|null
-    */
+     */
     public function getDisplayHints(): ?AccountOnFileDisplayHints
     {
         return $this->displayHints;
@@ -67,7 +67,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @param AccountOnFileDisplayHints|null $value
-    */
+     */
     public function setDisplayHints(?AccountOnFileDisplayHints $value): void
     {
         $this->displayHints = $value;
@@ -75,9 +75,9 @@ class AccountOnFile extends DataObject
 
     /**
      * @param AccountOnFileDisplayHints|null $value
-     * @return AccountOnFile
-    */
-    public function withDisplayHints(?AccountOnFileDisplayHints $value): AccountOnFile
+     * @return $this
+     */
+    public function withDisplayHints(?AccountOnFileDisplayHints $value): static
     {
         $this->displayHints = $value;
         return $this;
@@ -85,7 +85,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -93,7 +93,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -101,9 +101,9 @@ class AccountOnFile extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFile
-    */
-    public function withId(?string $value): AccountOnFile
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -111,7 +111,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -119,7 +119,7 @@ class AccountOnFile extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -127,9 +127,9 @@ class AccountOnFile extends DataObject
 
     /**
      * @param int|null $value
-     * @return AccountOnFile
-    */
-    public function withPaymentProductId(?int $value): AccountOnFile
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -138,24 +138,25 @@ class AccountOnFile extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->attributes)) {
+        if ($this->attributes !== null) {
             $object->attributes = [];
             foreach ($this->attributes as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->attributes[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->displayHints)) {
+        if ($this->displayHints !== null) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;
@@ -167,7 +168,8 @@ class AccountOnFile extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AccountOnFile
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'attributes')) {

@@ -14,7 +14,7 @@ class InMemorySecretKeyStoreTest extends TestCase
     public function testConstructor_AndGetSecretKey_ReturnsStoredValue(): void
     {
         $inMemorySecretKeyStore = new InMemorySecretKeyStore([
-            'key-id-1' => 'secret-value-1'
+            'key-id-1' => 'secret-value-1',
         ]);
 
         $this->assertSame('secret-value-1', $inMemorySecretKeyStore->getSecretKey('key-id-1'));
@@ -32,7 +32,7 @@ class InMemorySecretKeyStoreTest extends TestCase
     public function testGetSecretKey_KeyNotFound_ThrowsException(): void
     {
         $store = new InMemorySecretKeyStore([
-            'key-id-1' => ''
+            'key-id-1' => '',
         ]);
 
         $this->expectException(SecretKeyNotAvailableException::class);
@@ -72,7 +72,7 @@ class InMemorySecretKeyStoreTest extends TestCase
     public function testRemoveSecretKey_RemovesValue(): void
     {
         $inMemorySecretKeyStore = new InMemorySecretKeyStore([
-            'key-to-remove' => 'secret1'
+            'key-to-remove' => 'secret1',
         ]);
 
         $inMemorySecretKeyStore->removeSecretKey('key-to-remove');

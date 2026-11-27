@@ -13,42 +13,42 @@ class DetokenizedTokenResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cardBrand = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardExpiryDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardHolderName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $encryptedCardNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $schemeReferenceData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $token = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCardBrand(): ?string
     {
         return $this->cardBrand;
@@ -56,7 +56,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardBrand(?string $value): void
     {
         $this->cardBrand = $value;
@@ -64,9 +64,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withCardBrand(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withCardBrand(?string $value): static
     {
         $this->cardBrand = $value;
         return $this;
@@ -74,7 +74,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardExpiryDate(): ?string
     {
         return $this->cardExpiryDate;
@@ -82,7 +82,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardExpiryDate(?string $value): void
     {
         $this->cardExpiryDate = $value;
@@ -90,9 +90,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withCardExpiryDate(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withCardExpiryDate(?string $value): static
     {
         $this->cardExpiryDate = $value;
         return $this;
@@ -100,7 +100,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardHolderName(): ?string
     {
         return $this->cardHolderName;
@@ -108,7 +108,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardHolderName(?string $value): void
     {
         $this->cardHolderName = $value;
@@ -116,9 +116,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withCardHolderName(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withCardHolderName(?string $value): static
     {
         $this->cardHolderName = $value;
         return $this;
@@ -126,7 +126,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEncryptedCardNumber(): ?string
     {
         return $this->encryptedCardNumber;
@@ -134,7 +134,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEncryptedCardNumber(?string $value): void
     {
         $this->encryptedCardNumber = $value;
@@ -142,9 +142,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withEncryptedCardNumber(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withEncryptedCardNumber(?string $value): static
     {
         $this->encryptedCardNumber = $value;
         return $this;
@@ -152,7 +152,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -160,7 +160,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -168,9 +168,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withPaymentId(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -178,7 +178,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
@@ -186,7 +186,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
@@ -194,9 +194,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withSchemeReferenceData(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withSchemeReferenceData(?string $value): static
     {
         $this->schemeReferenceData = $value;
         return $this;
@@ -204,7 +204,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -212,7 +212,7 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -220,9 +220,9 @@ class DetokenizedTokenResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return DetokenizedTokenResponse
-    */
-    public function withToken(?string $value): DetokenizedTokenResponse
+     * @return $this
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -231,28 +231,29 @@ class DetokenizedTokenResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardBrand)) {
+        if ($this->cardBrand !== null) {
             $object->cardBrand = $this->cardBrand;
         }
-        if (!is_null($this->cardExpiryDate)) {
+        if ($this->cardExpiryDate !== null) {
             $object->cardExpiryDate = $this->cardExpiryDate;
         }
-        if (!is_null($this->cardHolderName)) {
+        if ($this->cardHolderName !== null) {
             $object->cardHolderName = $this->cardHolderName;
         }
-        if (!is_null($this->encryptedCardNumber)) {
+        if ($this->encryptedCardNumber !== null) {
             $object->encryptedCardNumber = $this->encryptedCardNumber;
         }
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
-        if (!is_null($this->schemeReferenceData)) {
+        if ($this->schemeReferenceData !== null) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
         return $object;
@@ -264,7 +265,8 @@ class DetokenizedTokenResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DetokenizedTokenResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardBrand')) {

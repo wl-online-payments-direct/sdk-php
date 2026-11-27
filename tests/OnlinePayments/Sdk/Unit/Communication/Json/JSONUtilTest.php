@@ -12,27 +12,27 @@ use UnexpectedValueException;
 #[Group('json')]
 class JSONUtilTest extends TestCase
 {
-    public function testJSONUtil_Decode_ValidJson_ReturnsStdClass()
+    public function testJSONUtil_Decode_ValidJson_ReturnsStdClass(): void
     {
         $json = '{"foo":"bar"}';
         $result = JSONUtil::decode($json);
         $this->assertEquals('bar', $result->foo);
     }
 
-    public function testJSONUtil_Decode_EmptyJson_ReturnsEmptyStdClass()
+    public function testJSONUtil_Decode_EmptyJson_ReturnsEmptyStdClass(): void
     {
         $json = '{}';
         $result = JSONUtil::decode($json);
         $this->assertEmpty(get_object_vars($result));
     }
 
-    public function testJSONUtil_Decode_InvalidJson_ThrowsUnexpectedValueException()
+    public function testJSONUtil_Decode_InvalidJson_ThrowsUnexpectedValueException(): void
     {
         $this->expectException(UnexpectedValueException::class);
         JSONUtil::decode('{invalid json}');
     }
 
-    public function testJSONUtil_Decode_ArrayJson_ReturnsStdClassWithProperties()
+    public function testJSONUtil_Decode_ArrayJson_ReturnsStdClassWithProperties(): void
     {
         $json = '{"foo":"bar","baz":123}';
         $result = JSONUtil::decode($json);
@@ -40,7 +40,7 @@ class JSONUtilTest extends TestCase
         $this->assertEquals(123, $result->baz);
     }
 
-    public function testJSONUtil_Decode_NestedJson_ReturnsNestedStdClass()
+    public function testJSONUtil_Decode_NestedJson_ReturnsNestedStdClass(): void
     {
         $json = '{"outer":{"inner":"value"}}';
         $result = JSONUtil::decode($json);

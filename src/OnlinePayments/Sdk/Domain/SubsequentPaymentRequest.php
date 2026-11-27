@@ -13,27 +13,27 @@ class SubsequentPaymentRequest extends DataObject
 {
     /**
      * @var OmnichannelSubsequentSpecificInput|null
-    */
+     */
     public ?OmnichannelSubsequentSpecificInput $omnichannelSubsequentSpecificInput = null;
 
     /**
      * @var Order|null
-    */
+     */
     public ?Order $order = null;
 
     /**
      * @var SubsequentPaymentProduct5001SpecificInput|null
-    */
+     */
     public ?SubsequentPaymentProduct5001SpecificInput $subsequentPaymentProduct5001SpecificInput = null;
 
     /**
      * @var SubsequentCardPaymentMethodSpecificInput|null
-    */
+     */
     public ?SubsequentCardPaymentMethodSpecificInput $subsequentcardPaymentMethodSpecificInput = null;
 
     /**
      * @return OmnichannelSubsequentSpecificInput|null
-    */
+     */
     public function getOmnichannelSubsequentSpecificInput(): ?OmnichannelSubsequentSpecificInput
     {
         return $this->omnichannelSubsequentSpecificInput;
@@ -41,7 +41,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param OmnichannelSubsequentSpecificInput|null $value
-    */
+     */
     public function setOmnichannelSubsequentSpecificInput(?OmnichannelSubsequentSpecificInput $value): void
     {
         $this->omnichannelSubsequentSpecificInput = $value;
@@ -49,9 +49,9 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param OmnichannelSubsequentSpecificInput|null $value
-     * @return SubsequentPaymentRequest
-    */
-    public function withOmnichannelSubsequentSpecificInput(?OmnichannelSubsequentSpecificInput $value): SubsequentPaymentRequest
+     * @return $this
+     */
+    public function withOmnichannelSubsequentSpecificInput(?OmnichannelSubsequentSpecificInput $value): static
     {
         $this->omnichannelSubsequentSpecificInput = $value;
         return $this;
@@ -59,7 +59,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @return Order|null
-    */
+     */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -67,7 +67,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-    */
+     */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
@@ -75,9 +75,9 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-     * @return SubsequentPaymentRequest
-    */
-    public function withOrder(?Order $value): SubsequentPaymentRequest
+     * @return $this
+     */
+    public function withOrder(?Order $value): static
     {
         $this->order = $value;
         return $this;
@@ -85,7 +85,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @return SubsequentPaymentProduct5001SpecificInput|null
-    */
+     */
     public function getSubsequentPaymentProduct5001SpecificInput(): ?SubsequentPaymentProduct5001SpecificInput
     {
         return $this->subsequentPaymentProduct5001SpecificInput;
@@ -93,7 +93,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param SubsequentPaymentProduct5001SpecificInput|null $value
-    */
+     */
     public function setSubsequentPaymentProduct5001SpecificInput(?SubsequentPaymentProduct5001SpecificInput $value): void
     {
         $this->subsequentPaymentProduct5001SpecificInput = $value;
@@ -101,9 +101,9 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param SubsequentPaymentProduct5001SpecificInput|null $value
-     * @return SubsequentPaymentRequest
-    */
-    public function withSubsequentPaymentProduct5001SpecificInput(?SubsequentPaymentProduct5001SpecificInput $value): SubsequentPaymentRequest
+     * @return $this
+     */
+    public function withSubsequentPaymentProduct5001SpecificInput(?SubsequentPaymentProduct5001SpecificInput $value): static
     {
         $this->subsequentPaymentProduct5001SpecificInput = $value;
         return $this;
@@ -111,7 +111,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @return SubsequentCardPaymentMethodSpecificInput|null
-    */
+     */
     public function getSubsequentcardPaymentMethodSpecificInput(): ?SubsequentCardPaymentMethodSpecificInput
     {
         return $this->subsequentcardPaymentMethodSpecificInput;
@@ -119,7 +119,7 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param SubsequentCardPaymentMethodSpecificInput|null $value
-    */
+     */
     public function setSubsequentcardPaymentMethodSpecificInput(?SubsequentCardPaymentMethodSpecificInput $value): void
     {
         $this->subsequentcardPaymentMethodSpecificInput = $value;
@@ -127,9 +127,9 @@ class SubsequentPaymentRequest extends DataObject
 
     /**
      * @param SubsequentCardPaymentMethodSpecificInput|null $value
-     * @return SubsequentPaymentRequest
-    */
-    public function withSubsequentcardPaymentMethodSpecificInput(?SubsequentCardPaymentMethodSpecificInput $value): SubsequentPaymentRequest
+     * @return $this
+     */
+    public function withSubsequentcardPaymentMethodSpecificInput(?SubsequentCardPaymentMethodSpecificInput $value): static
     {
         $this->subsequentcardPaymentMethodSpecificInput = $value;
         return $this;
@@ -138,19 +138,20 @@ class SubsequentPaymentRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->omnichannelSubsequentSpecificInput)) {
+        if ($this->omnichannelSubsequentSpecificInput !== null) {
             $object->omnichannelSubsequentSpecificInput = $this->omnichannelSubsequentSpecificInput->toObject();
         }
-        if (!is_null($this->order)) {
+        if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
-        if (!is_null($this->subsequentPaymentProduct5001SpecificInput)) {
+        if ($this->subsequentPaymentProduct5001SpecificInput !== null) {
             $object->subsequentPaymentProduct5001SpecificInput = $this->subsequentPaymentProduct5001SpecificInput->toObject();
         }
-        if (!is_null($this->subsequentcardPaymentMethodSpecificInput)) {
+        if ($this->subsequentcardPaymentMethodSpecificInput !== null) {
             $object->subsequentcardPaymentMethodSpecificInput = $this->subsequentcardPaymentMethodSpecificInput->toObject();
         }
         return $object;
@@ -162,7 +163,8 @@ class SubsequentPaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubsequentPaymentRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'omnichannelSubsequentSpecificInput')) {

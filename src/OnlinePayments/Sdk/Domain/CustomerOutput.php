@@ -13,12 +13,12 @@ class CustomerOutput extends DataObject
 {
     /**
      * @var CustomerDeviceOutput|null
-    */
+     */
     public ?CustomerDeviceOutput $device = null;
 
     /**
      * @return CustomerDeviceOutput|null
-    */
+     */
     public function getDevice(): ?CustomerDeviceOutput
     {
         return $this->device;
@@ -26,7 +26,7 @@ class CustomerOutput extends DataObject
 
     /**
      * @param CustomerDeviceOutput|null $value
-    */
+     */
     public function setDevice(?CustomerDeviceOutput $value): void
     {
         $this->device = $value;
@@ -34,9 +34,9 @@ class CustomerOutput extends DataObject
 
     /**
      * @param CustomerDeviceOutput|null $value
-     * @return CustomerOutput
-    */
-    public function withDevice(?CustomerDeviceOutput $value): CustomerOutput
+     * @return $this
+     */
+    public function withDevice(?CustomerDeviceOutput $value): static
     {
         $this->device = $value;
         return $this;
@@ -45,10 +45,11 @@ class CustomerOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->device)) {
+        if ($this->device !== null) {
             $object->device = $this->device->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class CustomerOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'device')) {

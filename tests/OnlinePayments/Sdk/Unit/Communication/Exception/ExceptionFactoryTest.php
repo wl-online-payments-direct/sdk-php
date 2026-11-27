@@ -136,6 +136,9 @@ class ExceptionFactoryTest extends TestCase
         $this->assertInstanceOf(PlatformException::class, $exception);
     }
 
+    /**
+     * @return array<int, array{0: int}>
+     */
     public static function platformStatusProvider(): array
     {
         return [
@@ -208,10 +211,7 @@ class ExceptionFactoryTest extends TestCase
 
     private function createCallContext(string $idempotenceKey): CallContext
     {
-        $callContext = $this->getMockBuilder(CallContext::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getIdempotenceKey', 'getIdempotenceRequestTimestamp'])
-            ->getMock();
+        $callContext = $this->createStub(CallContext::class);
 
         $callContext->method('getIdempotenceKey')->willReturn($idempotenceKey);
         $callContext->method('getIdempotenceRequestTimestamp')->willReturn('2026-04-09T12:00:00Z');

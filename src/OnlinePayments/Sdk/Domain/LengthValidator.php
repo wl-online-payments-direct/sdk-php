@@ -13,17 +13,17 @@ class LengthValidator extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $maxLength = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $minLength = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getMaxLength(): ?int
     {
         return $this->maxLength;
@@ -31,7 +31,7 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMaxLength(?int $value): void
     {
         $this->maxLength = $value;
@@ -39,9 +39,9 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-     * @return LengthValidator
-    */
-    public function withMaxLength(?int $value): LengthValidator
+     * @return $this
+     */
+    public function withMaxLength(?int $value): static
     {
         $this->maxLength = $value;
         return $this;
@@ -49,7 +49,7 @@ class LengthValidator extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getMinLength(): ?int
     {
         return $this->minLength;
@@ -57,7 +57,7 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setMinLength(?int $value): void
     {
         $this->minLength = $value;
@@ -65,9 +65,9 @@ class LengthValidator extends DataObject
 
     /**
      * @param int|null $value
-     * @return LengthValidator
-    */
-    public function withMinLength(?int $value): LengthValidator
+     * @return $this
+     */
+    public function withMinLength(?int $value): static
     {
         $this->minLength = $value;
         return $this;
@@ -76,13 +76,14 @@ class LengthValidator extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->maxLength)) {
+        if ($this->maxLength !== null) {
             $object->maxLength = $this->maxLength;
         }
-        if (!is_null($this->minLength)) {
+        if ($this->minLength !== null) {
             $object->minLength = $this->minLength;
         }
         return $object;
@@ -94,7 +95,8 @@ class LengthValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): LengthValidator
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'maxLength')) {

@@ -13,17 +13,17 @@ class PaymentProduct320SpecificData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $gateway = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $networks = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getGateway(): ?string
     {
         return $this->gateway;
@@ -31,7 +31,7 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setGateway(?string $value): void
     {
         $this->gateway = $value;
@@ -39,9 +39,9 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct320SpecificData
-    */
-    public function withGateway(?string $value): PaymentProduct320SpecificData
+     * @return $this
+     */
+    public function withGateway(?string $value): static
     {
         $this->gateway = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getNetworks(): ?array
     {
         return $this->networks;
@@ -57,7 +57,7 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setNetworks(?array $value): void
     {
         $this->networks = $value;
@@ -65,9 +65,9 @@ class PaymentProduct320SpecificData extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return PaymentProduct320SpecificData
-    */
-    public function withNetworks(?array $value): PaymentProduct320SpecificData
+     * @return $this
+     */
+    public function withNetworks(?array $value): static
     {
         $this->networks = $value;
         return $this;
@@ -76,16 +76,17 @@ class PaymentProduct320SpecificData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->gateway)) {
+        if ($this->gateway !== null) {
             $object->gateway = $this->gateway;
         }
-        if (!is_null($this->networks)) {
+        if ($this->networks !== null) {
             $object->networks = [];
             foreach ($this->networks as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->networks[] = $element;
                 }
             }
@@ -99,7 +100,8 @@ class PaymentProduct320SpecificData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct320SpecificData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'gateway')) {

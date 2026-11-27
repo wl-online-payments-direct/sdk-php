@@ -13,27 +13,27 @@ class RefundResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var RefundOutput|null
-    */
+     */
     public ?RefundOutput $refundOutput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @var OrderStatusOutput|null
-    */
+     */
     public ?OrderStatusOutput $statusOutput = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,7 +41,7 @@ class RefundResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -49,9 +49,9 @@ class RefundResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundResponse
-    */
-    public function withId(?string $value): RefundResponse
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -59,7 +59,7 @@ class RefundResponse extends DataObject
 
     /**
      * @return RefundOutput|null
-    */
+     */
     public function getRefundOutput(): ?RefundOutput
     {
         return $this->refundOutput;
@@ -67,7 +67,7 @@ class RefundResponse extends DataObject
 
     /**
      * @param RefundOutput|null $value
-    */
+     */
     public function setRefundOutput(?RefundOutput $value): void
     {
         $this->refundOutput = $value;
@@ -75,9 +75,9 @@ class RefundResponse extends DataObject
 
     /**
      * @param RefundOutput|null $value
-     * @return RefundResponse
-    */
-    public function withRefundOutput(?RefundOutput $value): RefundResponse
+     * @return $this
+     */
+    public function withRefundOutput(?RefundOutput $value): static
     {
         $this->refundOutput = $value;
         return $this;
@@ -85,7 +85,7 @@ class RefundResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -93,7 +93,7 @@ class RefundResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -101,9 +101,9 @@ class RefundResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundResponse
-    */
-    public function withStatus(?string $value): RefundResponse
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -111,7 +111,7 @@ class RefundResponse extends DataObject
 
     /**
      * @return OrderStatusOutput|null
-    */
+     */
     public function getStatusOutput(): ?OrderStatusOutput
     {
         return $this->statusOutput;
@@ -119,7 +119,7 @@ class RefundResponse extends DataObject
 
     /**
      * @param OrderStatusOutput|null $value
-    */
+     */
     public function setStatusOutput(?OrderStatusOutput $value): void
     {
         $this->statusOutput = $value;
@@ -127,9 +127,9 @@ class RefundResponse extends DataObject
 
     /**
      * @param OrderStatusOutput|null $value
-     * @return RefundResponse
-    */
-    public function withStatusOutput(?OrderStatusOutput $value): RefundResponse
+     * @return $this
+     */
+    public function withStatusOutput(?OrderStatusOutput $value): static
     {
         $this->statusOutput = $value;
         return $this;
@@ -138,19 +138,20 @@ class RefundResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->refundOutput)) {
+        if ($this->refundOutput !== null) {
             $object->refundOutput = $this->refundOutput->toObject();
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
-        if (!is_null($this->statusOutput)) {
+        if ($this->statusOutput !== null) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;
@@ -162,7 +163,8 @@ class RefundResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'id')) {

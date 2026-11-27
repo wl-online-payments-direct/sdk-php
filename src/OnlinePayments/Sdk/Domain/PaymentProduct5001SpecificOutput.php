@@ -13,32 +13,32 @@ class PaymentProduct5001SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $accountNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $authorisationCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $liability = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $mobilePhoneNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $operationCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAccountNumber(): ?string
     {
         return $this->accountNumber;
@@ -46,7 +46,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAccountNumber(?string $value): void
     {
         $this->accountNumber = $value;
@@ -54,9 +54,9 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5001SpecificOutput
-    */
-    public function withAccountNumber(?string $value): PaymentProduct5001SpecificOutput
+     * @return $this
+     */
+    public function withAccountNumber(?string $value): static
     {
         $this->accountNumber = $value;
         return $this;
@@ -64,7 +64,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
@@ -72,7 +72,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
@@ -80,9 +80,9 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5001SpecificOutput
-    */
-    public function withAuthorisationCode(?string $value): PaymentProduct5001SpecificOutput
+     * @return $this
+     */
+    public function withAuthorisationCode(?string $value): static
     {
         $this->authorisationCode = $value;
         return $this;
@@ -90,7 +90,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLiability(): ?string
     {
         return $this->liability;
@@ -98,7 +98,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLiability(?string $value): void
     {
         $this->liability = $value;
@@ -106,9 +106,9 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5001SpecificOutput
-    */
-    public function withLiability(?string $value): PaymentProduct5001SpecificOutput
+     * @return $this
+     */
+    public function withLiability(?string $value): static
     {
         $this->liability = $value;
         return $this;
@@ -116,7 +116,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMobilePhoneNumber(): ?string
     {
         return $this->mobilePhoneNumber;
@@ -124,7 +124,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMobilePhoneNumber(?string $value): void
     {
         $this->mobilePhoneNumber = $value;
@@ -132,9 +132,9 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5001SpecificOutput
-    */
-    public function withMobilePhoneNumber(?string $value): PaymentProduct5001SpecificOutput
+     * @return $this
+     */
+    public function withMobilePhoneNumber(?string $value): static
     {
         $this->mobilePhoneNumber = $value;
         return $this;
@@ -142,7 +142,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOperationCode(): ?string
     {
         return $this->operationCode;
@@ -150,7 +150,7 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperationCode(?string $value): void
     {
         $this->operationCode = $value;
@@ -158,9 +158,9 @@ class PaymentProduct5001SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5001SpecificOutput
-    */
-    public function withOperationCode(?string $value): PaymentProduct5001SpecificOutput
+     * @return $this
+     */
+    public function withOperationCode(?string $value): static
     {
         $this->operationCode = $value;
         return $this;
@@ -169,22 +169,23 @@ class PaymentProduct5001SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountNumber)) {
+        if ($this->accountNumber !== null) {
             $object->accountNumber = $this->accountNumber;
         }
-        if (!is_null($this->authorisationCode)) {
+        if ($this->authorisationCode !== null) {
             $object->authorisationCode = $this->authorisationCode;
         }
-        if (!is_null($this->liability)) {
+        if ($this->liability !== null) {
             $object->liability = $this->liability;
         }
-        if (!is_null($this->mobilePhoneNumber)) {
+        if ($this->mobilePhoneNumber !== null) {
             $object->mobilePhoneNumber = $this->mobilePhoneNumber;
         }
-        if (!is_null($this->operationCode)) {
+        if ($this->operationCode !== null) {
             $object->operationCode = $this->operationCode;
         }
         return $object;
@@ -196,7 +197,8 @@ class PaymentProduct5001SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5001SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountNumber')) {

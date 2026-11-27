@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\ValueObfuscator;
@@ -10,22 +11,22 @@ use PHPUnit\Framework\TestCase;
 class ValueObfuscatorTest extends TestCase
 {
     /**
-     * @param $value
-     * @param $obfuscationLength
-     * @param $valueStartObfuscated
-     * @param $valueEndObfuscated
-     * @param $valueAllObfuscated
-     * @param $obfuscatedFixedLength
+     * @param string $value
+     * @param int $obfuscationLength
+     * @param string $valueStartObfuscated
+     * @param string $valueEndObfuscated
+     * @param string $valueAllObfuscated
+     * @param string $obfuscatedFixedLength
      */
     #[DataProvider('valueObfuscatorProvider')]
     public function testValueObfuscator_ObfuscatesAllVariants_CorrectlyBasedOnInputAndLength(
-        $value,
-        $obfuscationLength,
-        $valueStartObfuscated,
-        $valueEndObfuscated,
-        $valueAllObfuscated,
-        $obfuscatedFixedLength
-    ) {
+        string $value,
+        int $obfuscationLength,
+        string $valueStartObfuscated,
+        string $valueEndObfuscated,
+        string $valueAllObfuscated,
+        string $obfuscatedFixedLength,
+    ): void {
         $valueObfuscator = new ValueObfuscator();
         $this->assertEquals($valueStartObfuscated, $valueObfuscator->obfuscateAllKeepEnd($value, $obfuscationLength));
         $this->assertEquals($valueEndObfuscated, $valueObfuscator->obfuscateAllKeepStart($value, $obfuscationLength));
@@ -33,20 +34,23 @@ class ValueObfuscatorTest extends TestCase
         $this->assertEquals($obfuscatedFixedLength, $valueObfuscator->obfuscateFixedLength($obfuscationLength));
     }
 
+    /**
+     * @return array<int, array{0: string, 1: int, 2: string, 3: string, 4: string, 5: string}>
+     */
     public static function valueObfuscatorProvider(): array
     {
-        return array(
-            array('', 0, '', '', '', ''),
-            array('', 3, '', '', '', '***'),
-            array('foo', -1, '***', '***', '***', ''),
-            array('foo', 0, '***', '***', '***', ''),
-            array('foo', 1, '**o', 'f**', '***', '*'),
-            array('foo', 2, '*oo', 'fo*', '***', '**'),
-            array('foo', 3, 'foo', 'foo', '***', '***'),
-            array('foo', 4, 'foo', 'foo', '***', '****'),
-            array('fóo', 1, '**o', 'f**', '***', '*'),
-            array('fóo', 2, '*óo', 'fó*', '***', '**'),
-            array('fóo', 3, 'fóo', 'fóo', '***', '***')
-        );
+        return [
+            ['', 0, '', '', '', ''],
+            ['', 3, '', '', '', '***'],
+            ['foo', -1, '***', '***', '***', ''],
+            ['foo', 0, '***', '***', '***', ''],
+            ['foo', 1, '**o', 'f**', '***', '*'],
+            ['foo', 2, '*oo', 'fo*', '***', '**'],
+            ['foo', 3, 'foo', 'foo', '***', '***'],
+            ['foo', 4, 'foo', 'foo', '***', '****'],
+            ['fóo', 1, '**o', 'f**', '***', '*'],
+            ['fóo', 2, '*óo', 'fó*', '***', '**'],
+            ['fóo', 3, 'fóo', 'fóo', '***', '***'],
+        ];
     }
 }

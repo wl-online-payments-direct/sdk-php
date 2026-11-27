@@ -13,12 +13,12 @@ class FixedListValidator extends DataObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $allowedValues = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getAllowedValues(): ?array
     {
         return $this->allowedValues;
@@ -26,7 +26,7 @@ class FixedListValidator extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setAllowedValues(?array $value): void
     {
         $this->allowedValues = $value;
@@ -34,9 +34,9 @@ class FixedListValidator extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return FixedListValidator
-    */
-    public function withAllowedValues(?array $value): FixedListValidator
+     * @return $this
+     */
+    public function withAllowedValues(?array $value): static
     {
         $this->allowedValues = $value;
         return $this;
@@ -45,13 +45,14 @@ class FixedListValidator extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->allowedValues)) {
+        if ($this->allowedValues !== null) {
             $object->allowedValues = [];
             foreach ($this->allowedValues as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->allowedValues[] = $element;
                 }
             }
@@ -65,7 +66,8 @@ class FixedListValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): FixedListValidator
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'allowedValues')) {

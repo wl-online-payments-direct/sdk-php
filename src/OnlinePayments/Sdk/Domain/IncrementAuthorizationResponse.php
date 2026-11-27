@@ -13,12 +13,12 @@ class IncrementAuthorizationResponse extends DataObject
 {
     /**
      * @var PaymentResponse|null
-    */
+     */
     public ?PaymentResponse $payment = null;
 
     /**
      * @return PaymentResponse|null
-    */
+     */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -26,7 +26,7 @@ class IncrementAuthorizationResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-    */
+     */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
@@ -34,9 +34,9 @@ class IncrementAuthorizationResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     * @return IncrementAuthorizationResponse
-    */
-    public function withPayment(?PaymentResponse $value): IncrementAuthorizationResponse
+     * @return $this
+     */
+    public function withPayment(?PaymentResponse $value): static
     {
         $this->payment = $value;
         return $this;
@@ -45,10 +45,11 @@ class IncrementAuthorizationResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->payment)) {
+        if ($this->payment !== null) {
             $object->payment = $this->payment->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class IncrementAuthorizationResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): IncrementAuthorizationResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'payment')) {

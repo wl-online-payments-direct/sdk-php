@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Examples;
 
-use OnlinePayments\Sdk\Authentication\V1HmacAuthenticator;
 use OnlinePayments\Sdk\Client;
-use OnlinePayments\Sdk\Communicator;
-use OnlinePayments\Sdk\CommunicatorConfiguration;
+use OnlinePayments\Sdk\Factory;
 use OnlinePayments\Sdk\Merchant\MerchantClientInterface;
 use RuntimeException;
 
@@ -44,22 +42,15 @@ final class ClientSetup
     // for every call, e.g. register it as a shared service in your dependency injection container.
     public static function createClient(): Client
     {
-        $configuration = new CommunicatorConfiguration(
-            self::requireEnv('ONLINEPAYMENTS_API_KEY_ID'),
-            self::requireEnv('ONLINEPAYMENTS_API_SECRET'),
-            // Test or live endpoint, e.g. https://payment.direct.ecom.preprod.worldline-solutions.com
-            self::requireEnv('ONLINEPAYMENTS_API_ENDPOINT'),
+        return Factory::createClient(
+            apiEndpoint: self::requireEnv('ONLINEPAYMENTS_API_ENDPOINT'),
+            apiKeyId: self::requireEnv('ONLINEPAYMENTS_API_KEY_ID'),
+            apiSecret: self::requireEnv('ONLINEPAYMENTS_API_SECRET'),
             // Your company or application name; it identifies your requests in the platform logs.
-            // It is mandatory: the SDK throws UnexpectedValueException when it is empty.
-            self::requireEnv('ONLINEPAYMENTS_INTEGRATOR'),
-            null,
-            // Timeouts in seconds; the default (-1) means no timeout.
+            integrator: self::requireEnv('ONLINEPAYMENTS_INTEGRATOR'),
             connectTimeout: 5,
             readTimeout: 300,
         );
-
-        $communicator = new Communicator($configuration, new V1HmacAuthenticator($configuration));
-        return new Client($communicator);
     }
 
     // The merchant ID is your PSPID. Every API call goes through the merchant client.

@@ -13,37 +13,37 @@ class NetworkTokenEssentials extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $bin = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $networkToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $networkTokenState = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $networkTokenUsed = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenExpiryDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBin(): ?string
     {
         return $this->bin;
@@ -51,7 +51,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBin(?string $value): void
     {
         $this->bin = $value;
@@ -59,9 +59,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withBin(?string $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withBin(?string $value): static
     {
         $this->bin = $value;
         return $this;
@@ -69,7 +69,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -77,7 +77,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -85,9 +85,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withCountryCode(?string $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -95,7 +95,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getNetworkToken(): ?string
     {
         return $this->networkToken;
@@ -103,7 +103,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNetworkToken(?string $value): void
     {
         $this->networkToken = $value;
@@ -111,9 +111,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withNetworkToken(?string $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withNetworkToken(?string $value): static
     {
         $this->networkToken = $value;
         return $this;
@@ -121,7 +121,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getNetworkTokenState(): ?string
     {
         return $this->networkTokenState;
@@ -129,7 +129,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNetworkTokenState(?string $value): void
     {
         $this->networkTokenState = $value;
@@ -137,9 +137,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withNetworkTokenState(?string $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withNetworkTokenState(?string $value): static
     {
         $this->networkTokenState = $value;
         return $this;
@@ -147,7 +147,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getNetworkTokenUsed(): ?bool
     {
         return $this->networkTokenUsed;
@@ -155,7 +155,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setNetworkTokenUsed(?bool $value): void
     {
         $this->networkTokenUsed = $value;
@@ -163,9 +163,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param bool|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withNetworkTokenUsed(?bool $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withNetworkTokenUsed(?bool $value): static
     {
         $this->networkTokenUsed = $value;
         return $this;
@@ -173,7 +173,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenExpiryDate(): ?string
     {
         return $this->tokenExpiryDate;
@@ -181,7 +181,7 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenExpiryDate(?string $value): void
     {
         $this->tokenExpiryDate = $value;
@@ -189,9 +189,9 @@ class NetworkTokenEssentials extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenEssentials
-    */
-    public function withTokenExpiryDate(?string $value): NetworkTokenEssentials
+     * @return $this
+     */
+    public function withTokenExpiryDate(?string $value): static
     {
         $this->tokenExpiryDate = $value;
         return $this;
@@ -200,25 +200,26 @@ class NetworkTokenEssentials extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->bin)) {
+        if ($this->bin !== null) {
             $object->bin = $this->bin;
         }
-        if (!is_null($this->countryCode)) {
+        if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if (!is_null($this->networkToken)) {
+        if ($this->networkToken !== null) {
             $object->networkToken = $this->networkToken;
         }
-        if (!is_null($this->networkTokenState)) {
+        if ($this->networkTokenState !== null) {
             $object->networkTokenState = $this->networkTokenState;
         }
-        if (!is_null($this->networkTokenUsed)) {
+        if ($this->networkTokenUsed !== null) {
             $object->networkTokenUsed = $this->networkTokenUsed;
         }
-        if (!is_null($this->tokenExpiryDate)) {
+        if ($this->tokenExpiryDate !== null) {
             $object->tokenExpiryDate = $this->tokenExpiryDate;
         }
         return $object;
@@ -230,7 +231,8 @@ class NetworkTokenEssentials extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): NetworkTokenEssentials
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'bin')) {

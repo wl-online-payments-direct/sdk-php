@@ -13,12 +13,12 @@ class RedirectPaymentProduct3112SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $completeRemainingPaymentAmount = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getCompleteRemainingPaymentAmount(): ?bool
     {
         return $this->completeRemainingPaymentAmount;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct3112SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setCompleteRemainingPaymentAmount(?bool $value): void
     {
         $this->completeRemainingPaymentAmount = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct3112SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct3112SpecificInput
-    */
-    public function withCompleteRemainingPaymentAmount(?bool $value): RedirectPaymentProduct3112SpecificInput
+     * @return $this
+     */
+    public function withCompleteRemainingPaymentAmount(?bool $value): static
     {
         $this->completeRemainingPaymentAmount = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct3112SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->completeRemainingPaymentAmount)) {
+        if ($this->completeRemainingPaymentAmount !== null) {
             $object->completeRemainingPaymentAmount = $this->completeRemainingPaymentAmount;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct3112SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct3112SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'completeRemainingPaymentAmount')) {

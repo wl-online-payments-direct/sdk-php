@@ -34,5 +34,5 @@ interface RefundsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getRefunds(string $paymentId, ?CallContext $callContext = null): RefundsResponse;
+    public function getRefunds(string $paymentId, ?CallContext $callContext = null): RefundsResponse;
 }

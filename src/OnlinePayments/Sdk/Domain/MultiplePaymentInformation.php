@@ -13,17 +13,17 @@ class MultiplePaymentInformation extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentPattern = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalNumberOfPayments = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentPattern(): ?string
     {
         return $this->paymentPattern;
@@ -31,7 +31,7 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentPattern(?string $value): void
     {
         $this->paymentPattern = $value;
@@ -39,9 +39,9 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return MultiplePaymentInformation
-    */
-    public function withPaymentPattern(?string $value): MultiplePaymentInformation
+     * @return $this
+     */
+    public function withPaymentPattern(?string $value): static
     {
         $this->paymentPattern = $value;
         return $this;
@@ -49,7 +49,7 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalNumberOfPayments(): ?int
     {
         return $this->totalNumberOfPayments;
@@ -57,7 +57,7 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalNumberOfPayments(?int $value): void
     {
         $this->totalNumberOfPayments = $value;
@@ -65,9 +65,9 @@ class MultiplePaymentInformation extends DataObject
 
     /**
      * @param int|null $value
-     * @return MultiplePaymentInformation
-    */
-    public function withTotalNumberOfPayments(?int $value): MultiplePaymentInformation
+     * @return $this
+     */
+    public function withTotalNumberOfPayments(?int $value): static
     {
         $this->totalNumberOfPayments = $value;
         return $this;
@@ -76,13 +76,14 @@ class MultiplePaymentInformation extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentPattern)) {
+        if ($this->paymentPattern !== null) {
             $object->paymentPattern = $this->paymentPattern;
         }
-        if (!is_null($this->totalNumberOfPayments)) {
+        if ($this->totalNumberOfPayments !== null) {
             $object->totalNumberOfPayments = $this->totalNumberOfPayments;
         }
         return $object;
@@ -94,7 +95,8 @@ class MultiplePaymentInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MultiplePaymentInformation
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentPattern')) {

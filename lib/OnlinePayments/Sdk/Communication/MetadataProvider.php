@@ -1,7 +1,10 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
+use JsonException;
 use stdClass;
+use UnexpectedValueException;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
 
@@ -12,13 +15,13 @@ use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
  */
 class MetadataProvider implements MetadataProviderInterface
 {
-    const SDK_VERSION = '13.1.0';
+    public const string SDK_VERSION = '14.0.0';
 
     /** @var string */
-    private string $integrator;
+    private readonly string $integrator;
 
     /** @var ShoppingCartExtension|null */
-    private ?ShoppingCartExtension $shoppingCartExtension;
+    private readonly ?ShoppingCartExtension $shoppingCartExtension;
 
     /**
      * @param CommunicatorConfiguration $communicatorConfiguration
@@ -31,19 +34,25 @@ class MetadataProvider implements MetadataProviderInterface
 
     /**
      * @return string
+     * @throws UnexpectedValueException
      */
+    #[\Override]
     public function getServerMetaInfoValue(): string
     {
         // use a stdClass instead of specific class to keep out null properties
         $serverMetaInfo = new stdClass();
-        $serverMetaInfo->platformIdentifier = sprintf('%s; php version %s', php_uname(), phpversion());
+        $serverMetaInfo->platformIdentifier = sprintf('%s %s; php version %s', php_uname('s'), php_uname('r'), phpversion());
         $serverMetaInfo->sdkIdentifier = 'PHPServerSDK/v' . static::SDK_VERSION;
         $serverMetaInfo->sdkCreator = 'OnlinePayments';
         $serverMetaInfo->integrator = $this->integrator;
-        if (!is_null($this->shoppingCartExtension)) {
+        if ($this->shoppingCartExtension !== null) {
             $serverMetaInfo->shoppingCartExtension = $this->shoppingCartExtension->toObject();
         }
-        // the sdkIdentifier contains a /. Without the JSON_UNESCAPED_SLASHES, this is turned to \/ in JSON.
-        return base64_encode(json_encode($serverMetaInfo, JSON_UNESCAPED_SLASHES));
+        try {
+            // the sdkIdentifier contains a /. Without the JSON_UNESCAPED_SLASHES, this is turned to \/ in JSON.
+            return base64_encode(json_encode($serverMetaInfo, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
+        } catch (JsonException $e) {
+            throw new UnexpectedValueException('Could not encode the server meta info as JSON: ' . $e->getMessage(), 0, $e);
+        }
     }
 }

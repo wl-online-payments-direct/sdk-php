@@ -13,27 +13,27 @@ class AuthenticationOptions extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerBIN = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $acquirerMerchantId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantCategoryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantCountryCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerBIN(): ?string
     {
         return $this->acquirerBIN;
@@ -41,7 +41,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerBIN(?string $value): void
     {
         $this->acquirerBIN = $value;
@@ -49,9 +49,9 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return AuthenticationOptions
-    */
-    public function withAcquirerBIN(?string $value): AuthenticationOptions
+     * @return $this
+     */
+    public function withAcquirerBIN(?string $value): static
     {
         $this->acquirerBIN = $value;
         return $this;
@@ -59,7 +59,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAcquirerMerchantId(): ?string
     {
         return $this->acquirerMerchantId;
@@ -67,7 +67,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcquirerMerchantId(?string $value): void
     {
         $this->acquirerMerchantId = $value;
@@ -75,9 +75,9 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return AuthenticationOptions
-    */
-    public function withAcquirerMerchantId(?string $value): AuthenticationOptions
+     * @return $this
+     */
+    public function withAcquirerMerchantId(?string $value): static
     {
         $this->acquirerMerchantId = $value;
         return $this;
@@ -85,7 +85,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantCategoryCode(): ?string
     {
         return $this->merchantCategoryCode;
@@ -93,7 +93,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantCategoryCode(?string $value): void
     {
         $this->merchantCategoryCode = $value;
@@ -101,9 +101,9 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return AuthenticationOptions
-    */
-    public function withMerchantCategoryCode(?string $value): AuthenticationOptions
+     * @return $this
+     */
+    public function withMerchantCategoryCode(?string $value): static
     {
         $this->merchantCategoryCode = $value;
         return $this;
@@ -111,7 +111,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantCountryCode(): ?string
     {
         return $this->merchantCountryCode;
@@ -119,7 +119,7 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantCountryCode(?string $value): void
     {
         $this->merchantCountryCode = $value;
@@ -127,9 +127,9 @@ class AuthenticationOptions extends DataObject
 
     /**
      * @param string|null $value
-     * @return AuthenticationOptions
-    */
-    public function withMerchantCountryCode(?string $value): AuthenticationOptions
+     * @return $this
+     */
+    public function withMerchantCountryCode(?string $value): static
     {
         $this->merchantCountryCode = $value;
         return $this;
@@ -138,19 +138,20 @@ class AuthenticationOptions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquirerBIN)) {
+        if ($this->acquirerBIN !== null) {
             $object->acquirerBIN = $this->acquirerBIN;
         }
-        if (!is_null($this->acquirerMerchantId)) {
+        if ($this->acquirerMerchantId !== null) {
             $object->acquirerMerchantId = $this->acquirerMerchantId;
         }
-        if (!is_null($this->merchantCategoryCode)) {
+        if ($this->merchantCategoryCode !== null) {
             $object->merchantCategoryCode = $this->merchantCategoryCode;
         }
-        if (!is_null($this->merchantCountryCode)) {
+        if ($this->merchantCountryCode !== null) {
             $object->merchantCountryCode = $this->merchantCountryCode;
         }
         return $object;
@@ -162,7 +163,8 @@ class AuthenticationOptions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AuthenticationOptions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerBIN')) {

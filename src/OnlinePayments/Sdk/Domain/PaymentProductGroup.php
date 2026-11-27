@@ -13,27 +13,27 @@ class PaymentProductGroup extends DataObject
 {
     /**
      * @var AccountOnFile|null
-    */
+     */
     public ?AccountOnFile $accountOnFile = null;
 
     /**
      * @var PaymentProductDisplayHints|null
-    */
+     */
     public ?PaymentProductDisplayHints $displayHints = null;
 
     /**
      * @var PaymentProductDisplayHints[]|null
-    */
+     */
     public ?array $displayHintsList = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @return AccountOnFile|null
-    */
+     */
     public function getAccountOnFile(): ?AccountOnFile
     {
         return $this->accountOnFile;
@@ -41,7 +41,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param AccountOnFile|null $value
-    */
+     */
     public function setAccountOnFile(?AccountOnFile $value): void
     {
         $this->accountOnFile = $value;
@@ -49,9 +49,9 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param AccountOnFile|null $value
-     * @return PaymentProductGroup
-    */
-    public function withAccountOnFile(?AccountOnFile $value): PaymentProductGroup
+     * @return $this
+     */
+    public function withAccountOnFile(?AccountOnFile $value): static
     {
         $this->accountOnFile = $value;
         return $this;
@@ -59,7 +59,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @return PaymentProductDisplayHints|null
-    */
+     */
     public function getDisplayHints(): ?PaymentProductDisplayHints
     {
         return $this->displayHints;
@@ -67,7 +67,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints|null $value
-    */
+     */
     public function setDisplayHints(?PaymentProductDisplayHints $value): void
     {
         $this->displayHints = $value;
@@ -75,9 +75,9 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints|null $value
-     * @return PaymentProductGroup
-    */
-    public function withDisplayHints(?PaymentProductDisplayHints $value): PaymentProductGroup
+     * @return $this
+     */
+    public function withDisplayHints(?PaymentProductDisplayHints $value): static
     {
         $this->displayHints = $value;
         return $this;
@@ -85,7 +85,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @return PaymentProductDisplayHints[]|null
-    */
+     */
     public function getDisplayHintsList(): ?array
     {
         return $this->displayHintsList;
@@ -93,7 +93,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints[]|null $value
-    */
+     */
     public function setDisplayHintsList(?array $value): void
     {
         $this->displayHintsList = $value;
@@ -101,9 +101,9 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param PaymentProductDisplayHints[]|null $value
-     * @return PaymentProductGroup
-    */
-    public function withDisplayHintsList(?array $value): PaymentProductGroup
+     * @return $this
+     */
+    public function withDisplayHintsList(?array $value): static
     {
         $this->displayHintsList = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -119,7 +119,7 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -127,9 +127,9 @@ class PaymentProductGroup extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductGroup
-    */
-    public function withId(?string $value): PaymentProductGroup
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -138,24 +138,25 @@ class PaymentProductGroup extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountOnFile)) {
+        if ($this->accountOnFile !== null) {
             $object->accountOnFile = $this->accountOnFile->toObject();
         }
-        if (!is_null($this->displayHints)) {
+        if ($this->displayHints !== null) {
             $object->displayHints = $this->displayHints->toObject();
         }
-        if (!is_null($this->displayHintsList)) {
+        if ($this->displayHintsList !== null) {
             $object->displayHintsList = [];
             foreach ($this->displayHintsList as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->displayHintsList[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
         return $object;
@@ -167,7 +168,8 @@ class PaymentProductGroup extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductGroup
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountOnFile')) {

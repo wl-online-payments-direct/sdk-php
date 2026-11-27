@@ -87,8 +87,7 @@ class GetPaymentProductTest extends TestCase
 
         $this->assertSame(self::VALID_PAYMENT_PRODUCT_ID, $paymentProduct->getId());
         $this->assertNotNull($params->getHide());
-        $this->assertCount(1, $params->getHide());
-        $this->assertEquals('accountsOnFile', $params->getHide()[0][0]);
+        $this->assertSame(['accountsOnFile'], $params->getHide());
     }
 
     public function testGetPaymentProduct_WithHideList_ReturnsProduct(): void

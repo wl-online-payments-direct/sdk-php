@@ -20,7 +20,7 @@ class CreatePaymentLinkTest extends TestCase
         $this->paymentLinksClient = $this->client->merchant($this->getMerchantId())->paymentLinks();
     }
 
-    public function testCreatePaymentLink_ValidInput_ReturnsPaymentLinkId()
+    public function testCreatePaymentLink_ValidInput_ReturnsPaymentLinkId(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()->build();
 
@@ -31,7 +31,7 @@ class CreatePaymentLinkTest extends TestCase
         $this->assertNotNull($response->getRedirectionUrl());
     }
 
-    public function testCreatePaymentLink_ValidInputWithCallContext_ReturnsPaymentLinkId()
+    public function testCreatePaymentLink_ValidInputWithCallContext_ReturnsPaymentLinkId(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()->build();
 
@@ -45,7 +45,7 @@ class CreatePaymentLinkTest extends TestCase
         $this->assertNotNull($response->getRedirectionUrl());
     }
 
-    public function testCreatePaymentLink_DisplayQRCode_ReturnsQrCodeBase64()
+    public function testCreatePaymentLink_DisplayQRCode_ReturnsQrCodeBase64(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()
             ->withDisplayQRCode(true)
@@ -57,7 +57,7 @@ class CreatePaymentLinkTest extends TestCase
         $this->assertNotNull($response->getPaymentLinkId());
     }
 
-    public function testCreatePaymentLink_ReusableLinkEnabled_ReturnsIsReusableLink()
+    public function testCreatePaymentLink_ReusableLinkEnabled_ReturnsIsReusableLink(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()
             ->withReusableLink(true)
@@ -68,7 +68,7 @@ class CreatePaymentLinkTest extends TestCase
         $this->assertTrue($response->getIsReusableLink());
     }
 
-    public function testCreatePaymentLink_InvalidAmount_ReturnsValidationException()
+    public function testCreatePaymentLink_InvalidAmount_ReturnsValidationException(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()
             ->withAmount(-1000)
@@ -85,7 +85,7 @@ class CreatePaymentLinkTest extends TestCase
         }
     }
 
-    public function testCreatePaymentLink_ExpirationDateInPast_ReturnsValidationException()
+    public function testCreatePaymentLink_ExpirationDateInPast_ReturnsValidationException(): void
     {
         $request = CreatePaymentLinkRequestBuilder::create()
             ->withExpirationDate(new DateTime('-1 day'))

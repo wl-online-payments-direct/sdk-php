@@ -13,37 +13,37 @@ class RefundCardMethodSpecificOutput extends DataObject
 {
     /**
      * @var Acceptance|null
-    */
+     */
     public ?Acceptance $acceptance = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $authorisationCode = null;
 
     /**
      * @var CurrencyConversion|null
-    */
+     */
     public ?CurrencyConversion $currencyConversion = null;
 
     /**
      * @var ReattemptInstructions|null
-    */
+     */
     public ?ReattemptInstructions $reattemptInstructions = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return Acceptance|null
-    */
+     */
     public function getAcceptance(): ?Acceptance
     {
         return $this->acceptance;
@@ -51,7 +51,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param Acceptance|null $value
-    */
+     */
     public function setAcceptance(?Acceptance $value): void
     {
         $this->acceptance = $value;
@@ -59,9 +59,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param Acceptance|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withAcceptance(?Acceptance $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withAcceptance(?Acceptance $value): static
     {
         $this->acceptance = $value;
         return $this;
@@ -69,7 +69,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorisationCode(): ?string
     {
         return $this->authorisationCode;
@@ -77,7 +77,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorisationCode(?string $value): void
     {
         $this->authorisationCode = $value;
@@ -85,9 +85,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withAuthorisationCode(?string $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withAuthorisationCode(?string $value): static
     {
         $this->authorisationCode = $value;
         return $this;
@@ -95,7 +95,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @return CurrencyConversion|null
-    */
+     */
     public function getCurrencyConversion(): ?CurrencyConversion
     {
         return $this->currencyConversion;
@@ -103,7 +103,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param CurrencyConversion|null $value
-    */
+     */
     public function setCurrencyConversion(?CurrencyConversion $value): void
     {
         $this->currencyConversion = $value;
@@ -111,9 +111,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param CurrencyConversion|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withCurrencyConversion(?CurrencyConversion $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withCurrencyConversion(?CurrencyConversion $value): static
     {
         $this->currencyConversion = $value;
         return $this;
@@ -121,7 +121,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @return ReattemptInstructions|null
-    */
+     */
     public function getReattemptInstructions(): ?ReattemptInstructions
     {
         return $this->reattemptInstructions;
@@ -129,7 +129,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param ReattemptInstructions|null $value
-    */
+     */
     public function setReattemptInstructions(?ReattemptInstructions $value): void
     {
         $this->reattemptInstructions = $value;
@@ -137,9 +137,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param ReattemptInstructions|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withReattemptInstructions(?ReattemptInstructions $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withReattemptInstructions(?ReattemptInstructions $value): static
     {
         $this->reattemptInstructions = $value;
         return $this;
@@ -147,7 +147,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -155,7 +155,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
@@ -163,9 +163,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withTotalAmountPaid(?int $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountPaid(?int $value): static
     {
         $this->totalAmountPaid = $value;
         return $this;
@@ -173,7 +173,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -181,7 +181,7 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
@@ -189,9 +189,9 @@ class RefundCardMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundCardMethodSpecificOutput
-    */
-    public function withTotalAmountRefunded(?int $value): RefundCardMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountRefunded(?int $value): static
     {
         $this->totalAmountRefunded = $value;
         return $this;
@@ -200,25 +200,26 @@ class RefundCardMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acceptance)) {
+        if ($this->acceptance !== null) {
             $object->acceptance = $this->acceptance->toObject();
         }
-        if (!is_null($this->authorisationCode)) {
+        if ($this->authorisationCode !== null) {
             $object->authorisationCode = $this->authorisationCode;
         }
-        if (!is_null($this->currencyConversion)) {
+        if ($this->currencyConversion !== null) {
             $object->currencyConversion = $this->currencyConversion->toObject();
         }
-        if (!is_null($this->reattemptInstructions)) {
+        if ($this->reattemptInstructions !== null) {
             $object->reattemptInstructions = $this->reattemptInstructions->toObject();
         }
-        if (!is_null($this->totalAmountPaid)) {
+        if ($this->totalAmountPaid !== null) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if (!is_null($this->totalAmountRefunded)) {
+        if ($this->totalAmountRefunded !== null) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;
@@ -230,7 +231,8 @@ class RefundCardMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundCardMethodSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acceptance')) {

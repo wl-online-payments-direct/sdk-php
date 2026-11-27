@@ -13,42 +13,42 @@ class CustomerDevice extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acceptHeader = null;
 
     /**
      * @var BrowserData|null
-    */
+     */
     public ?BrowserData $browserData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $deviceFingerprint = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $ipAddress = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $timezoneOffsetUtcMinutes = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $userAgent = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcceptHeader(): ?string
     {
         return $this->acceptHeader;
@@ -56,7 +56,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcceptHeader(?string $value): void
     {
         $this->acceptHeader = $value;
@@ -64,9 +64,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withAcceptHeader(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withAcceptHeader(?string $value): static
     {
         $this->acceptHeader = $value;
         return $this;
@@ -74,7 +74,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return BrowserData|null
-    */
+     */
     public function getBrowserData(): ?BrowserData
     {
         return $this->browserData;
@@ -82,7 +82,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param BrowserData|null $value
-    */
+     */
     public function setBrowserData(?BrowserData $value): void
     {
         $this->browserData = $value;
@@ -90,9 +90,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param BrowserData|null $value
-     * @return CustomerDevice
-    */
-    public function withBrowserData(?BrowserData $value): CustomerDevice
+     * @return $this
+     */
+    public function withBrowserData(?BrowserData $value): static
     {
         $this->browserData = $value;
         return $this;
@@ -100,7 +100,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDeviceFingerprint(): ?string
     {
         return $this->deviceFingerprint;
@@ -108,7 +108,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDeviceFingerprint(?string $value): void
     {
         $this->deviceFingerprint = $value;
@@ -116,9 +116,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withDeviceFingerprint(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withDeviceFingerprint(?string $value): static
     {
         $this->deviceFingerprint = $value;
         return $this;
@@ -126,7 +126,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIpAddress(): ?string
     {
         return $this->ipAddress;
@@ -134,7 +134,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIpAddress(?string $value): void
     {
         $this->ipAddress = $value;
@@ -142,9 +142,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withIpAddress(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withIpAddress(?string $value): static
     {
         $this->ipAddress = $value;
         return $this;
@@ -152,7 +152,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -160,7 +160,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -168,9 +168,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withLocale(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -178,7 +178,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTimezoneOffsetUtcMinutes(): ?string
     {
         return $this->timezoneOffsetUtcMinutes;
@@ -186,7 +186,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTimezoneOffsetUtcMinutes(?string $value): void
     {
         $this->timezoneOffsetUtcMinutes = $value;
@@ -194,9 +194,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withTimezoneOffsetUtcMinutes(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withTimezoneOffsetUtcMinutes(?string $value): static
     {
         $this->timezoneOffsetUtcMinutes = $value;
         return $this;
@@ -204,7 +204,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getUserAgent(): ?string
     {
         return $this->userAgent;
@@ -212,7 +212,7 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUserAgent(?string $value): void
     {
         $this->userAgent = $value;
@@ -220,9 +220,9 @@ class CustomerDevice extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDevice
-    */
-    public function withUserAgent(?string $value): CustomerDevice
+     * @return $this
+     */
+    public function withUserAgent(?string $value): static
     {
         $this->userAgent = $value;
         return $this;
@@ -231,28 +231,29 @@ class CustomerDevice extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acceptHeader)) {
+        if ($this->acceptHeader !== null) {
             $object->acceptHeader = $this->acceptHeader;
         }
-        if (!is_null($this->browserData)) {
+        if ($this->browserData !== null) {
             $object->browserData = $this->browserData->toObject();
         }
-        if (!is_null($this->deviceFingerprint)) {
+        if ($this->deviceFingerprint !== null) {
             $object->deviceFingerprint = $this->deviceFingerprint;
         }
-        if (!is_null($this->ipAddress)) {
+        if ($this->ipAddress !== null) {
             $object->ipAddress = $this->ipAddress;
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->timezoneOffsetUtcMinutes)) {
+        if ($this->timezoneOffsetUtcMinutes !== null) {
             $object->timezoneOffsetUtcMinutes = $this->timezoneOffsetUtcMinutes;
         }
-        if (!is_null($this->userAgent)) {
+        if ($this->userAgent !== null) {
             $object->userAgent = $this->userAgent;
         }
         return $object;
@@ -264,7 +265,8 @@ class CustomerDevice extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerDevice
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acceptHeader')) {

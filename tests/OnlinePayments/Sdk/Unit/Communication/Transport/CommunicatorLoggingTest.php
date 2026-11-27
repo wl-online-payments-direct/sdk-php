@@ -11,6 +11,7 @@ use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
 use OnlinePayments\Sdk\Domain\DataObject;
+use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\TestUtil\Unit\TestErrorResponse;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingConnection;
@@ -25,23 +26,23 @@ class CommunicatorLoggingTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCommunicator_OnlyLogWhileLoggingIsEnabled_LogsRequestsWhenEnabled()
+    public function testCommunicator_OnlyLogWhileLoggingIsEnabled_LogsRequestsWhenEnabled(): void
     {
         $connection = new TestingConnection(
             new ConnectionResponse(
                 200,
-                array('Content-Type' => 'application/json'),
-                '{}'
-            )
+                ['Content-Type' => 'application/json'],
+                '{}',
+            ),
         );
 
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')->getMock();
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)->getMock();
         $logger->expects($this->exactly(2))->method('log')->willReturnCallback(function ($message) {
             $messageParts = explode("\n", $message);
             $this->assertGreaterThanOrEqual(2, count($messageParts));
@@ -63,23 +64,23 @@ class CommunicatorLoggingTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCommunicator_PostSuccessResponse_LogsRequestAndResponse()
+    public function testCommunicator_PostSuccessResponse_LogsRequestAndResponse(): void
     {
         $relativeRequestUri = '/foo/bar';
 
         $connection = new TestingConnection(
-            new ConnectionResponse(200, ['Content-Type' => 'application/json'], '{}')
+            new ConnectionResponse(200, ['Content-Type' => 'application/json'], '{}'),
         );
 
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $requestBody = $this->getMockRequestDataObject();
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)
             ->getMock();
 
         $logger->expects($this->exactly(2))
@@ -112,14 +113,14 @@ class CommunicatorLoggingTest extends TestCase
             $responseClassMap,
             $relativeRequestUri,
             '',
-            $requestBody
+            $requestBody,
         );
     }
 
     /**
      * @throws \Exception
      */
-    public function testCommunicator_PostSuccessUTF8Response_LogsRequestAndResponse()
+    public function testCommunicator_PostSuccessUTF8Response_LogsRequestAndResponse(): void
     {
         $relativeRequestUri = '/foo/bar';
 
@@ -127,19 +128,19 @@ class CommunicatorLoggingTest extends TestCase
             new ConnectionResponse(
                 200,
                 ['Content-Type' => 'application/json;charset=UTF-8'],
-                '{}'
-            )
+                '{}',
+            ),
         );
 
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $requestBody = $this->getMockRequestDataObject();
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')->getMock();
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)->getMock();
 
         $logger->expects($this->exactly(2))
             ->method('log')
@@ -171,27 +172,27 @@ class CommunicatorLoggingTest extends TestCase
             $responseClassMap,
             $relativeRequestUri,
             '',
-            $requestBody
+            $requestBody,
         );
     }
 
     /**
      * @throws \Exception
      */
-    public function testCommunicator_PutClientErrorResponse_LogsResponseAndThrowsErrorResponseException()
+    public function testCommunicator_PutClientErrorResponse_LogsResponseAndThrowsErrorResponseException(): void
     {
         $relativeRequestUri = '/foo/bar';
 
-        $responseHeaders = array(
-            'Content-Type' => 'application/json'
-        );
+        $responseHeaders = [
+            'Content-Type' => 'application/json',
+        ];
 
         $errorResponse = $this->getErrorResponseDataObject();
 
         $connectionResponse = new ConnectionResponse(
             400,
             $responseHeaders,
-            $errorResponse->toJson()
+            $errorResponse->toJson(),
         );
 
         $connection = new TestingConnection($connectionResponse);
@@ -199,13 +200,13 @@ class CommunicatorLoggingTest extends TestCase
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $httpObfuscator = new HttpObfuscator();
         $rawObfuscatedResponse = $httpObfuscator->getRawObfuscatedResponse($connectionResponse);
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')->getMock();
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)->getMock();
 
         $logger->expects($this->exactly(2))
             ->method('log')
@@ -222,7 +223,7 @@ class CommunicatorLoggingTest extends TestCase
                 if (strpos($messageHeader, 'Incoming response') === 0) {
                     $this->assertEquals(
                         trim(strstr($message, "\n")),
-                        $rawObfuscatedResponse
+                        $rawObfuscatedResponse,
                     );
 
                     return;
@@ -237,7 +238,7 @@ class CommunicatorLoggingTest extends TestCase
         $communicator->enableLogging($logger);
 
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\TestUtil\Unit\TestErrorResponse';
+        $responseClassMap->defaultErrorResponseClassName = TestErrorResponse::class;
 
         $this->expectException(ErrorResponseException::class);
 
@@ -247,20 +248,20 @@ class CommunicatorLoggingTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCommunicator_GetInvalidResponse_LogsResponseAndThrowsInvalidResponseException()
+    public function testCommunicator_GetInvalidResponse_LogsResponseAndThrowsInvalidResponseException(): void
     {
         $relativeRequestUri = '/foo/bar';
 
-        $responseHeaders = array(
-            'Content-Type' => 'text/html'
-        );
+        $responseHeaders = [
+            'Content-Type' => 'text/html',
+        ];
 
         $responseBody = 'an error occurred';
 
         $connectionResponse = new ConnectionResponse(
             400,
             $responseHeaders,
-            $responseBody
+            $responseBody,
         );
 
         $connection = new TestingConnection($connectionResponse);
@@ -268,13 +269,13 @@ class CommunicatorLoggingTest extends TestCase
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $httpObfuscator = new HttpObfuscator();
         $rawObfuscatedResponse = $httpObfuscator->getRawObfuscatedResponse($connectionResponse);
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)
             ->getMock();
 
         $logger->expects($this->exactly(2))
@@ -285,7 +286,7 @@ class CommunicatorLoggingTest extends TestCase
                 if (strpos($messageHeader, 'Incoming response') === 0) {
                     $this->assertEquals(
                         trim(strstr($message, "\n")),
-                        $rawObfuscatedResponse
+                        $rawObfuscatedResponse,
                     );
                 }
             });
@@ -303,17 +304,17 @@ class CommunicatorLoggingTest extends TestCase
         } catch (InvalidResponseException $e) {
             $this->assertEquals(
                 $connectionResponse->getHttpStatusCode(),
-                $e->getResponse()->getHttpStatusCode()
+                $e->getResponse()->getHttpStatusCode(),
             );
 
             $this->assertEquals(
                 $connectionResponse->getHeaders(),
-                $e->getResponse()->getHeaders()
+                $e->getResponse()->getHeaders(),
             );
 
             $this->assertEquals(
                 $connectionResponse->getBody(),
-                $e->getResponse()->getBody()
+                $e->getResponse()->getBody(),
             );
         }
     }
@@ -321,7 +322,7 @@ class CommunicatorLoggingTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCommunicator_DeleteCommunicationException_LogsRequestAndThrowsException()
+    public function testCommunicator_DeleteCommunicationException_LogsRequestAndThrowsException(): void
     {
         $relativeRequestUri = '/foo/bar';
 
@@ -329,16 +330,16 @@ class CommunicatorLoggingTest extends TestCase
 
         $connection = new TestingConnection(
             null,
-            $errorException
+            $errorException,
         );
 
         $communicator = new Communicator(
             $this->getCommunicatorConfiguration(),
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
-        $logger = $this->getMockBuilder('\OnlinePayments\Sdk\Logging\CommunicatorLogger')
+        $logger = $this->getMockBuilder(CommunicatorLogger::class)
             ->getMock();
 
         $logger->expects($this->once())
@@ -348,7 +349,7 @@ class CommunicatorLoggingTest extends TestCase
 
                 $this->assertStringContainsString(
                     'Outgoing request',
-                    $messageHeader
+                    $messageHeader,
                 );
             });
 
@@ -375,7 +376,7 @@ class CommunicatorLoggingTest extends TestCase
      */
     private function getMockRequestDataObject(): DataObject
     {
-        $requestDataObject = $this->getMockBuilder('\OnlinePayments\Sdk\Domain\DataObject')->getMock();
+        $requestDataObject = $this->createStub(DataObject::class);
         $convertedDataObject = new stdClass();
         $convertedDataObject->customer = new stdClass();
         $convertedDataObject->customer->firstName = 'John';
@@ -402,7 +403,7 @@ class CommunicatorLoggingTest extends TestCase
             'apiKeyId',
             'secretKey',
             'https://example.com',
-            'integrator'
+            'integrator',
         );
     }
 }

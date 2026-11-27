@@ -14,22 +14,22 @@ class Acceptance extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acceptanceSystemApplicationId = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $authorizationDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $authorizationMessageReference = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcceptanceSystemApplicationId(): ?string
     {
         return $this->acceptanceSystemApplicationId;
@@ -37,7 +37,7 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcceptanceSystemApplicationId(?string $value): void
     {
         $this->acceptanceSystemApplicationId = $value;
@@ -45,9 +45,9 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-     * @return Acceptance
-    */
-    public function withAcceptanceSystemApplicationId(?string $value): Acceptance
+     * @return $this
+     */
+    public function withAcceptanceSystemApplicationId(?string $value): static
     {
         $this->acceptanceSystemApplicationId = $value;
         return $this;
@@ -55,7 +55,7 @@ class Acceptance extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getAuthorizationDate(): ?DateTime
     {
         return $this->authorizationDate;
@@ -63,7 +63,7 @@ class Acceptance extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setAuthorizationDate(?DateTime $value): void
     {
         $this->authorizationDate = $value;
@@ -71,9 +71,9 @@ class Acceptance extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return Acceptance
-    */
-    public function withAuthorizationDate(?DateTime $value): Acceptance
+     * @return $this
+     */
+    public function withAuthorizationDate(?DateTime $value): static
     {
         $this->authorizationDate = $value;
         return $this;
@@ -81,7 +81,7 @@ class Acceptance extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorizationMessageReference(): ?string
     {
         return $this->authorizationMessageReference;
@@ -89,7 +89,7 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorizationMessageReference(?string $value): void
     {
         $this->authorizationMessageReference = $value;
@@ -97,9 +97,9 @@ class Acceptance extends DataObject
 
     /**
      * @param string|null $value
-     * @return Acceptance
-    */
-    public function withAuthorizationMessageReference(?string $value): Acceptance
+     * @return $this
+     */
+    public function withAuthorizationMessageReference(?string $value): static
     {
         $this->authorizationMessageReference = $value;
         return $this;
@@ -108,16 +108,17 @@ class Acceptance extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acceptanceSystemApplicationId)) {
+        if ($this->acceptanceSystemApplicationId !== null) {
             $object->acceptanceSystemApplicationId = $this->acceptanceSystemApplicationId;
         }
-        if (!is_null($this->authorizationDate)) {
+        if ($this->authorizationDate !== null) {
             $object->authorizationDate = $this->authorizationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->authorizationMessageReference)) {
+        if ($this->authorizationMessageReference !== null) {
             $object->authorizationMessageReference = $this->authorizationMessageReference;
         }
         return $object;
@@ -129,7 +130,8 @@ class Acceptance extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Acceptance
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acceptanceSystemApplicationId')) {

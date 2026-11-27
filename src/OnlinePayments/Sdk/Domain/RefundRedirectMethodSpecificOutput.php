@@ -13,17 +13,17 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountPaid = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalAmountRefunded = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountPaid(): ?int
     {
         return $this->totalAmountPaid;
@@ -31,7 +31,7 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountPaid(?int $value): void
     {
         $this->totalAmountPaid = $value;
@@ -39,9 +39,9 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundRedirectMethodSpecificOutput
-    */
-    public function withTotalAmountPaid(?int $value): RefundRedirectMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountPaid(?int $value): static
     {
         $this->totalAmountPaid = $value;
         return $this;
@@ -49,7 +49,7 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalAmountRefunded(): ?int
     {
         return $this->totalAmountRefunded;
@@ -57,7 +57,7 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalAmountRefunded(?int $value): void
     {
         $this->totalAmountRefunded = $value;
@@ -65,9 +65,9 @@ class RefundRedirectMethodSpecificOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundRedirectMethodSpecificOutput
-    */
-    public function withTotalAmountRefunded(?int $value): RefundRedirectMethodSpecificOutput
+     * @return $this
+     */
+    public function withTotalAmountRefunded(?int $value): static
     {
         $this->totalAmountRefunded = $value;
         return $this;
@@ -76,13 +76,14 @@ class RefundRedirectMethodSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->totalAmountPaid)) {
+        if ($this->totalAmountPaid !== null) {
             $object->totalAmountPaid = $this->totalAmountPaid;
         }
-        if (!is_null($this->totalAmountRefunded)) {
+        if ($this->totalAmountRefunded !== null) {
             $object->totalAmountRefunded = $this->totalAmountRefunded;
         }
         return $object;
@@ -94,7 +95,8 @@ class RefundRedirectMethodSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundRedirectMethodSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'totalAmountPaid')) {

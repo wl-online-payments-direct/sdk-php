@@ -13,37 +13,37 @@ class Surcharge extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $netAmount = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $result = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @var SurchargeRate|null
-    */
+     */
     public ?SurchargeRate $surchargeRate = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $totalAmount = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getNetAmount(): ?AmountOfMoney
     {
         return $this->netAmount;
@@ -51,7 +51,7 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setNetAmount(?AmountOfMoney $value): void
     {
         $this->netAmount = $value;
@@ -59,9 +59,9 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return Surcharge
-    */
-    public function withNetAmount(?AmountOfMoney $value): Surcharge
+     * @return $this
+     */
+    public function withNetAmount(?AmountOfMoney $value): static
     {
         $this->netAmount = $value;
         return $this;
@@ -69,7 +69,7 @@ class Surcharge extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -77,7 +77,7 @@ class Surcharge extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -85,9 +85,9 @@ class Surcharge extends DataObject
 
     /**
      * @param int|null $value
-     * @return Surcharge
-    */
-    public function withPaymentProductId(?int $value): Surcharge
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -95,7 +95,7 @@ class Surcharge extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getResult(): ?string
     {
         return $this->result;
@@ -103,7 +103,7 @@ class Surcharge extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setResult(?string $value): void
     {
         $this->result = $value;
@@ -111,9 +111,9 @@ class Surcharge extends DataObject
 
     /**
      * @param string|null $value
-     * @return Surcharge
-    */
-    public function withResult(?string $value): Surcharge
+     * @return $this
+     */
+    public function withResult(?string $value): static
     {
         $this->result = $value;
         return $this;
@@ -121,7 +121,7 @@ class Surcharge extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -129,7 +129,7 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
@@ -137,9 +137,9 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return Surcharge
-    */
-    public function withSurchargeAmount(?AmountOfMoney $value): Surcharge
+     * @return $this
+     */
+    public function withSurchargeAmount(?AmountOfMoney $value): static
     {
         $this->surchargeAmount = $value;
         return $this;
@@ -147,7 +147,7 @@ class Surcharge extends DataObject
 
     /**
      * @return SurchargeRate|null
-    */
+     */
     public function getSurchargeRate(): ?SurchargeRate
     {
         return $this->surchargeRate;
@@ -155,7 +155,7 @@ class Surcharge extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-    */
+     */
     public function setSurchargeRate(?SurchargeRate $value): void
     {
         $this->surchargeRate = $value;
@@ -163,9 +163,9 @@ class Surcharge extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-     * @return Surcharge
-    */
-    public function withSurchargeRate(?SurchargeRate $value): Surcharge
+     * @return $this
+     */
+    public function withSurchargeRate(?SurchargeRate $value): static
     {
         $this->surchargeRate = $value;
         return $this;
@@ -173,7 +173,7 @@ class Surcharge extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getTotalAmount(): ?AmountOfMoney
     {
         return $this->totalAmount;
@@ -181,7 +181,7 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setTotalAmount(?AmountOfMoney $value): void
     {
         $this->totalAmount = $value;
@@ -189,9 +189,9 @@ class Surcharge extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return Surcharge
-    */
-    public function withTotalAmount(?AmountOfMoney $value): Surcharge
+     * @return $this
+     */
+    public function withTotalAmount(?AmountOfMoney $value): static
     {
         $this->totalAmount = $value;
         return $this;
@@ -200,25 +200,26 @@ class Surcharge extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->netAmount)) {
+        if ($this->netAmount !== null) {
             $object->netAmount = $this->netAmount->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->result)) {
+        if ($this->result !== null) {
             $object->result = $this->result;
         }
-        if (!is_null($this->surchargeAmount)) {
+        if ($this->surchargeAmount !== null) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
-        if (!is_null($this->surchargeRate)) {
+        if ($this->surchargeRate !== null) {
             $object->surchargeRate = $this->surchargeRate->toObject();
         }
-        if (!is_null($this->totalAmount)) {
+        if ($this->totalAmount !== null) {
             $object->totalAmount = $this->totalAmount->toObject();
         }
         return $object;
@@ -230,7 +231,8 @@ class Surcharge extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Surcharge
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'netAmount')) {

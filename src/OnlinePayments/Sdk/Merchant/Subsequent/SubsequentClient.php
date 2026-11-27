@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\ApiResource;
 use OnlinePayments\Sdk\CallContext;
 use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
+use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\Domain\SubsequentPaymentRequest;
 use OnlinePayments\Sdk\Domain\SubsequentPaymentResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
@@ -27,15 +28,16 @@ class SubsequentClient extends ApiResource implements SubsequentClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\SubsequentPaymentResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = SubsequentPaymentResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = PaymentErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var SubsequentPaymentResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/subsequent'),
                 $this->getClientMetaInfo(),
@@ -43,11 +45,13 @@ class SubsequentClient extends ApiResource implements SubsequentClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -57,7 +61,7 @@ class SubsequentClient extends ApiResource implements SubsequentClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

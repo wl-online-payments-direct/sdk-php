@@ -13,12 +13,12 @@ class DpaTransactionOptions extends DataObject
 {
     /**
      * @var ThreeDsInputData|null
-    */
+     */
     public ?ThreeDsInputData $threeDsInputData = null;
 
     /**
      * @return ThreeDsInputData|null
-    */
+     */
     public function getThreeDsInputData(): ?ThreeDsInputData
     {
         return $this->threeDsInputData;
@@ -26,7 +26,7 @@ class DpaTransactionOptions extends DataObject
 
     /**
      * @param ThreeDsInputData|null $value
-    */
+     */
     public function setThreeDsInputData(?ThreeDsInputData $value): void
     {
         $this->threeDsInputData = $value;
@@ -34,9 +34,9 @@ class DpaTransactionOptions extends DataObject
 
     /**
      * @param ThreeDsInputData|null $value
-     * @return DpaTransactionOptions
-    */
-    public function withThreeDsInputData(?ThreeDsInputData $value): DpaTransactionOptions
+     * @return $this
+     */
+    public function withThreeDsInputData(?ThreeDsInputData $value): static
     {
         $this->threeDsInputData = $value;
         return $this;
@@ -45,10 +45,11 @@ class DpaTransactionOptions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->threeDsInputData)) {
+        if ($this->threeDsInputData !== null) {
             $object->threeDsInputData = $this->threeDsInputData->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class DpaTransactionOptions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DpaTransactionOptions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'threeDsInputData')) {

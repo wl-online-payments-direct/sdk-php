@@ -3,6 +3,7 @@
 namespace OnlinePayments\Sdk\TestUtil\Integration\Builders\MerchantBatch;
 
 use OnlinePayments\Sdk\Domain\BatchMetadata;
+use OnlinePayments\Sdk\Domain\CreatePaymentRequest;
 use OnlinePayments\Sdk\Domain\SubmitBatchRequestBody;
 
 class SubmitBatchRequestBodyBuilder
@@ -10,6 +11,7 @@ class SubmitBatchRequestBodyBuilder
     private string $merchantBatchReference;
     private string $operationType;
     private int $itemCount;
+    /** @var CreatePaymentRequest[] */
     private array $createPaymentRequests;
 
     public static function create(): self
@@ -39,6 +41,9 @@ class SubmitBatchRequestBodyBuilder
         return $this;
     }
 
+    /**
+     * @param CreatePaymentRequest[] $createPaymentRequests
+     */
     public function withCreatePaymentRequests(array $createPaymentRequests): self
     {
         $this->createPaymentRequests = $createPaymentRequests;

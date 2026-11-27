@@ -13,17 +13,17 @@ class Pagination extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $page = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $pageSize = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getPage(): ?int
     {
         return $this->page;
@@ -31,7 +31,7 @@ class Pagination extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPage(?int $value): void
     {
         $this->page = $value;
@@ -39,9 +39,9 @@ class Pagination extends DataObject
 
     /**
      * @param int|null $value
-     * @return Pagination
-    */
-    public function withPage(?int $value): Pagination
+     * @return $this
+     */
+    public function withPage(?int $value): static
     {
         $this->page = $value;
         return $this;
@@ -49,7 +49,7 @@ class Pagination extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPageSize(): ?int
     {
         return $this->pageSize;
@@ -57,7 +57,7 @@ class Pagination extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPageSize(?int $value): void
     {
         $this->pageSize = $value;
@@ -65,9 +65,9 @@ class Pagination extends DataObject
 
     /**
      * @param int|null $value
-     * @return Pagination
-    */
-    public function withPageSize(?int $value): Pagination
+     * @return $this
+     */
+    public function withPageSize(?int $value): static
     {
         $this->pageSize = $value;
         return $this;
@@ -76,13 +76,14 @@ class Pagination extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->page)) {
+        if ($this->page !== null) {
             $object->page = $this->page;
         }
-        if (!is_null($this->pageSize)) {
+        if ($this->pageSize !== null) {
             $object->pageSize = $this->pageSize;
         }
         return $object;
@@ -94,7 +95,8 @@ class Pagination extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Pagination
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'page')) {

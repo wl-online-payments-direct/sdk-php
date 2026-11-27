@@ -15,17 +15,17 @@ class GetPaymentsReportParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cursor = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $limit = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCursor(): ?string
     {
         return $this->cursor;
@@ -33,7 +33,7 @@ class GetPaymentsReportParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCursor(?string $value): void
     {
         $this->cursor = $value;
@@ -41,8 +41,9 @@ class GetPaymentsReportParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCursor(string $value): GetPaymentsReportParams
+     * @return $this
+     */
+    public function withCursor(?string $value): static
     {
         $this->cursor = $value;
         return $this;
@@ -50,7 +51,7 @@ class GetPaymentsReportParams extends RequestObject
 
     /**
      * @return int|null
-    */
+     */
     public function getLimit(): ?int
     {
         return $this->limit;
@@ -58,7 +59,7 @@ class GetPaymentsReportParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setLimit(?int $value): void
     {
         $this->limit = $value;
@@ -66,23 +67,24 @@ class GetPaymentsReportParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
-    public function withLimit(int $value): GetPaymentsReportParams
+     * @return $this
+     */
+    public function withLimit(?int $value): static
     {
         $this->limit = $value;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->cursor != null) {
+        if ($this->cursor !== null) {
             $array['cursor'] = $this->cursor;
         }
-        if ($this->limit != null) {
+        if ($this->limit !== null) {
             $array['limit'] = $this->limit;
         }
         return $array;

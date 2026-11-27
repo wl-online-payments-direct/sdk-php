@@ -2,11 +2,14 @@
 
 namespace OnlinePayments\Sdk\Unit\Communication\Transport;
 
+use ErrorException;
 use Exception;
+use OnlinePayments\Sdk\Communication\CommunicationException;
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
 use OnlinePayments\Sdk\Communication\DefaultConnection;
 use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
+use OnlinePayments\Sdk\Domain\UploadableFile;
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
 use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\Logging\HeaderObfuscator;
@@ -111,7 +114,7 @@ class DefaultConnectionTest extends TestCase
         $connection->get(
             'https://example.com/foo',
             ['Accept' => 'application/json'],
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('GET', $captured['httpMethod']);
@@ -124,7 +127,7 @@ class DefaultConnectionTest extends TestCase
         $captured = [];
         $connection = $this->createRecordedConnection(
             $captured,
-            new Exception('fail')
+            new Exception('fail'),
         );
 
         $logger = $this->createMock(CommunicatorLogger::class);
@@ -138,7 +141,7 @@ class DefaultConnectionTest extends TestCase
         $connection->get(
             'https://example.com/foo',
             [],
-            static function (): void {}
+            static function (): void {},
         );
     }
 
@@ -158,7 +161,7 @@ class DefaultConnectionTest extends TestCase
         $connection->delete(
             'https://example.com/foo',
             ['X-Test' => '1'],
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('DELETE', $captured['httpMethod']);
@@ -194,7 +197,7 @@ class DefaultConnectionTest extends TestCase
             'https://example.com/foo',
             ['Content-Type' => 'application/json'],
             '{"foo":"bar"}',
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('POST', $captured['httpMethod']);
@@ -208,11 +211,17 @@ class DefaultConnectionTest extends TestCase
     public function testConnection_Post_WithBinaryBody_LogsBinaryContentAndResponse(): void
     {
         $captured = [];
+        $body = new MultipartFormDataObject();
+        $body->addFile('file', new UploadableFile('binary.dat', "\x00\x01binary\xFF", 'application/octet-stream'));
 
-        $connection = new class($this->createCommunicatorConfiguration(), $captured) extends DefaultConnection {
+        $connection = new class ($this->createCommunicatorConfiguration(), $captured) extends DefaultConnection {
+            /** @var array<string, mixed> */
             private array $captured;
 
-            public function __construct($config, &$captured)
+            /**
+             * @param array<string, mixed> $captured
+             */
+            public function __construct(CommunicatorConfiguration $config, array &$captured)
             {
                 parent::__construct($config);
                 $this->captured = &$captured;
@@ -222,8 +231,8 @@ class DefaultConnectionTest extends TestCase
                 string $httpMethod,
                 string $requestUri,
                 array $requestHeaders,
-                       $body,
-                callable $responseHandler
+                $body,
+                callable $responseHandler,
             ): ?ConnectionResponse {
                 $this->captured = [
                     'httpMethod' => $httpMethod,
@@ -234,7 +243,7 @@ class DefaultConnectionTest extends TestCase
                 return new ConnectionResponse(
                     200,
                     [],
-                    '{}'
+                    '{}',
                 );
             }
         };
@@ -257,13 +266,13 @@ class DefaultConnectionTest extends TestCase
         $connection->post(
             'https://example.com/foo',
             [],
-            fopen('php://memory', 'r'),
-            static function (): void {}
+            $body,
+            static function (): void {},
         );
 
         $this->assertSame('POST', $captured['httpMethod']);
         $this->assertSame('https://example.com/foo', $captured['requestUri']);
-        $this->assertFalse(\is_string($captured['body']));
+        $this->assertSame($body, $captured['body']);
     }
 
     /**
@@ -294,7 +303,7 @@ class DefaultConnectionTest extends TestCase
             'https://example.com/foo',
             ['Content-Type' => 'application/json'],
             '{"foo":"bar"}',
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('PUT', $captured['httpMethod']);
@@ -308,11 +317,17 @@ class DefaultConnectionTest extends TestCase
     public function testConnection_Put_WithBinaryBody_LogsBinaryContentAndResponse(): void
     {
         $captured = [];
+        $body = new MultipartFormDataObject();
+        $body->addFile('file', new UploadableFile('binary.dat', "\x00\x01binary\xFF", 'application/octet-stream'));
 
-        $connection = new class($this->createCommunicatorConfiguration(), $captured) extends DefaultConnection {
+        $connection = new class ($this->createCommunicatorConfiguration(), $captured) extends DefaultConnection {
+            /** @var array<string, mixed> */
             private array $captured;
 
-            public function __construct($config, &$captured)
+            /**
+             * @param array<string, mixed> $captured
+             */
+            public function __construct(CommunicatorConfiguration $config, array &$captured)
             {
                 parent::__construct($config);
                 $this->captured = &$captured;
@@ -322,8 +337,8 @@ class DefaultConnectionTest extends TestCase
                 string $httpMethod,
                 string $requestUri,
                 array $requestHeaders,
-                       $body,
-                callable $responseHandler
+                $body,
+                callable $responseHandler,
             ): ?ConnectionResponse {
                 $this->captured = [
                     'httpMethod' => $httpMethod,
@@ -334,7 +349,7 @@ class DefaultConnectionTest extends TestCase
                 return new ConnectionResponse(
                     200,
                     [],
-                    '{}'
+                    '{}',
                 );
             }
         };
@@ -357,13 +372,13 @@ class DefaultConnectionTest extends TestCase
         $connection->put(
             'https://example.com/foo',
             [],
-            fopen('php://memory', 'r'),
-            static function (): void {}
+            $body,
+            static function (): void {},
         );
 
         $this->assertSame('PUT', $captured['httpMethod']);
         $this->assertSame('https://example.com/foo', $captured['requestUri']);
-        $this->assertFalse(\is_string($captured['body']));
+        $this->assertSame($body, $captured['body']);
     }
 
     /**
@@ -373,12 +388,14 @@ class DefaultConnectionTest extends TestCase
     {
         $captured = [];
 
-        $connection = new class($this->createCommunicatorConfiguration(), $captured)
-            extends DefaultConnection {
-
+        $connection = new class ($this->createCommunicatorConfiguration(), $captured) extends DefaultConnection {
+            /** @var array<string, mixed> */
             private array $captured;
 
-            public function __construct($config, &$captured)
+            /**
+             * @param array<string, mixed> $captured
+             */
+            public function __construct(CommunicatorConfiguration $config, array &$captured)
             {
                 parent::__construct($config);
                 $this->captured = &$captured;
@@ -396,7 +413,7 @@ class DefaultConnectionTest extends TestCase
             'https://example.com/foo',
             [],
             '',
-            static function (): void {}
+            static function (): void {},
         );
     }
 
@@ -415,7 +432,7 @@ class DefaultConnectionTest extends TestCase
                 'Content-Encoding' => 'gzip',
             ],
             '{"foo":"bar"}',
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('POST', $captured['httpMethod']);
@@ -433,7 +450,7 @@ class DefaultConnectionTest extends TestCase
         $configuration = $this->createCommunicatorConfiguration(
             new ProxyConfiguration('proxy.example.com', 8080, 'user', 'pass'),
             5,
-            10
+            10,
         );
 
         $connection = $this->createRecordedConnection($captured, null, $configuration);
@@ -441,7 +458,7 @@ class DefaultConnectionTest extends TestCase
         $connection->get(
             'https://example.com/foo',
             [],
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('GET', $captured['httpMethod']);
@@ -458,10 +475,7 @@ class DefaultConnectionTest extends TestCase
 
         $connection = $this->createRecordedConnection($captured);
 
-        $multipart = $this->getMockBuilder(MultipartFormDataObject::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getBoundary', 'getValues', 'getFiles'])
-            ->getMock();
+        $multipart = $this->createStub(MultipartFormDataObject::class);
 
         $multipart->method('getBoundary')->willReturn('boundary');
         $multipart->method('getValues')->willReturn([]);
@@ -471,7 +485,7 @@ class DefaultConnectionTest extends TestCase
             'https://example.com/foo',
             [],
             $multipart,
-            static function (): void {}
+            static function (): void {},
         );
 
         $this->assertSame('POST', $captured['httpMethod']);
@@ -482,13 +496,13 @@ class DefaultConnectionTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testSetCurlOptions_WithUnsupportedBody_ThrowsUnexpectedValueException(): void
+    public function testSetCurlOptions_WithUnsupportedBody_ThrowsTypeError(): void
     {
         $captured = [];
 
         $connection = $this->createRecordedConnection($captured);
 
-        $this->expectException(\UnexpectedValueException::class);
+        $this->expectException(\TypeError::class);
 
         $ref = new \ReflectionClass($connection);
         $method = $ref->getMethod('setCurlOptions');
@@ -502,8 +516,39 @@ class DefaultConnectionTest extends TestCase
             'POST',
             'https://example.com/foo',
             [],
-            new \stdClass()
+            new \stdClass(),
         );
+    }
+
+    public function testConnection_Get_WhenConnectionFails_ThrowsCommunicationException(): void
+    {
+        $connection = new DefaultConnection($this->createCommunicatorConfiguration(null, 5, 5));
+
+        try {
+            $connection->get('http://127.0.0.1:1/', [], static function (): void {});
+            $this->fail('expected a CommunicationException');
+        } catch (CommunicationException $e) {
+            $this->assertInstanceOf(ErrorException::class, $e);
+            $this->assertStringStartsWith('cURL error ', $e->getMessage());
+            $this->assertInstanceOf(ErrorException::class, $e->getPrevious());
+        }
+    }
+
+    public function testConnection_Get_WhenExecuteRequestThrowsError_LogsThrowableAndRethrows(): void
+    {
+        $captured = [];
+        $connection = $this->createRecordedConnection($captured, new \Error('fail'));
+
+        $logger = $this->createMock(CommunicatorLogger::class);
+        $logger->expects($this->once())->method('log');
+        $logger->expects($this->once())
+            ->method('logException')
+            ->with($this->isString(), $this->isInstanceOf(\Error::class));
+
+        $connection->enableLogging($logger);
+
+        $this->expectException(\Error::class);
+        $connection->get('https://example.com/foo', [], static function (): void {});
     }
 
     public function testConnectionResponse_Getters_ReturnExpectedValues(): void
@@ -526,7 +571,7 @@ class DefaultConnectionTest extends TestCase
     }
 
     #[DataProvider('dispositionFilenameProvider')]
-    public function testConnectionResponse_GetDispositionFilename_ParsesFilenameCorrectly($headerValue, $expected): void
+    public function testConnectionResponse_GetDispositionFilename_ParsesFilenameCorrectly(string $headerValue, ?string $expected): void
     {
         $headers = ['Content-Disposition' => $headerValue];
         $this->assertSame($expected, ConnectionResponse::getDispositionFilename($headers));
@@ -535,7 +580,7 @@ class DefaultConnectionTest extends TestCase
     private function createCommunicatorConfiguration(
         ?ProxyConfiguration $proxyConfiguration = null,
         int $connectTimeout = -1,
-        int $readTimeout = -1
+        int $readTimeout = -1,
     ): CommunicatorConfiguration {
         return new CommunicatorConfiguration(
             'apiKeyId',
@@ -544,7 +589,7 @@ class DefaultConnectionTest extends TestCase
             'OnlinePayments',
             $proxyConfiguration,
             $connectTimeout,
-            $readTimeout
+            $readTimeout,
         );
     }
 
@@ -553,32 +598,39 @@ class DefaultConnectionTest extends TestCase
         return new ConnectionResponse(
             200,
             ['Content-Type' => 'application/json'],
-            '{}'
+            '{}',
         );
     }
 
+    /**
+     * @param array<string, mixed> $captured
+     */
     private function createRecordedConnection(
         array &$captured,
-        ?Exception $exception = null,
-        ?CommunicatorConfiguration $configuration = null
+        ?\Throwable $exception = null,
+        ?CommunicatorConfiguration $configuration = null,
     ): DefaultConnection {
         $configuration = $configuration ?? $this->createCommunicatorConfiguration();
 
-        return new class(
+        return new class (
             $configuration,
             $captured,
             $this->createOkResponse(),
-            $exception
+            $exception,
         ) extends DefaultConnection {
+            /** @var array<string, mixed> */
             private array $captured;
             private ConnectionResponse $response;
-            private ?Exception $exception;
+            private ?\Throwable $exception;
 
+            /**
+             * @param array<string, mixed> $captured
+             */
             public function __construct(
                 CommunicatorConfiguration $configuration,
                 array &$captured,
                 ConnectionResponse $response,
-                ?Exception $exception
+                ?\Throwable $exception,
             ) {
                 parent::__construct($configuration);
                 $this->captured = &$captured;
@@ -590,8 +642,8 @@ class DefaultConnectionTest extends TestCase
                 string $httpMethod,
                 string $requestUri,
                 array $requestHeaders,
-                       $body,
-                callable $responseHandler
+                string|MultipartFormDataObject $body,
+                callable $responseHandler,
             ): ConnectionResponse {
                 $this->captured = [
                     'httpMethod' => $httpMethod,
@@ -609,6 +661,9 @@ class DefaultConnectionTest extends TestCase
         };
     }
 
+    /**
+     * @return array<int, array{0: string, 1: string|null}>
+     */
     public static function dispositionFilenameProvider(): array
     {
         return [

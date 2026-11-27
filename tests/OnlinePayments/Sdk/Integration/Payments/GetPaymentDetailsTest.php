@@ -23,7 +23,7 @@ class GetPaymentDetailsTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetPaymentDetails_ExistingPaymentId_ReturnsPaymentDetails()
+    public function testGetPaymentDetails_ExistingPaymentId_ReturnsPaymentDetails(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -34,7 +34,7 @@ class GetPaymentDetailsTest extends TestCase
         $this->assertNotNull($fetchedPayment->getPaymentOutput());
     }
 
-    public function testGetPaymentDetails_NonExistingPaymentId_ReturnsResponseException()
+    public function testGetPaymentDetails_NonExistingPaymentId_ReturnsResponseException(): void
     {
         try {
             $this->paymentsClient->getPaymentDetails(self::INVALID_PAYMENT_ID);

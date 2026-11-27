@@ -13,12 +13,12 @@ class CardRecurrenceDetails extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $recurringPaymentSequenceIndicator = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getRecurringPaymentSequenceIndicator(): ?string
     {
         return $this->recurringPaymentSequenceIndicator;
@@ -26,7 +26,7 @@ class CardRecurrenceDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRecurringPaymentSequenceIndicator(?string $value): void
     {
         $this->recurringPaymentSequenceIndicator = $value;
@@ -34,9 +34,9 @@ class CardRecurrenceDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardRecurrenceDetails
-    */
-    public function withRecurringPaymentSequenceIndicator(?string $value): CardRecurrenceDetails
+     * @return $this
+     */
+    public function withRecurringPaymentSequenceIndicator(?string $value): static
     {
         $this->recurringPaymentSequenceIndicator = $value;
         return $this;
@@ -45,10 +45,11 @@ class CardRecurrenceDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->recurringPaymentSequenceIndicator)) {
+        if ($this->recurringPaymentSequenceIndicator !== null) {
             $object->recurringPaymentSequenceIndicator = $this->recurringPaymentSequenceIndicator;
         }
         return $object;
@@ -60,7 +61,8 @@ class CardRecurrenceDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardRecurrenceDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'recurringPaymentSequenceIndicator')) {

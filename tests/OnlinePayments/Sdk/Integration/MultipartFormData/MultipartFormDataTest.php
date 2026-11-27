@@ -25,15 +25,14 @@ class MultipartFormDataTest extends TestCase
         parent::setUp();
 
         $this->mockUtil = new MockUtil();
+        $mockServerUrl = $this->mockUtil->startMockServerForTest();
 
         $configuration = new CommunicatorConfiguration(
             'apiKey',
             'apiSecret',
-            '',
-            'OnlinePayments'
+            $mockServerUrl,
+            'OnlinePayments',
         );
-
-        $configuration->setApiEndpoint($this->mockUtil->startMockServerForTest());
 
         $this->communicator = new Communicator($configuration, new TestingAuthenticator());
     }
@@ -333,7 +332,7 @@ class MultipartFormDataTest extends TestCase
             $responseClassMap,
             '/post',
             '',
-            new MultipartFormDataWrapper($multipart)
+            new MultipartFormDataWrapper($multipart),
         );
 
         $response = new MultipartFormResponse();
@@ -437,7 +436,7 @@ class MultipartFormDataTest extends TestCase
             $responseClassMap,
             '/put',
             '',
-            new MultipartFormDataWrapper($multipart)
+            new MultipartFormDataWrapper($multipart),
         );
 
         $response = new MultipartFormResponse();
@@ -478,7 +477,7 @@ class MultipartFormDataTest extends TestCase
         $file = new UploadableFile('file.txt', $this->createTestFileStream('content'), 'text/plain');
 
         $this->expectException(\UnexpectedValueException::class);
-        $this->expectExceptionMessage('boundary is required');
+        $this->expectExceptionMessage('parameterName is required');
 
         $multipart->addFile('', $file);
     }
@@ -540,7 +539,7 @@ class MultipartFormDataTest extends TestCase
         $multipart = new MultipartFormDataObject();
 
         $this->expectException(\UnexpectedValueException::class);
-        $this->expectExceptionMessage('boundary is required');
+        $this->expectExceptionMessage('parameterName is required');
 
         $multipart->addValue('', 'value');
     }
@@ -663,6 +662,9 @@ class MultipartFormDataTest extends TestCase
         new UploadableFile('file.txt', $content, '');
     }
 
+    /**
+     * @return resource
+     */
     private function createTestFileStream(string $content)
     {
         $stream = fopen('php://memory', 'r+');

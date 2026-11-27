@@ -13,19 +13,19 @@ class PaymentProductFieldFormElement extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @var ValueMappingElement[]|null
      *
      * @deprecated This field is not used by any payment product
-    */
+     */
     public ?array $valueMapping = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -33,7 +33,7 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -41,9 +41,9 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldFormElement
-    */
-    public function withType(?string $value): PaymentProductFieldFormElement
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -53,7 +53,7 @@ class PaymentProductFieldFormElement extends DataObject
      * @return ValueMappingElement[]|null
      *
      * @deprecated This field is not used by any payment product
-    */
+     */
     public function getValueMapping(): ?array
     {
         return $this->valueMapping;
@@ -63,7 +63,7 @@ class PaymentProductFieldFormElement extends DataObject
      * @param ValueMappingElement[]|null $value
      *
      * @deprecated This field is not used by any payment product
-    */
+     */
     public function setValueMapping(?array $value): void
     {
         $this->valueMapping = $value;
@@ -71,11 +71,11 @@ class PaymentProductFieldFormElement extends DataObject
 
     /**
      * @param ValueMappingElement[]|null $value
-     * @return PaymentProductFieldFormElement
+     * @return $this
      *
      * @deprecated This field is not used by any payment product
-    */
-    public function withValueMapping(?array $value): PaymentProductFieldFormElement
+     */
+    public function withValueMapping(?array $value): static
     {
         $this->valueMapping = $value;
         return $this;
@@ -84,16 +84,17 @@ class PaymentProductFieldFormElement extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
-        if (!is_null($this->valueMapping)) {
+        if ($this->valueMapping !== null) {
             $object->valueMapping = [];
             foreach ($this->valueMapping as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->valueMapping[] = $element->toObject();
                 }
             }
@@ -107,7 +108,8 @@ class PaymentProductFieldFormElement extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldFormElement
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'type')) {

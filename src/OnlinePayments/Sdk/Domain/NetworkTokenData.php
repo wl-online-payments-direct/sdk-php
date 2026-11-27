@@ -13,37 +13,37 @@ class NetworkTokenData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cryptogram = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $eci = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $networkToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $schemeTokenRequestorId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenExpiryDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -51,7 +51,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
@@ -59,9 +59,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenData
-    */
-    public function withCardholderName(?string $value): NetworkTokenData
+     * @return $this
+     */
+    public function withCardholderName(?string $value): static
     {
         $this->cardholderName = $value;
         return $this;
@@ -69,7 +69,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCryptogram(): ?string
     {
         return $this->cryptogram;
@@ -77,7 +77,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCryptogram(?string $value): void
     {
         $this->cryptogram = $value;
@@ -85,9 +85,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenData
-    */
-    public function withCryptogram(?string $value): NetworkTokenData
+     * @return $this
+     */
+    public function withCryptogram(?string $value): static
     {
         $this->cryptogram = $value;
         return $this;
@@ -95,7 +95,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getEci(): ?int
     {
         return $this->eci;
@@ -103,7 +103,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setEci(?int $value): void
     {
         $this->eci = $value;
@@ -111,9 +111,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param int|null $value
-     * @return NetworkTokenData
-    */
-    public function withEci(?int $value): NetworkTokenData
+     * @return $this
+     */
+    public function withEci(?int $value): static
     {
         $this->eci = $value;
         return $this;
@@ -121,7 +121,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getNetworkToken(): ?string
     {
         return $this->networkToken;
@@ -129,7 +129,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setNetworkToken(?string $value): void
     {
         $this->networkToken = $value;
@@ -137,9 +137,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenData
-    */
-    public function withNetworkToken(?string $value): NetworkTokenData
+     * @return $this
+     */
+    public function withNetworkToken(?string $value): static
     {
         $this->networkToken = $value;
         return $this;
@@ -147,7 +147,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSchemeTokenRequestorId(): ?string
     {
         return $this->schemeTokenRequestorId;
@@ -155,7 +155,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSchemeTokenRequestorId(?string $value): void
     {
         $this->schemeTokenRequestorId = $value;
@@ -163,9 +163,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenData
-    */
-    public function withSchemeTokenRequestorId(?string $value): NetworkTokenData
+     * @return $this
+     */
+    public function withSchemeTokenRequestorId(?string $value): static
     {
         $this->schemeTokenRequestorId = $value;
         return $this;
@@ -173,7 +173,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenExpiryDate(): ?string
     {
         return $this->tokenExpiryDate;
@@ -181,7 +181,7 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenExpiryDate(?string $value): void
     {
         $this->tokenExpiryDate = $value;
@@ -189,9 +189,9 @@ class NetworkTokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenData
-    */
-    public function withTokenExpiryDate(?string $value): NetworkTokenData
+     * @return $this
+     */
+    public function withTokenExpiryDate(?string $value): static
     {
         $this->tokenExpiryDate = $value;
         return $this;
@@ -200,25 +200,26 @@ class NetworkTokenData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardholderName)) {
+        if ($this->cardholderName !== null) {
             $object->cardholderName = $this->cardholderName;
         }
-        if (!is_null($this->cryptogram)) {
+        if ($this->cryptogram !== null) {
             $object->cryptogram = $this->cryptogram;
         }
-        if (!is_null($this->eci)) {
+        if ($this->eci !== null) {
             $object->eci = $this->eci;
         }
-        if (!is_null($this->networkToken)) {
+        if ($this->networkToken !== null) {
             $object->networkToken = $this->networkToken;
         }
-        if (!is_null($this->schemeTokenRequestorId)) {
+        if ($this->schemeTokenRequestorId !== null) {
             $object->schemeTokenRequestorId = $this->schemeTokenRequestorId;
         }
-        if (!is_null($this->tokenExpiryDate)) {
+        if ($this->tokenExpiryDate !== null) {
             $object->tokenExpiryDate = $this->tokenExpiryDate;
         }
         return $object;
@@ -230,7 +231,8 @@ class NetworkTokenData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): NetworkTokenData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardholderName')) {

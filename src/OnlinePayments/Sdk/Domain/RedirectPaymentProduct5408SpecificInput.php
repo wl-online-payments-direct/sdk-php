@@ -13,17 +13,17 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 {
     /**
      * @var CustomerBankAccount|null
-    */
+     */
     public ?CustomerBankAccount $customerBankAccount = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $instantPaymentOnly = null;
 
     /**
      * @return CustomerBankAccount|null
-    */
+     */
     public function getCustomerBankAccount(): ?CustomerBankAccount
     {
         return $this->customerBankAccount;
@@ -31,7 +31,7 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-    */
+     */
     public function setCustomerBankAccount(?CustomerBankAccount $value): void
     {
         $this->customerBankAccount = $value;
@@ -39,9 +39,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param CustomerBankAccount|null $value
-     * @return RedirectPaymentProduct5408SpecificInput
-    */
-    public function withCustomerBankAccount(?CustomerBankAccount $value): RedirectPaymentProduct5408SpecificInput
+     * @return $this
+     */
+    public function withCustomerBankAccount(?CustomerBankAccount $value): static
     {
         $this->customerBankAccount = $value;
         return $this;
@@ -49,7 +49,7 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getInstantPaymentOnly(): ?bool
     {
         return $this->instantPaymentOnly;
@@ -57,7 +57,7 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setInstantPaymentOnly(?bool $value): void
     {
         $this->instantPaymentOnly = $value;
@@ -65,9 +65,9 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct5408SpecificInput
-    */
-    public function withInstantPaymentOnly(?bool $value): RedirectPaymentProduct5408SpecificInput
+     * @return $this
+     */
+    public function withInstantPaymentOnly(?bool $value): static
     {
         $this->instantPaymentOnly = $value;
         return $this;
@@ -76,13 +76,14 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->customerBankAccount)) {
+        if ($this->customerBankAccount !== null) {
             $object->customerBankAccount = $this->customerBankAccount->toObject();
         }
-        if (!is_null($this->instantPaymentOnly)) {
+        if ($this->instantPaymentOnly !== null) {
             $object->instantPaymentOnly = $this->instantPaymentOnly;
         }
         return $object;
@@ -94,7 +95,8 @@ class RedirectPaymentProduct5408SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5408SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'customerBankAccount')) {

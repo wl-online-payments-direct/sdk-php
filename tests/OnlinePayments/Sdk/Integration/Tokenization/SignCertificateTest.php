@@ -21,7 +21,7 @@ class SignCertificateTest extends TestCase
         $this->tokenizationClient = $this->client->merchant($this->getMerchantId())->tokenization();
     }
 
-    public function testCreateCertificate_ValidInput_SuccessfullyGeneratedCertificate()
+    public function testCreateCertificate_ValidInput_SuccessfullyGeneratedCertificate(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -33,7 +33,7 @@ class SignCertificateTest extends TestCase
         $this->assertNotEmpty($response->getSignedCertificate());
     }
 
-    public function testCreateCertificate_ValidInput_WithCallContext_SuccessfullyGeneratedCertificate()
+    public function testCreateCertificate_ValidInput_WithCallContext_SuccessfullyGeneratedCertificate(): void
     {
         $this->markTestSkipped('Test is skipped because the Tokenization endpoint features are not enabled for the test merchant.');
 
@@ -47,7 +47,7 @@ class SignCertificateTest extends TestCase
         $this->assertNotEmpty($response->getSignedCertificate());
     }
 
-    public function testCreateCertificate_InvalidCsrInput_ReturnsValidationException()
+    public function testCreateCertificate_InvalidCsrInput_ReturnsValidationException(): void
     {
         $request = CsrRequestBuilder::create()->withCsr(self::INVALID_CSR)->build();
 

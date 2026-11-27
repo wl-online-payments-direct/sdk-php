@@ -11,9 +11,9 @@ use PHPUnit\Framework\TestCase;
 #[Group('client')]
 class ClientLoggingTest extends TestCase
 {
-    public function testEnableLogging_CascadesToCommunicator()
+    public function testEnableLogging_CascadesToCommunicator(): void
     {
-        $logger = $this->getMockBuilder(CommunicatorLogger::class)->getMock();
+        $logger = $this->createStub(CommunicatorLogger::class);
         $communicator = $this->getMockBuilder(CommunicatorInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -30,7 +30,7 @@ class ClientLoggingTest extends TestCase
         $client->enableLogging($logger);
     }
 
-    public function testDisableLogging_CascadesToCommunicator()
+    public function testDisableLogging_CascadesToCommunicator(): void
     {
         $communicator = $this->getMockBuilder(CommunicatorInterface::class)
             ->disableOriginalConstructor()
@@ -47,9 +47,9 @@ class ClientLoggingTest extends TestCase
         $client->disableLogging();
     }
 
-    public function testMultipleEnableDisableLogging_CascadesCorrectly()
+    public function testMultipleEnableDisableLogging_CascadesCorrectly(): void
     {
-        $logger = $this->getMockBuilder(CommunicatorLogger::class)->getMock();
+        $logger = $this->createStub(CommunicatorLogger::class);
 
         $communicator = $this->getMockBuilder(CommunicatorInterface::class)
             ->disableOriginalConstructor()

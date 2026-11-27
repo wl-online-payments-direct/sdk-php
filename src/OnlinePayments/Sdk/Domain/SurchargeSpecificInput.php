@@ -13,17 +13,17 @@ class SurchargeSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $mode = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getMode(): ?string
     {
         return $this->mode;
@@ -31,7 +31,7 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMode(?string $value): void
     {
         $this->mode = $value;
@@ -39,9 +39,9 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeSpecificInput
-    */
-    public function withMode(?string $value): SurchargeSpecificInput
+     * @return $this
+     */
+    public function withMode(?string $value): static
     {
         $this->mode = $value;
         return $this;
@@ -49,7 +49,7 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -57,7 +57,7 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
@@ -65,9 +65,9 @@ class SurchargeSpecificInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return SurchargeSpecificInput
-    */
-    public function withSurchargeAmount(?AmountOfMoney $value): SurchargeSpecificInput
+     * @return $this
+     */
+    public function withSurchargeAmount(?AmountOfMoney $value): static
     {
         $this->surchargeAmount = $value;
         return $this;
@@ -76,13 +76,14 @@ class SurchargeSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->mode)) {
+        if ($this->mode !== null) {
             $object->mode = $this->mode;
         }
-        if (!is_null($this->surchargeAmount)) {
+        if ($this->surchargeAmount !== null) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class SurchargeSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SurchargeSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'mode')) {

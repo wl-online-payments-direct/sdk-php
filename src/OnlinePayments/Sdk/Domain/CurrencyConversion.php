@@ -13,17 +13,17 @@ class CurrencyConversion extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $acceptedByUser = null;
 
     /**
      * @var DccProposal|null
-    */
+     */
     public ?DccProposal $proposal = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getAcceptedByUser(): ?bool
     {
         return $this->acceptedByUser;
@@ -31,7 +31,7 @@ class CurrencyConversion extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAcceptedByUser(?bool $value): void
     {
         $this->acceptedByUser = $value;
@@ -39,9 +39,9 @@ class CurrencyConversion extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CurrencyConversion
-    */
-    public function withAcceptedByUser(?bool $value): CurrencyConversion
+     * @return $this
+     */
+    public function withAcceptedByUser(?bool $value): static
     {
         $this->acceptedByUser = $value;
         return $this;
@@ -49,7 +49,7 @@ class CurrencyConversion extends DataObject
 
     /**
      * @return DccProposal|null
-    */
+     */
     public function getProposal(): ?DccProposal
     {
         return $this->proposal;
@@ -57,7 +57,7 @@ class CurrencyConversion extends DataObject
 
     /**
      * @param DccProposal|null $value
-    */
+     */
     public function setProposal(?DccProposal $value): void
     {
         $this->proposal = $value;
@@ -65,9 +65,9 @@ class CurrencyConversion extends DataObject
 
     /**
      * @param DccProposal|null $value
-     * @return CurrencyConversion
-    */
-    public function withProposal(?DccProposal $value): CurrencyConversion
+     * @return $this
+     */
+    public function withProposal(?DccProposal $value): static
     {
         $this->proposal = $value;
         return $this;
@@ -76,13 +76,14 @@ class CurrencyConversion extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acceptedByUser)) {
+        if ($this->acceptedByUser !== null) {
             $object->acceptedByUser = $this->acceptedByUser;
         }
-        if (!is_null($this->proposal)) {
+        if ($this->proposal !== null) {
             $object->proposal = $this->proposal->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class CurrencyConversion extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CurrencyConversion
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acceptedByUser')) {

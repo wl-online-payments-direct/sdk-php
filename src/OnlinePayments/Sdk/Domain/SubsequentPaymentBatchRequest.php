@@ -13,17 +13,17 @@ class SubsequentPaymentBatchRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @var SubsequentPaymentRequest|null
-    */
+     */
     public ?SubsequentPaymentRequest $subsequent = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -31,7 +31,7 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -39,9 +39,9 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentPaymentBatchRequest
-    */
-    public function withPaymentId(?string $value): SubsequentPaymentBatchRequest
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -49,7 +49,7 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @return SubsequentPaymentRequest|null
-    */
+     */
     public function getSubsequent(): ?SubsequentPaymentRequest
     {
         return $this->subsequent;
@@ -57,7 +57,7 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param SubsequentPaymentRequest|null $value
-    */
+     */
     public function setSubsequent(?SubsequentPaymentRequest $value): void
     {
         $this->subsequent = $value;
@@ -65,9 +65,9 @@ class SubsequentPaymentBatchRequest extends DataObject
 
     /**
      * @param SubsequentPaymentRequest|null $value
-     * @return SubsequentPaymentBatchRequest
-    */
-    public function withSubsequent(?SubsequentPaymentRequest $value): SubsequentPaymentBatchRequest
+     * @return $this
+     */
+    public function withSubsequent(?SubsequentPaymentRequest $value): static
     {
         $this->subsequent = $value;
         return $this;
@@ -76,13 +76,14 @@ class SubsequentPaymentBatchRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
-        if (!is_null($this->subsequent)) {
+        if ($this->subsequent !== null) {
             $object->subsequent = $this->subsequent->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class SubsequentPaymentBatchRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubsequentPaymentBatchRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentId')) {

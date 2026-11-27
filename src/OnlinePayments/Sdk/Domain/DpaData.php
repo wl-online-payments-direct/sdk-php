@@ -13,12 +13,12 @@ class DpaData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $dpaName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDpaName(): ?string
     {
         return $this->dpaName;
@@ -26,7 +26,7 @@ class DpaData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDpaName(?string $value): void
     {
         $this->dpaName = $value;
@@ -34,9 +34,9 @@ class DpaData extends DataObject
 
     /**
      * @param string|null $value
-     * @return DpaData
-    */
-    public function withDpaName(?string $value): DpaData
+     * @return $this
+     */
+    public function withDpaName(?string $value): static
     {
         $this->dpaName = $value;
         return $this;
@@ -45,10 +45,11 @@ class DpaData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->dpaName)) {
+        if ($this->dpaName !== null) {
             $object->dpaName = $this->dpaName;
         }
         return $object;
@@ -60,7 +61,8 @@ class DpaData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DpaData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'dpaName')) {

@@ -3,10 +3,9 @@
 namespace OnlinePayments\Sdk\TestUtil;
 
 use Exception;
-use OnlinePayments\Sdk\Authentication\V1HmacAuthenticator;
 use OnlinePayments\Sdk\Client;
-use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
+use OnlinePayments\Sdk\Factory;
 use OnlinePayments\Sdk\TestUtil\Unit\JsonValuesStore;
 
 /**
@@ -50,11 +49,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     protected function getClient(): Client
     {
-        $config = $this->getCommunicatorConfiguration();
-        $authenticator = new V1HmacAuthenticator($config);
-        $communicator = new Communicator($config, $authenticator);
-
-        return new Client($communicator);
+        return Factory::createClientFromConfiguration($this->getCommunicatorConfiguration());
     }
 
     /**
@@ -151,7 +146,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             $this->getApiKey(),
             $this->getApiSecret(),
             $this->getApiEndpoint(),
-            'OnlinePayments'
+            'OnlinePayments',
         );
     }
 }

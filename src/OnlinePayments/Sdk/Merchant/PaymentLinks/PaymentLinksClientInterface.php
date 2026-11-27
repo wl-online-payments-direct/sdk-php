@@ -39,7 +39,7 @@ interface PaymentLinksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function share(string $paymentLinkId, SharePaymentLinkRequest $body, ?CallContext $callContext = null): void;
+    public function share(string $paymentLinkId, SharePaymentLinkRequest $body, ?CallContext $callContext = null): void;
 
     /**
      * Resource /v2/{merchantId}/paymentlinks - Create payment link
@@ -56,7 +56,7 @@ interface PaymentLinksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null): PaymentLinkResponse;
+    public function createPaymentLink(CreatePaymentLinkRequest $body, ?CallContext $callContext = null): PaymentLinkResponse;
 
     /**
      * Resource /v2/merchant-groups/{merchantGroupId}/paymentlinks/search - Retrieve payment links for a merchant group
@@ -74,7 +74,7 @@ interface PaymentLinksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentLinksByMerchantGroupId(string $merchantGroupId, GetPaymentLinksByMerchantGroupRequest $body, ?CallContext $callContext = null): PaymentLinkOverviewResponse;
+    public function getPaymentLinksByMerchantGroupId(string $merchantGroupId, GetPaymentLinksByMerchantGroupRequest $body, ?CallContext $callContext = null): PaymentLinkOverviewResponse;
 
     /**
      * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId} - Get payment link by ID
@@ -91,7 +91,7 @@ interface PaymentLinksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): PaymentLinkResponse;
+    public function getPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): PaymentLinkResponse;
 
     /**
      * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel - Cancel PaymentLink by ID
@@ -108,5 +108,5 @@ interface PaymentLinksClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function cancelPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): void;
+    public function cancelPaymentLinkById(string $paymentLinkId, ?CallContext $callContext = null): void;
 }

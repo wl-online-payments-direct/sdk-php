@@ -13,17 +13,17 @@ class AmountOfMoney extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -31,7 +31,7 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -39,9 +39,9 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param int|null $value
-     * @return AmountOfMoney
-    */
-    public function withAmount(?int $value): AmountOfMoney
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -49,7 +49,7 @@ class AmountOfMoney extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -57,7 +57,7 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -65,9 +65,9 @@ class AmountOfMoney extends DataObject
 
     /**
      * @param string|null $value
-     * @return AmountOfMoney
-    */
-    public function withCurrencyCode(?string $value): AmountOfMoney
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
@@ -76,13 +76,14 @@ class AmountOfMoney extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount;
         }
-        if (!is_null($this->currencyCode)) {
+        if ($this->currencyCode !== null) {
             $object->currencyCode = $this->currencyCode;
         }
         return $object;
@@ -94,7 +95,8 @@ class AmountOfMoney extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AmountOfMoney
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

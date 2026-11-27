@@ -13,27 +13,27 @@ class Card extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cardNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardholderName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cvv = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -41,7 +41,7 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
@@ -49,9 +49,9 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     * @return Card
-    */
-    public function withCardNumber(?string $value): Card
+     * @return $this
+     */
+    public function withCardNumber(?string $value): static
     {
         $this->cardNumber = $value;
         return $this;
@@ -59,7 +59,7 @@ class Card extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardholderName(): ?string
     {
         return $this->cardholderName;
@@ -67,7 +67,7 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardholderName(?string $value): void
     {
         $this->cardholderName = $value;
@@ -75,9 +75,9 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     * @return Card
-    */
-    public function withCardholderName(?string $value): Card
+     * @return $this
+     */
+    public function withCardholderName(?string $value): static
     {
         $this->cardholderName = $value;
         return $this;
@@ -85,7 +85,7 @@ class Card extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCvv(): ?string
     {
         return $this->cvv;
@@ -93,7 +93,7 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCvv(?string $value): void
     {
         $this->cvv = $value;
@@ -101,9 +101,9 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     * @return Card
-    */
-    public function withCvv(?string $value): Card
+     * @return $this
+     */
+    public function withCvv(?string $value): static
     {
         $this->cvv = $value;
         return $this;
@@ -111,7 +111,7 @@ class Card extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -119,7 +119,7 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
@@ -127,9 +127,9 @@ class Card extends DataObject
 
     /**
      * @param string|null $value
-     * @return Card
-    */
-    public function withExpiryDate(?string $value): Card
+     * @return $this
+     */
+    public function withExpiryDate(?string $value): static
     {
         $this->expiryDate = $value;
         return $this;
@@ -138,19 +138,20 @@ class Card extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardNumber)) {
+        if ($this->cardNumber !== null) {
             $object->cardNumber = $this->cardNumber;
         }
-        if (!is_null($this->cardholderName)) {
+        if ($this->cardholderName !== null) {
             $object->cardholderName = $this->cardholderName;
         }
-        if (!is_null($this->cvv)) {
+        if ($this->cvv !== null) {
             $object->cvv = $this->cvv;
         }
-        if (!is_null($this->expiryDate)) {
+        if ($this->expiryDate !== null) {
             $object->expiryDate = $this->expiryDate;
         }
         return $object;
@@ -162,7 +163,8 @@ class Card extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Card
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardNumber')) {

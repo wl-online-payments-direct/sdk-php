@@ -13,17 +13,17 @@ class PaymentProduct3203SpecificOutput extends DataObject
 {
     /**
      * @var AddressPersonal|null
-    */
+     */
     public ?AddressPersonal $billingAddress = null;
 
     /**
      * @var AddressPersonal|null
-    */
+     */
     public ?AddressPersonal $shippingAddress = null;
 
     /**
      * @return AddressPersonal|null
-    */
+     */
     public function getBillingAddress(): ?AddressPersonal
     {
         return $this->billingAddress;
@@ -31,7 +31,7 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-    */
+     */
     public function setBillingAddress(?AddressPersonal $value): void
     {
         $this->billingAddress = $value;
@@ -39,9 +39,9 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     * @return PaymentProduct3203SpecificOutput
-    */
-    public function withBillingAddress(?AddressPersonal $value): PaymentProduct3203SpecificOutput
+     * @return $this
+     */
+    public function withBillingAddress(?AddressPersonal $value): static
     {
         $this->billingAddress = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @return AddressPersonal|null
-    */
+     */
     public function getShippingAddress(): ?AddressPersonal
     {
         return $this->shippingAddress;
@@ -57,7 +57,7 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-    */
+     */
     public function setShippingAddress(?AddressPersonal $value): void
     {
         $this->shippingAddress = $value;
@@ -65,9 +65,9 @@ class PaymentProduct3203SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     * @return PaymentProduct3203SpecificOutput
-    */
-    public function withShippingAddress(?AddressPersonal $value): PaymentProduct3203SpecificOutput
+     * @return $this
+     */
+    public function withShippingAddress(?AddressPersonal $value): static
     {
         $this->shippingAddress = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct3203SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->billingAddress)) {
+        if ($this->billingAddress !== null) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if (!is_null($this->shippingAddress)) {
+        if ($this->shippingAddress !== null) {
             $object->shippingAddress = $this->shippingAddress->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct3203SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct3203SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAddress')) {

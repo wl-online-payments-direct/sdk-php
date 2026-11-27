@@ -13,22 +13,22 @@ class PaymentProduct5412 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $appUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $pollingUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAppUrl(): ?string
     {
         return $this->appUrl;
@@ -36,7 +36,7 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAppUrl(?string $value): void
     {
         $this->appUrl = $value;
@@ -44,9 +44,9 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5412
-    */
-    public function withAppUrl(?string $value): PaymentProduct5412
+     * @return $this
+     */
+    public function withAppUrl(?string $value): static
     {
         $this->appUrl = $value;
         return $this;
@@ -54,7 +54,7 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPollingUrl(): ?string
     {
         return $this->pollingUrl;
@@ -62,7 +62,7 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPollingUrl(?string $value): void
     {
         $this->pollingUrl = $value;
@@ -70,9 +70,9 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5412
-    */
-    public function withPollingUrl(?string $value): PaymentProduct5412
+     * @return $this
+     */
+    public function withPollingUrl(?string $value): static
     {
         $this->pollingUrl = $value;
         return $this;
@@ -80,7 +80,7 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -88,7 +88,7 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
@@ -96,9 +96,9 @@ class PaymentProduct5412 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5412
-    */
-    public function withQrCode(?string $value): PaymentProduct5412
+     * @return $this
+     */
+    public function withQrCode(?string $value): static
     {
         $this->qrCode = $value;
         return $this;
@@ -107,16 +107,17 @@ class PaymentProduct5412 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->appUrl)) {
+        if ($this->appUrl !== null) {
             $object->appUrl = $this->appUrl;
         }
-        if (!is_null($this->pollingUrl)) {
+        if ($this->pollingUrl !== null) {
             $object->pollingUrl = $this->pollingUrl;
         }
-        if (!is_null($this->qrCode)) {
+        if ($this->qrCode !== null) {
             $object->qrCode = $this->qrCode;
         }
         return $object;
@@ -128,7 +129,8 @@ class PaymentProduct5412 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5412
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'appUrl')) {

@@ -38,5 +38,5 @@ interface SubsequentClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse;
+    public function subsequentPayment(string $paymentId, SubsequentPaymentRequest $body, ?CallContext $callContext = null): SubsequentPaymentResponse;
 }

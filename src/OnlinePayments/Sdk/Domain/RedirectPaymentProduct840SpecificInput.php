@@ -13,27 +13,27 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $JavaScriptSdkFlow = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $addressSelectionAtPayPal = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $custom = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $payLater = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getJavaScriptSdkFlow(): ?bool
     {
         return $this->JavaScriptSdkFlow;
@@ -41,7 +41,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setJavaScriptSdkFlow(?bool $value): void
     {
         $this->JavaScriptSdkFlow = $value;
@@ -49,9 +49,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct840SpecificInput
-    */
-    public function withJavaScriptSdkFlow(?bool $value): RedirectPaymentProduct840SpecificInput
+     * @return $this
+     */
+    public function withJavaScriptSdkFlow(?bool $value): static
     {
         $this->JavaScriptSdkFlow = $value;
         return $this;
@@ -59,7 +59,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getAddressSelectionAtPayPal(): ?bool
     {
         return $this->addressSelectionAtPayPal;
@@ -67,7 +67,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAddressSelectionAtPayPal(?bool $value): void
     {
         $this->addressSelectionAtPayPal = $value;
@@ -75,9 +75,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct840SpecificInput
-    */
-    public function withAddressSelectionAtPayPal(?bool $value): RedirectPaymentProduct840SpecificInput
+     * @return $this
+     */
+    public function withAddressSelectionAtPayPal(?bool $value): static
     {
         $this->addressSelectionAtPayPal = $value;
         return $this;
@@ -85,7 +85,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCustom(): ?string
     {
         return $this->custom;
@@ -93,7 +93,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCustom(?string $value): void
     {
         $this->custom = $value;
@@ -101,9 +101,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct840SpecificInput
-    */
-    public function withCustom(?string $value): RedirectPaymentProduct840SpecificInput
+     * @return $this
+     */
+    public function withCustom(?string $value): static
     {
         $this->custom = $value;
         return $this;
@@ -111,7 +111,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getPayLater(): ?bool
     {
         return $this->payLater;
@@ -119,7 +119,7 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setPayLater(?bool $value): void
     {
         $this->payLater = $value;
@@ -127,9 +127,9 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct840SpecificInput
-    */
-    public function withPayLater(?bool $value): RedirectPaymentProduct840SpecificInput
+     * @return $this
+     */
+    public function withPayLater(?bool $value): static
     {
         $this->payLater = $value;
         return $this;
@@ -138,19 +138,20 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->JavaScriptSdkFlow)) {
+        if ($this->JavaScriptSdkFlow !== null) {
             $object->JavaScriptSdkFlow = $this->JavaScriptSdkFlow;
         }
-        if (!is_null($this->addressSelectionAtPayPal)) {
+        if ($this->addressSelectionAtPayPal !== null) {
             $object->addressSelectionAtPayPal = $this->addressSelectionAtPayPal;
         }
-        if (!is_null($this->custom)) {
+        if ($this->custom !== null) {
             $object->custom = $this->custom;
         }
-        if (!is_null($this->payLater)) {
+        if ($this->payLater !== null) {
             $object->payLater = $this->payLater;
         }
         return $object;
@@ -162,7 +163,8 @@ class RedirectPaymentProduct840SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct840SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'JavaScriptSdkFlow')) {

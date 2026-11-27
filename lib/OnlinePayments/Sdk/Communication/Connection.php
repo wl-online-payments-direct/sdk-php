@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use OnlinePayments\Sdk\Logging\CommunicatorLogger;
@@ -12,41 +13,48 @@ interface Connection
 {
     /**
      * @param string $requestUri
-     * @param string[] $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
     public function get(string $requestUri, array $requestHeaders, callable $responseHandler): void;
 
     /**
      * @param string $requestUri
-     * @param string[] $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
     public function delete(string $requestUri, array $requestHeaders, callable $responseHandler): void;
 
     /**
      * @param string $requestUri
-     * @param string[] $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
-    public function post(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void;
+    public function post(
+        string $requestUri,
+        array $requestHeaders,
+        string|MultipartFormDataObject $body,
+        callable $responseHandler,
+    ): void;
 
     /**
      * @param string $requestUri
-     * @param string[] $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param string|MultipartFormDataObject $body
      * @param callable $responseHandler Callable accepting the response status code, a response body chunk and the response headers
      */
-    public function put(string $requestUri, array $requestHeaders, $body, callable $responseHandler): void;
+    public function put(
+        string $requestUri,
+        array $requestHeaders,
+        string|MultipartFormDataObject $body,
+        callable $responseHandler,
+    ): void;
 
     /**
      * @param CommunicatorLogger $communicatorLogger
      */
     public function enableLogging(CommunicatorLogger $communicatorLogger): void;
 
-    /**
-     *
-     */
     public function disableLogging(): void;
 }

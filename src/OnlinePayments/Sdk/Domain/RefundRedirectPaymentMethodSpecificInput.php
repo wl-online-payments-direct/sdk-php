@@ -13,12 +13,12 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var RefundRedirectPaymentProduct900SpecificInput|null
-    */
+     */
     public ?RefundRedirectPaymentProduct900SpecificInput $refundRedirectPaymentProduct900SpecificInput = null;
 
     /**
      * @return RefundRedirectPaymentProduct900SpecificInput|null
-    */
+     */
     public function getRefundRedirectPaymentProduct900SpecificInput(): ?RefundRedirectPaymentProduct900SpecificInput
     {
         return $this->refundRedirectPaymentProduct900SpecificInput;
@@ -26,7 +26,7 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param RefundRedirectPaymentProduct900SpecificInput|null $value
-    */
+     */
     public function setRefundRedirectPaymentProduct900SpecificInput(?RefundRedirectPaymentProduct900SpecificInput $value): void
     {
         $this->refundRedirectPaymentProduct900SpecificInput = $value;
@@ -34,9 +34,9 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param RefundRedirectPaymentProduct900SpecificInput|null $value
-     * @return RefundRedirectPaymentMethodSpecificInput
-    */
-    public function withRefundRedirectPaymentProduct900SpecificInput(?RefundRedirectPaymentProduct900SpecificInput $value): RefundRedirectPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withRefundRedirectPaymentProduct900SpecificInput(?RefundRedirectPaymentProduct900SpecificInput $value): static
     {
         $this->refundRedirectPaymentProduct900SpecificInput = $value;
         return $this;
@@ -45,10 +45,11 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->refundRedirectPaymentProduct900SpecificInput)) {
+        if ($this->refundRedirectPaymentProduct900SpecificInput !== null) {
             $object->refundRedirectPaymentProduct900SpecificInput = $this->refundRedirectPaymentProduct900SpecificInput->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class RefundRedirectPaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundRedirectPaymentMethodSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'refundRedirectPaymentProduct900SpecificInput')) {

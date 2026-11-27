@@ -13,17 +13,17 @@ class PaymentProduct3012 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $urlIntent = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -31,7 +31,7 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
@@ -39,9 +39,9 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct3012
-    */
-    public function withQrCode(?string $value): PaymentProduct3012
+     * @return $this
+     */
+    public function withQrCode(?string $value): static
     {
         $this->qrCode = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getUrlIntent(): ?string
     {
         return $this->urlIntent;
@@ -57,7 +57,7 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUrlIntent(?string $value): void
     {
         $this->urlIntent = $value;
@@ -65,9 +65,9 @@ class PaymentProduct3012 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct3012
-    */
-    public function withUrlIntent(?string $value): PaymentProduct3012
+     * @return $this
+     */
+    public function withUrlIntent(?string $value): static
     {
         $this->urlIntent = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct3012 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->qrCode)) {
+        if ($this->qrCode !== null) {
             $object->qrCode = $this->qrCode;
         }
-        if (!is_null($this->urlIntent)) {
+        if ($this->urlIntent !== null) {
             $object->urlIntent = $this->urlIntent;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct3012 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct3012
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'qrCode')) {

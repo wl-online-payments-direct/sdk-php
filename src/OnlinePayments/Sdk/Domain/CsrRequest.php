@@ -13,12 +13,12 @@ class CsrRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $csr = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCsr(): ?string
     {
         return $this->csr;
@@ -26,7 +26,7 @@ class CsrRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCsr(?string $value): void
     {
         $this->csr = $value;
@@ -34,9 +34,9 @@ class CsrRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CsrRequest
-    */
-    public function withCsr(?string $value): CsrRequest
+     * @return $this
+     */
+    public function withCsr(?string $value): static
     {
         $this->csr = $value;
         return $this;
@@ -45,10 +45,11 @@ class CsrRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->csr)) {
+        if ($this->csr !== null) {
             $object->csr = $this->csr;
         }
         return $object;
@@ -60,7 +61,8 @@ class CsrRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CsrRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'csr')) {

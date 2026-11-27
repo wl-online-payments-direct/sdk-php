@@ -13,17 +13,17 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 {
     /**
      * @var PaymentProductFilterHostedTokenization|null
-    */
+     */
     public ?PaymentProductFilterHostedTokenization $exclude = null;
 
     /**
      * @var PaymentProductFilterHostedTokenization|null
-    */
+     */
     public ?PaymentProductFilterHostedTokenization $restrictTo = null;
 
     /**
      * @return PaymentProductFilterHostedTokenization|null
-    */
+     */
     public function getExclude(): ?PaymentProductFilterHostedTokenization
     {
         return $this->exclude;
@@ -31,7 +31,7 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-    */
+     */
     public function setExclude(?PaymentProductFilterHostedTokenization $value): void
     {
         $this->exclude = $value;
@@ -39,9 +39,9 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-     * @return PaymentProductFiltersHostedTokenization
-    */
-    public function withExclude(?PaymentProductFilterHostedTokenization $value): PaymentProductFiltersHostedTokenization
+     * @return $this
+     */
+    public function withExclude(?PaymentProductFilterHostedTokenization $value): static
     {
         $this->exclude = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @return PaymentProductFilterHostedTokenization|null
-    */
+     */
     public function getRestrictTo(): ?PaymentProductFilterHostedTokenization
     {
         return $this->restrictTo;
@@ -57,7 +57,7 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-    */
+     */
     public function setRestrictTo(?PaymentProductFilterHostedTokenization $value): void
     {
         $this->restrictTo = $value;
@@ -65,9 +65,9 @@ class PaymentProductFiltersHostedTokenization extends DataObject
 
     /**
      * @param PaymentProductFilterHostedTokenization|null $value
-     * @return PaymentProductFiltersHostedTokenization
-    */
-    public function withRestrictTo(?PaymentProductFilterHostedTokenization $value): PaymentProductFiltersHostedTokenization
+     * @return $this
+     */
+    public function withRestrictTo(?PaymentProductFilterHostedTokenization $value): static
     {
         $this->restrictTo = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProductFiltersHostedTokenization extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->exclude)) {
+        if ($this->exclude !== null) {
             $object->exclude = $this->exclude->toObject();
         }
-        if (!is_null($this->restrictTo)) {
+        if ($this->restrictTo !== null) {
             $object->restrictTo = $this->restrictTo->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProductFiltersHostedTokenization extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFiltersHostedTokenization
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'exclude')) {

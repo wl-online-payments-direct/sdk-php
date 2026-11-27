@@ -13,22 +13,22 @@ class PaymentLinkOverviewResponse extends DataObject
 {
     /**
      * @var Pagination|null
-    */
+     */
     public ?Pagination $pagination = null;
 
     /**
      * @var PaymentLinkOverviewEntry[]|null
-    */
+     */
     public ?array $paymentLinkOverviewEntries = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $total = null;
 
     /**
      * @return Pagination|null
-    */
+     */
     public function getPagination(): ?Pagination
     {
         return $this->pagination;
@@ -36,7 +36,7 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param Pagination|null $value
-    */
+     */
     public function setPagination(?Pagination $value): void
     {
         $this->pagination = $value;
@@ -44,9 +44,9 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param Pagination|null $value
-     * @return PaymentLinkOverviewResponse
-    */
-    public function withPagination(?Pagination $value): PaymentLinkOverviewResponse
+     * @return $this
+     */
+    public function withPagination(?Pagination $value): static
     {
         $this->pagination = $value;
         return $this;
@@ -54,7 +54,7 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @return PaymentLinkOverviewEntry[]|null
-    */
+     */
     public function getPaymentLinkOverviewEntries(): ?array
     {
         return $this->paymentLinkOverviewEntries;
@@ -62,7 +62,7 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param PaymentLinkOverviewEntry[]|null $value
-    */
+     */
     public function setPaymentLinkOverviewEntries(?array $value): void
     {
         $this->paymentLinkOverviewEntries = $value;
@@ -70,9 +70,9 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param PaymentLinkOverviewEntry[]|null $value
-     * @return PaymentLinkOverviewResponse
-    */
-    public function withPaymentLinkOverviewEntries(?array $value): PaymentLinkOverviewResponse
+     * @return $this
+     */
+    public function withPaymentLinkOverviewEntries(?array $value): static
     {
         $this->paymentLinkOverviewEntries = $value;
         return $this;
@@ -80,7 +80,7 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotal(): ?int
     {
         return $this->total;
@@ -88,7 +88,7 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotal(?int $value): void
     {
         $this->total = $value;
@@ -96,9 +96,9 @@ class PaymentLinkOverviewResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentLinkOverviewResponse
-    */
-    public function withTotal(?int $value): PaymentLinkOverviewResponse
+     * @return $this
+     */
+    public function withTotal(?int $value): static
     {
         $this->total = $value;
         return $this;
@@ -107,21 +107,22 @@ class PaymentLinkOverviewResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->pagination)) {
+        if ($this->pagination !== null) {
             $object->pagination = $this->pagination->toObject();
         }
-        if (!is_null($this->paymentLinkOverviewEntries)) {
+        if ($this->paymentLinkOverviewEntries !== null) {
             $object->paymentLinkOverviewEntries = [];
             foreach ($this->paymentLinkOverviewEntries as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentLinkOverviewEntries[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->total)) {
+        if ($this->total !== null) {
             $object->total = $this->total;
         }
         return $object;
@@ -133,7 +134,8 @@ class PaymentLinkOverviewResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOverviewResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'pagination')) {

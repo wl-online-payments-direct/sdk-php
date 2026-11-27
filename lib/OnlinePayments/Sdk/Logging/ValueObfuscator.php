@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Logging;
 
 /**
@@ -8,8 +9,7 @@ namespace OnlinePayments\Sdk\Logging;
  */
 class ValueObfuscator
 {
-    /** */
-    const MASK_CHARACTER = '*';
+    public const MASK_CHARACTER = '*';
 
     /**
      * @param string $value
@@ -27,7 +27,7 @@ class ValueObfuscator
         return
             str_repeat(static::MASK_CHARACTER, mb_strlen($value, 'UTF-8') - $numberOfCharactersToKeep) .
             mb_substr($value, mb_strlen($value, 'UTF-8') - $numberOfCharactersToKeep, null, 'UTF-8')
-            ;
+        ;
     }
 
     /**
@@ -46,7 +46,7 @@ class ValueObfuscator
         return
             mb_substr($value, 0, $numberOfCharactersToKeep, 'UTF-8') .
             str_repeat(static::MASK_CHARACTER, mb_strlen($value, 'UTF-8') - $numberOfCharactersToKeep)
-            ;
+        ;
     }
 
     /**

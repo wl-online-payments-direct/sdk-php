@@ -13,7 +13,7 @@ class ShoppingCartExtensionTest extends TestCase
             'creator-1',
             'name-1',
             'v1',
-            'ext-123'
+            'ext-123',
         );
 
         $this->assertSame('creator-1', $obj->creator);
@@ -28,7 +28,7 @@ class ShoppingCartExtensionTest extends TestCase
             'creator-1',
             'name-1',
             'v1',
-            'ext-123'
+            'ext-123',
         );
 
         $result = $obj->toObject();
@@ -50,7 +50,7 @@ class ShoppingCartExtensionTest extends TestCase
             'creator-1',
             'name-1',
             'v1',
-            null
+            null,
         );
 
         $result = $shoppingCartExtension->toObject();
@@ -67,14 +67,14 @@ class ShoppingCartExtensionTest extends TestCase
         $shoppingCartExtension = new ShoppingCartExtension(
             'init',
             'init',
-            'init'
+            'init',
         );
 
-        $input = (object)[
+        $input = (object) [
             'creator' => 'creator-x',
             'name' => 'name-x',
             'version' => 'v2',
-            'extensionId' => 'ext-x'
+            'extensionId' => 'ext-x',
         ];
 
         $result = $shoppingCartExtension->fromObject($input);
@@ -92,11 +92,11 @@ class ShoppingCartExtensionTest extends TestCase
             'a',
             'b',
             'c',
-            'd'
+            'd',
         );
 
-        $input = (object)[
-            'name' => 'new-name'
+        $input = (object) [
+            'name' => 'new-name',
         ];
 
         $shoppingCartExtension->fromObject($input);
@@ -113,7 +113,7 @@ class ShoppingCartExtensionTest extends TestCase
             'creator',
             'name',
             'v1',
-            'ext'
+            'ext',
         );
 
         $shoppingCartExtension->fromObject(new \stdClass());

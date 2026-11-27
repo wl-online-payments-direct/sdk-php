@@ -13,27 +13,27 @@ class CardSource extends DataObject
 {
     /**
      * @var SurchargeCalculationCard|null
-    */
+     */
     public ?SurchargeCalculationCard $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $encryptedCustomerInput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedTokenizationId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $token = null;
 
     /**
      * @return SurchargeCalculationCard|null
-    */
+     */
     public function getCard(): ?SurchargeCalculationCard
     {
         return $this->card;
@@ -41,7 +41,7 @@ class CardSource extends DataObject
 
     /**
      * @param SurchargeCalculationCard|null $value
-    */
+     */
     public function setCard(?SurchargeCalculationCard $value): void
     {
         $this->card = $value;
@@ -49,9 +49,9 @@ class CardSource extends DataObject
 
     /**
      * @param SurchargeCalculationCard|null $value
-     * @return CardSource
-    */
-    public function withCard(?SurchargeCalculationCard $value): CardSource
+     * @return $this
+     */
+    public function withCard(?SurchargeCalculationCard $value): static
     {
         $this->card = $value;
         return $this;
@@ -59,7 +59,7 @@ class CardSource extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEncryptedCustomerInput(): ?string
     {
         return $this->encryptedCustomerInput;
@@ -67,7 +67,7 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEncryptedCustomerInput(?string $value): void
     {
         $this->encryptedCustomerInput = $value;
@@ -75,9 +75,9 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardSource
-    */
-    public function withEncryptedCustomerInput(?string $value): CardSource
+     * @return $this
+     */
+    public function withEncryptedCustomerInput(?string $value): static
     {
         $this->encryptedCustomerInput = $value;
         return $this;
@@ -85,7 +85,7 @@ class CardSource extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedTokenizationId(): ?string
     {
         return $this->hostedTokenizationId;
@@ -93,7 +93,7 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedTokenizationId(?string $value): void
     {
         $this->hostedTokenizationId = $value;
@@ -101,9 +101,9 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardSource
-    */
-    public function withHostedTokenizationId(?string $value): CardSource
+     * @return $this
+     */
+    public function withHostedTokenizationId(?string $value): static
     {
         $this->hostedTokenizationId = $value;
         return $this;
@@ -111,7 +111,7 @@ class CardSource extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -119,7 +119,7 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -127,9 +127,9 @@ class CardSource extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardSource
-    */
-    public function withToken(?string $value): CardSource
+     * @return $this
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -138,19 +138,20 @@ class CardSource extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->encryptedCustomerInput)) {
+        if ($this->encryptedCustomerInput !== null) {
             $object->encryptedCustomerInput = $this->encryptedCustomerInput;
         }
-        if (!is_null($this->hostedTokenizationId)) {
+        if ($this->hostedTokenizationId !== null) {
             $object->hostedTokenizationId = $this->hostedTokenizationId;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
         return $object;
@@ -162,7 +163,8 @@ class CardSource extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardSource
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

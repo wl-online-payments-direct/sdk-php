@@ -15,7 +15,7 @@ class ClientMetaInfoTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testClientMetaInfo_IsSentAsBase64EncodedValue()
+    public function testClientMetaInfo_IsSentAsBase64EncodedValue(): void
     {
         $communicator = $this->createMock(CommunicatorInterface::class);
 
@@ -32,7 +32,7 @@ class ClientMetaInfoTest extends TestCase
                 $this->equalTo('/v2/123/services/testconnection'),
                 $this->equalTo($expectedMetaInfo),
                 $this->isNull(),
-                $this->isNull()
+                $this->isNull(),
             )
             ->willReturn(new TestConnection());
 

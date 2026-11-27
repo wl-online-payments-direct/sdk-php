@@ -35,5 +35,5 @@ interface CofSeriesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function importCofSeries(ImportCofSeriesRequest $body, ?CallContext $callContext = null): ImportCofSeriesResponse;
+    public function importCofSeries(ImportCofSeriesRequest $body, ?CallContext $callContext = null): ImportCofSeriesResponse;
 }

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 #[Group('configuration')]
 class CallContextTest extends TestCase
 {
-    public function testCallContext_IdempotenceKey_SetAndGet_ReturnsSameValue()
+    public function testCallContext_IdempotenceKey_SetAndGet_ReturnsSameValue(): void
     {
         $context = new CallContext();
 
@@ -19,7 +19,7 @@ class CallContextTest extends TestCase
         $this->assertSame('test-key', $context->getIdempotenceKey());
     }
 
-    public function testCallContext_IdempotenceRequestTimestamp_SetAndGet_ReturnsSameValue()
+    public function testCallContext_IdempotenceRequestTimestamp_SetAndGet_ReturnsSameValue(): void
     {
         $context = new CallContext();
 
@@ -28,7 +28,7 @@ class CallContextTest extends TestCase
         $this->assertSame('2026-04-15T10:00:00Z', $context->getIdempotenceRequestTimestamp());
     }
 
-    public function testCallContext_IdempotenceResponseDateTime_SetAndGet_ReturnsSameValue()
+    public function testCallContext_IdempotenceResponseDateTime_SetAndGet_ReturnsSameValue(): void
     {
         $context = new CallContext();
         $dateTime = new DateTime('2026-04-15 10:00:00');
@@ -38,7 +38,7 @@ class CallContextTest extends TestCase
         $this->assertSame($dateTime, $context->getIdempotenceResponseDateTime());
     }
 
-    public function testCallContext_GzipFlag_SetAndGet_ReturnsSameValue()
+    public function testCallContext_GzipFlag_SetAndGet_ReturnsSameValue(): void
     {
         $context = new CallContext();
 

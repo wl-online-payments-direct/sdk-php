@@ -7,6 +7,7 @@ namespace OnlinePayments\Sdk;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\Domain\RefundErrorResponse;
 use OnlinePayments\Sdk\Domain\RefundResponse;
+use Throwable;
 
 /**
  * Class DeclinedRefundException
@@ -16,21 +17,26 @@ use OnlinePayments\Sdk\Domain\RefundResponse;
 class DeclinedRefundException extends ResponseException
 {
     /**
-     * @param int         $httpStatusCode
-     * @param DataObject  $response
-     * @param string|null $message
+     * @param int            $httpStatusCode
+     * @param DataObject     $response
+     * @param string|null    $message
+     * @param Throwable|null $previous
      */
-    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
-    {
-        if (is_null($message)) {
-            $message = DeclinedRefundException::buildMessage($response);
+    public function __construct(
+        int        $httpStatusCode,
+        DataObject $response,
+        ?string    $message = null,
+        ?Throwable $previous = null
+    ) {
+        if ($message === null) {
+            $message = self::buildMessage($response);
         }
-        parent::__construct($httpStatusCode, $response, $message);
+        parent::__construct($httpStatusCode, $response, $message, $previous);
     }
 
     private static function buildMessage(DataObject $response): string
     {
-        if ($response instanceof RefundErrorResponse && $response->refundResult != null) {
+        if ($response instanceof RefundErrorResponse && $response->refundResult !== null) {
             $refundResult = $response->refundResult;
             return "declined refund '$refundResult->id' with status '$refundResult->status'";
         }

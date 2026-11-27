@@ -15,22 +15,22 @@ class PaymentLinkOrderInput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantReference = null;
 
     /**
      * @var SurchargeForPaymentLink|null
-    */
+     */
     public ?SurchargeForPaymentLink $surchargeSpecificInput = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -38,7 +38,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
@@ -46,9 +46,9 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentLinkOrderInput
-    */
-    public function withAmount(?AmountOfMoney $value): PaymentLinkOrderInput
+     * @return $this
+     */
+    public function withAmount(?AmountOfMoney $value): static
     {
         $this->amount = $value;
         return $this;
@@ -56,7 +56,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -64,7 +64,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
@@ -72,9 +72,9 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOrderInput
-    */
-    public function withMerchantReference(?string $value): PaymentLinkOrderInput
+     * @return $this
+     */
+    public function withMerchantReference(?string $value): static
     {
         $this->merchantReference = $value;
         return $this;
@@ -82,7 +82,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @return SurchargeForPaymentLink|null
-    */
+     */
     public function getSurchargeSpecificInput(): ?SurchargeForPaymentLink
     {
         return $this->surchargeSpecificInput;
@@ -90,7 +90,7 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param SurchargeForPaymentLink|null $value
-    */
+     */
     public function setSurchargeSpecificInput(?SurchargeForPaymentLink $value): void
     {
         $this->surchargeSpecificInput = $value;
@@ -98,9 +98,9 @@ class PaymentLinkOrderInput extends DataObject
 
     /**
      * @param SurchargeForPaymentLink|null $value
-     * @return PaymentLinkOrderInput
-    */
-    public function withSurchargeSpecificInput(?SurchargeForPaymentLink $value): PaymentLinkOrderInput
+     * @return $this
+     */
+    public function withSurchargeSpecificInput(?SurchargeForPaymentLink $value): static
     {
         $this->surchargeSpecificInput = $value;
         return $this;
@@ -109,16 +109,17 @@ class PaymentLinkOrderInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount->toObject();
         }
-        if (!is_null($this->merchantReference)) {
+        if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
-        if (!is_null($this->surchargeSpecificInput)) {
+        if ($this->surchargeSpecificInput !== null) {
             $object->surchargeSpecificInput = $this->surchargeSpecificInput->toObject();
         }
         return $object;
@@ -130,7 +131,8 @@ class PaymentLinkOrderInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOrderInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

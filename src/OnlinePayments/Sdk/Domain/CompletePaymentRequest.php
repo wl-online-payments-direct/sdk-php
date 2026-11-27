@@ -13,17 +13,17 @@ class CompletePaymentRequest extends DataObject
 {
     /**
      * @var CompletePaymentCardPaymentMethodSpecificInput|null
-    */
+     */
     public ?CompletePaymentCardPaymentMethodSpecificInput $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var Order|null
-    */
+     */
     public ?Order $order = null;
 
     /**
      * @return CompletePaymentCardPaymentMethodSpecificInput|null
-    */
+     */
     public function getCardPaymentMethodSpecificInput(): ?CompletePaymentCardPaymentMethodSpecificInput
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -31,7 +31,7 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param CompletePaymentCardPaymentMethodSpecificInput|null $value
-    */
+     */
     public function setCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
@@ -39,9 +39,9 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param CompletePaymentCardPaymentMethodSpecificInput|null $value
-     * @return CompletePaymentRequest
-    */
-    public function withCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): CompletePaymentRequest
+     * @return $this
+     */
+    public function withCardPaymentMethodSpecificInput(?CompletePaymentCardPaymentMethodSpecificInput $value): static
     {
         $this->cardPaymentMethodSpecificInput = $value;
         return $this;
@@ -49,7 +49,7 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @return Order|null
-    */
+     */
     public function getOrder(): ?Order
     {
         return $this->order;
@@ -57,7 +57,7 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-    */
+     */
     public function setOrder(?Order $value): void
     {
         $this->order = $value;
@@ -65,9 +65,9 @@ class CompletePaymentRequest extends DataObject
 
     /**
      * @param Order|null $value
-     * @return CompletePaymentRequest
-    */
-    public function withOrder(?Order $value): CompletePaymentRequest
+     * @return $this
+     */
+    public function withOrder(?Order $value): static
     {
         $this->order = $value;
         return $this;
@@ -76,13 +76,14 @@ class CompletePaymentRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardPaymentMethodSpecificInput)) {
+        if ($this->cardPaymentMethodSpecificInput !== null) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
-        if (!is_null($this->order)) {
+        if ($this->order !== null) {
             $object->order = $this->order->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class CompletePaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CompletePaymentRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardPaymentMethodSpecificInput')) {

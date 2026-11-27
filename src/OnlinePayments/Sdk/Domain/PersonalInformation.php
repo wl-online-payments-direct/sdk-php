@@ -13,22 +13,22 @@ class PersonalInformation extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $dateOfBirth = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $gender = null;
 
     /**
      * @var PersonalName|null
-    */
+     */
     public ?PersonalName $name = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
@@ -36,7 +36,7 @@ class PersonalInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDateOfBirth(?string $value): void
     {
         $this->dateOfBirth = $value;
@@ -44,9 +44,9 @@ class PersonalInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return PersonalInformation
-    */
-    public function withDateOfBirth(?string $value): PersonalInformation
+     * @return $this
+     */
+    public function withDateOfBirth(?string $value): static
     {
         $this->dateOfBirth = $value;
         return $this;
@@ -54,7 +54,7 @@ class PersonalInformation extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getGender(): ?string
     {
         return $this->gender;
@@ -62,7 +62,7 @@ class PersonalInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setGender(?string $value): void
     {
         $this->gender = $value;
@@ -70,9 +70,9 @@ class PersonalInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return PersonalInformation
-    */
-    public function withGender(?string $value): PersonalInformation
+     * @return $this
+     */
+    public function withGender(?string $value): static
     {
         $this->gender = $value;
         return $this;
@@ -80,7 +80,7 @@ class PersonalInformation extends DataObject
 
     /**
      * @return PersonalName|null
-    */
+     */
     public function getName(): ?PersonalName
     {
         return $this->name;
@@ -88,7 +88,7 @@ class PersonalInformation extends DataObject
 
     /**
      * @param PersonalName|null $value
-    */
+     */
     public function setName(?PersonalName $value): void
     {
         $this->name = $value;
@@ -96,9 +96,9 @@ class PersonalInformation extends DataObject
 
     /**
      * @param PersonalName|null $value
-     * @return PersonalInformation
-    */
-    public function withName(?PersonalName $value): PersonalInformation
+     * @return $this
+     */
+    public function withName(?PersonalName $value): static
     {
         $this->name = $value;
         return $this;
@@ -107,16 +107,17 @@ class PersonalInformation extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->dateOfBirth)) {
+        if ($this->dateOfBirth !== null) {
             $object->dateOfBirth = $this->dateOfBirth;
         }
-        if (!is_null($this->gender)) {
+        if ($this->gender !== null) {
             $object->gender = $this->gender;
         }
-        if (!is_null($this->name)) {
+        if ($this->name !== null) {
             $object->name = $this->name->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class PersonalInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PersonalInformation
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'dateOfBirth')) {

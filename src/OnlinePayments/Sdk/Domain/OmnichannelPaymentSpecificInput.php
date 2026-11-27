@@ -13,12 +13,12 @@ class OmnichannelPaymentSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $operatorId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getOperatorId(): ?string
     {
         return $this->operatorId;
@@ -26,7 +26,7 @@ class OmnichannelPaymentSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperatorId(?string $value): void
     {
         $this->operatorId = $value;
@@ -34,9 +34,9 @@ class OmnichannelPaymentSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return OmnichannelPaymentSpecificInput
-    */
-    public function withOperatorId(?string $value): OmnichannelPaymentSpecificInput
+     * @return $this
+     */
+    public function withOperatorId(?string $value): static
     {
         $this->operatorId = $value;
         return $this;
@@ -45,10 +45,11 @@ class OmnichannelPaymentSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->operatorId)) {
+        if ($this->operatorId !== null) {
             $object->operatorId = $this->operatorId;
         }
         return $object;
@@ -60,7 +61,8 @@ class OmnichannelPaymentSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OmnichannelPaymentSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'operatorId')) {

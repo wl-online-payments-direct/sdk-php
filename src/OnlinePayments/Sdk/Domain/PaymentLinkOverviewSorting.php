@@ -13,17 +13,17 @@ class PaymentLinkOverviewSorting extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $sortDirection = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $sortProperty = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getSortDirection(): ?string
     {
         return $this->sortDirection;
@@ -31,7 +31,7 @@ class PaymentLinkOverviewSorting extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSortDirection(?string $value): void
     {
         $this->sortDirection = $value;
@@ -39,9 +39,9 @@ class PaymentLinkOverviewSorting extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewSorting
-    */
-    public function withSortDirection(?string $value): PaymentLinkOverviewSorting
+     * @return $this
+     */
+    public function withSortDirection(?string $value): static
     {
         $this->sortDirection = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentLinkOverviewSorting extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSortProperty(): ?string
     {
         return $this->sortProperty;
@@ -57,7 +57,7 @@ class PaymentLinkOverviewSorting extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSortProperty(?string $value): void
     {
         $this->sortProperty = $value;
@@ -65,9 +65,9 @@ class PaymentLinkOverviewSorting extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewSorting
-    */
-    public function withSortProperty(?string $value): PaymentLinkOverviewSorting
+     * @return $this
+     */
+    public function withSortProperty(?string $value): static
     {
         $this->sortProperty = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentLinkOverviewSorting extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->sortDirection)) {
+        if ($this->sortDirection !== null) {
             $object->sortDirection = $this->sortDirection;
         }
-        if (!is_null($this->sortProperty)) {
+        if ($this->sortProperty !== null) {
             $object->sortProperty = $this->sortProperty;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentLinkOverviewSorting extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOverviewSorting
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'sortDirection')) {

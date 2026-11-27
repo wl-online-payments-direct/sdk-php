@@ -13,12 +13,12 @@ class AutoCapture extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $delayInMinutes = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getDelayInMinutes(): ?int
     {
         return $this->delayInMinutes;
@@ -26,7 +26,7 @@ class AutoCapture extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setDelayInMinutes(?int $value): void
     {
         $this->delayInMinutes = $value;
@@ -34,9 +34,9 @@ class AutoCapture extends DataObject
 
     /**
      * @param int|null $value
-     * @return AutoCapture
-    */
-    public function withDelayInMinutes(?int $value): AutoCapture
+     * @return $this
+     */
+    public function withDelayInMinutes(?int $value): static
     {
         $this->delayInMinutes = $value;
         return $this;
@@ -45,10 +45,11 @@ class AutoCapture extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->delayInMinutes)) {
+        if ($this->delayInMinutes !== null) {
             $object->delayInMinutes = $this->delayInMinutes;
         }
         return $object;
@@ -60,7 +61,8 @@ class AutoCapture extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AutoCapture
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'delayInMinutes')) {

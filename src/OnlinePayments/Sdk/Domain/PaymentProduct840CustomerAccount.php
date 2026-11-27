@@ -13,47 +13,47 @@ class PaymentProduct840CustomerAccount extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $accountId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $companyName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $customerAccountStatus = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $customerAddressStatus = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $payerId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surname = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAccountId(): ?string
     {
         return $this->accountId;
@@ -61,7 +61,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAccountId(?string $value): void
     {
         $this->accountId = $value;
@@ -69,9 +69,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withAccountId(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withAccountId(?string $value): static
     {
         $this->accountId = $value;
         return $this;
@@ -79,7 +79,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -87,7 +87,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
@@ -95,9 +95,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withCompanyName(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withCompanyName(?string $value): static
     {
         $this->companyName = $value;
         return $this;
@@ -105,7 +105,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -113,7 +113,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -121,9 +121,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withCountryCode(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -131,7 +131,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCustomerAccountStatus(): ?string
     {
         return $this->customerAccountStatus;
@@ -139,7 +139,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCustomerAccountStatus(?string $value): void
     {
         $this->customerAccountStatus = $value;
@@ -147,9 +147,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withCustomerAccountStatus(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withCustomerAccountStatus(?string $value): static
     {
         $this->customerAccountStatus = $value;
         return $this;
@@ -157,7 +157,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCustomerAddressStatus(): ?string
     {
         return $this->customerAddressStatus;
@@ -165,7 +165,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCustomerAddressStatus(?string $value): void
     {
         $this->customerAddressStatus = $value;
@@ -173,9 +173,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withCustomerAddressStatus(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withCustomerAddressStatus(?string $value): static
     {
         $this->customerAddressStatus = $value;
         return $this;
@@ -183,7 +183,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -191,7 +191,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
@@ -199,9 +199,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withFirstName(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withFirstName(?string $value): static
     {
         $this->firstName = $value;
         return $this;
@@ -209,7 +209,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPayerId(): ?string
     {
         return $this->payerId;
@@ -217,7 +217,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPayerId(?string $value): void
     {
         $this->payerId = $value;
@@ -225,9 +225,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withPayerId(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withPayerId(?string $value): static
     {
         $this->payerId = $value;
         return $this;
@@ -235,7 +235,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -243,7 +243,7 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
@@ -251,9 +251,9 @@ class PaymentProduct840CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840CustomerAccount
-    */
-    public function withSurname(?string $value): PaymentProduct840CustomerAccount
+     * @return $this
+     */
+    public function withSurname(?string $value): static
     {
         $this->surname = $value;
         return $this;
@@ -262,31 +262,32 @@ class PaymentProduct840CustomerAccount extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountId)) {
+        if ($this->accountId !== null) {
             $object->accountId = $this->accountId;
         }
-        if (!is_null($this->companyName)) {
+        if ($this->companyName !== null) {
             $object->companyName = $this->companyName;
         }
-        if (!is_null($this->countryCode)) {
+        if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if (!is_null($this->customerAccountStatus)) {
+        if ($this->customerAccountStatus !== null) {
             $object->customerAccountStatus = $this->customerAccountStatus;
         }
-        if (!is_null($this->customerAddressStatus)) {
+        if ($this->customerAddressStatus !== null) {
             $object->customerAddressStatus = $this->customerAddressStatus;
         }
-        if (!is_null($this->firstName)) {
+        if ($this->firstName !== null) {
             $object->firstName = $this->firstName;
         }
-        if (!is_null($this->payerId)) {
+        if ($this->payerId !== null) {
             $object->payerId = $this->payerId;
         }
-        if (!is_null($this->surname)) {
+        if ($this->surname !== null) {
             $object->surname = $this->surname;
         }
         return $object;
@@ -298,7 +299,8 @@ class PaymentProduct840CustomerAccount extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct840CustomerAccount
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountId')) {

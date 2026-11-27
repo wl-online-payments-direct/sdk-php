@@ -25,7 +25,7 @@ class BlockMandateTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testBlockMandate_ValidMandate_ReturnsUniqueMandateReference()
+    public function testBlockMandate_ValidMandate_ReturnsUniqueMandateReference(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -35,7 +35,7 @@ class BlockMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testBlockMandate_AlreadyBlockedMandate_ReturnsValidationException()
+    public function testBlockMandate_AlreadyBlockedMandate_ReturnsValidationException(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -51,7 +51,7 @@ class BlockMandateTest extends TestCase
         }
     }
 
-    public function testBlockMandate_RevokedMandate_ReturnsValidationException()
+    public function testBlockMandate_RevokedMandate_ReturnsValidationException(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -69,7 +69,7 @@ class BlockMandateTest extends TestCase
         }
     }
 
-    public function testBlockMandate_InvalidUniqueMandateReference_ReturnsReferenceException()
+    public function testBlockMandate_InvalidUniqueMandateReference_ReturnsReferenceException(): void
     {
         try {
             $this->mandatesClient->blockMandate(self::INVALID_MANDATE_REFERENCE);

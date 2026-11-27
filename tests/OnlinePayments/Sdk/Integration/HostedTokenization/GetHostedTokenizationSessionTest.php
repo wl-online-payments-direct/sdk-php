@@ -23,7 +23,7 @@ class GetHostedTokenizationSessionTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetHostedTokenization_ValidHostedTokenizationId_ReturnsHostedTokenizationDetails()
+    public function testGetHostedTokenization_ValidHostedTokenizationId_ReturnsHostedTokenizationDetails(): void
     {
         $hostedTokenizationId = $this->sdkHelper->createHostedTokenizationAndGetId();
 
@@ -33,7 +33,7 @@ class GetHostedTokenizationSessionTest extends TestCase
         $this->assertNotEmpty($hostedTokenizationId);
     }
 
-    public function testGetHostedTokenization_InvalidHostedTokenizationId_ReturnsReferenceException()
+    public function testGetHostedTokenization_InvalidHostedTokenizationId_ReturnsReferenceException(): void
     {
         try {
             $this->hostedTokenizationClient->getHostedTokenization(self::INVALID_TOKENIZATION_ID);

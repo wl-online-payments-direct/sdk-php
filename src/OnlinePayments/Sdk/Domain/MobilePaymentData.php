@@ -13,17 +13,17 @@ class MobilePaymentData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $dpan = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $expiryDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDpan(): ?string
     {
         return $this->dpan;
@@ -31,7 +31,7 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDpan(?string $value): void
     {
         $this->dpan = $value;
@@ -39,9 +39,9 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentData
-    */
-    public function withDpan(?string $value): MobilePaymentData
+     * @return $this
+     */
+    public function withDpan(?string $value): static
     {
         $this->dpan = $value;
         return $this;
@@ -49,7 +49,7 @@ class MobilePaymentData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -57,7 +57,7 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
@@ -65,9 +65,9 @@ class MobilePaymentData extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentData
-    */
-    public function withExpiryDate(?string $value): MobilePaymentData
+     * @return $this
+     */
+    public function withExpiryDate(?string $value): static
     {
         $this->expiryDate = $value;
         return $this;
@@ -76,13 +76,14 @@ class MobilePaymentData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->dpan)) {
+        if ($this->dpan !== null) {
             $object->dpan = $this->dpan;
         }
-        if (!is_null($this->expiryDate)) {
+        if ($this->expiryDate !== null) {
             $object->expiryDate = $this->expiryDate;
         }
         return $object;
@@ -94,7 +95,8 @@ class MobilePaymentData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MobilePaymentData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'dpan')) {

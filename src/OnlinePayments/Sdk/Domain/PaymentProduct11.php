@@ -13,32 +13,32 @@ class PaymentProduct11 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentBIC = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentBeneficiary = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentIBAN = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentBIC(): ?string
     {
         return $this->paymentBIC;
@@ -46,7 +46,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentBIC(?string $value): void
     {
         $this->paymentBIC = $value;
@@ -54,9 +54,9 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct11
-    */
-    public function withPaymentBIC(?string $value): PaymentProduct11
+     * @return $this
+     */
+    public function withPaymentBIC(?string $value): static
     {
         $this->paymentBIC = $value;
         return $this;
@@ -64,7 +64,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentBeneficiary(): ?string
     {
         return $this->paymentBeneficiary;
@@ -72,7 +72,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentBeneficiary(?string $value): void
     {
         $this->paymentBeneficiary = $value;
@@ -80,9 +80,9 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct11
-    */
-    public function withPaymentBeneficiary(?string $value): PaymentProduct11
+     * @return $this
+     */
+    public function withPaymentBeneficiary(?string $value): static
     {
         $this->paymentBeneficiary = $value;
         return $this;
@@ -90,7 +90,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentIBAN(): ?string
     {
         return $this->paymentIBAN;
@@ -98,7 +98,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentIBAN(?string $value): void
     {
         $this->paymentIBAN = $value;
@@ -106,9 +106,9 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct11
-    */
-    public function withPaymentIBAN(?string $value): PaymentProduct11
+     * @return $this
+     */
+    public function withPaymentIBAN(?string $value): static
     {
         $this->paymentIBAN = $value;
         return $this;
@@ -116,7 +116,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentReference(): ?string
     {
         return $this->paymentReference;
@@ -124,7 +124,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentReference(?string $value): void
     {
         $this->paymentReference = $value;
@@ -132,9 +132,9 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct11
-    */
-    public function withPaymentReference(?string $value): PaymentProduct11
+     * @return $this
+     */
+    public function withPaymentReference(?string $value): static
     {
         $this->paymentReference = $value;
         return $this;
@@ -142,7 +142,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -150,7 +150,7 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
@@ -158,9 +158,9 @@ class PaymentProduct11 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct11
-    */
-    public function withQrCode(?string $value): PaymentProduct11
+     * @return $this
+     */
+    public function withQrCode(?string $value): static
     {
         $this->qrCode = $value;
         return $this;
@@ -169,22 +169,23 @@ class PaymentProduct11 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentBIC)) {
+        if ($this->paymentBIC !== null) {
             $object->paymentBIC = $this->paymentBIC;
         }
-        if (!is_null($this->paymentBeneficiary)) {
+        if ($this->paymentBeneficiary !== null) {
             $object->paymentBeneficiary = $this->paymentBeneficiary;
         }
-        if (!is_null($this->paymentIBAN)) {
+        if ($this->paymentIBAN !== null) {
             $object->paymentIBAN = $this->paymentIBAN;
         }
-        if (!is_null($this->paymentReference)) {
+        if ($this->paymentReference !== null) {
             $object->paymentReference = $this->paymentReference;
         }
-        if (!is_null($this->qrCode)) {
+        if ($this->qrCode !== null) {
             $object->qrCode = $this->qrCode;
         }
         return $object;
@@ -196,7 +197,8 @@ class PaymentProduct11 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct11
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentBIC')) {

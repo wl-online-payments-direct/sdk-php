@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Domain;
 
 use UnexpectedValueException;
@@ -8,153 +9,131 @@ use UnexpectedValueException;
  */
 class WebhooksEvent extends DataObject
 {
-    /**
-     * @var string
-     */
-    public $apiVersion = null;
+    /** @var string|null */
+    public ?string $apiVersion = null;
+
+    /** @var string|null */
+    public ?string $created = null;
+
+    /** @var string|null */
+    public ?string $id = null;
+
+    /** @var string|null */
+    public ?string $merchantId = null;
+
+    /** @var string|null */
+    public ?string $type = null;
+
+    /** @var GetBatchStatusResponse|null */
+    public ?GetBatchStatusResponse $directBatch = null;
+
+    /** @var PaymentLinkResponse|null */
+    public ?PaymentLinkResponse $paymentLink = null;
+
+    /** @var PaymentResponse|null */
+    public ?PaymentResponse $payment = null;
+
+    /** @var PayoutResponse|null */
+    public ?PayoutResponse $payout = null;
+
+    /** @var RefundResponse|null */
+    public ?RefundResponse $refund = null;
+
+    /** @var TokenResponse|null */
+    public ?TokenResponse $token = null;
 
     /**
-     * @var string
+     * @return GetBatchStatusResponse|null
      */
-    public $created = null;
-
-    /**
-     * @var string
-     */
-    public $id = null;
-
-    /**
-     * @var string
-     */
-    public $merchantId = null;
-
-    /**
-     * @var string
-     */
-    public $type = null;
-
-    /**
-     * @var GetBatchStatusResponse
-     */
-    public $directBatch = null;
-
-    /**
-     * @var PaymentLinkResponse
-     */
-    public $paymentLink = null;
-
-    /**
-     * @var PaymentResponse
-     */
-    public $payment = null;
-
-    /**
-     * @var PayoutResponse
-     */
-    public $payout = null;
-
-    /**
-     * @var RefundResponse
-     */
-    public $refund = null;
-
-    /**
-     * @var TokenResponse
-     */
-    public $token = null;
-
-    /**
-     * @return GetBatchStatusResponse
-     */
-    public function getDirectBatch()
+    public function getDirectBatch(): ?GetBatchStatusResponse
     {
         return $this->directBatch;
     }
 
     /**
-     * @param GetBatchStatusResponse $directBatch
+     * @param GetBatchStatusResponse|null $directBatch
      */
-    public function setDirectBatch($directBatch)
+    public function setDirectBatch(?GetBatchStatusResponse $directBatch): void
     {
         $this->directBatch = $directBatch;
     }
 
     /**
-     * @return PaymentLinkResponse
+     * @return PaymentLinkResponse|null
      */
-    public function getPaymentLink()
+    public function getPaymentLink(): ?PaymentLinkResponse
     {
         return $this->paymentLink;
     }
 
     /**
-     * @param PaymentLinkResponse $paymentLink
+     * @param PaymentLinkResponse|null $paymentLink
      */
-    public function setPaymentLink($paymentLink)
+    public function setPaymentLink(?PaymentLinkResponse $paymentLink): void
     {
         $this->paymentLink = $paymentLink;
     }
 
     /**
-     * @return PaymentResponse
+     * @return PaymentResponse|null
      */
-    public function getPayment()
+    public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
     }
 
     /**
-     * @param PaymentResponse $payment
+     * @param PaymentResponse|null $payment
      */
-    public function setPayment($payment)
+    public function setPayment(?PaymentResponse $payment): void
     {
         $this->payment = $payment;
     }
 
     /**
-     * @return PayoutResponse
+     * @return PayoutResponse|null
      */
-    public function getPayout()
+    public function getPayout(): ?PayoutResponse
     {
         return $this->payout;
     }
 
     /**
-     * @param PayoutResponse $payout
+     * @param PayoutResponse|null $payout
      */
-    public function setPayout($payout)
+    public function setPayout(?PayoutResponse $payout): void
     {
         $this->payout = $payout;
     }
 
     /**
-     * @return RefundResponse
+     * @return RefundResponse|null
      */
-    public function getRefund()
+    public function getRefund(): ?RefundResponse
     {
         return $this->refund;
     }
 
     /**
-     * @param RefundResponse $refund
+     * @param RefundResponse|null $refund
      */
-    public function setRefund($refund)
+    public function setRefund(?RefundResponse $refund): void
     {
         $this->refund = $refund;
     }
 
     /**
-     * @return TokenResponse
+     * @return TokenResponse|null
      */
-    public function getToken()
+    public function getToken(): ?TokenResponse
     {
         return $this->token;
     }
 
     /**
-     * @param TokenResponse $token
+     * @param TokenResponse|null $token
      */
-    public function setToken($token)
+    public function setToken(?TokenResponse $token): void
     {
         $this->token = $token;
     }
@@ -162,40 +141,41 @@ class WebhooksEvent extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->apiVersion)) {
+        if ($this->apiVersion !== null) {
             $object->apiVersion = $this->apiVersion;
         }
-        if (!is_null($this->created)) {
+        if ($this->created !== null) {
             $object->created = $this->created;
         }
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->merchantId)) {
+        if ($this->merchantId !== null) {
             $object->merchantId = $this->merchantId;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
-        if (!is_null($this->directBatch)) {
+        if ($this->directBatch !== null) {
             $object->directBatch = $this->directBatch->toObject();
         }
-        if (!is_null($this->paymentLink)) {
+        if ($this->paymentLink !== null) {
             $object->paymentLink = $this->paymentLink->toObject();
         }
-        if (!is_null($this->payment)) {
+        if ($this->payment !== null) {
             $object->payment = $this->payment->toObject();
         }
-        if (!is_null($this->payout)) {
+        if ($this->payout !== null) {
             $object->payout = $this->payout->toObject();
         }
-        if (!is_null($this->refund)) {
+        if ($this->refund !== null) {
             $object->refund = $this->refund->toObject();
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token->toObject();
         }
         return $object;
@@ -206,7 +186,8 @@ class WebhooksEvent extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DataObject
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'apiVersion')) {

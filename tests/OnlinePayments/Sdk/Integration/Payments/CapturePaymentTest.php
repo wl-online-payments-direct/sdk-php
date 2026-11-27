@@ -27,7 +27,7 @@ class CapturePaymentTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testCapturePayment_ValidPayment_ReturnsCaptureRequestedStatus()
+    public function testCapturePayment_ValidPayment_ReturnsCaptureRequestedStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -40,7 +40,7 @@ class CapturePaymentTest extends TestCase
         $this->assertSame('CAPTURE_REQUESTED', $capture->getStatus());
     }
 
-    public function testCapturePayment_WithOnePartialAmount_ReturnsCaptureRequestedStatus()
+    public function testCapturePayment_WithOnePartialAmount_ReturnsCaptureRequestedStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -55,7 +55,7 @@ class CapturePaymentTest extends TestCase
         $this->assertNotNull($response->getStatus());
     }
 
-    public function testCapturePayment_WithTwoPartialAmounts_ReturnsCaptureRequestedStatus()
+    public function testCapturePayment_WithTwoPartialAmounts_ReturnsCaptureRequestedStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -80,7 +80,7 @@ class CapturePaymentTest extends TestCase
         $this->assertNotNull($secondCapture->getStatus());
     }
 
-    public function testCapturePayment_AfterPartialCapture_ReturnsValidationException()
+    public function testCapturePayment_AfterPartialCapture_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -103,7 +103,7 @@ class CapturePaymentTest extends TestCase
         }
     }
 
-    public function testCapturePayment_AfterPartialCancel_ReturnsCaptureRequestedStatus()
+    public function testCapturePayment_AfterPartialCancel_ReturnsCaptureRequestedStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -124,7 +124,7 @@ class CapturePaymentTest extends TestCase
         $this->assertNotNull($capture->getStatus());
     }
 
-    public function testCapturePayment_NonExistingPaymentId_ReturnsReferenceException()
+    public function testCapturePayment_NonExistingPaymentId_ReturnsReferenceException(): void
     {
         try {
             $captureRequest = CapturePaymentRequestBuilder::create()
@@ -139,7 +139,7 @@ class CapturePaymentTest extends TestCase
         }
     }
 
-    public function testCapturePayment_AfterCapture_ReturnsValidationException()
+    public function testCapturePayment_AfterCapture_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -159,7 +159,7 @@ class CapturePaymentTest extends TestCase
         }
     }
 
-    public function testCapturePayment_AfterCancel_ReturnsValidationException()
+    public function testCapturePayment_AfterCancel_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -182,7 +182,7 @@ class CapturePaymentTest extends TestCase
         }
     }
 
-    public function testCapturePayment_AfterRefund_ReturnsValidationException()
+    public function testCapturePayment_AfterRefund_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 

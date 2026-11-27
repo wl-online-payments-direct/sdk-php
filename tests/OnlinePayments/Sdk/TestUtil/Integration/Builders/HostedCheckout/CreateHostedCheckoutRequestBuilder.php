@@ -8,14 +8,18 @@ use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInputForHostedCheckout;
 use OnlinePayments\Sdk\Domain\ContactDetails;
 use OnlinePayments\Sdk\Domain\CreateHostedCheckoutRequest;
 use OnlinePayments\Sdk\Domain\Customer;
+use OnlinePayments\Sdk\Domain\Feedbacks;
+use OnlinePayments\Sdk\Domain\FraudFields;
 use OnlinePayments\Sdk\Domain\HostedCheckoutSpecificInput;
 use OnlinePayments\Sdk\Domain\MobilePaymentMethodHostedCheckoutSpecificInput;
 use OnlinePayments\Sdk\Domain\Order;
 use OnlinePayments\Sdk\Domain\OrderReferences;
+use OnlinePayments\Sdk\Domain\PaymentProductFiltersHostedCheckout;
 use OnlinePayments\Sdk\Domain\PersonalInformation;
 use OnlinePayments\Sdk\Domain\PersonalName;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\SepaDirectDebitPaymentMethodSpecificInputBase;
+use OnlinePayments\Sdk\Domain\SplitPaymentProductFiltersHostedCheckout;
 
 class CreateHostedCheckoutRequestBuilder
 {
@@ -50,10 +54,10 @@ class CreateHostedCheckoutRequestBuilder
     private ?string $state = null;
     private ?string $zip = null;
 
-    private $paymentProductFilters = null;
-    private $splitPaymentProductFilters = null;
-    private $feedbacks = null;
-    private $fraudFields = null;
+    private ?PaymentProductFiltersHostedCheckout $paymentProductFilters = null;
+    private ?SplitPaymentProductFiltersHostedCheckout $splitPaymentProductFilters = null;
+    private ?Feedbacks $feedbacks = null;
+    private ?FraudFields $fraudFields = null;
 
     private bool $cardClickToPay = false;
     private bool $cardGroupCards = false;
@@ -225,25 +229,25 @@ class CreateHostedCheckoutRequestBuilder
         return $this;
     }
 
-    public function withPaymentProductFilters($paymentProductFilters): self
+    public function withPaymentProductFilters(?PaymentProductFiltersHostedCheckout $paymentProductFilters): self
     {
         $this->paymentProductFilters = $paymentProductFilters;
         return $this;
     }
 
-    public function withSplitPaymentProductFilters($splitPaymentProductFilters): self
+    public function withSplitPaymentProductFilters(?SplitPaymentProductFiltersHostedCheckout $splitPaymentProductFilters): self
     {
         $this->splitPaymentProductFilters = $splitPaymentProductFilters;
         return $this;
     }
 
-    public function withFeedbacks($feedbacks): self
+    public function withFeedbacks(?Feedbacks $feedbacks): self
     {
         $this->feedbacks = $feedbacks;
         return $this;
     }
 
-    public function withFraudFields($fraudFields): self
+    public function withFraudFields(?FraudFields $fraudFields): self
     {
         $this->fraudFields = $fraudFields;
         return $this;
@@ -281,7 +285,6 @@ class CreateHostedCheckoutRequestBuilder
 
         if ($this->fraudFields !== null) {
             $request->setFraudFields($this->fraudFields);
-            $request['fraudFields'] = $this->fraudFields;
         }
 
         return $request;

@@ -13,17 +13,17 @@ class ProtectionEligibility extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $eligibility = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getEligibility(): ?string
     {
         return $this->eligibility;
@@ -31,7 +31,7 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEligibility(?string $value): void
     {
         $this->eligibility = $value;
@@ -39,9 +39,9 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProtectionEligibility
-    */
-    public function withEligibility(?string $value): ProtectionEligibility
+     * @return $this
+     */
+    public function withEligibility(?string $value): static
     {
         $this->eligibility = $value;
         return $this;
@@ -49,7 +49,7 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -57,7 +57,7 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -65,9 +65,9 @@ class ProtectionEligibility extends DataObject
 
     /**
      * @param string|null $value
-     * @return ProtectionEligibility
-    */
-    public function withType(?string $value): ProtectionEligibility
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -76,13 +76,14 @@ class ProtectionEligibility extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->eligibility)) {
+        if ($this->eligibility !== null) {
             $object->eligibility = $this->eligibility;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
         return $object;
@@ -94,7 +95,8 @@ class ProtectionEligibility extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ProtectionEligibility
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'eligibility')) {

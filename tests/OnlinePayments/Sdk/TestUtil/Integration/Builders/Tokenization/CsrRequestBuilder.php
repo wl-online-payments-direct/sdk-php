@@ -7,9 +7,9 @@ use OnlinePayments\Sdk\Domain\CsrRequest;
 class CsrRequestBuilder
 {
     private const VALID_CSR = "-----BEGIN CERTIFICATE REQUEST-----\n"
-    . "MIICljCCAX4CAQAwDQYJKoZIhvcNAQEBBQAwDTELMAkGA1UEAwwCQ0EwggEiMA0G\n"
-    . "CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCQfbsVzv0L8pKH2l8q6EJf0fzxnDlW\n"
-    . "-----END CERTIFICATE REQUEST-----";
+        . "MIICljCCAX4CAQAwDQYJKoZIhvcNAQEBBQAwDTELMAkGA1UEAwwCQ0EwggEiMA0G\n"
+        . "CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCQfbsVzv0L8pKH2l8q6EJf0fzxnDlW\n"
+        . "-----END CERTIFICATE REQUEST-----";
 
     private string $csr = self::VALID_CSR;
 

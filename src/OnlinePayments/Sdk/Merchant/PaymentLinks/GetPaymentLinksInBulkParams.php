@@ -35,12 +35,12 @@ class GetPaymentLinksInBulkParams extends RequestObject
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->operationGroupReference != null) {
+        if ($this->operationGroupReference !== null) {
             $array['operationGroupReference'] = $this->operationGroupReference;
         }
         return $array;

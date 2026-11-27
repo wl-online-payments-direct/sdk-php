@@ -90,14 +90,14 @@ class IncrementAuthorizationTest extends TestCase
 
         $firstResponse = $this->preAuthorizationClient->incrementAuthorization(
             $paymentId,
-            IncrementAuthorizationRequestBuilder::create()->withAmount(1300)->build()
+            IncrementAuthorizationRequestBuilder::create()->withAmount(1300)->build(),
         );
 
         $this->assertNotNull($firstResponse->getPayment());
 
         $secondResponse = $this->preAuthorizationClient->incrementAuthorization(
             $paymentId,
-            IncrementAuthorizationRequestBuilder::create()->withAmount(self::INCREMENTED_AMOUNT)->build()
+            IncrementAuthorizationRequestBuilder::create()->withAmount(self::INCREMENTED_AMOUNT)->build(),
         );
 
         $this->assertNotNull($secondResponse->getPayment());
@@ -117,7 +117,7 @@ class IncrementAuthorizationTest extends TestCase
 
         $this->preAuthorizationClient->incrementAuthorization(
             $paymentId,
-            IncrementAuthorizationRequestBuilder::create()->withAmount(self::INCREMENTED_AMOUNT)->build()
+            IncrementAuthorizationRequestBuilder::create()->withAmount(self::INCREMENTED_AMOUNT)->build(),
         );
 
         $captureRequest = CapturePaymentRequestBuilder::create()
@@ -136,7 +136,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 self::NON_EXISTING_PAYMENT_ID,
-                IncrementAuthorizationRequestBuilder::create()->build()
+                IncrementAuthorizationRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ReferenceException was not thrown');
@@ -165,7 +165,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 $paymentId,
-                IncrementAuthorizationRequestBuilder::create()->withAmount(0)->build()
+                IncrementAuthorizationRequestBuilder::create()->withAmount(0)->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');
@@ -181,7 +181,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 $paymentId,
-                IncrementAuthorizationRequestBuilder::create()->withCurrency('USD')->build()
+                IncrementAuthorizationRequestBuilder::create()->withCurrency('USD')->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');
@@ -197,7 +197,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 $paymentId,
-                IncrementAuthorizationRequestBuilder::create()->build()
+                IncrementAuthorizationRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');
@@ -215,7 +215,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 $paymentId,
-                IncrementAuthorizationRequestBuilder::create()->build()
+                IncrementAuthorizationRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');
@@ -238,7 +238,7 @@ class IncrementAuthorizationTest extends TestCase
         try {
             $this->preAuthorizationClient->incrementAuthorization(
                 $paymentId,
-                IncrementAuthorizationRequestBuilder::create()->build()
+                IncrementAuthorizationRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');

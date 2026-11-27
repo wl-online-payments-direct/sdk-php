@@ -25,7 +25,7 @@ class CancelPaymentLinkByIdTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testCancelPaymentLinkById_ValidPaymentLinkId_SuccessfullyCancelsPaymentLink()
+    public function testCancelPaymentLinkById_ValidPaymentLinkId_SuccessfullyCancelsPaymentLink(): void
     {
         $paymentLinkId = $this->sdkHelper->createPaymentLinkAndGetId();
 
@@ -38,7 +38,7 @@ class CancelPaymentLinkByIdTest extends TestCase
         $this->assertEquals('CANCELLED', $response->getPaymentLinkEvents()[1]->getType());
     }
 
-    public function testCancelPaymentLinkById_NonExistentPaymentLinkId_ReturnsReferenceException()
+    public function testCancelPaymentLinkById_NonExistentPaymentLinkId_ReturnsReferenceException(): void
     {
         try {
             $this->paymentLinksClient->cancelPaymentLinkById(self::UNKNOWN_PAYMENT_LINK_ID);
@@ -49,7 +49,7 @@ class CancelPaymentLinkByIdTest extends TestCase
         }
     }
 
-    public function testCancelPaymentLinkById_InvalidPaymentLinkIdFormat_ReturnsValidationException()
+    public function testCancelPaymentLinkById_InvalidPaymentLinkIdFormat_ReturnsValidationException(): void
     {
         try {
             $this->paymentLinksClient->cancelPaymentLinkById(self::INVALID_PAYMENT_LINK_ID);
@@ -61,7 +61,7 @@ class CancelPaymentLinkByIdTest extends TestCase
         }
     }
 
-    public function testCancelPaymentLinkById_AlreadyCancelled_ReturnsReferenceException()
+    public function testCancelPaymentLinkById_AlreadyCancelled_ReturnsReferenceException(): void
     {
         $paymentLinkId = $this->sdkHelper->createPaymentLinkAndGetId();
 

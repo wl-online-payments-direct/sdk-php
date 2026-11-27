@@ -13,12 +13,12 @@ class RegularExpressionValidator extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $regularExpression = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getRegularExpression(): ?string
     {
         return $this->regularExpression;
@@ -26,7 +26,7 @@ class RegularExpressionValidator extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRegularExpression(?string $value): void
     {
         $this->regularExpression = $value;
@@ -34,9 +34,9 @@ class RegularExpressionValidator extends DataObject
 
     /**
      * @param string|null $value
-     * @return RegularExpressionValidator
-    */
-    public function withRegularExpression(?string $value): RegularExpressionValidator
+     * @return $this
+     */
+    public function withRegularExpression(?string $value): static
     {
         $this->regularExpression = $value;
         return $this;
@@ -45,10 +45,11 @@ class RegularExpressionValidator extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->regularExpression)) {
+        if ($this->regularExpression !== null) {
             $object->regularExpression = $this->regularExpression;
         }
         return $object;
@@ -60,7 +61,8 @@ class RegularExpressionValidator extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RegularExpressionValidator
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'regularExpression')) {

@@ -13,27 +13,27 @@ class PayoutResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var PayoutOutput|null
-    */
+     */
     public ?PayoutOutput $payoutOutput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @var PayoutStatusOutput|null
-    */
+     */
     public ?PayoutStatusOutput $statusOutput = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,7 +41,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -49,9 +49,9 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PayoutResponse
-    */
-    public function withId(?string $value): PayoutResponse
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -59,7 +59,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @return PayoutOutput|null
-    */
+     */
     public function getPayoutOutput(): ?PayoutOutput
     {
         return $this->payoutOutput;
@@ -67,7 +67,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutOutput|null $value
-    */
+     */
     public function setPayoutOutput(?PayoutOutput $value): void
     {
         $this->payoutOutput = $value;
@@ -75,9 +75,9 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutOutput|null $value
-     * @return PayoutResponse
-    */
-    public function withPayoutOutput(?PayoutOutput $value): PayoutResponse
+     * @return $this
+     */
+    public function withPayoutOutput(?PayoutOutput $value): static
     {
         $this->payoutOutput = $value;
         return $this;
@@ -85,7 +85,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -93,7 +93,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -101,9 +101,9 @@ class PayoutResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PayoutResponse
-    */
-    public function withStatus(?string $value): PayoutResponse
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -111,7 +111,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @return PayoutStatusOutput|null
-    */
+     */
     public function getStatusOutput(): ?PayoutStatusOutput
     {
         return $this->statusOutput;
@@ -119,7 +119,7 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutStatusOutput|null $value
-    */
+     */
     public function setStatusOutput(?PayoutStatusOutput $value): void
     {
         $this->statusOutput = $value;
@@ -127,9 +127,9 @@ class PayoutResponse extends DataObject
 
     /**
      * @param PayoutStatusOutput|null $value
-     * @return PayoutResponse
-    */
-    public function withStatusOutput(?PayoutStatusOutput $value): PayoutResponse
+     * @return $this
+     */
+    public function withStatusOutput(?PayoutStatusOutput $value): static
     {
         $this->statusOutput = $value;
         return $this;
@@ -138,19 +138,20 @@ class PayoutResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->payoutOutput)) {
+        if ($this->payoutOutput !== null) {
             $object->payoutOutput = $this->payoutOutput->toObject();
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
-        if (!is_null($this->statusOutput)) {
+        if ($this->statusOutput !== null) {
             $object->statusOutput = $this->statusOutput->toObject();
         }
         return $object;
@@ -162,7 +163,8 @@ class PayoutResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PayoutResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'id')) {

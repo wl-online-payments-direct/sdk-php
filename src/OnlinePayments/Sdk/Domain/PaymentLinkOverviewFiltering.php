@@ -13,17 +13,17 @@ class PaymentLinkOverviewFiltering extends DataObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $merchantIds = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $status = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getMerchantIds(): ?array
     {
         return $this->merchantIds;
@@ -31,7 +31,7 @@ class PaymentLinkOverviewFiltering extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setMerchantIds(?array $value): void
     {
         $this->merchantIds = $value;
@@ -39,9 +39,9 @@ class PaymentLinkOverviewFiltering extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return PaymentLinkOverviewFiltering
-    */
-    public function withMerchantIds(?array $value): PaymentLinkOverviewFiltering
+     * @return $this
+     */
+    public function withMerchantIds(?array $value): static
     {
         $this->merchantIds = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentLinkOverviewFiltering extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getStatus(): ?array
     {
         return $this->status;
@@ -57,7 +57,7 @@ class PaymentLinkOverviewFiltering extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setStatus(?array $value): void
     {
         $this->status = $value;
@@ -65,9 +65,9 @@ class PaymentLinkOverviewFiltering extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return PaymentLinkOverviewFiltering
-    */
-    public function withStatus(?array $value): PaymentLinkOverviewFiltering
+     * @return $this
+     */
+    public function withStatus(?array $value): static
     {
         $this->status = $value;
         return $this;
@@ -76,21 +76,22 @@ class PaymentLinkOverviewFiltering extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->merchantIds)) {
+        if ($this->merchantIds !== null) {
             $object->merchantIds = [];
             foreach ($this->merchantIds as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->merchantIds[] = $element;
                 }
             }
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = [];
             foreach ($this->status as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->status[] = $element;
                 }
             }
@@ -104,7 +105,8 @@ class PaymentLinkOverviewFiltering extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOverviewFiltering
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'merchantIds')) {

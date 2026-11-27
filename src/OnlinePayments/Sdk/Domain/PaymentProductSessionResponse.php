@@ -13,12 +13,12 @@ class PaymentProductSessionResponse extends DataObject
 {
     /**
      * @var PaymentProductSession302SpecificOutput|null
-    */
+     */
     public ?PaymentProductSession302SpecificOutput $paymentProductSession302SpecificOutput = null;
 
     /**
      * @return PaymentProductSession302SpecificOutput|null
-    */
+     */
     public function getPaymentProductSession302SpecificOutput(): ?PaymentProductSession302SpecificOutput
     {
         return $this->paymentProductSession302SpecificOutput;
@@ -26,7 +26,7 @@ class PaymentProductSessionResponse extends DataObject
 
     /**
      * @param PaymentProductSession302SpecificOutput|null $value
-    */
+     */
     public function setPaymentProductSession302SpecificOutput(?PaymentProductSession302SpecificOutput $value): void
     {
         $this->paymentProductSession302SpecificOutput = $value;
@@ -34,9 +34,9 @@ class PaymentProductSessionResponse extends DataObject
 
     /**
      * @param PaymentProductSession302SpecificOutput|null $value
-     * @return PaymentProductSessionResponse
-    */
-    public function withPaymentProductSession302SpecificOutput(?PaymentProductSession302SpecificOutput $value): PaymentProductSessionResponse
+     * @return $this
+     */
+    public function withPaymentProductSession302SpecificOutput(?PaymentProductSession302SpecificOutput $value): static
     {
         $this->paymentProductSession302SpecificOutput = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProductSessionResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentProductSession302SpecificOutput)) {
+        if ($this->paymentProductSession302SpecificOutput !== null) {
             $object->paymentProductSession302SpecificOutput = $this->paymentProductSession302SpecificOutput->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProductSessionResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductSessionResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProductSession302SpecificOutput')) {

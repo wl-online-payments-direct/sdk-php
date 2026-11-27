@@ -15,27 +15,27 @@ class GetPaymentProductNetworksParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -43,7 +43,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -51,8 +51,9 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCountryCode(string $value): GetPaymentProductNetworksParams
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -60,7 +61,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -68,7 +69,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -76,8 +77,9 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCurrencyCode(string $value): GetPaymentProductNetworksParams
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
@@ -85,7 +87,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -93,7 +95,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -101,8 +103,9 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
-    public function withAmount(int $value): GetPaymentProductNetworksParams
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -110,7 +113,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -118,7 +121,7 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -126,29 +129,30 @@ class GetPaymentProductNetworksParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
-    public function withIsRecurring(bool $value): GetPaymentProductNetworksParams
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->countryCode != null) {
+        if ($this->countryCode !== null) {
             $array['countryCode'] = $this->countryCode;
         }
-        if ($this->currencyCode != null) {
+        if ($this->currencyCode !== null) {
             $array['currencyCode'] = $this->currencyCode;
         }
-        if ($this->amount != null) {
+        if ($this->amount !== null) {
             $array['amount'] = $this->amount;
         }
-        if ($this->isRecurring != null) {
+        if ($this->isRecurring !== null) {
             $array['isRecurring'] = $this->isRecurring ? 'true' : 'false';
         }
         return $array;

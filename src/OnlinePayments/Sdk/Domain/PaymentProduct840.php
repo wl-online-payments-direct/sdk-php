@@ -13,12 +13,12 @@ class PaymentProduct840 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $orderId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getOrderId(): ?string
     {
         return $this->orderId;
@@ -26,7 +26,7 @@ class PaymentProduct840 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOrderId(?string $value): void
     {
         $this->orderId = $value;
@@ -34,9 +34,9 @@ class PaymentProduct840 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840
-    */
-    public function withOrderId(?string $value): PaymentProduct840
+     * @return $this
+     */
+    public function withOrderId(?string $value): static
     {
         $this->orderId = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProduct840 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->orderId)) {
+        if ($this->orderId !== null) {
             $object->orderId = $this->orderId;
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProduct840 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct840
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'orderId')) {

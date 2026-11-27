@@ -13,32 +13,32 @@ class LoanRecipient extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $accountNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $dateOfBirth = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $partialPan = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surname = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $zip = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAccountNumber(): ?string
     {
         return $this->accountNumber;
@@ -46,7 +46,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAccountNumber(?string $value): void
     {
         $this->accountNumber = $value;
@@ -54,9 +54,9 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     * @return LoanRecipient
-    */
-    public function withAccountNumber(?string $value): LoanRecipient
+     * @return $this
+     */
+    public function withAccountNumber(?string $value): static
     {
         $this->accountNumber = $value;
         return $this;
@@ -64,7 +64,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
@@ -72,7 +72,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDateOfBirth(?string $value): void
     {
         $this->dateOfBirth = $value;
@@ -80,9 +80,9 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     * @return LoanRecipient
-    */
-    public function withDateOfBirth(?string $value): LoanRecipient
+     * @return $this
+     */
+    public function withDateOfBirth(?string $value): static
     {
         $this->dateOfBirth = $value;
         return $this;
@@ -90,7 +90,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPartialPan(): ?string
     {
         return $this->partialPan;
@@ -98,7 +98,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPartialPan(?string $value): void
     {
         $this->partialPan = $value;
@@ -106,9 +106,9 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     * @return LoanRecipient
-    */
-    public function withPartialPan(?string $value): LoanRecipient
+     * @return $this
+     */
+    public function withPartialPan(?string $value): static
     {
         $this->partialPan = $value;
         return $this;
@@ -116,7 +116,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -124,7 +124,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
@@ -132,9 +132,9 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     * @return LoanRecipient
-    */
-    public function withSurname(?string $value): LoanRecipient
+     * @return $this
+     */
+    public function withSurname(?string $value): static
     {
         $this->surname = $value;
         return $this;
@@ -142,7 +142,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getZip(): ?string
     {
         return $this->zip;
@@ -150,7 +150,7 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setZip(?string $value): void
     {
         $this->zip = $value;
@@ -158,9 +158,9 @@ class LoanRecipient extends DataObject
 
     /**
      * @param string|null $value
-     * @return LoanRecipient
-    */
-    public function withZip(?string $value): LoanRecipient
+     * @return $this
+     */
+    public function withZip(?string $value): static
     {
         $this->zip = $value;
         return $this;
@@ -169,22 +169,23 @@ class LoanRecipient extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountNumber)) {
+        if ($this->accountNumber !== null) {
             $object->accountNumber = $this->accountNumber;
         }
-        if (!is_null($this->dateOfBirth)) {
+        if ($this->dateOfBirth !== null) {
             $object->dateOfBirth = $this->dateOfBirth;
         }
-        if (!is_null($this->partialPan)) {
+        if ($this->partialPan !== null) {
             $object->partialPan = $this->partialPan;
         }
-        if (!is_null($this->surname)) {
+        if ($this->surname !== null) {
             $object->surname = $this->surname;
         }
-        if (!is_null($this->zip)) {
+        if ($this->zip !== null) {
             $object->zip = $this->zip;
         }
         return $object;
@@ -196,7 +197,8 @@ class LoanRecipient extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): LoanRecipient
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountNumber')) {

@@ -13,17 +13,17 @@ class PaymentProductSession302SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $displayName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $domainName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDisplayName(): ?string
     {
         return $this->displayName;
@@ -31,7 +31,7 @@ class PaymentProductSession302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDisplayName(?string $value): void
     {
         $this->displayName = $value;
@@ -39,9 +39,9 @@ class PaymentProductSession302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductSession302SpecificInput
-    */
-    public function withDisplayName(?string $value): PaymentProductSession302SpecificInput
+     * @return $this
+     */
+    public function withDisplayName(?string $value): static
     {
         $this->displayName = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProductSession302SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDomainName(): ?string
     {
         return $this->domainName;
@@ -57,7 +57,7 @@ class PaymentProductSession302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDomainName(?string $value): void
     {
         $this->domainName = $value;
@@ -65,9 +65,9 @@ class PaymentProductSession302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductSession302SpecificInput
-    */
-    public function withDomainName(?string $value): PaymentProductSession302SpecificInput
+     * @return $this
+     */
+    public function withDomainName(?string $value): static
     {
         $this->domainName = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProductSession302SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->displayName)) {
+        if ($this->displayName !== null) {
             $object->displayName = $this->displayName;
         }
-        if (!is_null($this->domainName)) {
+        if ($this->domainName !== null) {
             $object->domainName = $this->domainName;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProductSession302SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductSession302SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'displayName')) {

@@ -7,6 +7,7 @@ namespace OnlinePayments\Sdk;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\Domain\PayoutErrorResponse;
 use OnlinePayments\Sdk\Domain\PayoutResult;
+use Throwable;
 
 /**
  * Class DeclinedPayoutException
@@ -16,21 +17,26 @@ use OnlinePayments\Sdk\Domain\PayoutResult;
 class DeclinedPayoutException extends ResponseException
 {
     /**
-     * @param int         $httpStatusCode
-     * @param DataObject  $response
-     * @param string|null $message
+     * @param int            $httpStatusCode
+     * @param DataObject     $response
+     * @param string|null    $message
+     * @param Throwable|null $previous
      */
-    public function __construct(int $httpStatusCode, DataObject $response, ?string $message = null)
-    {
-        if (is_null($message)) {
-            $message = DeclinedPayoutException::buildMessage($response);
+    public function __construct(
+        int        $httpStatusCode,
+        DataObject $response,
+        ?string    $message = null,
+        ?Throwable $previous = null
+    ) {
+        if ($message === null) {
+            $message = self::buildMessage($response);
         }
-        parent::__construct($httpStatusCode, $response, $message);
+        parent::__construct($httpStatusCode, $response, $message, $previous);
     }
 
     private static function buildMessage(DataObject $response): string
     {
-        if ($response instanceof PayoutErrorResponse && $response->payoutResult != null) {
+        if ($response instanceof PayoutErrorResponse && $response->payoutResult !== null) {
             $payoutResult = $response->payoutResult;
             return "declined payout '$payoutResult->id' with status '$payoutResult->status'";
         }

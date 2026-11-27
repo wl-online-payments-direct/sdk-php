@@ -17,8 +17,8 @@ class HeaderObfuscatorTest extends TestCase
     #[DataProvider('headerObfuscatorProvider')]
     public function testHeaderObfuscator_ObfuscateStandardHeaders_ReturnsObfuscatedAuthorization(
         array $headers,
-        array $obfuscatedHeaders
-    ) {
+        array $obfuscatedHeaders,
+    ): void {
         $headerObfuscator = new HeaderObfuscator();
         $this->assertEquals($obfuscatedHeaders, $headerObfuscator->obfuscateHeaders($headers));
     }
@@ -30,8 +30,8 @@ class HeaderObfuscatorTest extends TestCase
     #[DataProvider('customHeaderObfuscatorProvider')]
     public function testHeaderObfuscator_ObfuscateCustomHeaders_AppliesCustomRules(
         array $headers,
-        array $obfuscatedHeaders
-    ) {
+        array $obfuscatedHeaders,
+    ): void {
         $headerObfuscator = new HeaderObfuscator();
 
         $headerObfuscator->setCustomRule('content-type', function ($value, $valueObfuscator) {
@@ -44,7 +44,7 @@ class HeaderObfuscatorTest extends TestCase
 
         $this->assertEquals(
             $obfuscatedHeaders,
-            $headerObfuscator->obfuscateHeaders($headers)
+            $headerObfuscator->obfuscateHeaders($headers),
         );
     }
 
@@ -98,69 +98,75 @@ class HeaderObfuscatorTest extends TestCase
         $this->assertSame(['Authorization' => '********'], $obfuscated);
     }
 
+    /**
+     * @return array<int, array{0: array<int|string, string|string[]>, 1: array<int|string, string|string[]>}>
+     */
     public static function headerObfuscatorProvider(): array
     {
-        return array(
-            array(
-                array(),array()
-            ),
-            array(
-                array('Authorization' => 'foo'),
-                array('Authorization' => '********')
-            ),
-            array(
-                array('authorization' => 'foo'),
-                array('authorization' => '********')
-            ),
-            array(
-                array('Authorisation' => 'foo'),
-                array('Authorisation' => 'foo')
-            ),
-            array(
-                array('Authorization' => 'foo', 'Content-Type' => 'application/json'),
-                array('Authorization' => '********', 'Content-Type' => 'application/json')
-            ),
-            array(
-                array(0 => 'HTTP/1.1 200 OK'),
-                array(0 => 'HTTP/1.1 200 OK')
-            ),
-            array(
-                array('Authorization' => array('foo', 'bar')),
-                array('Authorization' => array('********', '********'))
-            )
-        );
+        return [
+            [
+                [],[],
+            ],
+            [
+                ['Authorization' => 'foo'],
+                ['Authorization' => '********'],
+            ],
+            [
+                ['authorization' => 'foo'],
+                ['authorization' => '********'],
+            ],
+            [
+                ['Authorisation' => 'foo'],
+                ['Authorisation' => 'foo'],
+            ],
+            [
+                ['Authorization' => 'foo', 'Content-Type' => 'application/json'],
+                ['Authorization' => '********', 'Content-Type' => 'application/json'],
+            ],
+            [
+                [0 => 'HTTP/1.1 200 OK'],
+                [0 => 'HTTP/1.1 200 OK'],
+            ],
+            [
+                ['Authorization' => ['foo', 'bar']],
+                ['Authorization' => ['********', '********']],
+            ],
+        ];
     }
 
+    /**
+     * @return array<int, array{0: array<int|string, string|string[]>, 1: array<int|string, string|string[]>}>
+     */
     public static function customHeaderObfuscatorProvider(): array
     {
-        return array(
-            array(
-                array(),array()
-            ),
-            array(
-                array('Authorization' => 'foo'),
-                array('Authorization' => '*****')
-            ),
-            array(
-                array('authorization' => 'foo'),
-                array('authorization' => '*****')
-            ),
-            array(
-                array('Authorisation' => 'foo'),
-                array('Authorisation' => 'foo')
-            ),
-            array(
-                array('Authorization' => 'foo', 'Content-Type' => 'application/json'),
-                array('Authorization' => '*****', 'Content-Type' => '****************')
-            ),
-            array(
-                array(0 => 'HTTP/1.1 200 OK'),
-                array(0 => 'HTTP/1.1 200 OK')
-            ),
-            array(
-                array('Authorization' => array('foo', 'bar')),
-                array('Authorization' => array('*****', '*****'))
-            )
-        );
+        return [
+            [
+                [],[],
+            ],
+            [
+                ['Authorization' => 'foo'],
+                ['Authorization' => '*****'],
+            ],
+            [
+                ['authorization' => 'foo'],
+                ['authorization' => '*****'],
+            ],
+            [
+                ['Authorisation' => 'foo'],
+                ['Authorisation' => 'foo'],
+            ],
+            [
+                ['Authorization' => 'foo', 'Content-Type' => 'application/json'],
+                ['Authorization' => '*****', 'Content-Type' => '****************'],
+            ],
+            [
+                [0 => 'HTTP/1.1 200 OK'],
+                [0 => 'HTTP/1.1 200 OK'],
+            ],
+            [
+                ['Authorization' => ['foo', 'bar']],
+                ['Authorization' => ['*****', '*****']],
+            ],
+        ];
     }
 }

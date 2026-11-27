@@ -13,17 +13,17 @@ class PaymentProductFiltersHostedFields extends DataObject
 {
     /**
      * @var int[]|null
-    */
+     */
     public ?array $exclude = null;
 
     /**
      * @var int[]|null
-    */
+     */
     public ?array $restrictTo = null;
 
     /**
      * @return int[]|null
-    */
+     */
     public function getExclude(): ?array
     {
         return $this->exclude;
@@ -31,7 +31,7 @@ class PaymentProductFiltersHostedFields extends DataObject
 
     /**
      * @param int[]|null $value
-    */
+     */
     public function setExclude(?array $value): void
     {
         $this->exclude = $value;
@@ -39,9 +39,9 @@ class PaymentProductFiltersHostedFields extends DataObject
 
     /**
      * @param int[]|null $value
-     * @return PaymentProductFiltersHostedFields
-    */
-    public function withExclude(?array $value): PaymentProductFiltersHostedFields
+     * @return $this
+     */
+    public function withExclude(?array $value): static
     {
         $this->exclude = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProductFiltersHostedFields extends DataObject
 
     /**
      * @return int[]|null
-    */
+     */
     public function getRestrictTo(): ?array
     {
         return $this->restrictTo;
@@ -57,7 +57,7 @@ class PaymentProductFiltersHostedFields extends DataObject
 
     /**
      * @param int[]|null $value
-    */
+     */
     public function setRestrictTo(?array $value): void
     {
         $this->restrictTo = $value;
@@ -65,9 +65,9 @@ class PaymentProductFiltersHostedFields extends DataObject
 
     /**
      * @param int[]|null $value
-     * @return PaymentProductFiltersHostedFields
-    */
-    public function withRestrictTo(?array $value): PaymentProductFiltersHostedFields
+     * @return $this
+     */
+    public function withRestrictTo(?array $value): static
     {
         $this->restrictTo = $value;
         return $this;
@@ -76,21 +76,22 @@ class PaymentProductFiltersHostedFields extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->exclude)) {
+        if ($this->exclude !== null) {
             $object->exclude = [];
             foreach ($this->exclude as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->exclude[] = $element;
                 }
             }
         }
-        if (!is_null($this->restrictTo)) {
+        if ($this->restrictTo !== null) {
             $object->restrictTo = [];
             foreach ($this->restrictTo as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->restrictTo[] = $element;
                 }
             }
@@ -104,7 +105,8 @@ class PaymentProductFiltersHostedFields extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFiltersHostedFields
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'exclude')) {

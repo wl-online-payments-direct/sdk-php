@@ -13,17 +13,17 @@ class PaymentsReportResponse extends DataObject
 {
     /**
      * @var CursorPaginationInfo|null
-    */
+     */
     public ?CursorPaginationInfo $pagination = null;
 
     /**
      * @var PaymentSummary[]|null
-    */
+     */
     public ?array $payments = null;
 
     /**
      * @return CursorPaginationInfo|null
-    */
+     */
     public function getPagination(): ?CursorPaginationInfo
     {
         return $this->pagination;
@@ -31,7 +31,7 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param CursorPaginationInfo|null $value
-    */
+     */
     public function setPagination(?CursorPaginationInfo $value): void
     {
         $this->pagination = $value;
@@ -39,9 +39,9 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param CursorPaginationInfo|null $value
-     * @return PaymentsReportResponse
-    */
-    public function withPagination(?CursorPaginationInfo $value): PaymentsReportResponse
+     * @return $this
+     */
+    public function withPagination(?CursorPaginationInfo $value): static
     {
         $this->pagination = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @return PaymentSummary[]|null
-    */
+     */
     public function getPayments(): ?array
     {
         return $this->payments;
@@ -57,7 +57,7 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param PaymentSummary[]|null $value
-    */
+     */
     public function setPayments(?array $value): void
     {
         $this->payments = $value;
@@ -65,9 +65,9 @@ class PaymentsReportResponse extends DataObject
 
     /**
      * @param PaymentSummary[]|null $value
-     * @return PaymentsReportResponse
-    */
-    public function withPayments(?array $value): PaymentsReportResponse
+     * @return $this
+     */
+    public function withPayments(?array $value): static
     {
         $this->payments = $value;
         return $this;
@@ -76,16 +76,17 @@ class PaymentsReportResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->pagination)) {
+        if ($this->pagination !== null) {
             $object->pagination = $this->pagination->toObject();
         }
-        if (!is_null($this->payments)) {
+        if ($this->payments !== null) {
             $object->payments = [];
             foreach ($this->payments as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->payments[] = $element->toObject();
                 }
             }
@@ -99,7 +100,8 @@ class PaymentsReportResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentsReportResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'pagination')) {

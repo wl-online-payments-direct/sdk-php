@@ -13,29 +13,29 @@ class AccountOnFileAttribute extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $key = null;
 
     /**
      * @var string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public ?string $mustWriteReason = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $value = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getKey(): ?string
     {
         return $this->key;
@@ -43,7 +43,7 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setKey(?string $value): void
     {
         $this->key = $value;
@@ -51,9 +51,9 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFileAttribute
-    */
-    public function withKey(?string $value): AccountOnFileAttribute
+     * @return $this
+     */
+    public function withKey(?string $value): static
     {
         $this->key = $value;
         return $this;
@@ -63,7 +63,7 @@ class AccountOnFileAttribute extends DataObject
      * @return string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public function getMustWriteReason(): ?string
     {
         return $this->mustWriteReason;
@@ -73,7 +73,7 @@ class AccountOnFileAttribute extends DataObject
      * @param string|null $value
      *
      * @deprecated Deprecated
-    */
+     */
     public function setMustWriteReason(?string $value): void
     {
         $this->mustWriteReason = $value;
@@ -81,11 +81,11 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFileAttribute
+     * @return $this
      *
      * @deprecated Deprecated
-    */
-    public function withMustWriteReason(?string $value): AccountOnFileAttribute
+     */
+    public function withMustWriteReason(?string $value): static
     {
         $this->mustWriteReason = $value;
         return $this;
@@ -93,7 +93,7 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -101,7 +101,7 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -109,9 +109,9 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFileAttribute
-    */
-    public function withStatus(?string $value): AccountOnFileAttribute
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -119,7 +119,7 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getValue(): ?string
     {
         return $this->value;
@@ -127,7 +127,7 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;
@@ -135,9 +135,9 @@ class AccountOnFileAttribute extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFileAttribute
-    */
-    public function withValue(?string $value): AccountOnFileAttribute
+     * @return $this
+     */
+    public function withValue(?string $value): static
     {
         $this->value = $value;
         return $this;
@@ -146,19 +146,20 @@ class AccountOnFileAttribute extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->key)) {
+        if ($this->key !== null) {
             $object->key = $this->key;
         }
-        if (!is_null($this->mustWriteReason)) {
+        if ($this->mustWriteReason !== null) {
             $object->mustWriteReason = $this->mustWriteReason;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
-        if (!is_null($this->value)) {
+        if ($this->value !== null) {
             $object->value = $this->value;
         }
         return $object;
@@ -170,7 +171,8 @@ class AccountOnFileAttribute extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AccountOnFileAttribute
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'key')) {

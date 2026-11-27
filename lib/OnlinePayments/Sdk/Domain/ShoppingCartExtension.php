@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Domain;
 
 use UnexpectedValueException;
@@ -10,24 +11,16 @@ use UnexpectedValueException;
  */
 class ShoppingCartExtension extends DataObject
 {
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public ?string $creator = null;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public ?string $name = null;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public ?string $version = null;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public ?string $extensionId = null;
 
     /**
@@ -47,19 +40,20 @@ class ShoppingCartExtension extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->creator)) {
+        if ($this->creator !== null) {
             $object->creator = $this->creator;
         }
-        if (!is_null($this->name)) {
+        if ($this->name !== null) {
             $object->name = $this->name;
         }
-        if (!is_null($this->version)) {
+        if ($this->version !== null) {
             $object->version = $this->version;
         }
-        if (!is_null($this->extensionId)) {
+        if ($this->extensionId !== null) {
             $object->extensionId = $this->extensionId;
         }
         return $object;
@@ -70,7 +64,8 @@ class ShoppingCartExtension extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShoppingCartExtension
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'creator')) {

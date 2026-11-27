@@ -10,10 +10,12 @@ use PHPUnit\Framework\TestCase;
 #[Group('http')]
 class BodyHandlerTest extends TestCase
 {
-    public function testBodyHandler_HandleBodyPart_FirstCall_InitializesOnceAndProcessesAllParts()
+    public function testBodyHandler_HandleBodyPart_FirstCall_InitializesOnceAndProcessesAllParts(): void
     {
         $handler = new class extends BodyHandler {
+            /** @var array<int|string, string|string[]> */
             public array $initHeaders = [];
+            /** @var string[] */
             public array $parts = [];
             public int $cleanupCount = 0;
 
@@ -46,7 +48,7 @@ class BodyHandlerTest extends TestCase
         $this->assertEquals(1, $handler->cleanupCount);
     }
 
-    public function testBodyHandler_Close_AfterHandlingParts_ResetsInitializationState()
+    public function testBodyHandler_Close_AfterHandlingParts_ResetsInitializationState(): void
     {
         $handler = new class extends BodyHandler {
             public int $initCount = 0;

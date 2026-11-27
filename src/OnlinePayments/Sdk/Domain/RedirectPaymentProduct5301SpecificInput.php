@@ -13,12 +13,12 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentMethodType = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentMethodType(): ?string
     {
         return $this->paymentMethodType;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentMethodType(?string $value): void
     {
         $this->paymentMethodType = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5301SpecificInput
-    */
-    public function withPaymentMethodType(?string $value): RedirectPaymentProduct5301SpecificInput
+     * @return $this
+     */
+    public function withPaymentMethodType(?string $value): static
     {
         $this->paymentMethodType = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentMethodType)) {
+        if ($this->paymentMethodType !== null) {
             $object->paymentMethodType = $this->paymentMethodType;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct5301SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5301SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentMethodType')) {

@@ -13,12 +13,12 @@ class RedirectionData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $returnUrl = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
@@ -26,7 +26,7 @@ class RedirectionData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setReturnUrl(?string $value): void
     {
         $this->returnUrl = $value;
@@ -34,9 +34,9 @@ class RedirectionData extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectionData
-    */
-    public function withReturnUrl(?string $value): RedirectionData
+     * @return $this
+     */
+    public function withReturnUrl(?string $value): static
     {
         $this->returnUrl = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectionData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->returnUrl)) {
+        if ($this->returnUrl !== null) {
             $object->returnUrl = $this->returnUrl;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectionData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectionData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'returnUrl')) {

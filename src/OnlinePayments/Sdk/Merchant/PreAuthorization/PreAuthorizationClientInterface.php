@@ -40,7 +40,7 @@ interface PreAuthorizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function incrementAuthorization(string $paymentId, IncrementAuthorizationRequest $body, ?CallContext $callContext = null): IncrementAuthorizationResponse;
+    public function incrementAuthorization(string $paymentId, IncrementAuthorizationRequest $body, ?CallContext $callContext = null): IncrementAuthorizationResponse;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/authorization-additional-data - Add market specific additional data to a payment prior to capture.
@@ -59,5 +59,5 @@ interface PreAuthorizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function addAuthorizationDetails(string $paymentId, UpdateAuthorizationAdditionalDataRequest $body, ?CallContext $callContext = null): AddAuthorizationDetailsResponse;
+    public function addAuthorizationDetails(string $paymentId, UpdateAuthorizationAdditionalDataRequest $body, ?CallContext $callContext = null): AddAuthorizationDetailsResponse;
 }

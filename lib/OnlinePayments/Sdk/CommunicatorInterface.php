@@ -3,6 +3,8 @@
 namespace OnlinePayments\Sdk;
 
 use Exception;
+use OnlinePayments\Sdk\Communication\MultipartDataObject;
+use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
 use OnlinePayments\Sdk\Communication\RequestObject;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\DataObject;
@@ -17,13 +19,14 @@ interface CommunicatorInterface
 {
     /**
      * @param CommunicatorLogger $communicatorLogger
+     * @return void
      */
-    public function enableLogging(CommunicatorLogger $communicatorLogger);
+    public function enableLogging(CommunicatorLogger $communicatorLogger): void;
 
     /**
-     *
+     * @return void
      */
-    public function disableLogging();
+    public function disableLogging(): void;
 
     /**
      * @param ResponseClassMap $responseClassMap
@@ -31,15 +34,15 @@ interface CommunicatorInterface
      * @param string $clientMetaInfo
      * @param RequestObject|null $requestParameters
      * @param CallContext|null $callContext
-     * @return DataObject
+     * @return DataObject|null
      * @throws Exception
      */
     public function get(
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): ?DataObject;
 
     /**
@@ -52,12 +55,12 @@ interface CommunicatorInterface
      * @throws Exception
      */
     public function getWithBinaryResponse(
-        callable         $bodyHandler,
+        callable $bodyHandler,
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): void;
 
     /**
@@ -66,15 +69,15 @@ interface CommunicatorInterface
      * @param string $clientMetaInfo
      * @param RequestObject|null $requestParameters
      * @param CallContext|null $callContext
-     * @return DataObject
+     * @return DataObject|null
      * @throws Exception
      */
     public function delete(
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): ?DataObject;
 
     /**
@@ -87,12 +90,12 @@ interface CommunicatorInterface
      * @throws Exception
      */
     public function deleteWithBinaryResponse(
-        callable         $bodyHandler,
+        callable $bodyHandler,
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): void;
 
     /**
@@ -102,16 +105,16 @@ interface CommunicatorInterface
      * @param DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext|null $callContext
-     * @return DataObject
+     * @return DataObject|null
      * @throws Exception
      */
     public function post(
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
-        $requestBodyObject = null,
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
+        DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject = null,
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): ?DataObject;
 
     /**
@@ -125,13 +128,13 @@ interface CommunicatorInterface
      * @throws Exception
      */
     public function postWithBinaryResponse(
-        callable         $bodyHandler,
+        callable $bodyHandler,
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
-        $requestBodyObject = null,
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
+        DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject = null,
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): void;
 
     /**
@@ -141,16 +144,16 @@ interface CommunicatorInterface
      * @param DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject
      * @param RequestObject|null $requestParameters
      * @param CallContext|null $callContext
-     * @return DataObject
+     * @return DataObject|null
      * @throws Exception
      */
     public function put(
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
-        $requestBodyObject = null,
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
+        DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject = null,
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): ?DataObject;
 
     /**
@@ -164,12 +167,12 @@ interface CommunicatorInterface
      * @throws Exception
      */
     public function putWithBinaryResponse(
-        callable         $bodyHandler,
+        callable $bodyHandler,
         ResponseClassMap $responseClassMap,
-        string           $relativeUriPath,
-        string           $clientMetaInfo = '',
-        $requestBodyObject = null,
+        string $relativeUriPath,
+        string $clientMetaInfo = '',
+        DataObject|MultipartDataObject|MultipartFormDataObject|null $requestBodyObject = null,
         ?RequestObject $requestParameters = null,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
     ): void;
 }

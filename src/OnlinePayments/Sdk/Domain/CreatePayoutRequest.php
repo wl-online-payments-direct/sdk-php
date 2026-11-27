@@ -13,37 +13,37 @@ class CreatePayoutRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var CardPayoutMethodSpecificInput|null
-    */
+     */
     public ?CardPayoutMethodSpecificInput $cardPayoutMethodSpecificInput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $descriptor = null;
 
     /**
      * @var Feedbacks|null
-    */
+     */
     public ?Feedbacks $feedbacks = null;
 
     /**
      * @var OmnichannelPayoutSpecificInput|null
-    */
+     */
     public ?OmnichannelPayoutSpecificInput $omnichannelPayoutSpecificInput = null;
 
     /**
      * @var PaymentReferences|null
-    */
+     */
     public ?PaymentReferences $references = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -51,7 +51,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -59,9 +59,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -69,7 +69,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @return CardPayoutMethodSpecificInput|null
-    */
+     */
     public function getCardPayoutMethodSpecificInput(): ?CardPayoutMethodSpecificInput
     {
         return $this->cardPayoutMethodSpecificInput;
@@ -77,7 +77,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param CardPayoutMethodSpecificInput|null $value
-    */
+     */
     public function setCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): void
     {
         $this->cardPayoutMethodSpecificInput = $value;
@@ -85,9 +85,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param CardPayoutMethodSpecificInput|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withCardPayoutMethodSpecificInput(?CardPayoutMethodSpecificInput $value): static
     {
         $this->cardPayoutMethodSpecificInput = $value;
         return $this;
@@ -95,7 +95,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDescriptor(): ?string
     {
         return $this->descriptor;
@@ -103,7 +103,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDescriptor(?string $value): void
     {
         $this->descriptor = $value;
@@ -111,9 +111,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withDescriptor(?string $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withDescriptor(?string $value): static
     {
         $this->descriptor = $value;
         return $this;
@@ -121,7 +121,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @return Feedbacks|null
-    */
+     */
     public function getFeedbacks(): ?Feedbacks
     {
         return $this->feedbacks;
@@ -129,7 +129,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-    */
+     */
     public function setFeedbacks(?Feedbacks $value): void
     {
         $this->feedbacks = $value;
@@ -137,9 +137,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param Feedbacks|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withFeedbacks(?Feedbacks $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withFeedbacks(?Feedbacks $value): static
     {
         $this->feedbacks = $value;
         return $this;
@@ -147,7 +147,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @return OmnichannelPayoutSpecificInput|null
-    */
+     */
     public function getOmnichannelPayoutSpecificInput(): ?OmnichannelPayoutSpecificInput
     {
         return $this->omnichannelPayoutSpecificInput;
@@ -155,7 +155,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param OmnichannelPayoutSpecificInput|null $value
-    */
+     */
     public function setOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): void
     {
         $this->omnichannelPayoutSpecificInput = $value;
@@ -163,9 +163,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param OmnichannelPayoutSpecificInput|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withOmnichannelPayoutSpecificInput(?OmnichannelPayoutSpecificInput $value): static
     {
         $this->omnichannelPayoutSpecificInput = $value;
         return $this;
@@ -173,7 +173,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @return PaymentReferences|null
-    */
+     */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -181,7 +181,7 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-    */
+     */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
@@ -189,9 +189,9 @@ class CreatePayoutRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     * @return CreatePayoutRequest
-    */
-    public function withReferences(?PaymentReferences $value): CreatePayoutRequest
+     * @return $this
+     */
+    public function withReferences(?PaymentReferences $value): static
     {
         $this->references = $value;
         return $this;
@@ -200,25 +200,26 @@ class CreatePayoutRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->cardPayoutMethodSpecificInput)) {
+        if ($this->cardPayoutMethodSpecificInput !== null) {
             $object->cardPayoutMethodSpecificInput = $this->cardPayoutMethodSpecificInput->toObject();
         }
-        if (!is_null($this->descriptor)) {
+        if ($this->descriptor !== null) {
             $object->descriptor = $this->descriptor;
         }
-        if (!is_null($this->feedbacks)) {
+        if ($this->feedbacks !== null) {
             $object->feedbacks = $this->feedbacks->toObject();
         }
-        if (!is_null($this->omnichannelPayoutSpecificInput)) {
+        if ($this->omnichannelPayoutSpecificInput !== null) {
             $object->omnichannelPayoutSpecificInput = $this->omnichannelPayoutSpecificInput->toObject();
         }
-        if (!is_null($this->references)) {
+        if ($this->references !== null) {
             $object->references = $this->references->toObject();
         }
         return $object;
@@ -230,7 +231,8 @@ class CreatePayoutRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreatePayoutRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

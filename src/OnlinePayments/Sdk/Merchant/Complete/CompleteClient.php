@@ -10,6 +10,7 @@ use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CompletePaymentRequest;
 use OnlinePayments\Sdk\Domain\CompletePaymentResponse;
+use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
 /**
@@ -27,15 +28,16 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse
     {
         $this->context['paymentId'] = $paymentId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CompletePaymentResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\PaymentErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = CompletePaymentResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = PaymentErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var CompletePaymentResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/payments/{paymentId}/complete'),
                 $this->getClientMetaInfo(),
@@ -43,11 +45,13 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -57,7 +61,7 @@ class CompleteClient extends ApiResource implements CompleteClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

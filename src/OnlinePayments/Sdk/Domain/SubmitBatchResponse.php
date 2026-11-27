@@ -13,17 +13,17 @@ class SubmitBatchResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $totalCount = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -31,7 +31,7 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
@@ -39,9 +39,9 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubmitBatchResponse
-    */
-    public function withMerchantBatchReference(?string $value): SubmitBatchResponse
+     * @return $this
+     */
+    public function withMerchantBatchReference(?string $value): static
     {
         $this->merchantBatchReference = $value;
         return $this;
@@ -49,7 +49,7 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getTotalCount(): ?int
     {
         return $this->totalCount;
@@ -57,7 +57,7 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setTotalCount(?int $value): void
     {
         $this->totalCount = $value;
@@ -65,9 +65,9 @@ class SubmitBatchResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return SubmitBatchResponse
-    */
-    public function withTotalCount(?int $value): SubmitBatchResponse
+     * @return $this
+     */
+    public function withTotalCount(?int $value): static
     {
         $this->totalCount = $value;
         return $this;
@@ -76,13 +76,14 @@ class SubmitBatchResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->merchantBatchReference)) {
+        if ($this->merchantBatchReference !== null) {
             $object->merchantBatchReference = $this->merchantBatchReference;
         }
-        if (!is_null($this->totalCount)) {
+        if ($this->totalCount !== null) {
             $object->totalCount = $this->totalCount;
         }
         return $object;
@@ -94,7 +95,8 @@ class SubmitBatchResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubmitBatchResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'merchantBatchReference')) {

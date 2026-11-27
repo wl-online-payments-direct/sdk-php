@@ -140,7 +140,7 @@ class WebhooksEventTest extends TestCase
         $event = new WebhooksEvent();
 
         $input = (object) [
-            'id' => '123'
+            'id' => '123',
         ];
 
         $event->fromObject($input);
@@ -159,6 +159,9 @@ class WebhooksEventTest extends TestCase
         $this->assertFalse(property_exists($result, 'payment'));
     }
 
+    /**
+     * @return array<int, array{0: string}>
+     */
     public static function invalidNestedValueProvider(): array
     {
         return [

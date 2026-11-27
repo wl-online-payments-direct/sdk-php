@@ -13,32 +13,32 @@ class SessionData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $platformUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $sessionToken = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $tokens = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -46,7 +46,7 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
@@ -54,9 +54,9 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionData
-    */
-    public function withHostedFieldsSessionId(?string $value): SessionData
+     * @return $this
+     */
+    public function withHostedFieldsSessionId(?string $value): static
     {
         $this->hostedFieldsSessionId = $value;
         return $this;
@@ -64,7 +64,7 @@ class SessionData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -72,7 +72,7 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -80,9 +80,9 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionData
-    */
-    public function withLocale(?string $value): SessionData
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -90,7 +90,7 @@ class SessionData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPlatformUrl(): ?string
     {
         return $this->platformUrl;
@@ -98,7 +98,7 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPlatformUrl(?string $value): void
     {
         $this->platformUrl = $value;
@@ -106,9 +106,9 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionData
-    */
-    public function withPlatformUrl(?string $value): SessionData
+     * @return $this
+     */
+    public function withPlatformUrl(?string $value): static
     {
         $this->platformUrl = $value;
         return $this;
@@ -116,7 +116,7 @@ class SessionData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSessionToken(): ?string
     {
         return $this->sessionToken;
@@ -124,7 +124,7 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSessionToken(?string $value): void
     {
         $this->sessionToken = $value;
@@ -132,9 +132,9 @@ class SessionData extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionData
-    */
-    public function withSessionToken(?string $value): SessionData
+     * @return $this
+     */
+    public function withSessionToken(?string $value): static
     {
         $this->sessionToken = $value;
         return $this;
@@ -142,7 +142,7 @@ class SessionData extends DataObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -150,7 +150,7 @@ class SessionData extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
@@ -158,9 +158,9 @@ class SessionData extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return SessionData
-    */
-    public function withTokens(?array $value): SessionData
+     * @return $this
+     */
+    public function withTokens(?array $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -169,25 +169,26 @@ class SessionData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->hostedFieldsSessionId)) {
+        if ($this->hostedFieldsSessionId !== null) {
             $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->platformUrl)) {
+        if ($this->platformUrl !== null) {
             $object->platformUrl = $this->platformUrl;
         }
-        if (!is_null($this->sessionToken)) {
+        if ($this->sessionToken !== null) {
             $object->sessionToken = $this->sessionToken;
         }
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->tokens[] = $element;
                 }
             }
@@ -201,7 +202,8 @@ class SessionData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SessionData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'hostedFieldsSessionId')) {

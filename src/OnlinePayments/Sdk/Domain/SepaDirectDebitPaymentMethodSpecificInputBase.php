@@ -13,17 +13,17 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 {
     /**
      * @var SepaDirectDebitPaymentProduct771SpecificInputBase|null
-    */
+     */
     public ?SepaDirectDebitPaymentProduct771SpecificInputBase $paymentProduct771SpecificInput = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return SepaDirectDebitPaymentProduct771SpecificInputBase|null
-    */
+     */
     public function getPaymentProduct771SpecificInput(): ?SepaDirectDebitPaymentProduct771SpecificInputBase
     {
         return $this->paymentProduct771SpecificInput;
@@ -31,7 +31,7 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentProduct771SpecificInputBase|null $value
-    */
+     */
     public function setPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): void
     {
         $this->paymentProduct771SpecificInput = $value;
@@ -39,9 +39,9 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentProduct771SpecificInputBase|null $value
-     * @return SepaDirectDebitPaymentMethodSpecificInputBase
-    */
-    public function withPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): SepaDirectDebitPaymentMethodSpecificInputBase
+     * @return $this
+     */
+    public function withPaymentProduct771SpecificInput(?SepaDirectDebitPaymentProduct771SpecificInputBase $value): static
     {
         $this->paymentProduct771SpecificInput = $value;
         return $this;
@@ -49,7 +49,7 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -57,7 +57,7 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -65,9 +65,9 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
 
     /**
      * @param int|null $value
-     * @return SepaDirectDebitPaymentMethodSpecificInputBase
-    */
-    public function withPaymentProductId(?int $value): SepaDirectDebitPaymentMethodSpecificInputBase
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -76,13 +76,14 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentProduct771SpecificInput)) {
+        if ($this->paymentProduct771SpecificInput !== null) {
             $object->paymentProduct771SpecificInput = $this->paymentProduct771SpecificInput->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;
@@ -94,7 +95,8 @@ class SepaDirectDebitPaymentMethodSpecificInputBase extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SepaDirectDebitPaymentMethodSpecificInputBase
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProduct771SpecificInput')) {

@@ -13,17 +13,17 @@ class ErrorResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-    */
+     */
     public ?array $errors = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -31,7 +31,7 @@ class ErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
@@ -39,9 +39,9 @@ class ErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ErrorResponse
-    */
-    public function withErrorId(?string $value): ErrorResponse
+     * @return $this
+     */
+    public function withErrorId(?string $value): static
     {
         $this->errorId = $value;
         return $this;
@@ -49,7 +49,7 @@ class ErrorResponse extends DataObject
 
     /**
      * @return APIError[]|null
-    */
+     */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -57,7 +57,7 @@ class ErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-    */
+     */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
@@ -65,9 +65,9 @@ class ErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     * @return ErrorResponse
-    */
-    public function withErrors(?array $value): ErrorResponse
+     * @return $this
+     */
+    public function withErrors(?array $value): static
     {
         $this->errors = $value;
         return $this;
@@ -76,16 +76,17 @@ class ErrorResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->errorId)) {
+        if ($this->errorId !== null) {
             $object->errorId = $this->errorId;
         }
-        if (!is_null($this->errors)) {
+        if ($this->errors !== null) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->errors[] = $element->toObject();
                 }
             }
@@ -99,7 +100,8 @@ class ErrorResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ErrorResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'errorId')) {

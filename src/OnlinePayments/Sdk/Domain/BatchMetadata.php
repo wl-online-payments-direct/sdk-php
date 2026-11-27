@@ -13,22 +13,22 @@ class BatchMetadata extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $itemCount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantBatchReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $operationType = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getItemCount(): ?int
     {
         return $this->itemCount;
@@ -36,7 +36,7 @@ class BatchMetadata extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setItemCount(?int $value): void
     {
         $this->itemCount = $value;
@@ -44,9 +44,9 @@ class BatchMetadata extends DataObject
 
     /**
      * @param int|null $value
-     * @return BatchMetadata
-    */
-    public function withItemCount(?int $value): BatchMetadata
+     * @return $this
+     */
+    public function withItemCount(?int $value): static
     {
         $this->itemCount = $value;
         return $this;
@@ -54,7 +54,7 @@ class BatchMetadata extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantBatchReference(): ?string
     {
         return $this->merchantBatchReference;
@@ -62,7 +62,7 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantBatchReference(?string $value): void
     {
         $this->merchantBatchReference = $value;
@@ -70,9 +70,9 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-     * @return BatchMetadata
-    */
-    public function withMerchantBatchReference(?string $value): BatchMetadata
+     * @return $this
+     */
+    public function withMerchantBatchReference(?string $value): static
     {
         $this->merchantBatchReference = $value;
         return $this;
@@ -80,7 +80,7 @@ class BatchMetadata extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOperationType(): ?string
     {
         return $this->operationType;
@@ -88,7 +88,7 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperationType(?string $value): void
     {
         $this->operationType = $value;
@@ -96,9 +96,9 @@ class BatchMetadata extends DataObject
 
     /**
      * @param string|null $value
-     * @return BatchMetadata
-    */
-    public function withOperationType(?string $value): BatchMetadata
+     * @return $this
+     */
+    public function withOperationType(?string $value): static
     {
         $this->operationType = $value;
         return $this;
@@ -107,16 +107,17 @@ class BatchMetadata extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->itemCount)) {
+        if ($this->itemCount !== null) {
             $object->itemCount = $this->itemCount;
         }
-        if (!is_null($this->merchantBatchReference)) {
+        if ($this->merchantBatchReference !== null) {
             $object->merchantBatchReference = $this->merchantBatchReference;
         }
-        if (!is_null($this->operationType)) {
+        if ($this->operationType !== null) {
             $object->operationType = $this->operationType;
         }
         return $object;
@@ -128,7 +129,8 @@ class BatchMetadata extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): BatchMetadata
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'itemCount')) {

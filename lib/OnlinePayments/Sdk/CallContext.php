@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk;
 
 use DateTime;
@@ -17,7 +18,12 @@ class CallContext
     private string $idempotenceRequestTimestamp = '';
 
     /** @var DateTime|null */
-    private ?DateTime $idempotenceResponseDateTime;
+    private ?DateTime $idempotenceResponseDateTime = null;
+
+    /**
+     * @var bool The indicator whether the GZip action should be preformed on the request.
+     */
+    private bool $gzip = false;
 
     /**
      * @return string
@@ -60,23 +66,24 @@ class CallContext
     }
 
     /**
-     * @param DateTime $idempotenceResponseDateTime
+     * @param DateTime|null $idempotenceResponseDateTime
      */
-    public function setIdempotenceResponseDateTime(DateTime $idempotenceResponseDateTime): void
+    public function setIdempotenceResponseDateTime(?DateTime $idempotenceResponseDateTime): void
     {
         $this->idempotenceResponseDateTime = $idempotenceResponseDateTime;
     }
 
     /**
-     * @var bool The indicator whether the GZip action should be preformed on the request.
+     * @return bool
      */
-    private bool $gzip = false;
-
     public function getGzip(): bool
     {
         return $this->gzip;
     }
 
+    /**
+     * @param bool $gzip
+     */
     public function setGzip(bool $gzip): void
     {
         $this->gzip = $gzip;

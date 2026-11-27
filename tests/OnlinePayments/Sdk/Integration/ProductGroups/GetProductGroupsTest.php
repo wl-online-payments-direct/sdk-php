@@ -89,9 +89,7 @@ class GetProductGroupsTest extends TestCase
 
         $this->assertNotEmpty($response->getPaymentProductGroups());
         $this->assertNotNull($params->getHide());
-        $this->assertCount(1, $params->getHide());
-        $this->assertEquals('fields', $params->getHide()[0][0]);
-        $this->assertEquals('accountsOnFile', $params->getHide()[0][1]);
+        $this->assertSame(['fields', 'accountsOnFile'], $params->getHide());
     }
 
     public function testGetProductGroups_WithHideList_ReturnsGroupList(): void
@@ -123,8 +121,7 @@ class GetProductGroupsTest extends TestCase
         $response = $this->productGroupsClient->getProductGroups($params);
 
         $this->assertNotNull($response->getPaymentProductGroups());
-        $this->assertCount(1, $params->getHide());
-        $this->assertNull($params->getHide()[0][1]);
+        $this->assertSame(['fields'], $params->getHide());
     }
 
     public function testGetProductGroups_ParamGetters_ReturnExpectedValues(): void

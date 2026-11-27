@@ -35,13 +35,14 @@ class PaymentLinksResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->PaymentLinks)) {
+        if ($this->PaymentLinks !== null) {
             $object->PaymentLinks = [];
             foreach ($this->PaymentLinks as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->PaymentLinks[] = $element->toObject();
                 }
             }
@@ -54,7 +55,8 @@ class PaymentLinksResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinksResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'PaymentLinks')) {

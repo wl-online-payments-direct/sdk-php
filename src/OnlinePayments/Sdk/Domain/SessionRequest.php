@@ -13,12 +13,12 @@ class SessionRequest extends DataObject
 {
     /**
      * @var string[]|null
-    */
+     */
     public ?array $tokens = null;
 
     /**
      * @return string[]|null
-    */
+     */
     public function getTokens(): ?array
     {
         return $this->tokens;
@@ -26,7 +26,7 @@ class SessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setTokens(?array $value): void
     {
         $this->tokens = $value;
@@ -34,9 +34,9 @@ class SessionRequest extends DataObject
 
     /**
      * @param string[]|null $value
-     * @return SessionRequest
-    */
-    public function withTokens(?array $value): SessionRequest
+     * @return $this
+     */
+    public function withTokens(?array $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -45,13 +45,14 @@ class SessionRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = [];
             foreach ($this->tokens as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->tokens[] = $element;
                 }
             }
@@ -65,7 +66,8 @@ class SessionRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SessionRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'tokens')) {

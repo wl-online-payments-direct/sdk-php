@@ -13,17 +13,17 @@ class AccountOnFileDisplayHints extends DataObject
 {
     /**
      * @var LabelTemplateElement[]|null
-    */
+     */
     public ?array $labelTemplate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $logo = null;
 
     /**
      * @return LabelTemplateElement[]|null
-    */
+     */
     public function getLabelTemplate(): ?array
     {
         return $this->labelTemplate;
@@ -31,7 +31,7 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param LabelTemplateElement[]|null $value
-    */
+     */
     public function setLabelTemplate(?array $value): void
     {
         $this->labelTemplate = $value;
@@ -39,9 +39,9 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param LabelTemplateElement[]|null $value
-     * @return AccountOnFileDisplayHints
-    */
-    public function withLabelTemplate(?array $value): AccountOnFileDisplayHints
+     * @return $this
+     */
+    public function withLabelTemplate(?array $value): static
     {
         $this->labelTemplate = $value;
         return $this;
@@ -49,7 +49,7 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLogo(): ?string
     {
         return $this->logo;
@@ -57,7 +57,7 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLogo(?string $value): void
     {
         $this->logo = $value;
@@ -65,9 +65,9 @@ class AccountOnFileDisplayHints extends DataObject
 
     /**
      * @param string|null $value
-     * @return AccountOnFileDisplayHints
-    */
-    public function withLogo(?string $value): AccountOnFileDisplayHints
+     * @return $this
+     */
+    public function withLogo(?string $value): static
     {
         $this->logo = $value;
         return $this;
@@ -76,18 +76,19 @@ class AccountOnFileDisplayHints extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->labelTemplate)) {
+        if ($this->labelTemplate !== null) {
             $object->labelTemplate = [];
             foreach ($this->labelTemplate as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->labelTemplate[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->logo)) {
+        if ($this->logo !== null) {
             $object->logo = $this->logo;
         }
         return $object;
@@ -99,7 +100,8 @@ class AccountOnFileDisplayHints extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AccountOnFileDisplayHints
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'labelTemplate')) {

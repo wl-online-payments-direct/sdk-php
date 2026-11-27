@@ -13,12 +13,12 @@ class GetPrivacyPolicyResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $htmlContent = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getHtmlContent(): ?string
     {
         return $this->htmlContent;
@@ -26,7 +26,7 @@ class GetPrivacyPolicyResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHtmlContent(?string $value): void
     {
         $this->htmlContent = $value;
@@ -34,9 +34,9 @@ class GetPrivacyPolicyResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetPrivacyPolicyResponse
-    */
-    public function withHtmlContent(?string $value): GetPrivacyPolicyResponse
+     * @return $this
+     */
+    public function withHtmlContent(?string $value): static
     {
         $this->htmlContent = $value;
         return $this;
@@ -45,10 +45,11 @@ class GetPrivacyPolicyResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->htmlContent)) {
+        if ($this->htmlContent !== null) {
             $object->htmlContent = $this->htmlContent;
         }
         return $object;
@@ -60,7 +61,8 @@ class GetPrivacyPolicyResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetPrivacyPolicyResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'htmlContent')) {

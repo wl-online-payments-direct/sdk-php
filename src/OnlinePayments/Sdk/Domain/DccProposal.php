@@ -13,32 +13,32 @@ class DccProposal extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $baseAmount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $disclaimerDisplay = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $disclaimerReceipt = null;
 
     /**
      * @var RateDetails|null
-    */
+     */
     public ?RateDetails $rate = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $targetAmount = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getBaseAmount(): ?AmountOfMoney
     {
         return $this->baseAmount;
@@ -46,7 +46,7 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setBaseAmount(?AmountOfMoney $value): void
     {
         $this->baseAmount = $value;
@@ -54,9 +54,9 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return DccProposal
-    */
-    public function withBaseAmount(?AmountOfMoney $value): DccProposal
+     * @return $this
+     */
+    public function withBaseAmount(?AmountOfMoney $value): static
     {
         $this->baseAmount = $value;
         return $this;
@@ -64,7 +64,7 @@ class DccProposal extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDisclaimerDisplay(): ?string
     {
         return $this->disclaimerDisplay;
@@ -72,7 +72,7 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDisclaimerDisplay(?string $value): void
     {
         $this->disclaimerDisplay = $value;
@@ -80,9 +80,9 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-     * @return DccProposal
-    */
-    public function withDisclaimerDisplay(?string $value): DccProposal
+     * @return $this
+     */
+    public function withDisclaimerDisplay(?string $value): static
     {
         $this->disclaimerDisplay = $value;
         return $this;
@@ -90,7 +90,7 @@ class DccProposal extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getDisclaimerReceipt(): ?string
     {
         return $this->disclaimerReceipt;
@@ -98,7 +98,7 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDisclaimerReceipt(?string $value): void
     {
         $this->disclaimerReceipt = $value;
@@ -106,9 +106,9 @@ class DccProposal extends DataObject
 
     /**
      * @param string|null $value
-     * @return DccProposal
-    */
-    public function withDisclaimerReceipt(?string $value): DccProposal
+     * @return $this
+     */
+    public function withDisclaimerReceipt(?string $value): static
     {
         $this->disclaimerReceipt = $value;
         return $this;
@@ -116,7 +116,7 @@ class DccProposal extends DataObject
 
     /**
      * @return RateDetails|null
-    */
+     */
     public function getRate(): ?RateDetails
     {
         return $this->rate;
@@ -124,7 +124,7 @@ class DccProposal extends DataObject
 
     /**
      * @param RateDetails|null $value
-    */
+     */
     public function setRate(?RateDetails $value): void
     {
         $this->rate = $value;
@@ -132,9 +132,9 @@ class DccProposal extends DataObject
 
     /**
      * @param RateDetails|null $value
-     * @return DccProposal
-    */
-    public function withRate(?RateDetails $value): DccProposal
+     * @return $this
+     */
+    public function withRate(?RateDetails $value): static
     {
         $this->rate = $value;
         return $this;
@@ -142,7 +142,7 @@ class DccProposal extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getTargetAmount(): ?AmountOfMoney
     {
         return $this->targetAmount;
@@ -150,7 +150,7 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setTargetAmount(?AmountOfMoney $value): void
     {
         $this->targetAmount = $value;
@@ -158,9 +158,9 @@ class DccProposal extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return DccProposal
-    */
-    public function withTargetAmount(?AmountOfMoney $value): DccProposal
+     * @return $this
+     */
+    public function withTargetAmount(?AmountOfMoney $value): static
     {
         $this->targetAmount = $value;
         return $this;
@@ -169,22 +169,23 @@ class DccProposal extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->baseAmount)) {
+        if ($this->baseAmount !== null) {
             $object->baseAmount = $this->baseAmount->toObject();
         }
-        if (!is_null($this->disclaimerDisplay)) {
+        if ($this->disclaimerDisplay !== null) {
             $object->disclaimerDisplay = $this->disclaimerDisplay;
         }
-        if (!is_null($this->disclaimerReceipt)) {
+        if ($this->disclaimerReceipt !== null) {
             $object->disclaimerReceipt = $this->disclaimerReceipt;
         }
-        if (!is_null($this->rate)) {
+        if ($this->rate !== null) {
             $object->rate = $this->rate->toObject();
         }
-        if (!is_null($this->targetAmount)) {
+        if ($this->targetAmount !== null) {
             $object->targetAmount = $this->targetAmount->toObject();
         }
         return $object;
@@ -196,7 +197,8 @@ class DccProposal extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DccProposal
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'baseAmount')) {

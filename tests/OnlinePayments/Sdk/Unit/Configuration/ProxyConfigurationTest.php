@@ -50,4 +50,15 @@ class ProxyConfigurationTest extends TestCase
 
         $this->assertSame('', $proxy->getCurlProxyUserPwd());
     }
+
+    public function testPrintR_WithPassword_MasksPassword(): void
+    {
+        $proxy = new ProxyConfiguration('proxy.example.com', 8080, 'user', 'myProxyPassword');
+
+        $output = print_r($proxy, true);
+
+        $this->assertStringNotContainsString('myProxyPassword', $output);
+        $this->assertStringContainsString('********', $output);
+        $this->assertStringContainsString('user', $output);
+    }
 }

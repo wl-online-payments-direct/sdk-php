@@ -13,52 +13,52 @@ class ShowFormData extends DataObject
 {
     /**
      * @var PaymentProduct11|null
-    */
+     */
     public ?PaymentProduct11 $paymentProduct11 = null;
 
     /**
      * @var PaymentProduct3012|null
-    */
+     */
     public ?PaymentProduct3012 $paymentProduct3012 = null;
 
     /**
      * @var PaymentProduct350|null
-    */
+     */
     public ?PaymentProduct350 $paymentProduct350 = null;
 
     /**
      * @var PaymentProduct5001|null
-    */
+     */
     public ?PaymentProduct5001 $paymentProduct5001 = null;
 
     /**
      * @var PaymentProduct5404|null
-    */
+     */
     public ?PaymentProduct5404 $paymentProduct5404 = null;
 
     /**
      * @var PaymentProduct5407|null
-    */
+     */
     public ?PaymentProduct5407 $paymentProduct5407 = null;
 
     /**
      * @var PaymentProduct5412|null
-    */
+     */
     public ?PaymentProduct5412 $paymentProduct5412 = null;
 
     /**
      * @var PaymentProduct840|null
-    */
+     */
     public ?PaymentProduct840 $paymentProduct840 = null;
 
     /**
      * @var PendingAuthentication|null
-    */
+     */
     public ?PendingAuthentication $pendingAuthentication = null;
 
     /**
      * @return PaymentProduct11|null
-    */
+     */
     public function getPaymentProduct11(): ?PaymentProduct11
     {
         return $this->paymentProduct11;
@@ -66,7 +66,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct11|null $value
-    */
+     */
     public function setPaymentProduct11(?PaymentProduct11 $value): void
     {
         $this->paymentProduct11 = $value;
@@ -74,9 +74,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct11|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct11(?PaymentProduct11 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct11(?PaymentProduct11 $value): static
     {
         $this->paymentProduct11 = $value;
         return $this;
@@ -84,7 +84,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct3012|null
-    */
+     */
     public function getPaymentProduct3012(): ?PaymentProduct3012
     {
         return $this->paymentProduct3012;
@@ -92,7 +92,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct3012|null $value
-    */
+     */
     public function setPaymentProduct3012(?PaymentProduct3012 $value): void
     {
         $this->paymentProduct3012 = $value;
@@ -100,9 +100,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct3012|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct3012(?PaymentProduct3012 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct3012(?PaymentProduct3012 $value): static
     {
         $this->paymentProduct3012 = $value;
         return $this;
@@ -110,7 +110,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct350|null
-    */
+     */
     public function getPaymentProduct350(): ?PaymentProduct350
     {
         return $this->paymentProduct350;
@@ -118,7 +118,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct350|null $value
-    */
+     */
     public function setPaymentProduct350(?PaymentProduct350 $value): void
     {
         $this->paymentProduct350 = $value;
@@ -126,9 +126,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct350|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct350(?PaymentProduct350 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct350(?PaymentProduct350 $value): static
     {
         $this->paymentProduct350 = $value;
         return $this;
@@ -136,7 +136,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct5001|null
-    */
+     */
     public function getPaymentProduct5001(): ?PaymentProduct5001
     {
         return $this->paymentProduct5001;
@@ -144,7 +144,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5001|null $value
-    */
+     */
     public function setPaymentProduct5001(?PaymentProduct5001 $value): void
     {
         $this->paymentProduct5001 = $value;
@@ -152,9 +152,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5001|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct5001(?PaymentProduct5001 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct5001(?PaymentProduct5001 $value): static
     {
         $this->paymentProduct5001 = $value;
         return $this;
@@ -162,7 +162,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct5404|null
-    */
+     */
     public function getPaymentProduct5404(): ?PaymentProduct5404
     {
         return $this->paymentProduct5404;
@@ -170,7 +170,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5404|null $value
-    */
+     */
     public function setPaymentProduct5404(?PaymentProduct5404 $value): void
     {
         $this->paymentProduct5404 = $value;
@@ -178,9 +178,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5404|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct5404(?PaymentProduct5404 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct5404(?PaymentProduct5404 $value): static
     {
         $this->paymentProduct5404 = $value;
         return $this;
@@ -188,7 +188,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct5407|null
-    */
+     */
     public function getPaymentProduct5407(): ?PaymentProduct5407
     {
         return $this->paymentProduct5407;
@@ -196,7 +196,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5407|null $value
-    */
+     */
     public function setPaymentProduct5407(?PaymentProduct5407 $value): void
     {
         $this->paymentProduct5407 = $value;
@@ -204,9 +204,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5407|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct5407(?PaymentProduct5407 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct5407(?PaymentProduct5407 $value): static
     {
         $this->paymentProduct5407 = $value;
         return $this;
@@ -214,7 +214,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct5412|null
-    */
+     */
     public function getPaymentProduct5412(): ?PaymentProduct5412
     {
         return $this->paymentProduct5412;
@@ -222,7 +222,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5412|null $value
-    */
+     */
     public function setPaymentProduct5412(?PaymentProduct5412 $value): void
     {
         $this->paymentProduct5412 = $value;
@@ -230,9 +230,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct5412|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct5412(?PaymentProduct5412 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct5412(?PaymentProduct5412 $value): static
     {
         $this->paymentProduct5412 = $value;
         return $this;
@@ -240,7 +240,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PaymentProduct840|null
-    */
+     */
     public function getPaymentProduct840(): ?PaymentProduct840
     {
         return $this->paymentProduct840;
@@ -248,7 +248,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct840|null $value
-    */
+     */
     public function setPaymentProduct840(?PaymentProduct840 $value): void
     {
         $this->paymentProduct840 = $value;
@@ -256,9 +256,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PaymentProduct840|null $value
-     * @return ShowFormData
-    */
-    public function withPaymentProduct840(?PaymentProduct840 $value): ShowFormData
+     * @return $this
+     */
+    public function withPaymentProduct840(?PaymentProduct840 $value): static
     {
         $this->paymentProduct840 = $value;
         return $this;
@@ -266,7 +266,7 @@ class ShowFormData extends DataObject
 
     /**
      * @return PendingAuthentication|null
-    */
+     */
     public function getPendingAuthentication(): ?PendingAuthentication
     {
         return $this->pendingAuthentication;
@@ -274,7 +274,7 @@ class ShowFormData extends DataObject
 
     /**
      * @param PendingAuthentication|null $value
-    */
+     */
     public function setPendingAuthentication(?PendingAuthentication $value): void
     {
         $this->pendingAuthentication = $value;
@@ -282,9 +282,9 @@ class ShowFormData extends DataObject
 
     /**
      * @param PendingAuthentication|null $value
-     * @return ShowFormData
-    */
-    public function withPendingAuthentication(?PendingAuthentication $value): ShowFormData
+     * @return $this
+     */
+    public function withPendingAuthentication(?PendingAuthentication $value): static
     {
         $this->pendingAuthentication = $value;
         return $this;
@@ -293,34 +293,35 @@ class ShowFormData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentProduct11)) {
+        if ($this->paymentProduct11 !== null) {
             $object->paymentProduct11 = $this->paymentProduct11->toObject();
         }
-        if (!is_null($this->paymentProduct3012)) {
+        if ($this->paymentProduct3012 !== null) {
             $object->paymentProduct3012 = $this->paymentProduct3012->toObject();
         }
-        if (!is_null($this->paymentProduct350)) {
+        if ($this->paymentProduct350 !== null) {
             $object->paymentProduct350 = $this->paymentProduct350->toObject();
         }
-        if (!is_null($this->paymentProduct5001)) {
+        if ($this->paymentProduct5001 !== null) {
             $object->paymentProduct5001 = $this->paymentProduct5001->toObject();
         }
-        if (!is_null($this->paymentProduct5404)) {
+        if ($this->paymentProduct5404 !== null) {
             $object->paymentProduct5404 = $this->paymentProduct5404->toObject();
         }
-        if (!is_null($this->paymentProduct5407)) {
+        if ($this->paymentProduct5407 !== null) {
             $object->paymentProduct5407 = $this->paymentProduct5407->toObject();
         }
-        if (!is_null($this->paymentProduct5412)) {
+        if ($this->paymentProduct5412 !== null) {
             $object->paymentProduct5412 = $this->paymentProduct5412->toObject();
         }
-        if (!is_null($this->paymentProduct840)) {
+        if ($this->paymentProduct840 !== null) {
             $object->paymentProduct840 = $this->paymentProduct840->toObject();
         }
-        if (!is_null($this->pendingAuthentication)) {
+        if ($this->pendingAuthentication !== null) {
             $object->pendingAuthentication = $this->pendingAuthentication->toObject();
         }
         return $object;
@@ -332,7 +333,8 @@ class ShowFormData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShowFormData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProduct11')) {

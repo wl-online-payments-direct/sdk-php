@@ -13,12 +13,12 @@ class PaymentProduct3204SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $bankingAppLabel = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBankingAppLabel(): ?string
     {
         return $this->bankingAppLabel;
@@ -26,7 +26,7 @@ class PaymentProduct3204SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBankingAppLabel(?string $value): void
     {
         $this->bankingAppLabel = $value;
@@ -34,9 +34,9 @@ class PaymentProduct3204SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct3204SpecificOutput
-    */
-    public function withBankingAppLabel(?string $value): PaymentProduct3204SpecificOutput
+     * @return $this
+     */
+    public function withBankingAppLabel(?string $value): static
     {
         $this->bankingAppLabel = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProduct3204SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->bankingAppLabel)) {
+        if ($this->bankingAppLabel !== null) {
             $object->bankingAppLabel = $this->bankingAppLabel;
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProduct3204SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct3204SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'bankingAppLabel')) {

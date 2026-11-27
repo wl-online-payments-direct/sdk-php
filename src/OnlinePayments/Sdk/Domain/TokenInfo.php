@@ -13,27 +13,27 @@ class TokenInfo extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $expiryDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isTemporary = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $maskedPan = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -41,7 +41,7 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
@@ -49,9 +49,9 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenInfo
-    */
-    public function withExpiryDate(?string $value): TokenInfo
+     * @return $this
+     */
+    public function withExpiryDate(?string $value): static
     {
         $this->expiryDate = $value;
         return $this;
@@ -59,7 +59,7 @@ class TokenInfo extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsTemporary(): ?bool
     {
         return $this->isTemporary;
@@ -67,7 +67,7 @@ class TokenInfo extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsTemporary(?bool $value): void
     {
         $this->isTemporary = $value;
@@ -75,9 +75,9 @@ class TokenInfo extends DataObject
 
     /**
      * @param bool|null $value
-     * @return TokenInfo
-    */
-    public function withIsTemporary(?bool $value): TokenInfo
+     * @return $this
+     */
+    public function withIsTemporary(?bool $value): static
     {
         $this->isTemporary = $value;
         return $this;
@@ -85,7 +85,7 @@ class TokenInfo extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMaskedPan(): ?string
     {
         return $this->maskedPan;
@@ -93,7 +93,7 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMaskedPan(?string $value): void
     {
         $this->maskedPan = $value;
@@ -101,9 +101,9 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenInfo
-    */
-    public function withMaskedPan(?string $value): TokenInfo
+     * @return $this
+     */
+    public function withMaskedPan(?string $value): static
     {
         $this->maskedPan = $value;
         return $this;
@@ -111,7 +111,7 @@ class TokenInfo extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenId(): ?string
     {
         return $this->tokenId;
@@ -119,7 +119,7 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenId(?string $value): void
     {
         $this->tokenId = $value;
@@ -127,9 +127,9 @@ class TokenInfo extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenInfo
-    */
-    public function withTokenId(?string $value): TokenInfo
+     * @return $this
+     */
+    public function withTokenId(?string $value): static
     {
         $this->tokenId = $value;
         return $this;
@@ -138,19 +138,20 @@ class TokenInfo extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->expiryDate)) {
+        if ($this->expiryDate !== null) {
             $object->expiryDate = $this->expiryDate;
         }
-        if (!is_null($this->isTemporary)) {
+        if ($this->isTemporary !== null) {
             $object->isTemporary = $this->isTemporary;
         }
-        if (!is_null($this->maskedPan)) {
+        if ($this->maskedPan !== null) {
             $object->maskedPan = $this->maskedPan;
         }
-        if (!is_null($this->tokenId)) {
+        if ($this->tokenId !== null) {
             $object->tokenId = $this->tokenId;
         }
         return $object;
@@ -162,7 +163,8 @@ class TokenInfo extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): TokenInfo
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'expiryDate')) {

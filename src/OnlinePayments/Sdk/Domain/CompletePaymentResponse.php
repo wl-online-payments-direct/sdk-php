@@ -13,22 +13,22 @@ class CompletePaymentResponse extends DataObject
 {
     /**
      * @var PaymentCreationOutput|null
-    */
+     */
     public ?PaymentCreationOutput $creationOutput = null;
 
     /**
      * @var MerchantAction|null
-    */
+     */
     public ?MerchantAction $merchantAction = null;
 
     /**
      * @var PaymentResponse|null
-    */
+     */
     public ?PaymentResponse $payment = null;
 
     /**
      * @return PaymentCreationOutput|null
-    */
+     */
     public function getCreationOutput(): ?PaymentCreationOutput
     {
         return $this->creationOutput;
@@ -36,7 +36,7 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param PaymentCreationOutput|null $value
-    */
+     */
     public function setCreationOutput(?PaymentCreationOutput $value): void
     {
         $this->creationOutput = $value;
@@ -44,9 +44,9 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param PaymentCreationOutput|null $value
-     * @return CompletePaymentResponse
-    */
-    public function withCreationOutput(?PaymentCreationOutput $value): CompletePaymentResponse
+     * @return $this
+     */
+    public function withCreationOutput(?PaymentCreationOutput $value): static
     {
         $this->creationOutput = $value;
         return $this;
@@ -54,7 +54,7 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @return MerchantAction|null
-    */
+     */
     public function getMerchantAction(): ?MerchantAction
     {
         return $this->merchantAction;
@@ -62,7 +62,7 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param MerchantAction|null $value
-    */
+     */
     public function setMerchantAction(?MerchantAction $value): void
     {
         $this->merchantAction = $value;
@@ -70,9 +70,9 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param MerchantAction|null $value
-     * @return CompletePaymentResponse
-    */
-    public function withMerchantAction(?MerchantAction $value): CompletePaymentResponse
+     * @return $this
+     */
+    public function withMerchantAction(?MerchantAction $value): static
     {
         $this->merchantAction = $value;
         return $this;
@@ -80,7 +80,7 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @return PaymentResponse|null
-    */
+     */
     public function getPayment(): ?PaymentResponse
     {
         return $this->payment;
@@ -88,7 +88,7 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-    */
+     */
     public function setPayment(?PaymentResponse $value): void
     {
         $this->payment = $value;
@@ -96,9 +96,9 @@ class CompletePaymentResponse extends DataObject
 
     /**
      * @param PaymentResponse|null $value
-     * @return CompletePaymentResponse
-    */
-    public function withPayment(?PaymentResponse $value): CompletePaymentResponse
+     * @return $this
+     */
+    public function withPayment(?PaymentResponse $value): static
     {
         $this->payment = $value;
         return $this;
@@ -107,16 +107,17 @@ class CompletePaymentResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->creationOutput)) {
+        if ($this->creationOutput !== null) {
             $object->creationOutput = $this->creationOutput->toObject();
         }
-        if (!is_null($this->merchantAction)) {
+        if ($this->merchantAction !== null) {
             $object->merchantAction = $this->merchantAction->toObject();
         }
-        if (!is_null($this->payment)) {
+        if ($this->payment !== null) {
             $object->payment = $this->payment->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class CompletePaymentResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CompletePaymentResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'creationOutput')) {

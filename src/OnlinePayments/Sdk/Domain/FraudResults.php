@@ -13,12 +13,12 @@ class FraudResults extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $fraudServiceResult = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
@@ -26,7 +26,7 @@ class FraudResults extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
@@ -34,9 +34,9 @@ class FraudResults extends DataObject
 
     /**
      * @param string|null $value
-     * @return FraudResults
-    */
-    public function withFraudServiceResult(?string $value): FraudResults
+     * @return $this
+     */
+    public function withFraudServiceResult(?string $value): static
     {
         $this->fraudServiceResult = $value;
         return $this;
@@ -45,10 +45,11 @@ class FraudResults extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->fraudServiceResult)) {
+        if ($this->fraudServiceResult !== null) {
             $object->fraudServiceResult = $this->fraudServiceResult;
         }
         return $object;
@@ -60,7 +61,8 @@ class FraudResults extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): FraudResults
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'fraudServiceResult')) {

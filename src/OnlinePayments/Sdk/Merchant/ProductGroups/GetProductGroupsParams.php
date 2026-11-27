@@ -15,39 +15,39 @@ class GetProductGroupsParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @var string|null
      *
      * @deprecated This field has no effect.
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $hide = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -55,7 +55,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -63,8 +63,9 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCountryCode(string $value): GetProductGroupsParams
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -72,7 +73,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -80,7 +81,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -88,8 +89,9 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCurrencyCode(string $value): GetProductGroupsParams
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
@@ -99,7 +101,7 @@ class GetProductGroupsParams extends RequestObject
      * @return string|null
      *
      * @deprecated This field has no effect.
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -109,7 +111,7 @@ class GetProductGroupsParams extends RequestObject
      * @param string|null $value
      *
      * @deprecated This field has no effect.
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -117,10 +119,11 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string|null $value
+     * @return $this
      *
      * @deprecated This field has no effect.
-    */
-    public function withLocale(string $value): GetProductGroupsParams
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -128,7 +131,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -136,7 +139,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -144,8 +147,9 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
-    public function withAmount(int $value): GetProductGroupsParams
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -153,7 +157,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -161,7 +165,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -169,8 +173,9 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
-    public function withIsRecurring(bool $value): GetProductGroupsParams
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
@@ -178,7 +183,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getHide(): ?array
     {
         return $this->hide;
@@ -186,7 +191,7 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setHide(?array $value): void
     {
         $this->hide = $value;
@@ -194,49 +199,50 @@ class GetProductGroupsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
-    public function withHide(array $value): GetProductGroupsParams
+     * @return $this
+     */
+    public function withHide(?array $value): static
     {
         $this->hide = $value;
         return $this;
     }
 
     /**
-     * @param string[]|null $value
-    */
-    public function addHide(array $value): void
+     * @param string $value
+     */
+    public function addHide(string $value): void
     {
-        if (is_null($this->hide)) {
+        if ($this->hide === null) {
             $this->hide = [];
         }
         $this->hide[] = $value;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->countryCode != null) {
+        if ($this->countryCode !== null) {
             $array['countryCode'] = $this->countryCode;
         }
-        if ($this->currencyCode != null) {
+        if ($this->currencyCode !== null) {
             $array['currencyCode'] = $this->currencyCode;
         }
-        if ($this->locale != null) {
+        if ($this->locale !== null) {
             $array['locale'] = $this->locale;
         }
-        if ($this->amount != null) {
+        if ($this->amount !== null) {
             $array['amount'] = $this->amount;
         }
-        if ($this->isRecurring != null) {
+        if ($this->isRecurring !== null) {
             $array['isRecurring'] = $this->isRecurring ? 'true' : 'false';
         }
-        if ($this->hide != null) {
+        if ($this->hide !== null) {
             $array['hide'] = [];
             foreach ($this->hide as $element) {
-                if ($element != null) {
+                if ($element !== null) {
                     $array['hide'][] = $element;
                 }
             }

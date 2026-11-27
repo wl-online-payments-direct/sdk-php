@@ -38,5 +38,5 @@ interface CompleteClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse;
+    public function completePayment(string $paymentId, CompletePaymentRequest $body, ?CallContext $callContext = null): CompletePaymentResponse;
 }

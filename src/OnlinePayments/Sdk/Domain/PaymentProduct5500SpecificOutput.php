@@ -13,27 +13,27 @@ class PaymentProduct5500SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $entityId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentEndDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentStartDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getEntityId(): ?string
     {
         return $this->entityId;
@@ -41,7 +41,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEntityId(?string $value): void
     {
         $this->entityId = $value;
@@ -49,9 +49,9 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5500SpecificOutput
-    */
-    public function withEntityId(?string $value): PaymentProduct5500SpecificOutput
+     * @return $this
+     */
+    public function withEntityId(?string $value): static
     {
         $this->entityId = $value;
         return $this;
@@ -59,7 +59,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentEndDate(): ?string
     {
         return $this->paymentEndDate;
@@ -67,7 +67,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentEndDate(?string $value): void
     {
         $this->paymentEndDate = $value;
@@ -75,9 +75,9 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5500SpecificOutput
-    */
-    public function withPaymentEndDate(?string $value): PaymentProduct5500SpecificOutput
+     * @return $this
+     */
+    public function withPaymentEndDate(?string $value): static
     {
         $this->paymentEndDate = $value;
         return $this;
@@ -85,7 +85,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentReference(): ?string
     {
         return $this->paymentReference;
@@ -93,7 +93,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentReference(?string $value): void
     {
         $this->paymentReference = $value;
@@ -101,9 +101,9 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5500SpecificOutput
-    */
-    public function withPaymentReference(?string $value): PaymentProduct5500SpecificOutput
+     * @return $this
+     */
+    public function withPaymentReference(?string $value): static
     {
         $this->paymentReference = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentStartDate(): ?string
     {
         return $this->paymentStartDate;
@@ -119,7 +119,7 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentStartDate(?string $value): void
     {
         $this->paymentStartDate = $value;
@@ -127,9 +127,9 @@ class PaymentProduct5500SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5500SpecificOutput
-    */
-    public function withPaymentStartDate(?string $value): PaymentProduct5500SpecificOutput
+     * @return $this
+     */
+    public function withPaymentStartDate(?string $value): static
     {
         $this->paymentStartDate = $value;
         return $this;
@@ -138,19 +138,20 @@ class PaymentProduct5500SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->entityId)) {
+        if ($this->entityId !== null) {
             $object->entityId = $this->entityId;
         }
-        if (!is_null($this->paymentEndDate)) {
+        if ($this->paymentEndDate !== null) {
             $object->paymentEndDate = $this->paymentEndDate;
         }
-        if (!is_null($this->paymentReference)) {
+        if ($this->paymentReference !== null) {
             $object->paymentReference = $this->paymentReference;
         }
-        if (!is_null($this->paymentStartDate)) {
+        if ($this->paymentStartDate !== null) {
             $object->paymentStartDate = $this->paymentStartDate;
         }
         return $object;
@@ -162,7 +163,8 @@ class PaymentProduct5500SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5500SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'entityId')) {

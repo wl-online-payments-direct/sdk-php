@@ -13,17 +13,17 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 {
     /**
      * @var PaymentProductFilter|null
-    */
+     */
     public ?PaymentProductFilter $exclude = null;
 
     /**
      * @var PaymentProductFilter|null
-    */
+     */
     public ?PaymentProductFilter $restrictTo = null;
 
     /**
      * @return PaymentProductFilter|null
-    */
+     */
     public function getExclude(): ?PaymentProductFilter
     {
         return $this->exclude;
@@ -31,7 +31,7 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-    */
+     */
     public function setExclude(?PaymentProductFilter $value): void
     {
         $this->exclude = $value;
@@ -39,9 +39,9 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-     * @return PaymentProductFiltersHostedCheckout
-    */
-    public function withExclude(?PaymentProductFilter $value): PaymentProductFiltersHostedCheckout
+     * @return $this
+     */
+    public function withExclude(?PaymentProductFilter $value): static
     {
         $this->exclude = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @return PaymentProductFilter|null
-    */
+     */
     public function getRestrictTo(): ?PaymentProductFilter
     {
         return $this->restrictTo;
@@ -57,7 +57,7 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-    */
+     */
     public function setRestrictTo(?PaymentProductFilter $value): void
     {
         $this->restrictTo = $value;
@@ -65,9 +65,9 @@ class PaymentProductFiltersHostedCheckout extends DataObject
 
     /**
      * @param PaymentProductFilter|null $value
-     * @return PaymentProductFiltersHostedCheckout
-    */
-    public function withRestrictTo(?PaymentProductFilter $value): PaymentProductFiltersHostedCheckout
+     * @return $this
+     */
+    public function withRestrictTo(?PaymentProductFilter $value): static
     {
         $this->restrictTo = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProductFiltersHostedCheckout extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->exclude)) {
+        if ($this->exclude !== null) {
             $object->exclude = $this->exclude->toObject();
         }
-        if (!is_null($this->restrictTo)) {
+        if ($this->restrictTo !== null) {
             $object->restrictTo = $this->restrictTo->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProductFiltersHostedCheckout extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFiltersHostedCheckout
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'exclude')) {

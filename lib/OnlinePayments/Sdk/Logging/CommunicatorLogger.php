@@ -1,10 +1,11 @@
 <?php
+
 namespace OnlinePayments\Sdk\Logging;
 
-use Exception;
+use Throwable;
 
 /**
- * Class CommunicatorLogger
+ * Interface CommunicatorLogger
  *
  * @package OnlinePayments\Sdk\Logging
  */
@@ -17,7 +18,7 @@ interface CommunicatorLogger
 
     /**
      * @param string $message
-     * @param Exception $exception
+     * @param Throwable $exception
      */
-    public function logException(string $message, Exception $exception): void;
+    public function logException(string $message, Throwable $exception): void;
 }

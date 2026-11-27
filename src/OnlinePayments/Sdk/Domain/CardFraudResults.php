@@ -13,22 +13,22 @@ class CardFraudResults extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $avsResult = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cvvResult = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $fraudServiceResult = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAvsResult(): ?string
     {
         return $this->avsResult;
@@ -36,7 +36,7 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAvsResult(?string $value): void
     {
         $this->avsResult = $value;
@@ -44,9 +44,9 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardFraudResults
-    */
-    public function withAvsResult(?string $value): CardFraudResults
+     * @return $this
+     */
+    public function withAvsResult(?string $value): static
     {
         $this->avsResult = $value;
         return $this;
@@ -54,7 +54,7 @@ class CardFraudResults extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCvvResult(): ?string
     {
         return $this->cvvResult;
@@ -62,7 +62,7 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCvvResult(?string $value): void
     {
         $this->cvvResult = $value;
@@ -70,9 +70,9 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardFraudResults
-    */
-    public function withCvvResult(?string $value): CardFraudResults
+     * @return $this
+     */
+    public function withCvvResult(?string $value): static
     {
         $this->cvvResult = $value;
         return $this;
@@ -80,7 +80,7 @@ class CardFraudResults extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getFraudServiceResult(): ?string
     {
         return $this->fraudServiceResult;
@@ -88,7 +88,7 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFraudServiceResult(?string $value): void
     {
         $this->fraudServiceResult = $value;
@@ -96,9 +96,9 @@ class CardFraudResults extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardFraudResults
-    */
-    public function withFraudServiceResult(?string $value): CardFraudResults
+     * @return $this
+     */
+    public function withFraudServiceResult(?string $value): static
     {
         $this->fraudServiceResult = $value;
         return $this;
@@ -107,16 +107,17 @@ class CardFraudResults extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->avsResult)) {
+        if ($this->avsResult !== null) {
             $object->avsResult = $this->avsResult;
         }
-        if (!is_null($this->cvvResult)) {
+        if ($this->cvvResult !== null) {
             $object->cvvResult = $this->cvvResult;
         }
-        if (!is_null($this->fraudServiceResult)) {
+        if ($this->fraudServiceResult !== null) {
             $object->fraudServiceResult = $this->fraudServiceResult;
         }
         return $object;
@@ -128,7 +129,8 @@ class CardFraudResults extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardFraudResults
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'avsResult')) {

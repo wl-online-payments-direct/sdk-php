@@ -10,6 +10,7 @@ use OnlinePayments\Sdk\Communication\ConnectionResponse;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Communicator;
 use OnlinePayments\Sdk\CommunicatorConfiguration;
+use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingAuthenticator;
 use OnlinePayments\Sdk\TestUtil\Unit\TestingConnection;
 use PHPUnit\Framework\Attributes\Group;
@@ -22,7 +23,7 @@ class IdempotenceTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testIdempotence_RequestHeadersWithKey_ReturnsHeaderWhenSet()
+    public function testIdempotence_RequestHeadersWithKey_ReturnsHeaderWhenSet(): void
     {
         $callContext = new CallContext();
 
@@ -42,7 +43,7 @@ class IdempotenceTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testIdempotence_GetWithCallContext_SetsIdempotenceValuesCorrectly()
+    public function testIdempotence_GetWithCallContext_SetsIdempotenceValuesCorrectly(): void
     {
         $callContext = new CallContext();
         $idempotenceKey = 'test';
@@ -50,11 +51,11 @@ class IdempotenceTest extends TestCase
         $idempotenceResponseDateTime = new DateTime('2023-10-10T08:00:00Z');
         $callContext->setIdempotenceKey($idempotenceKey);
 
-        $responseHeaders = array(
+        $responseHeaders = [
             'X-GCS-Idempotence-Request-Timestamp' => $idempotenceRequestTimestamp,
             'IdempotencyResponseDatetime' => $idempotenceResponseDateTime->format(DateTimeInterface::ATOM),
-            'Content-Type' => 'application/json'
-        );
+            'Content-Type' => 'application/json',
+        ];
 
         $responseBody = "{}";
         $response = new ConnectionResponse(201, $responseHeaders, $responseBody);
@@ -71,13 +72,75 @@ class IdempotenceTest extends TestCase
     /**
      * @throws \Exception
      */
-    private function getRequestHeaders(CallContext $context)
+    public function testIdempotence_InvalidResponseDateTimeWithoutLogger_SetsResponseDateTimeToNull(): void
+    {
+        $callContext = new CallContext();
+        $callContext->setIdempotenceKey('test');
+
+        $response = new ConnectionResponse(201, [
+            'X-GCS-Idempotence-Request-Timestamp' => '12345',
+            'IdempotencyResponseDatetime' => 'not-a-date',
+            'Content-Type' => 'application/json',
+        ], '{}');
+
+        $communicator = new Communicator($this->getCommunicatorConfiguration(), new TestingAuthenticator(), new TestingConnection($response));
+        $communicator->get(new ResponseClassMap(), '/', '', null, $callContext);
+
+        $this->assertEquals('12345', $callContext->getIdempotenceRequestTimestamp());
+        $this->assertNull($callContext->getIdempotenceResponseDateTime());
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testIdempotence_InvalidResponseDateTimeWithLogger_SetsResponseDateTimeToNullAndLogs(): void
+    {
+        $callContext = new CallContext();
+        $callContext->setIdempotenceKey('test');
+
+        $response = new ConnectionResponse(201, [
+            'IdempotencyResponseDatetime' => 'not-a-date',
+            'Content-Type' => 'application/json',
+        ], '{}');
+
+        $logger = new class implements CommunicatorLogger {
+            /** @var list<string> */
+            public array $messages = [];
+
+            public function log(string $message): void
+            {
+                $this->messages[] = $message;
+            }
+
+            public function logException(string $message, \Throwable $exception): void
+            {
+                $this->messages[] = $message;
+            }
+        };
+
+        $communicator = new Communicator($this->getCommunicatorConfiguration(), new TestingAuthenticator(), new TestingConnection($response));
+        $communicator->enableLogging($logger);
+        $communicator->get(new ResponseClassMap(), '/', '', null, $callContext);
+
+        $this->assertNull($callContext->getIdempotenceResponseDateTime());
+        $this->assertCount(1, array_keys(
+            $logger->messages,
+            "Ignoring invalid value 'not-a-date' for response header 'IdempotencyResponseDatetime'",
+            true,
+        ));
+    }
+
+    /**
+     * @return array<string, string>|null
+     * @throws \Exception
+     */
+    private function getRequestHeaders(CallContext $context): ?array
     {
         $communicatorConfiguration = $this->getCommunicatorConfiguration();
 
         $capturedHeaders = null;
 
-        $connection = $this->createMock(Connection::class);
+        $connection = $this->createStub(Connection::class);
 
         $connection->method('get')
             ->willReturnCallback(function ($url, $headers, $handler) use (&$capturedHeaders) {
@@ -89,7 +152,7 @@ class IdempotenceTest extends TestCase
         $communicator = new Communicator(
             $communicatorConfiguration,
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $responseClassMap = new ResponseClassMap();
@@ -99,7 +162,7 @@ class IdempotenceTest extends TestCase
             '/test',
             '',
             null,
-            $context
+            $context,
         );
 
         return $capturedHeaders;
@@ -111,7 +174,7 @@ class IdempotenceTest extends TestCase
             'apiKeyId',
             'secretKey',
             'https://example.com',
-            'integrator'
+            'integrator',
         );
     }
 }

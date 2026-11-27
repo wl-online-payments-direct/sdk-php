@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Unit\Logging;
 
 use OnlinePayments\Sdk\Logging\ResourceLogger;
@@ -10,7 +11,7 @@ use OnlinePayments\Sdk\Communication\InvalidResponseException;
 #[Group('logging')]
 class ResourceLoggerTest extends TestCase
 {
-    public function testResourceLogger_LogMessage_WritesMessageToResource()
+    public function testResourceLogger_LogMessage_WritesMessageToResource(): void
     {
         $tempFileResource = tmpfile();
         $logger = new ResourceLogger($tempFileResource);
@@ -24,13 +25,13 @@ class ResourceLoggerTest extends TestCase
         $this->assertEquals($message . PHP_EOL, $content);
     }
 
-    public function testResourceLogger_LogException_WritesMessageAndExceptionToResource()
+    public function testResourceLogger_LogException_WritesMessageAndExceptionToResource(): void
     {
         $tempFileResource = tmpfile();
         $logger = new ResourceLogger($tempFileResource);
         $message = "test log";
         $exception = new InvalidResponseException(
-            new ConnectionResponse(500, [], '')
+            new ConnectionResponse(500, [], ''),
         );
 
         $logger->logException($message, $exception);
@@ -40,11 +41,11 @@ class ResourceLoggerTest extends TestCase
 
         $this->assertEquals(
             $message . PHP_EOL . $exception . PHP_EOL,
-            $content
+            $content,
         );
     }
 
-    public function testResourceLogger_LogUnicodeMessage_WritesUnicodeCorrectly()
+    public function testResourceLogger_LogUnicodeMessage_WritesUnicodeCorrectly(): void
     {
         $tempFileResource = tmpfile();
         $logger = new ResourceLogger($tempFileResource);

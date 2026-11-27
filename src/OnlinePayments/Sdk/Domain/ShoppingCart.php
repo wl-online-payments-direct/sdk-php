@@ -15,39 +15,39 @@ class ShoppingCart extends DataObject
      * @var AmountBreakdown[]|null
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-    */
+     */
     public ?array $amountBreakdown = null;
 
     /**
      * @var GiftCardPurchase|null
-    */
+     */
     public ?GiftCardPurchase $giftCardPurchase = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isPreOrder = null;
 
     /**
      * @var LineItem[]|null
-    */
+     */
     public ?array $items = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $preOrderItemAvailabilityDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $reOrderIndicator = null;
 
     /**
      * @return AmountBreakdown[]|null
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-    */
+     */
     public function getAmountBreakdown(): ?array
     {
         return $this->amountBreakdown;
@@ -57,7 +57,7 @@ class ShoppingCart extends DataObject
      * @param AmountBreakdown[]|null $value
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-    */
+     */
     public function setAmountBreakdown(?array $value): void
     {
         $this->amountBreakdown = $value;
@@ -65,11 +65,11 @@ class ShoppingCart extends DataObject
 
     /**
      * @param AmountBreakdown[]|null $value
-     * @return ShoppingCart
+     * @return $this
      *
      * @deprecated Use order.shipping.shippingCost for shipping cost. Other amounts are not used. Determines how the total amount is split into amount types
-    */
-    public function withAmountBreakdown(?array $value): ShoppingCart
+     */
+    public function withAmountBreakdown(?array $value): static
     {
         $this->amountBreakdown = $value;
         return $this;
@@ -77,7 +77,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return GiftCardPurchase|null
-    */
+     */
     public function getGiftCardPurchase(): ?GiftCardPurchase
     {
         return $this->giftCardPurchase;
@@ -85,7 +85,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param GiftCardPurchase|null $value
-    */
+     */
     public function setGiftCardPurchase(?GiftCardPurchase $value): void
     {
         $this->giftCardPurchase = $value;
@@ -93,9 +93,9 @@ class ShoppingCart extends DataObject
 
     /**
      * @param GiftCardPurchase|null $value
-     * @return ShoppingCart
-    */
-    public function withGiftCardPurchase(?GiftCardPurchase $value): ShoppingCart
+     * @return $this
+     */
+    public function withGiftCardPurchase(?GiftCardPurchase $value): static
     {
         $this->giftCardPurchase = $value;
         return $this;
@@ -103,7 +103,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsPreOrder(): ?bool
     {
         return $this->isPreOrder;
@@ -111,7 +111,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsPreOrder(?bool $value): void
     {
         $this->isPreOrder = $value;
@@ -119,9 +119,9 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-     * @return ShoppingCart
-    */
-    public function withIsPreOrder(?bool $value): ShoppingCart
+     * @return $this
+     */
+    public function withIsPreOrder(?bool $value): static
     {
         $this->isPreOrder = $value;
         return $this;
@@ -129,7 +129,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return LineItem[]|null
-    */
+     */
     public function getItems(): ?array
     {
         return $this->items;
@@ -137,7 +137,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param LineItem[]|null $value
-    */
+     */
     public function setItems(?array $value): void
     {
         $this->items = $value;
@@ -145,9 +145,9 @@ class ShoppingCart extends DataObject
 
     /**
      * @param LineItem[]|null $value
-     * @return ShoppingCart
-    */
-    public function withItems(?array $value): ShoppingCart
+     * @return $this
+     */
+    public function withItems(?array $value): static
     {
         $this->items = $value;
         return $this;
@@ -155,7 +155,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPreOrderItemAvailabilityDate(): ?string
     {
         return $this->preOrderItemAvailabilityDate;
@@ -163,7 +163,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPreOrderItemAvailabilityDate(?string $value): void
     {
         $this->preOrderItemAvailabilityDate = $value;
@@ -171,9 +171,9 @@ class ShoppingCart extends DataObject
 
     /**
      * @param string|null $value
-     * @return ShoppingCart
-    */
-    public function withPreOrderItemAvailabilityDate(?string $value): ShoppingCart
+     * @return $this
+     */
+    public function withPreOrderItemAvailabilityDate(?string $value): static
     {
         $this->preOrderItemAvailabilityDate = $value;
         return $this;
@@ -181,7 +181,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getReOrderIndicator(): ?bool
     {
         return $this->reOrderIndicator;
@@ -189,7 +189,7 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setReOrderIndicator(?bool $value): void
     {
         $this->reOrderIndicator = $value;
@@ -197,9 +197,9 @@ class ShoppingCart extends DataObject
 
     /**
      * @param bool|null $value
-     * @return ShoppingCart
-    */
-    public function withReOrderIndicator(?bool $value): ShoppingCart
+     * @return $this
+     */
+    public function withReOrderIndicator(?bool $value): static
     {
         $this->reOrderIndicator = $value;
         return $this;
@@ -208,35 +208,36 @@ class ShoppingCart extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountBreakdown)) {
+        if ($this->amountBreakdown !== null) {
             $object->amountBreakdown = [];
             foreach ($this->amountBreakdown as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->amountBreakdown[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->giftCardPurchase)) {
+        if ($this->giftCardPurchase !== null) {
             $object->giftCardPurchase = $this->giftCardPurchase->toObject();
         }
-        if (!is_null($this->isPreOrder)) {
+        if ($this->isPreOrder !== null) {
             $object->isPreOrder = $this->isPreOrder;
         }
-        if (!is_null($this->items)) {
+        if ($this->items !== null) {
             $object->items = [];
             foreach ($this->items as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->items[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->preOrderItemAvailabilityDate)) {
+        if ($this->preOrderItemAvailabilityDate !== null) {
             $object->preOrderItemAvailabilityDate = $this->preOrderItemAvailabilityDate;
         }
-        if (!is_null($this->reOrderIndicator)) {
+        if ($this->reOrderIndicator !== null) {
             $object->reOrderIndicator = $this->reOrderIndicator;
         }
         return $object;
@@ -248,7 +249,8 @@ class ShoppingCart extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShoppingCart
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountBreakdown')) {

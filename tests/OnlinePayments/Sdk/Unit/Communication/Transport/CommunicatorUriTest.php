@@ -24,7 +24,7 @@ class CommunicatorUriTest extends TestCase
 
         $capturedUrl = null;
 
-        $connection = $this->createMock(Connection::class);
+        $connection = $this->createStub(Connection::class);
 
         $connection->method('get')
             ->willReturnCallback(function ($url, $headers, $handler) use (&$capturedUrl) {
@@ -36,7 +36,7 @@ class CommunicatorUriTest extends TestCase
         $communicator = new Communicator(
             $configuration,
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $responseClassMap = new ResponseClassMap();
@@ -55,7 +55,7 @@ class CommunicatorUriTest extends TestCase
 
         $capturedUrl = null;
 
-        $connection = $this->createMock(Connection::class);
+        $connection = $this->createStub(Connection::class);
 
         $connection->method('get')
             ->willReturnCallback(function ($url, $headers, $handler) use (&$capturedUrl) {
@@ -67,15 +67,18 @@ class CommunicatorUriTest extends TestCase
         $communicator = new Communicator(
             $configuration,
             new TestingAuthenticator(),
-            $connection
+            $connection,
         );
 
         $requestParameters = new class extends RequestObject {
+            /**
+             * @return array<string, string>
+             */
             public function toArray(): array
             {
                 return [
                     'currency' => 'EUR',
-                    'merchantId' => '123 456'
+                    'merchantId' => '123 456',
                 ];
             }
         };
@@ -86,7 +89,7 @@ class CommunicatorUriTest extends TestCase
             $responseClassMap,
             '/v2/1/payments',
             '',
-            $requestParameters
+            $requestParameters,
         );
 
         $this->assertStringContainsString('currency=EUR', $capturedUrl);
@@ -99,7 +102,7 @@ class CommunicatorUriTest extends TestCase
             'apiKeyId',
             'secretKey',
             'https://example.com',
-            'integrator'
+            'integrator',
         );
     }
 }

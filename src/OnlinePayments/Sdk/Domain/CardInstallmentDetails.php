@@ -13,12 +13,12 @@ class CardInstallmentDetails extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $installmentPaymentSequenceIndicator = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getInstallmentPaymentSequenceIndicator(): ?string
     {
         return $this->installmentPaymentSequenceIndicator;
@@ -26,7 +26,7 @@ class CardInstallmentDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setInstallmentPaymentSequenceIndicator(?string $value): void
     {
         $this->installmentPaymentSequenceIndicator = $value;
@@ -34,9 +34,9 @@ class CardInstallmentDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardInstallmentDetails
-    */
-    public function withInstallmentPaymentSequenceIndicator(?string $value): CardInstallmentDetails
+     * @return $this
+     */
+    public function withInstallmentPaymentSequenceIndicator(?string $value): static
     {
         $this->installmentPaymentSequenceIndicator = $value;
         return $this;
@@ -45,10 +45,11 @@ class CardInstallmentDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->installmentPaymentSequenceIndicator)) {
+        if ($this->installmentPaymentSequenceIndicator !== null) {
             $object->installmentPaymentSequenceIndicator = $this->installmentPaymentSequenceIndicator;
         }
         return $object;
@@ -60,7 +61,8 @@ class CardInstallmentDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardInstallmentDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'installmentPaymentSequenceIndicator')) {

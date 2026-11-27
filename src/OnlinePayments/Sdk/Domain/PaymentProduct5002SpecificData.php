@@ -13,12 +13,12 @@ class PaymentProduct5002SpecificData extends DataObject
 {
     /**
      * @var ApiParameters|null
-    */
+     */
     public ?ApiParameters $apiParameters = null;
 
     /**
      * @return ApiParameters|null
-    */
+     */
     public function getApiParameters(): ?ApiParameters
     {
         return $this->apiParameters;
@@ -26,7 +26,7 @@ class PaymentProduct5002SpecificData extends DataObject
 
     /**
      * @param ApiParameters|null $value
-    */
+     */
     public function setApiParameters(?ApiParameters $value): void
     {
         $this->apiParameters = $value;
@@ -34,9 +34,9 @@ class PaymentProduct5002SpecificData extends DataObject
 
     /**
      * @param ApiParameters|null $value
-     * @return PaymentProduct5002SpecificData
-    */
-    public function withApiParameters(?ApiParameters $value): PaymentProduct5002SpecificData
+     * @return $this
+     */
+    public function withApiParameters(?ApiParameters $value): static
     {
         $this->apiParameters = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProduct5002SpecificData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->apiParameters)) {
+        if ($this->apiParameters !== null) {
             $object->apiParameters = $this->apiParameters->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProduct5002SpecificData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5002SpecificData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'apiParameters')) {

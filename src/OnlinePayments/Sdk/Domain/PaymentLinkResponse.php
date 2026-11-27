@@ -14,57 +14,57 @@ class PaymentLinkResponse extends DataObject
 {
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $expirationDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isReusableLink = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @var PaymentLinkEvent[]|null
-    */
+     */
     public ?array $paymentLinkEvents = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentLinkId = null;
 
     /**
      * @var PaymentLinkOrderOutput|null
-    */
+     */
     public ?PaymentLinkOrderOutput $paymentLinkOrder = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCodeBase64 = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $recipientName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $redirectionUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
@@ -72,7 +72,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
@@ -80,9 +80,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withExpirationDate(?DateTime $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withExpirationDate(?DateTime $value): static
     {
         $this->expirationDate = $value;
         return $this;
@@ -90,7 +90,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsReusableLink(): ?bool
     {
         return $this->isReusableLink;
@@ -98,7 +98,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsReusableLink(?bool $value): void
     {
         $this->isReusableLink = $value;
@@ -106,9 +106,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withIsReusableLink(?bool $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withIsReusableLink(?bool $value): static
     {
         $this->isReusableLink = $value;
         return $this;
@@ -116,7 +116,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -124,7 +124,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -132,9 +132,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withPaymentId(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -142,7 +142,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return PaymentLinkEvent[]|null
-    */
+     */
     public function getPaymentLinkEvents(): ?array
     {
         return $this->paymentLinkEvents;
@@ -150,7 +150,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param PaymentLinkEvent[]|null $value
-    */
+     */
     public function setPaymentLinkEvents(?array $value): void
     {
         $this->paymentLinkEvents = $value;
@@ -158,9 +158,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param PaymentLinkEvent[]|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withPaymentLinkEvents(?array $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withPaymentLinkEvents(?array $value): static
     {
         $this->paymentLinkEvents = $value;
         return $this;
@@ -168,7 +168,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentLinkId(): ?string
     {
         return $this->paymentLinkId;
@@ -176,7 +176,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentLinkId(?string $value): void
     {
         $this->paymentLinkId = $value;
@@ -184,9 +184,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withPaymentLinkId(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withPaymentLinkId(?string $value): static
     {
         $this->paymentLinkId = $value;
         return $this;
@@ -194,7 +194,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return PaymentLinkOrderOutput|null
-    */
+     */
     public function getPaymentLinkOrder(): ?PaymentLinkOrderOutput
     {
         return $this->paymentLinkOrder;
@@ -202,7 +202,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param PaymentLinkOrderOutput|null $value
-    */
+     */
     public function setPaymentLinkOrder(?PaymentLinkOrderOutput $value): void
     {
         $this->paymentLinkOrder = $value;
@@ -210,9 +210,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param PaymentLinkOrderOutput|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withPaymentLinkOrder(?PaymentLinkOrderOutput $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withPaymentLinkOrder(?PaymentLinkOrderOutput $value): static
     {
         $this->paymentLinkOrder = $value;
         return $this;
@@ -220,7 +220,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCodeBase64(): ?string
     {
         return $this->qrCodeBase64;
@@ -228,7 +228,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCodeBase64(?string $value): void
     {
         $this->qrCodeBase64 = $value;
@@ -236,9 +236,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withQrCodeBase64(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withQrCodeBase64(?string $value): static
     {
         $this->qrCodeBase64 = $value;
         return $this;
@@ -246,7 +246,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRecipientName(): ?string
     {
         return $this->recipientName;
@@ -254,7 +254,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRecipientName(?string $value): void
     {
         $this->recipientName = $value;
@@ -262,9 +262,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withRecipientName(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withRecipientName(?string $value): static
     {
         $this->recipientName = $value;
         return $this;
@@ -272,7 +272,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRedirectionUrl(): ?string
     {
         return $this->redirectionUrl;
@@ -280,7 +280,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRedirectionUrl(?string $value): void
     {
         $this->redirectionUrl = $value;
@@ -288,9 +288,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withRedirectionUrl(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withRedirectionUrl(?string $value): static
     {
         $this->redirectionUrl = $value;
         return $this;
@@ -298,7 +298,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -306,7 +306,7 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -314,9 +314,9 @@ class PaymentLinkResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkResponse
-    */
-    public function withStatus(?string $value): PaymentLinkResponse
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -325,42 +325,43 @@ class PaymentLinkResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->expirationDate)) {
+        if ($this->expirationDate !== null) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->isReusableLink)) {
+        if ($this->isReusableLink !== null) {
             $object->isReusableLink = $this->isReusableLink;
         }
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
-        if (!is_null($this->paymentLinkEvents)) {
+        if ($this->paymentLinkEvents !== null) {
             $object->paymentLinkEvents = [];
             foreach ($this->paymentLinkEvents as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentLinkEvents[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->paymentLinkId)) {
+        if ($this->paymentLinkId !== null) {
             $object->paymentLinkId = $this->paymentLinkId;
         }
-        if (!is_null($this->paymentLinkOrder)) {
+        if ($this->paymentLinkOrder !== null) {
             $object->paymentLinkOrder = $this->paymentLinkOrder->toObject();
         }
-        if (!is_null($this->qrCodeBase64)) {
+        if ($this->qrCodeBase64 !== null) {
             $object->qrCodeBase64 = $this->qrCodeBase64;
         }
-        if (!is_null($this->recipientName)) {
+        if ($this->recipientName !== null) {
             $object->recipientName = $this->recipientName;
         }
-        if (!is_null($this->redirectionUrl)) {
+        if ($this->redirectionUrl !== null) {
             $object->redirectionUrl = $this->redirectionUrl;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
         return $object;
@@ -372,7 +373,8 @@ class PaymentLinkResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'expirationDate')) {

@@ -13,17 +13,17 @@ class CapturePaymentBatchRequest extends DataObject
 {
     /**
      * @var CapturePaymentRequest|null
-    */
+     */
     public ?CapturePaymentRequest $capture = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @return CapturePaymentRequest|null
-    */
+     */
     public function getCapture(): ?CapturePaymentRequest
     {
         return $this->capture;
@@ -31,7 +31,7 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param CapturePaymentRequest|null $value
-    */
+     */
     public function setCapture(?CapturePaymentRequest $value): void
     {
         $this->capture = $value;
@@ -39,9 +39,9 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param CapturePaymentRequest|null $value
-     * @return CapturePaymentBatchRequest
-    */
-    public function withCapture(?CapturePaymentRequest $value): CapturePaymentBatchRequest
+     * @return $this
+     */
+    public function withCapture(?CapturePaymentRequest $value): static
     {
         $this->capture = $value;
         return $this;
@@ -49,7 +49,7 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -57,7 +57,7 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -65,9 +65,9 @@ class CapturePaymentBatchRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CapturePaymentBatchRequest
-    */
-    public function withPaymentId(?string $value): CapturePaymentBatchRequest
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -76,13 +76,14 @@ class CapturePaymentBatchRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->capture)) {
+        if ($this->capture !== null) {
             $object->capture = $this->capture->toObject();
         }
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
         return $object;
@@ -94,7 +95,8 @@ class CapturePaymentBatchRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CapturePaymentBatchRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'capture')) {

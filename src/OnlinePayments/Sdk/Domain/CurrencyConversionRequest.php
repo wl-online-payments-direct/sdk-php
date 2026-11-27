@@ -13,17 +13,17 @@ class CurrencyConversionRequest extends DataObject
 {
     /**
      * @var DccCardSource|null
-    */
+     */
     public ?DccCardSource $cardSource = null;
 
     /**
      * @var Transaction|null
-    */
+     */
     public ?Transaction $transaction = null;
 
     /**
      * @return DccCardSource|null
-    */
+     */
     public function getCardSource(): ?DccCardSource
     {
         return $this->cardSource;
@@ -31,7 +31,7 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param DccCardSource|null $value
-    */
+     */
     public function setCardSource(?DccCardSource $value): void
     {
         $this->cardSource = $value;
@@ -39,9 +39,9 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param DccCardSource|null $value
-     * @return CurrencyConversionRequest
-    */
-    public function withCardSource(?DccCardSource $value): CurrencyConversionRequest
+     * @return $this
+     */
+    public function withCardSource(?DccCardSource $value): static
     {
         $this->cardSource = $value;
         return $this;
@@ -49,7 +49,7 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @return Transaction|null
-    */
+     */
     public function getTransaction(): ?Transaction
     {
         return $this->transaction;
@@ -57,7 +57,7 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param Transaction|null $value
-    */
+     */
     public function setTransaction(?Transaction $value): void
     {
         $this->transaction = $value;
@@ -65,9 +65,9 @@ class CurrencyConversionRequest extends DataObject
 
     /**
      * @param Transaction|null $value
-     * @return CurrencyConversionRequest
-    */
-    public function withTransaction(?Transaction $value): CurrencyConversionRequest
+     * @return $this
+     */
+    public function withTransaction(?Transaction $value): static
     {
         $this->transaction = $value;
         return $this;
@@ -76,13 +76,14 @@ class CurrencyConversionRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardSource)) {
+        if ($this->cardSource !== null) {
             $object->cardSource = $this->cardSource->toObject();
         }
-        if (!is_null($this->transaction)) {
+        if ($this->transaction !== null) {
             $object->transaction = $this->transaction->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class CurrencyConversionRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CurrencyConversionRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardSource')) {

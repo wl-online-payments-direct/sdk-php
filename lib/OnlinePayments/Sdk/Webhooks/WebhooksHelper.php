@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Webhooks;
 
 use OnlinePayments\Sdk\Communication\ConnectionResponse;
@@ -14,10 +15,10 @@ use OnlinePayments\Sdk\Domain\WebhooksEvent;
 class WebhooksHelper
 {
     /** @var SignatureValidator */
-    private $signatureValidator;
+    private readonly SignatureValidator $signatureValidator;
 
     /** @var ResponseFactory|null */
-    private $responseFactory = null;
+    private ?ResponseFactory $responseFactory = null;
 
     /**
      * @param SecretKeyStore $secretKeyStore
@@ -27,38 +28,42 @@ class WebhooksHelper
         $this->signatureValidator = new SignatureValidator($secretKeyStore);
     }
 
-    /** @return ResponseFactory */
-    protected function getResponseFactory()
+    /**
+     * @return ResponseFactory
+     */
+    protected function getResponseFactory(): ResponseFactory
     {
-        if (is_null($this->responseFactory)) {
-            $this->responseFactory = new ResponseFactory();
-        }
-        return $this->responseFactory;
+        return $this->responseFactory ??= new ResponseFactory();
     }
 
     /**
      * Unmarshals the given input stream that contains the body,
      * while also validating its contents using the given request headers.
+     *
      * @param string $body
-     * @param array $requestHeaders
+     * @param array<string, mixed> $requestHeaders
      * @return WebhooksEvent
      * @throws SignatureValidationException
      * @throws ApiVersionMismatchException
      */
-    public function unmarshal($body, $requestHeaders)
+    public function unmarshal(string $body, array $requestHeaders): WebhooksEvent
     {
         $this->signatureValidator->validate($body, $requestHeaders);
 
-        $response = new ConnectionResponse(200, array('Content-Type' => 'application/json'), $body);
+        $response = new ConnectionResponse(200, ['Content-Type' => 'application/json'], $body);
         $responseClassMap = new ResponseClassMap();
         $responseClassMap->addResponseClassName(200, WebhooksEvent::class);
 
+        /** @var WebhooksEvent $event */
         $event = $this->getResponseFactory()->createResponse($response, $responseClassMap);
         $this->validateApiVersion($event);
         return $event;
     }
 
-    private function validateApiVersion($event)
+    /**
+     * @param WebhooksEvent $event
+     */
+    private function validateApiVersion(WebhooksEvent $event): void
     {
         if ('v1' !== $event->apiVersion) {
             throw new ApiVersionMismatchException($event->apiVersion, 'v1');

@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Integration\Exceptions;
 
 use OnlinePayments\Sdk\AuthorizationException;
@@ -207,7 +208,7 @@ class ExceptionsTest extends TestCase
     public function testShouldThrowDeclinedRefundException(): void
     {
         $this->markTestSkipped(
-            'Test is skipped because the action could not be triggered in the current merchant setup.'
+            'Test is skipped because the action could not be triggered in the current merchant setup.',
         );
 
         $paymentId = $this->sdkTestHelper->createPaymentAndGetId(self::DECLINED_REFUND_AMOUNT, self::CURRENCY_CODE);
@@ -219,7 +220,7 @@ class ExceptionsTest extends TestCase
                 RefundRequestBuilder::create()
                     ->withAmount(self::DECLINED_REFUND_AMOUNT)
                     ->withCurrency(self::CURRENCY_CODE)
-                    ->build()
+                    ->build(),
             );
 
             $this->fail('Expected DeclinedRefundException was not thrown');

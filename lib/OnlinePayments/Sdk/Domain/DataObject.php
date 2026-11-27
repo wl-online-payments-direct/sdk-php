@@ -1,10 +1,14 @@
 <?php
+
 namespace OnlinePayments\Sdk\Domain;
 
 use Exception;
+use JsonException;
 use stdClass;
+use Throwable;
 use UnexpectedValueException;
 use OnlinePayments\Sdk\JSON\JSONUtil;
+use OnlinePayments\Sdk\Logging\BodyObfuscator;
 
 /**
  * Class DataObject
@@ -15,10 +19,19 @@ abstract class DataObject
 {
     /**
      * @return string
+     * @throws UnexpectedValueException
      */
     public function toJson(): string
     {
-        return json_encode($this->toObject());
+        try {
+            return json_encode($this->toObject(), JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            throw new UnexpectedValueException(
+                'Could not encode ' . static::class . ' as JSON: ' . $e->getMessage(),
+                0,
+                $e,
+            );
+        }
     }
 
     /**
@@ -26,7 +39,7 @@ abstract class DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromJson(string $value): DataObject
+    public function fromJson(string $value): static
     {
         $object = JSONUtil::decode($value);
         return $this->fromObject($object);
@@ -45,16 +58,34 @@ abstract class DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DataObject
+    public function fromObject(object $object): static
     {
-        if (!is_object($object)) {
-            throw new UnexpectedValueException('Expected object, got ' . gettype($object));
-        }
         return $this;
     }
 
-    public function __set($name, $value)
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @throws Exception
+     */
+    public function __set(string $name, mixed $value): void
     {
-        throw new Exception('Cannot add new property ' . $name . ' to instances of class ' . get_class($this));
+        throw new Exception('Cannot add new property ' . $name . ' to instances of class ' . static::class);
+    }
+
+    /**
+     * Returns the properties for var_dump and print_r, with sensitive values masked.
+     *
+     * @return array<string, mixed>
+     */
+    public function __debugInfo(): array
+    {
+        try {
+            $obfuscated = (new BodyObfuscator())->obfuscateBody(BodyObfuscator::MIME_APPLICATION_JSON, $this->toJson());
+            $properties = json_decode($obfuscated, true);
+            return is_array($properties) ? $properties : [];
+        } catch (Throwable) {
+            return [];
+        }
     }
 }

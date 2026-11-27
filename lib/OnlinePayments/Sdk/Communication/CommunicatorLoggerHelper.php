@@ -1,7 +1,8 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
-use Exception;
+use Throwable;
 use OnlinePayments\Sdk\Logging\BodyObfuscator;
 use OnlinePayments\Sdk\Logging\CommunicatorLogger;
 use OnlinePayments\Sdk\Logging\HeaderObfuscator;
@@ -21,18 +22,17 @@ class CommunicatorLoggerHelper
      * @param string $requestId
      * @param string $requestMethod
      * @param string $requestUri
-     * @param array $requestHeaders
+     * @param array<string, string> $requestHeaders
      * @param string $requestBody
      */
     public function logRequest(
         CommunicatorLogger $communicatorLogger,
-        string             $requestId,
-        string             $requestMethod,
-        string             $requestUri,
-        array              $requestHeaders,
-        string             $requestBody = ''
-    ): void
-    {
+        string $requestId,
+        string $requestMethod,
+        string $requestUri,
+        array $requestHeaders,
+        string $requestBody = '',
+    ): void {
         $communicatorLogger->log(sprintf(
             "Outgoing request to %s (requestId='%s')\n%s",
             $this->getEndpoint($requestUri),
@@ -41,8 +41,8 @@ class CommunicatorLoggerHelper
                 $requestMethod,
                 $this->getRelativeUriPathWithRequestParameters($requestUri),
                 $requestHeaders,
-                $requestBody
-            )
+                $requestBody,
+            ),
         ));
     }
 
@@ -56,14 +56,13 @@ class CommunicatorLoggerHelper
         CommunicatorLogger $communicatorLogger,
         string $requestId,
         string $requestUri,
-        ConnectionResponseInterface $response
-    ): void
-    {
+        ConnectionResponseInterface $response,
+    ): void {
         $communicatorLogger->log(sprintf(
             "Incoming response from %s (requestId='%s')\n%s",
             $this->getEndpoint($requestUri),
             $requestId,
-            $this->getHttpObfuscator()->getRawObfuscatedResponse($response)
+            $this->getHttpObfuscator()->getRawObfuscatedResponse($response),
         ));
     }
 
@@ -71,26 +70,27 @@ class CommunicatorLoggerHelper
      * @param CommunicatorLogger $communicatorLogger
      * @param string $requestId
      * @param string $requestUri
-     * @param Exception $exception
+     * @param Throwable $exception
      */
     public function logException(
         CommunicatorLogger $communicatorLogger,
-        string             $requestId,
-        string             $requestUri,
-        Exception          $exception
-    ): void
-    {
+        string $requestId,
+        string $requestUri,
+        Throwable $exception,
+    ): void {
         $communicatorLogger->logException(sprintf(
             "Error occurred while executing request to %s (requestId='%s')",
             $this->getEndpoint($requestUri),
-            $requestId
+            $requestId,
         ), $exception);
     }
 
-    /** @return HttpObfuscator */
+    /**
+     * @return HttpObfuscator
+     */
     protected function getHttpObfuscator(): HttpObfuscator
     {
-        if (is_null($this->httpObfuscator)) {
+        if ($this->httpObfuscator === null) {
             $this->httpObfuscator = new HttpObfuscator();
         }
         return $this->httpObfuscator;

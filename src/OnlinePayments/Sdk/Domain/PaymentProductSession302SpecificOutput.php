@@ -13,12 +13,12 @@ class PaymentProductSession302SpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $session = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getSession(): ?string
     {
         return $this->session;
@@ -26,7 +26,7 @@ class PaymentProductSession302SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSession(?string $value): void
     {
         $this->session = $value;
@@ -34,9 +34,9 @@ class PaymentProductSession302SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductSession302SpecificOutput
-    */
-    public function withSession(?string $value): PaymentProductSession302SpecificOutput
+     * @return $this
+     */
+    public function withSession(?string $value): static
     {
         $this->session = $value;
         return $this;
@@ -45,10 +45,11 @@ class PaymentProductSession302SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->session)) {
+        if ($this->session !== null) {
             $object->session = $this->session;
         }
         return $object;
@@ -60,7 +61,8 @@ class PaymentProductSession302SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductSession302SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'session')) {

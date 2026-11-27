@@ -13,12 +13,12 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cardNumber = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -26,7 +26,7 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
@@ -34,9 +34,9 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPaymentMethodSpecificOutputSummaryCard
-    */
-    public function withCardNumber(?string $value): CardPaymentMethodSpecificOutputSummaryCard
+     * @return $this
+     */
+    public function withCardNumber(?string $value): static
     {
         $this->cardNumber = $value;
         return $this;
@@ -45,10 +45,11 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardNumber)) {
+        if ($this->cardNumber !== null) {
             $object->cardNumber = $this->cardNumber;
         }
         return $object;
@@ -60,7 +61,8 @@ class CardPaymentMethodSpecificOutputSummaryCard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardPaymentMethodSpecificOutputSummaryCard
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardNumber')) {

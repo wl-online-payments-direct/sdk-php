@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Unit\Authentication;
 
 use OnlinePayments\Sdk\Authentication\V1HmacAuthenticator;
@@ -12,38 +13,38 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAuthorization_DefaultConfiguration_ContainsV1Hmac()
+    public function testAuthorization_DefaultConfiguration_ContainsV1Hmac(): void
     {
         $configuration = new CommunicatorConfiguration(
             'apiKeyId',
             'secretKey',
             'https://example.com',
-            'integrator'
+            'integrator',
         );
 
         $authenticator = new V1HmacAuthenticator($configuration);
 
         $signature = $authenticator->getAuthorization(
             "POST",
-            "v2/1/services%20bla/testconnection?aap=noot&mies=geen%20noot"
+            "v2/1/services%20bla/testconnection?aap=noot&mies=geen%20noot",
         );
 
         $this->assertStringContainsString(
             V1HmacAuthenticator::AUTHORIZATION_TYPE,
-            $signature
+            $signature,
         );
 
         $this->assertStringStartsWith(
             V1HmacAuthenticator::AUTHORIZATION_ID . ' ' .
             V1HmacAuthenticator::AUTHORIZATION_TYPE . ':',
-            $signature
+            $signature,
         );
     }
 
     /**
      * @throws \Exception
      */
-    public function testHeader_CanonicalizeWithWhitespaceAndNewlines_ReturnsNormalizedValue()
+    public function testHeader_CanonicalizeWithWhitespaceAndNewlines_ReturnsNormalizedValue(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -63,13 +64,13 @@ class V1HmacAuthenticatorTest extends TestCase
         $signatureWithUnnormalizedHeaders = $authenticator->getAuthorization(
             "GET",
             "/v2/1/tokens/1",
-            $headersWithWhitespace
+            $headersWithWhitespace,
         );
 
         $signatureWithNormalizedHeaders = $authenticator->getAuthorization(
             "GET",
             "/v2/1/tokens/1",
-            $headersNormalized
+            $headersNormalized,
         );
 
         $this->assertEquals($signatureWithUnnormalizedHeaders, $signatureWithNormalizedHeaders);
@@ -78,7 +79,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSignature_DataToSignWithValidHeaders_ReturnsCanonicalString()
+    public function testSignature_DataToSignWithValidHeaders_ReturnsCanonicalString(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -98,7 +99,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAuthenticationSignature_DeleteRequest_ReturnsExpectedSignature()
+    public function testAuthenticationSignature_DeleteRequest_ReturnsExpectedSignature(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -121,7 +122,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAuthenticationSignature_GetRequest_ReturnsExpectedSignature()
+    public function testAuthenticationSignature_GetRequest_ReturnsExpectedSignature(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('EC36A74A98D21');
@@ -139,7 +140,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAuthorization_MinimalExample_ReturnsExpectedHeader()
+    public function testAuthorization_MinimalExample_ReturnsExpectedHeader(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -156,7 +157,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testAuthorization_FullExample_ReturnsExpectedHeader()
+    public function testAuthorization_FullExample_ReturnsExpectedHeader(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -178,7 +179,7 @@ class V1HmacAuthenticatorTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testSignature_SpecialCharactersInPath_DifferentEncodingProducesDifferentSignatures()
+    public function testSignature_SpecialCharactersInPath_DifferentEncodingProducesDifferentSignatures(): void
     {
         $configuration = $this->getCommunicatorConfiguration();
         $configuration->setApiKeyId('apiKeyId');
@@ -188,13 +189,13 @@ class V1HmacAuthenticatorTest extends TestCase
         $signatureWithEncodedPath = $authenticator->getAuthorization(
             "GET",
             "/v2/1/services%20bla/testconnection?aap=noot&mies=geen%20noot",
-            ['Date' => 'Fri, 06 Jun 2014 13:39:43 GMT']
+            ['Date' => 'Fri, 06 Jun 2014 13:39:43 GMT'],
         );
 
         $signatureWithRawPath = $authenticator->getAuthorization(
             "GET",
             "/v2/1/services bla/testconnection?aap=noot&mies=geen noot",
-            ['Date' => 'Fri, 06 Jun 2014 13:39:43 GMT']
+            ['Date' => 'Fri, 06 Jun 2014 13:39:43 GMT'],
         );
 
         $this->assertNotEquals($signatureWithEncodedPath, $signatureWithRawPath);
@@ -331,7 +332,7 @@ class V1HmacAuthenticatorTest extends TestCase
             'apiKeyId',
             'secretKey',
             'https://example.com',
-            'integrator'
+            'integrator',
         );
     }
 }

@@ -33,7 +33,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->hostedTokenizationClient = $this->client->merchant($this->getMerchantId())->hostedTokenization();
     }
 
-    public function testCreateHostedTokenization_ValidInput_ReturnsHostedTokenizationId()
+    public function testCreateHostedTokenization_ValidInput_ReturnsHostedTokenizationId(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()->build();
 
@@ -43,7 +43,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertNotEmpty($response->getHostedTokenizationUrl());
     }
 
-    public function testCreateHostedTokenization_ValidInput_WithCallContext_ReturnsHostedTokenizationId()
+    public function testCreateHostedTokenization_ValidInput_WithCallContext_ReturnsHostedTokenizationId(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()->build();
         $callContext = new CallContext();
@@ -55,7 +55,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertNotEmpty($response->getHostedTokenizationUrl());
     }
 
-    public function testCreateHostedTokenization_InvalidLocale_ReturnsValidationException()
+    public function testCreateHostedTokenization_InvalidLocale_ReturnsValidationException(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withLocale('invalid_locale')
@@ -70,7 +70,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         }
     }
 
-    public function testCreateHostedTokenization_InvalidTokenInput_ReturnsInvalidToken()
+    public function testCreateHostedTokenization_InvalidTokenInput_ReturnsInvalidToken(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens(self::FIRST_INVALID_TOKEN)
@@ -85,7 +85,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertContains(self::FIRST_INVALID_TOKEN, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_InvalidTokensInput_ReturnsInvalidTokensList()
+    public function testCreateHostedTokenization_InvalidTokensInput_ReturnsInvalidTokensList(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens(self::FIRST_INVALID_TOKEN, self::SECOND_INVALID_TOKEN)
@@ -101,7 +101,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertContains(self::SECOND_INVALID_TOKEN, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_ChainedTokenAddition_ReturnsInvalidTokensList()
+    public function testCreateHostedTokenization_ChainedTokenAddition_ReturnsInvalidTokensList(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withToken(self::FIRST_CHAINED_TOKEN)
@@ -120,7 +120,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertContains(self::THIRD_CHAINED_TOKEN, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_EmptyTokenList_ReturnsHostedTokenizationId()
+    public function testCreateHostedTokenization_EmptyTokenList_ReturnsHostedTokenizationId(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens()
@@ -133,13 +133,13 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertCount(0, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_TokensWithSpecialCharacters_ReturnsInvalidTokensList()
+    public function testCreateHostedTokenization_TokensWithSpecialCharacters_ReturnsInvalidTokensList(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens(
                 self::SPECIAL_TOKEN_DASHES,
                 self::SPECIAL_TOKEN_UNDERSCORES,
-                self::SPECIAL_TOKEN_DOTS
+                self::SPECIAL_TOKEN_DOTS,
             )
             ->build();
 
@@ -151,7 +151,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertCount(3, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_LargeNumberOfTokens_ReturnsInvalidTokensList()
+    public function testCreateHostedTokenization_LargeNumberOfTokens_ReturnsInvalidTokensList(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens(
@@ -164,7 +164,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
                 'token07',
                 'token08',
                 'token09',
-                'token10'
+                'token10',
             )
             ->build();
 
@@ -176,7 +176,7 @@ class CreateHostedTokenizationSessionTest extends TestCase
         $this->assertCount(10, $response->getInvalidTokens());
     }
 
-    public function testCreateHostedTokenization_DuplicateTokens_ReturnsInvalidTokensList()
+    public function testCreateHostedTokenization_DuplicateTokens_ReturnsInvalidTokensList(): void
     {
         $request = CreateHostedTokenizationRequestBuilder::create()
             ->withTokens(self::DUPLICATE_TOKEN, self::DUPLICATE_TOKEN, self::UNIQUE_TOKEN)

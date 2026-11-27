@@ -13,17 +13,17 @@ class TokenData extends DataObject
 {
     /**
      * @var Card|null
-    */
+     */
     public ?Card $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cobrandSelectionIndicator = null;
 
     /**
      * @return Card|null
-    */
+     */
     public function getCard(): ?Card
     {
         return $this->card;
@@ -31,7 +31,7 @@ class TokenData extends DataObject
 
     /**
      * @param Card|null $value
-    */
+     */
     public function setCard(?Card $value): void
     {
         $this->card = $value;
@@ -39,9 +39,9 @@ class TokenData extends DataObject
 
     /**
      * @param Card|null $value
-     * @return TokenData
-    */
-    public function withCard(?Card $value): TokenData
+     * @return $this
+     */
+    public function withCard(?Card $value): static
     {
         $this->card = $value;
         return $this;
@@ -49,7 +49,7 @@ class TokenData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCobrandSelectionIndicator(): ?string
     {
         return $this->cobrandSelectionIndicator;
@@ -57,7 +57,7 @@ class TokenData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCobrandSelectionIndicator(?string $value): void
     {
         $this->cobrandSelectionIndicator = $value;
@@ -65,9 +65,9 @@ class TokenData extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenData
-    */
-    public function withCobrandSelectionIndicator(?string $value): TokenData
+     * @return $this
+     */
+    public function withCobrandSelectionIndicator(?string $value): static
     {
         $this->cobrandSelectionIndicator = $value;
         return $this;
@@ -76,13 +76,14 @@ class TokenData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->cobrandSelectionIndicator)) {
+        if ($this->cobrandSelectionIndicator !== null) {
             $object->cobrandSelectionIndicator = $this->cobrandSelectionIndicator;
         }
         return $object;
@@ -94,7 +95,8 @@ class TokenData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): TokenData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

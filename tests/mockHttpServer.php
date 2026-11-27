@@ -10,7 +10,7 @@ header('Content-Type: application/json');
 
 // Handle /delay/{seconds}
 if (preg_match('#^/delay/(\d+)$#', $uri, $matches)) {
-    $delay = (int)$matches[1];
+    $delay = (int) $matches[1];
     sleep($delay);
     echo json_encode(['url' => 'http://127.0.0.1:8080' . $uri]);
     exit;
@@ -18,8 +18,8 @@ if (preg_match('#^/delay/(\d+)$#', $uri, $matches)) {
 
 // Handle /status/{code}
 if (preg_match('#^/status/(\d+)$#', $uri, $matches)) {
-    http_response_code((int)$matches[1]);
-    echo json_encode(['status' => (int)$matches[1]]);
+    http_response_code((int) $matches[1]);
+    echo json_encode(['status' => (int) $matches[1]]);
     exit;
 }
 
@@ -34,7 +34,7 @@ if ($method === 'GET') {
             header('Content-Type: application/json'); // important
             echo json_encode([
                 'errorId' => '404',
-                'errorMessage' => 'Resource not found'
+                'errorMessage' => 'Resource not found',
             ]);
     }
     exit;
@@ -86,6 +86,6 @@ if (in_array($method, ['POST', 'DELETE', 'PUT'])) {
 http_response_code(404);
 echo json_encode([
     'errorId' => '404',
-    'errorMessage' => 'Resource not found'
+    'errorMessage' => 'Resource not found',
 ]);
 exit;

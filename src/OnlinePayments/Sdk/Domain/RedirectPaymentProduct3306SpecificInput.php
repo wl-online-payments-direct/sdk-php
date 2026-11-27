@@ -13,12 +13,12 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $extraMerchantData = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getExtraMerchantData(): ?string
     {
         return $this->extraMerchantData;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExtraMerchantData(?string $value): void
     {
         $this->extraMerchantData = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3306SpecificInput
-    */
-    public function withExtraMerchantData(?string $value): RedirectPaymentProduct3306SpecificInput
+     * @return $this
+     */
+    public function withExtraMerchantData(?string $value): static
     {
         $this->extraMerchantData = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->extraMerchantData)) {
+        if ($this->extraMerchantData !== null) {
             $object->extraMerchantData = $this->extraMerchantData;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct3306SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct3306SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'extraMerchantData')) {

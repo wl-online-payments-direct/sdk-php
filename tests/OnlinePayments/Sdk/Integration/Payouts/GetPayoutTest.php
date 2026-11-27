@@ -23,7 +23,7 @@ class GetPayoutTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetPayout_ValidPayoutId_ReturnsPayoutDetailsSuccessfully()
+    public function testGetPayout_ValidPayoutId_ReturnsPayoutDetailsSuccessfully(): void
     {
         $payoutId = $this->sdkHelper->createPayoutAndGetId();
 
@@ -41,7 +41,7 @@ class GetPayoutTest extends TestCase
         $this->assertEquals(8, $response->getStatusOutput()->getStatusCode());
     }
 
-    public function testGetPayout_InvalidPayoutId_ReturnsReferenceException()
+    public function testGetPayout_InvalidPayoutId_ReturnsReferenceException(): void
     {
         try {
             $this->payoutsClient->getPayout(self::NON_EXISTING_PAYOUT_ID);

@@ -13,32 +13,32 @@ class ApplePayRecurringPaymentRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $billingAgreement = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $managementUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentDescription = null;
 
     /**
      * @var ApplePayLineItem|null
-    */
+     */
     public ?ApplePayLineItem $regularBilling = null;
 
     /**
      * @var ApplePayLineItem|null
-    */
+     */
     public ?ApplePayLineItem $trialBilling = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getBillingAgreement(): ?string
     {
         return $this->billingAgreement;
@@ -46,7 +46,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBillingAgreement(?string $value): void
     {
         $this->billingAgreement = $value;
@@ -54,9 +54,9 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ApplePayRecurringPaymentRequest
-    */
-    public function withBillingAgreement(?string $value): ApplePayRecurringPaymentRequest
+     * @return $this
+     */
+    public function withBillingAgreement(?string $value): static
     {
         $this->billingAgreement = $value;
         return $this;
@@ -64,7 +64,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getManagementUrl(): ?string
     {
         return $this->managementUrl;
@@ -72,7 +72,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setManagementUrl(?string $value): void
     {
         $this->managementUrl = $value;
@@ -80,9 +80,9 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ApplePayRecurringPaymentRequest
-    */
-    public function withManagementUrl(?string $value): ApplePayRecurringPaymentRequest
+     * @return $this
+     */
+    public function withManagementUrl(?string $value): static
     {
         $this->managementUrl = $value;
         return $this;
@@ -90,7 +90,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentDescription(): ?string
     {
         return $this->paymentDescription;
@@ -98,7 +98,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentDescription(?string $value): void
     {
         $this->paymentDescription = $value;
@@ -106,9 +106,9 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ApplePayRecurringPaymentRequest
-    */
-    public function withPaymentDescription(?string $value): ApplePayRecurringPaymentRequest
+     * @return $this
+     */
+    public function withPaymentDescription(?string $value): static
     {
         $this->paymentDescription = $value;
         return $this;
@@ -116,7 +116,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @return ApplePayLineItem|null
-    */
+     */
     public function getRegularBilling(): ?ApplePayLineItem
     {
         return $this->regularBilling;
@@ -124,7 +124,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-    */
+     */
     public function setRegularBilling(?ApplePayLineItem $value): void
     {
         $this->regularBilling = $value;
@@ -132,9 +132,9 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-     * @return ApplePayRecurringPaymentRequest
-    */
-    public function withRegularBilling(?ApplePayLineItem $value): ApplePayRecurringPaymentRequest
+     * @return $this
+     */
+    public function withRegularBilling(?ApplePayLineItem $value): static
     {
         $this->regularBilling = $value;
         return $this;
@@ -142,7 +142,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @return ApplePayLineItem|null
-    */
+     */
     public function getTrialBilling(): ?ApplePayLineItem
     {
         return $this->trialBilling;
@@ -150,7 +150,7 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-    */
+     */
     public function setTrialBilling(?ApplePayLineItem $value): void
     {
         $this->trialBilling = $value;
@@ -158,9 +158,9 @@ class ApplePayRecurringPaymentRequest extends DataObject
 
     /**
      * @param ApplePayLineItem|null $value
-     * @return ApplePayRecurringPaymentRequest
-    */
-    public function withTrialBilling(?ApplePayLineItem $value): ApplePayRecurringPaymentRequest
+     * @return $this
+     */
+    public function withTrialBilling(?ApplePayLineItem $value): static
     {
         $this->trialBilling = $value;
         return $this;
@@ -169,22 +169,23 @@ class ApplePayRecurringPaymentRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->billingAgreement)) {
+        if ($this->billingAgreement !== null) {
             $object->billingAgreement = $this->billingAgreement;
         }
-        if (!is_null($this->managementUrl)) {
+        if ($this->managementUrl !== null) {
             $object->managementUrl = $this->managementUrl;
         }
-        if (!is_null($this->paymentDescription)) {
+        if ($this->paymentDescription !== null) {
             $object->paymentDescription = $this->paymentDescription;
         }
-        if (!is_null($this->regularBilling)) {
+        if ($this->regularBilling !== null) {
             $object->regularBilling = $this->regularBilling->toObject();
         }
-        if (!is_null($this->trialBilling)) {
+        if ($this->trialBilling !== null) {
             $object->trialBilling = $this->trialBilling->toObject();
         }
         return $object;
@@ -196,7 +197,8 @@ class ApplePayRecurringPaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ApplePayRecurringPaymentRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAgreement')) {

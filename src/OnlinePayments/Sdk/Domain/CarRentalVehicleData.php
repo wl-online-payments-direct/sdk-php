@@ -13,17 +13,17 @@ class CarRentalVehicleData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $classId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $identificationNumber = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getClassId(): ?string
     {
         return $this->classId;
@@ -31,7 +31,7 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setClassId(?string $value): void
     {
         $this->classId = $value;
@@ -39,9 +39,9 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalVehicleData
-    */
-    public function withClassId(?string $value): CarRentalVehicleData
+     * @return $this
+     */
+    public function withClassId(?string $value): static
     {
         $this->classId = $value;
         return $this;
@@ -49,7 +49,7 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIdentificationNumber(): ?string
     {
         return $this->identificationNumber;
@@ -57,7 +57,7 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIdentificationNumber(?string $value): void
     {
         $this->identificationNumber = $value;
@@ -65,9 +65,9 @@ class CarRentalVehicleData extends DataObject
 
     /**
      * @param string|null $value
-     * @return CarRentalVehicleData
-    */
-    public function withIdentificationNumber(?string $value): CarRentalVehicleData
+     * @return $this
+     */
+    public function withIdentificationNumber(?string $value): static
     {
         $this->identificationNumber = $value;
         return $this;
@@ -76,13 +76,14 @@ class CarRentalVehicleData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->classId)) {
+        if ($this->classId !== null) {
             $object->classId = $this->classId;
         }
-        if (!is_null($this->identificationNumber)) {
+        if ($this->identificationNumber !== null) {
             $object->identificationNumber = $this->identificationNumber;
         }
         return $object;
@@ -94,7 +95,8 @@ class CarRentalVehicleData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CarRentalVehicleData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'classId')) {

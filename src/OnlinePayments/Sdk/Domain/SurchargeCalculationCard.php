@@ -13,17 +13,17 @@ class SurchargeCalculationCard extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $cardNumber = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCardNumber(): ?string
     {
         return $this->cardNumber;
@@ -31,7 +31,7 @@ class SurchargeCalculationCard extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardNumber(?string $value): void
     {
         $this->cardNumber = $value;
@@ -39,9 +39,9 @@ class SurchargeCalculationCard extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeCalculationCard
-    */
-    public function withCardNumber(?string $value): SurchargeCalculationCard
+     * @return $this
+     */
+    public function withCardNumber(?string $value): static
     {
         $this->cardNumber = $value;
         return $this;
@@ -49,7 +49,7 @@ class SurchargeCalculationCard extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -57,7 +57,7 @@ class SurchargeCalculationCard extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -65,9 +65,9 @@ class SurchargeCalculationCard extends DataObject
 
     /**
      * @param int|null $value
-     * @return SurchargeCalculationCard
-    */
-    public function withPaymentProductId(?int $value): SurchargeCalculationCard
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -76,13 +76,14 @@ class SurchargeCalculationCard extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardNumber)) {
+        if ($this->cardNumber !== null) {
             $object->cardNumber = $this->cardNumber;
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
         return $object;
@@ -94,7 +95,8 @@ class SurchargeCalculationCard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SurchargeCalculationCard
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardNumber')) {

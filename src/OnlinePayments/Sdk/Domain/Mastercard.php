@@ -13,22 +13,22 @@ class Mastercard extends DataObject
 {
     /**
      * @var AuthenticationOptions|null
-    */
+     */
     public ?AuthenticationOptions $authenticationOptions = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $srcInitiatorId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $srciDpaId = null;
 
     /**
      * @return AuthenticationOptions|null
-    */
+     */
     public function getAuthenticationOptions(): ?AuthenticationOptions
     {
         return $this->authenticationOptions;
@@ -36,7 +36,7 @@ class Mastercard extends DataObject
 
     /**
      * @param AuthenticationOptions|null $value
-    */
+     */
     public function setAuthenticationOptions(?AuthenticationOptions $value): void
     {
         $this->authenticationOptions = $value;
@@ -44,9 +44,9 @@ class Mastercard extends DataObject
 
     /**
      * @param AuthenticationOptions|null $value
-     * @return Mastercard
-    */
-    public function withAuthenticationOptions(?AuthenticationOptions $value): Mastercard
+     * @return $this
+     */
+    public function withAuthenticationOptions(?AuthenticationOptions $value): static
     {
         $this->authenticationOptions = $value;
         return $this;
@@ -54,7 +54,7 @@ class Mastercard extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -62,7 +62,7 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
@@ -70,9 +70,9 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-     * @return Mastercard
-    */
-    public function withSrcInitiatorId(?string $value): Mastercard
+     * @return $this
+     */
+    public function withSrcInitiatorId(?string $value): static
     {
         $this->srcInitiatorId = $value;
         return $this;
@@ -80,7 +80,7 @@ class Mastercard extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSrciDpaId(): ?string
     {
         return $this->srciDpaId;
@@ -88,7 +88,7 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSrciDpaId(?string $value): void
     {
         $this->srciDpaId = $value;
@@ -96,9 +96,9 @@ class Mastercard extends DataObject
 
     /**
      * @param string|null $value
-     * @return Mastercard
-    */
-    public function withSrciDpaId(?string $value): Mastercard
+     * @return $this
+     */
+    public function withSrciDpaId(?string $value): static
     {
         $this->srciDpaId = $value;
         return $this;
@@ -107,16 +107,17 @@ class Mastercard extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->authenticationOptions)) {
+        if ($this->authenticationOptions !== null) {
             $object->authenticationOptions = $this->authenticationOptions->toObject();
         }
-        if (!is_null($this->srcInitiatorId)) {
+        if ($this->srcInitiatorId !== null) {
             $object->srcInitiatorId = $this->srcInitiatorId;
         }
-        if (!is_null($this->srciDpaId)) {
+        if ($this->srciDpaId !== null) {
             $object->srciDpaId = $this->srciDpaId;
         }
         return $object;
@@ -128,7 +129,8 @@ class Mastercard extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Mastercard
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'authenticationOptions')) {

@@ -13,12 +13,12 @@ class GetPaymentProductsResponse extends DataObject
 {
     /**
      * @var PaymentProduct[]|null
-    */
+     */
     public ?array $paymentProducts = null;
 
     /**
      * @return PaymentProduct[]|null
-    */
+     */
     public function getPaymentProducts(): ?array
     {
         return $this->paymentProducts;
@@ -26,7 +26,7 @@ class GetPaymentProductsResponse extends DataObject
 
     /**
      * @param PaymentProduct[]|null $value
-    */
+     */
     public function setPaymentProducts(?array $value): void
     {
         $this->paymentProducts = $value;
@@ -34,9 +34,9 @@ class GetPaymentProductsResponse extends DataObject
 
     /**
      * @param PaymentProduct[]|null $value
-     * @return GetPaymentProductsResponse
-    */
-    public function withPaymentProducts(?array $value): GetPaymentProductsResponse
+     * @return $this
+     */
+    public function withPaymentProducts(?array $value): static
     {
         $this->paymentProducts = $value;
         return $this;
@@ -45,13 +45,14 @@ class GetPaymentProductsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentProducts)) {
+        if ($this->paymentProducts !== null) {
             $object->paymentProducts = [];
             foreach ($this->paymentProducts as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->paymentProducts[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class GetPaymentProductsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetPaymentProductsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentProducts')) {

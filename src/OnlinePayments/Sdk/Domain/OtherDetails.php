@@ -13,17 +13,17 @@ class OtherDetails extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $metaData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $travelData = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getMetaData(): ?string
     {
         return $this->metaData;
@@ -31,7 +31,7 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMetaData(?string $value): void
     {
         $this->metaData = $value;
@@ -39,9 +39,9 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OtherDetails
-    */
-    public function withMetaData(?string $value): OtherDetails
+     * @return $this
+     */
+    public function withMetaData(?string $value): static
     {
         $this->metaData = $value;
         return $this;
@@ -49,7 +49,7 @@ class OtherDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTravelData(): ?string
     {
         return $this->travelData;
@@ -57,7 +57,7 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTravelData(?string $value): void
     {
         $this->travelData = $value;
@@ -65,9 +65,9 @@ class OtherDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return OtherDetails
-    */
-    public function withTravelData(?string $value): OtherDetails
+     * @return $this
+     */
+    public function withTravelData(?string $value): static
     {
         $this->travelData = $value;
         return $this;
@@ -76,13 +76,14 @@ class OtherDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->metaData)) {
+        if ($this->metaData !== null) {
             $object->metaData = $this->metaData;
         }
-        if (!is_null($this->travelData)) {
+        if ($this->travelData !== null) {
             $object->travelData = $this->travelData;
         }
         return $object;
@@ -94,7 +95,8 @@ class OtherDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OtherDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'metaData')) {

@@ -13,17 +13,17 @@ class PaymentProduct5407 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $pairingToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPairingToken(): ?string
     {
         return $this->pairingToken;
@@ -31,7 +31,7 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPairingToken(?string $value): void
     {
         $this->pairingToken = $value;
@@ -39,9 +39,9 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5407
-    */
-    public function withPairingToken(?string $value): PaymentProduct5407
+     * @return $this
+     */
+    public function withPairingToken(?string $value): static
     {
         $this->pairingToken = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCode(): ?string
     {
         return $this->qrCode;
@@ -57,7 +57,7 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCode(?string $value): void
     {
         $this->qrCode = $value;
@@ -65,9 +65,9 @@ class PaymentProduct5407 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5407
-    */
-    public function withQrCode(?string $value): PaymentProduct5407
+     * @return $this
+     */
+    public function withQrCode(?string $value): static
     {
         $this->qrCode = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct5407 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->pairingToken)) {
+        if ($this->pairingToken !== null) {
             $object->pairingToken = $this->pairingToken;
         }
-        if (!is_null($this->qrCode)) {
+        if ($this->qrCode !== null) {
             $object->qrCode = $this->qrCode;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct5407 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5407
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'pairingToken')) {

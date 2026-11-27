@@ -13,22 +13,22 @@ class Amex extends DataObject
 {
     /**
      * @var DpaData|null
-    */
+     */
     public ?DpaData $dpaData = null;
 
     /**
      * @var DpaTransactionOptions|null
-    */
+     */
     public ?DpaTransactionOptions $dpaTransactionOptions = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $srcInitiatorId = null;
 
     /**
      * @return DpaData|null
-    */
+     */
     public function getDpaData(): ?DpaData
     {
         return $this->dpaData;
@@ -36,7 +36,7 @@ class Amex extends DataObject
 
     /**
      * @param DpaData|null $value
-    */
+     */
     public function setDpaData(?DpaData $value): void
     {
         $this->dpaData = $value;
@@ -44,9 +44,9 @@ class Amex extends DataObject
 
     /**
      * @param DpaData|null $value
-     * @return Amex
-    */
-    public function withDpaData(?DpaData $value): Amex
+     * @return $this
+     */
+    public function withDpaData(?DpaData $value): static
     {
         $this->dpaData = $value;
         return $this;
@@ -54,7 +54,7 @@ class Amex extends DataObject
 
     /**
      * @return DpaTransactionOptions|null
-    */
+     */
     public function getDpaTransactionOptions(): ?DpaTransactionOptions
     {
         return $this->dpaTransactionOptions;
@@ -62,7 +62,7 @@ class Amex extends DataObject
 
     /**
      * @param DpaTransactionOptions|null $value
-    */
+     */
     public function setDpaTransactionOptions(?DpaTransactionOptions $value): void
     {
         $this->dpaTransactionOptions = $value;
@@ -70,9 +70,9 @@ class Amex extends DataObject
 
     /**
      * @param DpaTransactionOptions|null $value
-     * @return Amex
-    */
-    public function withDpaTransactionOptions(?DpaTransactionOptions $value): Amex
+     * @return $this
+     */
+    public function withDpaTransactionOptions(?DpaTransactionOptions $value): static
     {
         $this->dpaTransactionOptions = $value;
         return $this;
@@ -80,7 +80,7 @@ class Amex extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -88,7 +88,7 @@ class Amex extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
@@ -96,9 +96,9 @@ class Amex extends DataObject
 
     /**
      * @param string|null $value
-     * @return Amex
-    */
-    public function withSrcInitiatorId(?string $value): Amex
+     * @return $this
+     */
+    public function withSrcInitiatorId(?string $value): static
     {
         $this->srcInitiatorId = $value;
         return $this;
@@ -107,16 +107,17 @@ class Amex extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->dpaData)) {
+        if ($this->dpaData !== null) {
             $object->dpaData = $this->dpaData->toObject();
         }
-        if (!is_null($this->dpaTransactionOptions)) {
+        if ($this->dpaTransactionOptions !== null) {
             $object->dpaTransactionOptions = $this->dpaTransactionOptions->toObject();
         }
-        if (!is_null($this->srcInitiatorId)) {
+        if ($this->srcInitiatorId !== null) {
             $object->srcInitiatorId = $this->srcInitiatorId;
         }
         return $object;
@@ -128,7 +129,8 @@ class Amex extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Amex
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'dpaData')) {

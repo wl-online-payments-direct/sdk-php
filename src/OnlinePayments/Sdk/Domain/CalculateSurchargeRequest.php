@@ -13,17 +13,17 @@ class CalculateSurchargeRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var CardSource|null
-    */
+     */
     public ?CardSource $cardSource = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -31,7 +31,7 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -39,9 +39,9 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return CalculateSurchargeRequest
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): CalculateSurchargeRequest
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -49,7 +49,7 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @return CardSource|null
-    */
+     */
     public function getCardSource(): ?CardSource
     {
         return $this->cardSource;
@@ -57,7 +57,7 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param CardSource|null $value
-    */
+     */
     public function setCardSource(?CardSource $value): void
     {
         $this->cardSource = $value;
@@ -65,9 +65,9 @@ class CalculateSurchargeRequest extends DataObject
 
     /**
      * @param CardSource|null $value
-     * @return CalculateSurchargeRequest
-    */
-    public function withCardSource(?CardSource $value): CalculateSurchargeRequest
+     * @return $this
+     */
+    public function withCardSource(?CardSource $value): static
     {
         $this->cardSource = $value;
         return $this;
@@ -76,13 +76,14 @@ class CalculateSurchargeRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->cardSource)) {
+        if ($this->cardSource !== null) {
             $object->cardSource = $this->cardSource->toObject();
         }
         return $object;
@@ -94,7 +95,8 @@ class CalculateSurchargeRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CalculateSurchargeRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

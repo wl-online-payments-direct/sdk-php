@@ -13,27 +13,27 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $acquirerExemption = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantScore = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $numberOfItems = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $usecase = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getAcquirerExemption(): ?bool
     {
         return $this->acquirerExemption;
@@ -41,7 +41,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAcquirerExemption(?bool $value): void
     {
         $this->acquirerExemption = $value;
@@ -49,9 +49,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentProduct130SpecificThreeDSecure
-    */
-    public function withAcquirerExemption(?bool $value): PaymentProduct130SpecificThreeDSecure
+     * @return $this
+     */
+    public function withAcquirerExemption(?bool $value): static
     {
         $this->acquirerExemption = $value;
         return $this;
@@ -59,7 +59,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantScore(): ?string
     {
         return $this->merchantScore;
@@ -67,7 +67,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantScore(?string $value): void
     {
         $this->merchantScore = $value;
@@ -75,9 +75,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct130SpecificThreeDSecure
-    */
-    public function withMerchantScore(?string $value): PaymentProduct130SpecificThreeDSecure
+     * @return $this
+     */
+    public function withMerchantScore(?string $value): static
     {
         $this->merchantScore = $value;
         return $this;
@@ -85,7 +85,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getNumberOfItems(): ?int
     {
         return $this->numberOfItems;
@@ -93,7 +93,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setNumberOfItems(?int $value): void
     {
         $this->numberOfItems = $value;
@@ -101,9 +101,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentProduct130SpecificThreeDSecure
-    */
-    public function withNumberOfItems(?int $value): PaymentProduct130SpecificThreeDSecure
+     * @return $this
+     */
+    public function withNumberOfItems(?int $value): static
     {
         $this->numberOfItems = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getUsecase(): ?string
     {
         return $this->usecase;
@@ -119,7 +119,7 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUsecase(?string $value): void
     {
         $this->usecase = $value;
@@ -127,9 +127,9 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct130SpecificThreeDSecure
-    */
-    public function withUsecase(?string $value): PaymentProduct130SpecificThreeDSecure
+     * @return $this
+     */
+    public function withUsecase(?string $value): static
     {
         $this->usecase = $value;
         return $this;
@@ -138,19 +138,20 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquirerExemption)) {
+        if ($this->acquirerExemption !== null) {
             $object->acquirerExemption = $this->acquirerExemption;
         }
-        if (!is_null($this->merchantScore)) {
+        if ($this->merchantScore !== null) {
             $object->merchantScore = $this->merchantScore;
         }
-        if (!is_null($this->numberOfItems)) {
+        if ($this->numberOfItems !== null) {
             $object->numberOfItems = $this->numberOfItems;
         }
-        if (!is_null($this->usecase)) {
+        if ($this->usecase !== null) {
             $object->usecase = $this->usecase;
         }
         return $object;
@@ -162,7 +163,8 @@ class PaymentProduct130SpecificThreeDSecure extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct130SpecificThreeDSecure
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerExemption')) {

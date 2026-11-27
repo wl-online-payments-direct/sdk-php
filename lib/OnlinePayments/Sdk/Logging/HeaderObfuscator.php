@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Logging;
 
 /**
@@ -12,7 +13,7 @@ class HeaderObfuscator
     protected ValueObfuscator $valueObfuscator;
 
     /** @var array<string, callable> */
-    private array $customRules = array();
+    private array $customRules = [];
 
     public function __construct()
     {
@@ -20,8 +21,8 @@ class HeaderObfuscator
     }
 
     /**
-     * @param string[] $headers
-     * @return string[]
+     * @param array<int|string, string|string[]> $headers
+     * @return array<int|string, string|string[]>
      */
     public function obfuscateHeaders(array $headers): array
     {
@@ -33,37 +34,33 @@ class HeaderObfuscator
 
     /**
      * @param string $key
-     * @param array|string $value
-     * @return array|string
+     * @param string|string[] $value
+     * @return string|string[]
      */
-    protected function obfuscateHeaderValue(string $key, $value)
+    protected function obfuscateHeaderValue(string $key, string|array $value): mixed
     {
         $lowerKey = mb_strtolower($key, 'UTF-8');
         if (isset($this->customRules[$lowerKey])) {
             return $this->replaceHeaderValueWithCustomRule($value, $this->customRules[$lowerKey]);
         }
 
-        switch ($lowerKey) {
-            case 'x-gcs-authentication-token':
-                return $this->valueObfuscator->obfuscateFixedLength(8);
-            case 'x-gcs-callerpassword':
-                return $this->valueObfuscator->obfuscateFixedLength(8);
-            case 'authorization':
-            case 'www-authenticate':
-            case 'proxy-authenticate':
-            case 'proxy-authorization':
-                return $this->replaceHeaderValueWithFixedNumberOfCharacters($value, 8);
-            default:
-                return $value;
-        }
+        return match ($lowerKey) {
+            'x-gcs-authentication-token',
+            'x-gcs-callerpassword' => $this->valueObfuscator->obfuscateFixedLength(8),
+            'authorization',
+            'www-authenticate',
+            'proxy-authenticate',
+            'proxy-authorization' => $this->replaceHeaderValueWithFixedNumberOfCharacters($value, 8),
+            default => $value,
+        };
     }
 
     /**
-     * @param array|string $value
+     * @param string|string[] $value
      * @param int $numberOfCharacters
-     * @return array|string
+     * @return string|string[]
      */
-    protected function replaceHeaderValueWithFixedNumberOfCharacters($value, int $numberOfCharacters)
+    protected function replaceHeaderValueWithFixedNumberOfCharacters(string|array $value, int $numberOfCharacters): string|array
     {
         if (is_array($value)) {
             return array_fill(0, count($value), $this->valueObfuscator->obfuscateFixedLength($numberOfCharacters));
@@ -73,24 +70,22 @@ class HeaderObfuscator
     }
 
     /**
-     * @param array|string $value
+     * @param string|string[] $value
      * @param callable $customRule
-     * @return array|string
+     * @return string|string[]
      */
-    protected function replaceHeaderValueWithCustomRule($value, callable $customRule)
+    protected function replaceHeaderValueWithCustomRule(string|array $value, callable $customRule): mixed
     {
         if (is_array($value)) {
-            return array_map(function ($v) use ($customRule) {
-                return call_user_func($customRule, $v, $this->valueObfuscator);
-            }, $value);
+            return array_map(fn($v) => $customRule($v, $this->valueObfuscator), $value);
         } else {
-            return call_user_func($customRule, $value, $this->valueObfuscator);
+            return $customRule($value, $this->valueObfuscator);
         }
     }
 
     /**
      * @param string $headerName
-     * @param callable $customRule
+     * @param callable $customRule Callable accepting the value and a ValueObfuscator, returning the obfuscated value
      */
     public function setCustomRule(string $headerName, callable $customRule): void
     {

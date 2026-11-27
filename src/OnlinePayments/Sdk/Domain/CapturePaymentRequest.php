@@ -13,37 +13,37 @@ class CapturePaymentRequest extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isFinal = null;
 
     /**
      * @var LineItemDetail[]|null
-    */
+     */
     public ?array $lineItemDetails = null;
 
     /**
      * @var OperationPaymentReferences|null
-    */
+     */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var PaymentReferences|null
-    */
+     */
     public ?PaymentReferences $references = null;
 
     /**
      * @var ShippingDetail|null
-    */
+     */
     public ?ShippingDetail $shipping = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -51,7 +51,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -59,9 +59,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param int|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withAmount(?int $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -69,7 +69,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsFinal(): ?bool
     {
         return $this->isFinal;
@@ -77,7 +77,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsFinal(?bool $value): void
     {
         $this->isFinal = $value;
@@ -85,9 +85,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withIsFinal(?bool $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withIsFinal(?bool $value): static
     {
         $this->isFinal = $value;
         return $this;
@@ -95,7 +95,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @return LineItemDetail[]|null
-    */
+     */
     public function getLineItemDetails(): ?array
     {
         return $this->lineItemDetails;
@@ -103,7 +103,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param LineItemDetail[]|null $value
-    */
+     */
     public function setLineItemDetails(?array $value): void
     {
         $this->lineItemDetails = $value;
@@ -111,9 +111,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param LineItemDetail[]|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withLineItemDetails(?array $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withLineItemDetails(?array $value): static
     {
         $this->lineItemDetails = $value;
         return $this;
@@ -121,7 +121,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @return OperationPaymentReferences|null
-    */
+     */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -129,7 +129,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-    */
+     */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
@@ -137,9 +137,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withOperationReferences(?OperationPaymentReferences $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withOperationReferences(?OperationPaymentReferences $value): static
     {
         $this->operationReferences = $value;
         return $this;
@@ -147,7 +147,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @return PaymentReferences|null
-    */
+     */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -155,7 +155,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-    */
+     */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
@@ -163,9 +163,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withReferences(?PaymentReferences $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withReferences(?PaymentReferences $value): static
     {
         $this->references = $value;
         return $this;
@@ -173,7 +173,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @return ShippingDetail|null
-    */
+     */
     public function getShipping(): ?ShippingDetail
     {
         return $this->shipping;
@@ -181,7 +181,7 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param ShippingDetail|null $value
-    */
+     */
     public function setShipping(?ShippingDetail $value): void
     {
         $this->shipping = $value;
@@ -189,9 +189,9 @@ class CapturePaymentRequest extends DataObject
 
     /**
      * @param ShippingDetail|null $value
-     * @return CapturePaymentRequest
-    */
-    public function withShipping(?ShippingDetail $value): CapturePaymentRequest
+     * @return $this
+     */
+    public function withShipping(?ShippingDetail $value): static
     {
         $this->shipping = $value;
         return $this;
@@ -200,30 +200,31 @@ class CapturePaymentRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount;
         }
-        if (!is_null($this->isFinal)) {
+        if ($this->isFinal !== null) {
             $object->isFinal = $this->isFinal;
         }
-        if (!is_null($this->lineItemDetails)) {
+        if ($this->lineItemDetails !== null) {
             $object->lineItemDetails = [];
             foreach ($this->lineItemDetails as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->lineItemDetails[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->operationReferences)) {
+        if ($this->operationReferences !== null) {
             $object->operationReferences = $this->operationReferences->toObject();
         }
-        if (!is_null($this->references)) {
+        if ($this->references !== null) {
             $object->references = $this->references->toObject();
         }
-        if (!is_null($this->shipping)) {
+        if ($this->shipping !== null) {
             $object->shipping = $this->shipping->toObject();
         }
         return $object;
@@ -235,7 +236,8 @@ class CapturePaymentRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CapturePaymentRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

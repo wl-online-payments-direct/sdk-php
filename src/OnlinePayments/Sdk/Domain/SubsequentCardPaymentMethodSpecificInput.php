@@ -13,51 +13,51 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $authorizationMode = null;
 
     /**
      * @var AutoCapture|null
-    */
+     */
     public ?AutoCapture $autoCapture = null;
 
     /**
      * @var MarketPlace|null
-    */
+     */
     public ?MarketPlace $marketPlace = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentNumber = null;
 
     /**
      * @var string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public ?string $schemeReferenceData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $subsequentType = null;
 
     /**
      * @var string|null
      *
      * @deprecated ID of the token to use to create the payment.
-    */
+     */
     public ?string $token = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $transactionChannel = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorizationMode(): ?string
     {
         return $this->authorizationMode;
@@ -65,7 +65,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
@@ -73,9 +73,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withAuthorizationMode(?string $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withAuthorizationMode(?string $value): static
     {
         $this->authorizationMode = $value;
         return $this;
@@ -83,7 +83,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return AutoCapture|null
-    */
+     */
     public function getAutoCapture(): ?AutoCapture
     {
         return $this->autoCapture;
@@ -91,7 +91,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param AutoCapture|null $value
-    */
+     */
     public function setAutoCapture(?AutoCapture $value): void
     {
         $this->autoCapture = $value;
@@ -99,9 +99,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param AutoCapture|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withAutoCapture(?AutoCapture $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withAutoCapture(?AutoCapture $value): static
     {
         $this->autoCapture = $value;
         return $this;
@@ -109,7 +109,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return MarketPlace|null
-    */
+     */
     public function getMarketPlace(): ?MarketPlace
     {
         return $this->marketPlace;
@@ -117,7 +117,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MarketPlace|null $value
-    */
+     */
     public function setMarketPlace(?MarketPlace $value): void
     {
         $this->marketPlace = $value;
@@ -125,9 +125,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MarketPlace|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withMarketPlace(?MarketPlace $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withMarketPlace(?MarketPlace $value): static
     {
         $this->marketPlace = $value;
         return $this;
@@ -135,7 +135,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentNumber(): ?int
     {
         return $this->paymentNumber;
@@ -143,7 +143,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentNumber(?int $value): void
     {
         $this->paymentNumber = $value;
@@ -151,9 +151,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withPaymentNumber(?int $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withPaymentNumber(?int $value): static
     {
         $this->paymentNumber = $value;
         return $this;
@@ -163,7 +163,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @return string|null
      *
      * @deprecated Deprecated
-    */
+     */
     public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
@@ -173,7 +173,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @param string|null $value
      *
      * @deprecated Deprecated
-    */
+     */
     public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
@@ -181,11 +181,11 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
+     * @return $this
      *
      * @deprecated Deprecated
-    */
-    public function withSchemeReferenceData(?string $value): SubsequentCardPaymentMethodSpecificInput
+     */
+    public function withSchemeReferenceData(?string $value): static
     {
         $this->schemeReferenceData = $value;
         return $this;
@@ -193,7 +193,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSubsequentType(): ?string
     {
         return $this->subsequentType;
@@ -201,7 +201,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSubsequentType(?string $value): void
     {
         $this->subsequentType = $value;
@@ -209,9 +209,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withSubsequentType(?string $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withSubsequentType(?string $value): static
     {
         $this->subsequentType = $value;
         return $this;
@@ -221,7 +221,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @return string|null
      *
      * @deprecated ID of the token to use to create the payment.
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -231,7 +231,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @param string|null $value
      *
      * @deprecated ID of the token to use to create the payment.
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -239,11 +239,11 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
+     * @return $this
      *
      * @deprecated ID of the token to use to create the payment.
-    */
-    public function withToken(?string $value): SubsequentCardPaymentMethodSpecificInput
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -251,7 +251,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTransactionChannel(): ?string
     {
         return $this->transactionChannel;
@@ -259,7 +259,7 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTransactionChannel(?string $value): void
     {
         $this->transactionChannel = $value;
@@ -267,9 +267,9 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubsequentCardPaymentMethodSpecificInput
-    */
-    public function withTransactionChannel(?string $value): SubsequentCardPaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withTransactionChannel(?string $value): static
     {
         $this->transactionChannel = $value;
         return $this;
@@ -278,31 +278,32 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->authorizationMode)) {
+        if ($this->authorizationMode !== null) {
             $object->authorizationMode = $this->authorizationMode;
         }
-        if (!is_null($this->autoCapture)) {
+        if ($this->autoCapture !== null) {
             $object->autoCapture = $this->autoCapture->toObject();
         }
-        if (!is_null($this->marketPlace)) {
+        if ($this->marketPlace !== null) {
             $object->marketPlace = $this->marketPlace->toObject();
         }
-        if (!is_null($this->paymentNumber)) {
+        if ($this->paymentNumber !== null) {
             $object->paymentNumber = $this->paymentNumber;
         }
-        if (!is_null($this->schemeReferenceData)) {
+        if ($this->schemeReferenceData !== null) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
-        if (!is_null($this->subsequentType)) {
+        if ($this->subsequentType !== null) {
             $object->subsequentType = $this->subsequentType;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
-        if (!is_null($this->transactionChannel)) {
+        if ($this->transactionChannel !== null) {
             $object->transactionChannel = $this->transactionChannel;
         }
         return $object;
@@ -314,7 +315,8 @@ class SubsequentCardPaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubsequentCardPaymentMethodSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {

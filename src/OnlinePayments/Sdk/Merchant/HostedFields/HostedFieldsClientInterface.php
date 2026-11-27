@@ -37,7 +37,7 @@ interface HostedFieldsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createHostedFieldsSession(CreateHostedFieldsSessionRequest $body, ?CallContext $callContext = null): CreateHostedFieldsSessionResponse;
+    public function createHostedFieldsSession(CreateHostedFieldsSessionRequest $body, ?CallContext $callContext = null): CreateHostedFieldsSessionResponse;
 
     /**
      * Resource /v2/{merchantId}/hostedfields/sessions/{sessionId} - Get hosted fields session
@@ -55,5 +55,5 @@ interface HostedFieldsClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getHostedFieldsSession(string $sessionId, ?CallContext $callContext = null): GetHostedFieldsSessionResponse;
+    public function getHostedFieldsSession(string $sessionId, ?CallContext $callContext = null): GetHostedFieldsSessionResponse;
 }

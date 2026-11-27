@@ -13,22 +13,22 @@ class NetworkTokenLinked extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $expiryDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $maskedToken = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenState = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getExpiryDate(): ?string
     {
         return $this->expiryDate;
@@ -36,7 +36,7 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setExpiryDate(?string $value): void
     {
         $this->expiryDate = $value;
@@ -44,9 +44,9 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenLinked
-    */
-    public function withExpiryDate(?string $value): NetworkTokenLinked
+     * @return $this
+     */
+    public function withExpiryDate(?string $value): static
     {
         $this->expiryDate = $value;
         return $this;
@@ -54,7 +54,7 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMaskedToken(): ?string
     {
         return $this->maskedToken;
@@ -62,7 +62,7 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMaskedToken(?string $value): void
     {
         $this->maskedToken = $value;
@@ -70,9 +70,9 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenLinked
-    */
-    public function withMaskedToken(?string $value): NetworkTokenLinked
+     * @return $this
+     */
+    public function withMaskedToken(?string $value): static
     {
         $this->maskedToken = $value;
         return $this;
@@ -80,7 +80,7 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenState(): ?string
     {
         return $this->tokenState;
@@ -88,7 +88,7 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenState(?string $value): void
     {
         $this->tokenState = $value;
@@ -96,9 +96,9 @@ class NetworkTokenLinked extends DataObject
 
     /**
      * @param string|null $value
-     * @return NetworkTokenLinked
-    */
-    public function withTokenState(?string $value): NetworkTokenLinked
+     * @return $this
+     */
+    public function withTokenState(?string $value): static
     {
         $this->tokenState = $value;
         return $this;
@@ -107,16 +107,17 @@ class NetworkTokenLinked extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->expiryDate)) {
+        if ($this->expiryDate !== null) {
             $object->expiryDate = $this->expiryDate;
         }
-        if (!is_null($this->maskedToken)) {
+        if ($this->maskedToken !== null) {
             $object->maskedToken = $this->maskedToken;
         }
-        if (!is_null($this->tokenState)) {
+        if ($this->tokenState !== null) {
             $object->tokenState = $this->tokenState;
         }
         return $object;
@@ -128,7 +129,8 @@ class NetworkTokenLinked extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): NetworkTokenLinked
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'expiryDate')) {

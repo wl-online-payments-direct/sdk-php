@@ -13,12 +13,12 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $captureTrigger = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCaptureTrigger(): ?string
     {
         return $this->captureTrigger;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCaptureTrigger(?string $value): void
     {
         $this->captureTrigger = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct900SpecificInput
-    */
-    public function withCaptureTrigger(?string $value): RedirectPaymentProduct900SpecificInput
+     * @return $this
+     */
+    public function withCaptureTrigger(?string $value): static
     {
         $this->captureTrigger = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->captureTrigger)) {
+        if ($this->captureTrigger !== null) {
             $object->captureTrigger = $this->captureTrigger;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct900SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct900SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'captureTrigger')) {

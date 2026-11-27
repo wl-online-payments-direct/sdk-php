@@ -1,8 +1,9 @@
 <?php
+
 namespace OnlinePayments\Sdk\Logging;
 
-use Exception;
 use SplFileObject;
+use Throwable;
 
 /**
  * Class SplFileObjectLogger
@@ -11,37 +12,43 @@ use SplFileObject;
  */
 class SplFileObjectLogger implements CommunicatorLogger
 {
-    /** */
-    const DATE_FORMAT_STRING = DATE_ATOM;
+    public const string DATE_FORMAT_STRING = DATE_ATOM;
 
-    /** @var SplFileObject */
-    private SplFileObject $splFileObject;
+    /**
+     * @param SplFileObject $splFileObject
+     */
+    public function __construct(private readonly SplFileObject $splFileObject) {}
 
-    /** @param SplFileObject $splFileObject */
-    public function __construct(SplFileObject $splFileObject)
-    {
-        $this->splFileObject = $splFileObject;
-    }
-
-    /** @return SplFileObject */
+    /**
+     * @return SplFileObject
+     */
     public function getSplFileObject(): SplFileObject
     {
         return $this->splFileObject;
     }
 
-    /** @inheritdoc */
+    /**
+     * @param string $message
+     */
+    #[\Override]
     public function log(string $message): void
     {
         $this->splFileObject->fwrite($this->getDatePrefix() . $message . PHP_EOL);
     }
 
-    /** @inheritdoc */
-    public function logException(string $message, Exception $exception): void
+    /**
+     * @param string $message
+     * @param Throwable $exception
+     */
+    #[\Override]
+    public function logException(string $message, Throwable $exception): void
     {
         $this->splFileObject->fwrite($this->getDatePrefix() . $message . PHP_EOL . $exception . PHP_EOL);
     }
 
-    /** @return string */
+    /**
+     * @return string
+     */
     protected function getDatePrefix(): string
     {
         return date(static::DATE_FORMAT_STRING) . ' ';

@@ -13,37 +13,37 @@ class SubMerchant extends DataObject
 {
     /**
      * @var Address|null
-    */
+     */
     public ?Address $address = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $companyIdentificationNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $companyName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantCategoryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $website = null;
 
     /**
      * @return Address|null
-    */
+     */
     public function getAddress(): ?Address
     {
         return $this->address;
@@ -51,7 +51,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param Address|null $value
-    */
+     */
     public function setAddress(?Address $value): void
     {
         $this->address = $value;
@@ -59,9 +59,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param Address|null $value
-     * @return SubMerchant
-    */
-    public function withAddress(?Address $value): SubMerchant
+     * @return $this
+     */
+    public function withAddress(?Address $value): static
     {
         $this->address = $value;
         return $this;
@@ -69,7 +69,7 @@ class SubMerchant extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCompanyIdentificationNumber(): ?string
     {
         return $this->companyIdentificationNumber;
@@ -77,7 +77,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCompanyIdentificationNumber(?string $value): void
     {
         $this->companyIdentificationNumber = $value;
@@ -85,9 +85,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubMerchant
-    */
-    public function withCompanyIdentificationNumber(?string $value): SubMerchant
+     * @return $this
+     */
+    public function withCompanyIdentificationNumber(?string $value): static
     {
         $this->companyIdentificationNumber = $value;
         return $this;
@@ -95,7 +95,7 @@ class SubMerchant extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -103,7 +103,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
@@ -111,9 +111,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubMerchant
-    */
-    public function withCompanyName(?string $value): SubMerchant
+     * @return $this
+     */
+    public function withCompanyName(?string $value): static
     {
         $this->companyName = $value;
         return $this;
@@ -121,7 +121,7 @@ class SubMerchant extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantCategoryCode(): ?string
     {
         return $this->merchantCategoryCode;
@@ -129,7 +129,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantCategoryCode(?string $value): void
     {
         $this->merchantCategoryCode = $value;
@@ -137,9 +137,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubMerchant
-    */
-    public function withMerchantCategoryCode(?string $value): SubMerchant
+     * @return $this
+     */
+    public function withMerchantCategoryCode(?string $value): static
     {
         $this->merchantCategoryCode = $value;
         return $this;
@@ -147,7 +147,7 @@ class SubMerchant extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantId(): ?string
     {
         return $this->merchantId;
@@ -155,7 +155,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantId(?string $value): void
     {
         $this->merchantId = $value;
@@ -163,9 +163,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubMerchant
-    */
-    public function withMerchantId(?string $value): SubMerchant
+     * @return $this
+     */
+    public function withMerchantId(?string $value): static
     {
         $this->merchantId = $value;
         return $this;
@@ -173,7 +173,7 @@ class SubMerchant extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getWebsite(): ?string
     {
         return $this->website;
@@ -181,7 +181,7 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setWebsite(?string $value): void
     {
         $this->website = $value;
@@ -189,9 +189,9 @@ class SubMerchant extends DataObject
 
     /**
      * @param string|null $value
-     * @return SubMerchant
-    */
-    public function withWebsite(?string $value): SubMerchant
+     * @return $this
+     */
+    public function withWebsite(?string $value): static
     {
         $this->website = $value;
         return $this;
@@ -200,25 +200,26 @@ class SubMerchant extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->address)) {
+        if ($this->address !== null) {
             $object->address = $this->address->toObject();
         }
-        if (!is_null($this->companyIdentificationNumber)) {
+        if ($this->companyIdentificationNumber !== null) {
             $object->companyIdentificationNumber = $this->companyIdentificationNumber;
         }
-        if (!is_null($this->companyName)) {
+        if ($this->companyName !== null) {
             $object->companyName = $this->companyName;
         }
-        if (!is_null($this->merchantCategoryCode)) {
+        if ($this->merchantCategoryCode !== null) {
             $object->merchantCategoryCode = $this->merchantCategoryCode;
         }
-        if (!is_null($this->merchantId)) {
+        if ($this->merchantId !== null) {
             $object->merchantId = $this->merchantId;
         }
-        if (!is_null($this->website)) {
+        if ($this->website !== null) {
             $object->website = $this->website;
         }
         return $object;
@@ -230,7 +231,8 @@ class SubMerchant extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SubMerchant
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'address')) {

@@ -13,57 +13,57 @@ class MobilePaymentMethodSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $authorizationMode = null;
 
     /**
      * @var AutoCapture|null
-    */
+     */
     public ?AutoCapture $autoCapture = null;
 
     /**
      * @var DecryptedPaymentData|null
-    */
+     */
     public ?DecryptedPaymentData $decryptedPaymentData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $encryptedPaymentData = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $ephemeralKey = null;
 
     /**
      * @var MobilePaymentProduct302SpecificInput|null
-    */
+     */
     public ?MobilePaymentProduct302SpecificInput $paymentProduct302SpecificInput = null;
 
     /**
      * @var MobilePaymentProduct320SpecificInput|null
-    */
+     */
     public ?MobilePaymentProduct320SpecificInput $paymentProduct320SpecificInput = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $publicKeyHash = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $requiresApproval = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAuthorizationMode(): ?string
     {
         return $this->authorizationMode;
@@ -71,7 +71,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAuthorizationMode(?string $value): void
     {
         $this->authorizationMode = $value;
@@ -79,9 +79,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withAuthorizationMode(?string $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withAuthorizationMode(?string $value): static
     {
         $this->authorizationMode = $value;
         return $this;
@@ -89,7 +89,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return AutoCapture|null
-    */
+     */
     public function getAutoCapture(): ?AutoCapture
     {
         return $this->autoCapture;
@@ -97,7 +97,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param AutoCapture|null $value
-    */
+     */
     public function setAutoCapture(?AutoCapture $value): void
     {
         $this->autoCapture = $value;
@@ -105,9 +105,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param AutoCapture|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withAutoCapture(?AutoCapture $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withAutoCapture(?AutoCapture $value): static
     {
         $this->autoCapture = $value;
         return $this;
@@ -115,7 +115,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return DecryptedPaymentData|null
-    */
+     */
     public function getDecryptedPaymentData(): ?DecryptedPaymentData
     {
         return $this->decryptedPaymentData;
@@ -123,7 +123,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param DecryptedPaymentData|null $value
-    */
+     */
     public function setDecryptedPaymentData(?DecryptedPaymentData $value): void
     {
         $this->decryptedPaymentData = $value;
@@ -131,9 +131,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param DecryptedPaymentData|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withDecryptedPaymentData(?DecryptedPaymentData $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withDecryptedPaymentData(?DecryptedPaymentData $value): static
     {
         $this->decryptedPaymentData = $value;
         return $this;
@@ -141,7 +141,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEncryptedPaymentData(): ?string
     {
         return $this->encryptedPaymentData;
@@ -149,7 +149,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEncryptedPaymentData(?string $value): void
     {
         $this->encryptedPaymentData = $value;
@@ -157,9 +157,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withEncryptedPaymentData(?string $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withEncryptedPaymentData(?string $value): static
     {
         $this->encryptedPaymentData = $value;
         return $this;
@@ -167,7 +167,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getEphemeralKey(): ?string
     {
         return $this->ephemeralKey;
@@ -175,7 +175,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setEphemeralKey(?string $value): void
     {
         $this->ephemeralKey = $value;
@@ -183,9 +183,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withEphemeralKey(?string $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withEphemeralKey(?string $value): static
     {
         $this->ephemeralKey = $value;
         return $this;
@@ -193,7 +193,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return MobilePaymentProduct302SpecificInput|null
-    */
+     */
     public function getPaymentProduct302SpecificInput(): ?MobilePaymentProduct302SpecificInput
     {
         return $this->paymentProduct302SpecificInput;
@@ -201,7 +201,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MobilePaymentProduct302SpecificInput|null $value
-    */
+     */
     public function setPaymentProduct302SpecificInput(?MobilePaymentProduct302SpecificInput $value): void
     {
         $this->paymentProduct302SpecificInput = $value;
@@ -209,9 +209,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MobilePaymentProduct302SpecificInput|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withPaymentProduct302SpecificInput(?MobilePaymentProduct302SpecificInput $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withPaymentProduct302SpecificInput(?MobilePaymentProduct302SpecificInput $value): static
     {
         $this->paymentProduct302SpecificInput = $value;
         return $this;
@@ -219,7 +219,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return MobilePaymentProduct320SpecificInput|null
-    */
+     */
     public function getPaymentProduct320SpecificInput(): ?MobilePaymentProduct320SpecificInput
     {
         return $this->paymentProduct320SpecificInput;
@@ -227,7 +227,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MobilePaymentProduct320SpecificInput|null $value
-    */
+     */
     public function setPaymentProduct320SpecificInput(?MobilePaymentProduct320SpecificInput $value): void
     {
         $this->paymentProduct320SpecificInput = $value;
@@ -235,9 +235,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param MobilePaymentProduct320SpecificInput|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withPaymentProduct320SpecificInput(?MobilePaymentProduct320SpecificInput $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withPaymentProduct320SpecificInput(?MobilePaymentProduct320SpecificInput $value): static
     {
         $this->paymentProduct320SpecificInput = $value;
         return $this;
@@ -245,7 +245,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -253,7 +253,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -261,9 +261,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withPaymentProductId(?int $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -271,7 +271,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPublicKeyHash(): ?string
     {
         return $this->publicKeyHash;
@@ -279,7 +279,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPublicKeyHash(?string $value): void
     {
         $this->publicKeyHash = $value;
@@ -287,9 +287,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withPublicKeyHash(?string $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withPublicKeyHash(?string $value): static
     {
         $this->publicKeyHash = $value;
         return $this;
@@ -297,7 +297,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getRequiresApproval(): ?bool
     {
         return $this->requiresApproval;
@@ -305,7 +305,7 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setRequiresApproval(?bool $value): void
     {
         $this->requiresApproval = $value;
@@ -313,9 +313,9 @@ class MobilePaymentMethodSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return MobilePaymentMethodSpecificInput
-    */
-    public function withRequiresApproval(?bool $value): MobilePaymentMethodSpecificInput
+     * @return $this
+     */
+    public function withRequiresApproval(?bool $value): static
     {
         $this->requiresApproval = $value;
         return $this;
@@ -324,37 +324,38 @@ class MobilePaymentMethodSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->authorizationMode)) {
+        if ($this->authorizationMode !== null) {
             $object->authorizationMode = $this->authorizationMode;
         }
-        if (!is_null($this->autoCapture)) {
+        if ($this->autoCapture !== null) {
             $object->autoCapture = $this->autoCapture->toObject();
         }
-        if (!is_null($this->decryptedPaymentData)) {
+        if ($this->decryptedPaymentData !== null) {
             $object->decryptedPaymentData = $this->decryptedPaymentData->toObject();
         }
-        if (!is_null($this->encryptedPaymentData)) {
+        if ($this->encryptedPaymentData !== null) {
             $object->encryptedPaymentData = $this->encryptedPaymentData;
         }
-        if (!is_null($this->ephemeralKey)) {
+        if ($this->ephemeralKey !== null) {
             $object->ephemeralKey = $this->ephemeralKey;
         }
-        if (!is_null($this->paymentProduct302SpecificInput)) {
+        if ($this->paymentProduct302SpecificInput !== null) {
             $object->paymentProduct302SpecificInput = $this->paymentProduct302SpecificInput->toObject();
         }
-        if (!is_null($this->paymentProduct320SpecificInput)) {
+        if ($this->paymentProduct320SpecificInput !== null) {
             $object->paymentProduct320SpecificInput = $this->paymentProduct320SpecificInput->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->publicKeyHash)) {
+        if ($this->publicKeyHash !== null) {
             $object->publicKeyHash = $this->publicKeyHash;
         }
-        if (!is_null($this->requiresApproval)) {
+        if ($this->requiresApproval !== null) {
             $object->requiresApproval = $this->requiresApproval;
         }
         return $object;
@@ -366,7 +367,8 @@ class MobilePaymentMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MobilePaymentMethodSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'authorizationMode')) {

@@ -13,52 +13,52 @@ class CustomerAccount extends DataObject
 {
     /**
      * @var CustomerAccountAuthentication|null
-    */
+     */
     public ?CustomerAccountAuthentication $authentication = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $changeDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $changedDuringCheckout = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $createDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $hadSuspiciousActivity = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $passwordChangeDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $passwordChangedDuringCheckout = null;
 
     /**
      * @var PaymentAccountOnFile|null
-    */
+     */
     public ?PaymentAccountOnFile $paymentAccountOnFile = null;
 
     /**
      * @var CustomerPaymentActivity|null
-    */
+     */
     public ?CustomerPaymentActivity $paymentActivity = null;
 
     /**
      * @return CustomerAccountAuthentication|null
-    */
+     */
     public function getAuthentication(): ?CustomerAccountAuthentication
     {
         return $this->authentication;
@@ -66,7 +66,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param CustomerAccountAuthentication|null $value
-    */
+     */
     public function setAuthentication(?CustomerAccountAuthentication $value): void
     {
         $this->authentication = $value;
@@ -74,9 +74,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param CustomerAccountAuthentication|null $value
-     * @return CustomerAccount
-    */
-    public function withAuthentication(?CustomerAccountAuthentication $value): CustomerAccount
+     * @return $this
+     */
+    public function withAuthentication(?CustomerAccountAuthentication $value): static
     {
         $this->authentication = $value;
         return $this;
@@ -84,7 +84,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getChangeDate(): ?string
     {
         return $this->changeDate;
@@ -92,7 +92,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setChangeDate(?string $value): void
     {
         $this->changeDate = $value;
@@ -100,9 +100,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerAccount
-    */
-    public function withChangeDate(?string $value): CustomerAccount
+     * @return $this
+     */
+    public function withChangeDate(?string $value): static
     {
         $this->changeDate = $value;
         return $this;
@@ -110,7 +110,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getChangedDuringCheckout(): ?bool
     {
         return $this->changedDuringCheckout;
@@ -118,7 +118,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setChangedDuringCheckout(?bool $value): void
     {
         $this->changedDuringCheckout = $value;
@@ -126,9 +126,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CustomerAccount
-    */
-    public function withChangedDuringCheckout(?bool $value): CustomerAccount
+     * @return $this
+     */
+    public function withChangedDuringCheckout(?bool $value): static
     {
         $this->changedDuringCheckout = $value;
         return $this;
@@ -136,7 +136,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCreateDate(): ?string
     {
         return $this->createDate;
@@ -144,7 +144,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCreateDate(?string $value): void
     {
         $this->createDate = $value;
@@ -152,9 +152,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerAccount
-    */
-    public function withCreateDate(?string $value): CustomerAccount
+     * @return $this
+     */
+    public function withCreateDate(?string $value): static
     {
         $this->createDate = $value;
         return $this;
@@ -162,7 +162,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getHadSuspiciousActivity(): ?bool
     {
         return $this->hadSuspiciousActivity;
@@ -170,7 +170,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setHadSuspiciousActivity(?bool $value): void
     {
         $this->hadSuspiciousActivity = $value;
@@ -178,9 +178,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CustomerAccount
-    */
-    public function withHadSuspiciousActivity(?bool $value): CustomerAccount
+     * @return $this
+     */
+    public function withHadSuspiciousActivity(?bool $value): static
     {
         $this->hadSuspiciousActivity = $value;
         return $this;
@@ -188,7 +188,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPasswordChangeDate(): ?string
     {
         return $this->passwordChangeDate;
@@ -196,7 +196,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPasswordChangeDate(?string $value): void
     {
         $this->passwordChangeDate = $value;
@@ -204,9 +204,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerAccount
-    */
-    public function withPasswordChangeDate(?string $value): CustomerAccount
+     * @return $this
+     */
+    public function withPasswordChangeDate(?string $value): static
     {
         $this->passwordChangeDate = $value;
         return $this;
@@ -214,7 +214,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getPasswordChangedDuringCheckout(): ?bool
     {
         return $this->passwordChangedDuringCheckout;
@@ -222,7 +222,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setPasswordChangedDuringCheckout(?bool $value): void
     {
         $this->passwordChangedDuringCheckout = $value;
@@ -230,9 +230,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CustomerAccount
-    */
-    public function withPasswordChangedDuringCheckout(?bool $value): CustomerAccount
+     * @return $this
+     */
+    public function withPasswordChangedDuringCheckout(?bool $value): static
     {
         $this->passwordChangedDuringCheckout = $value;
         return $this;
@@ -240,7 +240,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return PaymentAccountOnFile|null
-    */
+     */
     public function getPaymentAccountOnFile(): ?PaymentAccountOnFile
     {
         return $this->paymentAccountOnFile;
@@ -248,7 +248,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param PaymentAccountOnFile|null $value
-    */
+     */
     public function setPaymentAccountOnFile(?PaymentAccountOnFile $value): void
     {
         $this->paymentAccountOnFile = $value;
@@ -256,9 +256,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param PaymentAccountOnFile|null $value
-     * @return CustomerAccount
-    */
-    public function withPaymentAccountOnFile(?PaymentAccountOnFile $value): CustomerAccount
+     * @return $this
+     */
+    public function withPaymentAccountOnFile(?PaymentAccountOnFile $value): static
     {
         $this->paymentAccountOnFile = $value;
         return $this;
@@ -266,7 +266,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @return CustomerPaymentActivity|null
-    */
+     */
     public function getPaymentActivity(): ?CustomerPaymentActivity
     {
         return $this->paymentActivity;
@@ -274,7 +274,7 @@ class CustomerAccount extends DataObject
 
     /**
      * @param CustomerPaymentActivity|null $value
-    */
+     */
     public function setPaymentActivity(?CustomerPaymentActivity $value): void
     {
         $this->paymentActivity = $value;
@@ -282,9 +282,9 @@ class CustomerAccount extends DataObject
 
     /**
      * @param CustomerPaymentActivity|null $value
-     * @return CustomerAccount
-    */
-    public function withPaymentActivity(?CustomerPaymentActivity $value): CustomerAccount
+     * @return $this
+     */
+    public function withPaymentActivity(?CustomerPaymentActivity $value): static
     {
         $this->paymentActivity = $value;
         return $this;
@@ -293,34 +293,35 @@ class CustomerAccount extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->authentication)) {
+        if ($this->authentication !== null) {
             $object->authentication = $this->authentication->toObject();
         }
-        if (!is_null($this->changeDate)) {
+        if ($this->changeDate !== null) {
             $object->changeDate = $this->changeDate;
         }
-        if (!is_null($this->changedDuringCheckout)) {
+        if ($this->changedDuringCheckout !== null) {
             $object->changedDuringCheckout = $this->changedDuringCheckout;
         }
-        if (!is_null($this->createDate)) {
+        if ($this->createDate !== null) {
             $object->createDate = $this->createDate;
         }
-        if (!is_null($this->hadSuspiciousActivity)) {
+        if ($this->hadSuspiciousActivity !== null) {
             $object->hadSuspiciousActivity = $this->hadSuspiciousActivity;
         }
-        if (!is_null($this->passwordChangeDate)) {
+        if ($this->passwordChangeDate !== null) {
             $object->passwordChangeDate = $this->passwordChangeDate;
         }
-        if (!is_null($this->passwordChangedDuringCheckout)) {
+        if ($this->passwordChangedDuringCheckout !== null) {
             $object->passwordChangedDuringCheckout = $this->passwordChangedDuringCheckout;
         }
-        if (!is_null($this->paymentAccountOnFile)) {
+        if ($this->paymentAccountOnFile !== null) {
             $object->paymentAccountOnFile = $this->paymentAccountOnFile->toObject();
         }
-        if (!is_null($this->paymentActivity)) {
+        if ($this->paymentActivity !== null) {
             $object->paymentActivity = $this->paymentActivity->toObject();
         }
         return $object;
@@ -332,7 +333,8 @@ class CustomerAccount extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerAccount
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'authentication')) {

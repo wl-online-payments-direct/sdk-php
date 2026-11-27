@@ -13,12 +13,12 @@ class PersonalInformationToken extends DataObject
 {
     /**
      * @var PersonalNameToken|null
-    */
+     */
     public ?PersonalNameToken $name = null;
 
     /**
      * @return PersonalNameToken|null
-    */
+     */
     public function getName(): ?PersonalNameToken
     {
         return $this->name;
@@ -26,7 +26,7 @@ class PersonalInformationToken extends DataObject
 
     /**
      * @param PersonalNameToken|null $value
-    */
+     */
     public function setName(?PersonalNameToken $value): void
     {
         $this->name = $value;
@@ -34,9 +34,9 @@ class PersonalInformationToken extends DataObject
 
     /**
      * @param PersonalNameToken|null $value
-     * @return PersonalInformationToken
-    */
-    public function withName(?PersonalNameToken $value): PersonalInformationToken
+     * @return $this
+     */
+    public function withName(?PersonalNameToken $value): static
     {
         $this->name = $value;
         return $this;
@@ -45,10 +45,11 @@ class PersonalInformationToken extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->name)) {
+        if ($this->name !== null) {
             $object->name = $this->name->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class PersonalInformationToken extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PersonalInformationToken
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'name')) {

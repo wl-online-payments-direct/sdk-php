@@ -13,12 +13,12 @@ class CapturesResponse extends DataObject
 {
     /**
      * @var Capture[]|null
-    */
+     */
     public ?array $captures = null;
 
     /**
      * @return Capture[]|null
-    */
+     */
     public function getCaptures(): ?array
     {
         return $this->captures;
@@ -26,7 +26,7 @@ class CapturesResponse extends DataObject
 
     /**
      * @param Capture[]|null $value
-    */
+     */
     public function setCaptures(?array $value): void
     {
         $this->captures = $value;
@@ -34,9 +34,9 @@ class CapturesResponse extends DataObject
 
     /**
      * @param Capture[]|null $value
-     * @return CapturesResponse
-    */
-    public function withCaptures(?array $value): CapturesResponse
+     * @return $this
+     */
+    public function withCaptures(?array $value): static
     {
         $this->captures = $value;
         return $this;
@@ -45,13 +45,14 @@ class CapturesResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->captures)) {
+        if ($this->captures !== null) {
             $object->captures = [];
             foreach ($this->captures as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->captures[] = $element->toObject();
                 }
             }
@@ -65,7 +66,8 @@ class CapturesResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CapturesResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'captures')) {

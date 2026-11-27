@@ -13,12 +13,12 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $checkoutType = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCheckoutType(): ?string
     {
         return $this->checkoutType;
@@ -26,7 +26,7 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCheckoutType(?string $value): void
     {
         $this->checkoutType = $value;
@@ -34,9 +34,9 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3203SpecificInput
-    */
-    public function withCheckoutType(?string $value): RedirectPaymentProduct3203SpecificInput
+     * @return $this
+     */
+    public function withCheckoutType(?string $value): static
     {
         $this->checkoutType = $value;
         return $this;
@@ -45,10 +45,11 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->checkoutType)) {
+        if ($this->checkoutType !== null) {
             $object->checkoutType = $this->checkoutType;
         }
         return $object;
@@ -60,7 +61,8 @@ class RedirectPaymentProduct3203SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct3203SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'checkoutType')) {

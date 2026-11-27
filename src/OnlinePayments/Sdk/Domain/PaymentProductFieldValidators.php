@@ -13,52 +13,52 @@ class PaymentProductFieldValidators extends DataObject
 {
     /**
      * @var EmptyValidator|null
-    */
+     */
     public ?EmptyValidator $emailAddress = null;
 
     /**
      * @var EmptyValidator|null
-    */
+     */
     public ?EmptyValidator $expirationDate = null;
 
     /**
      * @var FixedListValidator|null
-    */
+     */
     public ?FixedListValidator $fixedList = null;
 
     /**
      * @var EmptyValidator|null
-    */
+     */
     public ?EmptyValidator $iban = null;
 
     /**
      * @var LengthValidator|null
-    */
+     */
     public ?LengthValidator $length = null;
 
     /**
      * @var EmptyValidator|null
-    */
+     */
     public ?EmptyValidator $luhn = null;
 
     /**
      * @var RangeValidator|null
-    */
+     */
     public ?RangeValidator $range = null;
 
     /**
      * @var RegularExpressionValidator|null
-    */
+     */
     public ?RegularExpressionValidator $regularExpression = null;
 
     /**
      * @var EmptyValidator|null
-    */
+     */
     public ?EmptyValidator $termsAndConditions = null;
 
     /**
      * @return EmptyValidator|null
-    */
+     */
     public function getEmailAddress(): ?EmptyValidator
     {
         return $this->emailAddress;
@@ -66,7 +66,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-    */
+     */
     public function setEmailAddress(?EmptyValidator $value): void
     {
         $this->emailAddress = $value;
@@ -74,9 +74,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withEmailAddress(?EmptyValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withEmailAddress(?EmptyValidator $value): static
     {
         $this->emailAddress = $value;
         return $this;
@@ -84,7 +84,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return EmptyValidator|null
-    */
+     */
     public function getExpirationDate(): ?EmptyValidator
     {
         return $this->expirationDate;
@@ -92,7 +92,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-    */
+     */
     public function setExpirationDate(?EmptyValidator $value): void
     {
         $this->expirationDate = $value;
@@ -100,9 +100,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withExpirationDate(?EmptyValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withExpirationDate(?EmptyValidator $value): static
     {
         $this->expirationDate = $value;
         return $this;
@@ -110,7 +110,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return FixedListValidator|null
-    */
+     */
     public function getFixedList(): ?FixedListValidator
     {
         return $this->fixedList;
@@ -118,7 +118,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param FixedListValidator|null $value
-    */
+     */
     public function setFixedList(?FixedListValidator $value): void
     {
         $this->fixedList = $value;
@@ -126,9 +126,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param FixedListValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withFixedList(?FixedListValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withFixedList(?FixedListValidator $value): static
     {
         $this->fixedList = $value;
         return $this;
@@ -136,7 +136,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return EmptyValidator|null
-    */
+     */
     public function getIban(): ?EmptyValidator
     {
         return $this->iban;
@@ -144,7 +144,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-    */
+     */
     public function setIban(?EmptyValidator $value): void
     {
         $this->iban = $value;
@@ -152,9 +152,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withIban(?EmptyValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withIban(?EmptyValidator $value): static
     {
         $this->iban = $value;
         return $this;
@@ -162,7 +162,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return LengthValidator|null
-    */
+     */
     public function getLength(): ?LengthValidator
     {
         return $this->length;
@@ -170,7 +170,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param LengthValidator|null $value
-    */
+     */
     public function setLength(?LengthValidator $value): void
     {
         $this->length = $value;
@@ -178,9 +178,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param LengthValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withLength(?LengthValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withLength(?LengthValidator $value): static
     {
         $this->length = $value;
         return $this;
@@ -188,7 +188,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return EmptyValidator|null
-    */
+     */
     public function getLuhn(): ?EmptyValidator
     {
         return $this->luhn;
@@ -196,7 +196,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-    */
+     */
     public function setLuhn(?EmptyValidator $value): void
     {
         $this->luhn = $value;
@@ -204,9 +204,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withLuhn(?EmptyValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withLuhn(?EmptyValidator $value): static
     {
         $this->luhn = $value;
         return $this;
@@ -214,7 +214,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return RangeValidator|null
-    */
+     */
     public function getRange(): ?RangeValidator
     {
         return $this->range;
@@ -222,7 +222,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RangeValidator|null $value
-    */
+     */
     public function setRange(?RangeValidator $value): void
     {
         $this->range = $value;
@@ -230,9 +230,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RangeValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withRange(?RangeValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withRange(?RangeValidator $value): static
     {
         $this->range = $value;
         return $this;
@@ -240,7 +240,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return RegularExpressionValidator|null
-    */
+     */
     public function getRegularExpression(): ?RegularExpressionValidator
     {
         return $this->regularExpression;
@@ -248,7 +248,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RegularExpressionValidator|null $value
-    */
+     */
     public function setRegularExpression(?RegularExpressionValidator $value): void
     {
         $this->regularExpression = $value;
@@ -256,9 +256,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param RegularExpressionValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withRegularExpression(?RegularExpressionValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withRegularExpression(?RegularExpressionValidator $value): static
     {
         $this->regularExpression = $value;
         return $this;
@@ -266,7 +266,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @return EmptyValidator|null
-    */
+     */
     public function getTermsAndConditions(): ?EmptyValidator
     {
         return $this->termsAndConditions;
@@ -274,7 +274,7 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-    */
+     */
     public function setTermsAndConditions(?EmptyValidator $value): void
     {
         $this->termsAndConditions = $value;
@@ -282,9 +282,9 @@ class PaymentProductFieldValidators extends DataObject
 
     /**
      * @param EmptyValidator|null $value
-     * @return PaymentProductFieldValidators
-    */
-    public function withTermsAndConditions(?EmptyValidator $value): PaymentProductFieldValidators
+     * @return $this
+     */
+    public function withTermsAndConditions(?EmptyValidator $value): static
     {
         $this->termsAndConditions = $value;
         return $this;
@@ -293,34 +293,35 @@ class PaymentProductFieldValidators extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->emailAddress)) {
+        if ($this->emailAddress !== null) {
             $object->emailAddress = $this->emailAddress->toObject();
         }
-        if (!is_null($this->expirationDate)) {
+        if ($this->expirationDate !== null) {
             $object->expirationDate = $this->expirationDate->toObject();
         }
-        if (!is_null($this->fixedList)) {
+        if ($this->fixedList !== null) {
             $object->fixedList = $this->fixedList->toObject();
         }
-        if (!is_null($this->iban)) {
+        if ($this->iban !== null) {
             $object->iban = $this->iban->toObject();
         }
-        if (!is_null($this->length)) {
+        if ($this->length !== null) {
             $object->length = $this->length->toObject();
         }
-        if (!is_null($this->luhn)) {
+        if ($this->luhn !== null) {
             $object->luhn = $this->luhn->toObject();
         }
-        if (!is_null($this->range)) {
+        if ($this->range !== null) {
             $object->range = $this->range->toObject();
         }
-        if (!is_null($this->regularExpression)) {
+        if ($this->regularExpression !== null) {
             $object->regularExpression = $this->regularExpression->toObject();
         }
-        if (!is_null($this->termsAndConditions)) {
+        if ($this->termsAndConditions !== null) {
             $object->termsAndConditions = $this->termsAndConditions->toObject();
         }
         return $object;
@@ -332,7 +333,8 @@ class PaymentProductFieldValidators extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldValidators
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'emailAddress')) {

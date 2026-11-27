@@ -21,7 +21,7 @@ class TestErrorResponse extends DataObject
         return $object;
     }
 
-    public function fromObject(object $object): DataObject
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         $this->errorId = $object->errorId;

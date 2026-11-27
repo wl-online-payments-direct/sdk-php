@@ -13,22 +13,22 @@ class RefundErrorResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-    */
+     */
     public ?array $errors = null;
 
     /**
      * @var RefundResponse|null
-    */
+     */
     public ?RefundResponse $refundResult = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -36,7 +36,7 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
@@ -44,9 +44,9 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundErrorResponse
-    */
-    public function withErrorId(?string $value): RefundErrorResponse
+     * @return $this
+     */
+    public function withErrorId(?string $value): static
     {
         $this->errorId = $value;
         return $this;
@@ -54,7 +54,7 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @return APIError[]|null
-    */
+     */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -62,7 +62,7 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-    */
+     */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
@@ -70,9 +70,9 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     * @return RefundErrorResponse
-    */
-    public function withErrors(?array $value): RefundErrorResponse
+     * @return $this
+     */
+    public function withErrors(?array $value): static
     {
         $this->errors = $value;
         return $this;
@@ -80,7 +80,7 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @return RefundResponse|null
-    */
+     */
     public function getRefundResult(): ?RefundResponse
     {
         return $this->refundResult;
@@ -88,7 +88,7 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param RefundResponse|null $value
-    */
+     */
     public function setRefundResult(?RefundResponse $value): void
     {
         $this->refundResult = $value;
@@ -96,9 +96,9 @@ class RefundErrorResponse extends DataObject
 
     /**
      * @param RefundResponse|null $value
-     * @return RefundErrorResponse
-    */
-    public function withRefundResult(?RefundResponse $value): RefundErrorResponse
+     * @return $this
+     */
+    public function withRefundResult(?RefundResponse $value): static
     {
         $this->refundResult = $value;
         return $this;
@@ -107,21 +107,22 @@ class RefundErrorResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->errorId)) {
+        if ($this->errorId !== null) {
             $object->errorId = $this->errorId;
         }
-        if (!is_null($this->errors)) {
+        if ($this->errors !== null) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->refundResult)) {
+        if ($this->refundResult !== null) {
             $object->refundResult = $this->refundResult->toObject();
         }
         return $object;
@@ -133,7 +134,8 @@ class RefundErrorResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundErrorResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'errorId')) {

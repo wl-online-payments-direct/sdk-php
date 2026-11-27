@@ -13,22 +13,22 @@ class ReattemptInstructions extends DataObject
 {
     /**
      * @var ReattemptInstructionsConditions|null
-    */
+     */
     public ?ReattemptInstructionsConditions $conditions = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $frozenPeriod = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $indicator = null;
 
     /**
      * @return ReattemptInstructionsConditions|null
-    */
+     */
     public function getConditions(): ?ReattemptInstructionsConditions
     {
         return $this->conditions;
@@ -36,7 +36,7 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param ReattemptInstructionsConditions|null $value
-    */
+     */
     public function setConditions(?ReattemptInstructionsConditions $value): void
     {
         $this->conditions = $value;
@@ -44,9 +44,9 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param ReattemptInstructionsConditions|null $value
-     * @return ReattemptInstructions
-    */
-    public function withConditions(?ReattemptInstructionsConditions $value): ReattemptInstructions
+     * @return $this
+     */
+    public function withConditions(?ReattemptInstructionsConditions $value): static
     {
         $this->conditions = $value;
         return $this;
@@ -54,7 +54,7 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getFrozenPeriod(): ?int
     {
         return $this->frozenPeriod;
@@ -62,7 +62,7 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setFrozenPeriod(?int $value): void
     {
         $this->frozenPeriod = $value;
@@ -70,9 +70,9 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param int|null $value
-     * @return ReattemptInstructions
-    */
-    public function withFrozenPeriod(?int $value): ReattemptInstructions
+     * @return $this
+     */
+    public function withFrozenPeriod(?int $value): static
     {
         $this->frozenPeriod = $value;
         return $this;
@@ -80,7 +80,7 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIndicator(): ?string
     {
         return $this->indicator;
@@ -88,7 +88,7 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIndicator(?string $value): void
     {
         $this->indicator = $value;
@@ -96,9 +96,9 @@ class ReattemptInstructions extends DataObject
 
     /**
      * @param string|null $value
-     * @return ReattemptInstructions
-    */
-    public function withIndicator(?string $value): ReattemptInstructions
+     * @return $this
+     */
+    public function withIndicator(?string $value): static
     {
         $this->indicator = $value;
         return $this;
@@ -107,16 +107,17 @@ class ReattemptInstructions extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->conditions)) {
+        if ($this->conditions !== null) {
             $object->conditions = $this->conditions->toObject();
         }
-        if (!is_null($this->frozenPeriod)) {
+        if ($this->frozenPeriod !== null) {
             $object->frozenPeriod = $this->frozenPeriod;
         }
-        if (!is_null($this->indicator)) {
+        if ($this->indicator !== null) {
             $object->indicator = $this->indicator;
         }
         return $object;
@@ -128,7 +129,8 @@ class ReattemptInstructions extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ReattemptInstructions
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'conditions')) {

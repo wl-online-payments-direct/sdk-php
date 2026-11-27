@@ -13,27 +13,27 @@ class PaymentStatusOutputSummary extends DataObject
 {
     /**
      * @var APIError[]|null
-    */
+     */
     public ?array $errors = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $statusCategory = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $statusCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $statusCodeChangeDateTime = null;
 
     /**
      * @return APIError[]|null
-    */
+     */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -41,7 +41,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param APIError[]|null $value
-    */
+     */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
@@ -49,9 +49,9 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param APIError[]|null $value
-     * @return PaymentStatusOutputSummary
-    */
-    public function withErrors(?array $value): PaymentStatusOutputSummary
+     * @return $this
+     */
+    public function withErrors(?array $value): static
     {
         $this->errors = $value;
         return $this;
@@ -59,7 +59,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatusCategory(): ?string
     {
         return $this->statusCategory;
@@ -67,7 +67,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatusCategory(?string $value): void
     {
         $this->statusCategory = $value;
@@ -75,9 +75,9 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentStatusOutputSummary
-    */
-    public function withStatusCategory(?string $value): PaymentStatusOutputSummary
+     * @return $this
+     */
+    public function withStatusCategory(?string $value): static
     {
         $this->statusCategory = $value;
         return $this;
@@ -85,7 +85,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -93,7 +93,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
@@ -101,9 +101,9 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentStatusOutputSummary
-    */
-    public function withStatusCode(?int $value): PaymentStatusOutputSummary
+     * @return $this
+     */
+    public function withStatusCode(?int $value): static
     {
         $this->statusCode = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatusCodeChangeDateTime(): ?string
     {
         return $this->statusCodeChangeDateTime;
@@ -119,7 +119,7 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatusCodeChangeDateTime(?string $value): void
     {
         $this->statusCodeChangeDateTime = $value;
@@ -127,9 +127,9 @@ class PaymentStatusOutputSummary extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentStatusOutputSummary
-    */
-    public function withStatusCodeChangeDateTime(?string $value): PaymentStatusOutputSummary
+     * @return $this
+     */
+    public function withStatusCodeChangeDateTime(?string $value): static
     {
         $this->statusCodeChangeDateTime = $value;
         return $this;
@@ -138,24 +138,25 @@ class PaymentStatusOutputSummary extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->errors)) {
+        if ($this->errors !== null) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->statusCategory)) {
+        if ($this->statusCategory !== null) {
             $object->statusCategory = $this->statusCategory;
         }
-        if (!is_null($this->statusCode)) {
+        if ($this->statusCode !== null) {
             $object->statusCode = $this->statusCode;
         }
-        if (!is_null($this->statusCodeChangeDateTime)) {
+        if ($this->statusCodeChangeDateTime !== null) {
             $object->statusCodeChangeDateTime = $this->statusCodeChangeDateTime;
         }
         return $object;
@@ -167,7 +168,8 @@ class PaymentStatusOutputSummary extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentStatusOutputSummary
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'errors')) {

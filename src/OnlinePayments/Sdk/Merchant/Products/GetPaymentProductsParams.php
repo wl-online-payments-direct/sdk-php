@@ -15,42 +15,42 @@ class GetPaymentProductsParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $amount = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @var string[]|null
-    */
+     */
     public ?array $hide = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $operationType = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -58,7 +58,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -66,8 +66,9 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCountryCode(string $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -75,7 +76,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -83,7 +84,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -91,8 +92,9 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCurrencyCode(string $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
@@ -100,7 +102,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -108,7 +110,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -116,8 +118,9 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withLocale(string $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -125,7 +128,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return int|null
-    */
+     */
     public function getAmount(): ?int
     {
         return $this->amount;
@@ -133,7 +136,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmount(?int $value): void
     {
         $this->amount = $value;
@@ -141,8 +144,9 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param int|null $value
-    */
-    public function withAmount(int $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withAmount(?int $value): static
     {
         $this->amount = $value;
         return $this;
@@ -150,7 +154,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -158,7 +162,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -166,8 +170,9 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param bool|null $value
-    */
-    public function withIsRecurring(bool $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
@@ -175,7 +180,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return string[]|null
-    */
+     */
     public function getHide(): ?array
     {
         return $this->hide;
@@ -183,7 +188,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
+     */
     public function setHide(?array $value): void
     {
         $this->hide = $value;
@@ -191,19 +196,20 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string[]|null $value
-    */
-    public function withHide(array $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withHide(?array $value): static
     {
         $this->hide = $value;
         return $this;
     }
 
     /**
-     * @param string[]|null $value
-    */
-    public function addHide(array $value): void
+     * @param string $value
+     */
+    public function addHide(string $value): void
     {
-        if (is_null($this->hide)) {
+        if ($this->hide === null) {
             $this->hide = [];
         }
         $this->hide[] = $value;
@@ -211,7 +217,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOperationType(): ?string
     {
         return $this->operationType;
@@ -219,7 +225,7 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperationType(?string $value): void
     {
         $this->operationType = $value;
@@ -227,43 +233,44 @@ class GetPaymentProductsParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withOperationType(string $value): GetPaymentProductsParams
+     * @return $this
+     */
+    public function withOperationType(?string $value): static
     {
         $this->operationType = $value;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->countryCode != null) {
+        if ($this->countryCode !== null) {
             $array['countryCode'] = $this->countryCode;
         }
-        if ($this->currencyCode != null) {
+        if ($this->currencyCode !== null) {
             $array['currencyCode'] = $this->currencyCode;
         }
-        if ($this->locale != null) {
+        if ($this->locale !== null) {
             $array['locale'] = $this->locale;
         }
-        if ($this->amount != null) {
+        if ($this->amount !== null) {
             $array['amount'] = $this->amount;
         }
-        if ($this->isRecurring != null) {
+        if ($this->isRecurring !== null) {
             $array['isRecurring'] = $this->isRecurring ? 'true' : 'false';
         }
-        if ($this->hide != null) {
+        if ($this->hide !== null) {
             $array['hide'] = [];
             foreach ($this->hide as $element) {
-                if ($element != null) {
+                if ($element !== null) {
                     $array['hide'][] = $element;
                 }
             }
         }
-        if ($this->operationType != null) {
+        if ($this->operationType !== null) {
             $array['operationType'] = $this->operationType;
         }
         return $array;

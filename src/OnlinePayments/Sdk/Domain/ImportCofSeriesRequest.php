@@ -13,47 +13,47 @@ class ImportCofSeriesRequest extends DataObject
 {
     /**
      * @var CardDataWithoutCvv|null
-    */
+     */
     public ?CardDataWithoutCvv $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @var NetworkTokenData|null
-    */
+     */
     public ?NetworkTokenData $networkTokenData = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $schemeReferenceData = null;
 
     /**
      * @var SubMerchant|null
-    */
+     */
     public ?SubMerchant $subMerchant = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $transactionLinkIdentifier = null;
 
     /**
      * @return CardDataWithoutCvv|null
-    */
+     */
     public function getCard(): ?CardDataWithoutCvv
     {
         return $this->card;
@@ -61,7 +61,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param CardDataWithoutCvv|null $value
-    */
+     */
     public function setCard(?CardDataWithoutCvv $value): void
     {
         $this->card = $value;
@@ -69,9 +69,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param CardDataWithoutCvv|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withCard(?CardDataWithoutCvv $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withCard(?CardDataWithoutCvv $value): static
     {
         $this->card = $value;
         return $this;
@@ -79,7 +79,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -87,7 +87,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -95,9 +95,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withCurrencyCode(?string $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
@@ -105,7 +105,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return NetworkTokenData|null
-    */
+     */
     public function getNetworkTokenData(): ?NetworkTokenData
     {
         return $this->networkTokenData;
@@ -113,7 +113,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param NetworkTokenData|null $value
-    */
+     */
     public function setNetworkTokenData(?NetworkTokenData $value): void
     {
         $this->networkTokenData = $value;
@@ -121,9 +121,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param NetworkTokenData|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withNetworkTokenData(?NetworkTokenData $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withNetworkTokenData(?NetworkTokenData $value): static
     {
         $this->networkTokenData = $value;
         return $this;
@@ -131,7 +131,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -139,7 +139,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -147,9 +147,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param int|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withPaymentProductId(?int $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -157,7 +157,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSchemeReferenceData(): ?string
     {
         return $this->schemeReferenceData;
@@ -165,7 +165,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSchemeReferenceData(?string $value): void
     {
         $this->schemeReferenceData = $value;
@@ -173,9 +173,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withSchemeReferenceData(?string $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withSchemeReferenceData(?string $value): static
     {
         $this->schemeReferenceData = $value;
         return $this;
@@ -183,7 +183,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return SubMerchant|null
-    */
+     */
     public function getSubMerchant(): ?SubMerchant
     {
         return $this->subMerchant;
@@ -191,7 +191,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param SubMerchant|null $value
-    */
+     */
     public function setSubMerchant(?SubMerchant $value): void
     {
         $this->subMerchant = $value;
@@ -199,9 +199,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param SubMerchant|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withSubMerchant(?SubMerchant $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withSubMerchant(?SubMerchant $value): static
     {
         $this->subMerchant = $value;
         return $this;
@@ -209,7 +209,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenId(): ?string
     {
         return $this->tokenId;
@@ -217,7 +217,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenId(?string $value): void
     {
         $this->tokenId = $value;
@@ -225,9 +225,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withTokenId(?string $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withTokenId(?string $value): static
     {
         $this->tokenId = $value;
         return $this;
@@ -235,7 +235,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTransactionLinkIdentifier(): ?string
     {
         return $this->transactionLinkIdentifier;
@@ -243,7 +243,7 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTransactionLinkIdentifier(?string $value): void
     {
         $this->transactionLinkIdentifier = $value;
@@ -251,9 +251,9 @@ class ImportCofSeriesRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return ImportCofSeriesRequest
-    */
-    public function withTransactionLinkIdentifier(?string $value): ImportCofSeriesRequest
+     * @return $this
+     */
+    public function withTransactionLinkIdentifier(?string $value): static
     {
         $this->transactionLinkIdentifier = $value;
         return $this;
@@ -262,31 +262,32 @@ class ImportCofSeriesRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->currencyCode)) {
+        if ($this->currencyCode !== null) {
             $object->currencyCode = $this->currencyCode;
         }
-        if (!is_null($this->networkTokenData)) {
+        if ($this->networkTokenData !== null) {
             $object->networkTokenData = $this->networkTokenData->toObject();
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->schemeReferenceData)) {
+        if ($this->schemeReferenceData !== null) {
             $object->schemeReferenceData = $this->schemeReferenceData;
         }
-        if (!is_null($this->subMerchant)) {
+        if ($this->subMerchant !== null) {
             $object->subMerchant = $this->subMerchant->toObject();
         }
-        if (!is_null($this->tokenId)) {
+        if ($this->tokenId !== null) {
             $object->tokenId = $this->tokenId;
         }
-        if (!is_null($this->transactionLinkIdentifier)) {
+        if ($this->transactionLinkIdentifier !== null) {
             $object->transactionLinkIdentifier = $this->transactionLinkIdentifier;
         }
         return $object;
@@ -298,7 +299,8 @@ class ImportCofSeriesRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ImportCofSeriesRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

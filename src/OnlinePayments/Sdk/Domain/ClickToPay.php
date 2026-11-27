@@ -13,12 +13,12 @@ class ClickToPay extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $IsClickToPayPayment = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsClickToPayPayment(): ?bool
     {
         return $this->IsClickToPayPayment;
@@ -26,7 +26,7 @@ class ClickToPay extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsClickToPayPayment(?bool $value): void
     {
         $this->IsClickToPayPayment = $value;
@@ -34,9 +34,9 @@ class ClickToPay extends DataObject
 
     /**
      * @param bool|null $value
-     * @return ClickToPay
-    */
-    public function withIsClickToPayPayment(?bool $value): ClickToPay
+     * @return $this
+     */
+    public function withIsClickToPayPayment(?bool $value): static
     {
         $this->IsClickToPayPayment = $value;
         return $this;
@@ -45,10 +45,11 @@ class ClickToPay extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->IsClickToPayPayment)) {
+        if ($this->IsClickToPayPayment !== null) {
             $object->IsClickToPayPayment = $this->IsClickToPayPayment;
         }
         return $object;
@@ -60,7 +61,8 @@ class ClickToPay extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ClickToPay
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'IsClickToPayPayment')) {

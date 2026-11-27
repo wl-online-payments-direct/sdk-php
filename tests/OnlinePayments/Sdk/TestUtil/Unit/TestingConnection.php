@@ -22,11 +22,11 @@ class TestingConnection extends DefaultConnection
      * @throws Exception
      */
     protected function executeRequest(
-        $httpMethod,
-        $requestUri,
+        string $httpMethod,
+        string $requestUri,
         $requestHeaders,
         $body,
-        callable $responseHandler
+        callable $responseHandler,
     ): ?ConnectionResponse {
         if ($this->exception !== null) {
             throw $this->exception;

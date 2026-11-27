@@ -13,22 +13,22 @@ class SharePaymentLinkRequest extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $channel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $recipient = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getChannel(): ?string
     {
         return $this->channel;
@@ -36,7 +36,7 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setChannel(?string $value): void
     {
         $this->channel = $value;
@@ -44,9 +44,9 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return SharePaymentLinkRequest
-    */
-    public function withChannel(?string $value): SharePaymentLinkRequest
+     * @return $this
+     */
+    public function withChannel(?string $value): static
     {
         $this->channel = $value;
         return $this;
@@ -54,7 +54,7 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -62,7 +62,7 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -70,9 +70,9 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return SharePaymentLinkRequest
-    */
-    public function withLocale(?string $value): SharePaymentLinkRequest
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -80,7 +80,7 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRecipient(): ?string
     {
         return $this->recipient;
@@ -88,7 +88,7 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRecipient(?string $value): void
     {
         $this->recipient = $value;
@@ -96,9 +96,9 @@ class SharePaymentLinkRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return SharePaymentLinkRequest
-    */
-    public function withRecipient(?string $value): SharePaymentLinkRequest
+     * @return $this
+     */
+    public function withRecipient(?string $value): static
     {
         $this->recipient = $value;
         return $this;
@@ -107,16 +107,17 @@ class SharePaymentLinkRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->channel)) {
+        if ($this->channel !== null) {
             $object->channel = $this->channel;
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->recipient)) {
+        if ($this->recipient !== null) {
             $object->recipient = $this->recipient;
         }
         return $object;
@@ -128,7 +129,8 @@ class SharePaymentLinkRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SharePaymentLinkRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'channel')) {

@@ -7,9 +7,9 @@ use OnlinePayments\Sdk\Communication\MultipartFormDataObject;
 
 class MultipartFormDataWrapper extends MultipartDataObject
 {
-    private $multipart;
+    private MultipartFormDataObject $multipart;
 
-    public function __construct($multipart)
+    public function __construct(MultipartFormDataObject $multipart)
     {
         $this->multipart = $multipart;
     }

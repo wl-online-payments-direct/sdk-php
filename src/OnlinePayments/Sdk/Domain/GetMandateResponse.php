@@ -13,12 +13,12 @@ class GetMandateResponse extends DataObject
 {
     /**
      * @var MandateResponse|null
-    */
+     */
     public ?MandateResponse $mandate = null;
 
     /**
      * @return MandateResponse|null
-    */
+     */
     public function getMandate(): ?MandateResponse
     {
         return $this->mandate;
@@ -26,7 +26,7 @@ class GetMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-    */
+     */
     public function setMandate(?MandateResponse $value): void
     {
         $this->mandate = $value;
@@ -34,9 +34,9 @@ class GetMandateResponse extends DataObject
 
     /**
      * @param MandateResponse|null $value
-     * @return GetMandateResponse
-    */
-    public function withMandate(?MandateResponse $value): GetMandateResponse
+     * @return $this
+     */
+    public function withMandate(?MandateResponse $value): static
     {
         $this->mandate = $value;
         return $this;
@@ -45,10 +45,11 @@ class GetMandateResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->mandate)) {
+        if ($this->mandate !== null) {
             $object->mandate = $this->mandate->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class GetMandateResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetMandateResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'mandate')) {

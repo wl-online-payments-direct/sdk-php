@@ -13,17 +13,17 @@ class CreateCertificateResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $certificateId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $signedCertificate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCertificateId(): ?string
     {
         return $this->certificateId;
@@ -31,7 +31,7 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCertificateId(?string $value): void
     {
         $this->certificateId = $value;
@@ -39,9 +39,9 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateCertificateResponse
-    */
-    public function withCertificateId(?string $value): CreateCertificateResponse
+     * @return $this
+     */
+    public function withCertificateId(?string $value): static
     {
         $this->certificateId = $value;
         return $this;
@@ -49,7 +49,7 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSignedCertificate(): ?string
     {
         return $this->signedCertificate;
@@ -57,7 +57,7 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSignedCertificate(?string $value): void
     {
         $this->signedCertificate = $value;
@@ -65,9 +65,9 @@ class CreateCertificateResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateCertificateResponse
-    */
-    public function withSignedCertificate(?string $value): CreateCertificateResponse
+     * @return $this
+     */
+    public function withSignedCertificate(?string $value): static
     {
         $this->signedCertificate = $value;
         return $this;
@@ -76,13 +76,14 @@ class CreateCertificateResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->certificateId)) {
+        if ($this->certificateId !== null) {
             $object->certificateId = $this->certificateId;
         }
-        if (!is_null($this->signedCertificate)) {
+        if ($this->signedCertificate !== null) {
             $object->signedCertificate = $this->signedCertificate;
         }
         return $object;
@@ -94,7 +95,8 @@ class CreateCertificateResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateCertificateResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'certificateId')) {

@@ -19,8 +19,8 @@ class CommunicatorLoggerHelperTest extends TestCase
     public function testCommunicatorLoggerHelper_UriSplitting_ReturnsCorrectEndpointAndRelativeUri(
         string $requestUri,
         string $endpoint,
-        string $relativeUriPathWithRequestParameters
-    ) {
+        string $relativeUriPathWithRequestParameters,
+    ): void {
         $communicatorLoggingHelper = new CommunicatorLoggerHelper();
 
         $actualEndpoint = $communicatorLoggingHelper->getEndpoint($requestUri);
@@ -30,17 +30,17 @@ class CommunicatorLoggerHelperTest extends TestCase
 
         $this->assertEquals(
             $relativeUriPathWithRequestParameters,
-            $actualRelativeUri
+            $actualRelativeUri,
         );
 
         $this->assertEquals(
             $requestUri,
-            $endpoint . $relativeUriPathWithRequestParameters
+            $endpoint . $relativeUriPathWithRequestParameters,
         );
     }
 
     /**
-     * @return array
+     * @return array<int, array{0: string, 1: string, 2: string}>
      */
     public static function communicatorLoggerHelperUriProvider(): array
     {
@@ -58,12 +58,12 @@ class CommunicatorLoggerHelperTest extends TestCase
             [
                 'https://payment.preprod.online-payments.com',
                 'https://payment.preprod.online-payments.com',
-                ''
+                '',
             ],
             [
                 '/v1/20000/services/testconnection',
                 '',
-                '/v1/20000/services/testconnection'
+                '/v1/20000/services/testconnection',
             ],
         ];
     }

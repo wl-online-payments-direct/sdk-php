@@ -13,32 +13,32 @@ class MandateCustomerResponse extends DataObject
 {
     /**
      * @var BankAccountIban|null
-    */
+     */
     public ?BankAccountIban $bankAccountIban = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $companyName = null;
 
     /**
      * @var MandateContactDetails|null
-    */
+     */
     public ?MandateContactDetails $contactDetails = null;
 
     /**
      * @var MandateAddressResponse|null
-    */
+     */
     public ?MandateAddressResponse $mandateAddress = null;
 
     /**
      * @var MandatePersonalInformationResponse|null
-    */
+     */
     public ?MandatePersonalInformationResponse $personalInformation = null;
 
     /**
      * @return BankAccountIban|null
-    */
+     */
     public function getBankAccountIban(): ?BankAccountIban
     {
         return $this->bankAccountIban;
@@ -46,7 +46,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param BankAccountIban|null $value
-    */
+     */
     public function setBankAccountIban(?BankAccountIban $value): void
     {
         $this->bankAccountIban = $value;
@@ -54,9 +54,9 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param BankAccountIban|null $value
-     * @return MandateCustomerResponse
-    */
-    public function withBankAccountIban(?BankAccountIban $value): MandateCustomerResponse
+     * @return $this
+     */
+    public function withBankAccountIban(?BankAccountIban $value): static
     {
         $this->bankAccountIban = $value;
         return $this;
@@ -64,7 +64,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
@@ -72,7 +72,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCompanyName(?string $value): void
     {
         $this->companyName = $value;
@@ -80,9 +80,9 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandateCustomerResponse
-    */
-    public function withCompanyName(?string $value): MandateCustomerResponse
+     * @return $this
+     */
+    public function withCompanyName(?string $value): static
     {
         $this->companyName = $value;
         return $this;
@@ -90,7 +90,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @return MandateContactDetails|null
-    */
+     */
     public function getContactDetails(): ?MandateContactDetails
     {
         return $this->contactDetails;
@@ -98,7 +98,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateContactDetails|null $value
-    */
+     */
     public function setContactDetails(?MandateContactDetails $value): void
     {
         $this->contactDetails = $value;
@@ -106,9 +106,9 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateContactDetails|null $value
-     * @return MandateCustomerResponse
-    */
-    public function withContactDetails(?MandateContactDetails $value): MandateCustomerResponse
+     * @return $this
+     */
+    public function withContactDetails(?MandateContactDetails $value): static
     {
         $this->contactDetails = $value;
         return $this;
@@ -116,7 +116,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @return MandateAddressResponse|null
-    */
+     */
     public function getMandateAddress(): ?MandateAddressResponse
     {
         return $this->mandateAddress;
@@ -124,7 +124,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateAddressResponse|null $value
-    */
+     */
     public function setMandateAddress(?MandateAddressResponse $value): void
     {
         $this->mandateAddress = $value;
@@ -132,9 +132,9 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandateAddressResponse|null $value
-     * @return MandateCustomerResponse
-    */
-    public function withMandateAddress(?MandateAddressResponse $value): MandateCustomerResponse
+     * @return $this
+     */
+    public function withMandateAddress(?MandateAddressResponse $value): static
     {
         $this->mandateAddress = $value;
         return $this;
@@ -142,7 +142,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @return MandatePersonalInformationResponse|null
-    */
+     */
     public function getPersonalInformation(): ?MandatePersonalInformationResponse
     {
         return $this->personalInformation;
@@ -150,7 +150,7 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandatePersonalInformationResponse|null $value
-    */
+     */
     public function setPersonalInformation(?MandatePersonalInformationResponse $value): void
     {
         $this->personalInformation = $value;
@@ -158,9 +158,9 @@ class MandateCustomerResponse extends DataObject
 
     /**
      * @param MandatePersonalInformationResponse|null $value
-     * @return MandateCustomerResponse
-    */
-    public function withPersonalInformation(?MandatePersonalInformationResponse $value): MandateCustomerResponse
+     * @return $this
+     */
+    public function withPersonalInformation(?MandatePersonalInformationResponse $value): static
     {
         $this->personalInformation = $value;
         return $this;
@@ -169,22 +169,23 @@ class MandateCustomerResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->bankAccountIban)) {
+        if ($this->bankAccountIban !== null) {
             $object->bankAccountIban = $this->bankAccountIban->toObject();
         }
-        if (!is_null($this->companyName)) {
+        if ($this->companyName !== null) {
             $object->companyName = $this->companyName;
         }
-        if (!is_null($this->contactDetails)) {
+        if ($this->contactDetails !== null) {
             $object->contactDetails = $this->contactDetails->toObject();
         }
-        if (!is_null($this->mandateAddress)) {
+        if ($this->mandateAddress !== null) {
             $object->mandateAddress = $this->mandateAddress->toObject();
         }
-        if (!is_null($this->personalInformation)) {
+        if ($this->personalInformation !== null) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;
@@ -196,7 +197,8 @@ class MandateCustomerResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MandateCustomerResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'bankAccountIban')) {

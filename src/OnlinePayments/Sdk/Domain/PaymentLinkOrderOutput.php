@@ -13,22 +13,22 @@ class PaymentLinkOrderOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantReference = null;
 
     /**
      * @var SurchargeForPaymentLink|null
-    */
+     */
     public ?SurchargeForPaymentLink $surchargeSpecificOutput = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -36,7 +36,7 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
@@ -44,9 +44,9 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentLinkOrderOutput
-    */
-    public function withAmount(?AmountOfMoney $value): PaymentLinkOrderOutput
+     * @return $this
+     */
+    public function withAmount(?AmountOfMoney $value): static
     {
         $this->amount = $value;
         return $this;
@@ -54,7 +54,7 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -62,7 +62,7 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
@@ -70,9 +70,9 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOrderOutput
-    */
-    public function withMerchantReference(?string $value): PaymentLinkOrderOutput
+     * @return $this
+     */
+    public function withMerchantReference(?string $value): static
     {
         $this->merchantReference = $value;
         return $this;
@@ -80,7 +80,7 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @return SurchargeForPaymentLink|null
-    */
+     */
     public function getSurchargeSpecificOutput(): ?SurchargeForPaymentLink
     {
         return $this->surchargeSpecificOutput;
@@ -88,7 +88,7 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param SurchargeForPaymentLink|null $value
-    */
+     */
     public function setSurchargeSpecificOutput(?SurchargeForPaymentLink $value): void
     {
         $this->surchargeSpecificOutput = $value;
@@ -96,9 +96,9 @@ class PaymentLinkOrderOutput extends DataObject
 
     /**
      * @param SurchargeForPaymentLink|null $value
-     * @return PaymentLinkOrderOutput
-    */
-    public function withSurchargeSpecificOutput(?SurchargeForPaymentLink $value): PaymentLinkOrderOutput
+     * @return $this
+     */
+    public function withSurchargeSpecificOutput(?SurchargeForPaymentLink $value): static
     {
         $this->surchargeSpecificOutput = $value;
         return $this;
@@ -107,16 +107,17 @@ class PaymentLinkOrderOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount->toObject();
         }
-        if (!is_null($this->merchantReference)) {
+        if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
-        if (!is_null($this->surchargeSpecificOutput)) {
+        if ($this->surchargeSpecificOutput !== null) {
             $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class PaymentLinkOrderOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOrderOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

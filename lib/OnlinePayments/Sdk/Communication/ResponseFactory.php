@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use UnexpectedValueException;
@@ -11,8 +12,8 @@ use OnlinePayments\Sdk\Domain\DataObject;
  */
 class ResponseFactory
 {
-    const MIME_APPLICATION_JSON = 'application/json';
-    const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
+    public const MIME_APPLICATION_JSON = 'application/json';
+    public const MIME_APPLICATION_PROBLEM_JSON = 'application/problem+json';
 
     /**
      * @param ConnectionResponseInterface $response
@@ -40,13 +41,13 @@ class ResponseFactory
             throw new UnexpectedValueException('HTTP status code is missing');
         }
         $contentType = $response->getHeaderValue('Content-Type');
-        if (!$contentType && $httpStatusCode !== 204 && $httpStatusCode !== 202 ) {
+        if (!$contentType && $httpStatusCode !== 204 && $httpStatusCode !== 202) {
             throw new UnexpectedValueException('Content type is missing or empty');
         }
         if (!$this->isJsonContentType($contentType) && $httpStatusCode !== 204 && $httpStatusCode !== 202) {
             throw new UnexpectedValueException(
                 "Invalid content type; got '$contentType', expected '" .
-                static::MIME_APPLICATION_JSON . "' or '" . static::MIME_APPLICATION_PROBLEM_JSON . "'"
+                static::MIME_APPLICATION_JSON . "' or '" . static::MIME_APPLICATION_PROBLEM_JSON . "'",
             );
         }
         $responseClassName = $responseClassMap->getResponseClassName($httpStatusCode);
@@ -66,11 +67,13 @@ class ResponseFactory
         return $responseObject->fromJson($response->getBody());
     }
 
+    /**
+     * @param string $contentType
+     * @return bool
+     */
     private function isJsonContentType(string $contentType): bool
     {
-        return $contentType === static::MIME_APPLICATION_JSON
-            || $contentType === static::MIME_APPLICATION_PROBLEM_JSON
-            || substr($contentType, 0, strlen(static::MIME_APPLICATION_JSON)) === static::MIME_APPLICATION_JSON
-            || substr($contentType, 0, strlen(static::MIME_APPLICATION_PROBLEM_JSON)) === static::MIME_APPLICATION_PROBLEM_JSON;
+        return str_starts_with($contentType, static::MIME_APPLICATION_JSON)
+            || str_starts_with($contentType, static::MIME_APPLICATION_PROBLEM_JSON);
     }
 }

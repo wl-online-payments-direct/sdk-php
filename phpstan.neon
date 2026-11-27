@@ -1,25 +1,37 @@
 parameters:
   paths:
-    - src
     - lib
+    - src
     - tests
-  level: 5
+  level: 6
 
   treatPhpDocTypesAsCertain: false
 
   ignoreErrors:
-    - message: '#Method .* should return OnlinePayments\\Sdk\\V.*\\Domain\\.* but returns OnlinePayments\\Sdk\\Domain\\DataObject\|null\.#'
-      path: */OnlinePayments/Sdk/*
-    - message: '#Method .* should return OnlinePayments\\Sdk\\V.*\\Domain\\.* but returns OnlinePayments\\Sdk\\Domain\\DataObject\.#'
-      path: */OnlinePayments/Sdk/*
-    - message: '#Method .* should return null but returns OnlinePayments\\Sdk\\Domain\\DataObject\.#'
-      path: */OnlinePayments/Sdk/*
-    - message: '#Call to function is_null\(\) with .* will always evaluate to false\.#'
-      path: */OnlinePayments/Sdk/*
-
-    - message: '#Method .* should return .* but returns PHPUnit[\\_]Framework[\\_]MockObject[\\_]MockObject\.#'
-      path: tests/OnlinePayments/Sdk/*
-    - message: '#Parameter .* of class OnlinePayments\\Sdk\\.* constructor expects OnlinePayments\\Sdk\\.*, PHPUnit_Framework_MockObject_MockObject given.#'
-      path: tests/OnlinePayments/Sdk/*
-    - message: '#Parameter .* of method OnlinePayments\\Sdk\\.* expects OnlinePayments\\Sdk\\.*, PHPUnit_Framework_MockObject_MockObject given.#'
-      path: tests/OnlinePayments/Sdk/*
+    # robtimus/multipart documents the cURL handle of curl_read as a resource instead of CurlHandle.
+    - identifier: argument.type
+      message: '#^Parameter \#3 \$value of function curl_setopt expects \(callable\(CurlHandle, resource, int\)#'
+      path: lib/OnlinePayments/Sdk/Communication/DefaultConnection.php
+    # Skipped tests (markTestSkipped) keep their code for when the API behaviour allows running them again.
+    - identifier: deadCode.unreachable
+      path: tests/*
+    # Tests assert on values that are non-nullable by type, e.g. assertNotNull($response).
+    - identifier: method.alreadyNarrowedType
+      path: tests/*
+    # Tests that intentionally pass an invalid type to check the exception.
+    - identifier: argument.type
+      path: tests/OnlinePayments/Sdk/Unit/UploadableFileTest.php
+    - identifier: argument.type
+      path: tests/OnlinePayments/Sdk/Integration/MultipartFormData/MultipartFormDataTest.php
+    - identifier: assign.propertyType
+      path: tests/OnlinePayments/Sdk/Unit/Communication/Exception/ResponseExceptionTest.php
+    # Constants and properties used only by skipped tests, or captured by reference in anonymous test classes.
+    - identifier: classConstant.unused
+      path: tests/*
+    - identifier: property.onlyWritten
+      path: tests/*
+    # Test doubles keep the nullable types of the classes and builders they follow.
+    - identifier: return.unusedType
+      path: tests/OnlinePayments/Sdk/Unit/Communication/Transport/DefaultConnectionTest.php
+    - identifier: property.unusedType
+      path: tests/OnlinePayments/Sdk/TestUtil/Integration/Builders/HostedCheckout/CreateHostedCheckoutRequestBuilder.php

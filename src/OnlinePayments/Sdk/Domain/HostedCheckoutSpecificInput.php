@@ -13,72 +13,72 @@ class HostedCheckoutSpecificInput extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $allowedNumberOfPaymentAttempts = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $autoRefundSplitPayments = null;
 
     /**
      * @var CardPaymentMethodSpecificInputForHostedCheckout|null
-    */
+     */
     public ?CardPaymentMethodSpecificInputForHostedCheckout $cardPaymentMethodSpecificInput = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isNewUnscheduledCardOnFileSeries = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isRecurring = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var PaymentProductFiltersHostedCheckout|null
-    */
+     */
     public ?PaymentProductFiltersHostedCheckout $paymentProductFilters = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $returnUrl = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $sessionTimeout = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $showResultPage = null;
 
     /**
      * @var SplitPaymentProductFiltersHostedCheckout|null
-    */
+     */
     public ?SplitPaymentProductFiltersHostedCheckout $splitPaymentProductFilters = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokens = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $variant = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getAllowedNumberOfPaymentAttempts(): ?int
     {
         return $this->allowedNumberOfPaymentAttempts;
@@ -86,7 +86,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAllowedNumberOfPaymentAttempts(?int $value): void
     {
         $this->allowedNumberOfPaymentAttempts = $value;
@@ -94,9 +94,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withAllowedNumberOfPaymentAttempts(?int $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withAllowedNumberOfPaymentAttempts(?int $value): static
     {
         $this->allowedNumberOfPaymentAttempts = $value;
         return $this;
@@ -104,7 +104,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getAutoRefundSplitPayments(): ?bool
     {
         return $this->autoRefundSplitPayments;
@@ -112,7 +112,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAutoRefundSplitPayments(?bool $value): void
     {
         $this->autoRefundSplitPayments = $value;
@@ -120,9 +120,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withAutoRefundSplitPayments(?bool $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withAutoRefundSplitPayments(?bool $value): static
     {
         $this->autoRefundSplitPayments = $value;
         return $this;
@@ -130,7 +130,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return CardPaymentMethodSpecificInputForHostedCheckout|null
-    */
+     */
     public function getCardPaymentMethodSpecificInput(): ?CardPaymentMethodSpecificInputForHostedCheckout
     {
         return $this->cardPaymentMethodSpecificInput;
@@ -138,7 +138,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInputForHostedCheckout|null $value
-    */
+     */
     public function setCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputForHostedCheckout $value): void
     {
         $this->cardPaymentMethodSpecificInput = $value;
@@ -146,9 +146,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificInputForHostedCheckout|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputForHostedCheckout $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withCardPaymentMethodSpecificInput(?CardPaymentMethodSpecificInputForHostedCheckout $value): static
     {
         $this->cardPaymentMethodSpecificInput = $value;
         return $this;
@@ -156,7 +156,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsNewUnscheduledCardOnFileSeries(): ?bool
     {
         return $this->isNewUnscheduledCardOnFileSeries;
@@ -164,7 +164,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsNewUnscheduledCardOnFileSeries(?bool $value): void
     {
         $this->isNewUnscheduledCardOnFileSeries = $value;
@@ -172,9 +172,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withIsNewUnscheduledCardOnFileSeries(?bool $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withIsNewUnscheduledCardOnFileSeries(?bool $value): static
     {
         $this->isNewUnscheduledCardOnFileSeries = $value;
         return $this;
@@ -182,7 +182,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsRecurring(): ?bool
     {
         return $this->isRecurring;
@@ -190,7 +190,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsRecurring(?bool $value): void
     {
         $this->isRecurring = $value;
@@ -198,9 +198,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withIsRecurring(?bool $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withIsRecurring(?bool $value): static
     {
         $this->isRecurring = $value;
         return $this;
@@ -208,7 +208,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -216,7 +216,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -224,9 +224,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withLocale(?string $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -234,7 +234,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return PaymentProductFiltersHostedCheckout|null
-    */
+     */
     public function getPaymentProductFilters(): ?PaymentProductFiltersHostedCheckout
     {
         return $this->paymentProductFilters;
@@ -242,7 +242,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedCheckout|null $value
-    */
+     */
     public function setPaymentProductFilters(?PaymentProductFiltersHostedCheckout $value): void
     {
         $this->paymentProductFilters = $value;
@@ -250,9 +250,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedCheckout|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withPaymentProductFilters(?PaymentProductFiltersHostedCheckout $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withPaymentProductFilters(?PaymentProductFiltersHostedCheckout $value): static
     {
         $this->paymentProductFilters = $value;
         return $this;
@@ -260,7 +260,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
@@ -268,7 +268,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setReturnUrl(?string $value): void
     {
         $this->returnUrl = $value;
@@ -276,9 +276,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withReturnUrl(?string $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withReturnUrl(?string $value): static
     {
         $this->returnUrl = $value;
         return $this;
@@ -286,7 +286,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getSessionTimeout(): ?int
     {
         return $this->sessionTimeout;
@@ -294,7 +294,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setSessionTimeout(?int $value): void
     {
         $this->sessionTimeout = $value;
@@ -302,9 +302,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withSessionTimeout(?int $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withSessionTimeout(?int $value): static
     {
         $this->sessionTimeout = $value;
         return $this;
@@ -312,7 +312,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getShowResultPage(): ?bool
     {
         return $this->showResultPage;
@@ -320,7 +320,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setShowResultPage(?bool $value): void
     {
         $this->showResultPage = $value;
@@ -328,9 +328,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withShowResultPage(?bool $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withShowResultPage(?bool $value): static
     {
         $this->showResultPage = $value;
         return $this;
@@ -338,7 +338,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return SplitPaymentProductFiltersHostedCheckout|null
-    */
+     */
     public function getSplitPaymentProductFilters(): ?SplitPaymentProductFiltersHostedCheckout
     {
         return $this->splitPaymentProductFilters;
@@ -346,7 +346,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param SplitPaymentProductFiltersHostedCheckout|null $value
-    */
+     */
     public function setSplitPaymentProductFilters(?SplitPaymentProductFiltersHostedCheckout $value): void
     {
         $this->splitPaymentProductFilters = $value;
@@ -354,9 +354,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param SplitPaymentProductFiltersHostedCheckout|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withSplitPaymentProductFilters(?SplitPaymentProductFiltersHostedCheckout $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withSplitPaymentProductFilters(?SplitPaymentProductFiltersHostedCheckout $value): static
     {
         $this->splitPaymentProductFilters = $value;
         return $this;
@@ -364,7 +364,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokens(): ?string
     {
         return $this->tokens;
@@ -372,7 +372,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokens(?string $value): void
     {
         $this->tokens = $value;
@@ -380,9 +380,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withTokens(?string $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withTokens(?string $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -390,7 +390,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getVariant(): ?string
     {
         return $this->variant;
@@ -398,7 +398,7 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setVariant(?string $value): void
     {
         $this->variant = $value;
@@ -406,9 +406,9 @@ class HostedCheckoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificInput
-    */
-    public function withVariant(?string $value): HostedCheckoutSpecificInput
+     * @return $this
+     */
+    public function withVariant(?string $value): static
     {
         $this->variant = $value;
         return $this;
@@ -417,46 +417,47 @@ class HostedCheckoutSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->allowedNumberOfPaymentAttempts)) {
+        if ($this->allowedNumberOfPaymentAttempts !== null) {
             $object->allowedNumberOfPaymentAttempts = $this->allowedNumberOfPaymentAttempts;
         }
-        if (!is_null($this->autoRefundSplitPayments)) {
+        if ($this->autoRefundSplitPayments !== null) {
             $object->autoRefundSplitPayments = $this->autoRefundSplitPayments;
         }
-        if (!is_null($this->cardPaymentMethodSpecificInput)) {
+        if ($this->cardPaymentMethodSpecificInput !== null) {
             $object->cardPaymentMethodSpecificInput = $this->cardPaymentMethodSpecificInput->toObject();
         }
-        if (!is_null($this->isNewUnscheduledCardOnFileSeries)) {
+        if ($this->isNewUnscheduledCardOnFileSeries !== null) {
             $object->isNewUnscheduledCardOnFileSeries = $this->isNewUnscheduledCardOnFileSeries;
         }
-        if (!is_null($this->isRecurring)) {
+        if ($this->isRecurring !== null) {
             $object->isRecurring = $this->isRecurring;
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->paymentProductFilters)) {
+        if ($this->paymentProductFilters !== null) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
-        if (!is_null($this->returnUrl)) {
+        if ($this->returnUrl !== null) {
             $object->returnUrl = $this->returnUrl;
         }
-        if (!is_null($this->sessionTimeout)) {
+        if ($this->sessionTimeout !== null) {
             $object->sessionTimeout = $this->sessionTimeout;
         }
-        if (!is_null($this->showResultPage)) {
+        if ($this->showResultPage !== null) {
             $object->showResultPage = $this->showResultPage;
         }
-        if (!is_null($this->splitPaymentProductFilters)) {
+        if ($this->splitPaymentProductFilters !== null) {
             $object->splitPaymentProductFilters = $this->splitPaymentProductFilters->toObject();
         }
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = $this->tokens;
         }
-        if (!is_null($this->variant)) {
+        if ($this->variant !== null) {
             $object->variant = $this->variant;
         }
         return $object;
@@ -468,7 +469,8 @@ class HostedCheckoutSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): HostedCheckoutSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'allowedNumberOfPaymentAttempts')) {

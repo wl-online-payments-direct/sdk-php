@@ -10,6 +10,7 @@ use OnlinePayments\Sdk\Communication\ErrorResponseException;
 use OnlinePayments\Sdk\Communication\ResponseClassMap;
 use OnlinePayments\Sdk\Domain\CreateTokenRequest;
 use OnlinePayments\Sdk\Domain\CreatedTokenResponse;
+use OnlinePayments\Sdk\Domain\ErrorResponse;
 use OnlinePayments\Sdk\Domain\TokenResponse;
 use OnlinePayments\Sdk\ExceptionFactory;
 
@@ -28,14 +29,15 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse
     {
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\CreatedTokenResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = CreatedTokenResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->post(
+            /** @var CreatedTokenResponse $response */
+            $response = $this->getCommunicator()->post(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens'),
                 $this->getClientMetaInfo(),
@@ -43,11 +45,13 @@ class TokensClient extends ApiResource implements TokensClientInterface
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -55,26 +59,29 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function getToken(string $tokenId, ?CallContext $callContext = null): TokenResponse
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultSuccessResponseClassName = '\OnlinePayments\Sdk\Domain\TokenResponse';
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultSuccessResponseClassName = TokenResponse::class;
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
-            return $this->getCommunicator()->get(
+            /** @var TokenResponse $response */
+            $response = $this->getCommunicator()->get(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),
                 $this->getClientMetaInfo(),
                 null,
                 $callContext
             );
+            return $response;
         } catch (ErrorResponseException $e) {
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -82,13 +89,13 @@ class TokensClient extends ApiResource implements TokensClientInterface
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function deleteToken(string $tokenId, ?CallContext $callContext = null): void
     {
         $this->context['tokenId'] = $tokenId;
         $responseClassMap = new ResponseClassMap();
-        $responseClassMap->defaultErrorResponseClassName = '\OnlinePayments\Sdk\Domain\ErrorResponse';
+        $responseClassMap->defaultErrorResponseClassName = ErrorResponse::class;
         try {
-
             $this->getCommunicator()->delete(
                 $responseClassMap,
                 $this->instantiateUri('/v2/{merchantId}/tokens/{tokenId}'),
@@ -100,7 +107,8 @@ class TokensClient extends ApiResource implements TokensClientInterface
             throw $this->getResponseExceptionFactory()->createException(
                 $e->getHttpStatusCode(),
                 $e->getErrorResponse(),
-                $callContext
+                $callContext,
+                $e
             );
         }
     }
@@ -110,7 +118,7 @@ class TokensClient extends ApiResource implements TokensClientInterface
      */
     private function getResponseExceptionFactory(): ExceptionFactory
     {
-        if (is_null($this->responseExceptionFactory)) {
+        if ($this->responseExceptionFactory === null) {
             $this->responseExceptionFactory = new ExceptionFactory();
         }
         return $this->responseExceptionFactory;

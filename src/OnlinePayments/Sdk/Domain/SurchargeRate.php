@@ -13,27 +13,27 @@ class SurchargeRate extends DataObject
 {
     /**
      * @var float|null
-    */
+     */
     public ?float $adValoremRate = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $specificRate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surchargeProductTypeId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surchargeProductTypeVersion = null;
 
     /**
      * @return float|null
-    */
+     */
     public function getAdValoremRate(): ?float
     {
         return $this->adValoremRate;
@@ -41,7 +41,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @param float|null $value
-    */
+     */
     public function setAdValoremRate(?float $value): void
     {
         $this->adValoremRate = $value;
@@ -49,9 +49,9 @@ class SurchargeRate extends DataObject
 
     /**
      * @param float|null $value
-     * @return SurchargeRate
-    */
-    public function withAdValoremRate(?float $value): SurchargeRate
+     * @return $this
+     */
+    public function withAdValoremRate(?float $value): static
     {
         $this->adValoremRate = $value;
         return $this;
@@ -59,7 +59,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getSpecificRate(): ?int
     {
         return $this->specificRate;
@@ -67,7 +67,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setSpecificRate(?int $value): void
     {
         $this->specificRate = $value;
@@ -75,9 +75,9 @@ class SurchargeRate extends DataObject
 
     /**
      * @param int|null $value
-     * @return SurchargeRate
-    */
-    public function withSpecificRate(?int $value): SurchargeRate
+     * @return $this
+     */
+    public function withSpecificRate(?int $value): static
     {
         $this->specificRate = $value;
         return $this;
@@ -85,7 +85,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurchargeProductTypeId(): ?string
     {
         return $this->surchargeProductTypeId;
@@ -93,7 +93,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurchargeProductTypeId(?string $value): void
     {
         $this->surchargeProductTypeId = $value;
@@ -101,9 +101,9 @@ class SurchargeRate extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeRate
-    */
-    public function withSurchargeProductTypeId(?string $value): SurchargeRate
+     * @return $this
+     */
+    public function withSurchargeProductTypeId(?string $value): static
     {
         $this->surchargeProductTypeId = $value;
         return $this;
@@ -111,7 +111,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurchargeProductTypeVersion(): ?string
     {
         return $this->surchargeProductTypeVersion;
@@ -119,7 +119,7 @@ class SurchargeRate extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurchargeProductTypeVersion(?string $value): void
     {
         $this->surchargeProductTypeVersion = $value;
@@ -127,9 +127,9 @@ class SurchargeRate extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeRate
-    */
-    public function withSurchargeProductTypeVersion(?string $value): SurchargeRate
+     * @return $this
+     */
+    public function withSurchargeProductTypeVersion(?string $value): static
     {
         $this->surchargeProductTypeVersion = $value;
         return $this;
@@ -138,19 +138,20 @@ class SurchargeRate extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->adValoremRate)) {
+        if ($this->adValoremRate !== null) {
             $object->adValoremRate = $this->adValoremRate;
         }
-        if (!is_null($this->specificRate)) {
+        if ($this->specificRate !== null) {
             $object->specificRate = $this->specificRate;
         }
-        if (!is_null($this->surchargeProductTypeId)) {
+        if ($this->surchargeProductTypeId !== null) {
             $object->surchargeProductTypeId = $this->surchargeProductTypeId;
         }
-        if (!is_null($this->surchargeProductTypeVersion)) {
+        if ($this->surchargeProductTypeVersion !== null) {
             $object->surchargeProductTypeVersion = $this->surchargeProductTypeVersion;
         }
         return $object;
@@ -162,7 +163,8 @@ class SurchargeRate extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SurchargeRate
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'adValoremRate')) {

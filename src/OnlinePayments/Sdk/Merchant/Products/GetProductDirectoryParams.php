@@ -15,17 +15,17 @@ class GetProductDirectoryParams extends RequestObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $currencyCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -33,7 +33,7 @@ class GetProductDirectoryParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -41,8 +41,9 @@ class GetProductDirectoryParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCountryCode(string $value): GetProductDirectoryParams
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -50,7 +51,7 @@ class GetProductDirectoryParams extends RequestObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
@@ -58,7 +59,7 @@ class GetProductDirectoryParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCurrencyCode(?string $value): void
     {
         $this->currencyCode = $value;
@@ -66,23 +67,24 @@ class GetProductDirectoryParams extends RequestObject
 
     /**
      * @param string|null $value
-    */
-    public function withCurrencyCode(string $value): GetProductDirectoryParams
+     * @return $this
+     */
+    public function withCurrencyCode(?string $value): static
     {
         $this->currencyCode = $value;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|string[]>
      */
     public function toArray(): array
     {
         $array = [];
-        if ($this->countryCode != null) {
+        if ($this->countryCode !== null) {
             $array['countryCode'] = $this->countryCode;
         }
-        if ($this->currencyCode != null) {
+        if ($this->currencyCode !== null) {
             $array['currencyCode'] = $this->currencyCode;
         }
         return $array;

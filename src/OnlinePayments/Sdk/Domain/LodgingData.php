@@ -13,12 +13,12 @@ class LodgingData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $checkInDate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getCheckInDate(): ?string
     {
         return $this->checkInDate;
@@ -26,7 +26,7 @@ class LodgingData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCheckInDate(?string $value): void
     {
         $this->checkInDate = $value;
@@ -34,9 +34,9 @@ class LodgingData extends DataObject
 
     /**
      * @param string|null $value
-     * @return LodgingData
-    */
-    public function withCheckInDate(?string $value): LodgingData
+     * @return $this
+     */
+    public function withCheckInDate(?string $value): static
     {
         $this->checkInDate = $value;
         return $this;
@@ -45,10 +45,11 @@ class LodgingData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->checkInDate)) {
+        if ($this->checkInDate !== null) {
             $object->checkInDate = $this->checkInDate;
         }
         return $object;
@@ -60,7 +61,8 @@ class LodgingData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): LodgingData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'checkInDate')) {

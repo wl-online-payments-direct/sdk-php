@@ -13,17 +13,17 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $srcDpaId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $srcInitiatorId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getSrcDpaId(): ?string
     {
         return $this->srcDpaId;
@@ -31,7 +31,7 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSrcDpaId(?string $value): void
     {
         $this->srcDpaId = $value;
@@ -39,9 +39,9 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5002defaultBrandParameters
-    */
-    public function withSrcDpaId(?string $value): PaymentProduct5002defaultBrandParameters
+     * @return $this
+     */
+    public function withSrcDpaId(?string $value): static
     {
         $this->srcDpaId = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSrcInitiatorId(): ?string
     {
         return $this->srcInitiatorId;
@@ -57,7 +57,7 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSrcInitiatorId(?string $value): void
     {
         $this->srcInitiatorId = $value;
@@ -65,9 +65,9 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5002defaultBrandParameters
-    */
-    public function withSrcInitiatorId(?string $value): PaymentProduct5002defaultBrandParameters
+     * @return $this
+     */
+    public function withSrcInitiatorId(?string $value): static
     {
         $this->srcInitiatorId = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->srcDpaId)) {
+        if ($this->srcDpaId !== null) {
             $object->srcDpaId = $this->srcDpaId;
         }
-        if (!is_null($this->srcInitiatorId)) {
+        if ($this->srcInitiatorId !== null) {
             $object->srcInitiatorId = $this->srcInitiatorId;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct5002defaultBrandParameters extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5002defaultBrandParameters
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'srcDpaId')) {

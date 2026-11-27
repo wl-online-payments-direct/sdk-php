@@ -6,25 +6,25 @@ use OnlinePayments\Sdk\CommunicatorConfiguration;
 
 class V1HmacAuthenticator implements Authenticator
 {
-    const AUTHORIZATION_ID = 'GCS';
+    public const AUTHORIZATION_ID = 'GCS';
 
-    const AUTHORIZATION_TYPE = 'v1HMAC';
+    public const AUTHORIZATION_TYPE = 'v1HMAC';
 
-    const HASH_ALGORITHM = 'sha256';
+    public const HASH_ALGORITHM = 'sha256';
 
     /**
      * API Key ID obtained in the merchant portal.
      *
      * @var string
      */
-    private string $apiKeyId;
+    private readonly string $apiKeyId;
 
     /**
      * API Secret obtained in the merchant portal.
      *
      * @var string
      */
-    private string $apiSecret;
+    private readonly string $apiSecret;
 
     /**
      * @param CommunicatorConfiguration $communicatorConfiguration
@@ -36,37 +36,39 @@ class V1HmacAuthenticator implements Authenticator
     }
 
     /**
-    * @inheritDoc
-    */
+     * @param string $httpMethod
+     * @param string $uriPath
+     * @param array<string, string> $requestHeaders
+     * @return string
+     */
+    #[\Override]
     public function getAuthorization(string $httpMethod, string $uriPath, array $requestHeaders = []): string
     {
         return $this->getAuthorizationHeaderValue($httpMethod, $uriPath, $requestHeaders);
     }
 
     /**
-    * Generates authorization header value.
-    *
-    * @param string $httpMethod
-    * @param string $uriPath
-    * @param array $requestHeaders
-    *
-    * @return string
-    */
+     * Generates authorization header value.
+     *
+     * @param string $httpMethod
+     * @param string $uriPath
+     * @param array<string, string> $requestHeaders
+     * @return string
+     */
     private function getAuthorizationHeaderValue(string $httpMethod, string $uriPath, array $requestHeaders): string
     {
         return static::AUTHORIZATION_ID . ' ' . static::AUTHORIZATION_TYPE . ':' . $this->apiKeyId . ':' . base64_encode(hash_hmac(static::HASH_ALGORITHM, $this->prepareDataForSignature($httpMethod, $uriPath, $requestHeaders), $this->apiSecret, true));
     }
 
     /**
-    * Prepares data to be signed.
-    *
-    * @param string $httpMethod
-    * @param string $uriPath
-    * @param array $requestHeaders
-    *
-    * @return string
-    */
-    private function prepareDataForSignature(string $httpMethod, string $uriPath, array $requestHeaders) : string
+     * Prepares data to be signed.
+     *
+     * @param string $httpMethod
+     * @param string $uriPath
+     * @param array<string, string> $requestHeaders
+     * @return string
+     */
+    private function prepareDataForSignature(string $httpMethod, string $uriPath, array $requestHeaders): string
     {
         $signData = $httpMethod . "\n";
 
@@ -82,7 +84,7 @@ class V1HmacAuthenticator implements Authenticator
             $signData .= "\n";
         }
 
-        $gcsHeaders = array();
+        $gcsHeaders = [];
         foreach ($requestHeaders as $headerKey => $headerValue) {
             if (preg_match('/X-GCS/i', $headerKey)) {
                 $gcsHeaders[$headerKey] = $headerValue;
@@ -91,7 +93,7 @@ class V1HmacAuthenticator implements Authenticator
 
         ksort($gcsHeaders);
         foreach ($gcsHeaders as $gcsHeaderKey => $gcsHeaderValue) {
-            $gcsEncodedHeaderValue = trim(preg_replace('/\r?\n[\h]*/', ' ', $gcsHeaderValue));
+            $gcsEncodedHeaderValue = trim(preg_replace('/\r?\n\h*/', ' ', $gcsHeaderValue));
 
             $signData .= strtolower($gcsHeaderKey) . ':' . $gcsEncodedHeaderValue . "\n";
         }
@@ -101,4 +103,3 @@ class V1HmacAuthenticator implements Authenticator
         return $signData;
     }
 }
-

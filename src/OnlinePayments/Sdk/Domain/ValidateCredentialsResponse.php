@@ -13,12 +13,12 @@ class ValidateCredentialsResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $result = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getResult(): ?string
     {
         return $this->result;
@@ -26,7 +26,7 @@ class ValidateCredentialsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setResult(?string $value): void
     {
         $this->result = $value;
@@ -34,9 +34,9 @@ class ValidateCredentialsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ValidateCredentialsResponse
-    */
-    public function withResult(?string $value): ValidateCredentialsResponse
+     * @return $this
+     */
+    public function withResult(?string $value): static
     {
         $this->result = $value;
         return $this;
@@ -45,10 +45,11 @@ class ValidateCredentialsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->result)) {
+        if ($this->result !== null) {
             $object->result = $this->result;
         }
         return $object;
@@ -60,7 +61,8 @@ class ValidateCredentialsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ValidateCredentialsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'result')) {

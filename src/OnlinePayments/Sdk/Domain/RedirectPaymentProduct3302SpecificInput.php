@@ -13,22 +13,22 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $organizationEntityType = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $organizationRegistrationId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $vatId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getOrganizationEntityType(): ?string
     {
         return $this->organizationEntityType;
@@ -36,7 +36,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOrganizationEntityType(?string $value): void
     {
         $this->organizationEntityType = $value;
@@ -44,9 +44,9 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3302SpecificInput
-    */
-    public function withOrganizationEntityType(?string $value): RedirectPaymentProduct3302SpecificInput
+     * @return $this
+     */
+    public function withOrganizationEntityType(?string $value): static
     {
         $this->organizationEntityType = $value;
         return $this;
@@ -54,7 +54,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOrganizationRegistrationId(): ?string
     {
         return $this->organizationRegistrationId;
@@ -62,7 +62,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOrganizationRegistrationId(?string $value): void
     {
         $this->organizationRegistrationId = $value;
@@ -70,9 +70,9 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3302SpecificInput
-    */
-    public function withOrganizationRegistrationId(?string $value): RedirectPaymentProduct3302SpecificInput
+     * @return $this
+     */
+    public function withOrganizationRegistrationId(?string $value): static
     {
         $this->organizationRegistrationId = $value;
         return $this;
@@ -80,7 +80,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getVatId(): ?string
     {
         return $this->vatId;
@@ -88,7 +88,7 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setVatId(?string $value): void
     {
         $this->vatId = $value;
@@ -96,9 +96,9 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3302SpecificInput
-    */
-    public function withVatId(?string $value): RedirectPaymentProduct3302SpecificInput
+     * @return $this
+     */
+    public function withVatId(?string $value): static
     {
         $this->vatId = $value;
         return $this;
@@ -107,16 +107,17 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->organizationEntityType)) {
+        if ($this->organizationEntityType !== null) {
             $object->organizationEntityType = $this->organizationEntityType;
         }
-        if (!is_null($this->organizationRegistrationId)) {
+        if ($this->organizationRegistrationId !== null) {
             $object->organizationRegistrationId = $this->organizationRegistrationId;
         }
-        if (!is_null($this->vatId)) {
+        if ($this->vatId !== null) {
             $object->vatId = $this->vatId;
         }
         return $object;
@@ -128,7 +129,8 @@ class RedirectPaymentProduct3302SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct3302SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'organizationEntityType')) {

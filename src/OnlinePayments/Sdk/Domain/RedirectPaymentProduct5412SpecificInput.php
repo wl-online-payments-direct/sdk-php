@@ -13,17 +13,17 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $adjustableAmount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $beneficiaryId = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getAdjustableAmount(): ?bool
     {
         return $this->adjustableAmount;
@@ -31,7 +31,7 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAdjustableAmount(?bool $value): void
     {
         $this->adjustableAmount = $value;
@@ -39,9 +39,9 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return RedirectPaymentProduct5412SpecificInput
-    */
-    public function withAdjustableAmount(?bool $value): RedirectPaymentProduct5412SpecificInput
+     * @return $this
+     */
+    public function withAdjustableAmount(?bool $value): static
     {
         $this->adjustableAmount = $value;
         return $this;
@@ -49,7 +49,7 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getBeneficiaryId(): ?string
     {
         return $this->beneficiaryId;
@@ -57,7 +57,7 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBeneficiaryId(?string $value): void
     {
         $this->beneficiaryId = $value;
@@ -65,9 +65,9 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct5412SpecificInput
-    */
-    public function withBeneficiaryId(?string $value): RedirectPaymentProduct5412SpecificInput
+     * @return $this
+     */
+    public function withBeneficiaryId(?string $value): static
     {
         $this->beneficiaryId = $value;
         return $this;
@@ -76,13 +76,14 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->adjustableAmount)) {
+        if ($this->adjustableAmount !== null) {
             $object->adjustableAmount = $this->adjustableAmount;
         }
-        if (!is_null($this->beneficiaryId)) {
+        if ($this->beneficiaryId !== null) {
             $object->beneficiaryId = $this->beneficiaryId;
         }
         return $object;
@@ -94,7 +95,8 @@ class RedirectPaymentProduct5412SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct5412SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'adjustableAmount')) {

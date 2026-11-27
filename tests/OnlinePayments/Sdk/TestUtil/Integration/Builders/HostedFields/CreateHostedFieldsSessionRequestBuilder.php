@@ -7,6 +7,7 @@ use OnlinePayments\Sdk\Domain\CreateHostedFieldsSessionRequest;
 class CreateHostedFieldsSessionRequestBuilder
 {
     private ?string $locale = 'en_US';
+    /** @var string[]|null */
     private ?array $tokens = null;
 
     public static function create(): self
@@ -20,6 +21,9 @@ class CreateHostedFieldsSessionRequestBuilder
         return $this;
     }
 
+    /**
+     * @param string[]|null $tokens
+     */
     public function withTokens(?array $tokens): self
     {
         $this->tokens = $tokens;

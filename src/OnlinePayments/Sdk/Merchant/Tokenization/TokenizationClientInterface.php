@@ -36,7 +36,7 @@ interface TokenizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createCertificate(CsrRequest $body, ?CallContext $callContext = null): CreateCertificateResponse;
+    public function createCertificate(CsrRequest $body, ?CallContext $callContext = null): CreateCertificateResponse;
 
     /**
      * Resource /v2/{merchantId}/detokenize/tokens - Get sensitive card details by card alias tokens
@@ -53,7 +53,7 @@ interface TokenizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getCardDataByTokens(GetCardDataByTokensParams $query, ?CallContext $callContext = null): DetokenizationResponse;
+    public function getCardDataByTokens(GetCardDataByTokensParams $query, ?CallContext $callContext = null): DetokenizationResponse;
 
     /**
      * Resource /v2/{merchantId}/detokenize/payments - Get sensitive card details by card payment identifiers
@@ -70,5 +70,5 @@ interface TokenizationClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getCardDataByPayments(GetCardDataByPaymentsParams $query, ?CallContext $callContext = null): DetokenizationResponse;
+    public function getCardDataByPayments(GetCardDataByPaymentsParams $query, ?CallContext $callContext = null): DetokenizationResponse;
 }

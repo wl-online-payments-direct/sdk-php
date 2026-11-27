@@ -13,42 +13,42 @@ class CreateHostedTokenizationRequest extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $askConsumerConsent = null;
 
     /**
      * @var CreditCardSpecificInputHostedTokenization|null
-    */
+     */
     public ?CreditCardSpecificInputHostedTokenization $creditCardSpecificInput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $locale = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $origin = null;
 
     /**
      * @var PaymentProductFiltersHostedTokenization|null
-    */
+     */
     public ?PaymentProductFiltersHostedTokenization $paymentProductFilters = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokens = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $variant = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getAskConsumerConsent(): ?bool
     {
         return $this->askConsumerConsent;
@@ -56,7 +56,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setAskConsumerConsent(?bool $value): void
     {
         $this->askConsumerConsent = $value;
@@ -64,9 +64,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withAskConsumerConsent(?bool $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withAskConsumerConsent(?bool $value): static
     {
         $this->askConsumerConsent = $value;
         return $this;
@@ -74,7 +74,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return CreditCardSpecificInputHostedTokenization|null
-    */
+     */
     public function getCreditCardSpecificInput(): ?CreditCardSpecificInputHostedTokenization
     {
         return $this->creditCardSpecificInput;
@@ -82,7 +82,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param CreditCardSpecificInputHostedTokenization|null $value
-    */
+     */
     public function setCreditCardSpecificInput(?CreditCardSpecificInputHostedTokenization $value): void
     {
         $this->creditCardSpecificInput = $value;
@@ -90,9 +90,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param CreditCardSpecificInputHostedTokenization|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withCreditCardSpecificInput(?CreditCardSpecificInputHostedTokenization $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withCreditCardSpecificInput(?CreditCardSpecificInputHostedTokenization $value): static
     {
         $this->creditCardSpecificInput = $value;
         return $this;
@@ -100,7 +100,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLocale(): ?string
     {
         return $this->locale;
@@ -108,7 +108,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLocale(?string $value): void
     {
         $this->locale = $value;
@@ -116,9 +116,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withLocale(?string $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withLocale(?string $value): static
     {
         $this->locale = $value;
         return $this;
@@ -126,7 +126,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getOrigin(): ?string
     {
         return $this->origin;
@@ -134,7 +134,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOrigin(?string $value): void
     {
         $this->origin = $value;
@@ -142,9 +142,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withOrigin(?string $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withOrigin(?string $value): static
     {
         $this->origin = $value;
         return $this;
@@ -152,7 +152,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return PaymentProductFiltersHostedTokenization|null
-    */
+     */
     public function getPaymentProductFilters(): ?PaymentProductFiltersHostedTokenization
     {
         return $this->paymentProductFilters;
@@ -160,7 +160,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedTokenization|null $value
-    */
+     */
     public function setPaymentProductFilters(?PaymentProductFiltersHostedTokenization $value): void
     {
         $this->paymentProductFilters = $value;
@@ -168,9 +168,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param PaymentProductFiltersHostedTokenization|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withPaymentProductFilters(?PaymentProductFiltersHostedTokenization $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withPaymentProductFilters(?PaymentProductFiltersHostedTokenization $value): static
     {
         $this->paymentProductFilters = $value;
         return $this;
@@ -178,7 +178,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokens(): ?string
     {
         return $this->tokens;
@@ -186,7 +186,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokens(?string $value): void
     {
         $this->tokens = $value;
@@ -194,9 +194,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withTokens(?string $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withTokens(?string $value): static
     {
         $this->tokens = $value;
         return $this;
@@ -204,7 +204,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getVariant(): ?string
     {
         return $this->variant;
@@ -212,7 +212,7 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setVariant(?string $value): void
     {
         $this->variant = $value;
@@ -220,9 +220,9 @@ class CreateHostedTokenizationRequest extends DataObject
 
     /**
      * @param string|null $value
-     * @return CreateHostedTokenizationRequest
-    */
-    public function withVariant(?string $value): CreateHostedTokenizationRequest
+     * @return $this
+     */
+    public function withVariant(?string $value): static
     {
         $this->variant = $value;
         return $this;
@@ -231,28 +231,29 @@ class CreateHostedTokenizationRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->askConsumerConsent)) {
+        if ($this->askConsumerConsent !== null) {
             $object->askConsumerConsent = $this->askConsumerConsent;
         }
-        if (!is_null($this->creditCardSpecificInput)) {
+        if ($this->creditCardSpecificInput !== null) {
             $object->creditCardSpecificInput = $this->creditCardSpecificInput->toObject();
         }
-        if (!is_null($this->locale)) {
+        if ($this->locale !== null) {
             $object->locale = $this->locale;
         }
-        if (!is_null($this->origin)) {
+        if ($this->origin !== null) {
             $object->origin = $this->origin;
         }
-        if (!is_null($this->paymentProductFilters)) {
+        if ($this->paymentProductFilters !== null) {
             $object->paymentProductFilters = $this->paymentProductFilters->toObject();
         }
-        if (!is_null($this->tokens)) {
+        if ($this->tokens !== null) {
             $object->tokens = $this->tokens;
         }
-        if (!is_null($this->variant)) {
+        if ($this->variant !== null) {
             $object->variant = $this->variant;
         }
         return $object;
@@ -264,7 +265,8 @@ class CreateHostedTokenizationRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreateHostedTokenizationRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'askConsumerConsent')) {

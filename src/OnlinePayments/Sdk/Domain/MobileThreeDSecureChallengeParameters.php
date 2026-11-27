@@ -13,27 +13,27 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acsReferenceNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $acsSignedContent = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $acsTransactionId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $threeDServerTransactionId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcsReferenceNumber(): ?string
     {
         return $this->acsReferenceNumber;
@@ -41,7 +41,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcsReferenceNumber(?string $value): void
     {
         $this->acsReferenceNumber = $value;
@@ -49,9 +49,9 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobileThreeDSecureChallengeParameters
-    */
-    public function withAcsReferenceNumber(?string $value): MobileThreeDSecureChallengeParameters
+     * @return $this
+     */
+    public function withAcsReferenceNumber(?string $value): static
     {
         $this->acsReferenceNumber = $value;
         return $this;
@@ -59,7 +59,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAcsSignedContent(): ?string
     {
         return $this->acsSignedContent;
@@ -67,7 +67,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcsSignedContent(?string $value): void
     {
         $this->acsSignedContent = $value;
@@ -75,9 +75,9 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobileThreeDSecureChallengeParameters
-    */
-    public function withAcsSignedContent(?string $value): MobileThreeDSecureChallengeParameters
+     * @return $this
+     */
+    public function withAcsSignedContent(?string $value): static
     {
         $this->acsSignedContent = $value;
         return $this;
@@ -85,7 +85,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
@@ -93,7 +93,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
@@ -101,9 +101,9 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobileThreeDSecureChallengeParameters
-    */
-    public function withAcsTransactionId(?string $value): MobileThreeDSecureChallengeParameters
+     * @return $this
+     */
+    public function withAcsTransactionId(?string $value): static
     {
         $this->acsTransactionId = $value;
         return $this;
@@ -111,7 +111,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getThreeDServerTransactionId(): ?string
     {
         return $this->threeDServerTransactionId;
@@ -119,7 +119,7 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setThreeDServerTransactionId(?string $value): void
     {
         $this->threeDServerTransactionId = $value;
@@ -127,9 +127,9 @@ class MobileThreeDSecureChallengeParameters extends DataObject
 
     /**
      * @param string|null $value
-     * @return MobileThreeDSecureChallengeParameters
-    */
-    public function withThreeDServerTransactionId(?string $value): MobileThreeDSecureChallengeParameters
+     * @return $this
+     */
+    public function withThreeDServerTransactionId(?string $value): static
     {
         $this->threeDServerTransactionId = $value;
         return $this;
@@ -138,19 +138,20 @@ class MobileThreeDSecureChallengeParameters extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acsReferenceNumber)) {
+        if ($this->acsReferenceNumber !== null) {
             $object->acsReferenceNumber = $this->acsReferenceNumber;
         }
-        if (!is_null($this->acsSignedContent)) {
+        if ($this->acsSignedContent !== null) {
             $object->acsSignedContent = $this->acsSignedContent;
         }
-        if (!is_null($this->acsTransactionId)) {
+        if ($this->acsTransactionId !== null) {
             $object->acsTransactionId = $this->acsTransactionId;
         }
-        if (!is_null($this->threeDServerTransactionId)) {
+        if ($this->threeDServerTransactionId !== null) {
             $object->threeDServerTransactionId = $this->threeDServerTransactionId;
         }
         return $object;
@@ -162,7 +163,8 @@ class MobileThreeDSecureChallengeParameters extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MobileThreeDSecureChallengeParameters
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsReferenceNumber')) {

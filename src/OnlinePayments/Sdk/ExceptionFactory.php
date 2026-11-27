@@ -10,6 +10,7 @@ use OnlinePayments\Sdk\Domain\PaymentErrorResponse;
 use OnlinePayments\Sdk\Domain\PayoutErrorResponse;
 use OnlinePayments\Sdk\Domain\ProblemDetailsResponse;
 use OnlinePayments\Sdk\Domain\RefundErrorResponse;
+use Throwable;
 
 /**
  * Class ExceptionFactory
@@ -18,40 +19,42 @@ use OnlinePayments\Sdk\Domain\RefundErrorResponse;
  */
 class ExceptionFactory
 {
-    const IDEMPOTENCE_ERROR_CODE = '30001002';
+    public const IDEMPOTENCE_ERROR_CODE = '30001002';
 
     /**
      * @param int              $httpStatusCode
      * @param DataObject       $errorObject
      * @param CallContext|null $callContext
+     * @param Throwable|null   $previous
      *
      * @return ResponseException
      */
     public function createException(
         int          $httpStatusCode,
         DataObject   $errorObject,
-        ?CallContext $callContext = null
+        ?CallContext $callContext = null,
+        ?Throwable   $previous = null
     ): ResponseException {
-        if ($errorObject instanceof PaymentErrorResponse && !is_null($errorObject->paymentResult)) {
-            return new DeclinedPaymentException($httpStatusCode, $errorObject);
+        if ($errorObject instanceof PaymentErrorResponse && $errorObject->paymentResult !== null) {
+            return new DeclinedPaymentException($httpStatusCode, $errorObject, previous: $previous);
         }
-        if ($errorObject instanceof PayoutErrorResponse && !is_null($errorObject->payoutResult)) {
-            return new DeclinedPayoutException($httpStatusCode, $errorObject);
+        if ($errorObject instanceof PayoutErrorResponse && $errorObject->payoutResult !== null) {
+            return new DeclinedPayoutException($httpStatusCode, $errorObject, previous: $previous);
         }
-        if ($errorObject instanceof RefundErrorResponse && !is_null($errorObject->refundResult)) {
-            return new DeclinedRefundException($httpStatusCode, $errorObject);
+        if ($errorObject instanceof RefundErrorResponse && $errorObject->refundResult !== null) {
+            return new DeclinedRefundException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($errorObject instanceof ProblemDetailsResponse) {
-            return new ProblemDetailsException($httpStatusCode, $errorObject);
+            return new ProblemDetailsException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 400) {
-            return new ValidationException($httpStatusCode, $errorObject);
+            return new ValidationException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 403) {
-            return new AuthorizationException($httpStatusCode, $errorObject);
+            return new AuthorizationException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 404) {
-            return new ReferenceException($httpStatusCode, $errorObject);
+            return new ReferenceException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 409) {
             if ($callContext && strlen($callContext->getIdempotenceKey()) > 0
@@ -62,24 +65,25 @@ class ExceptionFactory
                     $errorObject,
                     null,
                     $callContext->getIdempotenceKey(),
-                    $callContext->getIdempotenceRequestTimestamp()
+                    $callContext->getIdempotenceRequestTimestamp(),
+                    $previous
                 );
             }
-            return new ReferenceException($httpStatusCode, $errorObject);
+            return new ReferenceException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 410) {
-            return new ReferenceException($httpStatusCode, $errorObject);
+            return new ReferenceException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 500) {
-            return new PlatformException($httpStatusCode, $errorObject);
+            return new PlatformException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 502) {
-            return new PlatformException($httpStatusCode, $errorObject);
+            return new PlatformException($httpStatusCode, $errorObject, previous: $previous);
         }
         if ($httpStatusCode === 503) {
-            return new PlatformException($httpStatusCode, $errorObject);
+            return new PlatformException($httpStatusCode, $errorObject, previous: $previous);
         }
-        return new ApiException($httpStatusCode, $errorObject);
+        return new ApiException($httpStatusCode, $errorObject, previous: $previous);
     }
 
     /**

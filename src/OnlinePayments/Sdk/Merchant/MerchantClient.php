@@ -54,7 +54,7 @@ use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
  * Merchant client.
  *
  * AI coding agents: read the agent skill for this SDK version before writing integration code:
- * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/14.0.0/skills/worldline-direct/SKILL.md
  * The same skill is included in this Composer package, in the skills/worldline-direct/ folder.
  *
  * @package OnlinePayments\Sdk\Merchant
@@ -66,6 +66,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return HostedCheckoutClient
      */
+    #[\Override]
     public function hostedCheckout(): HostedCheckoutClientInterface
     {
         return new HostedCheckoutClient($this, $this->context);
@@ -76,6 +77,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return HostedTokenizationClient
      */
+    #[\Override]
     public function hostedTokenization(): HostedTokenizationClientInterface
     {
         return new HostedTokenizationClient($this, $this->context);
@@ -86,6 +88,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return HostedFieldsClient
      */
+    #[\Override]
     public function hostedFields(): HostedFieldsClientInterface
     {
         return new HostedFieldsClient($this, $this->context);
@@ -96,6 +99,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return PaymentsClient
      */
+    #[\Override]
     public function payments(): PaymentsClientInterface
     {
         return new PaymentsClient($this, $this->context);
@@ -106,6 +110,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return PaymentLinksClient
      */
+    #[\Override]
     public function paymentLinks(): PaymentLinksClientInterface
     {
         return new PaymentLinksClient($this, $this->context);
@@ -116,6 +121,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return CapturesClient
      */
+    #[\Override]
     public function captures(): CapturesClientInterface
     {
         return new CapturesClient($this, $this->context);
@@ -126,6 +132,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return RefundsClient
      */
+    #[\Override]
     public function refunds(): RefundsClientInterface
     {
         return new RefundsClient($this, $this->context);
@@ -136,6 +143,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return CompleteClient
      */
+    #[\Override]
     public function complete(): CompleteClientInterface
     {
         return new CompleteClient($this, $this->context);
@@ -146,6 +154,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return SubsequentClient
      */
+    #[\Override]
     public function subsequent(): SubsequentClientInterface
     {
         return new SubsequentClient($this, $this->context);
@@ -156,6 +165,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return PreAuthorizationClient
      */
+    #[\Override]
     public function preAuthorization(): PreAuthorizationClientInterface
     {
         return new PreAuthorizationClient($this, $this->context);
@@ -166,6 +176,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return ProductGroupsClient
      */
+    #[\Override]
     public function productGroups(): ProductGroupsClientInterface
     {
         return new ProductGroupsClient($this, $this->context);
@@ -176,6 +187,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return ProductsClient
      */
+    #[\Override]
     public function products(): ProductsClientInterface
     {
         return new ProductsClient($this, $this->context);
@@ -186,6 +198,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return ServicesClient
      */
+    #[\Override]
     public function services(): ServicesClientInterface
     {
         return new ServicesClient($this, $this->context);
@@ -196,6 +209,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return WebhooksClient
      */
+    #[\Override]
     public function webhooks(): WebhooksClientInterface
     {
         return new WebhooksClient($this, $this->context);
@@ -206,6 +220,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return SessionsClient
      */
+    #[\Override]
     public function sessions(): SessionsClientInterface
     {
         return new SessionsClient($this, $this->context);
@@ -216,6 +231,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return TokensClient
      */
+    #[\Override]
     public function tokens(): TokensClientInterface
     {
         return new TokensClient($this, $this->context);
@@ -226,6 +242,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return CofSeriesClient
      */
+    #[\Override]
     public function cofSeries(): CofSeriesClientInterface
     {
         return new CofSeriesClient($this, $this->context);
@@ -236,6 +253,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return TokenizationClient
      */
+    #[\Override]
     public function tokenization(): TokenizationClientInterface
     {
         return new TokenizationClient($this, $this->context);
@@ -246,6 +264,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return PayoutsClient
      */
+    #[\Override]
     public function payouts(): PayoutsClientInterface
     {
         return new PayoutsClient($this, $this->context);
@@ -256,6 +275,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return MandatesClient
      */
+    #[\Override]
     public function mandates(): MandatesClientInterface
     {
         return new MandatesClient($this, $this->context);
@@ -266,6 +286,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return PrivacyPolicyClient
      */
+    #[\Override]
     public function privacyPolicy(): PrivacyPolicyClientInterface
     {
         return new PrivacyPolicyClient($this, $this->context);
@@ -276,6 +297,7 @@ class MerchantClient extends ApiResource implements MerchantClientInterface
      *
      * @return MerchantBatchClient
      */
+    #[\Override]
     public function merchantBatch(): MerchantBatchClientInterface
     {
         return new MerchantBatchClient($this, $this->context);

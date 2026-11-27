@@ -13,32 +13,32 @@ class CardPayoutMethodSpecificInput extends DataObject
 {
     /**
      * @var Card|null
-    */
+     */
     public ?Card $card = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedFieldsSessionId = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $payoutReason = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $token = null;
 
     /**
      * @return Card|null
-    */
+     */
     public function getCard(): ?Card
     {
         return $this->card;
@@ -46,7 +46,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param Card|null $value
-    */
+     */
     public function setCard(?Card $value): void
     {
         $this->card = $value;
@@ -54,9 +54,9 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param Card|null $value
-     * @return CardPayoutMethodSpecificInput
-    */
-    public function withCard(?Card $value): CardPayoutMethodSpecificInput
+     * @return $this
+     */
+    public function withCard(?Card $value): static
     {
         $this->card = $value;
         return $this;
@@ -64,7 +64,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedFieldsSessionId(): ?string
     {
         return $this->hostedFieldsSessionId;
@@ -72,7 +72,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedFieldsSessionId(?string $value): void
     {
         $this->hostedFieldsSessionId = $value;
@@ -80,9 +80,9 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPayoutMethodSpecificInput
-    */
-    public function withHostedFieldsSessionId(?string $value): CardPayoutMethodSpecificInput
+     * @return $this
+     */
+    public function withHostedFieldsSessionId(?string $value): static
     {
         $this->hostedFieldsSessionId = $value;
         return $this;
@@ -90,7 +90,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -98,7 +98,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -106,9 +106,9 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param int|null $value
-     * @return CardPayoutMethodSpecificInput
-    */
-    public function withPaymentProductId(?int $value): CardPayoutMethodSpecificInput
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -116,7 +116,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPayoutReason(): ?string
     {
         return $this->payoutReason;
@@ -124,7 +124,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPayoutReason(?string $value): void
     {
         $this->payoutReason = $value;
@@ -132,9 +132,9 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPayoutMethodSpecificInput
-    */
-    public function withPayoutReason(?string $value): CardPayoutMethodSpecificInput
+     * @return $this
+     */
+    public function withPayoutReason(?string $value): static
     {
         $this->payoutReason = $value;
         return $this;
@@ -142,7 +142,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getToken(): ?string
     {
         return $this->token;
@@ -150,7 +150,7 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setToken(?string $value): void
     {
         $this->token = $value;
@@ -158,9 +158,9 @@ class CardPayoutMethodSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return CardPayoutMethodSpecificInput
-    */
-    public function withToken(?string $value): CardPayoutMethodSpecificInput
+     * @return $this
+     */
+    public function withToken(?string $value): static
     {
         $this->token = $value;
         return $this;
@@ -169,22 +169,23 @@ class CardPayoutMethodSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->card)) {
+        if ($this->card !== null) {
             $object->card = $this->card->toObject();
         }
-        if (!is_null($this->hostedFieldsSessionId)) {
+        if ($this->hostedFieldsSessionId !== null) {
             $object->hostedFieldsSessionId = $this->hostedFieldsSessionId;
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->payoutReason)) {
+        if ($this->payoutReason !== null) {
             $object->payoutReason = $this->payoutReason;
         }
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token;
         }
         return $object;
@@ -196,7 +197,8 @@ class CardPayoutMethodSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CardPayoutMethodSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'card')) {

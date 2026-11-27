@@ -23,7 +23,7 @@ class DeleteTokenTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testDeleteToken_ValidTokenId_SuccessfullyDeletesToken()
+    public function testDeleteToken_ValidTokenId_SuccessfullyDeletesToken(): void
     {
         $token = $this->sdkHelper->createTokenAndGetId();
 
@@ -38,7 +38,7 @@ class DeleteTokenTest extends TestCase
         }
     }
 
-    public function testDeleteToken_InvalidTokenId_ReturnsReferenceException()
+    public function testDeleteToken_InvalidTokenId_ReturnsReferenceException(): void
     {
         try {
             $this->tokensClient->deleteToken(self::INVALID_TOKEN_ID);

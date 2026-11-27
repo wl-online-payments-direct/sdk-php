@@ -15,13 +15,14 @@ interface ConnectionResponseInterface
     public function getHttpStatusCode(): int;
 
     /**
-     * @return array
+     * @return array<int|string, string|string[]>
      */
     public function getHeaders(): array;
 
     /**
      * @param string $name
-     * @return mixed
+     * @return string The value of the header with the given name (case-insensitive); the first value if the header
+     *                occurs more than once, or an empty string if there is no such header.
      */
     public function getHeaderValue(string $name);
 

@@ -2,6 +2,7 @@
 
 namespace OnlinePayments\Sdk\Unit\Webhooks;
 
+use OnlinePayments\Sdk\Communication\InvalidResponseException;
 use OnlinePayments\Sdk\TestUtil\Unit\ApiVersionMismatchTestingWebhooksHelper;
 use OnlinePayments\Sdk\Webhooks\ApiVersionMismatchException;
 use OnlinePayments\Sdk\Webhooks\InMemorySecretKeyStore;
@@ -15,12 +16,12 @@ use PHPUnit\Framework\TestCase;
 #[Group('webhooks')]
 class WebhooksHelperTest extends TestCase
 {
-    const SIGNATURE_HEADER = 'X-GCS-Signature';
-    const SIGNATURE = '2S7doBj/GnJnacIjSJzr5fxGM5xmfQyFAwxv1I53ZEk=';
-    const KEY_ID_HEADER = 'X-GCS-KeyId';
-    const KEY_ID = 'dummy-key-id';
-    const SECRET_KEY = 'hello+world';
-    const VALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
+    public const SIGNATURE_HEADER = 'X-GCS-Signature';
+    public const SIGNATURE = '2S7doBj/GnJnacIjSJzr5fxGM5xmfQyFAwxv1I53ZEk=';
+    public const KEY_ID_HEADER = 'X-GCS-KeyId';
+    public const KEY_ID = 'dummy-key-id';
+    public const SECRET_KEY = 'hello+world';
+    public const VALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
   "apiVersion": "v1",
   "id": "8ee793f6-4553-4749-85dc-f2ef095c5ab0",
@@ -54,7 +55,7 @@ class WebhooksHelperTest extends TestCase
 }
 EOD;
 
-    const INVALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
+    public const INVALID_BODY_WITHOUT_LINEBREAK_FIX = <<<EOD
 {
   "apiVersion": "v1",
   "id": "8ee793f6-4553-4749-85dc-f2ef095c5ab0",
@@ -88,8 +89,8 @@ EOD;
 }
 EOD;
 
-    private $validBody;
-    private $invalidBody;
+    private string $validBody;
+    private string $invalidBody;
 
     protected function setUp(): void
     {
@@ -98,12 +99,12 @@ EOD;
         $this->invalidBody = preg_replace("/\r\n/", "\n", self::INVALID_BODY_WITHOUT_LINEBREAK_FIX);
     }
 
-    public function testUnmarshal_WithApiVersionMismatch_ThrowsApiVersionMismatchException()
+    public function testUnmarshal_WithApiVersionMismatch_ThrowsApiVersionMismatchException(): void
     {
-        $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
         $helper = new ApiVersionMismatchTestingWebhooksHelper($secretKeyStore);
 
-        $requestHeaders = array(self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID);
+        $requestHeaders = [self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID];
         try {
             $helper->unmarshal($this->validBody, $requestHeaders);
         } catch (ApiVersionMismatchException $e) {
@@ -116,12 +117,12 @@ EOD;
         $this->fail('an expected exception has not been raised');
     }
 
-    public function testUnmarshal_WithMissingSecretKey_ThrowsSecretKeyNotAvailableException()
+    public function testUnmarshal_WithMissingSecretKey_ThrowsSecretKeyNotAvailableException(): void
     {
         $secretKeyStore = new InMemorySecretKeyStore();
         $helper = $this->createHelper($secretKeyStore);
 
-        $requestHeaders = array(self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID);
+        $requestHeaders = [self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID];
 
         try {
             $helper->unmarshal($this->validBody, $requestHeaders);
@@ -134,49 +135,60 @@ EOD;
         $this->fail('an expected exception has not been raised');
     }
 
-    public function testUnmarshal_WithMissingSignatureHeaders_ThrowsSignatureValidationException()
+    public function testUnmarshal_WithMissingSignatureHeaders_ThrowsSignatureValidationException(): void
     {
         $secretKeyStore = new InMemorySecretKeyStore([
-            self::KEY_ID => self::SECRET_KEY
+            self::KEY_ID => self::SECRET_KEY,
         ]);
 
         $helper = $this->createHelper($secretKeyStore);
 
         $this->expectException(SignatureValidationException::class);
         $this->expectExceptionMessage(
-            "could not find header '" . static::SIGNATURE_HEADER . "'"
+            "could not find header '" . static::SIGNATURE_HEADER . "'",
         );
 
         $helper->unmarshal($this->validBody, []);
     }
 
-    public function testUnmarshal_WithDuplicateSignatureHeaders_ThrowsThrowable()
+    public function testUnmarshal_WithDuplicateSignatureHeaders_ThrowsSignatureValidationException(): void
     {
-        $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
         $helper = $this->createHelper($secretKeyStore);
 
-        $requestHeaders = array(
-            self::SIGNATURE_HEADER => array(self::SIGNATURE, self::SIGNATURE),
-            self::KEY_ID_HEADER => self::KEY_ID
-        );
+        $requestHeaders = [
+            self::SIGNATURE_HEADER => [self::SIGNATURE, self::SIGNATURE],
+            self::KEY_ID_HEADER => self::KEY_ID,
+        ];
 
-        set_error_handler(static function (int $errno, string $errstr): bool {
-            throw new \ErrorException($errstr, 0, $errno);
-        });
-        try {
-            $this->expectException(\Throwable::class);
-            $helper->unmarshal($this->validBody, $requestHeaders);
-        } finally {
-            restore_error_handler();
-        }
+        $this->expectException(SignatureValidationException::class);
+        $this->expectExceptionMessage("encountered multiple occurrences of header '" . self::SIGNATURE_HEADER . "'");
+
+        $helper->unmarshal($this->validBody, $requestHeaders);
     }
 
-    public function testUnmarshal_WithValidBodyString_ReturnsWebhooksEvent()
+    public function testUnmarshal_WithDuplicateKeyIdHeaders_ThrowsSignatureValidationException(): void
     {
-        $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
         $helper = $this->createHelper($secretKeyStore);
 
-        $requestHeaders = array(self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID);
+        $requestHeaders = [
+            self::SIGNATURE_HEADER => self::SIGNATURE,
+            self::KEY_ID_HEADER => [self::KEY_ID, self::KEY_ID],
+        ];
+
+        $this->expectException(SignatureValidationException::class);
+        $this->expectExceptionMessage("encountered multiple occurrences of header '" . self::KEY_ID_HEADER . "'");
+
+        $helper->unmarshal($this->validBody, $requestHeaders);
+    }
+
+    public function testUnmarshal_WithValidBodyString_ReturnsWebhooksEvent(): void
+    {
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
+        $helper = $this->createHelper($secretKeyStore);
+
+        $requestHeaders = [self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID];
 
         $event = $helper->unmarshal($this->validBody, $requestHeaders);
 
@@ -187,12 +199,28 @@ EOD;
         $this->assertEquals('payment.paid', $event->type);
     }
 
-    public function testUnmarshal_WithValidBodyBytes_ReturnsWebhooksEvent()
+    public function testUnmarshal_WithValidSignatureAndNonObjectBody_ThrowsInvalidResponseException(): void
     {
-        $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
+        $helper = $this->createHelper($secretKeyStore);
+        $body = '[]';
+        $signature = base64_encode(hash_hmac('sha256', $body, self::SECRET_KEY, true));
+
+        $this->expectException(InvalidResponseException::class);
+        $this->expectExceptionMessage('expected a JSON object');
+
+        $helper->unmarshal($body, [
+            self::SIGNATURE_HEADER => $signature,
+            self::KEY_ID_HEADER => self::KEY_ID,
+        ]);
+    }
+
+    public function testUnmarshal_WithValidBodyBytes_ReturnsWebhooksEvent(): void
+    {
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
         $helper = $this->createHelper($secretKeyStore);
 
-        $requestHeaders = array(self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID);
+        $requestHeaders = [self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID];
 
         $bodyAsBytes = mb_convert_encoding($this->validBody, 'UTF-8');
         $event = $helper->unmarshal($bodyAsBytes, $requestHeaders);
@@ -202,12 +230,12 @@ EOD;
         $this->assertEquals('payment.paid', $event->type);
     }
 
-    public function testUnmarshal_WithInvalidSignatures_ThrowsSignatureValidationExceptionWithoutTimingLeak()
+    public function testUnmarshal_WithInvalidSignatures_ThrowsSignatureValidationExceptionWithoutTimingLeak(): void
     {
-        $secretKeyStore = new InMemorySecretKeyStore(array(self::KEY_ID => self::SECRET_KEY));
+        $secretKeyStore = new InMemorySecretKeyStore([self::KEY_ID => self::SECRET_KEY]);
         $helper = $this->createHelper($secretKeyStore);
 
-        $requestHeaders = array(self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID);
+        $requestHeaders = [self::SIGNATURE_HEADER => self::SIGNATURE, self::KEY_ID_HEADER => self::KEY_ID];
 
         $event = $helper->unmarshal($this->validBody, $requestHeaders);
         $this->assertNotNull($event);
@@ -221,10 +249,10 @@ EOD;
 
         foreach ($invalidSignatures as $invalidSig) {
             try {
-                $helper->unmarshal($this->validBody, array(
+                $helper->unmarshal($this->validBody, [
                     self::SIGNATURE_HEADER => $invalidSig,
-                    self::KEY_ID_HEADER => self::KEY_ID
-                ));
+                    self::KEY_ID_HEADER => self::KEY_ID,
+                ]);
                 $this->fail('Expected SignatureValidationException for signature: ' . $invalidSig);
             } catch (SignatureValidationException $e) {
                 $this->assertStringStartsWith('failed to validate signature', $e->getMessage());
@@ -232,17 +260,17 @@ EOD;
         }
     }
 
-    public function testUnmarshal_WithInvalidBody_ThrowsSignatureValidationException()
+    public function testUnmarshal_WithInvalidBody_ThrowsSignatureValidationException(): void
     {
         $secretKeyStore = new InMemorySecretKeyStore([
-            self::KEY_ID => self::SECRET_KEY
+            self::KEY_ID => self::SECRET_KEY,
         ]);
 
         $helper = $this->createHelper($secretKeyStore);
 
         $requestHeaders = [
             self::SIGNATURE_HEADER => self::SIGNATURE,
-            self::KEY_ID_HEADER => self::KEY_ID
+            self::KEY_ID_HEADER => self::KEY_ID,
         ];
 
         $this->expectException(SignatureValidationException::class);
@@ -251,19 +279,19 @@ EOD;
         $helper->unmarshal($this->invalidBody, $requestHeaders);
     }
 
-    public function testUnmarshal_WithInvalidSecretKey_ThrowsSignatureValidationException()
+    public function testUnmarshal_WithInvalidSecretKey_ThrowsSignatureValidationException(): void
     {
         $invalidSecretKey = '1' . self::SECRET_KEY;
 
         $secretKeyStore = new InMemorySecretKeyStore([
-            self::KEY_ID => $invalidSecretKey
+            self::KEY_ID => $invalidSecretKey,
         ]);
 
         $helper = $this->createHelper($secretKeyStore);
 
         $requestHeaders = [
             self::SIGNATURE_HEADER => self::SIGNATURE,
-            self::KEY_ID_HEADER => self::KEY_ID
+            self::KEY_ID_HEADER => self::KEY_ID,
         ];
 
         $this->expectException(SignatureValidationException::class);
@@ -272,17 +300,17 @@ EOD;
         $helper->unmarshal($this->validBody, $requestHeaders);
     }
 
-    public function testUnmarshal_WithInvalidSignature_ThrowsSignatureValidationException()
+    public function testUnmarshal_WithInvalidSignature_ThrowsSignatureValidationException(): void
     {
         $secretKeyStore = new InMemorySecretKeyStore([
-            self::KEY_ID => self::SECRET_KEY
+            self::KEY_ID => self::SECRET_KEY,
         ]);
 
         $helper = $this->createHelper($secretKeyStore);
 
         $requestHeaders = [
             self::SIGNATURE_HEADER => '1' . self::SIGNATURE,
-            self::KEY_ID_HEADER => self::KEY_ID
+            self::KEY_ID_HEADER => self::KEY_ID,
         ];
 
         $this->expectException(SignatureValidationException::class);

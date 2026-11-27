@@ -13,22 +13,22 @@ class SurchargeSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $mode = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $surchargeAmount = null;
 
     /**
      * @var SurchargeRate|null
-    */
+     */
     public ?SurchargeRate $surchargeRate = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getMode(): ?string
     {
         return $this->mode;
@@ -36,7 +36,7 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMode(?string $value): void
     {
         $this->mode = $value;
@@ -44,9 +44,9 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeSpecificOutput
-    */
-    public function withMode(?string $value): SurchargeSpecificOutput
+     * @return $this
+     */
+    public function withMode(?string $value): static
     {
         $this->mode = $value;
         return $this;
@@ -54,7 +54,7 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getSurchargeAmount(): ?AmountOfMoney
     {
         return $this->surchargeAmount;
@@ -62,7 +62,7 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setSurchargeAmount(?AmountOfMoney $value): void
     {
         $this->surchargeAmount = $value;
@@ -70,9 +70,9 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return SurchargeSpecificOutput
-    */
-    public function withSurchargeAmount(?AmountOfMoney $value): SurchargeSpecificOutput
+     * @return $this
+     */
+    public function withSurchargeAmount(?AmountOfMoney $value): static
     {
         $this->surchargeAmount = $value;
         return $this;
@@ -80,7 +80,7 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @return SurchargeRate|null
-    */
+     */
     public function getSurchargeRate(): ?SurchargeRate
     {
         return $this->surchargeRate;
@@ -88,7 +88,7 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-    */
+     */
     public function setSurchargeRate(?SurchargeRate $value): void
     {
         $this->surchargeRate = $value;
@@ -96,9 +96,9 @@ class SurchargeSpecificOutput extends DataObject
 
     /**
      * @param SurchargeRate|null $value
-     * @return SurchargeSpecificOutput
-    */
-    public function withSurchargeRate(?SurchargeRate $value): SurchargeSpecificOutput
+     * @return $this
+     */
+    public function withSurchargeRate(?SurchargeRate $value): static
     {
         $this->surchargeRate = $value;
         return $this;
@@ -107,16 +107,17 @@ class SurchargeSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->mode)) {
+        if ($this->mode !== null) {
             $object->mode = $this->mode;
         }
-        if (!is_null($this->surchargeAmount)) {
+        if ($this->surchargeAmount !== null) {
             $object->surchargeAmount = $this->surchargeAmount->toObject();
         }
-        if (!is_null($this->surchargeRate)) {
+        if ($this->surchargeRate !== null) {
             $object->surchargeRate = $this->surchargeRate->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class SurchargeSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SurchargeSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'mode')) {

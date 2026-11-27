@@ -14,25 +14,24 @@ use PHPUnit\Framework\TestCase;
 class HttpObfuscatorTest extends TestCase
 {
     /**
-     * @param $requestMethod
-     * @param $relativeRequestUri
-     * @param array $requestHeaders
+     * @param string $requestMethod
+     * @param string $relativeRequestUri
+     * @param array<string, string> $requestHeaders
      * @param string $requestBody
      * @param string $expectedRawObfuscatedRequest
      */
     #[DataProvider('rawObfuscatedRequestProvider')]
     public function testHttpObfuscator_GetRawObfuscatedRequest_ObfuscatesRequestCorrectly(
-        $requestMethod,
-        $relativeRequestUri,
+        string $requestMethod,
+        string $relativeRequestUri,
         array $requestHeaders,
         string $requestBody,
-        string $expectedRawObfuscatedRequest
-    )
-    {
+        string $expectedRawObfuscatedRequest,
+    ): void {
         $httpObfuscator = new HttpObfuscator();
         $this->assertEquals(
             $expectedRawObfuscatedRequest,
-            $httpObfuscator->getRawObfuscatedRequest($requestMethod, $relativeRequestUri, $requestHeaders, $requestBody)
+            $httpObfuscator->getRawObfuscatedRequest($requestMethod, $relativeRequestUri, $requestHeaders, $requestBody),
         );
     }
 
@@ -41,98 +40,98 @@ class HttpObfuscatorTest extends TestCase
      * @param string $expectedRawObfuscatedResponse
      */
     #[DataProvider('rawObfuscatedResponseProvider')]
-    public function testHttpObfuscator_GetRawObfuscatedResponse_ObfuscatesResponseCorrectly(ConnectionResponseInterface $response, string $expectedRawObfuscatedResponse)
+    public function testHttpObfuscator_GetRawObfuscatedResponse_ObfuscatesResponseCorrectly(ConnectionResponseInterface $response, string $expectedRawObfuscatedResponse): void
     {
         $httpObfuscator = new HttpObfuscator();
         $this->assertEquals(
             $expectedRawObfuscatedResponse,
-            $httpObfuscator->getRawObfuscatedResponse($response)
+            $httpObfuscator->getRawObfuscatedResponse($response),
         );
     }
 
     /**
-     * @return array
+     * @return array<int, array{0: string, 1: string, 2: array<string, string>, 3: string|false, 4: string}>
      */
     public static function rawObfuscatedRequestProvider(): array
     {
-        return array(
-            array(
+        return [
+            [
                 'GET',
                 '/foo',
-                array(),
+                [],
                 '',
-                "GET /foo HTTP/1.1"
-            ),
-            array(
+                "GET /foo HTTP/1.1",
+            ],
+            [
                 'DELETE',
                 '/foo',
-                array('Content-Type' => 'application/json', 'Authorization' => '123'),
+                ['Content-Type' => 'application/json', 'Authorization' => '123'],
                 '',
-                "DELETE /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********"
-            ),
-            array(
+                "DELETE /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********",
+            ],
+            [
                 'POST',
                 '/foo',
-                array('Content-Type' => 'application/json'),
-                json_encode(array('name' => 'bar', 'value' => 'bar'), JSON_PRETTY_PRINT),
+                ['Content-Type' => 'application/json'],
+                json_encode(['name' => 'bar', 'value' => 'bar'], JSON_PRETTY_PRINT),
                 "POST /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . PHP_EOL .
-                json_encode(array('name' => 'bar', 'value' => '***'), JSON_PRETTY_PRINT)
-            ),
-            array(
+                json_encode(['name' => 'bar', 'value' => '***'], JSON_PRETTY_PRINT),
+            ],
+            [
                 'PUT',
                 '/foo',
-                array('Content-Type' => 'application/json', 'Authorization' => '123'),
-                json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT),
+                ['Content-Type' => 'application/json', 'Authorization' => '123'],
+                json_encode(['value' => 'baz'], JSON_PRETTY_PRINT),
                 "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********" . PHP_EOL . PHP_EOL .
-                json_encode(array('value' => '***'), JSON_PRETTY_PRINT)
-            ),
-            array(
+                json_encode(['value' => '***'], JSON_PRETTY_PRINT),
+            ],
+            [
                 'PUT',
                 '/foo',
-                array('Content-Type' => 'text/html', 'Authorization' => '123'),
-                json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT),
+                ['Content-Type' => 'text/html', 'Authorization' => '123'],
+                json_encode(['value' => 'baz'], JSON_PRETTY_PRINT),
                 "PUT /foo HTTP/1.1" . PHP_EOL . "Content-Type: text/html" . PHP_EOL . "Authorization: ********" . PHP_EOL . PHP_EOL .
-                json_encode(array('value' => 'baz'), JSON_PRETTY_PRINT)
-            ),
-        );
+                json_encode(['value' => 'baz'], JSON_PRETTY_PRINT),
+            ],
+        ];
     }
 
     /**
-     * @return array
+     * @return array<int, array{0: ConnectionResponse, 1: string}>
      */
     public static function rawObfuscatedResponseProvider(): array
     {
-        return array(
-            array(
-                new ConnectionResponse(0, array(), ''),
-                ""
-            ),
-            array(
+        return [
+            [
+                new ConnectionResponse(0, [], ''),
+                "",
+            ],
+            [
                 new ConnectionResponse(
                     200,
-                    array(0 => 'HTTP/1.1 200 OK', 'Content-Type' => 'application/json', 'Authorization' => '123'),
-                    ''
+                    [0 => 'HTTP/1.1 200 OK', 'Content-Type' => 'application/json', 'Authorization' => '123'],
+                    '',
                 ),
-                "HTTP/1.1 200 OK" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********"
-            ),
-            array(
+                "HTTP/1.1 200 OK" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . "Authorization: ********",
+            ],
+            [
                 new ConnectionResponse(
                     404,
-                    array(0 => 'HTTP/1.1 404 Not Found', 'Content-Type' => 'text/html'),
-                    json_encode(array('value' => 'foo'), JSON_PRETTY_PRINT)
+                    [0 => 'HTTP/1.1 404 Not Found', 'Content-Type' => 'text/html'],
+                    json_encode(['value' => 'foo'], JSON_PRETTY_PRINT),
                 ),
                 "HTTP/1.1 404 Not Found" . PHP_EOL . "Content-Type: text/html" . PHP_EOL . PHP_EOL .
-                json_encode(array('value' => 'foo'), JSON_PRETTY_PRINT)
-            ),
-            array(
+                json_encode(['value' => 'foo'], JSON_PRETTY_PRINT),
+            ],
+            [
                 new ConnectionResponse(
                     201,
-                    array(0 => 'HTTP/1.1 201 Created', 'Content-Type' => 'application/json'),
-                    json_encode(array('name' => 'foo', 'value' => 'baz'), JSON_PRETTY_PRINT)
+                    [0 => 'HTTP/1.1 201 Created', 'Content-Type' => 'application/json'],
+                    json_encode(['name' => 'foo', 'value' => 'baz'], JSON_PRETTY_PRINT),
                 ),
                 "HTTP/1.1 201 Created" . PHP_EOL . "Content-Type: application/json" . PHP_EOL . PHP_EOL .
-                json_encode(array('name' => 'foo', 'value' => '***'), JSON_PRETTY_PRINT)
-            ),
-        );
+                json_encode(['name' => 'foo', 'value' => '***'], JSON_PRETTY_PRINT),
+            ],
+        ];
     }
 }

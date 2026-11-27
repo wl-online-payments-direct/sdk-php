@@ -13,17 +13,17 @@ class ShippingDetail extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $shippingCost = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $shippingCostTax = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getShippingCost(): ?int
     {
         return $this->shippingCost;
@@ -31,7 +31,7 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setShippingCost(?int $value): void
     {
         $this->shippingCost = $value;
@@ -39,9 +39,9 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-     * @return ShippingDetail
-    */
-    public function withShippingCost(?int $value): ShippingDetail
+     * @return $this
+     */
+    public function withShippingCost(?int $value): static
     {
         $this->shippingCost = $value;
         return $this;
@@ -49,7 +49,7 @@ class ShippingDetail extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getShippingCostTax(): ?int
     {
         return $this->shippingCostTax;
@@ -57,7 +57,7 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setShippingCostTax(?int $value): void
     {
         $this->shippingCostTax = $value;
@@ -65,9 +65,9 @@ class ShippingDetail extends DataObject
 
     /**
      * @param int|null $value
-     * @return ShippingDetail
-    */
-    public function withShippingCostTax(?int $value): ShippingDetail
+     * @return $this
+     */
+    public function withShippingCostTax(?int $value): static
     {
         $this->shippingCostTax = $value;
         return $this;
@@ -76,13 +76,14 @@ class ShippingDetail extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->shippingCost)) {
+        if ($this->shippingCost !== null) {
             $object->shippingCost = $this->shippingCost;
         }
-        if (!is_null($this->shippingCostTax)) {
+        if ($this->shippingCostTax !== null) {
             $object->shippingCostTax = $this->shippingCostTax;
         }
         return $object;
@@ -94,7 +95,8 @@ class ShippingDetail extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShippingDetail
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'shippingCost')) {

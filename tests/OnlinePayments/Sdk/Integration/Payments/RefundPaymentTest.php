@@ -27,7 +27,7 @@ class RefundPaymentTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testRefundPayment_ValidPayment_ReturnsRefundRequestedStatus()
+    public function testRefundPayment_ValidPayment_ReturnsRefundRequestedStatus(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -49,7 +49,7 @@ class RefundPaymentTest extends TestCase
         $this->assertSame('REFUND_REQUESTED', $refundResponse->getStatus());
     }
 
-    public function testRefundPayment_ValidPartialRefund_MultipleRefunds_ReturnsExpectedStatuses()
+    public function testRefundPayment_ValidPartialRefund_MultipleRefunds_ReturnsExpectedStatuses(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(1500, 'EUR');
 
@@ -82,7 +82,7 @@ class RefundPaymentTest extends TestCase
         $this->assertSame('REFUND_REQUESTED', $refundSecond->getStatus());
     }
 
-    public function testRefundPayment_TwoPartialAmounts_ThrowsValidationException()
+    public function testRefundPayment_TwoPartialAmounts_ThrowsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 
@@ -115,7 +115,7 @@ class RefundPaymentTest extends TestCase
         }
     }
 
-    public function testRefundPayment_WithoutCapture_ReturnsValidationException()
+    public function testRefundPayment_WithoutCapture_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -137,7 +137,7 @@ class RefundPaymentTest extends TestCase
         }
     }
 
-    public function testRefundPayment_InvalidPaymentId_ReturnsReferenceExceptionNotFound()
+    public function testRefundPayment_InvalidPaymentId_ReturnsReferenceExceptionNotFound(): void
     {
         try {
             $refundRequest = RefundRequestBuilder::create()
@@ -153,7 +153,7 @@ class RefundPaymentTest extends TestCase
         }
     }
 
-    public function testRefundPayment_AfterCancel_ReturnsValidationException()
+    public function testRefundPayment_AfterCancel_ReturnsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -178,7 +178,7 @@ class RefundPaymentTest extends TestCase
         }
     }
 
-    public function testRefundPayment_AfterPreviousFullRefund_ThrowsValidationException()
+    public function testRefundPayment_AfterPreviousFullRefund_ThrowsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId();
 
@@ -212,7 +212,7 @@ class RefundPaymentTest extends TestCase
         }
     }
 
-    public function testRefundPayment_SingleRefundExceedsCaptured_ThrowsValidationException()
+    public function testRefundPayment_SingleRefundExceedsCaptured_ThrowsValidationException(): void
     {
         $paymentId = $this->sdkHelper->createPaymentAndGetId(800, 'EUR');
 

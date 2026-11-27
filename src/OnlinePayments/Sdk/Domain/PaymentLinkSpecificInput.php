@@ -14,22 +14,22 @@ class PaymentLinkSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $description = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $expirationDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $recipientName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -37,7 +37,7 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDescription(?string $value): void
     {
         $this->description = $value;
@@ -45,9 +45,9 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkSpecificInput
-    */
-    public function withDescription(?string $value): PaymentLinkSpecificInput
+     * @return $this
+     */
+    public function withDescription(?string $value): static
     {
         $this->description = $value;
         return $this;
@@ -55,7 +55,7 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
@@ -63,7 +63,7 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
@@ -71,9 +71,9 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentLinkSpecificInput
-    */
-    public function withExpirationDate(?DateTime $value): PaymentLinkSpecificInput
+     * @return $this
+     */
+    public function withExpirationDate(?DateTime $value): static
     {
         $this->expirationDate = $value;
         return $this;
@@ -81,7 +81,7 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRecipientName(): ?string
     {
         return $this->recipientName;
@@ -89,7 +89,7 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRecipientName(?string $value): void
     {
         $this->recipientName = $value;
@@ -97,9 +97,9 @@ class PaymentLinkSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkSpecificInput
-    */
-    public function withRecipientName(?string $value): PaymentLinkSpecificInput
+     * @return $this
+     */
+    public function withRecipientName(?string $value): static
     {
         $this->recipientName = $value;
         return $this;
@@ -108,16 +108,17 @@ class PaymentLinkSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->description)) {
+        if ($this->description !== null) {
             $object->description = $this->description;
         }
-        if (!is_null($this->expirationDate)) {
+        if ($this->expirationDate !== null) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->recipientName)) {
+        if ($this->recipientName !== null) {
             $object->recipientName = $this->recipientName;
         }
         return $object;
@@ -129,7 +130,8 @@ class PaymentLinkSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'description')) {

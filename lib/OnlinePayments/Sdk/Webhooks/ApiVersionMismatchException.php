@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Webhooks;
 
 use RuntimeException;
@@ -10,27 +11,21 @@ use RuntimeException;
  */
 class ApiVersionMismatchException extends RuntimeException
 {
-    /** @var string */
-    private $eventApiVersion;
-
-    /** @var string */
-    private $sdkApiVersion;
-
     /**
-     * @param string $eventApiVersion
+     * @param string|null $eventApiVersion The API version of the event; null if the event does not contain one.
      * @param string $sdkApiVersion
      */
-    public function __construct($eventApiVersion, $sdkApiVersion)
-    {
+    public function __construct(
+        private readonly ?string $eventApiVersion,
+        private readonly string $sdkApiVersion,
+    ) {
         parent::__construct('event API version ' . $eventApiVersion . ' is not compatible with SDK API version ' . $sdkApiVersion);
-        $this->eventApiVersion = $eventApiVersion;
-        $this->sdkApiVersion = $sdkApiVersion;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEventApiVersion()
+    public function getEventApiVersion(): ?string
     {
         return $this->eventApiVersion;
     }
@@ -38,7 +33,7 @@ class ApiVersionMismatchException extends RuntimeException
     /**
      * @return string
      */
-    public function getSdkApiVersion()
+    public function getSdkApiVersion(): string
     {
         return $this->sdkApiVersion;
     }

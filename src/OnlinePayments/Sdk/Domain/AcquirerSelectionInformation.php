@@ -13,22 +13,22 @@ class AcquirerSelectionInformation extends DataObject
 {
     /**
      * @var int|null
-    */
+     */
     public ?int $fallbackLevel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $result = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $ruleName = null;
 
     /**
      * @return int|null
-    */
+     */
     public function getFallbackLevel(): ?int
     {
         return $this->fallbackLevel;
@@ -36,7 +36,7 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setFallbackLevel(?int $value): void
     {
         $this->fallbackLevel = $value;
@@ -44,9 +44,9 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param int|null $value
-     * @return AcquirerSelectionInformation
-    */
-    public function withFallbackLevel(?int $value): AcquirerSelectionInformation
+     * @return $this
+     */
+    public function withFallbackLevel(?int $value): static
     {
         $this->fallbackLevel = $value;
         return $this;
@@ -54,7 +54,7 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getResult(): ?string
     {
         return $this->result;
@@ -62,7 +62,7 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setResult(?string $value): void
     {
         $this->result = $value;
@@ -70,9 +70,9 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return AcquirerSelectionInformation
-    */
-    public function withResult(?string $value): AcquirerSelectionInformation
+     * @return $this
+     */
+    public function withResult(?string $value): static
     {
         $this->result = $value;
         return $this;
@@ -80,7 +80,7 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRuleName(): ?string
     {
         return $this->ruleName;
@@ -88,7 +88,7 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRuleName(?string $value): void
     {
         $this->ruleName = $value;
@@ -96,9 +96,9 @@ class AcquirerSelectionInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return AcquirerSelectionInformation
-    */
-    public function withRuleName(?string $value): AcquirerSelectionInformation
+     * @return $this
+     */
+    public function withRuleName(?string $value): static
     {
         $this->ruleName = $value;
         return $this;
@@ -107,16 +107,17 @@ class AcquirerSelectionInformation extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->fallbackLevel)) {
+        if ($this->fallbackLevel !== null) {
             $object->fallbackLevel = $this->fallbackLevel;
         }
-        if (!is_null($this->result)) {
+        if ($this->result !== null) {
             $object->result = $this->result;
         }
-        if (!is_null($this->ruleName)) {
+        if ($this->ruleName !== null) {
             $object->ruleName = $this->ruleName;
         }
         return $object;
@@ -128,7 +129,8 @@ class AcquirerSelectionInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AcquirerSelectionInformation
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'fallbackLevel')) {

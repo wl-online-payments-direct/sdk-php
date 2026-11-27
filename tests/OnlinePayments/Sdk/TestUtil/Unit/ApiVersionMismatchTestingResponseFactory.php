@@ -12,7 +12,7 @@ class ApiVersionMismatchTestingResponseFactory extends ResponseFactory
 {
     public function createResponse(
         ConnectionResponseInterface $response,
-        ResponseClassMap $responseClassMap
+        ResponseClassMap $responseClassMap,
     ): ?DataObject {
         /** @var WebhooksEvent $event */
         $event = parent::createResponse($response, $responseClassMap);

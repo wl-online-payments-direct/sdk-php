@@ -13,12 +13,12 @@ class CustomerDeviceOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $ipAddressCountryCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getIpAddressCountryCode(): ?string
     {
         return $this->ipAddressCountryCode;
@@ -26,7 +26,7 @@ class CustomerDeviceOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIpAddressCountryCode(?string $value): void
     {
         $this->ipAddressCountryCode = $value;
@@ -34,9 +34,9 @@ class CustomerDeviceOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerDeviceOutput
-    */
-    public function withIpAddressCountryCode(?string $value): CustomerDeviceOutput
+     * @return $this
+     */
+    public function withIpAddressCountryCode(?string $value): static
     {
         $this->ipAddressCountryCode = $value;
         return $this;
@@ -45,10 +45,11 @@ class CustomerDeviceOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->ipAddressCountryCode)) {
+        if ($this->ipAddressCountryCode !== null) {
             $object->ipAddressCountryCode = $this->ipAddressCountryCode;
         }
         return $object;
@@ -60,7 +61,8 @@ class CustomerDeviceOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerDeviceOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'ipAddressCountryCode')) {

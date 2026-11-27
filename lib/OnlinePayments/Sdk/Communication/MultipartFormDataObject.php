@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use UnexpectedValueException;
@@ -12,23 +13,21 @@ use OnlinePayments\Sdk\Domain\UploadableFile;
 class MultipartFormDataObject
 {
     /** @var string */
-    private string $boundary;
+    private readonly string $boundary;
 
     /** @var string */
-    private string $contentType;
+    private readonly string $contentType;
 
-    /** @var array */
-    private array $values;
+    /** @var array<string, string> */
+    private array $values = [];
 
-    /** @var array */
-    private array $files;
+    /** @var array<string, UploadableFile> */
+    private array $files = [];
 
     public function __construct()
     {
         $this->boundary = UuidGenerator::generatedUuid();
         $this->contentType = 'multipart/form-data; boundary=' . $this->boundary;
-        $this->values = [];
-        $this->files = [];
     }
 
     /**
@@ -48,7 +47,7 @@ class MultipartFormDataObject
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getValues(): array
     {
@@ -56,7 +55,7 @@ class MultipartFormDataObject
     }
 
     /**
-     * @return array
+     * @return array<string, UploadableFile>
      */
     public function getFiles(): array
     {
@@ -69,8 +68,8 @@ class MultipartFormDataObject
      */
     public function addValue(string $parameterName, string $value): void
     {
-        if (strlen(trim($parameterName)) == 0) {
-            throw new UnexpectedValueException("boundary is required");
+        if (trim($parameterName) === '') {
+            throw new UnexpectedValueException('parameterName is required');
         }
         if (array_key_exists($parameterName, $this->values) || array_key_exists($parameterName, $this->files)) {
             throw new UnexpectedValueException('Duplicate parameter name: ' . $parameterName);
@@ -84,8 +83,8 @@ class MultipartFormDataObject
      */
     public function addFile(string $parameterName, UploadableFile $file): void
     {
-        if (strlen(trim($parameterName)) == 0) {
-            throw new UnexpectedValueException("boundary is required");
+        if (trim($parameterName) === '') {
+            throw new UnexpectedValueException('parameterName is required');
         }
         if (array_key_exists($parameterName, $this->values) || array_key_exists($parameterName, $this->files)) {
             throw new UnexpectedValueException('Duplicate parameter name: ' . $parameterName);

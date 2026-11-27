@@ -13,12 +13,12 @@ class ImportCofSeriesResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -26,7 +26,7 @@ class ImportCofSeriesResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -34,9 +34,9 @@ class ImportCofSeriesResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return ImportCofSeriesResponse
-    */
-    public function withPaymentId(?string $value): ImportCofSeriesResponse
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -45,10 +45,11 @@ class ImportCofSeriesResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
         return $object;
@@ -60,7 +61,8 @@ class ImportCofSeriesResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ImportCofSeriesResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'paymentId')) {

@@ -11,7 +11,9 @@ class GetPaymentProductParamsBuilder
     private ?string $locale = null;
     private ?int $amount = null;
     private ?bool $isRecurring = null;
+    /** @var string[]|null */
     private ?array $addHideList = null;
+    /** @var string[]|null */
     private ?array $hideList = null;
     private ?string $operationType = null;
 
@@ -50,12 +52,18 @@ class GetPaymentProductParamsBuilder
         return $this;
     }
 
+    /**
+     * @param string[]|null $addHideList
+     */
     public function withAddHideList(?array $addHideList): self
     {
         $this->addHideList = $addHideList;
         return $this;
     }
 
+    /**
+     * @param string[]|null $hideList
+     */
     public function withHideList(?array $hideList): self
     {
         $this->hideList = $hideList;
@@ -93,7 +101,9 @@ class GetPaymentProductParamsBuilder
         }
 
         if ($this->addHideList !== null && count($this->addHideList) > 0) {
-            $params->addHide($this->addHideList);
+            foreach ($this->addHideList as $hide) {
+                $params->addHide($hide);
+            }
         }
 
         if ($this->hideList !== null && count($this->hideList) > 0) {

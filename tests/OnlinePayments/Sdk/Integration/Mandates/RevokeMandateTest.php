@@ -24,7 +24,7 @@ class RevokeMandateTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testRevokeMandate_ValidMandate_ReturnsUniqueMandateReference()
+    public function testRevokeMandate_ValidMandate_ReturnsUniqueMandateReference(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -36,7 +36,7 @@ class RevokeMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testRevokeMandate_BlockedMandate_ReturnsUniqueMandateReference()
+    public function testRevokeMandate_BlockedMandate_ReturnsUniqueMandateReference(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -50,7 +50,7 @@ class RevokeMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testRevokeMandate_UnblockedMandate_ReturnsUniqueMandateReference()
+    public function testRevokeMandate_UnblockedMandate_ReturnsUniqueMandateReference(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -66,7 +66,7 @@ class RevokeMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testRevokeMandate_AlreadyRevoked_ReturnsValidationException()
+    public function testRevokeMandate_AlreadyRevoked_ReturnsValidationException(): void
     {
         $uniqueMandateReference = $this->sdkHelper->createMandateAndGetMandateReference();
 
@@ -84,7 +84,7 @@ class RevokeMandateTest extends TestCase
         }
     }
 
-    public function testRevokeMandate_InvalidUniqueMandateReference_ReturnsValidationException()
+    public function testRevokeMandate_InvalidUniqueMandateReference_ReturnsValidationException(): void
     {
         $request = RevokeMandateRequestBuilder::create()->build();
 

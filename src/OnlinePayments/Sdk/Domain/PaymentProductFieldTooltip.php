@@ -15,19 +15,19 @@ class PaymentProductFieldTooltip extends DataObject
      * @var string|null
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-    */
+     */
     public ?string $image = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $label = null;
 
     /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-    */
+     */
     public function getImage(): ?string
     {
         return $this->image;
@@ -37,7 +37,7 @@ class PaymentProductFieldTooltip extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-    */
+     */
     public function setImage(?string $value): void
     {
         $this->image = $value;
@@ -45,11 +45,11 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldTooltip
+     * @return $this
      *
      * @deprecated This field is not used by any payment product Relative URL that can be used to retrieve an image for the tooltip image.
-    */
-    public function withImage(?string $value): PaymentProductFieldTooltip
+     */
+    public function withImage(?string $value): static
     {
         $this->image = $value;
         return $this;
@@ -57,7 +57,7 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -65,7 +65,7 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
@@ -73,9 +73,9 @@ class PaymentProductFieldTooltip extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldTooltip
-    */
-    public function withLabel(?string $value): PaymentProductFieldTooltip
+     * @return $this
+     */
+    public function withLabel(?string $value): static
     {
         $this->label = $value;
         return $this;
@@ -84,13 +84,14 @@ class PaymentProductFieldTooltip extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->image)) {
+        if ($this->image !== null) {
             $object->image = $this->image;
         }
-        if (!is_null($this->label)) {
+        if ($this->label !== null) {
             $object->label = $this->label;
         }
         return $object;
@@ -102,7 +103,8 @@ class PaymentProductFieldTooltip extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldTooltip
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'image')) {

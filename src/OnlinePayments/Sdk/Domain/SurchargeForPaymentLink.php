@@ -13,12 +13,12 @@ class SurchargeForPaymentLink extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $surchargeMode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getSurchargeMode(): ?string
     {
         return $this->surchargeMode;
@@ -26,7 +26,7 @@ class SurchargeForPaymentLink extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurchargeMode(?string $value): void
     {
         $this->surchargeMode = $value;
@@ -34,9 +34,9 @@ class SurchargeForPaymentLink extends DataObject
 
     /**
      * @param string|null $value
-     * @return SurchargeForPaymentLink
-    */
-    public function withSurchargeMode(?string $value): SurchargeForPaymentLink
+     * @return $this
+     */
+    public function withSurchargeMode(?string $value): static
     {
         $this->surchargeMode = $value;
         return $this;
@@ -45,10 +45,11 @@ class SurchargeForPaymentLink extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->surchargeMode)) {
+        if ($this->surchargeMode !== null) {
             $object->surchargeMode = $this->surchargeMode;
         }
         return $object;
@@ -60,7 +61,8 @@ class SurchargeForPaymentLink extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SurchargeForPaymentLink
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'surchargeMode')) {

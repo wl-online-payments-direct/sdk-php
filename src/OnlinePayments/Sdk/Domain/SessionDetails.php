@@ -13,17 +13,17 @@ class SessionDetails extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -31,7 +31,7 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -39,9 +39,9 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionDetails
-    */
-    public function withId(?string $value): SessionDetails
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -49,7 +49,7 @@ class SessionDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -57,7 +57,7 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -65,9 +65,9 @@ class SessionDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return SessionDetails
-    */
-    public function withType(?string $value): SessionDetails
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -76,13 +76,14 @@ class SessionDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
         return $object;
@@ -94,7 +95,8 @@ class SessionDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): SessionDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'id')) {

@@ -13,17 +13,17 @@ class GetHostedTokenizationResponse extends DataObject
 {
     /**
      * @var TokenResponse|null
-    */
+     */
     public ?TokenResponse $token = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $tokenStatus = null;
 
     /**
      * @return TokenResponse|null
-    */
+     */
     public function getToken(): ?TokenResponse
     {
         return $this->token;
@@ -31,7 +31,7 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param TokenResponse|null $value
-    */
+     */
     public function setToken(?TokenResponse $value): void
     {
         $this->token = $value;
@@ -39,9 +39,9 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param TokenResponse|null $value
-     * @return GetHostedTokenizationResponse
-    */
-    public function withToken(?TokenResponse $value): GetHostedTokenizationResponse
+     * @return $this
+     */
+    public function withToken(?TokenResponse $value): static
     {
         $this->token = $value;
         return $this;
@@ -49,7 +49,7 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTokenStatus(): ?string
     {
         return $this->tokenStatus;
@@ -57,7 +57,7 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTokenStatus(?string $value): void
     {
         $this->tokenStatus = $value;
@@ -65,9 +65,9 @@ class GetHostedTokenizationResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetHostedTokenizationResponse
-    */
-    public function withTokenStatus(?string $value): GetHostedTokenizationResponse
+     * @return $this
+     */
+    public function withTokenStatus(?string $value): static
     {
         $this->tokenStatus = $value;
         return $this;
@@ -76,13 +76,14 @@ class GetHostedTokenizationResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->token)) {
+        if ($this->token !== null) {
             $object->token = $this->token->toObject();
         }
-        if (!is_null($this->tokenStatus)) {
+        if ($this->tokenStatus !== null) {
             $object->tokenStatus = $this->tokenStatus;
         }
         return $object;
@@ -94,7 +95,8 @@ class GetHostedTokenizationResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetHostedTokenizationResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'token')) {

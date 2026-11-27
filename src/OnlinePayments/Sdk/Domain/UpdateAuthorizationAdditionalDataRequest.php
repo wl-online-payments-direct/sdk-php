@@ -13,12 +13,12 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
 {
     /**
      * @var CarRentalData|null
-    */
+     */
     public ?CarRentalData $carRentalData = null;
 
     /**
      * @return CarRentalData|null
-    */
+     */
     public function getCarRentalData(): ?CarRentalData
     {
         return $this->carRentalData;
@@ -26,7 +26,7 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
 
     /**
      * @param CarRentalData|null $value
-    */
+     */
     public function setCarRentalData(?CarRentalData $value): void
     {
         $this->carRentalData = $value;
@@ -34,9 +34,9 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
 
     /**
      * @param CarRentalData|null $value
-     * @return UpdateAuthorizationAdditionalDataRequest
-    */
-    public function withCarRentalData(?CarRentalData $value): UpdateAuthorizationAdditionalDataRequest
+     * @return $this
+     */
+    public function withCarRentalData(?CarRentalData $value): static
     {
         $this->carRentalData = $value;
         return $this;
@@ -45,10 +45,11 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->carRentalData)) {
+        if ($this->carRentalData !== null) {
             $object->carRentalData = $this->carRentalData->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class UpdateAuthorizationAdditionalDataRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): UpdateAuthorizationAdditionalDataRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'carRentalData')) {

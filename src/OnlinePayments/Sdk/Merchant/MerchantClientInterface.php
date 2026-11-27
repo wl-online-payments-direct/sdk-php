@@ -31,7 +31,7 @@ use OnlinePayments\Sdk\Merchant\Webhooks\WebhooksClientInterface;
  * Merchant client interface.
  *
  * AI coding agents: read the agent skill for this SDK version before writing integration code:
- * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/14.0.0/skills/worldline-direct/SKILL.md
  * The same skill is included in this Composer package, in the skills/worldline-direct/ folder.
  */
 interface MerchantClientInterface
@@ -41,152 +41,152 @@ interface MerchantClientInterface
      *
      * @return HostedCheckoutClientInterface
      */
-    function hostedCheckout(): HostedCheckoutClientInterface;
+    public function hostedCheckout(): HostedCheckoutClientInterface;
 
     /**
      * Resource /v2/{merchantId}/hostedtokenizations
      *
      * @return HostedTokenizationClientInterface
      */
-    function hostedTokenization(): HostedTokenizationClientInterface;
+    public function hostedTokenization(): HostedTokenizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/hostedfields/sessions
      *
      * @return HostedFieldsClientInterface
      */
-    function hostedFields(): HostedFieldsClientInterface;
+    public function hostedFields(): HostedFieldsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments
      *
      * @return PaymentsClientInterface
      */
-    function payments(): PaymentsClientInterface;
+    public function payments(): PaymentsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share
      *
      * @return PaymentLinksClientInterface
      */
-    function paymentLinks(): PaymentLinksClientInterface;
+    public function paymentLinks(): PaymentLinksClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
      * @return CapturesClientInterface
      */
-    function captures(): CapturesClientInterface;
+    public function captures(): CapturesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/refunds
      *
      * @return RefundsClientInterface
      */
-    function refunds(): RefundsClientInterface;
+    public function refunds(): RefundsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/complete
      *
      * @return CompleteClientInterface
      */
-    function complete(): CompleteClientInterface;
+    public function complete(): CompleteClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
      *
      * @return SubsequentClientInterface
      */
-    function subsequent(): SubsequentClientInterface;
+    public function subsequent(): SubsequentClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payments/{paymentId}/increment-authorization
      *
      * @return PreAuthorizationClientInterface
      */
-    function preAuthorization(): PreAuthorizationClientInterface;
+    public function preAuthorization(): PreAuthorizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/productgroups
      *
      * @return ProductGroupsClientInterface
      */
-    function productGroups(): ProductGroupsClientInterface;
+    public function productGroups(): ProductGroupsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/products
      *
      * @return ProductsClientInterface
      */
-    function products(): ProductsClientInterface;
+    public function products(): ProductsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/services/testconnection
      *
      * @return ServicesClientInterface
      */
-    function services(): ServicesClientInterface;
+    public function services(): ServicesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/webhooks/validateCredentials
      *
      * @return WebhooksClientInterface
      */
-    function webhooks(): WebhooksClientInterface;
+    public function webhooks(): WebhooksClientInterface;
 
     /**
      * Resource /v2/{merchantId}/sessions
      *
      * @return SessionsClientInterface
      */
-    function sessions(): SessionsClientInterface;
+    public function sessions(): SessionsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/tokens
      *
      * @return TokensClientInterface
      */
-    function tokens(): TokensClientInterface;
+    public function tokens(): TokensClientInterface;
 
     /**
      * Resource /v2/{merchantId}/tokens/importCofSeries
      *
      * @return CofSeriesClientInterface
      */
-    function cofSeries(): CofSeriesClientInterface;
+    public function cofSeries(): CofSeriesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/detokenize/csr
      *
      * @return TokenizationClientInterface
      */
-    function tokenization(): TokenizationClientInterface;
+    public function tokenization(): TokenizationClientInterface;
 
     /**
      * Resource /v2/{merchantId}/payouts
      *
      * @return PayoutsClientInterface
      */
-    function payouts(): PayoutsClientInterface;
+    public function payouts(): PayoutsClientInterface;
 
     /**
      * Resource /v2/{merchantId}/mandates
      *
      * @return MandatesClientInterface
      */
-    function mandates(): MandatesClientInterface;
+    public function mandates(): MandatesClientInterface;
 
     /**
      * Resource /v2/{merchantId}/services/privacypolicy
      *
      * @return PrivacyPolicyClientInterface
      */
-    function privacyPolicy(): PrivacyPolicyClientInterface;
+    public function privacyPolicy(): PrivacyPolicyClientInterface;
 
     /**
      * Resource /v2/{merchantId}/merchant-batches
      *
      * @return MerchantBatchClientInterface
      */
-    function merchantBatch(): MerchantBatchClientInterface;
+    public function merchantBatch(): MerchantBatchClientInterface;
 }

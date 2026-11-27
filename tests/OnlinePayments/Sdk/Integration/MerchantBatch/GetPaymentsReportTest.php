@@ -31,7 +31,7 @@ class GetPaymentsReportTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetPaymentsReport_ParamGetters_ReturnExpectedValues()
+    public function testGetPaymentsReport_ParamGetters_ReturnExpectedValues(): void
     {
         $params = GetPaymentsReportParamsBuilder::create()
             ->withCursor(self::CURSOR_VALUE)
@@ -42,14 +42,14 @@ class GetPaymentsReportTest extends TestCase
         $this->assertSame(50, $params->getLimit());
     }
 
-    public function testGetPaymentsReport_ExistingMerchantBatchReference_ReturnsPaymentsReport()
+    public function testGetPaymentsReport_ExistingMerchantBatchReference_ReturnsPaymentsReport(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitAndProcessBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $params = GetPaymentsReportParamsBuilder::create()->build();
@@ -61,14 +61,14 @@ class GetPaymentsReportTest extends TestCase
         $this->assertNotNull($response->getPagination());
     }
 
-    public function testGetPaymentsReport_WithCursorAndLimit_ReturnsResponse()
+    public function testGetPaymentsReport_WithCursorAndLimit_ReturnsResponse(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitAndProcessBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $firstPageParams = GetPaymentsReportParamsBuilder::create()
@@ -93,14 +93,14 @@ class GetPaymentsReportTest extends TestCase
         $this->assertNotNull($secondPage->getPagination());
     }
 
-    public function testGetPaymentsReport_ExistingMerchantBatchReferenceWithCallContext_ReturnsPaymentsReport()
+    public function testGetPaymentsReport_ExistingMerchantBatchReferenceWithCallContext_ReturnsPaymentsReport(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitAndProcessBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $params = GetPaymentsReportParamsBuilder::create()->build();
@@ -115,7 +115,7 @@ class GetPaymentsReportTest extends TestCase
         $this->assertNotNull($response->getPagination());
     }
 
-    public function testGetPaymentsReport_NonExistingMerchantBatchReference_ReturnsReferenceException()
+    public function testGetPaymentsReport_NonExistingMerchantBatchReference_ReturnsReferenceException(): void
     {
         $params = GetPaymentsReportParamsBuilder::create()->build();
 
@@ -128,14 +128,14 @@ class GetPaymentsReportTest extends TestCase
         }
     }
 
-    public function testGetPaymentsReport_InvalidCursor_ReturnsValidationException()
+    public function testGetPaymentsReport_InvalidCursor_ReturnsValidationException(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $params = GetPaymentsReportParamsBuilder::create()
@@ -151,14 +151,14 @@ class GetPaymentsReportTest extends TestCase
         }
     }
 
-    public function testGetPaymentsReport_LimitBelowMinimum_ReturnsValidationException()
+    public function testGetPaymentsReport_LimitBelowMinimum_ReturnsValidationException(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $params = GetPaymentsReportParamsBuilder::create()
@@ -174,14 +174,14 @@ class GetPaymentsReportTest extends TestCase
         }
     }
 
-    public function testGetPaymentsReport_LimitAboveMaximum_ReturnsValidationException()
+    public function testGetPaymentsReport_LimitAboveMaximum_ReturnsValidationException(): void
     {
         $createPaymentRequest = CreatePaymentRequestBuilder::create()->build();
 
         $reference = $this->sdkHelper->submitBatchAndGetReference(
             [$createPaymentRequest],
             "CreatePayment",
-            1
+            1,
         );
 
         $params = GetPaymentsReportParamsBuilder::create()

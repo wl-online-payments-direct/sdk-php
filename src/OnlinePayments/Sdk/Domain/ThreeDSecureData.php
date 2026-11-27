@@ -13,22 +13,22 @@ class ThreeDSecureData extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $acsTransactionId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $method = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $utcTimestamp = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAcsTransactionId(): ?string
     {
         return $this->acsTransactionId;
@@ -36,7 +36,7 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAcsTransactionId(?string $value): void
     {
         $this->acsTransactionId = $value;
@@ -44,9 +44,9 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDSecureData
-    */
-    public function withAcsTransactionId(?string $value): ThreeDSecureData
+     * @return $this
+     */
+    public function withAcsTransactionId(?string $value): static
     {
         $this->acsTransactionId = $value;
         return $this;
@@ -54,7 +54,7 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMethod(): ?string
     {
         return $this->method;
@@ -62,7 +62,7 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMethod(?string $value): void
     {
         $this->method = $value;
@@ -70,9 +70,9 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDSecureData
-    */
-    public function withMethod(?string $value): ThreeDSecureData
+     * @return $this
+     */
+    public function withMethod(?string $value): static
     {
         $this->method = $value;
         return $this;
@@ -80,7 +80,7 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getUtcTimestamp(): ?string
     {
         return $this->utcTimestamp;
@@ -88,7 +88,7 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setUtcTimestamp(?string $value): void
     {
         $this->utcTimestamp = $value;
@@ -96,9 +96,9 @@ class ThreeDSecureData extends DataObject
 
     /**
      * @param string|null $value
-     * @return ThreeDSecureData
-    */
-    public function withUtcTimestamp(?string $value): ThreeDSecureData
+     * @return $this
+     */
+    public function withUtcTimestamp(?string $value): static
     {
         $this->utcTimestamp = $value;
         return $this;
@@ -107,16 +107,17 @@ class ThreeDSecureData extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acsTransactionId)) {
+        if ($this->acsTransactionId !== null) {
             $object->acsTransactionId = $this->acsTransactionId;
         }
-        if (!is_null($this->method)) {
+        if ($this->method !== null) {
             $object->method = $this->method;
         }
-        if (!is_null($this->utcTimestamp)) {
+        if ($this->utcTimestamp !== null) {
             $object->utcTimestamp = $this->utcTimestamp;
         }
         return $object;
@@ -128,7 +129,8 @@ class ThreeDSecureData extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ThreeDSecureData
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acsTransactionId')) {

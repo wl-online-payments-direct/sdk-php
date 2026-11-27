@@ -13,22 +13,22 @@ class CustomerBankAccount extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $accountHolderName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $bic = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $iban = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAccountHolderName(): ?string
     {
         return $this->accountHolderName;
@@ -36,7 +36,7 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAccountHolderName(?string $value): void
     {
         $this->accountHolderName = $value;
@@ -44,9 +44,9 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerBankAccount
-    */
-    public function withAccountHolderName(?string $value): CustomerBankAccount
+     * @return $this
+     */
+    public function withAccountHolderName(?string $value): static
     {
         $this->accountHolderName = $value;
         return $this;
@@ -54,7 +54,7 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getBic(): ?string
     {
         return $this->bic;
@@ -62,7 +62,7 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBic(?string $value): void
     {
         $this->bic = $value;
@@ -70,9 +70,9 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerBankAccount
-    */
-    public function withBic(?string $value): CustomerBankAccount
+     * @return $this
+     */
+    public function withBic(?string $value): static
     {
         $this->bic = $value;
         return $this;
@@ -80,7 +80,7 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIban(): ?string
     {
         return $this->iban;
@@ -88,7 +88,7 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIban(?string $value): void
     {
         $this->iban = $value;
@@ -96,9 +96,9 @@ class CustomerBankAccount extends DataObject
 
     /**
      * @param string|null $value
-     * @return CustomerBankAccount
-    */
-    public function withIban(?string $value): CustomerBankAccount
+     * @return $this
+     */
+    public function withIban(?string $value): static
     {
         $this->iban = $value;
         return $this;
@@ -107,16 +107,17 @@ class CustomerBankAccount extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->accountHolderName)) {
+        if ($this->accountHolderName !== null) {
             $object->accountHolderName = $this->accountHolderName;
         }
-        if (!is_null($this->bic)) {
+        if ($this->bic !== null) {
             $object->bic = $this->bic;
         }
-        if (!is_null($this->iban)) {
+        if ($this->iban !== null) {
             $object->iban = $this->iban;
         }
         return $object;
@@ -128,7 +129,8 @@ class CustomerBankAccount extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerBankAccount
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'accountHolderName')) {

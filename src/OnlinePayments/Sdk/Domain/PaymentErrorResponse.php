@@ -13,22 +13,22 @@ class PaymentErrorResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $errorId = null;
 
     /**
      * @var APIError[]|null
-    */
+     */
     public ?array $errors = null;
 
     /**
      * @var CreatePaymentResponse|null
-    */
+     */
     public ?CreatePaymentResponse $paymentResult = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getErrorId(): ?string
     {
         return $this->errorId;
@@ -36,7 +36,7 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setErrorId(?string $value): void
     {
         $this->errorId = $value;
@@ -44,9 +44,9 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentErrorResponse
-    */
-    public function withErrorId(?string $value): PaymentErrorResponse
+     * @return $this
+     */
+    public function withErrorId(?string $value): static
     {
         $this->errorId = $value;
         return $this;
@@ -54,7 +54,7 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @return APIError[]|null
-    */
+     */
     public function getErrors(): ?array
     {
         return $this->errors;
@@ -62,7 +62,7 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-    */
+     */
     public function setErrors(?array $value): void
     {
         $this->errors = $value;
@@ -70,9 +70,9 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param APIError[]|null $value
-     * @return PaymentErrorResponse
-    */
-    public function withErrors(?array $value): PaymentErrorResponse
+     * @return $this
+     */
+    public function withErrors(?array $value): static
     {
         $this->errors = $value;
         return $this;
@@ -80,7 +80,7 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @return CreatePaymentResponse|null
-    */
+     */
     public function getPaymentResult(): ?CreatePaymentResponse
     {
         return $this->paymentResult;
@@ -88,7 +88,7 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param CreatePaymentResponse|null $value
-    */
+     */
     public function setPaymentResult(?CreatePaymentResponse $value): void
     {
         $this->paymentResult = $value;
@@ -96,9 +96,9 @@ class PaymentErrorResponse extends DataObject
 
     /**
      * @param CreatePaymentResponse|null $value
-     * @return PaymentErrorResponse
-    */
-    public function withPaymentResult(?CreatePaymentResponse $value): PaymentErrorResponse
+     * @return $this
+     */
+    public function withPaymentResult(?CreatePaymentResponse $value): static
     {
         $this->paymentResult = $value;
         return $this;
@@ -107,21 +107,22 @@ class PaymentErrorResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->errorId)) {
+        if ($this->errorId !== null) {
             $object->errorId = $this->errorId;
         }
-        if (!is_null($this->errors)) {
+        if ($this->errors !== null) {
             $object->errors = [];
             foreach ($this->errors as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->errors[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->paymentResult)) {
+        if ($this->paymentResult !== null) {
             $object->paymentResult = $this->paymentResult->toObject();
         }
         return $object;
@@ -133,7 +134,8 @@ class PaymentErrorResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentErrorResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'errorId')) {

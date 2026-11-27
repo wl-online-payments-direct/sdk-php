@@ -36,7 +36,7 @@ interface TokensClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse;
+    public function createToken(CreateTokenRequest $body, ?CallContext $callContext = null): CreatedTokenResponse;
 
     /**
      * Resource /v2/{merchantId}/tokens/{tokenId} - Get token
@@ -53,7 +53,7 @@ interface TokensClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getToken(string $tokenId, ?CallContext $callContext = null): TokenResponse;
+    public function getToken(string $tokenId, ?CallContext $callContext = null): TokenResponse;
 
     /**
      * Resource /v2/{merchantId}/tokens/{tokenId} - Delete token
@@ -70,5 +70,5 @@ interface TokensClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function deleteToken(string $tokenId, ?CallContext $callContext = null): void;
+    public function deleteToken(string $tokenId, ?CallContext $callContext = null): void;
 }

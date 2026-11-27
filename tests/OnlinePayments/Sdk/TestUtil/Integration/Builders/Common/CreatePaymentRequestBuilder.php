@@ -161,8 +161,7 @@ class CreatePaymentRequestBuilder
 
         if ($this->token !== null) {
             $cardInput->setToken($this->token);
-        }
-        else {
+        } else {
             $cardInput->setCard($this->buildCard());
         }
 

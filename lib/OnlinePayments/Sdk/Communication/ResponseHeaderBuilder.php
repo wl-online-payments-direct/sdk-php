@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 /**
@@ -11,7 +12,7 @@ class ResponseHeaderBuilder
     /** @var string */
     private string $headerString = '';
 
-    /** @var array|null */
+    /** @var array<int|string, string|string[]>|null */
     private ?array $headers = null;
 
     /** @var string|null */
@@ -27,11 +28,11 @@ class ResponseHeaderBuilder
     }
 
     /**
-     * @return array
+     * @return array<int|string, string|string[]>
      */
     public function getHeaders(): array
     {
-        if (is_null($this->headers)) {
+        if ($this->headers === null) {
             $this->headers = HttpHeaderHelper::parseRawHeaders(explode("\r\n", $this->headerString));
         }
         return $this->headers;
@@ -42,11 +43,11 @@ class ResponseHeaderBuilder
      */
     public function getContentType(): ?string
     {
-        if (is_null($this->contentType)) {
+        if ($this->contentType === null) {
             $headers = $this->getHeaders();
             foreach ($headers as $headerKey => $headerValue) {
                 if (strtolower($headerKey) === 'content-type') {
-                    $this->contentType = $headerValue;
+                    $this->contentType = is_array($headerValue) ? (string) reset($headerValue) : $headerValue;
                     break;
                 }
             }

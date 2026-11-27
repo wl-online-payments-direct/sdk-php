@@ -20,7 +20,7 @@ class CreatePaymentTest extends TestCase
         $this->paymentsClient = $this->client->merchant($this->getMerchantId())->payments();
     }
 
-    public function testCreatePayment_ValidPayment_ReturnsAcceptedStatus()
+    public function testCreatePayment_ValidPayment_ReturnsAcceptedStatus(): void
     {
         $createRequest = CreatePaymentRequestBuilder::create()
             ->withAmount(1000)
@@ -35,7 +35,7 @@ class CreatePaymentTest extends TestCase
         $this->assertContains($payment->getStatus(), ['AUTHORIZED', 'PENDING_CAPTURE']);
     }
 
-    public function testCreatePayment_ValidInputWithCallContext_ReturnsIdempotentPayment()
+    public function testCreatePayment_ValidInputWithCallContext_ReturnsIdempotentPayment(): void
     {
         $createPayment = CreatePaymentRequestBuilder::create()->build();
 
@@ -55,7 +55,7 @@ class CreatePaymentTest extends TestCase
         $this->assertNotEmpty($callContext->getIdempotenceRequestTimestamp());
     }
 
-    public function testCreatePayment_InvalidCardNumber_ReturnsDeclinedPaymentException()
+    public function testCreatePayment_InvalidCardNumber_ReturnsDeclinedPaymentException(): void
     {
         $createPayment = CreatePaymentRequestBuilder::create()
             ->withCardNumber("4111111111111110")
@@ -70,7 +70,7 @@ class CreatePaymentTest extends TestCase
         }
     }
 
-    public function testCreatePayment_UnsupportedCardFormat_ReturnsValidationException()
+    public function testCreatePayment_UnsupportedCardFormat_ReturnsValidationException(): void
     {
         $createPayment = CreatePaymentRequestBuilder::create()
             ->withCardNumber("ABC-INVALID-CARD-9999")

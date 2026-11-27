@@ -37,7 +37,7 @@ interface MerchantBatchClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function submitBatch(SubmitBatchRequestBody $body, ?CallContext $callContext = null): SubmitBatchResponse;
+    public function submitBatch(SubmitBatchRequestBody $body, ?CallContext $callContext = null): SubmitBatchResponse;
 
     /**
      * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference}/process - Process batch transactions
@@ -54,7 +54,7 @@ interface MerchantBatchClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function processBatch(string $merchantBatchReference, ?CallContext $callContext = null): void;
+    public function processBatch(string $merchantBatchReference, ?CallContext $callContext = null): void;
 
     /**
      * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference} - Get batch status
@@ -71,7 +71,7 @@ interface MerchantBatchClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getBatchStatus(string $merchantBatchReference, ?CallContext $callContext = null): GetBatchStatusResponse;
+    public function getBatchStatus(string $merchantBatchReference, ?CallContext $callContext = null): GetBatchStatusResponse;
 
     /**
      * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference}/reports/payments - Get payments report
@@ -89,5 +89,5 @@ interface MerchantBatchClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getPaymentsReport(string $merchantBatchReference, GetPaymentsReportParams $query, ?CallContext $callContext = null): PaymentsReportResponse;
+    public function getPaymentsReport(string $merchantBatchReference, GetPaymentsReportParams $query, ?CallContext $callContext = null): PaymentsReportResponse;
 }

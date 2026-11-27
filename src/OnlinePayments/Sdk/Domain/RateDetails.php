@@ -13,32 +13,32 @@ class RateDetails extends DataObject
 {
     /**
      * @var float|null
-    */
+     */
     public ?float $exchangeRate = null;
 
     /**
      * @var float|null
-    */
+     */
     public ?float $invertedExchangeRate = null;
 
     /**
      * @var float|null
-    */
+     */
     public ?float $markUpRate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $quotationDateTime = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $source = null;
 
     /**
      * @return float|null
-    */
+     */
     public function getExchangeRate(): ?float
     {
         return $this->exchangeRate;
@@ -46,7 +46,7 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-    */
+     */
     public function setExchangeRate(?float $value): void
     {
         $this->exchangeRate = $value;
@@ -54,9 +54,9 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     * @return RateDetails
-    */
-    public function withExchangeRate(?float $value): RateDetails
+     * @return $this
+     */
+    public function withExchangeRate(?float $value): static
     {
         $this->exchangeRate = $value;
         return $this;
@@ -64,7 +64,7 @@ class RateDetails extends DataObject
 
     /**
      * @return float|null
-    */
+     */
     public function getInvertedExchangeRate(): ?float
     {
         return $this->invertedExchangeRate;
@@ -72,7 +72,7 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-    */
+     */
     public function setInvertedExchangeRate(?float $value): void
     {
         $this->invertedExchangeRate = $value;
@@ -80,9 +80,9 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     * @return RateDetails
-    */
-    public function withInvertedExchangeRate(?float $value): RateDetails
+     * @return $this
+     */
+    public function withInvertedExchangeRate(?float $value): static
     {
         $this->invertedExchangeRate = $value;
         return $this;
@@ -90,7 +90,7 @@ class RateDetails extends DataObject
 
     /**
      * @return float|null
-    */
+     */
     public function getMarkUpRate(): ?float
     {
         return $this->markUpRate;
@@ -98,7 +98,7 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-    */
+     */
     public function setMarkUpRate(?float $value): void
     {
         $this->markUpRate = $value;
@@ -106,9 +106,9 @@ class RateDetails extends DataObject
 
     /**
      * @param float|null $value
-     * @return RateDetails
-    */
-    public function withMarkUpRate(?float $value): RateDetails
+     * @return $this
+     */
+    public function withMarkUpRate(?float $value): static
     {
         $this->markUpRate = $value;
         return $this;
@@ -116,7 +116,7 @@ class RateDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQuotationDateTime(): ?string
     {
         return $this->quotationDateTime;
@@ -124,7 +124,7 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQuotationDateTime(?string $value): void
     {
         $this->quotationDateTime = $value;
@@ -132,9 +132,9 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return RateDetails
-    */
-    public function withQuotationDateTime(?string $value): RateDetails
+     * @return $this
+     */
+    public function withQuotationDateTime(?string $value): static
     {
         $this->quotationDateTime = $value;
         return $this;
@@ -142,7 +142,7 @@ class RateDetails extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSource(): ?string
     {
         return $this->source;
@@ -150,7 +150,7 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSource(?string $value): void
     {
         $this->source = $value;
@@ -158,9 +158,9 @@ class RateDetails extends DataObject
 
     /**
      * @param string|null $value
-     * @return RateDetails
-    */
-    public function withSource(?string $value): RateDetails
+     * @return $this
+     */
+    public function withSource(?string $value): static
     {
         $this->source = $value;
         return $this;
@@ -169,22 +169,23 @@ class RateDetails extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->exchangeRate)) {
+        if ($this->exchangeRate !== null) {
             $object->exchangeRate = $this->exchangeRate;
         }
-        if (!is_null($this->invertedExchangeRate)) {
+        if ($this->invertedExchangeRate !== null) {
             $object->invertedExchangeRate = $this->invertedExchangeRate;
         }
-        if (!is_null($this->markUpRate)) {
+        if ($this->markUpRate !== null) {
             $object->markUpRate = $this->markUpRate;
         }
-        if (!is_null($this->quotationDateTime)) {
+        if ($this->quotationDateTime !== null) {
             $object->quotationDateTime = $this->quotationDateTime;
         }
-        if (!is_null($this->source)) {
+        if ($this->source !== null) {
             $object->source = $this->source;
         }
         return $object;
@@ -196,7 +197,8 @@ class RateDetails extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RateDetails
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'exchangeRate')) {

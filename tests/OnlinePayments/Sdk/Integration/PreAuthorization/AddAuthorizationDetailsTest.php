@@ -40,7 +40,7 @@ class AddAuthorizationDetailsTest extends TestCase
 
         $response = $this->preAuthorizationClient->addAuthorizationDetails(
             $paymentId,
-            UpdateAuthorizationAdditionalDataRequestBuilder::create()->build()
+            UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
         );
 
         $this->assertNotNull($response->getPayment());
@@ -73,7 +73,7 @@ class AddAuthorizationDetailsTest extends TestCase
         $response = $this->preAuthorizationClient->addAuthorizationDetails(
             $paymentId,
             UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
-            $callContext
+            $callContext,
         );
 
         $this->assertNotNull($response->getPayment());
@@ -87,7 +87,7 @@ class AddAuthorizationDetailsTest extends TestCase
 
         $this->preAuthorizationClient->addAuthorizationDetails(
             $paymentId,
-            UpdateAuthorizationAdditionalDataRequestBuilder::create()->build()
+            UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
         );
 
         $capture = $this->paymentsClient->capturePayment($paymentId, CapturePaymentRequestBuilder::create()->build());
@@ -101,7 +101,7 @@ class AddAuthorizationDetailsTest extends TestCase
         try {
             $this->preAuthorizationClient->addAuthorizationDetails(
                 self::NON_EXISTING_PAYMENT_ID,
-                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build()
+                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ReferenceException was not thrown');
@@ -149,7 +149,7 @@ class AddAuthorizationDetailsTest extends TestCase
         try {
             $this->preAuthorizationClient->addAuthorizationDetails(
                 $paymentId,
-                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build()
+                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');
@@ -172,7 +172,7 @@ class AddAuthorizationDetailsTest extends TestCase
         try {
             $this->preAuthorizationClient->addAuthorizationDetails(
                 $paymentId,
-                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build()
+                UpdateAuthorizationAdditionalDataRequestBuilder::create()->build(),
             );
 
             $this->fail('Expected ValidationException was not thrown');

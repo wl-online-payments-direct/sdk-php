@@ -14,122 +14,122 @@ class GetIINDetailsResponse extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $cardCorporateIndicator = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $cardEffectiveDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $cardEffectiveDateIndicator = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardPanType = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardProductCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardProductName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardProductUsageLabel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardScheme = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $cardType = null;
 
     /**
      * @var IINDetail[]|null
-    */
+     */
     public ?array $coBrands = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isAllowedInContext = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerPrincipalMemberCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerPrincipalMemberName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerRegionCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuingCountryCode = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $panLengthMax = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $panLengthMin = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $panLuhnCheck = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $paymentProductId = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $virtualCardIndicator = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getCardCorporateIndicator(): ?bool
     {
         return $this->cardCorporateIndicator;
@@ -137,7 +137,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setCardCorporateIndicator(?bool $value): void
     {
         $this->cardCorporateIndicator = $value;
@@ -145,9 +145,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardCorporateIndicator(?bool $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardCorporateIndicator(?bool $value): static
     {
         $this->cardCorporateIndicator = $value;
         return $this;
@@ -155,7 +155,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getCardEffectiveDate(): ?DateTime
     {
         return $this->cardEffectiveDate;
@@ -163,7 +163,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setCardEffectiveDate(?DateTime $value): void
     {
         $this->cardEffectiveDate = $value;
@@ -171,9 +171,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardEffectiveDate(?DateTime $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardEffectiveDate(?DateTime $value): static
     {
         $this->cardEffectiveDate = $value;
         return $this;
@@ -181,7 +181,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getCardEffectiveDateIndicator(): ?bool
     {
         return $this->cardEffectiveDateIndicator;
@@ -189,7 +189,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setCardEffectiveDateIndicator(?bool $value): void
     {
         $this->cardEffectiveDateIndicator = $value;
@@ -197,9 +197,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardEffectiveDateIndicator(?bool $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardEffectiveDateIndicator(?bool $value): static
     {
         $this->cardEffectiveDateIndicator = $value;
         return $this;
@@ -207,7 +207,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardPanType(): ?string
     {
         return $this->cardPanType;
@@ -215,7 +215,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardPanType(?string $value): void
     {
         $this->cardPanType = $value;
@@ -223,9 +223,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardPanType(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardPanType(?string $value): static
     {
         $this->cardPanType = $value;
         return $this;
@@ -233,7 +233,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardProductCode(): ?string
     {
         return $this->cardProductCode;
@@ -241,7 +241,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardProductCode(?string $value): void
     {
         $this->cardProductCode = $value;
@@ -249,9 +249,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardProductCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardProductCode(?string $value): static
     {
         $this->cardProductCode = $value;
         return $this;
@@ -259,7 +259,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardProductName(): ?string
     {
         return $this->cardProductName;
@@ -267,7 +267,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardProductName(?string $value): void
     {
         $this->cardProductName = $value;
@@ -275,9 +275,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardProductName(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardProductName(?string $value): static
     {
         $this->cardProductName = $value;
         return $this;
@@ -285,7 +285,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardProductUsageLabel(): ?string
     {
         return $this->cardProductUsageLabel;
@@ -293,7 +293,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardProductUsageLabel(?string $value): void
     {
         $this->cardProductUsageLabel = $value;
@@ -301,9 +301,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardProductUsageLabel(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardProductUsageLabel(?string $value): static
     {
         $this->cardProductUsageLabel = $value;
         return $this;
@@ -311,7 +311,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardScheme(): ?string
     {
         return $this->cardScheme;
@@ -319,7 +319,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardScheme(?string $value): void
     {
         $this->cardScheme = $value;
@@ -327,9 +327,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardScheme(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardScheme(?string $value): static
     {
         $this->cardScheme = $value;
         return $this;
@@ -337,7 +337,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCardType(): ?string
     {
         return $this->cardType;
@@ -345,7 +345,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCardType(?string $value): void
     {
         $this->cardType = $value;
@@ -353,9 +353,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCardType(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCardType(?string $value): static
     {
         $this->cardType = $value;
         return $this;
@@ -363,7 +363,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return IINDetail[]|null
-    */
+     */
     public function getCoBrands(): ?array
     {
         return $this->coBrands;
@@ -371,7 +371,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param IINDetail[]|null $value
-    */
+     */
     public function setCoBrands(?array $value): void
     {
         $this->coBrands = $value;
@@ -379,9 +379,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param IINDetail[]|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCoBrands(?array $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCoBrands(?array $value): static
     {
         $this->coBrands = $value;
         return $this;
@@ -389,7 +389,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -397,7 +397,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -405,9 +405,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withCountryCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -415,7 +415,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsAllowedInContext(): ?bool
     {
         return $this->isAllowedInContext;
@@ -423,7 +423,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsAllowedInContext(?bool $value): void
     {
         $this->isAllowedInContext = $value;
@@ -431,9 +431,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIsAllowedInContext(?bool $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIsAllowedInContext(?bool $value): static
     {
         $this->isAllowedInContext = $value;
         return $this;
@@ -441,7 +441,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerCode(): ?string
     {
         return $this->issuerCode;
@@ -449,7 +449,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerCode(?string $value): void
     {
         $this->issuerCode = $value;
@@ -457,9 +457,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuerCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuerCode(?string $value): static
     {
         $this->issuerCode = $value;
         return $this;
@@ -467,7 +467,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerName(): ?string
     {
         return $this->issuerName;
@@ -475,7 +475,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerName(?string $value): void
     {
         $this->issuerName = $value;
@@ -483,9 +483,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuerName(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuerName(?string $value): static
     {
         $this->issuerName = $value;
         return $this;
@@ -493,7 +493,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerPrincipalMemberCode(): ?string
     {
         return $this->issuerPrincipalMemberCode;
@@ -501,7 +501,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerPrincipalMemberCode(?string $value): void
     {
         $this->issuerPrincipalMemberCode = $value;
@@ -509,9 +509,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuerPrincipalMemberCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuerPrincipalMemberCode(?string $value): static
     {
         $this->issuerPrincipalMemberCode = $value;
         return $this;
@@ -519,7 +519,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerPrincipalMemberName(): ?string
     {
         return $this->issuerPrincipalMemberName;
@@ -527,7 +527,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerPrincipalMemberName(?string $value): void
     {
         $this->issuerPrincipalMemberName = $value;
@@ -535,9 +535,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuerPrincipalMemberName(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuerPrincipalMemberName(?string $value): static
     {
         $this->issuerPrincipalMemberName = $value;
         return $this;
@@ -545,7 +545,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerRegionCode(): ?string
     {
         return $this->issuerRegionCode;
@@ -553,7 +553,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerRegionCode(?string $value): void
     {
         $this->issuerRegionCode = $value;
@@ -561,9 +561,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuerRegionCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuerRegionCode(?string $value): static
     {
         $this->issuerRegionCode = $value;
         return $this;
@@ -571,7 +571,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuingCountryCode(): ?string
     {
         return $this->issuingCountryCode;
@@ -579,7 +579,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuingCountryCode(?string $value): void
     {
         $this->issuingCountryCode = $value;
@@ -587,9 +587,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withIssuingCountryCode(?string $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withIssuingCountryCode(?string $value): static
     {
         $this->issuingCountryCode = $value;
         return $this;
@@ -597,7 +597,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPanLengthMax(): ?int
     {
         return $this->panLengthMax;
@@ -605,7 +605,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPanLengthMax(?int $value): void
     {
         $this->panLengthMax = $value;
@@ -613,9 +613,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withPanLengthMax(?int $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withPanLengthMax(?int $value): static
     {
         $this->panLengthMax = $value;
         return $this;
@@ -623,7 +623,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPanLengthMin(): ?int
     {
         return $this->panLengthMin;
@@ -631,7 +631,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPanLengthMin(?int $value): void
     {
         $this->panLengthMin = $value;
@@ -639,9 +639,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withPanLengthMin(?int $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withPanLengthMin(?int $value): static
     {
         $this->panLengthMin = $value;
         return $this;
@@ -649,7 +649,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getPanLuhnCheck(): ?bool
     {
         return $this->panLuhnCheck;
@@ -657,7 +657,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setPanLuhnCheck(?bool $value): void
     {
         $this->panLuhnCheck = $value;
@@ -665,9 +665,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withPanLuhnCheck(?bool $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withPanLuhnCheck(?bool $value): static
     {
         $this->panLuhnCheck = $value;
         return $this;
@@ -675,7 +675,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getPaymentProductId(): ?int
     {
         return $this->paymentProductId;
@@ -683,7 +683,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setPaymentProductId(?int $value): void
     {
         $this->paymentProductId = $value;
@@ -691,9 +691,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param int|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withPaymentProductId(?int $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withPaymentProductId(?int $value): static
     {
         $this->paymentProductId = $value;
         return $this;
@@ -701,7 +701,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getVirtualCardIndicator(): ?bool
     {
         return $this->virtualCardIndicator;
@@ -709,7 +709,7 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setVirtualCardIndicator(?bool $value): void
     {
         $this->virtualCardIndicator = $value;
@@ -717,9 +717,9 @@ class GetIINDetailsResponse extends DataObject
 
     /**
      * @param bool|null $value
-     * @return GetIINDetailsResponse
-    */
-    public function withVirtualCardIndicator(?bool $value): GetIINDetailsResponse
+     * @return $this
+     */
+    public function withVirtualCardIndicator(?bool $value): static
     {
         $this->virtualCardIndicator = $value;
         return $this;
@@ -728,81 +728,82 @@ class GetIINDetailsResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cardCorporateIndicator)) {
+        if ($this->cardCorporateIndicator !== null) {
             $object->cardCorporateIndicator = $this->cardCorporateIndicator;
         }
-        if (!is_null($this->cardEffectiveDate)) {
+        if ($this->cardEffectiveDate !== null) {
             $object->cardEffectiveDate = $this->cardEffectiveDate->format('Y-m-d');
         }
-        if (!is_null($this->cardEffectiveDateIndicator)) {
+        if ($this->cardEffectiveDateIndicator !== null) {
             $object->cardEffectiveDateIndicator = $this->cardEffectiveDateIndicator;
         }
-        if (!is_null($this->cardPanType)) {
+        if ($this->cardPanType !== null) {
             $object->cardPanType = $this->cardPanType;
         }
-        if (!is_null($this->cardProductCode)) {
+        if ($this->cardProductCode !== null) {
             $object->cardProductCode = $this->cardProductCode;
         }
-        if (!is_null($this->cardProductName)) {
+        if ($this->cardProductName !== null) {
             $object->cardProductName = $this->cardProductName;
         }
-        if (!is_null($this->cardProductUsageLabel)) {
+        if ($this->cardProductUsageLabel !== null) {
             $object->cardProductUsageLabel = $this->cardProductUsageLabel;
         }
-        if (!is_null($this->cardScheme)) {
+        if ($this->cardScheme !== null) {
             $object->cardScheme = $this->cardScheme;
         }
-        if (!is_null($this->cardType)) {
+        if ($this->cardType !== null) {
             $object->cardType = $this->cardType;
         }
-        if (!is_null($this->coBrands)) {
+        if ($this->coBrands !== null) {
             $object->coBrands = [];
             foreach ($this->coBrands as $element) {
-                if (!is_null($element)) {
+                if ($element !== null) {
                     $object->coBrands[] = $element->toObject();
                 }
             }
         }
-        if (!is_null($this->countryCode)) {
+        if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if (!is_null($this->isAllowedInContext)) {
+        if ($this->isAllowedInContext !== null) {
             $object->isAllowedInContext = $this->isAllowedInContext;
         }
-        if (!is_null($this->issuerCode)) {
+        if ($this->issuerCode !== null) {
             $object->issuerCode = $this->issuerCode;
         }
-        if (!is_null($this->issuerName)) {
+        if ($this->issuerName !== null) {
             $object->issuerName = $this->issuerName;
         }
-        if (!is_null($this->issuerPrincipalMemberCode)) {
+        if ($this->issuerPrincipalMemberCode !== null) {
             $object->issuerPrincipalMemberCode = $this->issuerPrincipalMemberCode;
         }
-        if (!is_null($this->issuerPrincipalMemberName)) {
+        if ($this->issuerPrincipalMemberName !== null) {
             $object->issuerPrincipalMemberName = $this->issuerPrincipalMemberName;
         }
-        if (!is_null($this->issuerRegionCode)) {
+        if ($this->issuerRegionCode !== null) {
             $object->issuerRegionCode = $this->issuerRegionCode;
         }
-        if (!is_null($this->issuingCountryCode)) {
+        if ($this->issuingCountryCode !== null) {
             $object->issuingCountryCode = $this->issuingCountryCode;
         }
-        if (!is_null($this->panLengthMax)) {
+        if ($this->panLengthMax !== null) {
             $object->panLengthMax = $this->panLengthMax;
         }
-        if (!is_null($this->panLengthMin)) {
+        if ($this->panLengthMin !== null) {
             $object->panLengthMin = $this->panLengthMin;
         }
-        if (!is_null($this->panLuhnCheck)) {
+        if ($this->panLuhnCheck !== null) {
             $object->panLuhnCheck = $this->panLuhnCheck;
         }
-        if (!is_null($this->paymentProductId)) {
+        if ($this->paymentProductId !== null) {
             $object->paymentProductId = $this->paymentProductId;
         }
-        if (!is_null($this->virtualCardIndicator)) {
+        if ($this->virtualCardIndicator !== null) {
             $object->virtualCardIndicator = $this->virtualCardIndicator;
         }
         return $object;
@@ -814,7 +815,8 @@ class GetIINDetailsResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): GetIINDetailsResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cardCorporateIndicator')) {

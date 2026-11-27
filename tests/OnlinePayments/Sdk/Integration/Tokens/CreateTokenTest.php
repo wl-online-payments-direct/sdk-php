@@ -22,7 +22,7 @@ class CreateTokenTest extends TestCase
         $this->tokensClient = $this->client->merchant($this->getMerchantId())->tokens();
     }
 
-    public function testCreateToken_ValidInput_ReturnsSuccessfullyCreatedToken()
+    public function testCreateToken_ValidInput_ReturnsSuccessfullyCreatedToken(): void
     {
         $request = CreateTokenRequestBuilder::create()->build();
 
@@ -35,7 +35,7 @@ class CreateTokenTest extends TestCase
         $this->assertNotEmpty($response->getCard()->getCardNumber());
     }
 
-    public function testCreateToken_ValidInput_WithCallContext_ReturnsSuccessfullyCreatedToken()
+    public function testCreateToken_ValidInput_WithCallContext_ReturnsSuccessfullyCreatedToken(): void
     {
         $request = CreateTokenRequestBuilder::create()->build();
         $callContext = new CallContext();
@@ -50,7 +50,7 @@ class CreateTokenTest extends TestCase
         $this->assertNotEmpty($response->getCard()->getCardNumber());
     }
 
-    public function testCreateToken_InvalidCardNumberInput_ReturnsValidationException()
+    public function testCreateToken_InvalidCardNumberInput_ReturnsValidationException(): void
     {
         $request = CreateTokenRequestBuilder::create()->withCardNumber("1234567890123456")->build();
 
@@ -64,7 +64,7 @@ class CreateTokenTest extends TestCase
         }
     }
 
-    public function testCreateToken_InvalidExpiryDateInput_ReturnsValidationException()
+    public function testCreateToken_InvalidExpiryDateInput_ReturnsValidationException(): void
     {
         $request = CreateTokenRequestBuilder::create()->withExpiryDate("0000")->build();
 
@@ -78,7 +78,7 @@ class CreateTokenTest extends TestCase
         }
     }
 
-    public function testCreateToken_InvalidCvvInput_ReturnsValidationException()
+    public function testCreateToken_InvalidCvvInput_ReturnsValidationException(): void
     {
         $request = CreateTokenRequestBuilder::create()->withCvv("12345678")->build();
 

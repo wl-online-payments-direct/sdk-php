@@ -37,7 +37,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null): CreateMandateResponse;
+    public function createMandate(CreateMandateRequest $body, ?CallContext $callContext = null): CreateMandateResponse;
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference} - Get mandate
@@ -54,7 +54,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function getMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
+    public function getMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/block - Block mandate
@@ -71,7 +71,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function blockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
+    public function blockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/unblock - Unblock mandate
@@ -88,7 +88,7 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function unblockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
+    public function unblockMandate(string $uniqueMandateReference, ?CallContext $callContext = null): GetMandateResponse;
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
@@ -106,5 +106,5 @@ interface MandatesClientInterface
      * @throws ApiException
      * @throws InvalidResponseException
      */
-    function revokeMandate(string $uniqueMandateReference, RevokeMandateRequest $body, ?CallContext $callContext = null): GetMandateResponse;
+    public function revokeMandate(string $uniqueMandateReference, RevokeMandateRequest $body, ?CallContext $callContext = null): GetMandateResponse;
 }

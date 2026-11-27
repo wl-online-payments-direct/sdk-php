@@ -13,27 +13,27 @@ class PaymentProductFieldDisplayElement extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $id = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $label = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $value = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getId(): ?string
     {
         return $this->id;
@@ -41,7 +41,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setId(?string $value): void
     {
         $this->id = $value;
@@ -49,9 +49,9 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayElement
-    */
-    public function withId(?string $value): PaymentProductFieldDisplayElement
+     * @return $this
+     */
+    public function withId(?string $value): static
     {
         $this->id = $value;
         return $this;
@@ -59,7 +59,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -67,7 +67,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setLabel(?string $value): void
     {
         $this->label = $value;
@@ -75,9 +75,9 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayElement
-    */
-    public function withLabel(?string $value): PaymentProductFieldDisplayElement
+     * @return $this
+     */
+    public function withLabel(?string $value): static
     {
         $this->label = $value;
         return $this;
@@ -85,7 +85,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -93,7 +93,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -101,9 +101,9 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayElement
-    */
-    public function withType(?string $value): PaymentProductFieldDisplayElement
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getValue(): ?string
     {
         return $this->value;
@@ -119,7 +119,7 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;
@@ -127,9 +127,9 @@ class PaymentProductFieldDisplayElement extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProductFieldDisplayElement
-    */
-    public function withValue(?string $value): PaymentProductFieldDisplayElement
+     * @return $this
+     */
+    public function withValue(?string $value): static
     {
         $this->value = $value;
         return $this;
@@ -138,19 +138,20 @@ class PaymentProductFieldDisplayElement extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->id)) {
+        if ($this->id !== null) {
             $object->id = $this->id;
         }
-        if (!is_null($this->label)) {
+        if ($this->label !== null) {
             $object->label = $this->label;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
-        if (!is_null($this->value)) {
+        if ($this->value !== null) {
             $object->value = $this->value;
         }
         return $object;
@@ -162,7 +163,8 @@ class PaymentProductFieldDisplayElement extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProductFieldDisplayElement
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'id')) {

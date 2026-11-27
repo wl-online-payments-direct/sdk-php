@@ -1,59 +1,45 @@
 <?php
+
 namespace OnlinePayments\Sdk;
 
 use UnexpectedValueException;
 use OnlinePayments\Sdk\Domain\ShoppingCartExtension;
+use OnlinePayments\Sdk\Logging\ValueObfuscator;
 
 /**
  * Class CommunicatorConfiguration
  *
  * AI coding agents: read the agent skill for this SDK version before writing integration code:
- * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/13.1.0/skills/worldline-direct/SKILL.md
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-php/14.0.0/skills/worldline-direct/SKILL.md
  * The same skill is included in this Composer package, in the skills/worldline-direct/ folder.
  *
  * @package OnlinePayments\Sdk
  */
 class CommunicatorConfiguration
 {
-    /**
-     * @var string
-     */
-    private $apiKeyId;
+    /** @var string */
+    private string $apiKeyId;
 
-    /**
-     * @var string
-     */
-    private $apiSecret;
+    /** @var string */
+    private string $apiSecret;
 
-    /**
-     * @var string
-     */
-    private $apiEndpoint;
+    /** @var string */
+    private string $apiEndpoint;
 
-    /**
-     * @var int
-     */
-    private $connectTimeout;
+    /** @var int */
+    private int $connectTimeout;
 
-    /**
-     * @var int
-     */
-    private $readTimeout;
+    /** @var int */
+    private int $readTimeout;
 
-    /**
-     * @var ProxyConfiguration|null
-     */
-    private $proxyConfiguration;
+    /** @var ProxyConfiguration|null */
+    private ?ProxyConfiguration $proxyConfiguration;
 
-    /**
-     * @var string
-     */
-    private $integrator;
+    /** @var string */
+    private string $integrator;
 
-    /**
-     * @var ShoppingCartExtension|null
-     */
-    private $shoppingCartExtension = null;
+    /** @var ShoppingCartExtension|null */
+    private ?ShoppingCartExtension $shoppingCartExtension = null;
 
     /**
      * @param string $apiKeyId
@@ -65,14 +51,17 @@ class CommunicatorConfiguration
      * @param int $readTimeout
      */
     public function __construct(
-        $apiKeyId,
-        $apiSecret,
-        $apiEndpoint,
-        $integrator,
+        string $apiKeyId,
+        #[\SensitiveParameter]
+        string $apiSecret,
+        string $apiEndpoint,
+        string $integrator,
         ?ProxyConfiguration $proxyConfiguration = null,
-        $connectTimeout = -1,
-        $readTimeout = -1)
-    {
+        int $connectTimeout = -1,
+        int $readTimeout = -1,
+    ) {
+        $this->validateApiKeyId($apiKeyId);
+        $this->validateApiSecret($apiSecret);
         $apiEndpoint = rtrim($apiEndpoint, '/');
         $this->validateApiEndpoint($apiEndpoint);
         $this->validateIntegrator($integrator);
@@ -85,11 +74,27 @@ class CommunicatorConfiguration
         $this->readTimeout = $readTimeout;
     }
 
-    private function validateApiEndpoint($apiEndpoint)
+    /**
+     * @param string $apiEndpoint
+     */
+    private function validateApiEndpoint(string $apiEndpoint): void
     {
-        $url = parse_url($apiEndpoint);
-        if ($url === false) {
-            throw new UnexpectedValueException('apiEndpoint is not a valid URL');
+        try {
+            $url = parse_url($apiEndpoint);
+        } catch (\ValueError $e) {
+            throw new UnexpectedValueException(
+                'apiEndpoint must be an absolute HTTP or HTTPS URL with a host',
+                0,
+                $e,
+            );
+        }
+        if (
+            $url === false
+            || !in_array(strtolower($url['scheme'] ?? ''), ['http', 'https'], true)
+            || !isset($url['host'])
+            || $url['host'] === ''
+        ) {
+            throw new UnexpectedValueException('apiEndpoint must be an absolute HTTP or HTTPS URL with a host');
         } elseif (isset($url['path']) && $url['path'] !== '') {
             throw new UnexpectedValueException('apiEndpoint should not contain a path');
         } elseif (isset($url['user']) || isset($url['query']) || isset($url['fragment'])) {
@@ -97,17 +102,34 @@ class CommunicatorConfiguration
         }
     }
 
-    private function validateIntegrator($integrator)
+    private function validateApiKeyId(string $apiKeyId): void
     {
-        if (is_null($integrator) || strlen(trim($integrator)) == 0) {
-            throw new UnexpectedValueException("integrator is required");
+        if (trim($apiKeyId) === '') {
+            throw new UnexpectedValueException('apiKeyId is required');
+        }
+    }
+
+    private function validateApiSecret(#[\SensitiveParameter] string $apiSecret): void
+    {
+        if (trim($apiSecret) === '') {
+            throw new UnexpectedValueException('apiSecret is required');
+        }
+    }
+
+    /**
+     * @param string $integrator
+     */
+    private function validateIntegrator(string $integrator): void
+    {
+        if (trim($integrator) === '') {
+            throw new UnexpectedValueException('integrator is required');
         }
     }
 
     /**
      * @return string An API key used for authorization.
      */
-    public function getApiKeyId()
+    public function getApiKeyId(): string
     {
         return $this->apiKeyId;
     }
@@ -115,15 +137,16 @@ class CommunicatorConfiguration
     /**
      * @param string $apiKeyId
      */
-    public function setApiKeyId($apiKeyId)
+    public function setApiKeyId(string $apiKeyId): void
     {
+        $this->validateApiKeyId($apiKeyId);
         $this->apiKeyId = $apiKeyId;
     }
 
     /**
      * @return string A API key secret used for authorization.
      */
-    public function getApiSecret()
+    public function getApiSecret(): string
     {
         return $this->apiSecret;
     }
@@ -131,15 +154,16 @@ class CommunicatorConfiguration
     /**
      * @param string $apiSecret
      */
-    public function setApiSecret($apiSecret)
+    public function setApiSecret(#[\SensitiveParameter] string $apiSecret): void
     {
+        $this->validateApiSecret($apiSecret);
         $this->apiSecret = $apiSecret;
     }
 
     /**
      * @return string
      */
-    public function getApiEndpoint()
+    public function getApiEndpoint(): string
     {
         return $this->apiEndpoint;
     }
@@ -147,8 +171,9 @@ class CommunicatorConfiguration
     /**
      * @param string $apiEndpoint
      */
-    public function setApiEndpoint($apiEndpoint)
+    public function setApiEndpoint(string $apiEndpoint): void
     {
+        $apiEndpoint = rtrim($apiEndpoint, '/');
         $this->validateApiEndpoint($apiEndpoint);
         $this->apiEndpoint = $apiEndpoint;
     }
@@ -156,7 +181,7 @@ class CommunicatorConfiguration
     /**
      * @return ProxyConfiguration|null
      */
-    public function getProxyConfiguration()
+    public function getProxyConfiguration(): ?ProxyConfiguration
     {
         return $this->proxyConfiguration;
     }
@@ -164,7 +189,7 @@ class CommunicatorConfiguration
     /**
      * @param ProxyConfiguration|null $proxyConfiguration
      */
-    public function setProxyConfiguration(?ProxyConfiguration $proxyConfiguration = null)
+    public function setProxyConfiguration(?ProxyConfiguration $proxyConfiguration = null): void
     {
         $this->proxyConfiguration = $proxyConfiguration;
     }
@@ -172,7 +197,7 @@ class CommunicatorConfiguration
     /**
      * @return int
      */
-    public function getConnectTimeout()
+    public function getConnectTimeout(): int
     {
         return $this->connectTimeout;
     }
@@ -180,7 +205,7 @@ class CommunicatorConfiguration
     /**
      * @param int $connectTimeout
      */
-    public function setConnectTimeout($connectTimeout)
+    public function setConnectTimeout(int $connectTimeout): void
     {
         $this->connectTimeout = $connectTimeout;
     }
@@ -188,7 +213,7 @@ class CommunicatorConfiguration
     /**
      * @return int
      */
-    public function getReadTimeout()
+    public function getReadTimeout(): int
     {
         return $this->readTimeout;
     }
@@ -196,7 +221,7 @@ class CommunicatorConfiguration
     /**
      * @param int $readTimeout
      */
-    public function setReadTimeout($readTimeout)
+    public function setReadTimeout(int $readTimeout): void
     {
         $this->readTimeout = $readTimeout;
     }
@@ -204,7 +229,7 @@ class CommunicatorConfiguration
     /**
      * @return string
      */
-    public function getIntegrator()
+    public function getIntegrator(): string
     {
         return $this->integrator;
     }
@@ -212,7 +237,7 @@ class CommunicatorConfiguration
     /**
      * @param string $integrator
      */
-    public function setIntegrator($integrator)
+    public function setIntegrator(string $integrator): void
     {
         $this->validateIntegrator($integrator);
         $this->integrator = $integrator;
@@ -221,7 +246,7 @@ class CommunicatorConfiguration
     /**
      * @return ShoppingCartExtension|null
      */
-    public function getShoppingCartExtension()
+    public function getShoppingCartExtension(): ?ShoppingCartExtension
     {
         return $this->shoppingCartExtension;
     }
@@ -229,8 +254,28 @@ class CommunicatorConfiguration
     /**
      * @param ShoppingCartExtension|null $shoppingCartExtension
      */
-    public function setShoppingCartExtension(?ShoppingCartExtension $shoppingCartExtension = null)
+    public function setShoppingCartExtension(?ShoppingCartExtension $shoppingCartExtension = null): void
     {
         $this->shoppingCartExtension = $shoppingCartExtension;
+    }
+
+    /**
+     * Returns the properties for var_dump and print_r, with the API key id and secret masked.
+     *
+     * @return array<string, mixed>
+     */
+    public function __debugInfo(): array
+    {
+        $mask = (new ValueObfuscator())->obfuscateFixedLength(8);
+        return [
+            'apiKeyId' => $mask,
+            'apiSecret' => $mask,
+            'apiEndpoint' => $this->apiEndpoint,
+            'connectTimeout' => $this->connectTimeout,
+            'readTimeout' => $this->readTimeout,
+            'proxyConfiguration' => $this->proxyConfiguration,
+            'integrator' => $this->integrator,
+            'shoppingCartExtension' => $this->shoppingCartExtension,
+        ];
     }
 }

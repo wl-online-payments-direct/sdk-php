@@ -13,17 +13,17 @@ class PaymentProduct5404 extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $appSwitchLink = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $qrCodeUrl = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAppSwitchLink(): ?string
     {
         return $this->appSwitchLink;
@@ -31,7 +31,7 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAppSwitchLink(?string $value): void
     {
         $this->appSwitchLink = $value;
@@ -39,9 +39,9 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5404
-    */
-    public function withAppSwitchLink(?string $value): PaymentProduct5404
+     * @return $this
+     */
+    public function withAppSwitchLink(?string $value): static
     {
         $this->appSwitchLink = $value;
         return $this;
@@ -49,7 +49,7 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getQrCodeUrl(): ?string
     {
         return $this->qrCodeUrl;
@@ -57,7 +57,7 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setQrCodeUrl(?string $value): void
     {
         $this->qrCodeUrl = $value;
@@ -65,9 +65,9 @@ class PaymentProduct5404 extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct5404
-    */
-    public function withQrCodeUrl(?string $value): PaymentProduct5404
+     * @return $this
+     */
+    public function withQrCodeUrl(?string $value): static
     {
         $this->qrCodeUrl = $value;
         return $this;
@@ -76,13 +76,14 @@ class PaymentProduct5404 extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->appSwitchLink)) {
+        if ($this->appSwitchLink !== null) {
             $object->appSwitchLink = $this->appSwitchLink;
         }
-        if (!is_null($this->qrCodeUrl)) {
+        if ($this->qrCodeUrl !== null) {
             $object->qrCodeUrl = $this->qrCodeUrl;
         }
         return $object;
@@ -94,7 +95,8 @@ class PaymentProduct5404 extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct5404
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'appSwitchLink')) {

@@ -13,12 +13,12 @@ class Transaction extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -26,7 +26,7 @@ class Transaction extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
@@ -34,9 +34,9 @@ class Transaction extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return Transaction
-    */
-    public function withAmount(?AmountOfMoney $value): Transaction
+     * @return $this
+     */
+    public function withAmount(?AmountOfMoney $value): static
     {
         $this->amount = $value;
         return $this;
@@ -45,10 +45,11 @@ class Transaction extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class Transaction extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Transaction
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

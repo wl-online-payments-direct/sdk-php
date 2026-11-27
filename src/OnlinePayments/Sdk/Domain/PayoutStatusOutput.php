@@ -13,22 +13,22 @@ class PayoutStatusOutput extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isCancellable = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $statusCategory = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $statusCode = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsCancellable(): ?bool
     {
         return $this->isCancellable;
@@ -36,7 +36,7 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsCancellable(?bool $value): void
     {
         $this->isCancellable = $value;
@@ -44,9 +44,9 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PayoutStatusOutput
-    */
-    public function withIsCancellable(?bool $value): PayoutStatusOutput
+     * @return $this
+     */
+    public function withIsCancellable(?bool $value): static
     {
         $this->isCancellable = $value;
         return $this;
@@ -54,7 +54,7 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatusCategory(): ?string
     {
         return $this->statusCategory;
@@ -62,7 +62,7 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatusCategory(?string $value): void
     {
         $this->statusCategory = $value;
@@ -70,9 +70,9 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PayoutStatusOutput
-    */
-    public function withStatusCategory(?string $value): PayoutStatusOutput
+     * @return $this
+     */
+    public function withStatusCategory(?string $value): static
     {
         $this->statusCategory = $value;
         return $this;
@@ -80,7 +80,7 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getStatusCode(): ?int
     {
         return $this->statusCode;
@@ -88,7 +88,7 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setStatusCode(?int $value): void
     {
         $this->statusCode = $value;
@@ -96,9 +96,9 @@ class PayoutStatusOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return PayoutStatusOutput
-    */
-    public function withStatusCode(?int $value): PayoutStatusOutput
+     * @return $this
+     */
+    public function withStatusCode(?int $value): static
     {
         $this->statusCode = $value;
         return $this;
@@ -107,16 +107,17 @@ class PayoutStatusOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->isCancellable)) {
+        if ($this->isCancellable !== null) {
             $object->isCancellable = $this->isCancellable;
         }
-        if (!is_null($this->statusCategory)) {
+        if ($this->statusCategory !== null) {
             $object->statusCategory = $this->statusCategory;
         }
-        if (!is_null($this->statusCode)) {
+        if ($this->statusCode !== null) {
             $object->statusCode = $this->statusCode;
         }
         return $object;
@@ -128,7 +129,8 @@ class PayoutStatusOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PayoutStatusOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'isCancellable')) {

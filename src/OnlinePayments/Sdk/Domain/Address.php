@@ -13,42 +13,42 @@ class Address extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $additionalInfo = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $city = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $countryCode = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $houseNumber = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $state = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $street = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $zip = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAdditionalInfo(): ?string
     {
         return $this->additionalInfo;
@@ -56,7 +56,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAdditionalInfo(?string $value): void
     {
         $this->additionalInfo = $value;
@@ -64,9 +64,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withAdditionalInfo(?string $value): Address
+     * @return $this
+     */
+    public function withAdditionalInfo(?string $value): static
     {
         $this->additionalInfo = $value;
         return $this;
@@ -74,7 +74,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCity(): ?string
     {
         return $this->city;
@@ -82,7 +82,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCity(?string $value): void
     {
         $this->city = $value;
@@ -90,9 +90,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withCity(?string $value): Address
+     * @return $this
+     */
+    public function withCity(?string $value): static
     {
         $this->city = $value;
         return $this;
@@ -100,7 +100,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
@@ -108,7 +108,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCountryCode(?string $value): void
     {
         $this->countryCode = $value;
@@ -116,9 +116,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withCountryCode(?string $value): Address
+     * @return $this
+     */
+    public function withCountryCode(?string $value): static
     {
         $this->countryCode = $value;
         return $this;
@@ -126,7 +126,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
@@ -134,7 +134,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHouseNumber(?string $value): void
     {
         $this->houseNumber = $value;
@@ -142,9 +142,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withHouseNumber(?string $value): Address
+     * @return $this
+     */
+    public function withHouseNumber(?string $value): static
     {
         $this->houseNumber = $value;
         return $this;
@@ -152,7 +152,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getState(): ?string
     {
         return $this->state;
@@ -160,7 +160,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setState(?string $value): void
     {
         $this->state = $value;
@@ -168,9 +168,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withState(?string $value): Address
+     * @return $this
+     */
+    public function withState(?string $value): static
     {
         $this->state = $value;
         return $this;
@@ -178,7 +178,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStreet(): ?string
     {
         return $this->street;
@@ -186,7 +186,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStreet(?string $value): void
     {
         $this->street = $value;
@@ -194,9 +194,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withStreet(?string $value): Address
+     * @return $this
+     */
+    public function withStreet(?string $value): static
     {
         $this->street = $value;
         return $this;
@@ -204,7 +204,7 @@ class Address extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getZip(): ?string
     {
         return $this->zip;
@@ -212,7 +212,7 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setZip(?string $value): void
     {
         $this->zip = $value;
@@ -220,9 +220,9 @@ class Address extends DataObject
 
     /**
      * @param string|null $value
-     * @return Address
-    */
-    public function withZip(?string $value): Address
+     * @return $this
+     */
+    public function withZip(?string $value): static
     {
         $this->zip = $value;
         return $this;
@@ -231,28 +231,29 @@ class Address extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->additionalInfo)) {
+        if ($this->additionalInfo !== null) {
             $object->additionalInfo = $this->additionalInfo;
         }
-        if (!is_null($this->city)) {
+        if ($this->city !== null) {
             $object->city = $this->city;
         }
-        if (!is_null($this->countryCode)) {
+        if ($this->countryCode !== null) {
             $object->countryCode = $this->countryCode;
         }
-        if (!is_null($this->houseNumber)) {
+        if ($this->houseNumber !== null) {
             $object->houseNumber = $this->houseNumber;
         }
-        if (!is_null($this->state)) {
+        if ($this->state !== null) {
             $object->state = $this->state;
         }
-        if (!is_null($this->street)) {
+        if ($this->street !== null) {
             $object->street = $this->street;
         }
-        if (!is_null($this->zip)) {
+        if ($this->zip !== null) {
             $object->zip = $this->zip;
         }
         return $object;
@@ -264,7 +265,8 @@ class Address extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): Address
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'additionalInfo')) {

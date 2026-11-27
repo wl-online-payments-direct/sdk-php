@@ -13,17 +13,17 @@ class HostedCheckoutSpecificOutput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $hostedCheckoutId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $variant = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getHostedCheckoutId(): ?string
     {
         return $this->hostedCheckoutId;
@@ -31,7 +31,7 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setHostedCheckoutId(?string $value): void
     {
         $this->hostedCheckoutId = $value;
@@ -39,9 +39,9 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificOutput
-    */
-    public function withHostedCheckoutId(?string $value): HostedCheckoutSpecificOutput
+     * @return $this
+     */
+    public function withHostedCheckoutId(?string $value): static
     {
         $this->hostedCheckoutId = $value;
         return $this;
@@ -49,7 +49,7 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getVariant(): ?string
     {
         return $this->variant;
@@ -57,7 +57,7 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setVariant(?string $value): void
     {
         $this->variant = $value;
@@ -65,9 +65,9 @@ class HostedCheckoutSpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return HostedCheckoutSpecificOutput
-    */
-    public function withVariant(?string $value): HostedCheckoutSpecificOutput
+     * @return $this
+     */
+    public function withVariant(?string $value): static
     {
         $this->variant = $value;
         return $this;
@@ -76,13 +76,14 @@ class HostedCheckoutSpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->hostedCheckoutId)) {
+        if ($this->hostedCheckoutId !== null) {
             $object->hostedCheckoutId = $this->hostedCheckoutId;
         }
-        if (!is_null($this->variant)) {
+        if ($this->variant !== null) {
             $object->variant = $this->variant;
         }
         return $object;
@@ -94,7 +95,8 @@ class HostedCheckoutSpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): HostedCheckoutSpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'hostedCheckoutId')) {

@@ -43,4 +43,16 @@ class ErrorResponseExceptionTest extends TestCase
             $this->assertSame(403, $exception->getHttpStatusCode());
         }
     }
+
+    public function testErrorResponseException_GetHeaderValue_IsCaseInsensitive(): void
+    {
+        $error = new class extends DataObject {};
+        $headers = ['X-GCS-RequestId' => 'req-1'];
+
+        $exception = new ErrorResponseException(400, $error, headers: $headers);
+
+        $this->assertSame('req-1', $exception->getHeaderValue('x-gcs-requestid'));
+        $this->assertSame('', $exception->getHeaderValue('Missing'));
+        $this->assertSame($headers, $exception->getHeaders());
+    }
 }

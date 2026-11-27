@@ -25,7 +25,7 @@ class ResponseBuilderTest extends TestCase
         $builder = new ResponseBuilder();
         $headers = [
             'Content-Type' => 'application/json',
-            'X-Test' => 'value'
+            'X-Test' => 'value',
         ];
 
         $builder->setHeaders($headers);

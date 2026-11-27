@@ -23,7 +23,7 @@ class GetTokenTest extends TestCase
         $this->sdkHelper = new SdkTestHelper($this->client->merchant($this->getMerchantId()));
     }
 
-    public function testGetToken_ValidTokenId_ReturnsTokenDetails()
+    public function testGetToken_ValidTokenId_ReturnsTokenDetails(): void
     {
         $token = $this->sdkHelper->createTokenAndGetId();
 
@@ -38,7 +38,7 @@ class GetTokenTest extends TestCase
         $this->assertNotNull($getResponse->getCard()->getData()->getCardWithoutCvv()->getCardNumber());
     }
 
-    public function testGetToken_InvalidTokenId_ReturnsReferenceException()
+    public function testGetToken_InvalidTokenId_ReturnsReferenceException(): void
     {
         try {
             $this->tokensClient->getToken(self::INVALID_TOKEN_ID);

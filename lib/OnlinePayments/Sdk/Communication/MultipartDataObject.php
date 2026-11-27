@@ -1,4 +1,5 @@
 <?php
+
 namespace OnlinePayments\Sdk\Communication;
 
 use Exception;
@@ -15,8 +16,13 @@ abstract class MultipartDataObject
      */
     abstract public function toMultipartFormDataObject(): MultipartFormDataObject;
 
-    public function __set($name, $value)
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @throws Exception
+     */
+    public function __set(string $name, mixed $value): void
     {
-        throw new Exception('Cannot add new property ' . $name . ' to instances of class ' . get_class($this));
+        throw new Exception('Cannot add new property ' . $name . ' to instances of class ' . static::class);
     }
 }

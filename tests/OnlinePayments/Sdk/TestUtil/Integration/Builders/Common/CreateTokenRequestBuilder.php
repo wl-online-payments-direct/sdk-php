@@ -46,7 +46,7 @@ class CreateTokenRequestBuilder
         return $this;
     }
 
-    public function withPaymentProductId(string $paymentProductId): self
+    public function withPaymentProductId(int $paymentProductId): self
     {
         $this->paymentProductId = $paymentProductId;
         return $this;
@@ -72,15 +72,14 @@ class CreateTokenRequestBuilder
 
         if ($this->encryptedCustomerInput !== null) {
             $request->setEncryptedCustomerInput($this->encryptedCustomerInput);
-        }
-        else {
+        } else {
             $request->setCard($this->buildCardToken());
         }
 
         return $request;
     }
 
-    private function buildCardToken() : TokenCardSpecificInput
+    private function buildCardToken(): TokenCardSpecificInput
     {
         $tokenCardSpecificInput = new TokenCardSpecificInput();
 
@@ -89,7 +88,7 @@ class CreateTokenRequestBuilder
         return $tokenCardSpecificInput;
     }
 
-    private function buildTokenData() : TokenData
+    private function buildTokenData(): TokenData
     {
         $tokenData = new TokenData();
 

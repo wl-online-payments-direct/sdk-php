@@ -13,17 +13,17 @@ class OmnichannelPayoutSpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $operatorId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentId = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getOperatorId(): ?string
     {
         return $this->operatorId;
@@ -31,7 +31,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setOperatorId(?string $value): void
     {
         $this->operatorId = $value;
@@ -39,9 +39,9 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return OmnichannelPayoutSpecificInput
-    */
-    public function withOperatorId(?string $value): OmnichannelPayoutSpecificInput
+     * @return $this
+     */
+    public function withOperatorId(?string $value): static
     {
         $this->operatorId = $value;
         return $this;
@@ -49,7 +49,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentId(): ?string
     {
         return $this->paymentId;
@@ -57,7 +57,7 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentId(?string $value): void
     {
         $this->paymentId = $value;
@@ -65,9 +65,9 @@ class OmnichannelPayoutSpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return OmnichannelPayoutSpecificInput
-    */
-    public function withPaymentId(?string $value): OmnichannelPayoutSpecificInput
+     * @return $this
+     */
+    public function withPaymentId(?string $value): static
     {
         $this->paymentId = $value;
         return $this;
@@ -76,13 +76,14 @@ class OmnichannelPayoutSpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->operatorId)) {
+        if ($this->operatorId !== null) {
             $object->operatorId = $this->operatorId;
         }
-        if (!is_null($this->paymentId)) {
+        if ($this->paymentId !== null) {
             $object->paymentId = $this->paymentId;
         }
         return $object;
@@ -94,7 +95,8 @@ class OmnichannelPayoutSpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): OmnichannelPayoutSpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'operatorId')) {

@@ -14,7 +14,7 @@ class MetadataProviderTest extends TestCase
 {
     public function testMetadataProvider_GetServerMetaInfoValue_NoShoppingCartExtension_ReturnsBase64EncodedJson(): void
     {
-        $configuration = $this->createMock(CommunicatorConfiguration::class);
+        $configuration = $this->createStub(CommunicatorConfiguration::class);
         $configuration->method('getIntegrator')->willReturn('TestIntegrator');
         $configuration->method('getShoppingCartExtension')->willReturn(null);
 
@@ -33,10 +33,10 @@ class MetadataProviderTest extends TestCase
 
     public function testMetadataProvider_GetServerMetaInfoValue_WithShoppingCartExtension_IncludesExtension(): void
     {
-        $extension = $this->createMock(ShoppingCartExtension::class);
-        $extension->method('toObject')->willReturn((object)['name' => 'cart']);
+        $extension = $this->createStub(ShoppingCartExtension::class);
+        $extension->method('toObject')->willReturn((object) ['name' => 'cart']);
 
-        $configuration = $this->createMock(CommunicatorConfiguration::class);
+        $configuration = $this->createStub(CommunicatorConfiguration::class);
         $configuration->method('getIntegrator')->willReturn('TestIntegrator');
         $configuration->method('getShoppingCartExtension')->willReturn($extension);
 
@@ -52,7 +52,7 @@ class MetadataProviderTest extends TestCase
 
     public function testMetadataProvider_GetServerMetaInfoValue_ReturnsValidBase64EncodedJson(): void
     {
-        $configuration = $this->createMock(CommunicatorConfiguration::class);
+        $configuration = $this->createStub(CommunicatorConfiguration::class);
         $configuration->method('getIntegrator')->willReturn('IntegratorX');
         $configuration->method('getShoppingCartExtension')->willReturn(null);
 

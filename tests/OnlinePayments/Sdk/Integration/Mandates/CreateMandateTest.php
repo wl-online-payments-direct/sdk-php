@@ -21,7 +21,7 @@ class CreateMandateTest extends TestCase
         $this->mandatesClient = $this->client->merchant($this->getMerchantId())->mandates();
     }
 
-    public function testCreateMandate_ValidInput_ReturnsUniqueMandateReference()
+    public function testCreateMandate_ValidInput_ReturnsUniqueMandateReference(): void
     {
         $request = CreateMandateRequestBuilder::create()
             ->withUniqueMandateReference("exampleMandateReference" . str_replace('.', '', substr(microtime(), 0, 10)))
@@ -33,7 +33,7 @@ class CreateMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testCreateMandate_ValidInputWithCallContext_ReturnsUniqueMandateReference()
+    public function testCreateMandate_ValidInputWithCallContext_ReturnsUniqueMandateReference(): void
     {
         $request = CreateMandateRequestBuilder::create()
             ->withUniqueMandateReference("exampleMandateReference" . str_replace('.', '', substr(microtime(), 0, 10)))
@@ -47,7 +47,7 @@ class CreateMandateTest extends TestCase
         $this->assertNotEmpty($response->getMandate()->getUniqueMandateReference());
     }
 
-    public function testCreateMandate_InvalidIban_ReturnsValidationException()
+    public function testCreateMandate_InvalidIban_ReturnsValidationException(): void
     {
         $request = CreateMandateRequestBuilder::create()
             ->withCustomerIban(self::INVALID_IBAN)

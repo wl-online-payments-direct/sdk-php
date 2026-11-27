@@ -13,22 +13,22 @@ class DirectoryEntry extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerList = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $issuerName = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerId(): ?string
     {
         return $this->issuerId;
@@ -36,7 +36,7 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerId(?string $value): void
     {
         $this->issuerId = $value;
@@ -44,9 +44,9 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return DirectoryEntry
-    */
-    public function withIssuerId(?string $value): DirectoryEntry
+     * @return $this
+     */
+    public function withIssuerId(?string $value): static
     {
         $this->issuerId = $value;
         return $this;
@@ -54,7 +54,7 @@ class DirectoryEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerList(): ?string
     {
         return $this->issuerList;
@@ -62,7 +62,7 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerList(?string $value): void
     {
         $this->issuerList = $value;
@@ -70,9 +70,9 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return DirectoryEntry
-    */
-    public function withIssuerList(?string $value): DirectoryEntry
+     * @return $this
+     */
+    public function withIssuerList(?string $value): static
     {
         $this->issuerList = $value;
         return $this;
@@ -80,7 +80,7 @@ class DirectoryEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getIssuerName(): ?string
     {
         return $this->issuerName;
@@ -88,7 +88,7 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setIssuerName(?string $value): void
     {
         $this->issuerName = $value;
@@ -96,9 +96,9 @@ class DirectoryEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return DirectoryEntry
-    */
-    public function withIssuerName(?string $value): DirectoryEntry
+     * @return $this
+     */
+    public function withIssuerName(?string $value): static
     {
         $this->issuerName = $value;
         return $this;
@@ -107,16 +107,17 @@ class DirectoryEntry extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->issuerId)) {
+        if ($this->issuerId !== null) {
             $object->issuerId = $this->issuerId;
         }
-        if (!is_null($this->issuerList)) {
+        if ($this->issuerList !== null) {
             $object->issuerList = $this->issuerList;
         }
-        if (!is_null($this->issuerName)) {
+        if ($this->issuerName !== null) {
             $object->issuerName = $this->issuerName;
         }
         return $object;
@@ -128,7 +129,8 @@ class DirectoryEntry extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): DirectoryEntry
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'issuerId')) {

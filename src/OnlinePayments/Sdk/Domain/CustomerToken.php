@@ -13,22 +13,22 @@ class CustomerToken extends DataObject
 {
     /**
      * @var Address|null
-    */
+     */
     public ?Address $billingAddress = null;
 
     /**
      * @var CompanyInformation|null
-    */
+     */
     public ?CompanyInformation $companyInformation = null;
 
     /**
      * @var PersonalInformationToken|null
-    */
+     */
     public ?PersonalInformationToken $personalInformation = null;
 
     /**
      * @return Address|null
-    */
+     */
     public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
@@ -36,7 +36,7 @@ class CustomerToken extends DataObject
 
     /**
      * @param Address|null $value
-    */
+     */
     public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
@@ -44,9 +44,9 @@ class CustomerToken extends DataObject
 
     /**
      * @param Address|null $value
-     * @return CustomerToken
-    */
-    public function withBillingAddress(?Address $value): CustomerToken
+     * @return $this
+     */
+    public function withBillingAddress(?Address $value): static
     {
         $this->billingAddress = $value;
         return $this;
@@ -54,7 +54,7 @@ class CustomerToken extends DataObject
 
     /**
      * @return CompanyInformation|null
-    */
+     */
     public function getCompanyInformation(): ?CompanyInformation
     {
         return $this->companyInformation;
@@ -62,7 +62,7 @@ class CustomerToken extends DataObject
 
     /**
      * @param CompanyInformation|null $value
-    */
+     */
     public function setCompanyInformation(?CompanyInformation $value): void
     {
         $this->companyInformation = $value;
@@ -70,9 +70,9 @@ class CustomerToken extends DataObject
 
     /**
      * @param CompanyInformation|null $value
-     * @return CustomerToken
-    */
-    public function withCompanyInformation(?CompanyInformation $value): CustomerToken
+     * @return $this
+     */
+    public function withCompanyInformation(?CompanyInformation $value): static
     {
         $this->companyInformation = $value;
         return $this;
@@ -80,7 +80,7 @@ class CustomerToken extends DataObject
 
     /**
      * @return PersonalInformationToken|null
-    */
+     */
     public function getPersonalInformation(): ?PersonalInformationToken
     {
         return $this->personalInformation;
@@ -88,7 +88,7 @@ class CustomerToken extends DataObject
 
     /**
      * @param PersonalInformationToken|null $value
-    */
+     */
     public function setPersonalInformation(?PersonalInformationToken $value): void
     {
         $this->personalInformation = $value;
@@ -96,9 +96,9 @@ class CustomerToken extends DataObject
 
     /**
      * @param PersonalInformationToken|null $value
-     * @return CustomerToken
-    */
-    public function withPersonalInformation(?PersonalInformationToken $value): CustomerToken
+     * @return $this
+     */
+    public function withPersonalInformation(?PersonalInformationToken $value): static
     {
         $this->personalInformation = $value;
         return $this;
@@ -107,16 +107,17 @@ class CustomerToken extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->billingAddress)) {
+        if ($this->billingAddress !== null) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if (!is_null($this->companyInformation)) {
+        if ($this->companyInformation !== null) {
             $object->companyInformation = $this->companyInformation->toObject();
         }
-        if (!is_null($this->personalInformation)) {
+        if ($this->personalInformation !== null) {
             $object->personalInformation = $this->personalInformation->toObject();
         }
         return $object;
@@ -128,7 +129,8 @@ class CustomerToken extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CustomerToken
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAddress')) {

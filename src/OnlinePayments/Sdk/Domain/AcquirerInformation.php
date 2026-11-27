@@ -13,17 +13,17 @@ class AcquirerInformation extends DataObject
 {
     /**
      * @var AcquirerSelectionInformation|null
-    */
+     */
     public ?AcquirerSelectionInformation $acquirerSelectionInformation = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $name = null;
 
     /**
      * @return AcquirerSelectionInformation|null
-    */
+     */
     public function getAcquirerSelectionInformation(): ?AcquirerSelectionInformation
     {
         return $this->acquirerSelectionInformation;
@@ -31,7 +31,7 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param AcquirerSelectionInformation|null $value
-    */
+     */
     public function setAcquirerSelectionInformation(?AcquirerSelectionInformation $value): void
     {
         $this->acquirerSelectionInformation = $value;
@@ -39,9 +39,9 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param AcquirerSelectionInformation|null $value
-     * @return AcquirerInformation
-    */
-    public function withAcquirerSelectionInformation(?AcquirerSelectionInformation $value): AcquirerInformation
+     * @return $this
+     */
+    public function withAcquirerSelectionInformation(?AcquirerSelectionInformation $value): static
     {
         $this->acquirerSelectionInformation = $value;
         return $this;
@@ -49,7 +49,7 @@ class AcquirerInformation extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -57,7 +57,7 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setName(?string $value): void
     {
         $this->name = $value;
@@ -65,9 +65,9 @@ class AcquirerInformation extends DataObject
 
     /**
      * @param string|null $value
-     * @return AcquirerInformation
-    */
-    public function withName(?string $value): AcquirerInformation
+     * @return $this
+     */
+    public function withName(?string $value): static
     {
         $this->name = $value;
         return $this;
@@ -76,13 +76,14 @@ class AcquirerInformation extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquirerSelectionInformation)) {
+        if ($this->acquirerSelectionInformation !== null) {
             $object->acquirerSelectionInformation = $this->acquirerSelectionInformation->toObject();
         }
-        if (!is_null($this->name)) {
+        if ($this->name !== null) {
             $object->name = $this->name;
         }
         return $object;
@@ -94,7 +95,8 @@ class AcquirerInformation extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): AcquirerInformation
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquirerSelectionInformation')) {

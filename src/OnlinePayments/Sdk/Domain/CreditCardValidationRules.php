@@ -13,17 +13,17 @@ class CreditCardValidationRules extends DataObject
 {
     /**
      * @var bool|null
-    */
+     */
     public ?bool $cvvMandatoryForExistingToken = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $cvvMandatoryForNewToken = null;
 
     /**
      * @return bool|null
-    */
+     */
     public function getCvvMandatoryForExistingToken(): ?bool
     {
         return $this->cvvMandatoryForExistingToken;
@@ -31,7 +31,7 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setCvvMandatoryForExistingToken(?bool $value): void
     {
         $this->cvvMandatoryForExistingToken = $value;
@@ -39,9 +39,9 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreditCardValidationRules
-    */
-    public function withCvvMandatoryForExistingToken(?bool $value): CreditCardValidationRules
+     * @return $this
+     */
+    public function withCvvMandatoryForExistingToken(?bool $value): static
     {
         $this->cvvMandatoryForExistingToken = $value;
         return $this;
@@ -49,7 +49,7 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getCvvMandatoryForNewToken(): ?bool
     {
         return $this->cvvMandatoryForNewToken;
@@ -57,7 +57,7 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setCvvMandatoryForNewToken(?bool $value): void
     {
         $this->cvvMandatoryForNewToken = $value;
@@ -65,9 +65,9 @@ class CreditCardValidationRules extends DataObject
 
     /**
      * @param bool|null $value
-     * @return CreditCardValidationRules
-    */
-    public function withCvvMandatoryForNewToken(?bool $value): CreditCardValidationRules
+     * @return $this
+     */
+    public function withCvvMandatoryForNewToken(?bool $value): static
     {
         $this->cvvMandatoryForNewToken = $value;
         return $this;
@@ -76,13 +76,14 @@ class CreditCardValidationRules extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->cvvMandatoryForExistingToken)) {
+        if ($this->cvvMandatoryForExistingToken !== null) {
             $object->cvvMandatoryForExistingToken = $this->cvvMandatoryForExistingToken;
         }
-        if (!is_null($this->cvvMandatoryForNewToken)) {
+        if ($this->cvvMandatoryForNewToken !== null) {
             $object->cvvMandatoryForNewToken = $this->cvvMandatoryForNewToken;
         }
         return $object;
@@ -94,7 +95,8 @@ class CreditCardValidationRules extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): CreditCardValidationRules
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'cvvMandatoryForExistingToken')) {

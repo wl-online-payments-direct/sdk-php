@@ -13,22 +13,22 @@ class PersonalName extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surname = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $title = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -36,7 +36,7 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
@@ -44,9 +44,9 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     * @return PersonalName
-    */
-    public function withFirstName(?string $value): PersonalName
+     * @return $this
+     */
+    public function withFirstName(?string $value): static
     {
         $this->firstName = $value;
         return $this;
@@ -54,7 +54,7 @@ class PersonalName extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -62,7 +62,7 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
@@ -70,9 +70,9 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     * @return PersonalName
-    */
-    public function withSurname(?string $value): PersonalName
+     * @return $this
+     */
+    public function withSurname(?string $value): static
     {
         $this->surname = $value;
         return $this;
@@ -80,7 +80,7 @@ class PersonalName extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getTitle(): ?string
     {
         return $this->title;
@@ -88,7 +88,7 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setTitle(?string $value): void
     {
         $this->title = $value;
@@ -96,9 +96,9 @@ class PersonalName extends DataObject
 
     /**
      * @param string|null $value
-     * @return PersonalName
-    */
-    public function withTitle(?string $value): PersonalName
+     * @return $this
+     */
+    public function withTitle(?string $value): static
     {
         $this->title = $value;
         return $this;
@@ -107,16 +107,17 @@ class PersonalName extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->firstName)) {
+        if ($this->firstName !== null) {
             $object->firstName = $this->firstName;
         }
-        if (!is_null($this->surname)) {
+        if ($this->surname !== null) {
             $object->surname = $this->surname;
         }
-        if (!is_null($this->title)) {
+        if ($this->title !== null) {
             $object->title = $this->title;
         }
         return $object;
@@ -128,7 +129,8 @@ class PersonalName extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PersonalName
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'firstName')) {

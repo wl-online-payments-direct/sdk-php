@@ -13,17 +13,17 @@ class MandatePersonalNameResponse extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $firstName = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $surname = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -31,7 +31,7 @@ class MandatePersonalNameResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setFirstName(?string $value): void
     {
         $this->firstName = $value;
@@ -39,9 +39,9 @@ class MandatePersonalNameResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandatePersonalNameResponse
-    */
-    public function withFirstName(?string $value): MandatePersonalNameResponse
+     * @return $this
+     */
+    public function withFirstName(?string $value): static
     {
         $this->firstName = $value;
         return $this;
@@ -49,7 +49,7 @@ class MandatePersonalNameResponse extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getSurname(): ?string
     {
         return $this->surname;
@@ -57,7 +57,7 @@ class MandatePersonalNameResponse extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setSurname(?string $value): void
     {
         $this->surname = $value;
@@ -65,9 +65,9 @@ class MandatePersonalNameResponse extends DataObject
 
     /**
      * @param string|null $value
-     * @return MandatePersonalNameResponse
-    */
-    public function withSurname(?string $value): MandatePersonalNameResponse
+     * @return $this
+     */
+    public function withSurname(?string $value): static
     {
         $this->surname = $value;
         return $this;
@@ -76,13 +76,14 @@ class MandatePersonalNameResponse extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->firstName)) {
+        if ($this->firstName !== null) {
             $object->firstName = $this->firstName;
         }
-        if (!is_null($this->surname)) {
+        if ($this->surname !== null) {
             $object->surname = $this->surname;
         }
         return $object;
@@ -94,7 +95,8 @@ class MandatePersonalNameResponse extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): MandatePersonalNameResponse
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'firstName')) {

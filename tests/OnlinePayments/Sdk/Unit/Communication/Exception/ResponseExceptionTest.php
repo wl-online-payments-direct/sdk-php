@@ -8,6 +8,7 @@ use OnlinePayments\Sdk\DeclinedPaymentException;
 use OnlinePayments\Sdk\DeclinedPayoutException;
 use OnlinePayments\Sdk\DeclinedRefundException;
 use OnlinePayments\Sdk\Domain\APIError;
+use OnlinePayments\Sdk\Domain\Card;
 use OnlinePayments\Sdk\Domain\CreatePaymentResponse;
 use OnlinePayments\Sdk\Domain\DataObject;
 use OnlinePayments\Sdk\Domain\ErrorResponse;
@@ -95,8 +96,7 @@ class ResponseExceptionTest extends TestCase
 
         $string = (string) $exception;
 
-        $this->assertStringContainsString("exception 'OnlinePayments\\Sdk\\ResponseException'", $string);
-        $this->assertStringContainsString("with message 'test message'", $string);
+        $this->assertStringStartsWith(ResponseException::class . ': test message in ', $string);
         $this->assertStringContainsString('HTTP status code: 400', $string);
         $this->assertStringContainsString('Response:', $string);
         $this->assertStringContainsString('test-error-id', $string);
@@ -290,5 +290,26 @@ class ResponseExceptionTest extends TestCase
         $exception = new DeclinedRefundException(402, new RefundErrorResponse());
 
         $this->assertInstanceOf(RefundResponse::class, $exception->getRefundResponse());
+    }
+
+    public function testResponseException_ToString_ObfuscatesSensitiveDataInResponse(): void
+    {
+        $response = (new Card())->withCardNumber('4567350000427977');
+
+        $exception = new ResponseException(400, $response);
+
+        $string = (string) $exception;
+
+        $this->assertStringNotContainsString('4567350000427977', $string);
+        $this->assertStringContainsString('************7977', $string);
+        $this->assertSame('4567350000427977', $response->getCardNumber());
+        $this->assertSame($response, $exception->getResponse());
+    }
+
+    public function testResponseException_ToString_StartsWithActualClassName(): void
+    {
+        $exception = new ValidationException(400, new ErrorResponse(), 'test message');
+
+        $this->assertStringStartsWith(ValidationException::class . ': test message in ', (string) $exception);
     }
 }

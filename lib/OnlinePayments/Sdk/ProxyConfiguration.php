@@ -1,5 +1,8 @@
 <?php
+
 namespace OnlinePayments\Sdk;
+
+use OnlinePayments\Sdk\Logging\ValueObfuscator;
 
 /**
  * Class ProxyConfiguration
@@ -8,22 +11,17 @@ namespace OnlinePayments\Sdk;
  */
 class ProxyConfiguration
 {
-    /**
-     * @var string|null
-     */
-    private ?string $host = null;
-    /**
-     * @var string|int|null
-     */
-    private $port = null;
-    /**
-     * @var string|null
-     */
-    private ?string $username = null;
-    /**
-     * @var string|null
-     */
-    private ?string $password = null;
+    /** @var string|null */
+    private readonly ?string $host;
+
+    /** @var string|int|null */
+    private readonly string|int|null $port;
+
+    /** @var string|null */
+    private readonly ?string $username;
+
+    /** @var string|null */
+    private readonly ?string $password;
 
     /**
      * @param string $host
@@ -31,13 +29,18 @@ class ProxyConfiguration
      * @param string|null $username
      * @param string|null $password
      */
-    public function __construct(string $host, $port = null, ?string $username = null, ?string $password = null)
+    public function __construct(string $host, string|int|null $port = null, ?string $username = null, #[\SensitiveParameter] ?string $password = null)
     {
         if ($host) {
             $this->host = $host;
             $this->port = $port;
             $this->username = $username;
             $this->password = $password;
+        } else {
+            $this->host = null;
+            $this->port = null;
+            $this->username = null;
+            $this->password = null;
         }
     }
 
@@ -46,8 +49,8 @@ class ProxyConfiguration
      */
     public function getCurlProxy(): string
     {
-        if (!is_null($this->host)) {
-            return $this->host . (is_null($this->port) ? '' : ':'. $this->port);
+        if ($this->host !== null) {
+            return $this->host . ($this->port === null ? '' : ':' . $this->port);
         }
         return '';
     }
@@ -57,9 +60,24 @@ class ProxyConfiguration
      */
     public function getCurlProxyUserPwd(): string
     {
-        if (!is_null($this->username)) {
-            return $this->username . (is_null($this->password) ? '' : ':'. $this->password);
+        if ($this->username !== null) {
+            return $this->username . ($this->password === null ? '' : ':' . $this->password);
         }
         return '';
+    }
+
+    /**
+     * Returns the properties for var_dump and print_r, with the password masked.
+     *
+     * @return array<string, mixed>
+     */
+    public function __debugInfo(): array
+    {
+        return [
+            'host' => $this->host,
+            'port' => $this->port,
+            'username' => $this->username,
+            'password' => $this->password === null ? null : (new ValueObfuscator())->obfuscateFixedLength(8),
+        ];
     }
 }

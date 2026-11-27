@@ -13,42 +13,42 @@ class PaymentProduct840SpecificOutput extends DataObject
 {
     /**
      * @var Address|null
-    */
+     */
     public ?Address $billingAddress = null;
 
     /**
      * @var AddressPersonal|null
-    */
+     */
     public ?AddressPersonal $billingPersonalAddress = null;
 
     /**
      * @var PaymentProduct840CustomerAccount|null
-    */
+     */
     public ?PaymentProduct840CustomerAccount $customerAccount = null;
 
     /**
      * @var Address|null
-    */
+     */
     public ?Address $customerAddress = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $payPalTransactionId = null;
 
     /**
      * @var ProtectionEligibility|null
-    */
+     */
     public ?ProtectionEligibility $protectionEligibility = null;
 
     /**
      * @var AddressPersonal|null
-    */
+     */
     public ?AddressPersonal $shippingAddress = null;
 
     /**
      * @return Address|null
-    */
+     */
     public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
@@ -56,7 +56,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-    */
+     */
     public function setBillingAddress(?Address $value): void
     {
         $this->billingAddress = $value;
@@ -64,9 +64,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withBillingAddress(?Address $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withBillingAddress(?Address $value): static
     {
         $this->billingAddress = $value;
         return $this;
@@ -74,7 +74,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return AddressPersonal|null
-    */
+     */
     public function getBillingPersonalAddress(): ?AddressPersonal
     {
         return $this->billingPersonalAddress;
@@ -82,7 +82,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-    */
+     */
     public function setBillingPersonalAddress(?AddressPersonal $value): void
     {
         $this->billingPersonalAddress = $value;
@@ -90,9 +90,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withBillingPersonalAddress(?AddressPersonal $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withBillingPersonalAddress(?AddressPersonal $value): static
     {
         $this->billingPersonalAddress = $value;
         return $this;
@@ -100,7 +100,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return PaymentProduct840CustomerAccount|null
-    */
+     */
     public function getCustomerAccount(): ?PaymentProduct840CustomerAccount
     {
         return $this->customerAccount;
@@ -108,7 +108,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param PaymentProduct840CustomerAccount|null $value
-    */
+     */
     public function setCustomerAccount(?PaymentProduct840CustomerAccount $value): void
     {
         $this->customerAccount = $value;
@@ -116,9 +116,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param PaymentProduct840CustomerAccount|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withCustomerAccount(?PaymentProduct840CustomerAccount $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withCustomerAccount(?PaymentProduct840CustomerAccount $value): static
     {
         $this->customerAccount = $value;
         return $this;
@@ -126,7 +126,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return Address|null
-    */
+     */
     public function getCustomerAddress(): ?Address
     {
         return $this->customerAddress;
@@ -134,7 +134,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-    */
+     */
     public function setCustomerAddress(?Address $value): void
     {
         $this->customerAddress = $value;
@@ -142,9 +142,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param Address|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withCustomerAddress(?Address $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withCustomerAddress(?Address $value): static
     {
         $this->customerAddress = $value;
         return $this;
@@ -152,7 +152,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPayPalTransactionId(): ?string
     {
         return $this->payPalTransactionId;
@@ -160,7 +160,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPayPalTransactionId(?string $value): void
     {
         $this->payPalTransactionId = $value;
@@ -168,9 +168,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withPayPalTransactionId(?string $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withPayPalTransactionId(?string $value): static
     {
         $this->payPalTransactionId = $value;
         return $this;
@@ -178,7 +178,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return ProtectionEligibility|null
-    */
+     */
     public function getProtectionEligibility(): ?ProtectionEligibility
     {
         return $this->protectionEligibility;
@@ -186,7 +186,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param ProtectionEligibility|null $value
-    */
+     */
     public function setProtectionEligibility(?ProtectionEligibility $value): void
     {
         $this->protectionEligibility = $value;
@@ -194,9 +194,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param ProtectionEligibility|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withProtectionEligibility(?ProtectionEligibility $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withProtectionEligibility(?ProtectionEligibility $value): static
     {
         $this->protectionEligibility = $value;
         return $this;
@@ -204,7 +204,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @return AddressPersonal|null
-    */
+     */
     public function getShippingAddress(): ?AddressPersonal
     {
         return $this->shippingAddress;
@@ -212,7 +212,7 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-    */
+     */
     public function setShippingAddress(?AddressPersonal $value): void
     {
         $this->shippingAddress = $value;
@@ -220,9 +220,9 @@ class PaymentProduct840SpecificOutput extends DataObject
 
     /**
      * @param AddressPersonal|null $value
-     * @return PaymentProduct840SpecificOutput
-    */
-    public function withShippingAddress(?AddressPersonal $value): PaymentProduct840SpecificOutput
+     * @return $this
+     */
+    public function withShippingAddress(?AddressPersonal $value): static
     {
         $this->shippingAddress = $value;
         return $this;
@@ -231,28 +231,29 @@ class PaymentProduct840SpecificOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->billingAddress)) {
+        if ($this->billingAddress !== null) {
             $object->billingAddress = $this->billingAddress->toObject();
         }
-        if (!is_null($this->billingPersonalAddress)) {
+        if ($this->billingPersonalAddress !== null) {
             $object->billingPersonalAddress = $this->billingPersonalAddress->toObject();
         }
-        if (!is_null($this->customerAccount)) {
+        if ($this->customerAccount !== null) {
             $object->customerAccount = $this->customerAccount->toObject();
         }
-        if (!is_null($this->customerAddress)) {
+        if ($this->customerAddress !== null) {
             $object->customerAddress = $this->customerAddress->toObject();
         }
-        if (!is_null($this->payPalTransactionId)) {
+        if ($this->payPalTransactionId !== null) {
             $object->payPalTransactionId = $this->payPalTransactionId;
         }
-        if (!is_null($this->protectionEligibility)) {
+        if ($this->protectionEligibility !== null) {
             $object->protectionEligibility = $this->protectionEligibility->toObject();
         }
-        if (!is_null($this->shippingAddress)) {
+        if ($this->shippingAddress !== null) {
             $object->shippingAddress = $this->shippingAddress->toObject();
         }
         return $object;
@@ -264,7 +265,8 @@ class PaymentProduct840SpecificOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentProduct840SpecificOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'billingAddress')) {

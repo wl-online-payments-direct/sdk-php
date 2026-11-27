@@ -13,27 +13,27 @@ class ShippingMethod extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $details = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $name = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $speed = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $type = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getDetails(): ?string
     {
         return $this->details;
@@ -41,7 +41,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setDetails(?string $value): void
     {
         $this->details = $value;
@@ -49,9 +49,9 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     * @return ShippingMethod
-    */
-    public function withDetails(?string $value): ShippingMethod
+     * @return $this
+     */
+    public function withDetails(?string $value): static
     {
         $this->details = $value;
         return $this;
@@ -59,7 +59,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -67,7 +67,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setName(?string $value): void
     {
         $this->name = $value;
@@ -75,9 +75,9 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     * @return ShippingMethod
-    */
-    public function withName(?string $value): ShippingMethod
+     * @return $this
+     */
+    public function withName(?string $value): static
     {
         $this->name = $value;
         return $this;
@@ -85,7 +85,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getSpeed(): ?int
     {
         return $this->speed;
@@ -93,7 +93,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setSpeed(?int $value): void
     {
         $this->speed = $value;
@@ -101,9 +101,9 @@ class ShippingMethod extends DataObject
 
     /**
      * @param int|null $value
-     * @return ShippingMethod
-    */
-    public function withSpeed(?int $value): ShippingMethod
+     * @return $this
+     */
+    public function withSpeed(?int $value): static
     {
         $this->speed = $value;
         return $this;
@@ -111,7 +111,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -119,7 +119,7 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setType(?string $value): void
     {
         $this->type = $value;
@@ -127,9 +127,9 @@ class ShippingMethod extends DataObject
 
     /**
      * @param string|null $value
-     * @return ShippingMethod
-    */
-    public function withType(?string $value): ShippingMethod
+     * @return $this
+     */
+    public function withType(?string $value): static
     {
         $this->type = $value;
         return $this;
@@ -138,19 +138,20 @@ class ShippingMethod extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->details)) {
+        if ($this->details !== null) {
             $object->details = $this->details;
         }
-        if (!is_null($this->name)) {
+        if ($this->name !== null) {
             $object->name = $this->name;
         }
-        if (!is_null($this->speed)) {
+        if ($this->speed !== null) {
             $object->speed = $this->speed;
         }
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $object->type = $this->type;
         }
         return $object;
@@ -162,7 +163,8 @@ class ShippingMethod extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): ShippingMethod
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'details')) {

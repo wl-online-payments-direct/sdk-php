@@ -13,17 +13,17 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 {
     /**
      * @var string|null
-    */
+     */
     public ?string $aliasLabel = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $blikCode = null;
 
     /**
      * @return string|null
-    */
+     */
     public function getAliasLabel(): ?string
     {
         return $this->aliasLabel;
@@ -31,7 +31,7 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setAliasLabel(?string $value): void
     {
         $this->aliasLabel = $value;
@@ -39,9 +39,9 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3204SpecificInput
-    */
-    public function withAliasLabel(?string $value): RedirectPaymentProduct3204SpecificInput
+     * @return $this
+     */
+    public function withAliasLabel(?string $value): static
     {
         $this->aliasLabel = $value;
         return $this;
@@ -49,7 +49,7 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getBlikCode(): ?string
     {
         return $this->blikCode;
@@ -57,7 +57,7 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setBlikCode(?string $value): void
     {
         $this->blikCode = $value;
@@ -65,9 +65,9 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RedirectPaymentProduct3204SpecificInput
-    */
-    public function withBlikCode(?string $value): RedirectPaymentProduct3204SpecificInput
+     * @return $this
+     */
+    public function withBlikCode(?string $value): static
     {
         $this->blikCode = $value;
         return $this;
@@ -76,13 +76,14 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->aliasLabel)) {
+        if ($this->aliasLabel !== null) {
             $object->aliasLabel = $this->aliasLabel;
         }
-        if (!is_null($this->blikCode)) {
+        if ($this->blikCode !== null) {
             $object->blikCode = $this->blikCode;
         }
         return $object;
@@ -94,7 +95,8 @@ class RedirectPaymentProduct3204SpecificInput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RedirectPaymentProduct3204SpecificInput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'aliasLabel')) {

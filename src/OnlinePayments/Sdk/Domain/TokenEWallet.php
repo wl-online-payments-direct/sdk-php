@@ -15,19 +15,19 @@ class TokenEWallet extends DataObject
      * @var string|null
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-    */
+     */
     public ?string $alias = null;
 
     /**
      * @var CustomerToken|null
-    */
+     */
     public ?CustomerToken $customer = null;
 
     /**
      * @return string|null
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-    */
+     */
     public function getAlias(): ?string
     {
         return $this->alias;
@@ -37,7 +37,7 @@ class TokenEWallet extends DataObject
      * @param string|null $value
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-    */
+     */
     public function setAlias(?string $value): void
     {
         $this->alias = $value;
@@ -45,11 +45,11 @@ class TokenEWallet extends DataObject
 
     /**
      * @param string|null $value
-     * @return TokenEWallet
+     * @return $this
      *
      * @deprecated This field is not used by any payment product An alias for the token. This can be used to visually represent the token.
-    */
-    public function withAlias(?string $value): TokenEWallet
+     */
+    public function withAlias(?string $value): static
     {
         $this->alias = $value;
         return $this;
@@ -57,7 +57,7 @@ class TokenEWallet extends DataObject
 
     /**
      * @return CustomerToken|null
-    */
+     */
     public function getCustomer(): ?CustomerToken
     {
         return $this->customer;
@@ -65,7 +65,7 @@ class TokenEWallet extends DataObject
 
     /**
      * @param CustomerToken|null $value
-    */
+     */
     public function setCustomer(?CustomerToken $value): void
     {
         $this->customer = $value;
@@ -73,9 +73,9 @@ class TokenEWallet extends DataObject
 
     /**
      * @param CustomerToken|null $value
-     * @return TokenEWallet
-    */
-    public function withCustomer(?CustomerToken $value): TokenEWallet
+     * @return $this
+     */
+    public function withCustomer(?CustomerToken $value): static
     {
         $this->customer = $value;
         return $this;
@@ -84,13 +84,14 @@ class TokenEWallet extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->alias)) {
+        if ($this->alias !== null) {
             $object->alias = $this->alias;
         }
-        if (!is_null($this->customer)) {
+        if ($this->customer !== null) {
             $object->customer = $this->customer->toObject();
         }
         return $object;
@@ -102,7 +103,8 @@ class TokenEWallet extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): TokenEWallet
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'alias')) {

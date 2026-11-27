@@ -14,84 +14,84 @@ class PaymentOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $acquiredAmount = null;
 
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-    */
+     */
     public ?int $amountPaid = null;
 
     /**
      * @var CardPaymentMethodSpecificOutput|null
-    */
+     */
     public ?CardPaymentMethodSpecificOutput $cardPaymentMethodSpecificOutput = null;
 
     /**
      * @var CustomerOutput|null
-    */
+     */
     public ?CustomerOutput $customer = null;
 
     /**
      * @var Discount|null
-    */
+     */
     public ?Discount $discount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantParameters = null;
 
     /**
      * @var MobilePaymentMethodSpecificOutput|null
-    */
+     */
     public ?MobilePaymentMethodSpecificOutput $mobilePaymentMethodSpecificOutput = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $paymentCreationDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentMethod = null;
 
     /**
      * @var RedirectPaymentMethodSpecificOutput|null
-    */
+     */
     public ?RedirectPaymentMethodSpecificOutput $redirectPaymentMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences|null
-    */
+     */
     public ?PaymentReferences $references = null;
 
     /**
      * @var SepaDirectDebitPaymentMethodSpecificOutput|null
-    */
+     */
     public ?SepaDirectDebitPaymentMethodSpecificOutput $sepaDirectDebitPaymentMethodSpecificOutput = null;
 
     /**
      * @var SurchargeSpecificOutput|null
-    */
+     */
     public ?SurchargeSpecificOutput $surchargeSpecificOutput = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAcquiredAmount(): ?AmountOfMoney
     {
         return $this->acquiredAmount;
@@ -99,7 +99,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAcquiredAmount(?AmountOfMoney $value): void
     {
         $this->acquiredAmount = $value;
@@ -107,9 +107,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentOutput
-    */
-    public function withAcquiredAmount(?AmountOfMoney $value): PaymentOutput
+     * @return $this
+     */
+    public function withAcquiredAmount(?AmountOfMoney $value): static
     {
         $this->acquiredAmount = $value;
         return $this;
@@ -117,7 +117,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -125,7 +125,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -133,9 +133,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentOutput
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): PaymentOutput
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -145,7 +145,7 @@ class PaymentOutput extends DataObject
      * @return int|null
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-    */
+     */
     public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
@@ -155,7 +155,7 @@ class PaymentOutput extends DataObject
      * @param int|null $value
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-    */
+     */
     public function setAmountPaid(?int $value): void
     {
         $this->amountPaid = $value;
@@ -163,11 +163,11 @@ class PaymentOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return PaymentOutput
+     * @return $this
      *
      * @deprecated Amount that has been paid. This is deprecated. Use acquiredAmount instead.
-    */
-    public function withAmountPaid(?int $value): PaymentOutput
+     */
+    public function withAmountPaid(?int $value): static
     {
         $this->amountPaid = $value;
         return $this;
@@ -175,7 +175,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return CardPaymentMethodSpecificOutput|null
-    */
+     */
     public function getCardPaymentMethodSpecificOutput(): ?CardPaymentMethodSpecificOutput
     {
         return $this->cardPaymentMethodSpecificOutput;
@@ -183,7 +183,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutput|null $value
-    */
+     */
     public function setCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): void
     {
         $this->cardPaymentMethodSpecificOutput = $value;
@@ -191,9 +191,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param CardPaymentMethodSpecificOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withCardPaymentMethodSpecificOutput(?CardPaymentMethodSpecificOutput $value): static
     {
         $this->cardPaymentMethodSpecificOutput = $value;
         return $this;
@@ -201,7 +201,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return CustomerOutput|null
-    */
+     */
     public function getCustomer(): ?CustomerOutput
     {
         return $this->customer;
@@ -209,7 +209,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param CustomerOutput|null $value
-    */
+     */
     public function setCustomer(?CustomerOutput $value): void
     {
         $this->customer = $value;
@@ -217,9 +217,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param CustomerOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withCustomer(?CustomerOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withCustomer(?CustomerOutput $value): static
     {
         $this->customer = $value;
         return $this;
@@ -227,7 +227,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return Discount|null
-    */
+     */
     public function getDiscount(): ?Discount
     {
         return $this->discount;
@@ -235,7 +235,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param Discount|null $value
-    */
+     */
     public function setDiscount(?Discount $value): void
     {
         $this->discount = $value;
@@ -243,9 +243,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param Discount|null $value
-     * @return PaymentOutput
-    */
-    public function withDiscount(?Discount $value): PaymentOutput
+     * @return $this
+     */
+    public function withDiscount(?Discount $value): static
     {
         $this->discount = $value;
         return $this;
@@ -253,7 +253,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
@@ -261,7 +261,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
@@ -269,9 +269,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentOutput
-    */
-    public function withMerchantParameters(?string $value): PaymentOutput
+     * @return $this
+     */
+    public function withMerchantParameters(?string $value): static
     {
         $this->merchantParameters = $value;
         return $this;
@@ -279,7 +279,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return MobilePaymentMethodSpecificOutput|null
-    */
+     */
     public function getMobilePaymentMethodSpecificOutput(): ?MobilePaymentMethodSpecificOutput
     {
         return $this->mobilePaymentMethodSpecificOutput;
@@ -287,7 +287,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param MobilePaymentMethodSpecificOutput|null $value
-    */
+     */
     public function setMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): void
     {
         $this->mobilePaymentMethodSpecificOutput = $value;
@@ -295,9 +295,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param MobilePaymentMethodSpecificOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withMobilePaymentMethodSpecificOutput(?MobilePaymentMethodSpecificOutput $value): static
     {
         $this->mobilePaymentMethodSpecificOutput = $value;
         return $this;
@@ -305,7 +305,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getPaymentCreationDate(): ?DateTime
     {
         return $this->paymentCreationDate;
@@ -313,7 +313,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setPaymentCreationDate(?DateTime $value): void
     {
         $this->paymentCreationDate = $value;
@@ -321,9 +321,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentOutput
-    */
-    public function withPaymentCreationDate(?DateTime $value): PaymentOutput
+     * @return $this
+     */
+    public function withPaymentCreationDate(?DateTime $value): static
     {
         $this->paymentCreationDate = $value;
         return $this;
@@ -331,7 +331,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -339,7 +339,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
@@ -347,9 +347,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentOutput
-    */
-    public function withPaymentMethod(?string $value): PaymentOutput
+     * @return $this
+     */
+    public function withPaymentMethod(?string $value): static
     {
         $this->paymentMethod = $value;
         return $this;
@@ -357,7 +357,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return RedirectPaymentMethodSpecificOutput|null
-    */
+     */
     public function getRedirectPaymentMethodSpecificOutput(): ?RedirectPaymentMethodSpecificOutput
     {
         return $this->redirectPaymentMethodSpecificOutput;
@@ -365,7 +365,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificOutput|null $value
-    */
+     */
     public function setRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): void
     {
         $this->redirectPaymentMethodSpecificOutput = $value;
@@ -373,9 +373,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param RedirectPaymentMethodSpecificOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withRedirectPaymentMethodSpecificOutput(?RedirectPaymentMethodSpecificOutput $value): static
     {
         $this->redirectPaymentMethodSpecificOutput = $value;
         return $this;
@@ -383,7 +383,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return PaymentReferences|null
-    */
+     */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -391,7 +391,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-    */
+     */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
@@ -399,9 +399,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     * @return PaymentOutput
-    */
-    public function withReferences(?PaymentReferences $value): PaymentOutput
+     * @return $this
+     */
+    public function withReferences(?PaymentReferences $value): static
     {
         $this->references = $value;
         return $this;
@@ -409,7 +409,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return SepaDirectDebitPaymentMethodSpecificOutput|null
-    */
+     */
     public function getSepaDirectDebitPaymentMethodSpecificOutput(): ?SepaDirectDebitPaymentMethodSpecificOutput
     {
         return $this->sepaDirectDebitPaymentMethodSpecificOutput;
@@ -417,7 +417,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificOutput|null $value
-    */
+     */
     public function setSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): void
     {
         $this->sepaDirectDebitPaymentMethodSpecificOutput = $value;
@@ -425,9 +425,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param SepaDirectDebitPaymentMethodSpecificOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withSepaDirectDebitPaymentMethodSpecificOutput(?SepaDirectDebitPaymentMethodSpecificOutput $value): static
     {
         $this->sepaDirectDebitPaymentMethodSpecificOutput = $value;
         return $this;
@@ -435,7 +435,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return SurchargeSpecificOutput|null
-    */
+     */
     public function getSurchargeSpecificOutput(): ?SurchargeSpecificOutput
     {
         return $this->surchargeSpecificOutput;
@@ -443,7 +443,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param SurchargeSpecificOutput|null $value
-    */
+     */
     public function setSurchargeSpecificOutput(?SurchargeSpecificOutput $value): void
     {
         $this->surchargeSpecificOutput = $value;
@@ -451,9 +451,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param SurchargeSpecificOutput|null $value
-     * @return PaymentOutput
-    */
-    public function withSurchargeSpecificOutput(?SurchargeSpecificOutput $value): PaymentOutput
+     * @return $this
+     */
+    public function withSurchargeSpecificOutput(?SurchargeSpecificOutput $value): static
     {
         $this->surchargeSpecificOutput = $value;
         return $this;
@@ -461,7 +461,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getTransactionDate(): ?DateTime
     {
         return $this->transactionDate;
@@ -469,7 +469,7 @@ class PaymentOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setTransactionDate(?DateTime $value): void
     {
         $this->transactionDate = $value;
@@ -477,9 +477,9 @@ class PaymentOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentOutput
-    */
-    public function withTransactionDate(?DateTime $value): PaymentOutput
+     * @return $this
+     */
+    public function withTransactionDate(?DateTime $value): static
     {
         $this->transactionDate = $value;
         return $this;
@@ -488,52 +488,53 @@ class PaymentOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->acquiredAmount)) {
+        if ($this->acquiredAmount !== null) {
             $object->acquiredAmount = $this->acquiredAmount->toObject();
         }
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->amountPaid)) {
+        if ($this->amountPaid !== null) {
             $object->amountPaid = $this->amountPaid;
         }
-        if (!is_null($this->cardPaymentMethodSpecificOutput)) {
+        if ($this->cardPaymentMethodSpecificOutput !== null) {
             $object->cardPaymentMethodSpecificOutput = $this->cardPaymentMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->customer)) {
+        if ($this->customer !== null) {
             $object->customer = $this->customer->toObject();
         }
-        if (!is_null($this->discount)) {
+        if ($this->discount !== null) {
             $object->discount = $this->discount->toObject();
         }
-        if (!is_null($this->merchantParameters)) {
+        if ($this->merchantParameters !== null) {
             $object->merchantParameters = $this->merchantParameters;
         }
-        if (!is_null($this->mobilePaymentMethodSpecificOutput)) {
+        if ($this->mobilePaymentMethodSpecificOutput !== null) {
             $object->mobilePaymentMethodSpecificOutput = $this->mobilePaymentMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->paymentCreationDate)) {
+        if ($this->paymentCreationDate !== null) {
             $object->paymentCreationDate = $this->paymentCreationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->paymentMethod)) {
+        if ($this->paymentMethod !== null) {
             $object->paymentMethod = $this->paymentMethod;
         }
-        if (!is_null($this->redirectPaymentMethodSpecificOutput)) {
+        if ($this->redirectPaymentMethodSpecificOutput !== null) {
             $object->redirectPaymentMethodSpecificOutput = $this->redirectPaymentMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->references)) {
+        if ($this->references !== null) {
             $object->references = $this->references->toObject();
         }
-        if (!is_null($this->sepaDirectDebitPaymentMethodSpecificOutput)) {
+        if ($this->sepaDirectDebitPaymentMethodSpecificOutput !== null) {
             $object->sepaDirectDebitPaymentMethodSpecificOutput = $this->sepaDirectDebitPaymentMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->surchargeSpecificOutput)) {
+        if ($this->surchargeSpecificOutput !== null) {
             $object->surchargeSpecificOutput = $this->surchargeSpecificOutput->toObject();
         }
-        if (!is_null($this->transactionDate)) {
+        if ($this->transactionDate !== null) {
             $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
@@ -545,7 +546,8 @@ class PaymentOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'acquiredAmount')) {

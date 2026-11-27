@@ -14,57 +14,57 @@ class PaymentLinkOverviewEntry extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amount = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $createdBy = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $creationDate = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $expirationDate = null;
 
     /**
      * @var bool|null
-    */
+     */
     public ?bool $isReusableLink = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantReference = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentLinkId = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $redirectionUrl = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $status = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmount(): ?AmountOfMoney
     {
         return $this->amount;
@@ -72,7 +72,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmount(?AmountOfMoney $value): void
     {
         $this->amount = $value;
@@ -80,9 +80,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withAmount(?AmountOfMoney $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withAmount(?AmountOfMoney $value): static
     {
         $this->amount = $value;
         return $this;
@@ -90,7 +90,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getCreatedBy(): ?string
     {
         return $this->createdBy;
@@ -98,7 +98,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setCreatedBy(?string $value): void
     {
         $this->createdBy = $value;
@@ -106,9 +106,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withCreatedBy(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withCreatedBy(?string $value): static
     {
         $this->createdBy = $value;
         return $this;
@@ -116,7 +116,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getCreationDate(): ?DateTime
     {
         return $this->creationDate;
@@ -124,7 +124,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setCreationDate(?DateTime $value): void
     {
         $this->creationDate = $value;
@@ -132,9 +132,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withCreationDate(?DateTime $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withCreationDate(?DateTime $value): static
     {
         $this->creationDate = $value;
         return $this;
@@ -142,7 +142,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getExpirationDate(): ?DateTime
     {
         return $this->expirationDate;
@@ -150,7 +150,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setExpirationDate(?DateTime $value): void
     {
         $this->expirationDate = $value;
@@ -158,9 +158,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withExpirationDate(?DateTime $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withExpirationDate(?DateTime $value): static
     {
         $this->expirationDate = $value;
         return $this;
@@ -168,7 +168,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return bool|null
-    */
+     */
     public function getIsReusableLink(): ?bool
     {
         return $this->isReusableLink;
@@ -176,7 +176,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param bool|null $value
-    */
+     */
     public function setIsReusableLink(?bool $value): void
     {
         $this->isReusableLink = $value;
@@ -184,9 +184,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param bool|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withIsReusableLink(?bool $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withIsReusableLink(?bool $value): static
     {
         $this->isReusableLink = $value;
         return $this;
@@ -194,7 +194,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantId(): ?string
     {
         return $this->merchantId;
@@ -202,7 +202,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantId(?string $value): void
     {
         $this->merchantId = $value;
@@ -210,9 +210,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withMerchantId(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withMerchantId(?string $value): static
     {
         $this->merchantId = $value;
         return $this;
@@ -220,7 +220,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantReference(): ?string
     {
         return $this->merchantReference;
@@ -228,7 +228,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantReference(?string $value): void
     {
         $this->merchantReference = $value;
@@ -236,9 +236,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withMerchantReference(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withMerchantReference(?string $value): static
     {
         $this->merchantReference = $value;
         return $this;
@@ -246,7 +246,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentLinkId(): ?string
     {
         return $this->paymentLinkId;
@@ -254,7 +254,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentLinkId(?string $value): void
     {
         $this->paymentLinkId = $value;
@@ -262,9 +262,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withPaymentLinkId(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withPaymentLinkId(?string $value): static
     {
         $this->paymentLinkId = $value;
         return $this;
@@ -272,7 +272,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getRedirectionUrl(): ?string
     {
         return $this->redirectionUrl;
@@ -280,7 +280,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setRedirectionUrl(?string $value): void
     {
         $this->redirectionUrl = $value;
@@ -288,9 +288,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withRedirectionUrl(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withRedirectionUrl(?string $value): static
     {
         $this->redirectionUrl = $value;
         return $this;
@@ -298,7 +298,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -306,7 +306,7 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setStatus(?string $value): void
     {
         $this->status = $value;
@@ -314,9 +314,9 @@ class PaymentLinkOverviewEntry extends DataObject
 
     /**
      * @param string|null $value
-     * @return PaymentLinkOverviewEntry
-    */
-    public function withStatus(?string $value): PaymentLinkOverviewEntry
+     * @return $this
+     */
+    public function withStatus(?string $value): static
     {
         $this->status = $value;
         return $this;
@@ -325,37 +325,38 @@ class PaymentLinkOverviewEntry extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amount)) {
+        if ($this->amount !== null) {
             $object->amount = $this->amount->toObject();
         }
-        if (!is_null($this->createdBy)) {
+        if ($this->createdBy !== null) {
             $object->createdBy = $this->createdBy;
         }
-        if (!is_null($this->creationDate)) {
+        if ($this->creationDate !== null) {
             $object->creationDate = $this->creationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->expirationDate)) {
+        if ($this->expirationDate !== null) {
             $object->expirationDate = $this->expirationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->isReusableLink)) {
+        if ($this->isReusableLink !== null) {
             $object->isReusableLink = $this->isReusableLink;
         }
-        if (!is_null($this->merchantId)) {
+        if ($this->merchantId !== null) {
             $object->merchantId = $this->merchantId;
         }
-        if (!is_null($this->merchantReference)) {
+        if ($this->merchantReference !== null) {
             $object->merchantReference = $this->merchantReference;
         }
-        if (!is_null($this->paymentLinkId)) {
+        if ($this->paymentLinkId !== null) {
             $object->paymentLinkId = $this->paymentLinkId;
         }
-        if (!is_null($this->redirectionUrl)) {
+        if ($this->redirectionUrl !== null) {
             $object->redirectionUrl = $this->redirectionUrl;
         }
-        if (!is_null($this->status)) {
+        if ($this->status !== null) {
             $object->status = $this->status;
         }
         return $object;
@@ -367,7 +368,8 @@ class PaymentLinkOverviewEntry extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): PaymentLinkOverviewEntry
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amount')) {

@@ -14,67 +14,67 @@ class RefundOutput extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @var int|null
-    */
+     */
     public ?int $amountPaid = null;
 
     /**
      * @var RefundCardMethodSpecificOutput|null
-    */
+     */
     public ?RefundCardMethodSpecificOutput $cardRefundMethodSpecificOutput = null;
 
     /**
      * @var RefundEWalletMethodSpecificOutput|null
-    */
+     */
     public ?RefundEWalletMethodSpecificOutput $eWalletRefundMethodSpecificOutput = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $merchantParameters = null;
 
     /**
      * @var RefundMobileMethodSpecificOutput|null
-    */
+     */
     public ?RefundMobileMethodSpecificOutput $mobileRefundMethodSpecificOutput = null;
 
     /**
      * @var OperationPaymentReferences|null
-    */
+     */
     public ?OperationPaymentReferences $operationReferences = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $paymentCreationDate = null;
 
     /**
      * @var string|null
-    */
+     */
     public ?string $paymentMethod = null;
 
     /**
      * @var RefundRedirectMethodSpecificOutput|null
-    */
+     */
     public ?RefundRedirectMethodSpecificOutput $redirectRefundMethodSpecificOutput = null;
 
     /**
      * @var PaymentReferences|null
-    */
+     */
     public ?PaymentReferences $references = null;
 
     /**
      * @var DateTime|null
-    */
+     */
     public ?DateTime $transactionDate = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -82,7 +82,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -90,9 +90,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return RefundOutput
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): RefundOutput
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -100,7 +100,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return int|null
-    */
+     */
     public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
@@ -108,7 +108,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param int|null $value
-    */
+     */
     public function setAmountPaid(?int $value): void
     {
         $this->amountPaid = $value;
@@ -116,9 +116,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param int|null $value
-     * @return RefundOutput
-    */
-    public function withAmountPaid(?int $value): RefundOutput
+     * @return $this
+     */
+    public function withAmountPaid(?int $value): static
     {
         $this->amountPaid = $value;
         return $this;
@@ -126,7 +126,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return RefundCardMethodSpecificOutput|null
-    */
+     */
     public function getCardRefundMethodSpecificOutput(): ?RefundCardMethodSpecificOutput
     {
         return $this->cardRefundMethodSpecificOutput;
@@ -134,7 +134,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundCardMethodSpecificOutput|null $value
-    */
+     */
     public function setCardRefundMethodSpecificOutput(?RefundCardMethodSpecificOutput $value): void
     {
         $this->cardRefundMethodSpecificOutput = $value;
@@ -142,9 +142,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundCardMethodSpecificOutput|null $value
-     * @return RefundOutput
-    */
-    public function withCardRefundMethodSpecificOutput(?RefundCardMethodSpecificOutput $value): RefundOutput
+     * @return $this
+     */
+    public function withCardRefundMethodSpecificOutput(?RefundCardMethodSpecificOutput $value): static
     {
         $this->cardRefundMethodSpecificOutput = $value;
         return $this;
@@ -152,7 +152,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return RefundEWalletMethodSpecificOutput|null
-    */
+     */
     public function getEWalletRefundMethodSpecificOutput(): ?RefundEWalletMethodSpecificOutput
     {
         return $this->eWalletRefundMethodSpecificOutput;
@@ -160,7 +160,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundEWalletMethodSpecificOutput|null $value
-    */
+     */
     public function setEWalletRefundMethodSpecificOutput(?RefundEWalletMethodSpecificOutput $value): void
     {
         $this->eWalletRefundMethodSpecificOutput = $value;
@@ -168,9 +168,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundEWalletMethodSpecificOutput|null $value
-     * @return RefundOutput
-    */
-    public function withEWalletRefundMethodSpecificOutput(?RefundEWalletMethodSpecificOutput $value): RefundOutput
+     * @return $this
+     */
+    public function withEWalletRefundMethodSpecificOutput(?RefundEWalletMethodSpecificOutput $value): static
     {
         $this->eWalletRefundMethodSpecificOutput = $value;
         return $this;
@@ -178,7 +178,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getMerchantParameters(): ?string
     {
         return $this->merchantParameters;
@@ -186,7 +186,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setMerchantParameters(?string $value): void
     {
         $this->merchantParameters = $value;
@@ -194,9 +194,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundOutput
-    */
-    public function withMerchantParameters(?string $value): RefundOutput
+     * @return $this
+     */
+    public function withMerchantParameters(?string $value): static
     {
         $this->merchantParameters = $value;
         return $this;
@@ -204,7 +204,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return RefundMobileMethodSpecificOutput|null
-    */
+     */
     public function getMobileRefundMethodSpecificOutput(): ?RefundMobileMethodSpecificOutput
     {
         return $this->mobileRefundMethodSpecificOutput;
@@ -212,7 +212,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundMobileMethodSpecificOutput|null $value
-    */
+     */
     public function setMobileRefundMethodSpecificOutput(?RefundMobileMethodSpecificOutput $value): void
     {
         $this->mobileRefundMethodSpecificOutput = $value;
@@ -220,9 +220,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundMobileMethodSpecificOutput|null $value
-     * @return RefundOutput
-    */
-    public function withMobileRefundMethodSpecificOutput(?RefundMobileMethodSpecificOutput $value): RefundOutput
+     * @return $this
+     */
+    public function withMobileRefundMethodSpecificOutput(?RefundMobileMethodSpecificOutput $value): static
     {
         $this->mobileRefundMethodSpecificOutput = $value;
         return $this;
@@ -230,7 +230,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return OperationPaymentReferences|null
-    */
+     */
     public function getOperationReferences(): ?OperationPaymentReferences
     {
         return $this->operationReferences;
@@ -238,7 +238,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-    */
+     */
     public function setOperationReferences(?OperationPaymentReferences $value): void
     {
         $this->operationReferences = $value;
@@ -246,9 +246,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param OperationPaymentReferences|null $value
-     * @return RefundOutput
-    */
-    public function withOperationReferences(?OperationPaymentReferences $value): RefundOutput
+     * @return $this
+     */
+    public function withOperationReferences(?OperationPaymentReferences $value): static
     {
         $this->operationReferences = $value;
         return $this;
@@ -256,7 +256,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getPaymentCreationDate(): ?DateTime
     {
         return $this->paymentCreationDate;
@@ -264,7 +264,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setPaymentCreationDate(?DateTime $value): void
     {
         $this->paymentCreationDate = $value;
@@ -272,9 +272,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return RefundOutput
-    */
-    public function withPaymentCreationDate(?DateTime $value): RefundOutput
+     * @return $this
+     */
+    public function withPaymentCreationDate(?DateTime $value): static
     {
         $this->paymentCreationDate = $value;
         return $this;
@@ -282,7 +282,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return string|null
-    */
+     */
     public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
@@ -290,7 +290,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-    */
+     */
     public function setPaymentMethod(?string $value): void
     {
         $this->paymentMethod = $value;
@@ -298,9 +298,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param string|null $value
-     * @return RefundOutput
-    */
-    public function withPaymentMethod(?string $value): RefundOutput
+     * @return $this
+     */
+    public function withPaymentMethod(?string $value): static
     {
         $this->paymentMethod = $value;
         return $this;
@@ -308,7 +308,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return RefundRedirectMethodSpecificOutput|null
-    */
+     */
     public function getRedirectRefundMethodSpecificOutput(): ?RefundRedirectMethodSpecificOutput
     {
         return $this->redirectRefundMethodSpecificOutput;
@@ -316,7 +316,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundRedirectMethodSpecificOutput|null $value
-    */
+     */
     public function setRedirectRefundMethodSpecificOutput(?RefundRedirectMethodSpecificOutput $value): void
     {
         $this->redirectRefundMethodSpecificOutput = $value;
@@ -324,9 +324,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param RefundRedirectMethodSpecificOutput|null $value
-     * @return RefundOutput
-    */
-    public function withRedirectRefundMethodSpecificOutput(?RefundRedirectMethodSpecificOutput $value): RefundOutput
+     * @return $this
+     */
+    public function withRedirectRefundMethodSpecificOutput(?RefundRedirectMethodSpecificOutput $value): static
     {
         $this->redirectRefundMethodSpecificOutput = $value;
         return $this;
@@ -334,7 +334,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return PaymentReferences|null
-    */
+     */
     public function getReferences(): ?PaymentReferences
     {
         return $this->references;
@@ -342,7 +342,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-    */
+     */
     public function setReferences(?PaymentReferences $value): void
     {
         $this->references = $value;
@@ -350,9 +350,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param PaymentReferences|null $value
-     * @return RefundOutput
-    */
-    public function withReferences(?PaymentReferences $value): RefundOutput
+     * @return $this
+     */
+    public function withReferences(?PaymentReferences $value): static
     {
         $this->references = $value;
         return $this;
@@ -360,7 +360,7 @@ class RefundOutput extends DataObject
 
     /**
      * @return DateTime|null
-    */
+     */
     public function getTransactionDate(): ?DateTime
     {
         return $this->transactionDate;
@@ -368,7 +368,7 @@ class RefundOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-    */
+     */
     public function setTransactionDate(?DateTime $value): void
     {
         $this->transactionDate = $value;
@@ -376,9 +376,9 @@ class RefundOutput extends DataObject
 
     /**
      * @param DateTime|null $value
-     * @return RefundOutput
-    */
-    public function withTransactionDate(?DateTime $value): RefundOutput
+     * @return $this
+     */
+    public function withTransactionDate(?DateTime $value): static
     {
         $this->transactionDate = $value;
         return $this;
@@ -387,43 +387,44 @@ class RefundOutput extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
-        if (!is_null($this->amountPaid)) {
+        if ($this->amountPaid !== null) {
             $object->amountPaid = $this->amountPaid;
         }
-        if (!is_null($this->cardRefundMethodSpecificOutput)) {
+        if ($this->cardRefundMethodSpecificOutput !== null) {
             $object->cardRefundMethodSpecificOutput = $this->cardRefundMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->eWalletRefundMethodSpecificOutput)) {
+        if ($this->eWalletRefundMethodSpecificOutput !== null) {
             $object->eWalletRefundMethodSpecificOutput = $this->eWalletRefundMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->merchantParameters)) {
+        if ($this->merchantParameters !== null) {
             $object->merchantParameters = $this->merchantParameters;
         }
-        if (!is_null($this->mobileRefundMethodSpecificOutput)) {
+        if ($this->mobileRefundMethodSpecificOutput !== null) {
             $object->mobileRefundMethodSpecificOutput = $this->mobileRefundMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->operationReferences)) {
+        if ($this->operationReferences !== null) {
             $object->operationReferences = $this->operationReferences->toObject();
         }
-        if (!is_null($this->paymentCreationDate)) {
+        if ($this->paymentCreationDate !== null) {
             $object->paymentCreationDate = $this->paymentCreationDate->format('Y-m-d\\TH:i:s.vP');
         }
-        if (!is_null($this->paymentMethod)) {
+        if ($this->paymentMethod !== null) {
             $object->paymentMethod = $this->paymentMethod;
         }
-        if (!is_null($this->redirectRefundMethodSpecificOutput)) {
+        if ($this->redirectRefundMethodSpecificOutput !== null) {
             $object->redirectRefundMethodSpecificOutput = $this->redirectRefundMethodSpecificOutput->toObject();
         }
-        if (!is_null($this->references)) {
+        if ($this->references !== null) {
             $object->references = $this->references->toObject();
         }
-        if (!is_null($this->transactionDate)) {
+        if ($this->transactionDate !== null) {
             $object->transactionDate = $this->transactionDate->format('Y-m-d\\TH:i:s.vP');
         }
         return $object;
@@ -435,7 +436,8 @@ class RefundOutput extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): RefundOutput
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {

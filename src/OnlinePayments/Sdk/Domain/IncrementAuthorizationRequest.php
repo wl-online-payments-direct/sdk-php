@@ -13,12 +13,12 @@ class IncrementAuthorizationRequest extends DataObject
 {
     /**
      * @var AmountOfMoney|null
-    */
+     */
     public ?AmountOfMoney $amountOfMoney = null;
 
     /**
      * @return AmountOfMoney|null
-    */
+     */
     public function getAmountOfMoney(): ?AmountOfMoney
     {
         return $this->amountOfMoney;
@@ -26,7 +26,7 @@ class IncrementAuthorizationRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-    */
+     */
     public function setAmountOfMoney(?AmountOfMoney $value): void
     {
         $this->amountOfMoney = $value;
@@ -34,9 +34,9 @@ class IncrementAuthorizationRequest extends DataObject
 
     /**
      * @param AmountOfMoney|null $value
-     * @return IncrementAuthorizationRequest
-    */
-    public function withAmountOfMoney(?AmountOfMoney $value): IncrementAuthorizationRequest
+     * @return $this
+     */
+    public function withAmountOfMoney(?AmountOfMoney $value): static
     {
         $this->amountOfMoney = $value;
         return $this;
@@ -45,10 +45,11 @@ class IncrementAuthorizationRequest extends DataObject
     /**
      * @return object
      */
+    #[\Override]
     public function toObject(): object
     {
         $object = parent::toObject();
-        if (!is_null($this->amountOfMoney)) {
+        if ($this->amountOfMoney !== null) {
             $object->amountOfMoney = $this->amountOfMoney->toObject();
         }
         return $object;
@@ -60,7 +61,8 @@ class IncrementAuthorizationRequest extends DataObject
      * @return $this
      * @throws UnexpectedValueException
      */
-    public function fromObject(object $object): IncrementAuthorizationRequest
+    #[\Override]
+    public function fromObject(object $object): static
     {
         parent::fromObject($object);
         if (property_exists($object, 'amountOfMoney')) {
